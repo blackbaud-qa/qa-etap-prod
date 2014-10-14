@@ -1,0 +1,6 @@
+Feature: eTap Login
+
+Scenario: Normal Login
+  Given I navigate to Fullhouse
+  When I login into eTap
+  Then I should logout of eTap
