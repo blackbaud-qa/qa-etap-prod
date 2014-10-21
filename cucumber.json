@@ -1,0 +1,82 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "eTap Login and Logout",
+    "line": 1,
+    "description": "",
+    "id": "etap-login-and-logout",
+    "uri": "features/login.feature",
+    "elements": [
+      {
+        "keyword": "Scenario",
+        "name": "Normal Login and Logout",
+        "line": 3,
+        "description": "",
+        "id": "etap-login-and-logout;normal-login-and-logout",
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I navigate to Fullhouse",
+            "line": 4,
+            "match": {
+              "location": "features/step_definitions/step_login.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2082426500
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "I login into eTap",
+            "line": 5,
+            "match": {
+              "location": "features/step_definitions/step_login.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5516880700
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I am logged into eTap",
+            "line": 6,
+            "match": {
+              "location": "features/step_definitions/step_login.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 48034200
+            }
+          },
+          {
+            "keyword": "And ",
+            "name": "I log out of eTap",
+            "line": 7,
+            "match": {
+              "location": "features/step_definitions/step_login.rb:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 235033000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I should be logged out of eTap",
+            "line": 8,
+            "match": {
+              "location": "features/step_definitions/step_login.rb:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1741110100
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
