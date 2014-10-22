@@ -1,5 +1,5 @@
 Before do
-  @b = Watir::Browser.new :ff
+  @b = Watir::Browser.new
 end
 
 After do
