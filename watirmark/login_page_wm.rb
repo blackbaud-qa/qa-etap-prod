@@ -6,9 +6,7 @@ class LoginPage
     keyword(:submit) {browser.button(:id => 'loginSubmit')}
     keyword(:logout_frame) {browser.iframe(:name, "content")}
 
-    def navigate
-      browser.goto "https://etap-cdev-fh.blackbaudhosting.com/prod/"
-    end
+
 
   end
 
@@ -46,6 +44,10 @@ class LoginPage
       end
       end
 
+    end
+
+    def login_nav
+      browser.goto "https://etap-cdev-fh.blackbaudhosting.com/prod/"
     end
 
   end
