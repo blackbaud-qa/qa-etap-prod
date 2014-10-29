@@ -1,7 +1,7 @@
 Before do
-  @b = Watir::Browser.new
+ # @b = Watir::Browser.new
 end
 
 After do
-  @b.close
+ # @b.close
 end
