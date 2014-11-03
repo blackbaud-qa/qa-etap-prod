@@ -1,3 +1,2 @@
 hostname:                www.cukesetaptesting.com
 webdriver:               firefox
-default_firefox_profile: default
