@@ -21,5 +21,5 @@ end
 
 Then(/^I should be logged out of eTap$/) do
   page = Admin::Login.new
-  page.logged_out?.should == true
+  expect(page.logged_out?).to eq(true)
 end
