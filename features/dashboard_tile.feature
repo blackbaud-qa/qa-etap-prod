@@ -6,5 +6,5 @@ Feature: Removing Dashboard Tile
   Scenario: Should be able to remove dashboard tile
     Given the Campaign Performance tile exists on my Dashboard
     When I click the x in the tile
-    And click OK
+    And click Ok
     Then the tile is removed
