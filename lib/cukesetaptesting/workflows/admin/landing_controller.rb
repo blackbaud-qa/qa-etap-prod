@@ -15,6 +15,10 @@ module Cukesetaptesting
       #  end
 
       end
+
+      def accounts
+        @view.accounts.click
+      end
     end
   end
 end

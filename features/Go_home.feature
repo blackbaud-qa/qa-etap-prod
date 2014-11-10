@@ -2,6 +2,7 @@ Feature: go to home from the accounts tab
 
   Scenario: go to home from the home tab
     Given I logged into etapestry
+    When I am on the landing page
     And I am on accounts
     And I click on the drop down arrow next to home
     When  I click on go to home
