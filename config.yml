@@ -1,9 +1,9 @@
 # rename this file to config.txt and
 # update the entries accordingly
 
-hostname:    localhost:8443
+hostname:    etap-cdev-fh.blackbaudhosting.com
 site:        prod
-username:    dev
-password:    wordpass
+username:    AutomationBot.US
+password:    spicypancakes1
 webdriver:   firefox
 force_login: true
