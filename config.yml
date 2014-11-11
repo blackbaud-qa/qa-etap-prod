@@ -1,2 +1,9 @@
-hostname:                www.cukesetaptesting.com
-webdriver:               firefox
+# rename this file to config.txt and
+# update the entries accordingly
+
+hostname:    localhost:8443
+site:        prod
+username:    dev
+password:    wordpass
+webdriver:   firefox
+force_login: true
