@@ -1,0 +1,1 @@
+Cukesetaptesting::Loader.load_product 'login'
