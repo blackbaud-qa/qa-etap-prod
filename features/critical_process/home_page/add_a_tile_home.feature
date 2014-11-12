@@ -1,6 +1,6 @@
-Feature: select a layout and a tile
+Feature: Select a layout and a tile
 
-  Scenario: selecting the 3 column layout
+  Scenario: Selecting the 3 column layout
     Given I logged into etapestry
     And I am on an account
     And I am on the home page
@@ -9,7 +9,7 @@ Feature: select a layout and a tile
     When i click save
     Then I should see the homepage in 3 columns
 
-  Scenario: selecting a report tile
+  Scenario: Selecting a report tile
     Given I logged into etapestry
     And I am on an account
     And I am on the home page

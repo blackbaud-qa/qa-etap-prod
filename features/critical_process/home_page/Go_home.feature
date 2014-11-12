@@ -1,6 +1,6 @@
-Feature: go to home from the accounts tab
+Feature: Go to home from the accounts tab
 
-  Scenario: go to home from the home tab
+  Scenario: Go to home from the home tab
     Given I logged into etapestry
     When I am on the landing page
     And I am on accounts

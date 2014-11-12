@@ -1,6 +1,6 @@
 Feature: Create, Edit, Save and Run
 
-Scenario:Preview Query
+Scenario:Create Query
   Given I am logged into eTap
   When I click on the Base Category
   And I click on new query
