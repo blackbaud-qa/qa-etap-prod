@@ -1,8 +1,10 @@
 Feature: Searching from quick find
 
+  Background:
+    Given my Default Search Type user preference is set to Quick Find
+
   Scenario: Searching for an account, pressing Enter
     Given I am logged into eTap
-    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I type Jose into the search field
     And I press Enter on the keyboard
@@ -10,7 +12,6 @@ Feature: Searching from quick find
 
   Scenario: Searching for an account that is not in the database, pressing Enter
     Given I am logged into eTap
-    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I type alm into the search field
     And I press Enter on the keyboard
@@ -18,7 +19,6 @@ Feature: Searching from quick find
 
   Scenario: Searching by account number with one slash, pressing Enter
     Given I am logged into eTap
-    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I type /27 into the search field
     And I press Enter on the keyboard
@@ -26,7 +26,6 @@ Feature: Searching from quick find
 
   Scenario: Searching by account number with two slashes, pressing Enter
     Given I am logged into eTap
-    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I type //27 into the search field
     And I press Enter on the keyboard
@@ -34,7 +33,6 @@ Feature: Searching from quick find
 
   Scenario: Searching with asterisk, pressing Enter
     Given I am logged into eTap
-    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I alm* into the search field
     And I press Enter on the keyboard
@@ -42,7 +40,6 @@ Feature: Searching from quick find
 
   Scenario: Searching with quotations, pressing Enter
     Given I am logged into eTap
-    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I type "bob barker" into the search field
     And I press Enter on the keyboard
@@ -50,7 +47,6 @@ Feature: Searching from quick find
 
   Scenario: Searching for an account, clicking Find
     Given I am logged into eTap
-    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I type Jose into the search field
     And I click Find
@@ -58,7 +54,6 @@ Feature: Searching from quick find
 
   Scenario: Searching for an account that is not in the database, clicking Find
     Given I am logged into eTap
-    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I type alm into the search field
     And I click Find
@@ -66,7 +61,6 @@ Feature: Searching from quick find
 
   Scenario: Searching by account number with one slash, clicking Find
     Given I am logged into eTap
-    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I type /27 into the search field
     And I click Find
@@ -74,7 +68,6 @@ Feature: Searching from quick find
 
   Scenario: Searching with asterisk, clicking Find
     Given I am logged into eTap
-    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I alm* into the search field
     And I click Find
@@ -82,7 +75,6 @@ Feature: Searching from quick find
 
   Scenario: Searching by account number with two slashes, clicking Find
     Given I am logged into eTap
-    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I type //27 into the search field
     And I click Find
@@ -90,7 +82,6 @@ Feature: Searching from quick find
 
   Scenario: Searching with quotations, clicking Find
     Given I am logged into eTap
-    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I type "bob barker" into the search field
     And I click Find
@@ -98,7 +89,6 @@ Feature: Searching from quick find
 
   Scenario: Searching with Exact Match
     Given I am logged into eTap
-    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I type bob barker into the search field
     And I click Exact Match
