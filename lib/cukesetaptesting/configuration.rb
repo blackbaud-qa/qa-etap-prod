@@ -1,14 +1,6 @@
 require 'watirmark/configuration'
-config_path = File.dirname(__FILE__) + '/../..'
-
-if File.exists?("#{config_path}/config.txt")
-  configuration_file = "#{config_path}/config.txt"
-else
-  configuration_file = "#{config_path}/config.yml"
-end
 
 Watirmark::Configuration.instance.defaults = {
-  :site => "prod",
-  :configfile => configuration_file,
+  :configfile => "#{File.dirname(__FILE__) + '/../..'}/config.yml",
 }
 Watirmark::Configuration.instance.reload

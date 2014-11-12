@@ -14,11 +14,8 @@ require 'cucumber/rake/task'
 module RakeHelper
   def self.cucumber_task(task_name, files=nil)
     Cucumber::Rake::Task.new(task_name) do |t|
-      t.cucumber_opts = "-r features #{FileList[files]} -b --format html -o reports/report.html --format pretty"
+      t.cucumber_opts = "-r features #{FileList[files]} -b --format html -o cucumber_#{task_name}.html --format pretty"
     end
   end
 end
 
-RakeHelper.cucumber_task(:account, "features/account/add_account.feature")
-RakeHelper.cucumber_task(:approach, "features/account/approach.feature")
-RakeHelper.cucumber_task(:login, "features/login/**/*.feature")

@@ -1,9 +1,2 @@
-# rename this file to config.txt and
-# update the entries accordingly
-
-hostname:    etap-cdev-fh.blackbaudhosting.com
-site:        prod
-username:    AutomationBot.US
-password:    spicypancakes1
-webdriver:   firefox
-force_login: true
+hostname:                www.cukesetaptesting.com
+webdriver:               firefox
