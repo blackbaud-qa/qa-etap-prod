@@ -1,3 +1,6 @@
 *.git
 *.idea
 *.lock
+reports/report.html
+.project
+reports/*
