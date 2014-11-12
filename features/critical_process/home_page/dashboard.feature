@@ -1,4 +1,4 @@
-Feature:dashboard
+Feature:Dashboard
 
   Scenario: load tiles
     Given I am logged into eTap
