@@ -1,4 +1,4 @@
-Feature: Edit, Save and Run
+Feature: Create, Edit, Save and Run
 
 Scenario:Preview Query
   Given I am logged into eTap
