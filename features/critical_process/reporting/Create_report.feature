@@ -1,6 +1,6 @@
-Feature:create a new report
+Feature:Create a new report
 
-  Scenario: create a new report
+  Scenario: Create a new report
     Given I am logged into eTap
     And I click on reports
     And I click on the system category
