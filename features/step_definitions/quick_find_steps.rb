@@ -13,9 +13,9 @@ When(/^I press Enter on the keyboard$/) do
   search.press_enter
 end
 
-When(/^I click the Find button$/) do
+When(/^I click Find$/) do
   search = Account::Search.new
-  serach.find_click
+  search.find_click
 end
 
 Then(/^'([^']*)' should show in the results$/) do |name|
