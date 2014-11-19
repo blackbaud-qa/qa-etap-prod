@@ -21,6 +21,18 @@ module Cukesetaptesting
       def search_field_contains?(text)
         return @view.search_field.when_present.value.include? text
       end
+#Role memebers-  may be able to move to a new class, but likely unnecessary
+      def role_icon_click
+        @view.role_icon.click
+      end
+
+      def role_menu_home_click
+        @view.role_menu_home.click
+      end
+
+      def role_menu_personas_click
+        @view.role_menu_personas.click
+      end
 
       def press_enter
         @view.browser.send_keys :enter

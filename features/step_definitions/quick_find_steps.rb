@@ -38,7 +38,11 @@ end
 Then (/^I should be taken to '([^']*)' Home page$/) do |name|
   account = Account::Profile.new
   expect(account.constit_name_exists? name).to eq(true)
+  expect(account.on_home_page?).to eq(true)
+
 end
+
+
 
 Then (/^the text in the search field should update to '([^']*)'$/) do |text|
   search = Account::Search.new
