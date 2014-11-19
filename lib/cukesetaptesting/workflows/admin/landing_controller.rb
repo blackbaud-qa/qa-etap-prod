@@ -10,14 +10,15 @@ module Cukesetaptesting
 
       def log_out
         #if @view.logout_frame.exists? do
-          @view.logout_frame.link(:text, 'Logout').click
+          #@view.logout_frame.link(:text, 'Logout').when_present.click
+        @view.logout_link.when_present.click
        # end
       #  end
 
       end
 
-      def accounts
-        @view.accounts.click
+      def accounts_click
+        @view.accounts_tab.when_present.click
       end
     end
   end

@@ -5,7 +5,7 @@ module Cukesetaptesting
       @view = LoginView
 
       def log_in
-        @view.submit.click
+        @view.submit.when_present.click
       end
 
       def logged_out?

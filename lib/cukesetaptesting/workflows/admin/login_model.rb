@@ -4,7 +4,7 @@ module Cukesetaptesting
       keywords LoginView.keywords
 
       defaults do
-        username {"AutomationBot"}
+        username {"AutomationBot.us"}
         password {"spicypancakes1"}
       end
     end
