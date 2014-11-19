@@ -14,6 +14,10 @@ module Cukesetaptesting
 
       end
 
+      def press_enter
+        @view.browser.send_keys :enter
+      end
+
     end
 
   end
