@@ -6,6 +6,12 @@ module Cukesetaptesting
 
       def log_in
         @view.submit.when_present.click
+
+        if ForceView.new.lightbox.present?
+         force = Admin::Force.new(@model)
+         force.create
+         force.log_in
+        end
       end
 
       def logged_out?
