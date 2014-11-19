@@ -3,6 +3,7 @@ module Cukesetaptesting
     class SearchView < BaseView
       keyword(:search_field)  { content.text_field(:name => 'searchString') }
       keyword(:find_button) { content.button(:value => 'Find') }
+      keyword(:exact_button) { content.button(:value => 'Exact Match') }
       keyword(:table_content) { content.table(:id => 'etapreporttag1')}
 
 
