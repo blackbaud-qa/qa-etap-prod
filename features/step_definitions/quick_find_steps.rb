@@ -22,3 +22,10 @@ Then(/^'([^']*)' should show in the results$/) do |name|
   search = Account::Search.new
   expect(search.account_name_exists? name).to eq(true)
 end
+
+Then(/^I should see the message: '([^']*)'$/) do |message|
+  # pending # express the regexp above with the code you wish you had
+  search = Account::Search.new
+  expect(search.account_name_exists? message).to eq(true)
+
+end

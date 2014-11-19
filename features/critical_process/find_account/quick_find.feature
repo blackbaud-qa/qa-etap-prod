@@ -13,12 +13,11 @@ Feature: Searching from quick find
     And I press Enter on the keyboard
     Then 'Jose Berrios' should show in the results
 
-#  Scenario: Searching for an account that is not in the database, pressing Enter
-#    Given I am logged into eTap
-#    When I click Accounts
-#    And I type alm into the search field
-#    And I press Enter on the keyboard
-#    Then I should see the message: No Results Found
+  Scenario: Searching for an account that is not in the database, pressing Enter
+    When I click Accounts
+    And I type 'alm' into the search field
+    And I press Enter on the keyboard
+    Then I should see the message: 'No Results Found'
 #
 #  Scenario: Searching by account number with one slash, pressing Enter
 #    Given I am logged into eTap
