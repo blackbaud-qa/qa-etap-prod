@@ -19,7 +19,7 @@ module Cukesetaptesting
       end
 
       def login_nav
-        @view.browser.goto "https://etap-cdev-fh.blackbaudhosting.com/prod/"
+        @view.browser.goto Watirmark::Configuration.instance.site_url
       end
     end
   end

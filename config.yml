@@ -1,2 +1,3 @@
-hostname:                www.cukesetaptesting.com
-webdriver:               firefox
+username:   Automationbot.us
+password:   spicypancakes1
+site_url:   https://etap-cdev-fh.blackbaudhosting.com/prod/
