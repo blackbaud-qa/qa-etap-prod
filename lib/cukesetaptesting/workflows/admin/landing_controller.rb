@@ -45,6 +45,34 @@ module Cukesetaptesting
         @view.management_tab.when_present.click
       end
 
+      def on_home_page?
+        @view.home_page.present?
+      end
+
+      def on_accounts_page?
+        @view.accounts_page.present?
+      end
+
+      def on_giving_page?
+        @view.giving_page.present?
+      end
+
+      def on_communications_page?
+        @view.communications_page.present?
+      end
+
+      def on_queries_page?
+        @view.queries_page.present?
+      end
+
+      def on_reports_page?
+        @view.reports_page_title.when_present.text.include? "Report Categories"
+      end
+
+      def on_management_page?
+        @view.management_page.present?
+      end
+
       def close_browser
         @view.browser.close
       end

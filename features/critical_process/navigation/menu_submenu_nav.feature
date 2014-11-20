@@ -3,13 +3,10 @@ Feature: Critical Process - General Navigation
   I want to run through general navigation during critical process testing
   In order to ensure users can access all areas of eTapestry
 
-  Background:
-    Given I navigate to Fullhouse
-    And I login into eTap
-    And I click Accounts on the main menu
 
   Scenario Outline: Role Icon Navigation
     #Given I see a list of constituents accounts on the find account screen
+    Given I click Accounts on the main menu
     When I type 'Jose' into the search field
     And I press Enter on the keyboard
     And I click on <page option> from the Role Icon drop down
