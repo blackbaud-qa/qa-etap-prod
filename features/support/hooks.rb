@@ -1,7 +1,12 @@
 Before do
- # @b = Watir::Browser.new
+  $loggedin ||= false
+  if !$loggedin
+    step "I navigate to Fullhouse"
+    step "I login into eTap"
+    $loggedin = true
+  end
 end
 
 After do
- # @b.close
+  #step "I close the browser"
 end

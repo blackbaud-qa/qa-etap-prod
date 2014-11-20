@@ -6,7 +6,7 @@ Feature: Critical Process - General Navigation
   Background:
     Given I navigate to Fullhouse
     And I login into eTap
-    And I click Accounts
+    And I click Accounts on the main menu
 
   Scenario Outline: Role Icon Navigation
     #Given I see a list of constituents accounts on the find account screen
@@ -24,19 +24,19 @@ Feature: Critical Process - General Navigation
     | Other          | Other           |
     | Defined Fields | Defined Fields  |
 
-#  Scenario Outline:  Menu Navigation
-#    When I click on <menu option>
-#    Then I should be taken to <expected result>
-#
-#  Examples:
-#    | menu option    | expected result          |
-#    | Home           | Home                     |
-#    | Accounts       | Find Account             |
-#    | Giving         | Quick Gift Entry         |
-#    | Communications | Communication Categories |
-#    | Queries        | Query Categories         |
-#    | Reports        | Report Categories        |
-#    | Management     | Management               |
+  Scenario Outline:  Menu Navigation
+    When I click <menu option> on the main menu
+    Then I should be taken to <expected result>
+
+  Examples:
+    | menu option    | expected result          |
+    | Home           | Home                     |
+    | Accounts       | Find Account             |
+    | Giving         | Quick Gift Entry         |
+    | Communications | Communication Categories |
+    | Queries        | Query Categories         |
+    | Reports        | Report Categories        |
+    | Management     | Management               |
 #
 #  Scenario Outline:  Home SubMenu Navigation
 #    Given I click on the Home drop down

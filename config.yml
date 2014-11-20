@@ -1,3 +1,4 @@
 username:   Automationbot.us
 password:   spicypancakes1
 site_url:   https://etap-cdev-fh.blackbaudhosting.com/prod/
+headless_enabled: false

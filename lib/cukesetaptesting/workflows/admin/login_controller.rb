@@ -21,6 +21,8 @@ module Cukesetaptesting
       def login_nav
         @view.browser.goto Watirmark::Configuration.instance.site_url
       end
+
+
     end
   end
 end

@@ -1,17 +1,9 @@
-When(/^I click Accounts$/) do
-  landing = Admin::Landing.new
-  landing.accounts_click
-end
-
 When(/^I type '([^']*)' into the search field$/) do |name|
   search = Account::Search.new(:search_field=>name)
   search.create
 end
 
-When(/^I press Enter on the keyboard$/) do
-  search = Account::Search.new
-  search.press_enter
-end
+
 
 When(/^I click Find$/) do
   search = Account::Search.new
@@ -41,7 +33,6 @@ Then (/^I should be taken to '([^']*)' Home page$/) do |name|
   expect(account.on_home_page?).to eq(true)
 
 end
-
 
 
 Then (/^the text in the search field should update to '([^']*)'$/) do |text|
