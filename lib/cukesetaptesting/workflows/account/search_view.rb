@@ -11,7 +11,10 @@ module Cukesetaptesting
       keyword(:role_menu) { content.div(:class, "contextMenu") }
       keyword(:role_menu_home) {role_menu.li(:class, "home") }
       keyword(:role_menu_personas) {role_menu.li(:class, "personas") }
-
+      keyword(:role_menu_relationships) {role_menu.li(:class, "relationships")}
+      keyword(:role_menu_journal) {role_menu.li(:class, "journal")}
+      keyword(:role_menu_other) {role_menu.li(:class, "other")}
+      keyword(:role_menu_defined_fields) {role_menu.li(:class, "definedFields")}
 
 
 

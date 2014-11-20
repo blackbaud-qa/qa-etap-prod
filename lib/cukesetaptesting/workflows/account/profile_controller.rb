@@ -16,6 +16,22 @@ module Cukesetaptesting
       return @view.persona_page.present?
     end
 
+      def on_relationships_page?
+        return @view.relationships_page.present?
+      end
+
+      def on_journal_page?
+        return @view.journal_page.present?
+      end
+
+      def on_other_page?
+        return @view.other_page.present?
+      end
+
+      def on_defined_fields_page?
+        return @view.defined_fields_page.present?
+      end
+
 
     end
   end

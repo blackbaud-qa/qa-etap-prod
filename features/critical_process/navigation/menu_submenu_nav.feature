@@ -19,10 +19,10 @@ Feature: Critical Process - General Navigation
     | page option    | expected result |
     | Home           | Home            |
     | Personas       | Personas        |
-#    | Relationships  | Relationships   |
-#    | Journal        | Journal         |
-#    | Other          | Other           |
-#    | Defined Fields | Defined Fields  |
+    | Relationships  | Relationships   |
+    | Journal        | Journal         |
+    | Other          | Other           |
+    | Defined Fields | Defined Fields  |
 
 #  Scenario Outline:  Menu Navigation
 #    When I click on <menu option>
