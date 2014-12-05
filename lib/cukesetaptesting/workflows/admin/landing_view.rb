@@ -31,6 +31,19 @@ module Cukesetaptesting
       keyword(:logout_frame) {browser.iframe(:name, "content")}
       keyword(:accounts) {logout_frame.element(:css=> '#accountTab a')}
 
+      #nav bar dropdowns
+      keyword(:home_dd_go_home) {home_div.li(:id, "dashboardButton")}
+      keyword(:home_dd_manage_preferences) {home_div.li(:id, "preferencesButton")}
+      keyword(:home_dd_find_account) {home_quick_links.a(:href, "/prod/entitySearch.do")}
+      keyword(:home_dd_add_gift) {home_quick_links.a(:href,"/prod/addJournalTransaction.do?addingByAccountNumberStatus=new&type=Gift")}
+      keyword(:home_dd_manage_comms) {home_quick_links.a(:href,"/prod/displayCategories.do?categoryManagerId=Correspondence")}
+      keyword(:home_dd_best_practices) {}
+      keyword(:home_dd_give_feedback) {home_quick_links.a(:href,"https://etapestry.uservoice.com/forums/17015-etapestry-idea-bank")}
+      keyword(:home_dd_help) {home_quick_links.a(:href,"javascript:top.openHelp();")}
+      keyword(:home_dd_scheduled_items) {home_div.a(:href,"/prod/scheduledItemsManageNew.do")}
+      keyword(:home_dd_dropbox) {home_div.a(:href,"/prod/viewUserDropBox.do")}
+      keyword(:home_dd_wizard) {home_div.a(:href,"/prod/gettingStartedWizard.do")}
+
       #page checking
       keyword(:home_page) {content.div(:id, "mainContent")}
       keyword(:accounts_page) {content.div(:id,"searchPage")}
@@ -49,6 +62,16 @@ module Cukesetaptesting
 
       def edit(model)
       end
+
+      def home_div
+        content.div(:id, "homeTabDropdown")
+      end
+
+      def home_quick_links
+        home_div.ul(:id, "homeQuickLinks")
+      end
+
+
     end
   end
 end

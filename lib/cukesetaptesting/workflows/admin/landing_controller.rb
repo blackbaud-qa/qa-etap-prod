@@ -21,6 +21,55 @@ module Cukesetaptesting
         @view.home_tab.when_present.click
       end
 
+      def home_dropdown_click
+        @view.home_dd.when_present.click
+      end
+
+      def home_dd_go_home_click
+        @view.home_dd_go_home.when_present.click
+      end
+
+      def home_dd_manage_preferences_click
+        @view.home_dd_manage_preferences.when_present.click
+      end
+
+      def home_dd_find_account_click
+        @view.home_dd_find_account.when_present.click
+      end
+
+      def home_dd_add_gift_click
+        @view.home_dd_add_gift.when_present.click
+      end
+
+      def home_dd_manage_comms_click
+        @view.home_dd_manage_comms.when_present.click
+      end
+
+      def home_dd_best_practices_click
+        @view.home_dd_best_practices.when_present.click
+      end
+
+      def home_dd_give_feedback_click
+        @view.home_dd_give_feedback.when_present.click
+      end
+
+      def home_dd_help_click
+        @view.home_dd_help.when_present.click
+      end
+
+      def home_dd_scheduled_items_click
+        @view.home_dd_scheduled_items.when_present.click
+      end
+
+      def home_dd_dropbox_click
+        @view.home_dd_dropbox.when_present.click
+      end
+
+      def home_dd_wizard_click
+        @view.home_dd_wizard.when_present.click
+      end
+
+
       def accounts_click
         @view.accounts_tab.when_present.click
       end

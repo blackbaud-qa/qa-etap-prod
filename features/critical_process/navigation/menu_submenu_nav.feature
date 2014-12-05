@@ -34,25 +34,35 @@ Feature: Critical Process - General Navigation
     | Queries        | Query Categories         |
     | Reports        | Report Categories        |
     | Management     | Management               |
-#
-#  Scenario Outline:  Home SubMenu Navigation
+
+  Scenario Outline:  Home SubMenu Navigation
+    Given I click on the Home drop down
+    When I click on <submenu option> on the home menu
+    Then I should be taken to <expected result>
+
+  Examples:
+    | submenu option              | expected result              |
+    | Go to Home                  | Home                         |
+    | Manage User Preferences     | User Preferences             |
+    | Find an Account             | Find Account                 |
+    | Add a Gift or Pledge        | Quick Gift Entry             |
+    | Manage Communications       | Communication Categories     |
+    | Open My Scheduled Items     | My Scheduled Items           |
+    | Open My Drop Box            | Drop Box                     |
+    | Getting Started Wizard      | Getting Started Wizard       |
+
+
+
+#  Scenario Outline:  Home SubMenu Navigation for URLs
 #    Given I click on the Home drop down
-#    When I click on <submenu option>
-#    Then I should be taken to <expected result>
+#    When I click on <submenu option> on the home menu
+#    Then I should be taken to the URL <expected result>
 #
 #  Examples:
-#    | submenu option              | expected result                                                                                           |
-#    | View My Dashboard           | Dashboard page                                                                                            |
-#    | Manage User Preferences     | User Preference page                                                                                      |
-#    | Find an Account             | Quick Find page                                                                                           |
-#    | Add a Gift or Pledge        | Quick Gift Entry page                                                                                     |
-#    | Manage Communications       | Communications category page                                                                              |
-#    | Learn Best Practices        | https://www.blackbaud.com/files/support/helpfiles/etapestry/etapestry/Content/ETAPBestPracticesIntro.html |
+##    | Learn Best Practices        | https://www.blackbaud.com/files/support/helpfiles/etapestry/etapestry/Content/ETAPBestPracticesIntro.html |
 #    | Give Feedback on Idea Bank  | https://etapestry.uservoice.com/forums/17015-etapestry-idea-bank                                          |
 #    | Help                        | https://www.blackbaud.com/files/support/helpfiles/etapestry/etapestry/default.html                        |
-#    | Open My Scheduled Items     | My Scheduled Items page                                                                                   |
-#    | Open My Drop Box            | Drop Box                                                                                                  |
-#    | Getting Started Wizard      | Getting Started Wizard                                                                                    |
+
 #
 #  Scenario Outline:  Accounts SubMenu Navigation
 #    Given I click on the Accounts drop down
