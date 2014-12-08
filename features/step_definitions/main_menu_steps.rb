@@ -71,6 +71,21 @@ When(/^I click Accounts on the main menu$/) do
   landing.accounts_click
 end
 
+When(/^I click on the Accounts drop down$/) do
+  landing = Admin::Landing.new
+  landing.accounts_dropdown_click
+end
+
+When(/^I click on Find an Account on the accounts menu$/) do
+  landing = Admin::Landing.new
+  landing.accounts_dd_find_account_click
+end
+
+When(/^I click on Add an Account on the accounts menu$/) do
+  landing = Admin::Landing.new
+  landing.accounts_dd_add_account_click
+end
+
 When(/^I click Giving on the main menu$/) do
   landing = Admin::Landing.new
   landing.giving_click
@@ -150,4 +165,10 @@ end
 Then(/^I should be taken to Getting Started Wizard$/) do
   wizard = Admin::Getstartedwizard.new
   expect(wizard.on_wizard_page?).to eq(true)
+end
+
+#Account DropDown options
+Then(/^I should be taken to New Account Page$/) do
+  addaccount = Account::AddAccount.new
+  expect(addaccount.on_add_account_page?).to eq(true)
 end

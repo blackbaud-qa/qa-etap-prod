@@ -17,6 +17,22 @@ module Cukesetaptesting
 
       end
 
+      def browser_url
+        return @view.browser.url
+      end
+
+      def browser_popup_url
+        return @view.browser.windows.last.url
+      end
+
+      def browser_popup_last
+        return @view.browser.windows.last
+      end
+
+      def browser_popup_close
+        @view.browser.windows.last.close
+      end
+
       def home_click
         @view.home_tab.when_present.click
       end
@@ -72,6 +88,18 @@ module Cukesetaptesting
 
       def accounts_click
         @view.accounts_tab.when_present.click
+      end
+
+      def accounts_dropdown_click
+        @view.accounts_dd.when_present.click
+      end
+
+      def accounts_dd_find_account_click
+        @view.accounts_dd_find_account.when_present.click
+      end
+
+      def accounts_dd_add_account_click
+        @view.accounts_dd_add_account.when_present.click
       end
 
       def giving_click

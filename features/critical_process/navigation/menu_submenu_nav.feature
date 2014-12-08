@@ -4,53 +4,53 @@ Feature: Critical Process - General Navigation
   In order to ensure users can access all areas of eTapestry
 
 
-  Scenario Outline: Role Icon Navigation
-    #Given I see a list of constituents accounts on the find account screen
-    Given I click Accounts on the main menu
-    When I type 'Jose' into the search field
-    And I press Enter on the keyboard
-    And I click on <page option> from the Role Icon drop down
-    Then I should be taken to 'Jose' <expected result> page
-
-  Examples:
-    | page option    | expected result |
-    | Home           | Home            |
-    | Personas       | Personas        |
-    | Relationships  | Relationships   |
-    | Journal        | Journal         |
-    | Other          | Other           |
-    | Defined Fields | Defined Fields  |
-
-  Scenario Outline:  Menu Navigation
-    When I click <menu option> on the main menu
-    Then I should be taken to <expected result>
-
-  Examples:
-    | menu option    | expected result          |
-    | Home           | Home                     |
-    | Accounts       | Find Account             |
-    | Giving         | Quick Gift Entry         |
-    | Communications | Communication Categories |
-    | Queries        | Query Categories         |
-    | Reports        | Report Categories        |
-    | Management     | Management               |
-
-  Scenario Outline:  Home SubMenu Navigation
-    Given I click on the Home drop down
-    When I click on <submenu option> on the home menu
-    Then I should be taken to <expected result>
-
-  Examples:
-    | submenu option              | expected result              |
-    | Go to Home                  | Home                         |
-    | Manage User Preferences     | User Preferences             |
-    | Find an Account             | Find Account                 |
-    | Add a Gift or Pledge        | Quick Gift Entry             |
-    | Manage Communications       | Communication Categories     |
-    | Open My Scheduled Items     | My Scheduled Items           |
-    | Open My Drop Box            | Drop Box                     |
-    | Getting Started Wizard      | Getting Started Wizard       |
-
+#  Scenario Outline: Role Icon Navigation
+#    #Given I see a list of constituents accounts on the find account screen
+#    Given I click Accounts on the main menu
+#    When I type 'Jose' into the search field
+#    And I press Enter on the keyboard
+#    And I click on <page option> from the Role Icon drop down
+#    Then I should be taken to 'Jose' <expected result> page
+#
+#  Examples:
+#    | page option    | expected result |
+#    | Home           | Home            |
+#    | Personas       | Personas        |
+#    | Relationships  | Relationships   |
+#    | Journal        | Journal         |
+#    | Other          | Other           |
+#    | Defined Fields | Defined Fields  |
+#
+#  Scenario Outline:  Menu Navigation
+#    When I click <menu option> on the main menu
+#    Then I should be taken to <expected result>
+#
+#  Examples:
+#    | menu option    | expected result          |
+#    | Home           | Home                     |
+#    | Accounts       | Find Account             |
+#    | Giving         | Quick Gift Entry         |
+#    | Communications | Communication Categories |
+#    | Queries        | Query Categories         |
+#    | Reports        | Report Categories        |
+#    | Management     | Management               |
+#
+#  Scenario Outline:  Home SubMenu Navigation
+#    Given I click on the Home drop down
+#    When I click on <submenu option> on the home menu
+#    Then I should be taken to <expected result>
+#
+#  Examples:
+#    | submenu option              | expected result              |
+#    | Go to Home                  | Home                         |
+#    | Manage User Preferences     | User Preferences             |
+#    | Find an Account             | Find Account                 |
+#    | Add a Gift or Pledge        | Quick Gift Entry             |
+#    | Manage Communications       | Communication Categories     |
+#    | Open My Scheduled Items     | My Scheduled Items           |
+#    | Open My Drop Box            | Drop Box                     |
+#    | Getting Started Wizard      | Getting Started Wizard       |
+#
 
 
 #  Scenario Outline:  Home SubMenu Navigation for URLs
@@ -59,20 +59,21 @@ Feature: Critical Process - General Navigation
 #    Then I should be taken to the URL <expected result>
 #
 #  Examples:
+#    | submenu option              | expected result              |
 ##    | Learn Best Practices        | https://www.blackbaud.com/files/support/helpfiles/etapestry/etapestry/Content/ETAPBestPracticesIntro.html |
-#    | Give Feedback on Idea Bank  | https://etapestry.uservoice.com/forums/17015-etapestry-idea-bank                                          |
-#    | Help                        | https://www.blackbaud.com/files/support/helpfiles/etapestry/etapestry/default.html                        |
+#    | Give Feedback on Idea Bank  | 'https://etapestry.uservoice.com/forums/17015-etapestry-idea-bank'                                          |
+#    | Help                        | 'https://www.blackbaud.com/files/support/helpfiles/etapestry/etapestry/default.html'                        |
 
 #
-#  Scenario Outline:  Accounts SubMenu Navigation
-#    Given I click on the Accounts drop down
-#    When I click on <submenu option>
-#    Then I should be taken to <expected result>
-#
-#  Examples:
-#    | submenu option  | expected result   |
-#    | Find an Account | Quick Find page   |
-#    | Add an Account  | New Account Page  |
+  Scenario Outline:  Accounts SubMenu Navigation
+    Given I click on the Accounts drop down
+    When I click on <submenu option> on the accounts menu
+    Then I should be taken to <expected result>
+
+  Examples:
+    | submenu option  | expected result   |
+    | Find an Account | Find Account   |
+    | Add an Account  | New Account Page  |
 #
 #  Scenario Outline:  Giving SubMenu Navigation
 #    Given I click on the Giving drop down

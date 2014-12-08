@@ -15,4 +15,9 @@ Given(/^The home page is loaded$/) do
   land.home_page_element.wait_until_present
 end
 
-Then(/^I should be taken to the URL ''<expected result>)
+Then(/^I should be taken to the URL '([^']*)'/) do |name|
+  land = Admin::Landing.new
+  expect(land.browser_popup_url).to eq(name)
+  land.browser_popup_close
+  land.browser_popup_last.use
+end

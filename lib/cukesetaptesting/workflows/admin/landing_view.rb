@@ -31,7 +31,7 @@ module Cukesetaptesting
       keyword(:logout_frame) {browser.iframe(:name, "content")}
       keyword(:accounts) {logout_frame.element(:css=> '#accountTab a')}
 
-      #nav bar dropdowns
+      #nav bar home dropdown
       keyword(:home_dd_go_home) {home_div.li(:id, "dashboardButton")}
       keyword(:home_dd_manage_preferences) {home_div.li(:id, "preferencesButton")}
       keyword(:home_dd_find_account) {home_quick_links.a(:href, "/prod/entitySearch.do")}
@@ -43,6 +43,11 @@ module Cukesetaptesting
       keyword(:home_dd_scheduled_items) {home_div.a(:href,"/prod/scheduledItemsManageNew.do")}
       keyword(:home_dd_dropbox) {home_div.a(:href,"/prod/viewUserDropBox.do")}
       keyword(:home_dd_wizard) {home_div.a(:href,"/prod/gettingStartedWizard.do")}
+
+      #nav bar accounts dropdown
+
+      keyword(:accounts_dd_find_account) {accounts_div.li(:id,"findAccountButton")}
+      keyword(:accounts_dd_add_account) {accounts_div.li(:id,"addAccountButton")}
 
       #page checking
       keyword(:home_page) {content.div(:id, "mainContent")}
@@ -69,6 +74,10 @@ module Cukesetaptesting
 
       def home_quick_links
         home_div.ul(:id, "homeQuickLinks")
+      end
+
+      def accounts_div
+        content.div(:id,"accountTabDropdown")
       end
 
 
