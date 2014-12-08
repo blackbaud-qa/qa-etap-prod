@@ -91,6 +91,62 @@ When(/^I click Giving on the main menu$/) do
   landing.giving_click
 end
 
+When(/^I click on the Giving drop down$/) do
+  landing = Admin::Landing.new
+  landing.giving_dropdown_click
+end
+
+
+When(/^I click on Add a Gift or Pledge on the giving menu$/) do
+  landing = Admin::Landing.new
+  landing.giving_dd_add_gift_click
+end
+
+When(/^I click on Import Gifts on the giving menu$/) do
+  landing = Admin::Landing.new
+  landing.giving_dd_import_gifts_click
+end
+
+When(/^I click on Giving Dynamics Report on the giving menu$/) do
+  landing = Admin::Landing.new
+  landing.giving_dd_giving_dynamics_click
+end
+
+When(/^I click on Top Donor Report on the giving menu$/) do
+  landing = Admin::Landing.new
+  landing.giving_dd_top_donor_click
+end
+
+When(/^I click on Pledge Report on the giving menu$/) do
+  landing = Admin::Landing.new
+  landing.giving_dd_pledge_report_click
+end
+
+When(/^I click on Fund Activity Summary on the giving menu$/) do
+  landing = Admin::Landing.new
+  landing.giving_dd_fund_activity_click
+end
+
+When(/^I click on Donor Cash Projection on the giving menu$/) do
+  landing = Admin::Landing.new
+  landing.giving_dd_donor_cash_click
+end
+
+When(/^I click on Prospect Research on the giving menu$/) do
+  landing = Admin::Landing.new
+  landing.giving_dd_prospect_research_click
+end
+
+When(/^I click on Planned Giving Calcs on the giving menu$/) do
+  landing = Admin::Landing.new
+  landing.giving_dd_planned_giving_click
+end
+
+When(/^I click on Cultivation Tools on the giving menu$/) do
+  landing = Admin::Landing.new
+  landing.giving_dd_cultivation_tools_click
+end
+
 When(/^I click Communications on the main menu$/) do
   landing = Admin::Landing.new
   landing.communications_click
@@ -171,4 +227,50 @@ end
 Then(/^I should be taken to New Account Page$/) do
   addaccount = Account::AddAccount.new
   expect(addaccount.on_add_account_page?).to eq(true)
+end
+
+#Giving DropDown options
+Then(/^I should be taken to Import Categories page$/) do
+  imports = Giving::Imports.new
+  expect(imports.on_imports_page?).to eq(true)
+end
+
+Then(/^I should be taken to Giving Dynamics launch page$/) do
+  reports = Giving::Givingreports.new
+  expect(reports.on_giving_dynamics_page?).to eq(true)
+end
+
+Then(/^I should be taken to Top Donor launch page$/) do
+  reports = Giving::Givingreports.new
+  expect(reports.on_top_donor_page?).to eq(true)
+end
+
+Then(/^I should be taken to Pledge Report launch page$/) do
+  reports = Giving::Givingreports.new
+  expect(reports.on_pledge_report_page?).to eq(true)
+end
+
+Then(/^I should be taken to Fund Activity Summary launch page$/) do
+  reports = Giving::Givingreports.new
+  expect(reports.on_fund_activity_page?).to eq(true)
+end
+
+Then(/^I should be taken to Donor Cash Projection launch page$/) do
+  reports = Giving::Givingreports.new
+  expect(reports.on_cash_projection_page?).to eq(true)
+end
+
+Then(/^I should be taken to Prospect Research page$/) do
+  research = Giving::Imports.new
+  expect(research.on_prosepect_research_page?).to eq(true)
+end
+
+Then(/^I should be taken to Planned Giving Calculators page$/) do
+  plan = Giving::Imports.new
+  expect(plan.on_planned_giving_page?).to eq(true)
+end
+
+Then(/^I should be taken to Cultivation Tools page$/) do
+  tools = Giving::Imports.new
+  expect(tools.on_cultivation_tools_page?).to eq(true)
 end

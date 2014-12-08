@@ -45,9 +45,20 @@ module Cukesetaptesting
       keyword(:home_dd_wizard) {home_div.a(:href,"/prod/gettingStartedWizard.do")}
 
       #nav bar accounts dropdown
-
       keyword(:accounts_dd_find_account) {accounts_div.li(:id,"findAccountButton")}
       keyword(:accounts_dd_add_account) {accounts_div.li(:id,"addAccountButton")}
+
+      #nav bar giving dropdown
+      keyword(:giving_dd_add_gift) {giving_div.li(:id,"addGiftButton")}
+      keyword(:giving_dd_import_gifts) {giving_div.li(:id,"preferencesButton")}
+      keyword(:giving_dd_giving_dynamics) {giving_div.a(:href,"/prod/reportLauncher.do?nextAction=givingDynamicsSummaryReport.do&type=GivingDynamics&mode=report&name=Giving%20Dynamics%20Report")}
+      keyword(:giving_dd_top_donor) {giving_div.a(:href,"/prod/reportLauncher.do?nextAction=topDonorReport.do&type=TopDonor&mode=report&name=Top%20Donor%20Report")}
+      keyword(:giving_dd_pledge_report) {giving_div.a(:href,"/prod/reportLauncher.do?nextAction=pledgeReport.do&mode=report&type=PledgeReport&name=Pledge%20Report")}
+      keyword(:giving_dd_fund_activity) {giving_div.a(:href,"/prod/reportLauncher.do?nextAction=/activitySummaryReport.do&type=fund&mode=report&name=Fund%20Activity%20Summary")}
+      keyword(:giving_dd_donor_cash) {giving_div.a(:href,"/prod/reportLauncher.do?nextAction=donorCashProjectionReport.do&mode=report&type=DonorCashProjection&name=Donor%20Cash%20Projection%20Report")}
+      keyword(:giving_dd_prospect_research) {giving_div.a(:href,"/prod/ProspectResearch.jsp")}
+      keyword(:giving_dd_planned_giving) {giving_div.a(:href,"/prod/launchPlannedGiving.do")}
+      keyword(:giving_dd_cultivation_tools) {giving_div.a(:href,"/prod/CultivationTools.jsp")}
 
       #page checking
       keyword(:home_page) {content.div(:id, "mainContent")}
@@ -78,6 +89,10 @@ module Cukesetaptesting
 
       def accounts_div
         content.div(:id,"accountTabDropdown")
+      end
+
+      def giving_div
+        content.div(:id,"givingTabDropdown")
       end
 
 

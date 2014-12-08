@@ -106,6 +106,50 @@ module Cukesetaptesting
         @view.giving_tab.when_present.click
       end
 
+      def giving_dropdown_click
+        @view.giving_dd.when_present.click
+      end
+
+      def giving_dd_add_gift_click
+        @view.giving_dd_add_gift.click
+      end
+
+      def giving_dd_import_gifts_click
+        @view.giving_dd_import_gifts.click
+      end
+
+      def giving_dd_giving_dynamics_click
+        @view.giving_dd_giving_dynamics.click
+      end
+
+      def giving_dd_top_donor_click
+        @view.giving_dd_top_donor.click
+      end
+
+      def giving_dd_pledge_report_click
+        @view.giving_dd_pledge_report.click
+      end
+
+      def giving_dd_fund_activity_click
+        @view.giving_dd_fund_activity.click
+      end
+
+      def giving_dd_donor_cash_click
+        @view.giving_dd_donor_cash.click
+      end
+
+      def giving_dd_prospect_research_click
+        @view.giving_dd_prospect_research.click
+      end
+
+      def giving_dd_planned_giving_click
+        @view.giving_dd_planned_giving.click
+      end
+
+      def giving_dd_cultivation_tools_click
+        @view.giving_dd_cultivation_tools.click
+      end
+
       def communications_click
         @view.communications_tab.when_present.click
       end
