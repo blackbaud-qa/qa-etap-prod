@@ -94,16 +94,16 @@ Feature: Critical Process - General Navigation
     | Planned Giving Calcs    | Planned Giving Calculators page   |
     | Cultivation Tools       | Cultivation Tools page            |
 
-#  Scenario Outline:  Communications SubMenu Navigation
-#    Given I click on the Communications drop down
-#    When I click on <submenu option>
-#    Then I should be taken to <expected result>
-#
-#  Examples:
-#    | submenu option          | expected result                     |
-#    | Manage Communications   | Correspondence categories page      |
-#    | Add a New Category      | Create Correspondence category page |
-#    | Constant Contact        | eTapestry & Constant Contact page   |
+  Scenario Outline:  Communications SubMenu Navigation
+    Given I click on the Communications drop down
+    When I click on <submenu option> on the communications menu
+    Then I should be taken to <expected result>
+
+  Examples:
+    | submenu option          | expected result                     |
+    | Manage Communications   | Communication Categories      |
+    | Add a New Category      | Create Correspondence category page |
+    | Constant Contact        | eTapestry & Constant Contact page   |
 #
 #  Scenario Outline:  Queries SubMenu Navigation
 #    Given I click on the Queries drop down

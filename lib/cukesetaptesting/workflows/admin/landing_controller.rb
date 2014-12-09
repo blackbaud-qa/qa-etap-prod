@@ -154,6 +154,22 @@ module Cukesetaptesting
         @view.communications_tab.when_present.click
       end
 
+      def communications_dropdown_click
+        @view.communications_dd.when_present.click
+      end
+
+      def communications_dd_manage_comms_click
+        @view.communications_dd_manage_comms.click
+      end
+
+      def communications_add_category_click
+        @view.communications_add_category.click
+      end
+
+      def communications_constant_contact_click
+        @view.communications_constant_contact.click
+      end
+
       def queries_click
         @view.queries_tab.when_present.click
       end

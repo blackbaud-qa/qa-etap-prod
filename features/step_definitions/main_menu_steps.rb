@@ -152,6 +152,26 @@ When(/^I click Communications on the main menu$/) do
   landing.communications_click
 end
 
+When(/^I click on the Communications drop down$/) do
+  landing = Admin::Landing.new
+  landing.communications_dropdown_click
+end
+
+When(/^I click on Manage Communications on the communications menu$/) do
+  landing = Admin::Landing.new
+  landing.communications_dd_manage_comms_click
+end
+
+When(/^I click on Add a New Category on the communications menu$/) do
+  landing = Admin::Landing.new
+  landing.communications_add_category_click
+end
+
+When(/^I click on Constant Contact on the communications menu$/) do
+  landing = Admin::Landing.new
+  landing.communications_constant_contact_click
+end
+
 When(/^I click Queries on the main menu$/) do
   landing = Admin::Landing.new
   landing.queries_click
@@ -273,4 +293,16 @@ end
 Then(/^I should be taken to Cultivation Tools page$/) do
   tools = Giving::Imports.new
   expect(tools.on_cultivation_tools_page?).to eq(true)
+end
+
+#Communication DropDown options
+
+Then(/^I should be taken to Create Correspondence category page$/) do
+  cat_create = Communications::Createcategory.new
+  expect(cat_create.on_create_category_page?).to eq(true)
+end
+
+Then(/^I should be taken to eTapestry & Constant Contact page$/) do
+  const_cont = Communications::Constcontact.new
+  expect(const_cont.on_const_cont_page?).to eq(true)
 end

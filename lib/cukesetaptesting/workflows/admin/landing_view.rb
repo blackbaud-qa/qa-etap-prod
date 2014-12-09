@@ -60,6 +60,12 @@ module Cukesetaptesting
       keyword(:giving_dd_planned_giving) {giving_div.a(:href,"/prod/launchPlannedGiving.do")}
       keyword(:giving_dd_cultivation_tools) {giving_div.a(:href,"/prod/CultivationTools.jsp")}
 
+      #nav bar communications dropdown
+      keyword(:communications_dd_manage_comms) {comms_div.li(:id,'manageCommButton')}
+      keyword(:communications_add_category) {comms_div.li(:id,'addNewCategoryButton')}
+      keyword(:communications_constant_contact) {comms_div.div(:id, 'commConstantContact').a(:href,'ccPreferences.do?initialSetup=true')}
+
+
       #page checking
       keyword(:home_page) {content.div(:id, "mainContent")}
       keyword(:accounts_page) {content.div(:id,"searchPage")}
@@ -93,6 +99,10 @@ module Cukesetaptesting
 
       def giving_div
         content.div(:id,"givingTabDropdown")
+      end
+
+      def comms_div
+        content.div(:id,"communicationTabDropdown")
       end
 
 
