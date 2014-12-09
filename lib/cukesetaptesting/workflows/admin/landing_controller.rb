@@ -214,9 +214,52 @@ module Cukesetaptesting
         @view.queries_dd_security.click
       end
 
-
       def reports_click
         @view.reports_tab.when_present.click
+      end
+
+      def reports_dropdown_click
+        @view.reports_dd.when_present.click
+      end
+
+      def reports_dd_manage_reports_click
+        @view.reports_dd_manage_reports.click
+      end
+
+      def reports_dd_rel_filters_click
+        @view.reports_dd_relationship_filters.click
+      end
+
+      def reports_dd_system_click
+        @view.reports_dd_system.click
+      end
+
+      def reports_dd_top_donor_click
+        @view.reports_dd_top_donor.click
+      end
+
+      def reports_dd_journal_click
+        @view.reports_dd_journal.click
+      end
+
+      def reports_dd_recency_click
+        @view.reports_dd_recency.click
+      end
+
+      def reports_dd_shared_click
+        @view.reports_dd_shared.click
+      end
+
+      def reports_dd_aging_pledge_click
+        @view.reports_dd_aging_pledge.click
+      end
+
+      def reports_dd_standard_click
+        @view.reports_dd_standard.click
+      end
+
+      def reports_dd_benchmark_click
+        @view.reports_dd_benchmark.click
       end
 
       def management_click

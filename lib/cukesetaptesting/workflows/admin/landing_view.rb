@@ -76,6 +76,18 @@ module Cukesetaptesting
       keyword(:queries_dd_processed_trans) {queries_div.ul(:id,'queryCategories2').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2822')}
       keyword(:queries_dd_security) {queries_div.ul(:id,'queryCategories2').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2481')}
 
+      #nav bar reports dropdown
+      keyword(:reports_dd_manage_reports) {reports_div.li(:id,'manageReportButton')}
+      keyword(:reports_dd_relationship_filters) {reports_div.li(:id,'accountQueryButton')}
+      keyword(:reports_dd_system) {reports_div.ul(:id,'reportCategories1').a(:href,'/prod/editReportCategory.do?categoryRef=39.0.2846')}
+      keyword(:reports_dd_top_donor) {reports_div.ul(:id,'topReports1').a(:href,'/prod/reportLauncher.do?nextAction=topDonorReport.do&type=TopDonor&mode=report&name=Top%20Donor%20Report')}
+      keyword(:reports_dd_journal) {reports_div.ul(:id,'topReports1').a(:href,'/prod/reportLauncher.do?nextAction=journalEntryListReport.do&mode=report&type=JournalEntryList&name=Journal%20Entry%20List')}
+      keyword(:reports_dd_recency) {reports_div.ul(:id,'topReports1').a(:href,'/prod/reportLauncher.do?nextAction=recencyReport.do&type=RecencyReport&mode=report&name=Recency%20Report')}
+      keyword(:reports_dd_shared) {reports_div.ul(:id,'topReports2').a(:href,'/prod/reportLauncher.do?nextAction=/sharedLinksReport.do&type=sharedLinks&mode=report&name=Shared%20Links%20Report')}
+      keyword(:reports_dd_aging_pledge) {reports_div.ul(:id,'topReports2').a(:href,'/prod/reportLauncher.do?nextAction=agingPledgeSummaryReport.do&type=AgingPledgeSummary&mode=report&name=Aging%20Pledge%20Summary')}
+      keyword(:reports_dd_standard) {reports_div.ul(:id,'reportStandard').a(:href,'/prod/SpecialReportCategories.jsp')}
+      keyword(:reports_dd_benchmark) {reports_div.ul(:id,'reportStandard').a(:href,'/prod/viewCrossDBReports.do')}
+
       #page checking
       keyword(:home_page) {content.div(:id, "mainContent")}
       keyword(:accounts_page) {content.div(:id,"searchPage")}
@@ -117,6 +129,10 @@ module Cukesetaptesting
 
       def queries_div
         content.div(:id,'queriesTabDropdown')
+      end
+
+      def reports_div
+        content.div(:id,'reportsTabDropdown')
       end
 
     end

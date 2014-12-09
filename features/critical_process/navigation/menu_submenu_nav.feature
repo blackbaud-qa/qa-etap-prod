@@ -122,23 +122,23 @@ Feature: Critical Process - General Navigation
     | Processed Transactions         | Edit Query Category: Processed Transactions         |
     | eTapestry Security             | Edit Query Category: eTapestry Security             |
 
-#  Scenario Outline:  Reports SubMenu Navigation
-#    Given I click on the Reports drop down
-#    When I click on <submenu option>
-#    Then I should be taken to <expected result>
-#
-#  Examples:
-#    | submenu option               | expected result                  |
-#    | Manage Reports               | Report categories page           |
-#    | Relationship Filters         | Relationship Filters page        |
-#    | System                       | Edit Report Category: System     |
-#    | Top Donor Report             | Launch Top Donor Report          |
-#    | Journal Entry List           | Launch Journal Entry List        |
-#    | Recency Report               | Launch Recency Report            |
-#    | Shared Links Report          | Launch Shared Links Report       |
-#    | Aging Pledge Summary         | Launch Aging Pledge Summary      |
-#    | eTapestry Standard Reports   | eTapestry Standard Reports page  |
-#    | eTapestry Benchmark Reports  | eTapestry Benchmark Reports page |
+  Scenario Outline:  Reports SubMenu Navigation
+    Given I click on the Reports drop down
+    When I click on <submenu option> on the reports menu
+    Then I should be taken to <expected result>
+
+  Examples:
+    | submenu option               | expected result                  |
+    | Manage Reports               | Report Categories                |
+    | Relationship Filters         | Relationship Filters page        |
+    | System                       | Edit Report Category: System     |
+    | Top Donor Report             | Launch Top Donor Report          |
+    | Journal Entry List           | Launch Journal Entry List        |
+    | Recency Report               | Launch Recency Report            |
+    | Shared Links Report          | Launch Shared Links Report       |
+    | Aging Pledge Summary         | Launch Aging Pledge Summary      |
+    | eTapestry Standard Reports   | eTapestry Standard Reports page  |
+    | eTapestry Benchmark Reports  | eTapestry Benchmark Reports page |
 #
 #  Scenario Outline:  Management SubMenu Navigation
 #    Given I click on the Management drop down
