@@ -4,7 +4,7 @@ When(/^I click Home on the main menu$/) do
   landing.home_click
 end
 
-
+#Home DropDown
 When(/^I click on the Home drop down$/) do
   landing = Admin::Landing.new
   landing.home_dropdown_click
@@ -71,6 +71,7 @@ When(/^I click Accounts on the main menu$/) do
   landing.accounts_click
 end
 
+#Accounts DropDown
 When(/^I click on the Accounts drop down$/) do
   landing = Admin::Landing.new
   landing.accounts_dropdown_click
@@ -95,7 +96,6 @@ When(/^I click on the Giving drop down$/) do
   landing = Admin::Landing.new
   landing.giving_dropdown_click
 end
-
 
 When(/^I click on Add a Gift or Pledge on the giving menu$/) do
   landing = Admin::Landing.new
@@ -152,6 +152,7 @@ When(/^I click Communications on the main menu$/) do
   landing.communications_click
 end
 
+#Communications DropDown
 When(/^I click on the Communications drop down$/) do
   landing = Admin::Landing.new
   landing.communications_dropdown_click
@@ -176,6 +177,60 @@ When(/^I click Queries on the main menu$/) do
   landing = Admin::Landing.new
   landing.queries_click
 end
+
+#Queries DropDown
+When(/^I click on the Queries drop down$/) do
+  landing = Admin::Landing.new
+  landing.queries_dropdown_click
+end
+
+When(/^I click on Manage Queries on the queries menu$/) do
+  landing = Admin::Landing.new
+  landing.queries_dd_manage_click
+end
+
+When(/^I click on Add a New Category on the queries menu$/) do
+  landing = Admin::Landing.new
+  landing.queries_dd_add_category_click
+end
+
+When(/^I click on Base on the queries menu$/) do
+  landing = Admin::Landing.new
+  landing.queries_dd_base_click
+end
+
+When(/^I click on Journal Entry Date on the queries menu$/) do
+  landing = Admin::Landing.new
+  landing.queries_dd_journal_entry_click
+end
+
+When(/^I click on Constituent Journal Entry Date on the queries menu$/) do
+  landing = Admin::Landing.new
+  landing.queries_dd_constit_journal_entry_click
+end
+
+When(/^I click on LYBUNT & SYBUNT on the queries menu$/) do
+  landing = Admin::Landing.new
+  landing.queries_dd_lybunt_click
+end
+
+When(/^I click on Pledges and Payments on the queries menu$/) do
+  landing = Admin::Landing.new
+  landing.queries_dd_pledges_payments_click
+end
+
+When(/^I click on eTapestry Security on the queries menu$/) do
+  landing = Admin::Landing.new
+  landing.queries_dd_security_click
+end
+
+When(/^I click on Processed Transactions on the queries menu$/) do
+  landing = Admin::Landing.new
+  landing.queries_dd_processed_trans_click
+end
+
+
+
 
 When(/^I click Reports on the main menu$/) do
   landing = Admin::Landing.new
@@ -305,4 +360,45 @@ end
 Then(/^I should be taken to eTapestry & Constant Contact page$/) do
   const_cont = Communications::Constcontact.new
   expect(const_cont.on_const_cont_page?).to eq(true)
+end
+
+#Queries DropDown options
+Then(/^I should be taken to Create Query category page$/) do
+  query_create = Queries::Createquerycategory.new
+  expect(query_create.on_create_query_page?).to eq(true)
+end
+
+Then(/^I should be taken to Edit Query Category: Base$/) do
+  query = Queries::Editcategory.new
+  expect(query.on_edit_base_page?).to eq(true)
+end
+
+Then(/^I should be taken to Edit Query Category: Journal Entry Date$/) do
+  query = Queries::Editcategory.new
+  expect(query.on_edit_journal_page?).to eq(true)
+end
+
+Then(/^I should be taken to Edit Query Category: Constituent Journal Entry Date$/) do
+  query = Queries::Editcategory.new
+  expect(query.on_edit_constit_journal_page?).to eq(true)
+end
+
+Then(/^I should be taken to Edit Query Category: LYBUNT & SYBUNT$/) do
+  query = Queries::Editcategory.new
+  expect(query.on_edit_lybunt_page?).to eq(true)
+end
+
+Then(/^I should be taken to Edit Query Category: Pledges and Payments$/) do
+  query = Queries::Editcategory.new
+  expect(query.on_edit_pledges_payments_page?).to eq(true)
+end
+
+Then(/^I should be taken to Edit Query Category: Processed Transactions$/) do
+  query = Queries::Editcategory.new
+  expect(query.on_edit_proc_transactions_page?).to eq(true)
+end
+
+Then(/^I should be taken to Edit Query Category: eTapestry Security$/) do
+  query = Queries::Editcategory.new
+  expect(query.on_edit_security_page?).to eq(true)
 end

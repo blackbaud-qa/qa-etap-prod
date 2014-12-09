@@ -65,6 +65,16 @@ module Cukesetaptesting
       keyword(:communications_add_category) {comms_div.li(:id,'addNewCategoryButton')}
       keyword(:communications_constant_contact) {comms_div.div(:id, 'commConstantContact').a(:href,'ccPreferences.do?initialSetup=true')}
 
+      #nav bar queries dropdown
+      keyword(:queries_dd_manage) {queries_div.li(:id,'manageQueryButton')}
+      keyword(:queries_dd_add_category) {queries_div.li(:id,'addNewCategoryButton')}
+      keyword(:queries_dd_base) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2735')}
+      keyword(:queries_dd_journal_entry) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2791')}
+      keyword(:queries_dd_constit_journal_entry) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2792')}
+      keyword(:queries_dd_lybunt) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2793')}
+      keyword(:queries_dd_pledges_payments) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2821')}
+      keyword(:queries_dd_processed_trans) {queries_div.ul(:id,'queryCategories2').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2822')}
+      keyword(:queries_dd_security) {queries_div.ul(:id,'queryCategories2').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2481')}
 
       #page checking
       keyword(:home_page) {content.div(:id, "mainContent")}
@@ -105,6 +115,9 @@ module Cukesetaptesting
         content.div(:id,"communicationTabDropdown")
       end
 
+      def queries_div
+        content.div(:id,'queriesTabDropdown')
+      end
 
     end
   end

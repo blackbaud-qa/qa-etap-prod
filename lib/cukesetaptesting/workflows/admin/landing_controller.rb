@@ -174,6 +174,47 @@ module Cukesetaptesting
         @view.queries_tab.when_present.click
       end
 
+      def queries_dropdown_click
+        @view.queries_dd.click
+      end
+
+      def queries_dd_manage_click
+        @view.queries_dd_manage.click
+      end
+
+      def queries_dd_add_category_click
+        @view.queries_dd_add_category.click
+      end
+
+      def queries_dd_base_click
+        @view.queries_dd_base.click
+      end
+
+      def queries_dd_journal_entry_click
+        @view.queries_dd_journal_entry.click
+      end
+
+      def queries_dd_constit_journal_entry_click
+        @view.queries_dd_constit_journal_entry.click
+      end
+
+      def queries_dd_lybunt_click
+        @view.queries_dd_lybunt.click
+      end
+
+      def queries_dd_pledges_payments_click
+        @view.queries_dd_pledges_payments.click
+      end
+
+      def queries_dd_processed_trans_click
+        @view.queries_dd_processed_trans.click
+      end
+
+      def queries_dd_security_click
+        @view.queries_dd_security.click
+      end
+
+
       def reports_click
         @view.reports_tab.when_present.click
       end

@@ -104,24 +104,24 @@ Feature: Critical Process - General Navigation
     | Manage Communications   | Communication Categories      |
     | Add a New Category      | Create Correspondence category page |
     | Constant Contact        | eTapestry & Constant Contact page   |
-#
-#  Scenario Outline:  Queries SubMenu Navigation
-#    Given I click on the Queries drop down
-#    When I click on <submenu option>
-#    Then I should be taken to <expected result>
-#
-#  Examples:
-#    | submenu option                 | expected result                                     |
-#    | Manage Queries                 | Query categories page                               |
-#    | Add a New Category             | Create Correspondence category page                 |
-#    | Base                           | Edit Query Category: Base                           |
-#    | Journal Entry Date             | Edit Query Category: Journal Entry Date             |
-#    | Constituent Journal Entry Date | Edit Query Category: Constituent Journal Entry Date |
-#    | LYBUNT & SYBUNT                | Edit Query Category: LYBUNT & SYBUNT                |
-#    | Pledges and Payments           | Edit Query Category: Pledges and Payments           |
-#    | Processed Transactions         | Edit Query Category: Processed Transactions         |
-#    | eTapestry Security             | Edit Query Category: eTapestry Security             |
-#
+
+  Scenario Outline:  Queries SubMenu Navigation
+    Given I click on the Queries drop down
+    When I click on <submenu option> on the queries menu
+    Then I should be taken to <expected result>
+
+  Examples:
+    | submenu option                 | expected result                                      |
+    | Manage Queries                 | Query Categories                                     |
+    | Add a New Category             | Create Query category page                           |
+    | Base                           | Edit Query Category: Base                            |
+    | Journal Entry Date             | Edit Query Category: Journal Entry Date             |
+    | Constituent Journal Entry Date | Edit Query Category: Constituent Journal Entry Date |
+    | LYBUNT & SYBUNT                | Edit Query Category: LYBUNT & SYBUNT                |
+    | Pledges and Payments           | Edit Query Category: Pledges and Payments           |
+    | Processed Transactions         | Edit Query Category: Processed Transactions         |
+    | eTapestry Security             | Edit Query Category: eTapestry Security             |
+
 #  Scenario Outline:  Reports SubMenu Navigation
 #    Given I click on the Reports drop down
 #    When I click on <submenu option>
