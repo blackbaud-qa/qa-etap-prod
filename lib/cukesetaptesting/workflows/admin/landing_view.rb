@@ -88,6 +88,31 @@ module Cukesetaptesting
       keyword(:reports_dd_standard) {reports_div.ul(:id,'reportStandard').a(:href,'/prod/SpecialReportCategories.jsp')}
       keyword(:reports_dd_benchmark) {reports_div.ul(:id,'reportStandard').a(:href,'/prod/viewCrossDBReports.do')}
 
+      #nav bar managment dropdown
+      keyword(:management_dd_import) {management_div.li(:id,'importButton')}
+      keyword(:management_dd_exports) {management_div.li(:id,'exportButton')}
+      keyword(:management_dd_mass_update) {management_div.li(:id,'massUpdateButton')}
+      keyword(:management_dd_my_org) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/editOrganization.do')}
+      keyword(:management_dd_my_user) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/entityRoleHome.do?entityRoleRef=39.0.2534')}
+      keyword(:management_dd_all_users) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/orgAdmin/editUsers.do')}
+      keyword(:management_dd_user_act) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/reportLauncher.do?nextAction=orgAdmin/userActivitySummaryReport.do&type=UserActivity&mode=report&name=User Activity')}
+      keyword(:management_dd_sec_groups) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/editSecurityGroups.do')}
+      keyword(:management_dd_wizard) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/gettingStartedWizard.do')}
+      keyword(:management_dd_estore) {management_div.ul(:id,'manageOnlineItems').a(:href,'/prod/editShoppingCarts.do')}
+      keyword(:management_dd_fundraisers) {management_div.ul(:id,'manageOnlineItems').a(:href,'/prod/viewEvents.do')}
+      keyword(:management_dd_diy) {management_div.ul(:id,'manageOnlineItems').a(:href,'/prod/ecommManagerHome.do')}
+      keyword(:management_dd_sys_defined) {management_div.ul(:id,'manageDatabaseItems').a(:href,'/prod/editUserDefinedFields.do?mode=SYSTEM')}
+      keyword(:management_dd_user_defined) {management_div.ul(:id,'manageDatabaseItems').a(:href,'/prod/editUserDefinedFieldsCategories.do?mode=USER')}
+      keyword(:management_dd_rel_types) {management_div.ul(:id,'manageDatabaseItems').a(:href,'/prod/editRelationshipTypes.do')}
+      keyword(:management_dd_sticky_types) {management_div.ul(:id,'manageDatabaseItems').a(:href,'/prod/editStickyNoteTypes.do')}
+      keyword(:management_dd_funds) {management_div.ul(:id,'manageStrategiesItems').a(:href,'/prod/editIntents.do')}
+      keyword(:management_dd_campaigns) {management_div.ul(:id,'manageStrategiesItems').a(:href,'/prod/editCampaigns.do')}
+      keyword(:management_dd_approaches) {management_div.ul(:id,'manageStrategiesItems').a(:href,'/prod/editApproaches.do')}
+      keyword(:management_dd_letters) {management_div.ul(:id,'manageStrategiesItems').a(:href,'/prod/editLetters.do')}
+      keyword(:management_dd_goals) {management_div.ul(:id,'manageStrategiesItems').a(:href,'/prod/editDatedGoals.do')}
+      keyword(:management_dd_org_prefs) {management_div.div(:id,'manageWorkBetter').a(:id,'manageOrgLink')}
+      keyword(:management_dd_user_prefs) {management_div.div(:id,'manageWorkBetter').a(:id,'manageUserLink')}
+
       #page checking
       keyword(:home_page) {content.div(:id, "mainContent")}
       keyword(:accounts_page) {content.div(:id,"searchPage")}
@@ -133,6 +158,10 @@ module Cukesetaptesting
 
       def reports_div
         content.div(:id,'reportsTabDropdown')
+      end
+
+      def management_div
+        content.div(:id,'manageTabDropdown')
       end
 
     end

@@ -140,33 +140,33 @@ Feature: Critical Process - General Navigation
     | eTapestry Standard Reports   | eTapestry Standard Reports page  |
     | eTapestry Benchmark Reports  | eTapestry Benchmark Reports page |
 #
-#  Scenario Outline:  Management SubMenu Navigation
-#    Given I click on the Management drop down
-#    When I click on <submenu option>
-#    Then I should be taken to <expected result>
-#
-#  Examples:
-#    | submenu option                  | expected result             |
-#    | Import                          | Import Categories page      |
-#    | Standard Exports                | eTapestry Standard Exports  |
-#    | Mass Update                     | Mass Updates page           |
-#    | My Organization                 | Org's Persona page          |
-#    | My User                         | My User's Home page         |
-#    | All Users                       | Users page                  |
-#    | User Activity                   | Launch User Activity page   |
-#    | Security Groups                 | Security Groups page        |
-#    | Getting Started Wizard          | Getting Started Wizard page |
-#    | eStore (Cart)                   | Cart page                   |
+  Scenario Outline:  Management SubMenu Navigation
+    Given I click on the Management drop down
+    When I click on <submenu option> on the management menu
+    Then I should be taken to <expected result>
+
+  Examples:
+    | submenu option                  | expected result             |
+    | Import                          | Import Categories page      |
+    | Standard Exports                | eTapestry Standard Exports  |
+    | Mass Update                     | Mass Updates page           |
+#    | My Organization                 | Orgs Persona page          |
+    | My User                         | My User's Home page         |
+    | All Users                       | Users page                  |
+    | User Activity                   | Launch User Activity page   |
+    | Security Groups                 | Security Groups page        |
+    | Getting Started Wizard          | Getting Started Wizard      |
+    | eStore (Cart)                   | Cart page                   |
 #    | Fundraisers                     | Fundraisers page            |
-#    | DIY Forms                       | My Online Forms page        |
-#    | System Defined Fields           | System Defined Fields page  |
-#    | User Defined Fields             | User Defined Fields page    |
-#    | Relationship Types              | Relationship Types page     |
-#    | Sticky Note Types               | Sticky Note Types page      |
-#    | Funds                           | Funds page                  |
-#    | Campaigns                       | Campaigns page              |
-#    | Approaches                      | Approach page               |
-#    | Letters                         | Letters page                |
-#    | Goals                           | Goals page                  |
-#    | Manage Organization Preferences | Org's Preferences page      |
-#    | Manage User Preferences         | User's Preferences page     |
+    | DIY Forms                       | My Online Forms page        |
+    | System Defined Fields           | System Defined Fields page  |
+    | User Defined Fields             | User Defined Fields page    |
+    | Relationship Types              | Relationship Types page     |
+    | Sticky Note Types               | Sticky Note Types page      |
+    | Funds                           | Funds page                  |
+    | Campaigns                       | Campaigns page              |
+    | Approaches                      | Approach page               |
+    | Letters                         | Letters page                |
+    | Goals                           | Goals page                  |
+#    | Manage Organization Preferences | Orgs Preferences page      |
+    | Manage User Preferences         | User Preferences     |

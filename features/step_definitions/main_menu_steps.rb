@@ -295,6 +295,127 @@ When(/^I click Management on the main menu$/) do
   landing.management_click
 end
 
+#Management DropDown
+When(/^I click on the Management drop down$/) do
+  landing = Admin::Landing.new
+  landing.management_dropdown_click
+end
+
+When(/^I click on Import on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_import_click
+end
+
+When(/^I click on Standard Exports on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_exports_click
+end
+
+When(/^I click on Mass Update on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_mass_update_click
+end
+
+When(/^I click on My Organization on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_my_org_click
+end
+
+When(/^I click on My User on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_my_user_click
+end
+
+When(/^I click on All Users on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_all_users_click
+end
+
+When(/^I click on User Activity on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_user_act_click
+end
+
+When(/^I click on Security Groups on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_sec_groups_click
+end
+
+When(/^I click on Getting Started Wizard on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_wizard_click
+end
+
+When(/^I click on eStore \(Cart\) on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_estore_click
+end
+
+When(/^I click on Fundraisers on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_fundraisers_click
+end
+
+When(/^I click on DIY Forms on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_diy_click
+end
+
+When(/^I click on System Defined Fields on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_sys_defined_click
+end
+
+When(/^I click on User Defined Fields on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_user_defined_click
+end
+
+When(/^I click on Relationship Types on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_rel_types_click
+end
+
+When(/^I click on Sticky Note Types on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_sticky_types_click
+end
+
+When(/^I click on Funds on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_funds_click
+end
+
+When(/^I click on Campaigns on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_campaigns_click
+end
+
+When(/^I click on Approaches on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_approaches_click
+end
+
+When(/^I click on Letters on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_letters_click
+end
+
+When(/^I click on Goals on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_goals_click
+end
+
+When(/^I click on Manage Organization Preferences on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_org_prefs_click
+end
+
+When(/^I click on Manage User Preferences on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_user_prefs_click
+end
+
 Then(/^I should be taken to Home$/) do
   landing = Admin::Landing.new
   expect(landing.on_home_page?).to eq(true)
@@ -500,4 +621,104 @@ end
 Then(/^I should be taken to eTapestry Benchmark Reports page$/) do
   report = Reports::Standardreports.new
   expect(report.on_benchmark_reports_page?).to eq(true)
+end
+
+#Management DropDown options
+Then(/^I should be taken to eTapestry Standard Exports$/) do
+  report = Reports::Standardreports.new
+  expect(report.on_standard_exports_page?).to eq(true)
+end
+
+Then(/^I should be taken to Mass Updates page$/) do
+  updates = Admin::Massupdates.new
+  expect(updates.on_mass_updates_page?).to eq(true)
+end
+
+Then(/^I should be taken to Org's Persona page$/) do
+  updates = Admin::Userprefs.new
+  expect(updates.on_user_prefs_page?).to eq(true)
+end
+
+Then(/^I should be taken to My User's Home page$/) do
+  updates = Admin::Userprefs.new
+  expect(updates.on_user_page?).to eq(true)
+end
+
+Then(/^I should be taken to Users page$/) do
+  user_page = Admin::Users.new
+  expect(user_page.on_users_page?).to eq(true)
+end
+
+Then(/^I should be taken to Launch User Activity page$/) do
+  reports = Reports::Reportlauncher.new
+  expect(reports.on_user_activity_page?).to eq(true)
+end
+
+Then(/^I should be taken to Security Groups page$/) do
+  security = Admin::Securitygroups.new
+  expect(security.on_security_groups_page?).to eq(true)
+end
+
+Then(/^I should be taken to Cart page$/) do
+  cart = Admin::Cart.new
+  expect(cart.on_cart_page?).to eq(true)
+end
+
+Then(/^I should be taken to Fundraisers page$/) do
+ pending
+end
+
+Then(/^I should be taken to My Online Forms page$/) do
+  forms = DIY::Onlineforms.new
+  expect(forms.on_online_forms_page?).to eq(true)
+end
+
+Then(/^I should be taken to System Defined Fields page$/) do
+  forms = Admin::Systemdefinedfields.new
+  expect(forms.on_system_defined_page?).to eq(true)
+end
+
+#Using categories for these for now.  May need to add separate classes for each
+Then(/^I should be taken to User Defined Fields page$/) do
+  cats = Admin::Categories.new
+  expect(cats.on_user_defined_fields_page?).to eq(true)
+end
+
+Then(/^I should be taken to Relationship Types page$/) do
+  cats = Admin::Categories.new
+  expect(cats.on_relationship_types_page?).to eq(true)
+end
+
+Then(/^I should be taken to Sticky Note Types page$/) do
+  cats = Admin::Categories.new
+  expect(cats.on_note_types_page?).to eq(true)
+end
+
+Then(/^I should be taken to Funds page$/) do
+  cats = Admin::Categories.new
+  expect(cats.on_funds_page?).to eq(true)
+end
+
+Then(/^I should be taken to Campaigns page$/) do
+  cats = Admin::Categories.new
+  expect(cats.on_campaigns_page?).to eq(true)
+end
+
+Then(/^I should be taken to Approach page$/) do
+  cats = Admin::Categories.new
+  expect(cats.on_approach_page?).to eq(true)
+end
+
+Then(/^I should be taken to Letters page$/) do
+  cats = Admin::Categories.new
+  expect(cats.on_letters_page?).to eq(true)
+end
+
+Then(/^I should be taken to Goals page$/) do
+  goal = Admin::Goals.new
+  expect(goal.on_goals_page?).to eq(true)
+end
+
+Then(/^I should be taken to Orgs Preferences page$/) do
+  pending
 end

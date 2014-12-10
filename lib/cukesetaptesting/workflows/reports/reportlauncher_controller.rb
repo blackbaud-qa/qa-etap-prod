@@ -23,6 +23,10 @@ module Cukesetaptesting
       def on_aging_pledge_page?
         return @view.report_launcher_title.when_present.text.include? 'Launch Aging Pledge Summary'
       end
+
+      def on_user_activity_page?
+        return @view.report_launcher_title.when_present.text.include? 'Launch User Activity'
+      end
     end
   end
 end
