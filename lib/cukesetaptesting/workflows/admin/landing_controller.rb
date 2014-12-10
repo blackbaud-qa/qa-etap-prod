@@ -266,6 +266,104 @@ module Cukesetaptesting
         @view.management_tab.when_present.click
       end
 
+      def management_dropdown_click
+        @view.management_dd.when_present.click
+      end
+
+      def management_dd_import_click
+        @view.management_dd_import.click
+      end
+
+      def management_dd_exports_click
+        @view.management_dd_exports.click
+      end
+
+      def management_dd_mass_update_click
+        @view.management_dd_mass_update.click
+      end
+
+      def management_dd_my_org_click
+        @view.management_dd_my_org.click
+      end
+
+      def management_dd_my_user_click
+        @view.management_dd_my_user.click
+      end
+
+      def management_dd_all_users_click
+        @view.management_dd_all_users.click
+      end
+
+      def management_dd_user_act_click
+        @view.management_dd_user_act.click
+      end
+
+      def management_dd_sec_groups_click
+        @view.management_dd_sec_groups.click
+      end
+
+      def management_dd_wizard_click
+        @view.management_dd_wizard.click
+      end
+
+      def management_dd_estore_click
+        @view.management_dd_estore.click
+      end
+
+      def management_dd_fundraisers_click
+        @view.management_dd_fundraisers.click
+      end
+
+      def management_dd_diy_click
+        @view.management_dd_diy.click
+      end
+
+      def management_dd_sys_defined_click
+        @view.management_dd_sys_defined.click
+      end
+
+      def management_dd_user_defined_click
+        @view.management_dd_user_defined.click
+      end
+
+      def management_dd_rel_types_click
+        @view.management_dd_rel_types.click
+      end
+
+      def management_dd_sticky_types_click
+        @view.management_dd_sticky_types.click
+      end
+
+      def management_dd_funds_click
+        @view.management_dd_funds.click
+      end
+
+      def management_dd_campaigns_click
+        @view.management_dd_campaigns.click
+      end
+
+      def management_dd_approaches_click
+        @view.management_dd_approaches.click
+      end
+
+      def management_dd_letters_click
+        @view.management_dd_letters.click
+      end
+
+      def management_dd_goals_click
+        @view.management_dd_goals.click
+      end
+
+      def management_dd_org_prefs_click
+        @view.management_dd_org_prefs.click
+      end
+
+      def management_dd_user_prefs_click
+        @view.management_dd_user_prefs.click
+      end
+
+
+
       def on_home_page?
         @view.home_page.present?
       end
