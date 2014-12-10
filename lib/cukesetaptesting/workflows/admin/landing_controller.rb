@@ -17,28 +17,249 @@ module Cukesetaptesting
 
       end
 
+      def browser_url
+        return @view.browser.url
+      end
+
+      def browser_popup_url
+        return @view.browser.windows.last.url
+      end
+
+      def browser_popup_last
+        return @view.browser.windows.last
+      end
+
+      def browser_popup_close
+        @view.browser.windows.last.close
+      end
+
       def home_click
         @view.home_tab.when_present.click
       end
 
+      def home_dropdown_click
+        @view.home_dd.when_present.click
+      end
+
+      def home_dd_go_home_click
+        @view.home_dd_go_home.when_present.click
+      end
+
+      def home_dd_manage_preferences_click
+        @view.home_dd_manage_preferences.when_present.click
+      end
+
+      def home_dd_find_account_click
+        @view.home_dd_find_account.when_present.click
+      end
+
+      def home_dd_add_gift_click
+        @view.home_dd_add_gift.when_present.click
+      end
+
+      def home_dd_manage_comms_click
+        @view.home_dd_manage_comms.when_present.click
+      end
+
+      def home_dd_best_practices_click
+        @view.home_dd_best_practices.when_present.click
+      end
+
+      def home_dd_give_feedback_click
+        @view.home_dd_give_feedback.when_present.click
+      end
+
+      def home_dd_help_click
+        @view.home_dd_help.when_present.click
+      end
+
+      def home_dd_scheduled_items_click
+        @view.home_dd_scheduled_items.when_present.click
+      end
+
+      def home_dd_dropbox_click
+        @view.home_dd_dropbox.when_present.click
+      end
+
+      def home_dd_wizard_click
+        @view.home_dd_wizard.when_present.click
+      end
+
+
       def accounts_click
         @view.accounts_tab.when_present.click
+      end
+
+      def accounts_dropdown_click
+        @view.accounts_dd.when_present.click
+      end
+
+      def accounts_dd_find_account_click
+        @view.accounts_dd_find_account.when_present.click
+      end
+
+      def accounts_dd_add_account_click
+        @view.accounts_dd_add_account.when_present.click
       end
 
       def giving_click
         @view.giving_tab.when_present.click
       end
 
+      def giving_dropdown_click
+        @view.giving_dd.when_present.click
+      end
+
+      def giving_dd_add_gift_click
+        @view.giving_dd_add_gift.click
+      end
+
+      def giving_dd_import_gifts_click
+        @view.giving_dd_import_gifts.click
+      end
+
+      def giving_dd_giving_dynamics_click
+        @view.giving_dd_giving_dynamics.click
+      end
+
+      def giving_dd_top_donor_click
+        @view.giving_dd_top_donor.click
+      end
+
+      def giving_dd_pledge_report_click
+        @view.giving_dd_pledge_report.click
+      end
+
+      def giving_dd_fund_activity_click
+        @view.giving_dd_fund_activity.click
+      end
+
+      def giving_dd_donor_cash_click
+        @view.giving_dd_donor_cash.click
+      end
+
+      def giving_dd_prospect_research_click
+        @view.giving_dd_prospect_research.click
+      end
+
+      def giving_dd_planned_giving_click
+        @view.giving_dd_planned_giving.click
+      end
+
+      def giving_dd_cultivation_tools_click
+        @view.giving_dd_cultivation_tools.click
+      end
+
       def communications_click
         @view.communications_tab.when_present.click
+      end
+
+      def communications_dropdown_click
+        @view.communications_dd.when_present.click
+      end
+
+      def communications_dd_manage_comms_click
+        @view.communications_dd_manage_comms.click
+      end
+
+      def communications_add_category_click
+        @view.communications_add_category.click
+      end
+
+      def communications_constant_contact_click
+        @view.communications_constant_contact.click
       end
 
       def queries_click
         @view.queries_tab.when_present.click
       end
 
+      def queries_dropdown_click
+        @view.queries_dd.click
+      end
+
+      def queries_dd_manage_click
+        @view.queries_dd_manage.click
+      end
+
+      def queries_dd_add_category_click
+        @view.queries_dd_add_category.click
+      end
+
+      def queries_dd_base_click
+        @view.queries_dd_base.click
+      end
+
+      def queries_dd_journal_entry_click
+        @view.queries_dd_journal_entry.click
+      end
+
+      def queries_dd_constit_journal_entry_click
+        @view.queries_dd_constit_journal_entry.click
+      end
+
+      def queries_dd_lybunt_click
+        @view.queries_dd_lybunt.click
+      end
+
+      def queries_dd_pledges_payments_click
+        @view.queries_dd_pledges_payments.click
+      end
+
+      def queries_dd_processed_trans_click
+        @view.queries_dd_processed_trans.click
+      end
+
+      def queries_dd_security_click
+        @view.queries_dd_security.click
+      end
+
       def reports_click
         @view.reports_tab.when_present.click
+      end
+
+      def reports_dropdown_click
+        @view.reports_dd.when_present.click
+      end
+
+      def reports_dd_manage_reports_click
+        @view.reports_dd_manage_reports.click
+      end
+
+      def reports_dd_rel_filters_click
+        @view.reports_dd_relationship_filters.click
+      end
+
+      def reports_dd_system_click
+        @view.reports_dd_system.click
+      end
+
+      def reports_dd_top_donor_click
+        @view.reports_dd_top_donor.click
+      end
+
+      def reports_dd_journal_click
+        @view.reports_dd_journal.click
+      end
+
+      def reports_dd_recency_click
+        @view.reports_dd_recency.click
+      end
+
+      def reports_dd_shared_click
+        @view.reports_dd_shared.click
+      end
+
+      def reports_dd_aging_pledge_click
+        @view.reports_dd_aging_pledge.click
+      end
+
+      def reports_dd_standard_click
+        @view.reports_dd_standard.click
+      end
+
+      def reports_dd_benchmark_click
+        @view.reports_dd_benchmark.click
       end
 
       def management_click

@@ -34,100 +34,111 @@ Feature: Critical Process - General Navigation
     | Queries        | Query Categories         |
     | Reports        | Report Categories        |
     | Management     | Management               |
-#
-#  Scenario Outline:  Home SubMenu Navigation
+
+  Scenario Outline:  Home SubMenu Navigation
+    Given I click on the Home drop down
+    When I click on <submenu option> on the home menu
+    Then I should be taken to <expected result>
+
+  Examples:
+    | submenu option              | expected result              |
+    | Go to Home                  | Home                         |
+    | Manage User Preferences     | User Preferences             |
+    | Find an Account             | Find Account                 |
+    | Add a Gift or Pledge        | Quick Gift Entry             |
+    | Manage Communications       | Communication Categories     |
+    | Open My Scheduled Items     | My Scheduled Items           |
+    | Open My Drop Box            | Drop Box                     |
+    | Getting Started Wizard      | Getting Started Wizard       |
+
+
+
+#  Scenario Outline:  Home SubMenu Navigation for URLs
 #    Given I click on the Home drop down
-#    When I click on <submenu option>
-#    Then I should be taken to <expected result>
+#    When I click on <submenu option> on the home menu
+#    Then I should be taken to the URL <expected result>
 #
 #  Examples:
-#    | submenu option              | expected result                                                                                           |
-#    | View My Dashboard           | Dashboard page                                                                                            |
-#    | Manage User Preferences     | User Preference page                                                                                      |
-#    | Find an Account             | Quick Find page                                                                                           |
-#    | Add a Gift or Pledge        | Quick Gift Entry page                                                                                     |
-#    | Manage Communications       | Communications category page                                                                              |
-#    | Learn Best Practices        | https://www.blackbaud.com/files/support/helpfiles/etapestry/etapestry/Content/ETAPBestPracticesIntro.html |
-#    | Give Feedback on Idea Bank  | https://etapestry.uservoice.com/forums/17015-etapestry-idea-bank                                          |
-#    | Help                        | https://www.blackbaud.com/files/support/helpfiles/etapestry/etapestry/default.html                        |
-#    | Open My Scheduled Items     | My Scheduled Items page                                                                                   |
-#    | Open My Drop Box            | Drop Box                                                                                                  |
-#    | Getting Started Wizard      | Getting Started Wizard                                                                                    |
+#    | submenu option              | expected result              |
+##    | Learn Best Practices        | https://www.blackbaud.com/files/support/helpfiles/etapestry/etapestry/Content/ETAPBestPracticesIntro.html |
+#    | Give Feedback on Idea Bank  | 'https://etapestry.uservoice.com/forums/17015-etapestry-idea-bank'                                          |
+#    | Help                        | 'https://www.blackbaud.com/files/support/helpfiles/etapestry/etapestry/default.html'                        |
+
+
+  Scenario Outline:  Accounts SubMenu Navigation
+    Given I click on the Accounts drop down
+    When I click on <submenu option> on the accounts menu
+    Then I should be taken to <expected result>
+
+  Examples:
+    | submenu option  | expected result   |
+    | Find an Account | Find Account   |
+    | Add an Account  | New Account Page  |
 #
-#  Scenario Outline:  Accounts SubMenu Navigation
-#    Given I click on the Accounts drop down
-#    When I click on <submenu option>
-#    Then I should be taken to <expected result>
-#
-#  Examples:
-#    | submenu option  | expected result   |
-#    | Find an Account | Quick Find page   |
-#    | Add an Account  | New Account Page  |
-#
-#  Scenario Outline:  Giving SubMenu Navigation
-#    Given I click on the Giving drop down
-#    When I click on <submenu option>
-#    Then I should be taken to <expected result>
-#
-#  Examples:
-#    | submenu option          | expected result                   |
-#    | Add a Gift or Pledge    | Quick Gift Entry page             |
-#    | Import Gifts            | Import Categories page            |
-#    | Banking Import          | Banking Import page               |
-#    | Giving Dynamics Report  | Giving Dynamics launch page       |
-#    | Top Donor Report        | Top Donor launch page             |
-#    | Pledge Report           | Pledge Report launch page         |
-#    | Fund Activity Summary   | Fund Activity Summary launch page |
-#    | Donor Cash Projection   | Donor Cash Projection launch page |
-#    | Prospect Research       | Prospect Research page            |
-#    | Planned Giving Calcs    | Planned Giving Calculators page   |
-#    | Cultivation Tools       | Cultivation Tools page            |
-#
-#  Scenario Outline:  Communications SubMenu Navigation
-#    Given I click on the Communications drop down
-#    When I click on <submenu option>
-#    Then I should be taken to <expected result>
-#
-#  Examples:
-#    | submenu option          | expected result                     |
-#    | Manage Communications   | Correspondence categories page      |
-#    | Add a New Category      | Create Correspondence category page |
-#    | Constant Contact        | eTapestry & Constant Contact page   |
-#
-#  Scenario Outline:  Queries SubMenu Navigation
-#    Given I click on the Queries drop down
-#    When I click on <submenu option>
-#    Then I should be taken to <expected result>
-#
-#  Examples:
-#    | submenu option                 | expected result                                     |
-#    | Manage Queries                 | Query categories page                               |
-#    | Add a New Category             | Create Correspondence category page                 |
-#    | Base                           | Edit Query Category: Base                           |
-#    | Journal Entry Date             | Edit Query Category: Journal Entry Date             |
-#    | Constituent Journal Entry Date | Edit Query Category: Constituent Journal Entry Date |
-#    | LYBUNT & SYBUNT                | Edit Query Category: LYBUNT & SYBUNT                |
-#    | Pledges and Payments           | Edit Query Category: Pledges and Payments           |
-#    | Processed Transactions         | Edit Query Category: Processed Transactions         |
-#    | eTapestry Security             | Edit Query Category: eTapestry Security             |
-#
-#  Scenario Outline:  Reports SubMenu Navigation
-#    Given I click on the Reports drop down
-#    When I click on <submenu option>
-#    Then I should be taken to <expected result>
-#
-#  Examples:
-#    | submenu option               | expected result                  |
-#    | Manage Reports               | Report categories page           |
-#    | Relationship Filters         | Relationship Filters page        |
-#    | System                       | Edit Report Category: System     |
-#    | Top Donor Report             | Launch Top Donor Report          |
-#    | Journal Entry List           | Launch Journal Entry List        |
-#    | Recency Report               | Launch Recency Report            |
-#    | Shared Links Report          | Launch Shared Links Report       |
-#    | Aging Pledge Summary         | Launch Aging Pledge Summary      |
-#    | eTapestry Standard Reports   | eTapestry Standard Reports page  |
-#    | eTapestry Benchmark Reports  | eTapestry Benchmark Reports page |
+  Scenario Outline:  Giving SubMenu Navigation
+    Given I click on the Giving drop down
+    When I click on <submenu option> on the giving menu
+    Then I should be taken to <expected result>
+
+  Examples:
+    | submenu option          | expected result                   |
+    | Add a Gift or Pledge    | Quick Gift Entry                  |
+    | Import Gifts            | Import Categories page            |
+##    | Banking Import          | Banking Import page               |
+    | Giving Dynamics Report  | Giving Dynamics launch page       |
+    | Top Donor Report        | Top Donor launch page             |
+    | Pledge Report           | Pledge Report launch page         |
+    | Fund Activity Summary   | Fund Activity Summary launch page |
+    | Donor Cash Projection   | Donor Cash Projection launch page |
+    | Prospect Research       | Prospect Research page            |
+    | Planned Giving Calcs    | Planned Giving Calculators page   |
+    | Cultivation Tools       | Cultivation Tools page            |
+
+  Scenario Outline:  Communications SubMenu Navigation
+    Given I click on the Communications drop down
+    When I click on <submenu option> on the communications menu
+    Then I should be taken to <expected result>
+
+  Examples:
+    | submenu option          | expected result                     |
+    | Manage Communications   | Communication Categories      |
+    | Add a New Category      | Create Correspondence category page |
+    | Constant Contact        | eTapestry & Constant Contact page   |
+
+  Scenario Outline:  Queries SubMenu Navigation
+    Given I click on the Queries drop down
+    When I click on <submenu option> on the queries menu
+    Then I should be taken to <expected result>
+
+  Examples:
+    | submenu option                 | expected result                                      |
+    | Manage Queries                 | Query Categories                                     |
+    | Add a New Category             | Create Query category page                           |
+    | Base                           | Edit Query Category: Base                            |
+    | Journal Entry Date             | Edit Query Category: Journal Entry Date             |
+    | Constituent Journal Entry Date | Edit Query Category: Constituent Journal Entry Date |
+    | LYBUNT & SYBUNT                | Edit Query Category: LYBUNT & SYBUNT                |
+    | Pledges and Payments           | Edit Query Category: Pledges and Payments           |
+    | Processed Transactions         | Edit Query Category: Processed Transactions         |
+    | eTapestry Security             | Edit Query Category: eTapestry Security             |
+
+  Scenario Outline:  Reports SubMenu Navigation
+    Given I click on the Reports drop down
+    When I click on <submenu option> on the reports menu
+    Then I should be taken to <expected result>
+
+  Examples:
+    | submenu option               | expected result                  |
+    | Manage Reports               | Report Categories                |
+    | Relationship Filters         | Relationship Filters page        |
+    | System                       | Edit Report Category: System     |
+    | Top Donor Report             | Launch Top Donor Report          |
+    | Journal Entry List           | Launch Journal Entry List        |
+    | Recency Report               | Launch Recency Report            |
+    | Shared Links Report          | Launch Shared Links Report       |
+    | Aging Pledge Summary         | Launch Aging Pledge Summary      |
+    | eTapestry Standard Reports   | eTapestry Standard Reports page  |
+    | eTapestry Benchmark Reports  | eTapestry Benchmark Reports page |
 #
 #  Scenario Outline:  Management SubMenu Navigation
 #    Given I click on the Management drop down
