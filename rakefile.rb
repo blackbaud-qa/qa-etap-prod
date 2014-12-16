@@ -19,3 +19,5 @@ module RakeHelper
   end
 end
 
+RakeHelper.cucumber_task(:quick_find, "features/critical_process/find_account/quick_find.feature")
+RakeHelper.cucumber_task(:sub_menu_nav, "features/critical_process/navigation/menu_submenu_nav.feature")
