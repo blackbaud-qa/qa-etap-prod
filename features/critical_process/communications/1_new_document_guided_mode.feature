@@ -36,7 +36,7 @@ Feature: Creating a new communications template
     And set the query to Donations Made Last Year
     And click Next
     And set the document type to PDF
-    And change Grouping to One Document Per Account
+    And set the Grouping to One Document Per Journal Entry
     And click Next
     And click Next
     And set Receiving to Download documents
@@ -75,7 +75,7 @@ Feature: Creating a new communications template
     And set the query to Donations Made Last Year
     And click Next
     And set the document type to Word
-    And change Grouping to One Document Per Account
+    And set the Grouping to One Document Per Journal Entry
     And click Next
     And click Next
     And set Receiving to Download documents
