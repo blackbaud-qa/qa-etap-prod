@@ -8,6 +8,11 @@ module Cukesetaptesting
         @view.find_button.when_present.click
       end
 
+      def advanced_click
+        @view.advanced_link.when_present.click
+      end
+
+
       def exact_match_click
         @view.exact_button.when_present.click
       end
@@ -21,6 +26,11 @@ module Cukesetaptesting
       def search_field_contains?(text)
         return @view.search_field.when_present.value.include? text
       end
+
+      def email_field_contains?(text)
+        return @view.email_field.when_present.value.include? text
+      end
+
 
 #Role memebers-  may be able to move to a new class, but likely unnecessary
       def role_icon_click
