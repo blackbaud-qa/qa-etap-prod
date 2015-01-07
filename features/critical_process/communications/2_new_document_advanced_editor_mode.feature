@@ -34,7 +34,7 @@ Feature: Creating a new communications template
     And set the Category to Donation Queries
     And set the query to Donations Made Last Year
     And click Next
-    And set the document type to PDF
+    And set the document type to Word
     And set the Grouping to One Document Per Journal Entry
     And click Next
     And click Next
@@ -42,7 +42,7 @@ Feature: Creating a new communications template
     And click Next
     And click Next
     And click Run
-    Then the PDF document should generate
+    Then the Word document should generate
     And when you open the file it should contain X pages
     And the document should display properly with your changes
 
@@ -60,20 +60,21 @@ Feature: Creating a new communications template
     And hover over the Letter Closing
     And click the red X to delete the block
     And select Receipt Stub Copy from the Add Block list
-    And move the Receipt Stub Copy above the Receipt Stub
-    And click on the Body to open the Edit Contents pop up
+    And move the Receipt Stub Copy block above the Receipt Stub block
+    And click Advanced Modes
+    And click Advanced Editor Mode
+    And click Yes
     And double click on the Long Salutation merge tag
     And set the Field to Short Salutation
     And click Insert
-    And select all the text in the Body
+    And select all the text in the template
     And set the font to Times New Roman
     And set the size to 12pt
-    And click Update
     And click Save And Create Document
     And set the Category to Donation Queries
     And set the query to Donations Made Last Year
     And click Next
-    And set the document type to Word
+    And set the document type to PDF
     And set the Grouping to One Document Per Journal Entry
     And click Next
     And click Next
@@ -81,7 +82,7 @@ Feature: Creating a new communications template
     And click Next
     And click Next
     And click Run
-    Then the Word document should generate
+    Then the PDF document should generate
     And when you open the file it should contain X pages
     And the document should display properly with your changes
     And fields should be aligned properly

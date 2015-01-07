@@ -28,7 +28,7 @@ Feature: Creating a new communications template
     And set the font to Comic Sans
     And set the size to 12pt
     And click Update
-    And click on the Letter Closing to open the Edit Contents pop up
+    And click on the Letter Closing block to open the Edit Contents pop up
     And change the email address to qa-1@blackbaud.com
     And click Update
     And click Save And Create Document
@@ -58,11 +58,11 @@ Feature: Creating a new communications template
     And click Next
     And click Documents
     And click on the Receipt w/ Stub (Bottom) template
-    And hover over the Letter Closing
+    And hover over the Letter Closing block
     And click the red X to delete the block
     And select Receipt Stub Copy from the Add Block list
-    And move the Receipt Stub Copy above the Receipt Stub
-    And click on the Body to open the Edit Contents pop up
+    And move the Receipt Stub Copy block above the Receipt Stub block
+    And click on the Body block to open the Edit Contents pop up
     And double click on the Long Salutation merge tag
     And set the Field to Short Salutation
     And click Insert

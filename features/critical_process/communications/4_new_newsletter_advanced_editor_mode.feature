@@ -37,7 +37,7 @@ Feature: Creating a new communications template
     And highlight Email Us
     And create a hyperlink to mailto:qa-1@blackbaud.com
     And click Save And Mass Email
-    And select Basic Mass Email
+    And select Advanced Mass Email
     And set the Category to Custom Account Queries
     And set the query to Talisha Almond
     And click Next
