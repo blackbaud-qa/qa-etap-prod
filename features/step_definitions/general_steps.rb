@@ -8,6 +8,8 @@ When(/^I close the browser$/) do
   search.close_browser
 end
 
+
+
 Given(/^The home page is loaded$/) do
   land = Admin::Landing.new
   #add element to check on landing controller

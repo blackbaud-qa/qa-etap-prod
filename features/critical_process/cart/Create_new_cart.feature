@@ -1,104 +1,92 @@
 Feature: Create a new Cart
 
-Background:
-Given I am logged into eTap
-And I have a Cart page listed under eStore (Cart)
+#Background:
+#Given I am logged into eTap
+#And I have a Cart page listed under eStore (Cart)
 
-Scenario: Create New Category
-  Given I am logged into eTap
-  And I click on the drop down arrow next to management
-  And under Online Presence I click on eStore (Cart)
-  And I click on Cart
-  And I click on new Category
-  And I name it Category 1
-  And I put in a description called Description
-  And I click on Align Center
-  And I click on start date of today
-  And I click on choose file under Category Image
-  And I choose cartimage.jpg
-  And I click on open
-  When I click on Save Category
-  Then I should see the Category 1 listed
+#Note: File paths for images look for the 'image_path' setting in config.yml
 
-Scenario: Create new Item
-  Given I am logged into eTap
-  Given I am in Cart
-  Given I am in Category 1
-  And I click on new item under Tasks
-  And in the name field I type in Item 1
-  And in the Short Description field I type in Short description
-  And I highlight Short Description
-  And I click on increase indent
-  And in the Long Description box I click on Font Family
-  And I choose Ariel Black
-  And I type in the words Long Description
-  And I choose from Financial Information, Item Deductibility, Fully Non-Deductible
-  And I type in regular price of $1.00
-  And I click on Start date of today under Publish Information
-  And I click on Next to Step 2
-  And On Thumb I click on Choose File
-  And I click on itemimage1.jpg
-  And I click on open
-  And On Regular I click on Choose File
-  And I click on itemimage2.jpg
-  And I click on open
-  And I click on next to Step 3
-  And I click on the Vendor field under Internal information
-  And I type in Vendor
-  And I type in Vendor price of $1.00
-  And I type in stock number 1
-  And I type in Unit 1
-  And I type in ID 1
-  And I chose Fund General under Transaction Attributes
-  Amd I click next to Step 4
-  And I click on the drop down box next to field name
-  And I choose Test
-  And I type in test in the display text
-  And I click add
-  When I click next to Step 5
-  Then I should see Test listed as an item under Category 1
+#Scenario: Create New Category
+#  Given I click on the Management drop down
+#  And I click on eStore (Cart) on the management menu
+#  And I click on new Category on the cart page
+#  And I name it 'Category 1' on create cart category
+#  And I put in a description called 'Description' on create cart category
+#  And I click on Align Center on create cart category
+#  And I click on start date of today on create cart category
+#  And I select a file under Category Image on create cart category
+#  When I click on Save Category on create cart category
+#  Then I should see the 'Category 1' listed on the cart page
 
- Scenario: Edit Cart Preferences
-   Given I am logged into eTap
-   Given I am in Cart
-   Given I am Category 1
-   And I click on Edit Cart Preferences
-   And I click next past step 1
-   And I am on step 2 Online Options
-   And I type in Cart Name Name
-   And I accept the default Category Header
-   And I accept the default No Quantity Label
-   And in the Welcome Message Tile I click on the drop down next to Text color
-   And I choose Black
-   And I type in Welcome
-   And I am in the Order Success Message section I choose B for Bold
-   And I am in the Order Success Message and I type in Success
-   And I am in the Checkout Questions I choose under Add Question Field Name Base:Account Type
-   And I type in Display Text Text
-   And I accept the default Apply To: Constituents
-   And I click on Add
-   And I click Next to Step 3
-   And I accept the default Chisel Cart Template
-   And I click next to Step 4
-   And I click on the drop down next to Email Template
-   And I choose Cart Templates-Order Details
-   And I type in Notification eMail test@any.com
-   And I type in Confirmation Sender test1@any.com
-   And I click Next to Step 5
-   And in Default Order Item Transaction Attributes I choose Fund General
-   And in Shipping Transaction Attributes I click on the drop down next to Fund
-   And I choose General
-   And I leave Transaction Attributes blank
-   And I click next to Step 6
-   And I accept the defaults
-   And I click next to Step 7
-   And I keep shipping fees set to blank
-   And I click next to Step 8
-   And I accept the default time zone
-   And I click on the drop down next to Transaction Processor
-   And I choose the default Processor
-   And I click next to finish
-
+#Scenario: Create new Item
+#  Given I click on the Management drop down
+#  And I click on eStore (Cart) on the management menu
+#  And I click on 'Category 1' on the cart page
+#  And I click on new item under Tasks on the cart page
+#  And  I type 'Item 1' in the name field on the cart item page
+#  And I type 'Short description' in the short description field on the cart item page
+#  And I highlight the text in the short description field on the cart item page
+#  And I click on increase indent in the short description field on the cart item page
+#  And I click Font Family in the long description field on the cart item page
+#  And I click on Ariel Black under Font Family in the long description field on the cart item page
+#  And I type 'Long Description' in the Long Description box on the cart item page
+#  And I choose from Financial Information, Item Deductibility, Fully Non-Deductible on the cart item page
+#  And I type in regular price of '$1.00' on the cart item page
+#  And I click on Start date of today under Publish Information on the cart item page
+#  And I click on Next on the cart item page
+#  And I select a file under Thumb on the cart item page
+#  And I select a file under Regular on the cart item page
+#  And I click on Next on the cart item page
+#  And I type in 'Vendor' in the Vendor field on the cart item page
+#  And I type in Vendor price of '$1.00' on the cart item page
+#  And I type in stock number '1' on the cart item page
+#  And I type in Unit '1' on the cart item page
+#  And I type in ID '1' on the cart item page
+#  And I chose Fund General under Transaction Attributes
+#  And I click on Next on the cart item page
+#  And I click on the drop down box next to field name on the cart item page
+#  And I choose Test on the field combo box on the cart item page
+#  And I type in 'test' in the display text on the cart item page
+#  And I click add on the cart item page
+#  And I click on Next on the cart item page
+#  Then I should see 'Item 1' listed as an item under Category 1
+#
+Scenario: Edit Cart Preferences
+  Given I click on the Management drop down
+  And I click on eStore (Cart) on the management menu
+#  And I click on 'Category 1' on the cart page
+   And I click on Edit Cart Preferences on the cart page
+   And I click next on the edit cart page
+   And I type in 'Name' for Cart Name on the edit cart page
+#   And I accept the default Category Header
+#   And I accept the default No Quantity Label
+   And I click on the drop down next to Text color in Welcome Message on the edit cart page
+   And I choose Black as the Text color in Welcome Message on the edit cart page
+   And I type in 'Welcome' in Welcome Message on the edit cart page
+   And I choose B for Bold in the Order Success Message section on the edit cart page
+   And I type in 'Success' in the Order Success Message on the edit cart page
+   And I choose Base:Account Type under Add Question Field Name in Checkout Questions on the edit cart page
+   And I type in 'Text' in Display Text under Add Question Field Name in Checkout Questions on the edit cart page
+#   And I accept the default Apply To: Constituents
+   And I click on Add under Add Question Field Name in Checkout Questions on the edit cart page
+   And I click next on the edit cart page
+#   And I accept the default Chisel Cart Template
+   And I click next on the edit cart page
+   And I choose 'Cart Templates - Order Details' on the Email Template drop down on the edit cart page
+   And I type 'test@any.com' in Notification Email on the edit cart page
+   And I type 'test1@any.com' in Confirmation Sender on the edit cart page
+   And I click next on the edit cart page
+   And I choose General in Fund under Default Order Item Transaction Attributes on the edit cart page
+   And I choose General in Fund under Shipping Transaction Attributes on the edit cart page
+   And I click next on the edit cart page
+#   And I accept the defaults for page 6
+   And I click next on the edit cart page
+#   And I keep shipping fees set to blank on page 7
+   And I click next on the edit cart page
+   And I choose the default Processor on the drop down next to Transaction Processor on the edit cart page
+#   And I click next to finish
+  And I click next on the edit cart page
+#What are we testing for??
 
 
 
