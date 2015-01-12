@@ -53,6 +53,7 @@ module Cukesetaptesting
       keyword(:edit_cart_confirmation_sender) {cart_edit_page.text_field(:name,'preferences.confirmationSender')}
       keyword(:edit_cart_default_order_attributes) {cart_edit_page.img(:id,'refPopulate(preferences.itemIntent)_comboArrow')}
       keyword(:edit_cart_default_order_attributes_general) {content.div(:id,'refPopulate(preferences.itemIntent)_comboAllList_valueRow_39.0.3392')}
+      keyword(:edit_cart_content_frame) {cart_edit_page.div(:class,'taskContentRight')}
       keyword(:edit_cart_shipping_attributes) {cart_edit_page.img(:id,'refPopulate(preferences.shippingIntent)_comboArrow')}
       keyword(:edit_cart_shipping_attributes_general) {content.div(:id,'refPopulate(preferences.shippingIntent)_comboAllList_valueRow_39.0.3392')}
       keyword(:edit_cart_transaction_processor) {cart_edit_page.select_list(:name,'refPopulate(preferences.namedTransactionProcessor)')}

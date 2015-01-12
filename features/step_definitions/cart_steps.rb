@@ -177,6 +177,7 @@ end
 
 When(/^I click next on the edit cart page/) do
   cart = Admin::Cart.new()
+  cart.edit_cart_wait_for_load
   cart.edit_cart_next_click
 end
 
@@ -252,6 +253,11 @@ When(/^I choose General in Fund under Shipping Transaction Attributes on the edi
   cart = Admin::Cart.new()
   cart.edit_cart_shipping_attributes_click
   cart.edit_cart_shipping_attributes_general_click
+end
+
+When(/^I wait for the page to load on the edit cart page/) do
+  cart = Admin::Cart.new()
+  cart.edit_cart_wait_for_load
 end
 
 When(/^I choose the default Processor on the drop down next to Transaction Processor on the edit cart page/) do
