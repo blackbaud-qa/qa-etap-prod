@@ -4,6 +4,12 @@ module Cukesetaptesting
       @model = LandingModel
       @view = LandingView
 
+
+      def dynamic_search_click
+        @view.dynamic_search_button.when_present.click
+
+      end
+
       def logged_in?
         return @view.browser.text.include?'Logout'
       end

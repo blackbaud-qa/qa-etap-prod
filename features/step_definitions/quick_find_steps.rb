@@ -3,8 +3,6 @@ When(/^I type '([^']*)' into the search field$/) do |name|
   search.create
 end
 
-
-
 When(/^I click Find$/) do
   search = Account::Search.new
   search.find_click

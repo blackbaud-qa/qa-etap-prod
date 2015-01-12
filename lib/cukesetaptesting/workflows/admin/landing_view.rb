@@ -1,6 +1,10 @@
 module Cukesetaptesting
   module Admin
     class LandingView < BaseView
+      #dynamic search
+      keyword(:dynamic_search) {content.div(:id,"menuAccountSearch").text_field(:class, "searchInput")}
+      keyword(:dynamic_search_button) {content.div(:id,"menuAccountSearch").img(:class, "searchIcon")}
+
       keyword(:logout_frame) {browser.iframe(:name, "content")}
       #keyword(:accounts) {logout_frame.element(:css=> '#accountTab a')}
 

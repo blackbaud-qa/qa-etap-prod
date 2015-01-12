@@ -23,5 +23,4 @@ And(/^I type '([^']*)' into the Email field$/) do |email|
   search = Account::AdvancedSearch.new(:email_field=>email)
   search.clear_name_field
   search.create
-
 end

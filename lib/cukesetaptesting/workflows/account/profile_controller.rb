@@ -4,6 +4,10 @@ module Cukesetaptesting
       @model = ProfileModel
       @view = ProfileView
 
+    def journal_link_click
+      @view.journal_link.when_present.click
+    end
+
     def constit_name_exists?(name)
       return @view.constit_summary.when_present.text.include? name
     end
