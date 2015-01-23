@@ -8,7 +8,9 @@ Feature: Creating a new communications template
 #    Given I am logged into eTap
     Given I click Communications on the main menu
     And I click Thank You Letters on the Correspondence Categories page
-    And I click New Email or Document Template on the Thank You Letters page
+    And I rename the existing letter to prevent automation errors
+#    And I click New Email or Document Template on the Thank You Letters page
+    And I click New Email or Document Template on the Correspondence Category page
     And I set the Name to 'Simple Business Letter - Guided Mode' on the new Correspondence Template page
     And I press Tab on the keyboard
 #    And verify that the Subject now says Simple Business Letter - Guided Mode
@@ -45,24 +47,30 @@ Feature: Creating a new communications template
     And I set Receiving to Download documents on the Generate Letters page
     And I click Next on the Generate Letters page
     And I click Next on the Generate Letters page
-    And I click Run on the Generate Letters page
+    #taking out this step until we know where to save the document and such
+#    And I click Run on the Generate Letters page
+  #Not sure if we have a good way of testing the PDF for the changes
 #    Then the PDF document should generate
 #    And when you open the file it should contain X pages
 #    And the document should display properly with your changes
 #
-#  Scenario: creating a Receipt with Stub in guided mode
+  Scenario: Creating a Receipt with Stub in guided mode
 #    Given I am logged into eTap
-#    When I click Communications on the main menu
-#    And click Receipts
-#    And click New Email or Document Template
-#    And set the Name to Receipt w/ Stub (Bottom) - Guided Mode
+    Given I click Communications on the main menu
+    And I click Receipts on the Correspondence Categories page
+    And I click New Email or Document Template on the Correspondence Category page
+#    And I set the Name to 'Receipt w/ Stub (Bottom) - Guided Mode'
+    And I set the Name to 'Receipt w/ Stub (Bottom) - Guided Mode' on the new Correspondence Template page
 #    And click Tab
+    And I press Tab on the keyboard
 #    And verify that the Subject now says Receipt w/ Stub (Bottom) - Guided Mode
 #    And click Next
+    And I click Next on the new Correspondence Template page
 #    And click Documents
-#    And click on the Receipt w/ Stub (Bottom) template
-#    And hover over the Letter Closing block
-#    And click the red X to delete the block
+    And I click Documents on the new Correspondence Template page
+    And I click on the Receipt w Stub Bottom template on the new Correspondence Template page
+#    And I hover over the Letter Closing block on the new Correspondence Template page
+#    And I click the red X to delete the block on the new Correspondence Template page
 #    And select Receipt Stub Copy from the Add Block list
 #    And move the Receipt Stub Copy block above the Receipt Stub block
 #    And click on the Body block to open the Edit Contents pop up

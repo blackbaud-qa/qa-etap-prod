@@ -2,6 +2,7 @@ module Cukesetaptesting
   module Communications
     class CreatetemplateView < BaseView
       keyword(:thank_you_category)  { comms_categories.a(:text, 'Thank You Letters') }
+      keyword(:category_letters) {comms_category.ul(:id,'list_templates')}
       keyword(:new_template) {comms_category.a(:text,'New Email or Document Template')}
       keyword(:new_template_name) {comm_template.text_field(:name,'template.name')}
       keyword(:new_template_nav) {comm_template.div(:class,'taskPaneLeft')}
@@ -27,7 +28,8 @@ module Cukesetaptesting
       keyword(:formats_12pt) {content.div(:id,'mceu_130')}
       keyword(:new_template_footer) {comm_template.div(:id,'guideFooter')}
       keyword(:new_template_select) {comm_template.select(:id,'nextMapping')}
-      # keyword(:new_template_save) {comm_template.a(:text,'Save and')}
+      keyword(:new_template_save) {comm_template.a(:text,'Save and')}
+      keyword(:new_template_settings) {comm_template.a(:text,'Settings')}
       # keyword(:new_template_save) {comm_template.tr(:id,'wizardWorkflowRow_3_taskWorkflow').img}
       keyword(:gen_letters_category) {letter_guide.select(:id,'select.query.category.1')}
       keyword(:gen_letters_query) {letter_guide.select(:id,'select.query.1')}
@@ -37,6 +39,9 @@ module Cukesetaptesting
       keyword(:gen_letters_content) {letter_guide.div(:class,'taskContentRight')}
       keyword(:gen_letters_recieving_download) {letter_guide.radio(:value,'label.download')}
       keyword(:gen_letters_run) {letter_guide.button(:id,'runButton')}
+      keyword(:correspondence_cat_receipts) {comms_categories.a(:text,'Receipts')}
+      keyword(:new_template_reciept_stub_bottom) {comm_template.div(:id,'tabContentlayoutsdocuments').label(:text,'Receipt w/ Stub (Bottom)').parent.a}
+      keyword(:new_template_delete_section) {content.div(:id,'letterGuideClickToEdit').div.p(:class,'hoverControls').a(:class,'delete')}
 
       def home(model)
       end

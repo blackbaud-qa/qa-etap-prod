@@ -9,6 +9,7 @@ Feature: Create a new Cart
 Scenario: Create New Category
   Given I click on the Management drop down
   And I click on eStore (Cart) on the management menu
+  And I rename the existing category to prevent automation errors
   And I click on new Category on the cart page
   And I name it 'Category 1' on create cart category
   And I put in a description called 'Description' on create cart category
@@ -30,7 +31,7 @@ Scenario: Create new Item
   And I click Font Family in the long description field on the cart item page
   And I click on Ariel Black under Font Family in the long description field on the cart item page
   And I type 'Long Description' in the Long Description box on the cart item page
-  And I choose from Financial Information, Item -Deductibility, Fully Non-Deductible on the cart item page
+  And I choose from Financial Information, Item-Deductibility, Fully Non-Deductible on the cart item page
   And I type in regular price of '$1.00' on the cart item page
   And I click on Start date of today under Publish Information on the cart item page
   And I click on Next on the cart item page
@@ -65,6 +66,7 @@ Scenario: Edit Cart Preferences
    And I type in 'Welcome' in Welcome Message on the edit cart page
    And I choose B for Bold in the Order Success Message section on the edit cart page
    And I type in 'Success' in the Order Success Message on the edit cart page
+   And I delete any existing checkout questions to prevent automation errors
    And I choose Base:Account Type under Add Question Field Name in Checkout Questions on the edit cart page
    And I type in 'Text' in Display Text under Add Question Field Name in Checkout Questions on the edit cart page
 #   And I accept the default Apply To: Constituents

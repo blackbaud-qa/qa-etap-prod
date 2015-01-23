@@ -3,9 +3,20 @@ Given(/^I click Thank You Letters on the Correspondence Categories page/) do
   letter.thank_you_category_click
 end
 
-Given(/^I click New Email or Document Template on the Thank You Letters page/) do
+Given(/^I click New Email or Document Template on the Correspondence Category page/) do
   letter = Communications::Createtemplate.new()
   letter.new_template_click
+end
+
+Given(/^I rename the existing letter to prevent automation errors/) do
+  letter = Communications::Createtemplate.new()
+  if(letter.letter_exists? 'Simple Business Letter - Guided Mode')
+    letter.letter_click('Simple Business Letter - Guided Mode')
+    name = 'Letter'+((0...8).map { (65 + rand(26)).chr }.join)
+    letter.new_template_settings_click
+    step "I set the Name to '#{name}' on the new Correspondence Template page"
+    letter.new_template_save_click
+  end
 end
 
 Given(/^I set the Name to '([^']*)' on the new Correspondence Template page/) do |name|
@@ -146,6 +157,31 @@ end
 Given(/^I click Run on the Generate Letters page/) do
   letter = Communications::Createtemplate.new()
   letter.gen_letters_wait_for_load
-  letter.gen_letters_run_click
+  unless letter.gen_letters_run_enabled?
+    sleep(1)
+  else
+    letter.gen_letters_run_click
+  end
+  # letter.gen_letters_run_click
+end
 
+
+Given(/^I click Receipts on the Correspondence Categories page/) do
+  letter = Communications::Createtemplate.new()
+  letter.correspondence_cat_receipts_click
+end
+
+Given(/^I click on the Receipt w Stub Bottom template on the new Correspondence Template page/) do
+  letter = Communications::Createtemplate.new()
+  letter.new_template_receipt_stub_bottom_click
+end
+
+Given(/^I hover over the Letter Closing block on the new Correspondence Template page/) do
+  letter = Communications::Createtemplate.new()
+  letter.new_template_footer_hover
+end
+
+Given(/^I click the red X to delete the block on the new Correspondence Template page/) do
+  letter = Communications::Createtemplate.new()
+  letter.new_template_delete_section_click
 end

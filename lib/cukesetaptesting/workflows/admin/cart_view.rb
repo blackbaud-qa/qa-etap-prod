@@ -44,6 +44,7 @@ module Cukesetaptesting
       keyword(:edit_cart_welcome) {cart_edit_page.iframe(:id,'welcomeMessage_ifr')}
       keyword(:edit_cart_order_success_bold) {cart_edit_page.div(:id,'mceu_48').div(:id,'mceu_29')}
       keyword(:edit_cart_order_success) {cart_edit_page.iframe(:id,'successMessage_ifr')}
+      keyword(:edit_cart_delete_question) {cart_edit_page.div(:id,'questionList').a}
       keyword(:edit_cart_question_field_name) {cart_edit_page.img(:id,'questionField_comboArrow')}
       keyword(:edit_cart_question_account_type) {content.div(:id,'questionField_comboAllList_valueRow_39.0.2667')}
       keyword(:edit_cart_question_display_text) {cart_edit_page.text_field(:id,'questionDisplayText')}

@@ -12,6 +12,23 @@ module Cukesetaptesting
         @view.new_template.when_present.click
       end
 
+      def letter_exists?(name)
+        return @view.category_letters.text.include? name
+      end
+
+      def letter_click(name)
+        @view.category_letters.a(:text,name).when_present.click
+      end
+
+      def new_template_settings_click
+        @view.new_template_settings.when_present.click
+      end
+
+      def new_template_save_click
+        @view.new_template_save.when_present.click
+      end
+
+
       def press_tab
         @view.browser.send_keys :tab
       end
@@ -130,10 +147,29 @@ module Cukesetaptesting
         @view.gen_letters_recieving_download.when_present.set
       end
 
+      def gen_letters_run_enabled?
+        return @view.gen_letters_run.enabled?
+      end
+
       def gen_letters_run_click
         @view.gen_letters_run.when_present.click
       end
 
+      def correspondence_cat_receipts_click
+        @view.correspondence_cat_receipts.when_present.click
+      end
+
+      def new_template_receipt_stub_bottom_click
+        @view.new_template_reciept_stub_bottom.when_present.click
+      end
+
+      def new_template_footer_hover
+        @view.new_template_footer.hover
+      end
+
+      def new_template_delete_section_click
+        @view.new_template_delete_section.when_present.click
+      end
     end
   end
 end

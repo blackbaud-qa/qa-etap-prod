@@ -4,6 +4,16 @@ When(/^I click on new Category on the cart page$/) do
   #pending
 end
 
+When(/^I rename the existing category to prevent automation errors/) do
+  cart = Admin::Cart.new
+  if(cart.category_exists? 'Category 1')
+    cart.category_click('Category 1')
+    name = 'Category'+((0...8).map { (65 + rand(26)).chr }.join)
+    step "I name it '#{name}' on create cart category"
+    step "I click on Save Category on create cart category"
+  end
+end
+
 When(/^I name it '([^']*)' on create cart category$/) do |name|
   cart = Admin::Cart.new(:new_category_name => name)
   cart.create
@@ -88,7 +98,7 @@ When(/^I type '([^']*)' in the Long Description box on the cart item page/) do |
   cart.set_long_description(desc)
 end
 
-When(/^I choose from Financial Information, Item Deductibility, Fully Non-Deductible on the cart item page/) do
+When(/^I choose from Financial Information, Item-Deductibility, Fully Non-Deductible on the cart item page/) do
   cart = Admin::Cart.new()
   cart.fully_non_deduct_click
 end
@@ -209,6 +219,11 @@ end
 When(/^I type in '([^']*)' in the Order Success Message on the edit cart page/) do |message|
   cart = Admin::Cart.new()
   cart.edit_cart_set_order_success(message)
+end
+
+When(/^I delete any existing checkout questions to prevent automation errors/) do
+  cart = Admin::Cart.new()
+  cart.edit_cart_delete_question_click
 end
 
 When(/^I choose Base:Account Type under Add Question Field Name in Checkout Questions on the edit cart page/) do
