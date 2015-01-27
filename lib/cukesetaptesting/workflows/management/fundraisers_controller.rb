@@ -20,6 +20,10 @@ module Cukesetaptesting
         @view.new_fundraiser_next.when_present.click
       end
 
+      def new_fundraiser_set_template_float
+        @view.new_fund_templatefloat.when_present.set
+      end
+
     end
   end
 end

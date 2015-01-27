@@ -13,10 +13,10 @@ Feature: Creating a new fundraiser
     And I set Status to Active on the new Fundraiser page
     And I set the Goal to '$5000' on the new Fundraiser page
     And I click Next on the new Fundraiser page
-#    And set the Site Name to qafundraiser[X]
-#    And set Administrative Contact Name to QA Team
-#    And Administrative Contact Email to qa-1@blackbaud.com
-#    And Set the template to Float
+    And I set the Site Name to 'qafundraiser1' on the new Fundraiser page
+    And I set Administrative Contact Name to 'QA Team' on the new Fundraiser page
+    And I set Administrative Contact Email to 'qa-1@blackbaud.com' on the new Fundraiser page
+    And I set the template to Float on the new Fundraiser page
 #    And I click Next on the new Fundraiser page
 #    And change the Main Page Text to say "Welcome to QA's wonderful fundraiser!"
 #    And highlight the Main Page Text

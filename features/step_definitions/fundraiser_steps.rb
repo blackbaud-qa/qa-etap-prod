@@ -33,3 +33,23 @@ And(/^I click Next on the new Fundraiser page/) do
   fund = Management::Fundraisers.new()
   fund.new_fundraiser_next_click
 end
+
+And (/^I set the Site Name to '([^']*)' on the new Fundraiser page/) do |sitename|
+  fund = Management::Fundraisers.new(:new_fund_sitename => sitename)
+  fund.create
+end
+
+And (/^I set Administrative Contact Name to '([^']*)' on the new Fundraiser page/) do |contactname|
+  fund = Management::Fundraisers.new(:new_fund_contactname => contactname)
+  fund.create
+end
+
+And (/^I set Administrative Contact Email to '([^']*)' on the new Fundraiser page/) do |contactemail|
+  fund = Management::Fundraisers.new(:new_fund_contactemail => contactemail)
+  fund.create
+end
+
+And (/^I set the template to Float on the new Fundraiser page/) do
+  fund = Management::Fundraisers.new()
+  fund.new_fundraiser_set_template_float
+end

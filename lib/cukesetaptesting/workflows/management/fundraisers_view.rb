@@ -8,7 +8,10 @@ module Cukesetaptesting
       keyword(:new_fundraiser_status) {content.select(:name,'enumPopulate(event.status)')}
       keyword(:new_fund_goal) {content.text_field(:name,'currencyPopulate(event.goal)')}
       keyword(:new_fundraiser_next) {content.input(:id,'wizardNavigationNext_1')}
-
+      keyword(:new_fund_sitename) {content.text_field(:name,'eventOptions.siteName')}
+      keyword(:new_fund_contactname) {content.text_field(:name,'eventOptions.contactName')}
+      keyword(:new_fund_contactemail) {content.text_field(:name,'eventOptions.contactEmail')}
+      keyword(:new_fund_templatefloat) {content.radio(:id,'label.float')}
 
       def home(model)
       end
