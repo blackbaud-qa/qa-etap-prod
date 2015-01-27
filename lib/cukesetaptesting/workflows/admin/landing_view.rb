@@ -76,15 +76,15 @@ module Cukesetaptesting
       keyword(:queries_dd_journal_entry) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2791')}
       keyword(:queries_dd_constit_journal_entry) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2792')}
       keyword(:queries_dd_lybunt) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2793')}
-      keyword(:queries_dd_pledges_payments) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2821')}
+      keyword(:queries_dd_pledges_payments) {queries_div.ul(:id,'queryCategories1').a(:text,'Pledges and Payments')}
       keyword(:queries_dd_processed_trans) {queries_div.ul(:id,'queryCategories2').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2822')}
       keyword(:queries_dd_security) {queries_div.ul(:id,'queryCategories2').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2481')}
 
       #nav bar reports dropdown
       keyword(:reports_dd_manage_reports) {reports_div.li(:id,'manageReportButton')}
       keyword(:reports_dd_relationship_filters) {reports_div.li(:id,'accountQueryButton')}
-      keyword(:reports_dd_system) {reports_div.ul(:id,'reportCategories1').a(:href,'/prod/editReportCategory.do?categoryRef=39.0.2846')}
-      keyword(:reports_dd_top_donor) {reports_div.ul(:id,'topReports1').a(:href,'/prod/reportLauncher.do?nextAction=topDonorReport.do&type=TopDonor&mode=report&name=Top%20Donor%20Report')}
+      keyword(:reports_dd_system) {reports_div.ul(:id,'reportCategories1').a(:text,'System')}
+      keyword(:reports_dd_top_donor) {reports_div.ul(:id,'topReports1').a(:text,'Top Donor Report')}
       keyword(:reports_dd_journal) {reports_div.ul(:id,'topReports1').a(:href,'/prod/reportLauncher.do?nextAction=journalEntryListReport.do&mode=report&type=JournalEntryList&name=Journal%20Entry%20List')}
       keyword(:reports_dd_recency) {reports_div.ul(:id,'topReports1').a(:href,'/prod/reportLauncher.do?nextAction=recencyReport.do&type=RecencyReport&mode=report&name=Recency%20Report')}
       keyword(:reports_dd_shared) {reports_div.ul(:id,'topReports2').a(:href,'/prod/reportLauncher.do?nextAction=/sharedLinksReport.do&type=sharedLinks&mode=report&name=Shared%20Links%20Report')}

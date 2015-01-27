@@ -3,7 +3,7 @@ Given(/^I navigate to Fullhouse$/) do
 end
 
 When(/^I login into eTap$/) do
- page =  Admin::Login.new(:username=>'AutomationBot.us', :password=>'spicypancakes1')
+ page =  Admin::Login.new()
  page.create
  page.log_in
 

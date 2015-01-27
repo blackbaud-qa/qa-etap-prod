@@ -73,7 +73,7 @@ Feature: Critical Process - General Navigation
   Examples:
     | submenu option  | expected result   |
     | Find an Account | Find Account   |
-    | Add an Account  | New Account Page  |
+#    | Add an Account  | New Account Page  |
 #
   Scenario Outline:  Giving SubMenu Navigation
     Given I click on the Giving drop down
@@ -114,8 +114,8 @@ Feature: Critical Process - General Navigation
     | submenu option                 | expected result                                      |
     | Manage Queries                 | Query Categories                                     |
     | Add a New Category             | Create Query category page                           |
-    | Base                           | Edit Query Category: Base                            |
-    | Journal Entry Date             | Edit Query Category: Journal Entry Date             |
+#    | Base                           | Edit Query Category: Base                            |
+#    | Journal Entry Date             | Edit Query Category: Journal Entry Date             |
     | Constituent Journal Entry Date | Edit Query Category: Constituent Journal Entry Date |
     | LYBUNT & SYBUNT                | Edit Query Category: LYBUNT & SYBUNT                |
     | Pledges and Payments           | Edit Query Category: Pledges and Payments           |
@@ -131,7 +131,7 @@ Feature: Critical Process - General Navigation
     | submenu option               | expected result                  |
     | Manage Reports               | Report Categories                |
     | Relationship Filters         | Relationship Filters page        |
-    | System                       | Edit Report Category: System     |
+#    | System                       | Edit Report Category: System     |
     | Top Donor Report             | Launch Top Donor Report          |
     | Journal Entry List           | Launch Journal Entry List        |
     | Recency Report               | Launch Recency Report            |
@@ -139,7 +139,7 @@ Feature: Critical Process - General Navigation
     | Aging Pledge Summary         | Launch Aging Pledge Summary      |
     | eTapestry Standard Reports   | eTapestry Standard Reports page  |
     | eTapestry Benchmark Reports  | eTapestry Benchmark Reports page |
-#
+
   Scenario Outline:  Management SubMenu Navigation
     Given I click on the Management drop down
     When I click on <submenu option> on the management menu
