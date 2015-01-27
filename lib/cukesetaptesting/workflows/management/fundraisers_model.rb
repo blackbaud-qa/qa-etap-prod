@@ -1,5 +1,5 @@
 module Cukesetaptesting
-  module Managment
+  module Management
     class FundraisersModel < Watirmark::Model::Factory
       keywords FundraisersView.keywords
     end
