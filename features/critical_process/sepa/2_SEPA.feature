@@ -1,4 +1,4 @@
-Feature: SEPA 2
+Feature: SEPA 2 - Field validation and saving transactions
 
   Background:
     Given I login as [USER]
@@ -50,7 +50,7 @@ Feature: SEPA 2
     Installment Amount:  This amount must contain a positive currency amount greater than zero.
     Fund:  This field must be completed prior to saving.
 
-  Scenario: Successful save
+  Scenario: Successful save - Auto Mandate ID
     Given I click OK
     And I then populate the following <fields> with <values>
     | fields             | values   |
@@ -61,18 +61,28 @@ Feature: SEPA 2
     And my page should refresh
     And a unique mandate ID should appear
 
-  Scenario: Successful save
-    Given I click OK
+  Scenario: Successful save - Manual Mandate ID
+    Given I'm in the Journal of account [A]
+    And I select Recurring Gift Schedule from the Add New drop down
+    And I check the box to manually enter the mandate ID
     And I then populate the following <fields> with <values>
-    | fields             | values   |
-    | Installment Amount | 25       |
-    | Fund               | Algemeen |
+    | fields                 | values             |
+    | date                   | "yesterday"        |
+    | Installment Amount     | 25                 |
+    | Fund                   | Algemeen           |
+    | First Installment      | 25                 |
+    | Frequency              | Monthly            |
+    | IBAN                   | NL91ABNA0417164300 |
+    | BIC                    | ABNANL2A           |
+    | Mandate ID             | test123            |
+    | Mandate Signature Date | "today"            |
     When I click Save and Edit
     Then all fields should save with appropriate data
     And my page should refresh
-    And a unique mandate ID should appear
+    And [test123] should appear in the mandate ID field
 
-  Scenario: Successful save with manual mandate ID
+
+
 
 
 
