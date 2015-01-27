@@ -23,3 +23,4 @@ RakeHelper.cucumber_task(:quick_find, "features/critical_process/find_account/qu
 RakeHelper.cucumber_task(:sub_menu_nav, "features/critical_process/navigation/menu_submenu_nav.feature")
 RakeHelper.cucumber_task(:create_new_cart, "features/critical_process/cart/Create_new_cart.feature")
 RakeHelper.cucumber_task(:advanced_find, "features/critical_process/find_account/advanced_find.feature")
+RakeHelper.cucumber_task(:fundraising_1, "features/critical_process/personal_fundraising/1_create_new_fundraiser.feature")
