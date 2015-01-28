@@ -54,8 +54,18 @@ And (/^I set the template to Float on the new Fundraiser page/) do
   fund.new_fundraiser_set_template_float
 end
 
-And (/^I highlight the Main Page Text on the new Fundraiser page/) do
+And (/^I highlight the Main page Text on the new Fundraiser page/) do
   fund = Management::Fundraisers.new()
   fund.select_main_page_text
 end
 
+And(/^I delete the Main Page Text on the new Fundraiser page/) do
+  fund = Management::Fundraisers.new()
+  fund.delete_main_page_text
+end
+
+And(/^I set the Main Page Text to say '([^']*)' on the new Fundraiser page/) do |text|
+  fund = Management::Fundraisers.new()
+  fund.set_main_page_text(text)
+
+end

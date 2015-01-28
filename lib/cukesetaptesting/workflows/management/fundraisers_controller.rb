@@ -28,6 +28,14 @@ module Cukesetaptesting
         @view.select_main_page_text.when_present.send_keys [:control, 'a']
       end
 
+      def delete_main_page_text
+        @view.select_main_page_text.when_present.send_keys :delete
+      end
+
+      def set_main_page_text(text)
+        @view.select_main_page_text.when_present.send_keys text
+      end
+
     end
   end
 end

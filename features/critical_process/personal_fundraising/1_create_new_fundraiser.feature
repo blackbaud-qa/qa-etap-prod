@@ -19,14 +19,14 @@ Feature: Creating a new fundraiser
     And I set the template to Float on the new Fundraiser page
     And I click Next on the new Fundraiser page
     And I highlight the Main page Text on the new Fundraiser page
-#    And I delete the Main Page Text on the new Fundraiser page
-#    And I set the Main Page Text to say 'Welcome to QA's wonderful fundraiser!' on the new Fundraiser page
+    And I delete the Main Page Text on the new Fundraiser page
+    And I set the Main Page Text to say 'Welcome to QAs wonderful fundraiser' on the new Fundraiser page
 #    And highlight the Main Page Text
 #    And set it to be Bold
 #    And set it to be Centered
-#    And I click Next on the new Fundraiser page
-#    And set the Recommended Team Goal to 500
-#    And set the Recommended Individual Goal to 100
+    And I click Next on the new Fundraiser page
+#    And set the Recommended Team Goal to '500'
+#    And set the Recommended Individual Goal to '100'
 #    And set Field Name to Base: Gender
 #    And mark the checkbox next to Required
 #    And set the Display Text to Gender
