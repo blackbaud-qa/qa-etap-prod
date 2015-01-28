@@ -46,5 +46,3 @@ Feature: Creating a new fundraiser
 #    And set Fund to be applied to Donations to General
 #    And click Save and Finish
 #    Then I should be able to click on the QA Fundraiser [X] url to view the live page
-
-

@@ -12,7 +12,7 @@ module Cukesetaptesting
       keyword(:new_fund_contactname) {content.text_field(:name,'eventOptions.contactName')}
       keyword(:new_fund_contactemail) {content.text_field(:name,'eventOptions.contactEmail')}
       keyword(:new_fund_templatefloat) {content.radio(:id,'label.float')}
-      keyword(:select_main_page_text) {content.div(:class, 'taskContentRight').text_field(:id, 'mceu_77')}
+      keyword(:select_main_page_text) {content.iframe(:id,'eventInfoHtml_ifr')}
       def home(model)
       end
 
