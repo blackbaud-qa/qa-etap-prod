@@ -18,8 +18,8 @@ Feature: Creating a new fundraiser
     And I set Administrative Contact Email to 'qa-1@blackbaud.com' on the new Fundraiser page
     And I set the template to Float on the new Fundraiser page
     And I click Next on the new Fundraiser page
-#    And I change the Main Page Text to say "Welcome to QA's wonderful fundraiser!" on the new Fundraiser page
-#    And I highlight the Main Page Text on the new Fundraiser page
+    And change the Main Page Text to say "Welcome to QA's wonderful fundraiser!"
+    And highlight the Main Page Text
 #    And set it to be Bold
 #    And set it to be Centered
 #    And I click Next on the new Fundraiser page

@@ -24,6 +24,10 @@ module Cukesetaptesting
         @view.new_fund_templatefloat.when_present.set
       end
 
+      def select_main_page_text
+        @view.select_main_page_text.when_present.send_keys [:control, 'a']
+      end
+
     end
   end
 end

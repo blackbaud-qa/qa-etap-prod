@@ -53,3 +53,7 @@ And (/^I set the template to Float on the new Fundraiser page/) do
   fund = Management::Fundraisers.new()
   fund.new_fundraiser_set_template_float
 end
+
+
+
+
