@@ -57,5 +57,5 @@ end
 And (/^I highlight the Main Page Text on the new Fundraiser page/) do
   fund = Management::Fundraisers.new()
   fund.select_main_page_text
-
+end
 
