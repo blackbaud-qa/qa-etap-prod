@@ -36,6 +36,18 @@ module Cukesetaptesting
         @view.select_main_page_text.when_present.send_keys text
       end
 
+      def main_page_text_bold_click
+        @view.main_page_text_bold_click.when_present.click
+      end
+
+      def main_page_text_align_center_click
+        @view.main_page_text_align_center_click.when_present.click
+      end
+
+      def set_registration_question_base_gender
+        @view.registration_question_base_gender.when_present.select "Base: Gender"
+      end
+
     end
   end
 end

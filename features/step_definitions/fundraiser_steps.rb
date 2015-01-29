@@ -67,5 +67,29 @@ end
 And(/^I set the Main Page Text to say '([^']*)' on the new Fundraiser page/) do |text|
   fund = Management::Fundraisers.new()
   fund.set_main_page_text(text)
+end
 
+And(/^I choose B for Bold in the Main page Text box on the new Fundraiser page/) do
+  fund = Management::Fundraisers.new()
+  fund.main_page_text_bold_click
+end
+
+And(/^I click Align Center in the Main page Text box on the new Fundraiser page/) do
+  fund = Management::Fundraisers.new()
+  fund.main_page_text_align_center_click
+end
+
+And(/^I set the Recommended Team Goal to '([^']*)' on the new Fundraiser page/) do |team_goal|
+  fund = Management::Fundraisers.new(:new_fund_team_goal => team_goal)
+  fund.create
+end
+
+And(/^I set the Recommended Individual Goal to '([^']*)' on the new Fundraiser page/) do |individual_goal|
+  fund = Management::Fundraisers.new(:new_fund_individual_goal => individual_goal)
+  fund.create
+end
+
+And(/^I set Field Name to Base: Gender on the new Fundraiser page/) do
+  fund = Management::Fundraisers.new()
+  fund.set_registration_question_base_gender
 end

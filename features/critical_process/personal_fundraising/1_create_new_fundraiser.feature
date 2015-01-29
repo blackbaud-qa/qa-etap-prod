@@ -21,13 +21,13 @@ Feature: Creating a new fundraiser
     And I highlight the Main page Text on the new Fundraiser page
     And I delete the Main Page Text on the new Fundraiser page
     And I set the Main Page Text to say 'Welcome to QAs wonderful fundraiser' on the new Fundraiser page
-#    And highlight the Main Page Text
-#    And set it to be Bold
-#    And set it to be Centered
+    And I highlight the Main page Text on the new Fundraiser page
+    And I choose B for Bold in the Main page Text box on the new Fundraiser page
+    And I click Align Center in the Main page Text box on the new Fundraiser page
     And I click Next on the new Fundraiser page
-#    And set the Recommended Team Goal to '500'
-#    And set the Recommended Individual Goal to '100'
-#    And set Field Name to Base: Gender
+    And I set the Recommended Team Goal to '$500' on the new Fundraiser page
+    And I set the Recommended Individual Goal to '$100' on the new Fundraiser page
+    And I set Field Name to Base: Gender on the new Fundraiser page
 #    And mark the checkbox next to Required
 #    And set the Display Text to Gender
 #    And click Add

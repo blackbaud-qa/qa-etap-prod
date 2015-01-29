@@ -13,6 +13,11 @@ module Cukesetaptesting
       keyword(:new_fund_contactemail) {content.text_field(:name,'eventOptions.contactEmail')}
       keyword(:new_fund_templatefloat) {content.radio(:id,'label.float')}
       keyword(:select_main_page_text) {content.iframe(:id,'eventInfoHtml_ifr')}
+      keyword(:main_page_text_bold_click) {content.div(:id,'mceu_0')}
+      keyword(:main_page_text_align_center_click) {content.div(:id,'mceu_4')}
+      keyword(:new_fund_team_goal) {content.text_field(:name,'currencyPopulate(eventOptions.recommendedTeamGoal)')}
+      keyword(:new_fund_individual_goal) {content.text_field(:name,'currencyPopulate(eventOptions.recommendedIndividualGoal)')}
+      keyword(:registration_question_base_gender) {content.select(:id,'questionField_comboText)')}
       def home(model)
       end
 
