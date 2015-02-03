@@ -9,12 +9,12 @@ Feature: Add Account Classic View
     And I click on Add Account on the find account screen
     And I set Name to 'John Doe' on the classic add account page
     And I set Sort Name to 'Doe, John' on the classic add account page
-#    And I set Address Lines to '501 N Pennsylvania Parkway' on the classic add account page
-#    And I set City to 'Indianapolis' on the classic add account page
-#    And I set State/Province to 'IN' on the classic add account page
-#    And I set Postal Code to '46280' on the classic add account page
-#    And I set County to 'Hamilton' on the classic add account page
-#    And I set Voice to '317-336-3827' on the classic add account page
+    And I set Address Lines to '501 N Pennsylvania Parkway' on the classic add account page
+    And I set City to 'Indianapolis' on the classic add account page
+    And I set State to 'IN' on the classic add account page
+    And I set Postal Code to '46280' on the classic add account page
+    And I set County to 'Hamilton' on the classic add account page
+    And I set Voice to '317-336-3827' on the classic add account page
 #    And I set Email to 'qa-1@blackbaud.com' on the classic add account page
 #    And I set Web Page to 'www.google.com' on the classic add account page
 #    And I set Note to 'Don't call after 6pm' on the classic add account page
