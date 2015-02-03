@@ -89,7 +89,8 @@ And(/^I set the Recommended Individual Goal to '([^']*)' on the new Fundraiser p
   fund.create
 end
 
-And(/^I set Field Name to Base: Gender on the new Fundraiser page/) do
+And(/^I choose Base:Gender in the Field Name under Add Question on the new Fundraiser page/) do
   fund = Management::Fundraisers.new()
-  fund.set_registration_question_base_gender
+  fund.field_name_combo_click
+  fund.field_name_base_gender_click
 end

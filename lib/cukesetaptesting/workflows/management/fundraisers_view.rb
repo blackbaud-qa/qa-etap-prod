@@ -17,7 +17,8 @@ module Cukesetaptesting
       keyword(:main_page_text_align_center_click) {content.div(:id,'mceu_4')}
       keyword(:new_fund_team_goal) {content.text_field(:name,'currencyPopulate(eventOptions.recommendedTeamGoal)')}
       keyword(:new_fund_individual_goal) {content.text_field(:name,'currencyPopulate(eventOptions.recommendedIndividualGoal)')}
-      keyword(:registration_question_base_gender) {content.select(:id,'questionField_comboText)')}
+      keyword(:field_name_combo_click) {content.img(:id,'questionField_comboArrow')}
+      keyword(:field_name_base_gender_click) {content.div(:id,'questionField_comboAllList_valueRow_47.0.2670')}
       def home(model)
       end
 

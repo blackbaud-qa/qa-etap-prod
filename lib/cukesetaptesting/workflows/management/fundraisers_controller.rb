@@ -44,8 +44,12 @@ module Cukesetaptesting
         @view.main_page_text_align_center_click.when_present.click
       end
 
-      def set_registration_question_base_gender
-        @view.registration_question_base_gender.when_present.select "Base: Gender"
+      def field_name_combo_click
+        @view.field_name_combo.when_present.click
+      end
+
+      def field_name_base_gender_click
+        @view.field_name_base_gender.when_present.click
       end
 
     end

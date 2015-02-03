@@ -52,6 +52,7 @@ Feature: SEPA 4 - Import - GMU02 File
     Given I search for account [A]
     When I navigate to the journal page
     Then I should see 2 gifts dated "today"
-    And I should see 2 Recurring Gifts dated "tomorrow"
+    And I should see 1 Recurring Gifts dated "tomorrow"
+    And I should see 1 Reccuring Gift Reversal dated "tomorrow"
 
 

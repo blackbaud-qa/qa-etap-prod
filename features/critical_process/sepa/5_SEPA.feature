@@ -17,15 +17,15 @@ Feature: SEPA 5 - Import - MT940 File
     Then I should see the Summary Statistics page
     And the transaction count should be 2
     And there should be one Direct Debit Reversal
-    And there should be one Invalid Payment Reference
+    And there should be one Credit Transfer
 
   Scenario: Successful Import - Download Results
-    Given I've run the MT940 import for the second time
+    Given I've run the MT940 import
     And I'm on step 3
     When I click Download Results
-    Then a zipped file should be generated
-    And it should contain one file labeled BankImportFailures_(today's date)
-    And it should contain one file labeled BankImportSuccesses_(today's date)
+    Then a file should be generated
+    And it should contain 1 Direct Debit Reversal
+    And it should contain 1 Credit Transfer
 
   Scenario: Duplicate Import
     Given I click on Giving - Banking Import
@@ -37,17 +37,20 @@ Feature: SEPA 5 - Import - MT940 File
     When I click Run Import
     Then I should see the Summary Statistics page
     And the transaction count should be 2
-    And there should be 2 Exceptions (1 Direct Debit Recurring Gift Already Reversed and 1 Invalid Payment Reference)
+    And there should be 1 Credit Transfer
+    And there should be 1 Exception (Direct Debit Recurring Gift Already Reversed)
 
   Scenario: Duplicate Import - Download Results
-    Given I've run the GMU02 import for the second time
+    Given I've run the MT940 import for the second time
     And I'm on step 3
     When I click Download Results
-    Then a file should be generated
-    And it should contain 2 Exceptions (1 Direct Debit Recurring Gift Already Reversed and 1 Invalid Payment Reference)
+    Then a zipped file should be generated
+    And it should contain one file labeled BankImportFailures_(today's date)
+    And it should contain one file labeled BankImportSuccesses_(today's date)
 
   Scenario: Verify Journal Entries
     Given I search for account [B]
     When I navigate to the journal page
     Then I should see 2 Recurring Gifts dated "tomorrow"
     And one recurring gift should be a reversal
+    And I should see 2 gifts dated "today"
