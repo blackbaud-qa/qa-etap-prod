@@ -1,3 +1,4 @@
+@ready
 Feature: Searching from quick find
 
   Background:

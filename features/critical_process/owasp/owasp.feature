@@ -11,27 +11,27 @@ Feature: OWASP
     And [SECURITY GROUP C] can only access Individual accounts
     And account [JIM DOE] is marked with the a Business account type
 
-  Scenario: Injection
-    Given I login as [ADMIN USER]
-    And I am on the persona page of account[JOHN DOE]
-    When I enter ' OR 1=1; in <field>
-    And press Save and Edit
-    Then I should see <result>
-
-  Examples:
-  |  field            |  result                                                                                                                         |
-  |  address          |  ' OR 1=1;                                                                                                                      |
-  |  city             |  ' OR 1=1;                                                                                                                      |
-  |  State/Province   |  State / Province: This field must be a valid State/Province/Territory abbreviation.                                            |
-  |  Postal Code      |  Postal Code: This field must be a valid Postal Code ( example: 12345 or 12345-6789)                                            |
-  |  County           |  ' OR 1=1;                                                                                                                      |
-  |  Short Salutation |  ' OR 1=1;                                                                                                                      |
-  |  Long Salutation  |  ' OR 1=1;                                                                                                                      |                                               |  Note             |  ' OR 1=1;                                                                                                                      |
-  |  Voice            |  Voice: This field must be a valid Phone Number.                                                                                |
-  |  Fax              |  Fax: This field must be a valid Phone Number.                                                                                  |
-  |  Mobile           |  Mobile: This field must be a valid Phone Number.                                                                               |
-  |  Email            |  Email: This field must be a valid email address (like test@test.com) or email addresses (like test2@test.com, test3@test.com). |
-  |  Web              |  ' OR 1=1;                                                                                                                      |
+#  Scenario: Injection
+#    Given I login as [ADMIN USER]
+#    And I am on the persona page of account[JOHN DOE]
+#    When I enter ' OR 1=1; in <field>
+#    And press Save and Edit
+#    Then I should see <result>
+#
+#  Examples:
+#  |  field            |  result                                                                                                                         |
+#  |  address          |  ' OR 1=1;                                                                                                                      |
+#  |  city             |  ' OR 1=1;                                                                                                                      |
+#  |  State/Province   |  State / Province: This field must be a valid State/Province/Territory abbreviation.                                            |
+#  |  Postal Code      |  Postal Code: This field must be a valid Postal Code ( example: 12345 or 12345-6789)                                            |
+#  |  County           |  ' OR 1=1;                                                                                                                      |
+#  |  Short Salutation |  ' OR 1=1;                                                                                                                      |
+#  |  Long Salutation  |  ' OR 1=1;                                                                                                                      |                                               |  Note             |  ' OR 1=1;                                                                                                                      |
+#  |  Voice            |  Voice: This field must be a valid Phone Number.                                                                                |
+#  |  Fax              |  Fax: This field must be a valid Phone Number.                                                                                  |
+#  |  Mobile           |  Mobile: This field must be a valid Phone Number.                                                                               |
+#  |  Email            |  Email: This field must be a valid email address (like test@test.com) or email addresses (like test2@test.com, test3@test.com). |
+#  |  Web              |  ' OR 1=1;                                                                                                                      |
 
   Scenario: Cross-Site Scripting (XSS)
     Given I login as [ADMIN USER]

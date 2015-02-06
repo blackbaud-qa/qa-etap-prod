@@ -4,47 +4,47 @@ Feature: Registering a participant
     Given I have a processor set up in my database
     And a Fundraiser set up in my database named QA Fundraiser [X]
 
-  Scenario: registering a participant
-    Given I am logged into eTap
-    When I click Management on the main menu
-    And click Fundraisers
-    And I click on the QA Fundraiser [X] url
-    And I click Register
-    And I select I need to create an account
-    And I click Next
-    And set the following <fields> to these <values>
-    And click Next
-    And set the Gender to Male
-    And click Next
-    And select Create a New Team
-    And click Next
-    And set the Name to Team Awesome
-    And click Next
-    And set the Participation Level to Runner $25
-    And mark the checkbox next to Use my account information for billing.
-    And set the card type to Visa
-    And set the Card Number to 4111111111111111
-    And set the Security Code to 435
-    And set the Expiration Year to 2035
-    And click Next
-    And click Next
-    Then the registration confirmation page should say: Thank you for registering. You should receive a confirmation email shortly.
-
-    Examples:
-      | fields                             | values                       |
-      | First Name                         | John                         |
-      | Last Name                          | Crabtree                     |
-      | Email (this will be your login id) | qa-1@blackbaud.com           |
-      | Password                           | abc123                       |
-      | Confirm Password                   | abc123                       |
-      | Security Question                  | What is your favorite color? |
-      | Security Answer                    | green                        |
-      | Country                            | United States                |
-      | Address                            | 234 Main St.                 |
-      | City                               | Indianapolis                 |
-      | State/Province                     | Indiana                      |
-      | Postal Code                        | 46280                        |
-      | Phone                              | 3172223456                   |
+#  Scenario: registering a participant
+#    Given I am logged into eTap
+#    When I click Management on the main menu
+#    And click Fundraisers
+#    And I click on the QA Fundraiser [X] url
+#    And I click Register
+#    And I select I need to create an account
+#    And I click Next
+#    And set the following <fields> to these <values>
+#    And click Next
+#    And set the Gender to Male
+#    And click Next
+#    And select Create a New Team
+#    And click Next
+#    And set the Name to Team Awesome
+#    And click Next
+#    And set the Participation Level to Runner $25
+#    And mark the checkbox next to Use my account information for billing.
+#    And set the card type to Visa
+#    And set the Card Number to 4111111111111111
+#    And set the Security Code to 435
+#    And set the Expiration Year to 2035
+#    And click Next
+#    And click Next
+#    Then the registration confirmation page should say: Thank you for registering. You should receive a confirmation email shortly.
+#
+#    Examples:
+#      | fields                             | values                       |
+#      | First Name                         | John                         |
+#      | Last Name                          | Crabtree                     |
+#      | Email (this will be your login id) | qa-1@blackbaud.com           |
+#      | Password                           | abc123                       |
+#      | Confirm Password                   | abc123                       |
+#      | Security Question                  | What is your favorite color? |
+#      | Security Answer                    | green                        |
+#      | Country                            | United States                |
+#      | Address                            | 234 Main St.                 |
+#      | City                               | Indianapolis                 |
+#      | State/Province                     | Indiana                      |
+#      | Postal Code                        | 46280                        |
+#      | Phone                              | 3172223456                   |
 
   Scenario: logging into a fundraiser
     Given I have already registered John Crabtree
