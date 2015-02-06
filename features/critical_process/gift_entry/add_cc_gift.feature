@@ -13,9 +13,8 @@ Feature: Adding a gift with payment type of credit card and process it
     And set the Approach to Unsolicited
     And set the Gift Type to Credit/Debit Card
     And set the Credit/Debit Card Number to '4111111111111111'
-  #changed expiration date line
     And set the Expiration Month to '12'
     And set the Expiration Year to '2034'
-    And click Save And Process Transaction
-    Then the gift should process
-#    And the gift should save properly
+    And click Save
+    And select Process Transaction from the drop down menu
+    And click yes when the notification pops up

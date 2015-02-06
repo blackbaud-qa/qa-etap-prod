@@ -6,7 +6,6 @@ end
 And(/^click Journal$/) do
   landing = Account::Profile.new
   landing.journal_link_click
-
 end
 
 And(/^select Gift\/Pledge from the Add New\.\.\. drop down menu$/) do
@@ -16,29 +15,30 @@ end
 
 And(/^set the date to '([^']*)'$/) do |date|
   search = Giving::GiftPledge.new(:date_field=>date)
-  # search.create
-  search.set_date
+  search.create
 end
 
  And(/^set the Received Amount to '([^']*)'$/) do |amount|
    search = Giving::GiftPledge.new(:received_field=>amount)
-   # search.create
-   search.set_received
+   search.create
  end
 
 And(/^set the Fund to Unrestricted$/) do
     landing = Giving::GiftPledge.new
-    landing.set_fund
+    landing.fund_input_arrow
+    landing.select_fund_unrestricted
 end
 
 And(/^set the Campaign to Annual$/) do
   landing = Giving::GiftPledge.new
-  landing.set_campaign
+  landing.campaign_input_arrow
+  landing.select_campaign
 end
 
 And(/^set the Approach to Unsolicited$/) do
   landing = Giving::GiftPledge.new
-  landing.set_approach
+  landing.approach_input_arrow
+  landing.select_approach_unsolicited
 end
 
 And(/^set the Gift Type to Credit\/Debit Card$/) do
@@ -48,7 +48,7 @@ end
 
 And(/^set the Credit\/Debit Card Number to '([^']*)'$/) do |number|
   landing = Giving::GiftPledge.new(:card_number=>number)
-  landing.enter_card_number
+  landing.create
 end
 
 And(/^set the Expiration Month to '([^']*)'$/) do |month|
@@ -61,16 +61,17 @@ And(/^set the Expiration Year to '([^']*)'$/) do |year|
   landing.set_expiration_year
 end
 
-And(/^click Save And Process Transaction$/) do
+And(/^click Save$/) do
   landing = Giving::GiftPledge.new
   landing.save
 end
 
-Then(/^the gift should process$/) do
+And(/^select Process Transaction from the drop down menu$/) do
+  landing = Giving::GiftPledge.new
+  landing.select_process
+end
+
+And(/^click yes when the notification pops up$/) do
   landing = Giving::GiftPledge.new
   landing.click_yes
 end
-#
-# And(/^the gift should save properly$/) do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end

@@ -30,16 +30,37 @@ module Cukesetaptesting
       keyword(:expiration_year) {select_year.option(:value, "2034")}
 
       keyword(:save) {content.div(:id, 'etap.fieldset.area.9').input(:name, 'saveAnd')}
+      keyword(:saveAnd) {content.div(:id, 'etap.fieldset.area.5').input(:name, 'saveAnd')}
 
       keyword(:yes) {content.div(:class, 'popFooter').input(:id, 'id')} #id for div changes each time so used the class
 
       keyword(:tribute_bar) {content.div(:id, 'tributeFieldsTitleBar')}
       keyword(:tribute_info) {content.div(:id, 'tributeFields').img(:src, 'images/magnifying-glass.png')}
 
-      # keyword(:tribute_search) {content.text_field(:id, 'searchString')}
-      # keyword(:tribute_search) {content.div(:id, 'etap.fieldset.area.1').input(:id, "searchString")}
-      # keyword(:tribute_search) {content.div(:id, 'etap.fieldset.area.1').text_field(:id, "searchString")}
-      keyword(:tribute_search) {content.div(:class, 'popupWindow').text_field(:id, "searchString")}
+      keyword(:tribute_search) {content.iframe(:id,'popupFrame').form(:name,'entitySearchForm').text_field(:id,'searchString')}
+      keyword(:find) {content.iframe(:id,'popupFrame').form(:name,'entitySearchForm').input(:value,'Find')}
+      keyword(:tribute_persona) {content.iframe(:id,'popupFrame').a(:id,'entityName39.0.1150031')}
+
+      keyword(:search_icon2) {content.div(:id, 'softCreditSection').img(:src, 'images/magnifying-glass.png')}
+      keyword(:credit_info) {content.iframe(:id,'popupFrame').form(:name,'entitySearchForm').text_field(:id,'searchString')}
+      keyword(:persona) {content.iframe(:id,'popupFrame').a(:id,'entityName39.0.3669')}
+
+      keyword(:credit_amount) {content.div(:id, 'softCreditSection').text_field(:id,'newSoftCreditAmount')}
+
+      keyword(:fund_input_arrow) {content.div(:id, 'etap.fieldset.area.2').img(:id, 'intentRef_comboArrow')}
+      keyword(:fund_unrestricted) {content.div(:id, 'intentRef_comboAllList_valueRow_39.0.3393')}
+
+      keyword(:campaign_input_arrow) {content.div(:id, 'etap.fieldset.area.2').img(:id, 'campaignRef_comboArrow')}
+      keyword(:campaign_annual) {content.div(:id, 'campaignRef_comboAllList_valueRow_39.0.3345')}
+
+      keyword(:approach_input_arrow) {content.div(:id, 'etap.fieldset.area.2').img(:id, 'approachRef_comboArrow')}
+      keyword(:approach) {content.div(:id, 'approachRef_comboAllList_valueRow_39.0.3367')}
+
+      keyword(:process_transaction) {content.select(:id, 'destinationAfterSave').option(:value,'processTransaction')}
+
+      keyword(:edit) {content.select(:id, 'destinationAfterSave').option(:value,'edit')}
+
+
 
 
 

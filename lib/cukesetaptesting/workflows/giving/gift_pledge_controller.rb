@@ -8,53 +8,12 @@ module Cukesetaptesting
         @view.calendar_button.when_present.click
       end
 
-      def set_date
-        @view.date_field.when_present.set '10/30/2090'
-      end
-
-      def set_received
-        @view.received_field.when_present.set '7.00'
-      end
-
-      def set_date_field
-        @view.date_field.when_present.set '11/30/2090'
-      end
-
-      def set_received_field
-        @view.received_field.when_present.set '10.00'
-      end
-
-
-      def set_fund
-        @view.fund_type.when_present.click
-      end
-
-      def set_campaign
-        @view.campaign_type.when_present.click
-      end
-
-      def set_approach
-        @view.approach_type.when_present.click
-      end
-
       def select_payment_method
         @view.select_payment.when_present.click
       end
 
       def set_gift_type
         @view.check_field.when_present.click
-      end
-      #
-      # def select_payment_method
-      #   @view.select_payment.when_present.set
-      # end
-
-      def set_check_date
-        @view.check_date.when_present.set '11/30/2090'
-      end
-
-      def set_check_number
-        @view.check_number.when_present.set '879'
       end
 
       def enter_card_number
@@ -73,6 +32,10 @@ module Cukesetaptesting
         @view.save.when_present.click
       end
 
+      def saveAnd
+        @view.saveAnd.when_present.click
+      end
+
       def click_yes
         @view.yes.when_present.click
       end
@@ -85,23 +48,53 @@ module Cukesetaptesting
         @view.tribute_info.when_present.click
       end
 
-      def set_tribute
-        browser.window(:class => "popupWindow").use do
-          browser.text_field(:id => "searchString").click
-        end
-        # @view.tribute_search.when_present.click
+      def click_find
+        @view.find.when_present.click
       end
 
+      def choose_persona
+        @view.tribute_persona.when_present.click
+      end
 
-      # def set_tribute
-      #   @view.tribute_bar.when_present.click
-      #   @view.tribute_info.when_present.click
-      #   @view.tribute_search.when_present.click
-      # end
+      def search_glass
+        @view.search_icon2.when_present.click
+      end
 
-      # def tribute_field_contains?(text)
-      #   return @view.tribute_search.when_present.value.include? text
-      # end
+      def choose_anne
+        @view.persona.when_present.click
+      end
+
+      def fund_input_arrow
+        @view.fund_input_arrow.when_present.click
+      end
+
+      def select_fund_unrestricted
+        @view.fund_unrestricted.when_present.click
+      end
+
+      def campaign_input_arrow
+        @view.campaign_input_arrow.when_present.click
+      end
+
+      def select_campaign
+        @view.campaign_annual.when_present.click
+      end
+
+      def approach_input_arrow
+        @view.approach_input_arrow.when_present.click
+      end
+
+      def select_approach_unsolicited
+        @view.approach.when_present.click
+      end
+
+      def select_process
+        @view.process_transaction.when_present.click
+      end
+
+      def select_edit
+        @view.edit.when_present.click
+      end
 
     end
   end

@@ -8,6 +8,10 @@ module Cukesetaptesting
         @view.transactions.when_present.click
       end
 
+      def click_date
+        @view.gail_date_field.when_present.click
+      end
+
     end
   end
 end
