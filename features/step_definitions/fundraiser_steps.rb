@@ -91,6 +91,11 @@ end
 
 And(/^I choose Base:Gender in the Field Name under Add Question on the new Fundraiser page/) do
   fund = Management::Fundraisers.new()
-  fund.field_name_combo_click
+  fund.field_name_click
   fund.field_name_base_gender_click
+end
+
+And(/^I mark the checkbox next to Required on the new Fundraiser page/) do
+  fund = Management:: Fundraisers.new()
+  fund.required_check_box_click
 end

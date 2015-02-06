@@ -44,12 +44,16 @@ module Cukesetaptesting
         @view.main_page_text_align_center_click.when_present.click
       end
 
-      def field_name_combo_click
-        @view.field_name_combo.when_present.click
+      def field_name_click
+        @view.field_name.when_present.click
       end
 
       def field_name_base_gender_click
         @view.field_name_base_gender.when_present.click
+      end
+
+      def required_check_box_click
+        @view.required_check_box.when_present.click
       end
 
     end

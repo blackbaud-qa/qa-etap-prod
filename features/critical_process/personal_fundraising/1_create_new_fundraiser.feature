@@ -28,7 +28,7 @@ Feature: Creating a new fundraiser
     And I set the Recommended Team Goal to '$500' on the new Fundraiser page
     And I set the Recommended Individual Goal to '$100' on the new Fundraiser page
     And I choose Base:Gender in the Field Name under Add Question on the new Fundraiser page
-#    And mark the checkbox next to Required
+    And I mark the checkbox next to Required on the new Fundraiser page
 #    And set the Display Text to Gender
 #    And click Add
 #    And set Name to Walker
