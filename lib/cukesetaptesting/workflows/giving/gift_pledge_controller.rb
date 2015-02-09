@@ -92,6 +92,16 @@ module Cukesetaptesting
         # @view.tribute_search.when_present.click
       end
 
+      def search_for_an_account_click
+        @view.search_for_an_account.when_present.click
+      end
+
+      # def set_popup_search_text(name)
+      #   @view.popup_search_text.when_present.hover
+      # end
+
+
+
 
       # def set_tribute
       #   @view.tribute_bar.when_present.click
