@@ -10,7 +10,17 @@ module Cukesetaptesting
       keyword(:journal_page) {content.form(:name, "entityJournalForm")}
       keyword(:other_page) {content.form(:name, "entityOtherForm")}
       keyword(:defined_fields_page) {content.form(:name, "entityUserDefinedValuesForm")}
+      keyword(:select_tiles_and_layout_link) {content.h3(:class, 'dashboardManagement').link}
+      keyword(:three_equal_columns_layout) {content.div(:id, 'etap.fieldset.area.1').radio(:value, '0')}
+      keyword(:save_button) {content.div(:class, 'taskCategory').div(:class, 'taskSpace').input}
+      keyword(:left_small_columns) {tiles.divs(:class, 'tilesetRow et-col-lg-4')}
+      keyword(:right_small_columns) {tiles.divs(:class, 'tilesetRightRow et-col-lg-4')}
+      keyword(:soft_credit_summary_checkbox) {content.div(:id, 'etap.fieldset.area.2').checkbox(:value, '13')}
+      keyword(:soft_credit_summary_tile) {content.div(:id, 'tile13')}
 
+      def tiles
+        content.div(:class, 'tilesetContainer')
+      end
       def home(model)
       end
 
