@@ -56,6 +56,14 @@ module Cukesetaptesting
         @view.required_check_box.when_present.click
       end
 
+      def set_display_text(display_text)
+        @view.new_fundraiser_display_text.when_present.send_keys display_text
+      end
+
+      def new_fundraiser_add_click
+        @view.new_fundraiser_add.when_present.click
+      end
+
     end
   end
 end
