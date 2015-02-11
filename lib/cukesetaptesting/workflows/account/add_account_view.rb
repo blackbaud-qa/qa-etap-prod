@@ -11,7 +11,15 @@ module Cukesetaptesting
       keyword(:new_account_classic_postal_code) {content.text_field(:id, 'postalCode_0')}
       keyword(:new_account_classic_postal_county){content.text_field(:id, 'county_0')}
       keyword(:new_account_classic_voice){content.text_field(:title, 'Correctly formatted phone number')}
-
+      keyword(:new_account_classic_email){content.text_field(:id, 'emailAddress_0')}
+      keyword(:new_account_classic_web_page) {content.text_field(:id, 'webAddress_0')}
+      keyword(:new_account_classic_note) {content.text_field(:id, 'note_0')}
+      keyword(:new_account_classic_short_salutation) {content.text_field(:id, 'shortDesignation_0')}
+      keyword(:new_account_classic_long_salutation) {content.text_field(:id, 'longDesignation_0')}
+      keyword(:john_doe_link) {content.a(:text,'John Doe')}
+      keyword(:other_link) {content.a(:text,'Other')}
+      keyword(:delete_role_button) {content.button(:name, 'delete')}
+      keyword(:yes_button) {content.button(:value, 'Yes')}
       def home(model)
       end
 

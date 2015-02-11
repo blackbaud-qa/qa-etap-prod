@@ -19,7 +19,9 @@ module Cukesetaptesting
       keyword(:new_fund_individual_goal) {content.text_field(:name,'currencyPopulate(eventOptions.recommendedIndividualGoal)')}
       keyword(:field_name) {content.img(:id,'questionField_comboArrow')}
       keyword(:field_name_base_gender) {content.div(:id,'questionField_comboAllList_valueRow_47.0.2670')}
-      keyword(:required_check_box){content.check_box.}
+      keyword(:required_check_box) {content.checkbox(:id,'questionRequired')}
+      keyword(:new_fund_display_text) {content.text_field(:id,'questionDisplayText')}
+      keyword(:new_fundraiser_add) {content.input(:id,'addQuestionButton')}
       def home(model)
       end
 
