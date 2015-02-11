@@ -62,20 +62,20 @@ module Cukesetaptesting
 
       def set_file_browser_image(path)
         with_modal_dialog do
-          @view.new_file_browser_image.when_present.set(path)
+          @view.new_file_browser_image.set(path)
         end
       end
 
       def file_browser_image_upload_click
         with_modal_dialog do
-          @view.new_file_browser_image_upload.when_present.click
+          @view.new_file_browser_image_upload.click
         end
       end
 
       def file_browser_image_click
         with_modal_dialog do
           @view.new_file_browser_image_upload_spinner.wait_while_present
-          @view.file_browser_image.when_present.click
+          @view.file_browser_image.click
         end
       end
 
