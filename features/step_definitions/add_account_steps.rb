@@ -42,3 +42,48 @@ And (/^I set Voice to '([^']*)' on the classic add account page/) do |name|
   accounts = Account::AddAccount.new(:new_account_classic_voice => name)
   accounts.create
 end
+
+And (/^I set Email to '([^']*)' on the classic add account page/) do |name|
+  accounts = Account::AddAccount.new(:new_account_classic_email => name)
+  accounts.create
+end
+
+And (/^I set Web Page to '([^']*)' on the classic add account page/) do |name|
+  accounts = Account::AddAccount.new(:new_account_classic_web_page => name)
+  accounts.create
+end
+
+And (/^I set Note to '([^']*)' on the classic add account page/) do |name|
+  accounts = Account::AddAccount.new(:new_account_classic_note => name)
+  accounts.create
+end
+
+And (/^I set Short Salutation to '([^']*)' on the classic add account page/) do |name|
+  accounts = Account::AddAccount.new(:new_account_classic_short_salutation => name)
+  accounts.create
+end
+
+And (/^I set Long Salutation to '([^']*)' on the classic add account page/) do |name|
+  accounts = Account::AddAccount.new(:new_account_classic_long_salutation => name)
+  accounts.create
+end
+
+And (/^I click on John Doe/) do
+  accounts = Account::AddAccount.new
+  accounts.john_doe_link_click
+end
+
+And (/^I click on the Other page for John Doe/) do
+  accounts = Account::AddAccount.new
+  accounts.other_link_click
+end
+
+And (/^I click Delete Role for John Doe/) do
+  accounts = Account::AddAccount.new
+  accounts.delete_role_button_click
+end
+
+And (/^I click Yes for John Doe/) do
+  accounts = Account::AddAccount.new
+  accounts.yes_button_click
+end
