@@ -16,7 +16,7 @@ Feature: Adding a gift through quick gift entry
     And set the Check Date to '9/30/2090'
     And set the Check Number to '1346'
 #    And set the Tribute Information to 'Cindy Grant' !!!!!!!!!!!!!! Cindy Grant doesn't exist !!!!!!!!!!!!!!!!!!
-    And set the Soft Credit Information to 'Anne Hatch'
+    And I set the Soft Credit Information to 'Anne Hatch'
     And the Soft Credit Amount to '500.00'
     And I click Save And 'Edit'
     Then the gift should save properly on 'Andrea Cooper''s account

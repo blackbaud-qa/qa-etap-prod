@@ -11,7 +11,7 @@ end
 
 And(/^set the Gift Type to Check$/) do
   landing = Giving::GiftPledge.new
-  landing.set_gift_type
+  landing.set_gift_type_check
 end
 
 And(/^set the Check Date to '([^']*)'$/) do |date|

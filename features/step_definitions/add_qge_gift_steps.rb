@@ -38,16 +38,11 @@ And(/^set the Gift Type to '([^']*)'$/) do |value|
   gift.set_gift_type(value)
 end
 
-And(/^set the Soft Credit Information to '([^']*)'$/) do |soft_credit|
+And(/^I set the Soft Credit Information to '([^']*)'$/) do |soft_credit|
   landing = Giving::GiftPledge.new
   landing.tribute_bar_click
   landing.soft_credit_icon_click
   landing.set_popup_search_value(soft_credit)
-end
-
-And(/^the Soft Credit Amount to '([^']*)'$/) do |value|
-  gift = Giving::GiftPledge.new
-  gift.set_soft_credit_amount(value)
 end
 
 And(/^I click Save And '([^']*)'$/) do |value|
