@@ -14,11 +14,10 @@ module Cukesetaptesting
       keyword(:new_template_insert_image) {new_template_content_editor.img}
       keyword(:new_template_image_menu_insert) {content.span(:text,'Insert image')}
       keyword(:new_template_insert_image_browse) {content.div(:id,'mceu_85').button}
-      keyword(:new_file_browser_image) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').div.file_field(:name,'NewFile')}
-      keyword(:new_file_browser_image_upload) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').div.input(:id,'btnUpload')}
+      keyword(:new_file_browser_image) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').file_field(:name,'NewFile')}
+      keyword(:new_file_browser_image_upload) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').input(:id,'btnUpload')}
       keyword(:new_file_browser_image_upload_spinner) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').span(:id,'eUploadMessage').img}
-      # keyword(:new_file_browser_image_upload) {browser.frameset(:class,'Frame').frameset.frame(:name,'frmFolders').div.input(:id,'btnUpload')}
-      keyword(:file_browser_image) {browser.frameset(:class,'Frame').framesets[1].frame(:name,'frmResourcesList').table(:id,'tableFiles').tr.img(:class,'imagePreview')}
+      keyword(:file_browser_image) {browser.frameset(:class,'Frame').framesets[1].frame(:name,'frmResourcesList').img(:class,'imagePreview')}
       keyword(:new_template_insert_image_ok) {content.div(:text,'Ok').button}
 
       keyword(:new_template_quick_formatting) {comm_template.button(:value,'Quick Formatting')}

@@ -95,7 +95,17 @@ And(/^I choose Base:Gender in the Field Name under Add Question on the new Fundr
   fund.field_name_base_gender_click
 end
 
-And(/^I mark the checkbox next to Required on the new Fundraiser page/) do
+And(/^I set the checkbox next to Required on the new Fundraiser page/) do
   fund = Management:: Fundraisers.new()
   fund.required_check_box_click
 end
+
+And (/^I set the display text to '([^']*)' on the new Fundraiser page/) do |display_text|
+  fund = Management::Fundraisers.new(:new_fund_display_text => display_text)
+  fund.create
+
+And(/^I click Add on the new Fundraiser page/) do
+  fund = Management::Fundraisers.new()
+  fund.new_fundraiser_add_click
+end
+  end

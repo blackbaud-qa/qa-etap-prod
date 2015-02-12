@@ -73,7 +73,17 @@ module Cukesetaptesting
       keyword(:segment) {content.div(:id, 'segmentedGiftHeader').text_field(:name, 'numberOfSegments')}
       keyword(:add_segment) {content.div(:id, 'segmentedGiftHeader').button(:value, 'Add Segments')}
 
+      keyword(:search_for_an_account) {content.div(:id, 'etap.fieldset.area.1').input(:value,'Search for an Account')}
+      # keyword(:popup_search_text) { popupSearch }#popupSearch.div(:id, 'etap.fieldset.area.1').form(:name, 'entitySearchForm').div.text_field(:id , 'searchString')}
 
+      def popupSearch
+        # frame = browser.frames.find{ |frame| frame.form(:name => 'entitySearchForm').exists? }
+        # frame.form(:name => 'entitySearchForm')
+        # browser.iframe(:id, "etapContentIframe")
+        # browser.frame(:id => 'etapContentIframe')
+        # 'entitySearchForm'
+        # Page.browser.frame(:id, 'popupFrame')
+      end
 
       def home(model)
       end

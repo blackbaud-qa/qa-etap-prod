@@ -88,6 +88,7 @@ module Cukesetaptesting
         @view.approach.when_present.click
       end
 
+<<<<<<< HEAD
       def select_process
         @view.process_transaction.when_present.click
       end
@@ -100,6 +101,18 @@ module Cukesetaptesting
       def select_approach_direct_mail
         @view.approach_direct_mail.when_present.click
       end
+=======
+      def search_for_an_account_click
+        @view.search_for_an_account.when_present.click
+      end
+
+      # def set_popup_search_text(name)
+      #   @view.popup_search_text.when_present.hover
+      # end
+
+
+
+>>>>>>> FETCH_HEAD
 
       def click_create_pledge_schedules
         @view.pledge_schedule.when_present.click
