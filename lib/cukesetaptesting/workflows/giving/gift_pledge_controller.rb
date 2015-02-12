@@ -8,22 +8,25 @@ module Cukesetaptesting
         @view.calendar_button.when_present.click
       end
 
-      def set_date
-        @view.date_field.when_present.set '10/30/2090'
+      def select_payment_method
+        @view.select_payment.when_present.click
       end
 
-      def set_received
-        @view.received_field.when_present.set '7.00'
+      def set_gift_type_check
+        @view.check_field.when_present.click
       end
 
-      def set_date_field
-        @view.date_field.when_present.set '11/30/2090'
+      def enter_card_number
+        @view.card_number.when_present.set '4111111111111111'
       end
 
-      def set_received_field
-        @view.received_field.when_present.set '10.00'
+      def set_expiration_month
+        @view.expiration_month.when_present.click
       end
 
+      def set_expiration_year
+        @view.expiration_year.when_present.click
+      end
 
       def set_fund(name)
         @view.fund_type.when_present.click
@@ -40,40 +43,12 @@ module Cukesetaptesting
         @view.approach_combo_list.when_present.div(:text,name).click
       end
 
-      def select_payment_method
-        @view.select_payment.when_present.click
-      end
-
-      def set_gift_type(type)
-        @view.payment_method.option(:value, get_gift_type_value(type)).when_present.click
-      end
-      #
-      # def select_payment_method
-      #   @view.select_payment.when_present.set
-      # end
-
-      def set_check_date
-        @view.check_date.when_present.set '11/30/2090'
-      end
-
-      def set_check_number
-        @view.check_number.when_present.set '879'
-      end
-
-      def enter_card_number
-        @view.card_number.when_present.set '4111111111111111'
-      end
-
-      def set_expiration_month
-        @view.expiration_month.when_present.click
-      end
-
-      def set_expiration_year
-        @view.expiration_year.when_present.click
-      end
-
       def save
         @view.save.when_present.click
+      end
+
+      def saveAnd
+        @view.saveAnd.when_present.click
       end
 
       def click_yes
@@ -84,15 +59,64 @@ module Cukesetaptesting
         @view.tribute_bar.when_present.click
       end
 
+      def set_gift_type(type)
+        @view.payment_method.option(:value, get_gift_type_value(type)).when_present.click
+      end
+
       def search_glass_click
         @view.tribute_info.when_present.click
       end
 
-      def set_tribute
-        browser.window(:class => "popupWindow").use do
-          browser.text_field(:id => "searchString").click
-        end
-        # @view.tribute_search.when_present.click
+      def click_find
+        @view.find.when_present.click
+      end
+
+      def choose_persona
+        @view.tribute_persona.when_present.click
+      end
+
+      def search_glass
+        @view.search_icon2.when_present.click
+      end
+
+      def choose_anne
+        @view.persona.when_present.click
+      end
+
+      def fund_input_arrow
+        @view.fund_input_arrow.when_present.click
+      end
+
+      def select_fund_unrestricted
+        @view.fund_unrestricted.when_present.click
+      end
+
+      def campaign_input_arrow
+        @view.campaign_input_arrow.when_present.click
+      end
+
+      def select_campaign
+        @view.campaign_annual.when_present.click
+      end
+
+      def approach_input_arrow
+        @view.approach_input_arrow.when_present.click
+      end
+
+      def select_approach_unsolicited
+        @view.approach.when_present.click
+      end
+
+      def select_process
+        @view.process_transaction.when_present.click
+      end
+
+      def select_edit
+        @view.edit.when_present.click
+      end
+
+      def select_approach_direct_mail
+        @view.approach_direct_mail.when_present.click
       end
 
       def search_for_an_account_click
@@ -103,7 +127,7 @@ module Cukesetaptesting
         @view.popup_search_text.when_present.set name
       end
 
-      def click_find
+      def popup_click_find
         @view.popup_search_find.when_present.click
       end
 
@@ -152,7 +176,7 @@ module Cukesetaptesting
                  'Insurance' => 'insuranceFields',
                  'Buckaroo' => 'buckarooFields'
         }
-        return types[text]
+        types[text]
       end
 
       def click_save_and
@@ -211,16 +235,21 @@ module Cukesetaptesting
         @view.soft_credit_amount.when_present.value
       end
 
+      def click_create_pledge_schedules
+        @view.pledge_schedule.when_present.click
+      end
 
-      # def set_tribute
-      #   @view.tribute_bar.when_present.click
-      #   @view.tribute_info.when_present.click
-      #   @view.tribute_search.when_present.click
-      # end
+      def select_frequency_monthly
+        @view.frequency.when_present.click
+      end
 
-      # def tribute_field_contains?(text)
-      #   return @view.tribute_search.when_present.value.include? text
-      # end
+      def click_pledge_information
+        @view.pledge_info_bar.when_present.click
+      end
+
+      def click_add_segments
+        @view.add_segment.when_present.click
+      end
 
     end
   end

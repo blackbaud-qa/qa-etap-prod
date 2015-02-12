@@ -17,7 +17,7 @@ Feature: Adding a gift with payment type of check
     And click on Tribute Information
     And click on the Search Glass
     And set the Tribute Information to 'Cindy Grant'
-#    And set the Soft Credit Information to Anne Hatch
-#    And the Soft Credit Amount to '10.00'
-#    And click Save And Edit
-#    Then the gift should save properly
+    And set the Soft Credit Information to 'Anne Hatch'
+    And the Soft Credit Amount to '10.00'
+    And select Edit from the drop down menu
+    And click Save
