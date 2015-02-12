@@ -1,4 +1,4 @@
-Feature: SEPA 1
+Feature: SEPA 1 - Setting Preferences
 
   Background:
     Given I login as [USER]

@@ -143,6 +143,10 @@ module Cukesetaptesting
         @view.edit_cart_order_success.when_present.send_keys message
       end
 
+      def edit_cart_delete_question_click
+        @view.edit_cart_delete_question.when_present.click
+      end
+
       def edit_cart_question_field_name_click
         @view.edit_cart_question_field_name.when_present.click
       end

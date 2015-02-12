@@ -96,6 +96,27 @@ module Cukesetaptesting
         @view.edit.when_present.click
       end
 
+
+      def select_approach_direct_mail
+        @view.approach_direct_mail.when_present.click
+      end
+
+      def click_create_pledge_schedules
+        @view.pledge_schedule.when_present.click
+      end
+
+      def select_frequency_monthly
+        @view.frequency.when_present.click
+      end
+
+      def click_pledge_information
+        @view.pledge_info_bar.when_present.click
+      end
+
+      def click_add_segments
+        @view.add_segment.when_present.click
+      end
+
     end
   end
 end

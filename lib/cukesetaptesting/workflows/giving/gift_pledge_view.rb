@@ -56,11 +56,22 @@ module Cukesetaptesting
       keyword(:approach_input_arrow) {content.div(:id, 'etap.fieldset.area.2').img(:id, 'approachRef_comboArrow')}
       keyword(:approach) {content.div(:id, 'approachRef_comboAllList_valueRow_39.0.3367')}
 
+      keyword(:approach_direct_mail) {content.div(:id, 'approachRef_comboAllList_valueRow_39.0.3365')}
+
       keyword(:process_transaction) {content.select(:id, 'destinationAfterSave').option(:value,'processTransaction')}
 
       keyword(:edit) {content.select(:id, 'destinationAfterSave').option(:value,'edit')}
+      keyword(:pledged_amount) {content.table(:class, 'pageTextNormal').text_field(:id, 'receivable')}
+      keyword(:pledge_schedule) {content.div(:id, 'newPledgeScheduleLink').a(:href,'javascript:saveGiftAndEditSchedule()')}
+      keyword(:frequency) {content.div(:id, 'SimpleDiv').option(:value, '12')}
+      keyword(:installment_date) {content.div(:id, 'etap.fieldset.area.6').text_field(:id, 'scheduleFirstInstallmentDate')}
+      keyword(:installment_amount) {content.div(:id, 'SimpleDiv').text_field(:id, 'scheduleInstallmentAmount')}
+      keyword(:pledge_info_bar) {content.div(:id, 'pledgeFieldsTitleBar')}
 
+      keyword(:split_received_field) {content.div(:id,"segmentedGiftHeader").text_field(:id, "received")}
 
+      keyword(:segment) {content.div(:id, 'segmentedGiftHeader').text_field(:name, 'numberOfSegments')}
+      keyword(:add_segment) {content.div(:id, 'segmentedGiftHeader').button(:value, 'Add Segments')}
 
 
 

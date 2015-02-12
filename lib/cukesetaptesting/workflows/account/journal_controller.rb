@@ -12,6 +12,10 @@ module Cukesetaptesting
         @view.gail_date_field.when_present.click
       end
 
+      def select_split_transaction
+        @view.split_transaction.when_present.click
+      end
+
     end
   end
 end

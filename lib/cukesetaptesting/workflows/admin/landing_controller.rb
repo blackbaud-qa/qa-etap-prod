@@ -109,51 +109,51 @@ module Cukesetaptesting
       end
 
       def giving_click
-        @view.giving_tab.when_present.click
+        @view.giving_tab.when_present.when_present.click
       end
 
       def giving_dropdown_click
-        @view.giving_dd.when_present.click
+        @view.giving_dd.when_present.when_present.click
       end
 
       def giving_dd_add_gift_click
-        @view.giving_dd_add_gift.click
+        @view.giving_dd_add_gift.when_present.click
       end
 
       def giving_dd_import_gifts_click
-        @view.giving_dd_import_gifts.click
+        @view.giving_dd_import_gifts.when_present.click
       end
 
       def giving_dd_giving_dynamics_click
-        @view.giving_dd_giving_dynamics.click
+        @view.giving_dd_giving_dynamics.when_present.click
       end
 
       def giving_dd_top_donor_click
-        @view.giving_dd_top_donor.click
+        @view.giving_dd_top_donor.when_present.click
       end
 
       def giving_dd_pledge_report_click
-        @view.giving_dd_pledge_report.click
+        @view.giving_dd_pledge_report.when_present.click
       end
 
       def giving_dd_fund_activity_click
-        @view.giving_dd_fund_activity.click
+        @view.giving_dd_fund_activity.when_present.click
       end
 
       def giving_dd_donor_cash_click
-        @view.giving_dd_donor_cash.click
+        @view.giving_dd_donor_cash.when_present.click
       end
 
       def giving_dd_prospect_research_click
-        @view.giving_dd_prospect_research.click
+        @view.giving_dd_prospect_research.when_present.click
       end
 
       def giving_dd_planned_giving_click
-        @view.giving_dd_planned_giving.click
+        @view.giving_dd_planned_giving.when_present.click
       end
 
       def giving_dd_cultivation_tools_click
-        @view.giving_dd_cultivation_tools.click
+        @view.giving_dd_cultivation_tools.when_present.click
       end
 
       def communications_click
@@ -165,15 +165,15 @@ module Cukesetaptesting
       end
 
       def communications_dd_manage_comms_click
-        @view.communications_dd_manage_comms.click
+        @view.communications_dd_manage_comms.when_present.click
       end
 
       def communications_add_category_click
-        @view.communications_add_category.click
+        @view.communications_add_category.when_present.click
       end
 
       def communications_constant_contact_click
-        @view.communications_constant_contact.click
+        @view.communications_constant_contact.when_present.click
       end
 
       def queries_click
@@ -181,43 +181,43 @@ module Cukesetaptesting
       end
 
       def queries_dropdown_click
-        @view.queries_dd.click
+        @view.queries_dd.when_present.click
       end
 
       def queries_dd_manage_click
-        @view.queries_dd_manage.click
+        @view.queries_dd_manage.when_present.click
       end
 
       def queries_dd_add_category_click
-        @view.queries_dd_add_category.click
+        @view.queries_dd_add_category.when_present.click
       end
 
       def queries_dd_base_click
-        @view.queries_dd_base.click
+        @view.queries_dd_base.when_present.click
       end
 
       def queries_dd_journal_entry_click
-        @view.queries_dd_journal_entry.click
+        @view.queries_dd_journal_entry.when_present.click
       end
 
       def queries_dd_constit_journal_entry_click
-        @view.queries_dd_constit_journal_entry.click
+        @view.queries_dd_constit_journal_entry.when_present.click
       end
 
       def queries_dd_lybunt_click
-        @view.queries_dd_lybunt.click
+        @view.queries_dd_lybunt.when_present.click
       end
 
       def queries_dd_pledges_payments_click
-        @view.queries_dd_pledges_payments.click
+        @view.queries_dd_pledges_payments.when_present.click
       end
 
       def queries_dd_processed_trans_click
-        @view.queries_dd_processed_trans.click
+        @view.queries_dd_processed_trans.when_present.click
       end
 
       def queries_dd_security_click
-        @view.queries_dd_security.click
+        @view.queries_dd_security.when_present.click
       end
 
       def reports_click
@@ -229,43 +229,43 @@ module Cukesetaptesting
       end
 
       def reports_dd_manage_reports_click
-        @view.reports_dd_manage_reports.click
+        @view.reports_dd_manage_reports.when_present.click
       end
 
       def reports_dd_rel_filters_click
-        @view.reports_dd_relationship_filters.click
+        @view.reports_dd_relationship_filters.when_present.click
       end
 
       def reports_dd_system_click
-        @view.reports_dd_system.click
+        @view.reports_dd_system.when_present.click
       end
 
       def reports_dd_top_donor_click
-        @view.reports_dd_top_donor.click
+        @view.reports_dd_top_donor.when_present.click
       end
 
       def reports_dd_journal_click
-        @view.reports_dd_journal.click
+        @view.reports_dd_journal.when_present.click
       end
 
       def reports_dd_recency_click
-        @view.reports_dd_recency.click
+        @view.reports_dd_recency.when_present.click
       end
 
       def reports_dd_shared_click
-        @view.reports_dd_shared.click
+        @view.reports_dd_shared.when_present.click
       end
 
       def reports_dd_aging_pledge_click
-        @view.reports_dd_aging_pledge.click
+        @view.reports_dd_aging_pledge.when_present.click
       end
 
       def reports_dd_standard_click
-        @view.reports_dd_standard.click
+        @view.reports_dd_standard.when_present.click
       end
 
       def reports_dd_benchmark_click
-        @view.reports_dd_benchmark.click
+        @view.reports_dd_benchmark.when_present.click
       end
 
       def management_click
@@ -277,95 +277,95 @@ module Cukesetaptesting
       end
 
       def management_dd_import_click
-        @view.management_dd_import.click
+        @view.management_dd_import.when_present.click
       end
 
       def management_dd_exports_click
-        @view.management_dd_exports.click
+        @view.management_dd_exports.when_present.click
       end
 
       def management_dd_mass_update_click
-        @view.management_dd_mass_update.click
+        @view.management_dd_mass_update.when_present.click
       end
 
       def management_dd_my_org_click
-        @view.management_dd_my_org.click
+        @view.management_dd_my_org.when_present.click
       end
 
       def management_dd_my_user_click
-        @view.management_dd_my_user.click
+        @view.management_dd_my_user.when_present.click
       end
 
       def management_dd_all_users_click
-        @view.management_dd_all_users.click
+        @view.management_dd_all_users.when_present.click
       end
 
       def management_dd_user_act_click
-        @view.management_dd_user_act.click
+        @view.management_dd_user_act.when_present.click
       end
 
       def management_dd_sec_groups_click
-        @view.management_dd_sec_groups.click
+        @view.management_dd_sec_groups.when_present.click
       end
 
       def management_dd_wizard_click
-        @view.management_dd_wizard.click
+        @view.management_dd_wizard.when_present.click
       end
 
       def management_dd_estore_click
-        @view.management_dd_estore.click
+        @view.management_dd_estore.when_present.click
       end
 
       def management_dd_fundraisers_click
-        @view.management_dd_fundraisers.click
+        @view.management_dd_fundraisers.when_present.click
       end
 
       def management_dd_diy_click
-        @view.management_dd_diy.click
+        @view.management_dd_diy.when_present.click
       end
 
       def management_dd_sys_defined_click
-        @view.management_dd_sys_defined.click
+        @view.management_dd_sys_defined.when_present.click
       end
 
       def management_dd_user_defined_click
-        @view.management_dd_user_defined.click
+        @view.management_dd_user_defined.when_present.click
       end
 
       def management_dd_rel_types_click
-        @view.management_dd_rel_types.click
+        @view.management_dd_rel_types.when_present.click
       end
 
       def management_dd_sticky_types_click
-        @view.management_dd_sticky_types.click
+        @view.management_dd_sticky_types.when_present.click
       end
 
       def management_dd_funds_click
-        @view.management_dd_funds.click
+        @view.management_dd_funds.when_present.click
       end
 
       def management_dd_campaigns_click
-        @view.management_dd_campaigns.click
+        @view.management_dd_campaigns.when_present.click
       end
 
       def management_dd_approaches_click
-        @view.management_dd_approaches.click
+        @view.management_dd_approaches.when_present.click
       end
 
       def management_dd_letters_click
-        @view.management_dd_letters.click
+        @view.management_dd_letters.when_present.click
       end
 
       def management_dd_goals_click
-        @view.management_dd_goals.click
+        @view.management_dd_goals.when_present.click
       end
 
       def management_dd_org_prefs_click
-        @view.management_dd_org_prefs.click
+        @view.management_dd_org_prefs.when_present.click
       end
 
       def management_dd_user_prefs_click
-        @view.management_dd_user_prefs.click
+        @view.management_dd_user_prefs.when_present.click
       end
 
 
