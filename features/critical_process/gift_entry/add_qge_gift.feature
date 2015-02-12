@@ -15,7 +15,8 @@ Feature: Adding a gift through quick gift entry
     And set the Gift Type to 'Check'
     And set the Check Date to '9/30/2090'
     And set the Check Number to '1346'
-#    And set the Tribute Information to 'Cindy Grant' !!!!!!!!!!!!!! Cindy Grant doesn't exist !!!!!!!!!!!!!!!!!!
+    #  !!!!!!!!!!!!!! Cindy Grant doesn't exist !!!!!!!!!!!!!!!!!!
+    And I set the Tribute Information to 'Cindy Grant'
     And I set the Soft Credit Information to 'Anne Hatch'
     And the Soft Credit Amount to '500.00'
     And I click Save And 'Edit'
@@ -28,7 +29,7 @@ Feature: Adding a gift through quick gift entry
     And the Check Date should be set to '9/30/2090'
     And the Check Number should be set to '1346'
     And I click the Tribute bar
-#    And the Tribute Information should be set to 'Cindy Grant'
+    And the Tribute Information should be set to 'Cindy Grant'
     And the Soft Credit Information should be set to 'Anne Hatch'
     And the Soft Credit Amount should be set to '$500.00'
 

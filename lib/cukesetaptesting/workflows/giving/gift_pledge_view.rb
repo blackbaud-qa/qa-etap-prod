@@ -81,8 +81,8 @@ module Cukesetaptesting
       keyword(:add_segment) {content.div(:id, 'segmentedGiftHeader').button(:value, 'Add Segments')}
 
       keyword(:search_for_an_account) {content.div(:id, 'etap.fieldset.area.1').input(:value,'Search for an Account')}
-      keyword(:popup_search_text) { popupSearch.div(:id, 'etap.fieldset.area.1').form(:name, 'entitySearchForm').div.text_field(:id , 'searchString')}
-      keyword(:popup_search_find) { popupSearch.div(:id, 'etap.fieldset.area.1').span(:id, 'buttonArea').input(:value, 'Find')}
+      keyword(:popup_search_text) { popupSearch.form(:name,'entitySearchForm').text_field(:id,'searchString')}
+      keyword(:popup_search_find) { popupSearch.form(:name,'entitySearchForm').input(:value,'Find') }
 
       keyword(:soft_credit_amount) {content.div(:id, 'tributeFields').div(:id, 'softCreditSection').table(:id, 'softCreditFields').text_field(:id, 'newSoftCreditAmount')}
 
@@ -95,14 +95,19 @@ module Cukesetaptesting
       keyword(:campaign) {content.text_field(:id, 'campaignRef_comboText')}
       keyword(:approach) {content.text_field(:id, 'approachRef_comboText')}
 
-      keyword(:tribute_name) {content.div(:id, 'tributeNameInput')}
+      keyword(:tribute_name) {content.td(:id, 'tributeNameInput')}
       keyword(:soft_credit_name) {content.td(:id, 'newSoftCreditNameInput').link}
 
 
 
 
       def popupSearch
-        content.iframe(:id, 'popupFrame').when_present
+        content.iframe(:id, 'popupFrame') #.when_present
+        # when_present was necessary at one point to get the iframe to work but it doesn't look like it's needed now.
+      end
+
+      def popupTextLink(text)
+        popupSearch.a(:text, text)
       end
 
       def home(model)

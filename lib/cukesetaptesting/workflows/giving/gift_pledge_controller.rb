@@ -60,7 +60,7 @@ module Cukesetaptesting
       end
 
       def set_gift_type(type)
-        @view.payment_method.option(:value, get_gift_type_value(type)).when_present.click
+        @view.payment_method.select(type)
       end
 
       def search_glass_click
@@ -68,7 +68,7 @@ module Cukesetaptesting
       end
 
       def click_find
-        @view.find.when_present.click
+        @view.popup_search_find.when_present.click
       end
 
       def choose_persona
@@ -123,22 +123,12 @@ module Cukesetaptesting
         @view.search_for_an_account.when_present.click
       end
 
-      def set_popup_search_text(name)
-        @view.popup_search_text.when_present.set name
-      end
-
       def popup_click_find
         @view.popup_search_find.when_present.click
       end
 
-      def click_link_by_text(text)
-        @view.popupSearch.a(:text, text).when_present.click
-      end
-
-      def set_popup_search_value(name)
-        set_popup_search_text(name)
-        click_find
-        click_link_by_text(name)
+      def popup_click_link_by_text(text)
+        @view.popupTextLink(text).when_present.click
       end
 
       def tribute_icon_click
@@ -149,42 +139,12 @@ module Cukesetaptesting
         @view.soft_credit_info.when_present.click
       end
 
-      def set_soft_credit_amount(value)
-        @view.soft_credit_amount.when_present.set value
-      end
-
       def set_save_and(value)
-        options = {'Edit' => 'edit',
-                 'Go to Journal' => 'journal',
-                 'New' => 'new',
-                 'Search' => 'search',
-                 'Create Document' => 'sendGiftPdf',
-                 'Process Transaction' => 'processTransaction',
-                 'Go to Persona' => 'persona'
-        }
-        @view.save_and.option(:value, options[value]).when_present.click
-      end
-
-      def get_gift_type_value(text)
-        types = {'Check'=>'checkFields',
-                 'Cash'=>'cashFields',
-                 'Credit/Debit Card' =>'creditCardFields',
-                 'Electronic Funds Transfer (EFT)' => 'eftFields',
-                 'Gift In Kind' => 'giftInKindFields',
-                 'Real Estate' => 'realEstateFields',
-                 'Stock' => 'stockFields',
-                 'Insurance' => 'insuranceFields',
-                 'Buckaroo' => 'buckarooFields'
-        }
-        types[text]
+        @view.save_and.select(value)
       end
 
       def click_save_and
         @view.save_and_button.when_present.click
-      end
-
-      def set_account_number(value)
-        @view.account_number.when_present.set value
       end
 
       def journal_gift_persona
@@ -211,8 +171,8 @@ module Cukesetaptesting
         @view.approach.when_present.value
       end
 
-      def journal_gift_gift_type
-        @view.payment_method.when_present.value
+      def journal_gift_gift_type_selected?(value)
+        @view.payment_method.selected?(value)
       end
 
       def journal_gift_check_date

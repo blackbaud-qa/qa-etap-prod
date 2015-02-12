@@ -15,7 +15,7 @@ end
 
 And(/^select '([^']*)' in popup$/) do |name|
   gift = Giving::GiftPledge.new
-  gift.click_link_by_text name
+  gift.popup_click_link_by_text name
 end
 
 And(/^set the Fund to '([^']*)'$/) do |value|
@@ -38,11 +38,22 @@ And(/^set the Gift Type to '([^']*)'$/) do |value|
   gift.set_gift_type(value)
 end
 
+And(/^I set the Tribute Information to '([^']*)'$/) do |tribute|
+  landing = Giving::GiftPledge.new(:popup_search_text=>tribute)
+  landing.tribute_bar_click
+  landing.tribute_icon_click
+  landing.create
+  landing.click_find
+  landing.popup_click_link_by_text(tribute)
+end
+
 And(/^I set the Soft Credit Information to '([^']*)'$/) do |soft_credit|
-  landing = Giving::GiftPledge.new
+  landing = Giving::GiftPledge.new(:popup_search_text=>soft_credit)
   landing.tribute_bar_click
   landing.soft_credit_icon_click
-  landing.set_popup_search_value(soft_credit)
+  landing.create
+  landing.click_find
+  landing.popup_click_link_by_text(soft_credit)
 end
 
 And(/^I click Save And '([^']*)'$/) do |value|
@@ -52,8 +63,8 @@ And(/^I click Save And '([^']*)'$/) do |value|
 end
 
 And(/^set the Account Number field to '([^']*)'$/) do |value|
-  gift = Giving::GiftPledge.new
-  gift.set_account_number(value)
+  gift = Giving::GiftPledge.new(:account_number=>value)
+  gift.create
 end
 
 Then (/^the gift should save properly on '([^']*)''s account$/) do |name|
@@ -88,7 +99,7 @@ end
 
 Then (/the Gift Type should be set to '([^']*)'$/) do |type|
   gift = Giving::GiftPledge.new
-  expect(gift.journal_gift_gift_type).to eq(gift.get_gift_type_value(type))
+  expect(gift.journal_gift_gift_type_selected?(type)).to eq(true)
 end
 
 Then (/the Check Date should be set to '([^']*)'$/) do |date|
