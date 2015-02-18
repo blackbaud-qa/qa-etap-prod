@@ -1,3 +1,4 @@
+@ready
 Feature: Creating a new communications template
 
 #  Background:
@@ -97,7 +98,7 @@ Feature: Creating a new communications template
 #    And when you open the file it should contain X pages
 #    And the document should display properly with your changes
 #    And fields should be aligned properly
-  
+
   Scenario: Creating a Receipt with Stub in guided mode
   #    Given I am logged into eTap
     Given I click Communications on the main menu

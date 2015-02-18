@@ -1,3 +1,4 @@
+@ready
 Feature: eTap Login and Logout
 
 Scenario: Normal Login and Logout

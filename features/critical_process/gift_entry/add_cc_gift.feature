@@ -1,3 +1,4 @@
+@ready
 Feature: Adding a gift with payment type of credit card and process it
 
   Scenario: Adding and processing a credit card gift

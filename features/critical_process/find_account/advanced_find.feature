@@ -1,3 +1,4 @@
+@ready
 Feature: Searching from advanced find
 
   Scenario: Searching by Name, pressing Enter
