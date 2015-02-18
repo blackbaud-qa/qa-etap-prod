@@ -7,3 +7,5 @@ Scenario: Normal Login and Logout
   When I log out of eTap
   Then I should be logged out of eTap
 
+  #making a change to this file
+
