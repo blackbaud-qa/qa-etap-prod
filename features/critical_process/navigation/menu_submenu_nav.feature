@@ -1,3 +1,4 @@
+#making a change to a different file
 @ready
 Feature: Critical Process - General Navigation
   As a QA analyst
