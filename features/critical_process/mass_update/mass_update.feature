@@ -15,8 +15,7 @@ Feature: Mass Update
       And I click Next on the Mass Update page
       And I click Next on the Mass Update page
       And I click Ok
-      Then I should see the following message:
-      [X] Accounts were updated as a result of this mass update
+      Then I should see the following message: [X] Accounts were updated as a result of this mass update
 
     Scenario: Create New Contacts
       Given I click Create New Contacts on the Mass Update page
@@ -28,8 +27,7 @@ Feature: Mass Update
       And I click Next on the Mass Update page
       And I click Next on the Mass Update page
       And I click Ok
-      Then I should see the following message:
-      [X] Accounts were updated as a result of this mass update
+      Then I should see the following message:  [X] Accounts were updated as a result of this mass update
 
     Scenario: Empty Query
       Given I click Update Existing Accounts on the Mass Update page
@@ -38,5 +36,4 @@ Feature: Mass Update
       And I click on Account Type
       And I select Individual
       And I click Next on the Mass Update page
-      Then I should see the following message:
-      You cannot perform your mass update because there are no accounts in your query.
+      Then I should see the following message:  You cannot perform your mass update because there are no accounts in your query.
