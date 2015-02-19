@@ -11,7 +11,10 @@ end
 
 When(/^I am logged into eTap$/) do
  landing = Admin::Landing.new
- landing.logged_in?
+ unless landing.logged_in?
+   step "I navigate to Fullhouse"
+   step "I login into eTap"
+ end
 end
 
 When(/^I log out of eTap$/) do

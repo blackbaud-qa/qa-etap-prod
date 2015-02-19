@@ -8,7 +8,8 @@ Feature: Critical Process - General Navigation
 
   Scenario Outline: Role Icon Navigation
     #Given I see a list of constituents accounts on the find account screen
-    Given I click Accounts on the main menu
+    Given I am logged into eTap
+    And I click Accounts on the main menu
     When I type 'Jose' into the search field
     And I press Enter on the keyboard
     And I click on <page option> from the Role Icon drop down
@@ -24,6 +25,7 @@ Feature: Critical Process - General Navigation
     | Defined Fields | Defined Fields  |
 
   Scenario Outline:  Menu Navigation
+    Given I am logged into eTap
     When I click <menu option> on the main menu
     Then I should be taken to <expected result>
 
@@ -38,7 +40,8 @@ Feature: Critical Process - General Navigation
     | Management     | Management               |
 
   Scenario Outline:  Home SubMenu Navigation
-    Given I click on the Home drop down
+    Given I am logged into eTap
+    And I click on the Home drop down
     When I click on <submenu option> on the home menu
     Then I should be taken to <expected result>
 
@@ -68,7 +71,8 @@ Feature: Critical Process - General Navigation
 
 
   Scenario Outline:  Accounts SubMenu Navigation
-    Given I click on the Accounts drop down
+    Given I am logged into eTap
+    And I click on the Accounts drop down
     When I click on <submenu option> on the accounts menu
     Then I should be taken to <expected result>
 
@@ -78,7 +82,8 @@ Feature: Critical Process - General Navigation
 #    | Add an Account  | New Account Page  |
 #
   Scenario Outline:  Giving SubMenu Navigation
-    Given I click on the Giving drop down
+    Given I am logged into eTap
+    And I click on the Giving drop down
     When I click on <submenu option> on the giving menu
     Then I should be taken to <expected result>
 
@@ -97,7 +102,8 @@ Feature: Critical Process - General Navigation
     | Cultivation Tools       | Cultivation Tools page            |
 
   Scenario Outline:  Communications SubMenu Navigation
-    Given I click on the Communications drop down
+    Given I am logged into eTap
+    And I click on the Communications drop down
     When I click on <submenu option> on the communications menu
     Then I should be taken to <expected result>
 
@@ -108,7 +114,8 @@ Feature: Critical Process - General Navigation
     | Constant Contact        | eTapestry & Constant Contact page   |
 
   Scenario Outline:  Queries SubMenu Navigation
-    Given I click on the Queries drop down
+    Given I am logged into eTap
+    And I click on the Queries drop down
     When I click on <submenu option> on the queries menu
     Then I should be taken to <expected result>
 
@@ -125,7 +132,8 @@ Feature: Critical Process - General Navigation
     | eTapestry Security             | Edit Query Category: eTapestry Security             |
 
   Scenario Outline:  Reports SubMenu Navigation
-    Given I click on the Reports drop down
+    Given I am logged into eTap
+    And I click on the Reports drop down
     When I click on <submenu option> on the reports menu
     Then I should be taken to <expected result>
 
@@ -143,7 +151,8 @@ Feature: Critical Process - General Navigation
     | eTapestry Benchmark Reports  | eTapestry Benchmark Reports page |
 
   Scenario Outline:  Management SubMenu Navigation
-    Given I click on the Management drop down
+    Given I am logged into eTap
+    And I click on the Management drop down
     When I click on <submenu option> on the management menu
     Then I should be taken to <expected result>
 
