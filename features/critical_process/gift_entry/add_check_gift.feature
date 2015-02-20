@@ -1,3 +1,4 @@
+@ready
 Feature: Adding a gift with payment type of check
 
   Scenario: Add a gift from the journal page

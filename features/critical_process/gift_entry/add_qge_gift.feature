@@ -1,3 +1,4 @@
+@ready
 Feature: Adding a gift through quick gift entry
 
   Scenario: Add a gift through quick gift entry, searching by account name
