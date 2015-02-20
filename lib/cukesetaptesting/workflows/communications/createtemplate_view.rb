@@ -1,9 +1,11 @@
 module Cukesetaptesting
   module Communications
     class CreatetemplateView < BaseView
+      keyword(:comms_cat_list) {comms_categories.ul(:id,'list_categories')}
       keyword(:thank_you_category)  { comms_categories.a(:text, 'Thank You Letters') }
       keyword(:category_letters) {comms_category.ul(:id,'list_templates')}
       keyword(:new_template) {comms_category.a(:text,'New Email or Document Template')}
+      keyword(:new_template_content) {comm_template.div(:id,'htmlPreview')}
       keyword(:new_template_name) {comm_template.text_field(:name,'template.name')}
       keyword(:new_template_nav) {comm_template.div(:class,'taskPaneLeft')}
       keyword(:new_template_next) {comm_template.button(:id,'wizardNavigationNext_1')}
