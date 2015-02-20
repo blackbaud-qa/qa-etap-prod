@@ -10,7 +10,9 @@ module Cukesetaptesting
       end
 
       def on_user_page?
-        @view.user_title.present?
+        #This feels redundant, but we need the boolean return from present? but would still like to wait
+        #for a timeout as well
+        @view.user_title.when_present.present?
       end
     end
   end

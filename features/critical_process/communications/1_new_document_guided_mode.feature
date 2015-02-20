@@ -6,8 +6,8 @@ Feature: Creating a new communications template
 #    And a query for all Donations Made Last Year has been created in the Donation Queries category
 
   Scenario: creating a simple business letter in guided mode
-#    Given I am logged into eTap
-    Given I click Communications on the main menu
+    Given I am logged into eTap
+    And I click Communications on the main menu
     And I click Thank You Letters on the Correspondence Categories page
     And I rename the existing letter to prevent automation errors
 #    And I click New Email or Document Template on the Thank You Letters page
@@ -56,8 +56,8 @@ Feature: Creating a new communications template
 #    And the document should display properly with your changes
 #
   Scenario: Creating a Receipt with Stub in guided mode
-#    Given I am logged into eTap
-    Given I click Communications on the main menu
+    Given I am logged into eTap
+    And I click Communications on the main menu
     And I click Receipts on the Correspondence Categories page
     And I click New Email or Document Template on the Correspondence Category page
 #    And I set the Name to 'Receipt w/ Stub (Bottom) - Guided Mode'
@@ -100,8 +100,8 @@ Feature: Creating a new communications template
 #    And fields should be aligned properly
 
   Scenario: Creating a Receipt with Stub in guided mode
-  #    Given I am logged into eTap
-    Given I click Communications on the main menu
+    Given I am logged into eTap
+    And I click Communications on the main menu
     And I click Receipts on the Correspondence Categories page
     And I click New Email or Document Template on the Correspondence Category page
   #    And I set the Name to 'Receipt w/ Stub (Bottom) - Guided Mode'

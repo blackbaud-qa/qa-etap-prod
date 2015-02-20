@@ -5,7 +5,7 @@ module Cukesetaptesting
       @view = CartView
 
     def on_cart_page?
-      return @view.cart_page_title.present?
+      return @view.cart_page_title.when_present.present?
     end
 
       def new_category_click
@@ -34,7 +34,7 @@ module Cukesetaptesting
       end
 
       def category_exists?(name)
-        @view.cart_category_list.text.include? name
+        @view.cart_category_list.when_present.text.include? name
       end
 
       def category_click(category)

@@ -5,7 +5,7 @@ module Cukesetaptesting
       @view = AddAccountView
 
       def on_add_account_page?
-        @view.add_account_element.present?
+        @view.add_account_element.when_present.present?
       end
 
       def find_screen_add_account_click
