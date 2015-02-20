@@ -9,6 +9,7 @@ module Cukesetaptesting
       #keyword(:accounts) {logout_frame.element(:css=> '#accountTab a')}
 
       keyword(:logout_link) {content.link(:text, 'Logout')}
+      keyword(:main_menu) {content.div(:id,'menuBodyDiv')}
 
       #nav bar
       keyword(:home_tab) {navbar_tab('homeTab').link(:class, "menuTabText")}

@@ -11,7 +11,8 @@ module Cukesetaptesting
       end
 
       def logged_in?
-        return @view.browser.text.include?'Logout'
+        # return @view.browser.text.include?'Logout'
+        return @view.main_menu.when_present.present?
       end
 
       def log_out
