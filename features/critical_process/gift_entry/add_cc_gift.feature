@@ -19,3 +19,4 @@ Feature: Adding a gift with payment type of credit card and process it
     And click Save
     And select Process Transaction from the drop down menu
     And click yes when the notification pops up
+    And wait for the journal page to display

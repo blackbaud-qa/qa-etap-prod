@@ -16,6 +16,10 @@ module Cukesetaptesting
         @view.split_transaction.when_present.click
       end
 
+      def wait_for_page_load
+        @view.journal_table.wait_until_present
+      end
+
     end
   end
 end
