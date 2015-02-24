@@ -372,31 +372,38 @@ module Cukesetaptesting
 
 
       def on_home_page?
-        @view.home_page.present?
+        @view.home_page.wait_until_present
+        return @view.home_page.exists?
       end
 
       def on_accounts_page?
-        @view.accounts_page.present?
+        @view.accounts_page.wait_until_present
+        return @view.accounts_page.exists?
       end
 
       def on_giving_page?
-        @view.giving_page.present?
+        @view.giving_page.wait_until_present
+        return @view.giving_page.exists?
       end
 
       def on_communications_page?
-        @view.communications_page.present?
+        @view.communications_page.wait_until_present
+        return @view.communications_page.exists?
       end
 
       def on_queries_page?
-        @view.queries_page.present?
+        @view.queries_page.wait_until_present
+        return @view.queries_page.exists?
       end
 
       def on_reports_page?
+
         @view.reports_page_title.when_present.text.include? "Report Categories"
       end
 
       def on_management_page?
-        @view.management_page.present?
+        @view.management_page.wait_until_present
+        return @view.management_page.exists?
       end
 
       def close_browser
