@@ -37,8 +37,8 @@ module Cukesetaptesting
       keyword(:accounts) {logout_frame.element(:css=> '#accountTab a')}
 
       #nav bar home dropdown
-      keyword(:home_dd_go_home) {home_div.li(:id, "dashboardButton")}
-      keyword(:home_dd_manage_preferences) {home_div.li(:id, "preferencesButton")}
+      keyword(:home_dd_go_home) {home_div.li(:id, "dashboardButton").a}
+      keyword(:home_dd_manage_preferences) {home_div.li(:id, "preferencesButton").a}
       keyword(:home_dd_find_account) {home_quick_links.a(:href, "/prod/entitySearch.do")}
       keyword(:home_dd_add_gift) {home_quick_links.a(:href,"/prod/addJournalTransaction.do?addingByAccountNumberStatus=new&type=Gift")}
       keyword(:home_dd_manage_comms) {home_quick_links.a(:href,"/prod/displayCategories.do?categoryManagerId=Correspondence")}
