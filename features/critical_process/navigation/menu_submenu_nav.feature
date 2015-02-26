@@ -169,7 +169,7 @@ Feature: Critical Process - General Navigation
     | Getting Started Wizard          | Getting Started Wizard      |
     | eStore (Cart)                   | Cart page                   |
 #    | Fundraisers                     | Fundraisers page            |
-    | DIY Forms                       | My Online Forms page        |
+#    | DIY Forms                       | My Online Forms page        |
     | System Defined Fields           | System Defined Fields page  |
     | User Defined Fields             | User Defined Fields page    |
     | Relationship Types              | Relationship Types page     |
