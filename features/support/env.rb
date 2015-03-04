@@ -3,17 +3,22 @@ $: << File.expand_path("#{dir}/../../lib")
 $: <<  File.expand_path(dir)
 
 require 'watir-webdriver'
-# if Watirmark::Configuration.instance.headless_enabled == true
-#   #require 'headless'
-# end
+
 require 'watirmark'
 require 'cukesetaptesting'
 require 'watirmark/cucumber/env'
 
+if Watirmark::Configuration.instance.headless_enabled
+  require 'headless'
+end
+
 include Cukesetaptesting
 
-#headless = Headless.new
-#headless.start
+if Watirmark::Configuration.instance.headless_enabled
+  headless = Headless.new
+  headless.start
+end
+
 
 at_exit do
   #step "I close the browser"

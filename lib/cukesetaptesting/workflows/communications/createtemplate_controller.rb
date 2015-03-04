@@ -5,6 +5,7 @@ module Cukesetaptesting
       @view = CreatetemplateView
 
       def thank_you_category_click
+        @view.comms_cat_list.wait_until_present
         @view.thank_you_category.when_present.click
       end
 
@@ -21,6 +22,7 @@ module Cukesetaptesting
       end
 
       def new_template_settings_click
+        @view.new_template_content.wait_until_present
         @view.new_template_settings.when_present.click
       end
 
@@ -48,6 +50,8 @@ module Cukesetaptesting
       end
 
       def new_template_edit_header_click
+        @view.new_template_content.wait_until_present
+        @view.new_template_edit_header.when_present.hover
         @view.new_template_edit_header.when_present.click
       end
 
@@ -75,7 +79,7 @@ module Cukesetaptesting
       def file_browser_image_click
         with_modal_dialog do
           @view.new_file_browser_image_upload_spinner.wait_while_present
-          @view.file_browser_image.click
+          @view.file_browser_image.when_present.click
         end
       end
 

@@ -11,12 +11,12 @@ module Cukesetaptesting
       #Role Keywords-  May be able to put this in its own class, but probably not necessary
       keyword(:role_icon) { table_content.img(:class => 'contextMenuActivation') }
       keyword(:role_menu) { content.div(:class, "contextMenu") }
-      keyword(:role_menu_home) {role_menu.li(:class, "home") }
-      keyword(:role_menu_personas) {role_menu.li(:class, "personas") }
-      keyword(:role_menu_relationships) {role_menu.li(:class, "relationships")}
-      keyword(:role_menu_journal) {role_menu.li(:class, "journal")}
-      keyword(:role_menu_other) {role_menu.li(:class, "other")}
-      keyword(:role_menu_defined_fields) {role_menu.li(:class, "definedFields")}
+      keyword(:role_menu_home) {role_menu.li(:class, "home").a }
+      keyword(:role_menu_personas) {role_menu.li(:class, "personas").a }
+      keyword(:role_menu_relationships) {role_menu.li(:class, "relationships").a}
+      keyword(:role_menu_journal) {role_menu.li(:class, "journal").a}
+      keyword(:role_menu_other) {role_menu.li(:class, "other").a}
+      keyword(:role_menu_defined_fields) {role_menu.li(:class, "definedFields").a}
 
 
 

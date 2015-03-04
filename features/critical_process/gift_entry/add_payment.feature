@@ -1,3 +1,4 @@
+@ready
 Feature: Adding a payment
 
   Scenario: Add a payment to a newly created pledge

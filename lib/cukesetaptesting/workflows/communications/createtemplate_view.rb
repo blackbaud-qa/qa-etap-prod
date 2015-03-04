@@ -1,9 +1,11 @@
 module Cukesetaptesting
   module Communications
     class CreatetemplateView < BaseView
+      keyword(:comms_cat_list) {comms_categories.ul(:id,'list_categories')}
       keyword(:thank_you_category)  { comms_categories.a(:text, 'Thank You Letters') }
       keyword(:category_letters) {comms_category.ul(:id,'list_templates')}
       keyword(:new_template) {comms_category.a(:text,'New Email or Document Template')}
+      keyword(:new_template_content) {comm_template.div(:id,'htmlPreview')}
       keyword(:new_template_name) {comm_template.text_field(:name,'template.name')}
       keyword(:new_template_nav) {comm_template.div(:class,'taskPaneLeft')}
       keyword(:new_template_next) {comm_template.button(:id,'wizardNavigationNext_1')}
@@ -17,7 +19,7 @@ module Cukesetaptesting
       keyword(:new_file_browser_image) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').file_field(:name,'NewFile')}
       keyword(:new_file_browser_image_upload) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').input(:id,'btnUpload')}
       keyword(:new_file_browser_image_upload_spinner) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').span(:id,'eUploadMessage').img}
-      keyword(:file_browser_image) {browser.frameset(:class,'Frame').framesets[1].frame(:name,'frmResourcesList').img(:class,'imagePreview')}
+      keyword(:file_browser_image) {browser.frameset(:class,'Frame').framesets[1].frame(:name,'frmResourcesList').table(:id,'tableFiles').img(:class,'imagePreview')}
       keyword(:new_template_insert_image_ok) {content.div(:text,'Ok').button}
 
       keyword(:new_template_quick_formatting) {comm_template.button(:value,'Quick Formatting')}

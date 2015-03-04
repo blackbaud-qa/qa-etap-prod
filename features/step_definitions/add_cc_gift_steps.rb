@@ -75,3 +75,8 @@ And(/^click yes when the notification pops up$/) do
   landing = Giving::GiftPledge.new
   landing.click_yes
 end
+
+And(/^wait for the journal page to display/) do
+  journ = Account::Journal.new
+  journ.wait_for_page_load
+end
