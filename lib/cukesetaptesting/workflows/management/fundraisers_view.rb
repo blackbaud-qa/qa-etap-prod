@@ -22,6 +22,20 @@ module Cukesetaptesting
       keyword(:required_check_box) {content.checkbox(:id,'questionRequired')}
       keyword(:new_fund_display_text) {content.text_field(:id,'questionDisplayText')}
       keyword(:new_fundraiser_add) {content.input(:id,'addQuestionButton')}
+      keyword(:new_fund_fee_name) {content.text_field(:id,'feeName')}
+      keyword(:new_fund_fee_amount){content.text_field(:id,'feeAmount')}
+      keyword(:fee_level_fund){content.img(:id,'feeIntent_comboArrow')}
+      keyword(:fee_level_fund_general){content.div(:id,'feeIntent_comboAllList_valueRow_47.0.3397')}
+      keyword(:new_fundraiser_add_fee_level) {content.input(:id,'addFeeButton')}
+      keyword(:new_fund_second_fee_name) {content.text_field(:id,'feeName')}
+      keyword(:new_fund_second_fee_amount){content.text_field(:id,'feeAmount')}
+      keyword(:second_fee_level_fund){content.img(:id,'feeIntent_comboArrow')}
+      keyword(:second_fee_level_fund_general){content.div(:id,'feeIntent_comboAllList_valueRow_47.0.3397')}
+      keyword(:applied_to_donations_fund){content.img(:id,'refPopulate(eventOptions.donationFund)_comboArrow')}
+      keyword(:applied_to_donations_fund_general){content.div(:id,'refPopulate(eventOptions.donationFund)_comboAllList_valueRow_47.0.3397')}
+      keyword(:new_fundraiser_save_and_finish) {content.input(:id,'wizardNavigationButton_1_saveAndFinish')}
+      #keyword(:fundraiser_page_url){content.div(:id,'etap.fieldset.table.1').ul(:id,'list_events').div(:class,'item').h4.a(:text,'QA Fundraiser x').parent.parent.div(:class,'actions').a}
+      keyword(:fundraiser_page_url){content.div(:id,'etap.fieldset.table.1').ul(:id,'list_events').h4().a(:text,'QA Fundraiser x').parent.parent.div(:class,'actions').a}
 
       def home(model)
       end

@@ -13,7 +13,7 @@ Feature: Creating a new fundraiser
     And I set Status to Active on the new Fundraiser page
     And I set the Goal to '$5000' on the new Fundraiser page
     And I click Next on the new Fundraiser page
-    And I set the Site Name to 'qafundraiser1' on the new Fundraiser page
+    And I set the Site Name on the new Fundraiser page
     And I set Administrative Contact Name to 'QA Team' on the new Fundraiser page
     And I set Administrative Contact Email to 'qa-1@blackbaud.com' on the new Fundraiser page
     And I set the template to Float on the new Fundraiser page
@@ -29,20 +29,21 @@ Feature: Creating a new fundraiser
     And I set the Recommended Individual Goal to '$100' on the new Fundraiser page
     And I choose Base:Gender in the Field Name under Add Question on the new Fundraiser page
     And I set the checkbox next to Required on the new Fundraiser page
-    And I set the display text to 'Gender' on the new Fundraiser page
-#    And I click Add on the new Fundraiser page
-#    And set Name to Walker
-#    And set Amount to 15
-#    And set Fund to General
-#    And click Add
-#    And set Name to Runner
-#    And set Amount to 25
-#    And set Fund to General
-#    And click Add
-#    And I click Next on the new Fundraiser page
-#    And I click Next on the new Fundraiser page
-#    And I click Next on the new Fundraiser page
-#    And I click Next on the new Fundraiser page
-#    And set Fund to be applied to Donations to General
-#    And click Save and Finish
-#    Then I should be able to click on the QA Fundraiser [X] url to view the live page
+    And I set the display text to say 'Gender' on the new Fundraiser page
+    And I click Add on the new Fundraiser page
+    And I set the Fee Name to 'Walker' on the new Fundraiser page
+    And I set the Fee Amount to '15' on the new Fundraiser page
+    And I choose General in the Fund drop down under Add Fee on the new Fundraiser page
+    And I click Add under Registration Fee Levels on the new Fundraiser page
+    And I set the second Fee Name to 'Runner' on the new Fundraiser page
+    And I set the second Fee Amount to '25' on the new Fundraiser page
+    And I choose General as the second Fund in the Fund drop down on the new Fundraiser page
+    And I click Add under Registration Fee Levels on the new Fundraiser page
+    And I click Next on the new Fundraiser page
+    And I click Next on the new Fundraiser page
+    And I click Next on the new Fundraiser page
+    And I click Next on the new Fundraiser page
+    And I choose General as the Fund to be applied to Donations on the new Fundraiser page
+    And I click Save and Finish on the new Fundraiser page
+    Then I should be able to click on the QA Fundraiser 1 url on the Fundraiser page
+#    And the QA Fundraiser url should load
