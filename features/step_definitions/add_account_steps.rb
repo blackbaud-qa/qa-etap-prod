@@ -87,3 +87,74 @@ And (/^I click Yes for John Doe/) do
   accounts = Account::AddAccount.new
   accounts.yes_button_click
 end
+
+And (/^I should be taken to the Persona page '([^']*)''s account/) do |name|
+  accounts = Account::AddAccount.new
+  expect(accounts.new_account_persona).to eq(name)
+end
+
+And (/^I set the UDF '([^']*)' to '([^']*)' on the classic add account page/) do |udf, value|
+  accounts = Account::AddAccount.new
+  accounts.click_udf(udf)
+  accounts.set_udf_value(udf, value)
+end
+
+Then (/^the Address Lines should be set to '([^']*)'/) do |name|
+  accounts = Account::AddAccount.new
+  expect(accounts.persona_page_address_lines).to eq(name)
+end
+
+Then (/^the City should be set to '([^']*)'/) do |name|
+  accounts = Account::AddAccount.new
+  expect(accounts.persona_page_city).to eq(name)
+end
+
+Then (/^the State should be set to '([^']*)'/) do |name|
+  accounts = Account::AddAccount.new
+  expect(accounts.persona_page_state).to eq(name)
+end
+
+Then (/^the Postal Code should be set to '([^']*)'/) do |name|
+  accounts = Account::AddAccount.new
+  expect(accounts.persona_page_postal_code).to eq(name)
+end
+
+Then (/^the County should be set to '([^']*)'/) do |name|
+  accounts = Account::AddAccount.new
+  expect(accounts.persona_page_county).to eq(name)
+end
+
+Then (/^the Voice should be set to '([^']*)'/) do |name|
+  accounts = Account::AddAccount.new
+  expect(accounts.persona_page_voice).to eq(name)
+end
+
+Then (/^the Email should be set to '([^']*)'/) do |name|
+  accounts = Account::AddAccount.new
+  expect(accounts.persona_page_email).to eq(name)
+end
+
+Then (/^the Web Page should be set to '([^']*)'/) do |name|
+  accounts = Account::AddAccount.new
+  expect(accounts.persona_page_web_page).to eq(name)
+end
+
+Then (/^the Note should be set to '([^']*)'/) do |name|
+  accounts = Account::AddAccount.new
+  expect(accounts.persona_page_note).to eq(name)
+end
+
+Then (/^the Short Salutation should be set to '([^']*)'/) do |name|
+  accounts = Account::AddAccount.new
+  expect(accounts.persona_page_short_salutation).to eq(name)
+end
+
+Then (/^the Long Salutation should be set to '([^']*)'/) do |name|
+  accounts = Account::AddAccount.new
+  expect(accounts.persona_page_long_salutation).to eq(name)
+end
+
+Then (/^I click OK on the warning message that I am missing a Name and Sort Name/) do
+  accounts = Account::AddAccount.new
+  accounts.add_account_warning
+end

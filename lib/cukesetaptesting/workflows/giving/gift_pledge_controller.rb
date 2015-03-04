@@ -145,6 +145,9 @@ module Cukesetaptesting
 
       def click_save_and
         @view.save_and_button.when_present.click
+        # if @browser.alert.exists?
+        #   @browser.alert.ok
+        # end
       end
 
       def journal_gift_persona
@@ -210,6 +213,20 @@ module Cukesetaptesting
       def click_add_segments
         @view.add_segment.when_present.click
       end
+
+      def journal_link_click
+        @view.journal_link.when_present.click
+      end
+
+      def add_new_drop_down_click
+        @view.add_new_drop_down.when_present.click
+      end
+
+      def gift_pledge_click
+        @view.gift_pledge.when_present.click
+      end
+
+
 
     end
   end

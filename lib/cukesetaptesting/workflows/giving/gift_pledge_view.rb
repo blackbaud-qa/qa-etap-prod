@@ -98,6 +98,10 @@ module Cukesetaptesting
       keyword(:tribute_name) {content.td(:id, 'tributeNameInput')}
       keyword(:soft_credit_name) {content.td(:id, 'newSoftCreditNameInput').link}
 
+      keyword(:journal_link)  {content.a(:text,'Journal')}
+
+
+
 
 
 
