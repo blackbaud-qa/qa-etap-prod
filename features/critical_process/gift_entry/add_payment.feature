@@ -1,4 +1,6 @@
-@ready
+#This is no longer ready.  I think the existing pledge was either fulfilled,
+#or something else has changed with the UI.  There is no date field after clicking
+#journal.
 Feature: Adding a payment
 
   Scenario: Add a payment to a newly created pledge

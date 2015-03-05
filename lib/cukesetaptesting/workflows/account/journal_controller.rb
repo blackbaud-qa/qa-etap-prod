@@ -17,7 +17,7 @@ module Cukesetaptesting
       end
 
       def wait_for_page_load
-        @view.journal_table.wait_until_present
+        @view.journal_form.wait_until_present
       end
 
     end
