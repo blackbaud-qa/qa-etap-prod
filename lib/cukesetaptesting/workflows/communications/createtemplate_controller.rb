@@ -79,7 +79,7 @@ module Cukesetaptesting
       def file_browser_image_click
         with_modal_dialog do
           @view.new_file_browser_image_upload_spinner.wait_while_present
-          @view.file_browser_image.when_present.click
+          @view.file_browser_image.click
         end
       end
 
@@ -164,6 +164,7 @@ module Cukesetaptesting
       end
 
       def new_template_receipt_stub_bottom_click
+        @view.browser.execute_script('arguments[0].scrollIntoView();',@view.new_template_reciept_stub_bottom)
         @view.new_template_reciept_stub_bottom.when_present.click
       end
 
