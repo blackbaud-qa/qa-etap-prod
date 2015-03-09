@@ -5,15 +5,14 @@ Feature:Create a new report
     And I click on reports
     And I click on the system category
     And I click on new report
-    And I name the report Test
+    And I name the report 'Test Report'
     And I choose Fields from the commonly used report fields category
     And I choose save and run
-    And I choose query category base
-    And I choose query All constituents
-    And I accept on the default report format Display report on screen
+    And I choose query category 'Base'
+    And I choose query 'All Constituents - A'
+    And I accept on the default report format 'Display Results on Screen'
     When I click on submit
-    Then I should see the report and all columns displayed to screen
-
+    Then I should see the report 'Test Report' and all columns displayed to screen
    |Fields        |
    |Name          |
    |Address Lines |
