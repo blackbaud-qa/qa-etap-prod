@@ -13,7 +13,7 @@ module Cukesetaptesting
       keyword(:new_account_classic_voice){content.text_field(:title, 'Correctly formatted phone number')}
       keyword(:new_account_classic_email){content.text_field(:id, 'emailAddress')}
       keyword(:new_account_classic_web_page) {content.text_field(:id, 'webAddress')}
-      keyword(:new_account_classic_note) {content.text_field(:id, 'note_0')}
+      keyword(:new_account_classic_note) {content.text_field(:id, 'note')}
       keyword(:new_account_classic_short_salutation) {content.text_field(:id, 'shortDesignation')}
       keyword(:new_account_classic_long_salutation) {content.text_field(:id, 'longDesignation')}
       keyword(:john_doe_link) {content.a(:text,'John Doe')}
@@ -32,7 +32,9 @@ module Cukesetaptesting
       keyword(:note_field) {content.text_field(:id, 'note')}
       keyword(:short_salutation_field) {content.text_field(:id, 'shortDesignation')}
       keyword(:long_salutation_field) {content.text_field(:id, 'longDesignation')}
-      keyword(:add_account_warning) {browser.alert}
+      keyword(:find_account_phone) {content.text_field(:name, 'phone')}
+
+
 
       def udf_to_click(udf)
         content.link(:text, udf + ':')

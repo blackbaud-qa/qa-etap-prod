@@ -154,7 +154,12 @@ Then (/^the Long Salutation should be set to '([^']*)'/) do |name|
   expect(accounts.persona_page_long_salutation).to eq(name)
 end
 
-Then (/^I click OK on the warning message that I am missing a Name and Sort Name/) do
+Then (/^the '([^']*)' should be set to '([^']*)'/) do |udf, value|
   accounts = Account::AddAccount.new
-  accounts.add_account_warning
+  expect(accounts.persona_page_company(udf)).to eq(value)
+end
+
+And (/^I set Phone to '([^']*)' on the Advanced Find screen/) do |value|
+  accounts = Account::AddAccount.new(:find_account_phone => value)
+  accounts.create
 end
