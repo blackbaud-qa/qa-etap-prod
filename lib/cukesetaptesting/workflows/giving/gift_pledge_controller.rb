@@ -144,7 +144,11 @@ module Cukesetaptesting
       end
 
       def click_save_and
+        begin
         @view.save_and_button.when_present.click
+        rescue
+          browser.alert.ok
+             end
       end
 
       def journal_gift_persona
@@ -211,7 +215,39 @@ module Cukesetaptesting
         @view.add_segment.when_present.click
       end
 
-    end
+      def journal_link_click
+        @view.journal_link.when_present.click
+      end
+
+      def add_new_drop_down_click
+        @view.add_new_drop_down.when_present.click
+      end
+
+      def gift_pledge_click
+        @view.gift_pledge.when_present.click
+      end
+
+      def select_add_new_journal_entry(name)
+        @view.add_new_journal_type.when_present.select(name)
+      end
+
+      def create_pledge_schedule_click
+        @view.create_pledge_schedule.when_present.click
+      end
+
+      def select_frequency(name)
+        @view.select_frequency_value.when_present.select(name)
+      end
+
+      def add_payment_click
+        @view.add_a_payment_for_this_pledge.when_present.click
+      end
+
+      def set_payment_check_date
+        @view.payment_check_date.when_present.value
+      end
+
+      end
   end
 end
 

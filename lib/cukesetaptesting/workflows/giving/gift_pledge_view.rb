@@ -98,6 +98,20 @@ module Cukesetaptesting
       keyword(:tribute_name) {content.td(:id, 'tributeNameInput')}
       keyword(:soft_credit_name) {content.td(:id, 'newSoftCreditNameInput').link}
 
+      keyword(:journal_link)  {content.a(:text,'Journal')}
+
+      #combo box for adding a new journal entry from the Add New... combo box
+      keyword(:add_new_journal_type) {content.select(:id, 'addEntry')}
+
+      keyword(:new_pledge_date) {content.input(:name, 'date')}
+      keyword(:set_pledged_field) {content.text_field(:name, 'receivable')}
+      keyword(:create_pledge_schedule) {content.a(:text, 'Create Pledge Schedule')}
+      keyword(:select_frequency_value) {content.select(:id, 'pledgeFrequencySelect')}
+      keyword(:first_installment_date) {content.input(:name, 'scheduleForm.firstInstallmentDate')}
+      keyword(:set_installment_amount) {content.text_field(:name, 'scheduleForm.installmentAmount')}
+      keyword(:add_a_payment_for_this_pledge) {content.a(:text, 'Add a Payment for this Pledge')}
+      keyword(:set_payment_check_date) {content.text_field(:name, "checkDate")}
+      keyword(:set_check_number) {content.text_field(:name, 'checkNumber')}
 
 
 
