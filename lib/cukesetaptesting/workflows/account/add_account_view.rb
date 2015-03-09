@@ -33,6 +33,7 @@ module Cukesetaptesting
       keyword(:short_salutation_field) {content.text_field(:id, 'shortDesignation')}
       keyword(:long_salutation_field) {content.text_field(:id, 'longDesignation')}
       keyword(:find_account_phone) {content.text_field(:name, 'phone')}
+      keyword(:filter_journal_results_message)
 
 
 
