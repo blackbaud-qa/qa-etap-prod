@@ -21,6 +21,7 @@ module Cukesetaptesting
       end
 
       def new_fundraiser_set_template_float
+        sleep 3
         @view.new_fund_templatefloat.when_present.set
       end
 
@@ -56,12 +57,62 @@ module Cukesetaptesting
         @view.required_check_box.when_present.click
       end
 
-      def set_display_text(display_text)
-        @view.new_fundraiser_display_text.when_present.send_keys display_text
-      end
-
       def new_fundraiser_add_click
         @view.new_fundraiser_add.when_present.click
+      end
+
+      def fee_level_fund_click
+        @view.fee_level_fund.when_present.click
+      end
+
+      def fee_level_fund_general_click
+        @view.fee_level_fund_general.when_present.click
+      end
+
+      def new_fundraiser_add_fee_level_click
+        @view.new_fundraiser_add_fee_level.when_present.click
+      end
+
+      def second_fee_level_fund_click
+        @view.fee_level_fund.when_present.click
+      end
+
+      def second_fee_level_fund_general_click
+        @view.fee_level_fund_general.when_present.click
+      end
+
+      def applied_to_donations_fund_click
+        sleep 3
+        @view.applied_to_donations_fund.when_present.click
+      end
+
+      def applied_to_donations_fund_general_click
+        @view.applied_to_donations_fund_general.when_present.click
+      end
+
+      def new_fundraiser_save_and_finish_click
+        @view.new_fundraiser_save_and_finish.when_present.click
+      end
+
+      def fundraiser_page_url_click
+      #  @view.fundraiser_page_url.when_present.click
+        @view.fundraiser_page_url.when_present.click
+      end
+
+      def fundraiser_page_title_click
+        @view.fundraiser_page_title.when_present.click
+      end
+
+      def existing_fundraiser_change_template_chisel
+        @view.existing_fund_templatechisel.when_present.set
+      end
+
+      def existing_fundraiser_after_main_page_text_click
+        @view.existing_fund_after_main_page_text.when_present.click
+      end
+
+      def add_main_page_text(text)
+        @view.add_main_page_text.when_present.send_keys text
       end
 
     end

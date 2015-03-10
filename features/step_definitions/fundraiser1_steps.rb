@@ -34,8 +34,9 @@ And(/^I click Next on the new Fundraiser page/) do
   fund.new_fundraiser_next_click
 end
 
-And (/^I set the Site Name to '([^']*)' on the new Fundraiser page/) do |sitename|
-  fund = Management::Fundraisers.new(:new_fund_sitename => sitename)
+And (/^I set the Site Name on the new Fundraiser page/) do
+  name = 'fundraiser'+((0...8).map { (65 + rand(26)).chr }.join)
+  fund = Management::Fundraisers.new(:new_fund_sitename => name)
   fund.create
 end
 
@@ -65,8 +66,8 @@ And(/^I delete the Main Page Text on the new Fundraiser page/) do
 end
 
 And(/^I set the Main Page Text to say '([^']*)' on the new Fundraiser page/) do |text|
-  fund = Management::Fundraisers.new()
-  fund.set_main_page_text(text)
+fund = Management::Fundraisers.new()
+fund.set_main_page_text(text)
 end
 
 And(/^I choose B for Bold in the Main page Text box on the new Fundraiser page/) do
@@ -100,12 +101,71 @@ And(/^I set the checkbox next to Required on the new Fundraiser page/) do
   fund.required_check_box_click
 end
 
-And (/^I set the display text to '([^']*)' on the new Fundraiser page/) do |display_text|
+And(/^I set the display text to say '([^']*)' on the new Fundraiser page$/) do |display_text|
   fund = Management::Fundraisers.new(:new_fund_display_text => display_text)
   fund.create
+end
 
 And(/^I click Add on the new Fundraiser page/) do
   fund = Management::Fundraisers.new()
   fund.new_fundraiser_add_click
 end
-  end
+
+And(/^I set the Fee Name to '([^']*)' on the new Fundraiser page/) do |fee_name|
+  fund = Management::Fundraisers.new(:new_fund_fee_name => fee_name)
+  fund.create
+end
+
+And(/^I set the Fee Amount to '([^']*)' on the new Fundraiser page/) do |fee_amount|
+  fund = Management::Fundraisers.new(:new_fund_fee_amount => fee_amount)
+  fund.create
+end
+
+And(/^I choose General in the Fund drop down under Add Fee on the new Fundraiser page/) do
+  fund = Management::Fundraisers.new()
+  fund.fee_level_fund_click
+  fund.fee_level_fund_general_click
+end
+
+And(/^I click Add under Registration Fee Levels on the new Fundraiser page/) do
+  fund = Management::Fundraisers.new()
+  fund.new_fundraiser_add_fee_level_click
+end
+
+And(/^I set the second Fee Name to '([^']*)' on the new Fundraiser page/) do |second_fee_name|
+  fund = Management::Fundraisers.new(:new_fund_second_fee_name => second_fee_name)
+  fund.create
+end
+
+And(/^I set the second Fee Amount to '([^']*)' on the new Fundraiser page/) do |second_fee_amount|
+  fund = Management::Fundraisers.new(:new_fund_second_fee_amount => second_fee_amount)
+  fund.create
+end
+
+And(/^I choose General as the second Fund in the Fund drop down on the new Fundraiser page/) do
+  fund = Management::Fundraisers.new()
+  fund.second_fee_level_fund_click
+  fund.second_fee_level_fund_general_click
+end
+
+And(/^I set the Fund to be applied to Donations to General on the new Fundraiser page/) do
+  fund = Management::Fundraisers.new()
+  fund.second_fee_level_fund_click
+  fund.second_fee_level_fund_general_click
+end
+
+And(/^I choose General as the Fund to be applied to Donations on the new Fundraiser page/) do
+  fund = Management::Fundraisers.new()
+  fund.applied_to_donations_fund_click
+  fund.applied_to_donations_fund_general_click
+end
+
+And(/^I click Save and Finish on the new Fundraiser page/) do
+  fund = Management::Fundraisers.new()
+  fund.new_fundraiser_save_and_finish_click
+end
+
+And(/^I should be able to click on the QA Fundraiser 1 url on the Fundraiser page/) do
+  fund = Management::Fundraisers.new()
+  fund.fundraiser_page_url_click
+end
