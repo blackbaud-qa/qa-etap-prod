@@ -8,11 +8,13 @@ Feature: Editing a fundraiser
     Given I am logged into eTap
     When I click Management on the main menu
     And I click Fundraisers on the Management menu
-    And I click on the Fundraiser named QA Fundraiser 1
-#    And I navigate to step 2 Site Options
-#    And I change the template to Chisel
-#    And I click Next
-#    And under Main Page Text I add "Thank you for supporting our cause!" below the title text
+    And I click on the Fundraiser titled QA Fundraiser 1 on the Fundraisers page
+    And I click Next on the new Fundraiser page
+    And I change the template to Chisel on the existing Fundraiser page
+    And I click Next on the new Fundraiser page
+#    And I click in the Main Page text area after the word fundraiser
+#    And I press Enter on the keyboard
+#    And I add 'Thank you for supporting our cause!' in the Main Page text on the existing Fundraiser page
 #    And highlight the text "Thank you for supporting our cause!"
 #    And I remove Bold
 #    And set it to Align Left

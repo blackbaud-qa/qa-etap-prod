@@ -21,7 +21,7 @@ module Cukesetaptesting
       end
 
       def new_fundraiser_set_template_float
-        sleep 5
+        sleep 3
         @view.new_fund_templatefloat.when_present.set
       end
 
@@ -82,6 +82,7 @@ module Cukesetaptesting
       end
 
       def applied_to_donations_fund_click
+        sleep 3
         @view.applied_to_donations_fund.when_present.click
       end
 
@@ -97,6 +98,23 @@ module Cukesetaptesting
       #  @view.fundraiser_page_url.when_present.click
         @view.fundraiser_page_url.when_present.click
       end
+
+      def fundraiser_page_title_click
+        @view.fundraiser_page_title.when_present.click
+      end
+
+      def existing_fundraiser_change_template_chisel
+        @view.existing_fund_templatechisel.when_present.set
+      end
+
+      def existing_fundraiser_after_main_page_text_click
+        @view.existing_fund_after_main_page_text.when_present.click
+      end
+
+      def add_main_page_text(text)
+        @view.add_main_page_text.when_present.send_keys text
+      end
+
     end
   end
 end

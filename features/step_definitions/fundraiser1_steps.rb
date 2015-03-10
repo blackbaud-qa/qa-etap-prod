@@ -66,8 +66,8 @@ And(/^I delete the Main Page Text on the new Fundraiser page/) do
 end
 
 And(/^I set the Main Page Text to say '([^']*)' on the new Fundraiser page/) do |text|
-  fund = Management::Fundraisers.new()
-  fund.set_main_page_text(text)
+fund = Management::Fundraisers.new()
+fund.set_main_page_text(text)
 end
 
 And(/^I choose B for Bold in the Main page Text box on the new Fundraiser page/) do
