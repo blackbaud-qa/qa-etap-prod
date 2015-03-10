@@ -112,6 +112,15 @@ module Cukesetaptesting
       keyword(:add_a_payment_for_this_pledge) {content.a(:text, 'Add a Payment for this Pledge')}
       keyword(:set_payment_check_date) {content.text_field(:name, "checkDate")}
       keyword(:set_check_number) {content.text_field(:name, 'checkNumber')}
+      keyword(:user_defined_fields_section) {content.div(:id, 'userDefinedFieldsTitleBar')}
+      keyword(:payment_delete_button) {content.button(:name, 'deleteButton')}
+      keyword(:pledge_entry_to_click) {content.a(:text, 'Pledge')}
+      keyword(:more_options_link) {content.a(:text, 'More Options')}
+      keyword(:uncheck_all_link) {content.a(:text, 'Uncheck All')}
+      keyword(:pledge_checkbox) {content.checkbox(:value, 'label.pledge')}
+      keyword(:find_button_journal_page) {content.button(:value, 'Find')}
+      keyword(:journal_filter_results) {content.div(:id, 'etap.fieldset.area.3')}
+
 
 
 
@@ -132,6 +141,11 @@ module Cukesetaptesting
 
       def edit(model)
       end
+
+      def payment_udf_to_click(udf)
+        content.link(:text, udf + ':')
+      end
+
     end
   end
 end

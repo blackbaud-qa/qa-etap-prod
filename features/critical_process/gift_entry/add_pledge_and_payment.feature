@@ -17,15 +17,22 @@ Feature: Testing payments and pledges
     And I set the Installment Amount to '$10.00'
     And I click Save And 'Edit'
     And I click Add a Payment for this Pledge
-#    Check Date is not getting set at all
-    And I set the Check Date to '11/03/2090' on the new payment page
+    And I set the Check Date to Today on the new payment page
     And I set the Check number to '233' on the new payment page
-#    And I click Save And 'Edit'
-#    And I click Delete on the payment page
-#    And I click OK to delete the payment permanently
-#    And I click Pledge on the journal page
-#    And I click Delete on the pledge page
-#    And I click OK to delete the pledge permanently
-#    Then I should be taken to the Journal page of 'Gail Burch''s account
-#    And I should not see a Pledge listed in the journal
+    And I click on the User Defined Fields section on the new payment page
+    And I set the UDF 'Ticket Quantity A' to '4' on the new payment page
+    And I click Save And 'Edit'
+    And I click on the User Defined Fields section on the new payment page
+    And I should see 'Ticket Quantity A' set to '4' on the payment page
+    And I click Delete on the transaction page
+    And I click Pledge on the journal page
+    And I click Delete on the transaction page
+    And I click More Options on the journal page
+    And I click Uncheck All on the journal page
+    And I mark the checkbox next to Pledge on the journal page
+    And I click Find on the journal page
+    Then I should see the message 'No Journal Entries Found' on the journal page
+
+
+
 

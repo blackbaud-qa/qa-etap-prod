@@ -247,6 +247,59 @@ module Cukesetaptesting
         @view.payment_check_date.when_present.value
       end
 
+      def user_defined_fields_section_click
+        @view.user_defined_fields_section.when_present.click
+      end
+
+      def click_payment_udf(udf)
+        @view.payment_udf_to_click(udf).when_present.click
+       end
+
+      def set_payment_udf_value(udf, value)
+        @view.payment_udf_to_click(udf).parent.text_field.set value
+      end
+
+      def payment_page_udf(udf)
+        @view.payment_udf_to_click(udf).parent.span.text
+      end
+
+      def payment_delete_click
+        begin
+        @view.payment_delete_button.when_present.click
+        rescue
+          browser.alert.ok
+          end
+      end
+
+
+      def pledge_entry_click
+        @view.pledge_entry_to_click.when_present.click
+      end
+
+      def more_options_link_click
+        @view.more_options_link.when_present.click
+      end
+
+      def uncheck_all_link_click
+        @view.uncheck_all_link.when_present.click
+      end
+
+      def pledge_checkbox_click
+        @view.pledge_checkbox.when_present.click
+      end
+
+      def find_button_journal_page_click
+        @view.find_button_journal_page.when_present.click
+      end
+
+      def filter_journal_results(item)
+        puts browser.text.include?(item) == 'No Journal Entries Found'
+      end
+
+      def journal_entry_exists?(message)
+        @view.journal_filter_results.when_present.text.include? message
+      end
+
       end
   end
 end
