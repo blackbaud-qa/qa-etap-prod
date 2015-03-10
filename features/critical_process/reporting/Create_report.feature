@@ -1,3 +1,4 @@
+@ready
 Feature:Create a new report
 
   Scenario: Create a new report

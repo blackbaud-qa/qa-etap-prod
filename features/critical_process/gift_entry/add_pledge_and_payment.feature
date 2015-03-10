@@ -1,3 +1,4 @@
+@ready
 Feature: Testing payments and pledges
 
   Scenario: Add a pledge from the journal page
