@@ -169,11 +169,18 @@ module Cukesetaptesting
       end
 
       def new_template_footer_hover
-        @view.new_template_footer.hover
+        @view.new_template_footer.wait_until_present
+        @view.new_template_footer.when_present.hover
+        # @view.new_template_edit_guide.wait_until_present
+        # @view.new_template_footer.hover
       end
 
       def new_template_delete_section_click
-        @view.new_template_delete_section.when_present.click
+        @view.new_template_edit_guide.wait_until_present
+        @view.new_template_edit_guide_delete.when_present.click
+        # @view.new_template_edit_guide_confirm_yes.wait_until_present
+        @view.new_template_edit_guide_confirm_yes.when_present.click
+        # @view.new_template_delete_section.when_present.click
       end
     end
   end

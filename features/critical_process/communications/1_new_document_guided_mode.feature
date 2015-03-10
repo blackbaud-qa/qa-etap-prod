@@ -1,4 +1,3 @@
-@ready
 Feature: Creating a new communications template
 
 #  Background:
@@ -70,8 +69,8 @@ Feature: Creating a new communications template
 #    And click Documents
     And I click Documents on the new Correspondence Template page
     And I click on the Receipt w Stub Bottom template on the new Correspondence Template page
-#    And I hover over the Letter Closing block on the new Correspondence Template page
-#    And I click the red X to delete the block on the new Correspondence Template page
+    And I hover over the Letter Closing block on the new Correspondence Template page
+    And I click the red X to delete the block on the new Correspondence Template page
 #    And select Receipt Stub Copy from the Add Block list
 #    And move the Receipt Stub Copy block above the Receipt Stub block
 #    And click on the Body block to open the Edit Contents pop up
@@ -98,48 +97,3 @@ Feature: Creating a new communications template
 #    And when you open the file it should contain X pages
 #    And the document should display properly with your changes
 #    And fields should be aligned properly
-
-  Scenario: Creating a Receipt with Stub in guided mode
-    Given I am logged into eTap
-    And I click Communications on the main menu
-    And I click Receipts on the Correspondence Categories page
-    And I click New Email or Document Template on the Correspondence Category page
-  #    And I set the Name to 'Receipt w/ Stub (Bottom) - Guided Mode'
-    And I set the Name to 'Receipt w/ Stub (Bottom) - Guided Mode' on the new Correspondence Template page
-  #    And click Tab
-    And I press Tab on the keyboard
-  #    And verify that the Subject now says Receipt w/ Stub (Bottom) - Guided Mode
-  #    And click Next
-    And I click Next on the new Correspondence Template page
-  #    And click Documents
-    And I click Documents on the new Correspondence Template page
-    And I click on the Receipt w Stub Bottom template on the new Correspondence Template page
-#    And I hover over the Letter Closing block on the new Correspondence Template page
-#    And I click the red X to delete the block on the new Correspondence Template page
-#    And select Receipt Stub Copy from the Add Block list
-#    And move the Receipt Stub Copy block above the Receipt Stub block
-#    And click on the Body block to open the Edit Contents pop up
-#    And double click on the Long Salutation merge tag
-#    And set the Field to Short Salutation
-#    And click Insert
-#    And select all the text in the Body
-#    And set the font to Times New Roman
-#    And set the size to 12pt
-#    And click Update
-#    And click Save And Create Document
-#    And set the Category to Donation Queries
-#    And set the query to Donations Made Last Year
-#    And click Next
-#    And set the document type to Word
-#    And set the Grouping to One Document Per Journal Entry
-#    And click Next
-#    And click Next
-#    And set Receiving to Download documents
-#    And click Next
-#    And click Next
-#    And click Run
-#    Then the Word document should generate
-#    And when you open the file it should contain X pages
-#    And the document should display properly with your changes
-#    And fields should be aligned properly
-

@@ -31,6 +31,9 @@ module Cukesetaptesting
       keyword(:new_template_select) {comm_template.select(:id,'nextMapping')}
       keyword(:new_template_save) {comm_template.a(:text,'Save and')}
       keyword(:new_template_settings) {comm_template.a(:text,'Settings')}
+      keyword(:new_template_edit_guide) {content.p(:class,'hoverControls')}
+      keyword(:new_template_edit_guide_delete) {new_template_edit_guide.a(:class,'delete').img}
+      keyword(:new_template_edit_guide_confirm_yes) {browser.div(:class,'popupWindow').input(:value,'Yes')}
       # keyword(:new_template_save) {comm_template.tr(:id,'wizardWorkflowRow_3_taskWorkflow').img}
       keyword(:gen_letters_category) {letter_guide.select(:id,'select.query.category.1')}
       keyword(:gen_letters_query) {letter_guide.select(:id,'select.query.1')}
