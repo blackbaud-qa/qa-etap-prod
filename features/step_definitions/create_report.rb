@@ -1,12 +1,13 @@
-Before do
+
+Given (/^the report '([^']*)' does not exist$/) do |report_name|
   step "I am logged into eTap"
   step "I click on reports"
   step "I click on the system category"
 
   # Delete 'Test Report'
   create_report = Reports::Createreport.new
-  if (create_report.report_exists? 'Test Report')
-    create_report.delete_report 'Test Report'
+  if (create_report.report_exists? report_name)
+    create_report.delete_report report_name
   end
 end
 
