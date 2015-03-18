@@ -56,6 +56,11 @@ And (/^I click on the User Defined Fields section on the new payment page/) do
   gift.user_defined_fields_section_click
 end
 
+And (/^I click on the Gift Types section on the new payment page/) do
+  gift = Giving::GiftPledge.new
+  gift.gift_types_section_click
+end
+
 And (/^I set the UDF '([^']*)' to '([^']*)' on the new payment page/) do |udf, value|
   gift = Giving::GiftPledge.new
   gift.click_payment_udf(udf)
@@ -100,4 +105,9 @@ end
 Then (/^I should see the message '([^']*)' on the journal page/) do |message|
   gift = Giving::GiftPledge.new
   expect(gift.journal_entry_exists? message).to eq(true)
+end
+
+And (/^I mark the checkbox next to Copy Pledge Defined Fields on Future Payments/) do
+  gift = Giving::GiftPledge.new
+  gift.copy_pledge_udfs_click
 end

@@ -113,6 +113,7 @@ module Cukesetaptesting
       keyword(:set_payment_check_date) {content.text_field(:name, "checkDate")}
       keyword(:set_check_number) {content.text_field(:name, 'checkNumber')}
       keyword(:user_defined_fields_section) {content.div(:id, 'userDefinedFieldsTitleBar')}
+      keyword(:gift_types_section) {content.div(:id, 'giftTypesTitleBar')}
       keyword(:payment_delete_button) {content.button(:name, 'deleteButton')}
       keyword(:pledge_entry_to_click) {content.a(:text, 'Pledge')}
       keyword(:more_options_link) {content.a(:text, 'More Options')}
@@ -120,6 +121,12 @@ module Cukesetaptesting
       keyword(:pledge_checkbox) {content.checkbox(:value, 'label.pledge')}
       keyword(:find_button_journal_page) {content.button(:value, 'Find')}
       keyword(:journal_filter_results) {content.div(:id, 'etap.fieldset.area.3')}
+      keyword(:copy_pledge_udfs) {content.input(:name, 'copyUdfsToFuturePayments')}
+
+      keyword(:bob_barker_junior) {content.a(:text, 'Bob Barker Junior')}
+      keyword(:journal_page_gift) {content.a(:text, 'Gift')}
+      keyword(:non_deductible_field) {content.text_field(:name, 'nonDeductibleAmount')}
+
 
 
 

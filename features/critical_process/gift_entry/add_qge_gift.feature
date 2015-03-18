@@ -33,6 +33,8 @@ Feature: Adding a gift through quick gift entry
     And the Tribute Information should be set to 'Cindy Grant'
     And the Soft Credit Information should be set to 'Anne Hatch'
     And the Soft Credit Amount should be set to '$500.00'
+    And I click Delete on the transaction page
+    Then I should see the message 'No Journal Entries Found' on the journal page
 
 
 
@@ -60,3 +62,5 @@ Feature: Adding a gift through quick gift entry
     And the Gift Type should be set to 'Check'
     And the Check Date should be set to '9/15/2090'
     And the Check Number should be set to '473'
+    And I click Delete on the transaction page
+    Then I should see the message 'No Journal Entries Found' on the journal page

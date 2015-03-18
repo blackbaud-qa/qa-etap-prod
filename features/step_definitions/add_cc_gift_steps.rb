@@ -23,6 +23,11 @@ end
    search.create
  end
 
+And (/^set the Non-Deductible Amount to '([^']*)'$/) do |amount|
+  gift = Giving::GiftPledge.new(:non_deductible_field=>amount)
+  gift.create
+end
+
 And(/^set the Fund to Unrestricted$/) do
     landing = Giving::GiftPledge.new
     landing.fund_input_arrow
@@ -79,4 +84,14 @@ end
 And(/^wait for the journal page to display/) do
   journ = Account::Journal.new
   journ.wait_for_page_load
+end
+
+And (/^I click on Bob Barker Junior in the search results/) do
+  gift = Giving::GiftPledge.new
+  gift.bob_barker_junior_click
+end
+
+And (/^I click on the Gift listed in the journal/) do
+  gift = Giving::GiftPledge.new
+  gift.journal_page_gift_click
 end
