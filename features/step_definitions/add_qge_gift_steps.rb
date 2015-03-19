@@ -82,6 +82,11 @@ Then (/the Received Amount should be set to '([^']*)'$/) do |amount|
   expect(gift.journal_gift_received_amount).to eq(amount)
 end
 
+And (/^the Non-Deductible Amount should be set to the '([^']*)'$/) do |amount|
+  gift = Giving::GiftPledge.new
+  expect(gift.journal_gift_non_deductible_amount).to eq(amount)
+end
+
 Then (/the Fund should be set to '([^']*)'$/) do |fund|
   gift = Giving::GiftPledge.new
   expect(gift.journal_gift_fund).to eq(fund)

@@ -12,16 +12,18 @@ Feature: Testing payments and pledges
     And set the Fund to 'Unrestricted'
     And set the Campaign to 'Annual'
     And set the Approach to 'Direct Mail'
+    And I mark the checkbox next to Copy Pledge Defined Fields on Future Payments
     And I click Create Pledge Schedule on the new pledge page
     And I set the Frequency to 'Monthly (12)'
     And I set the First Installment Date to Today
     And I set the Installment Amount to '$10.00'
-    And I click Save And 'Edit'
-    And I click Add a Payment for this Pledge
-    And I set the Check Date to Today on the new payment page
-    And I set the Check number to '233' on the new payment page
     And I click on the User Defined Fields section on the new payment page
     And I set the UDF 'Ticket Quantity A' to '4' on the new payment page
+    And I click Save And 'Edit'
+    And I click Add a Payment for this Pledge
+    And I click on the Gift Types section on the new payment page
+    And I set the Check Date to Today on the new payment page
+    And I set the Check number to '233' on the new payment page
     And I click Save And 'Edit'
     And I click on the User Defined Fields section on the new payment page
     And I should see 'Ticket Quantity A' set to '4' on the payment page

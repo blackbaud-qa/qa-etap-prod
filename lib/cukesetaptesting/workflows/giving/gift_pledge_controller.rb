@@ -251,6 +251,10 @@ module Cukesetaptesting
         @view.user_defined_fields_section.when_present.click
       end
 
+      def gift_types_section_click
+        @view.gift_types_section.when_present.click
+      end
+
       def click_payment_udf(udf)
         @view.payment_udf_to_click(udf).when_present.click
        end
@@ -298,6 +302,22 @@ module Cukesetaptesting
 
       def journal_entry_exists?(message)
         @view.journal_filter_results.when_present.text.include? message
+      end
+
+      def copy_pledge_udfs_click
+        @view.copy_pledge_udfs.when_present.click
+      end
+
+      def bob_barker_junior_click
+        @view.bob_barker_junior.when_present.click
+      end
+
+      def journal_page_gift_click
+        @view.journal_page_gift.when_present.click
+      end
+
+      def journal_gift_non_deductible_amount
+        @view.non_deductible_field.when_present.value
       end
 
       end
