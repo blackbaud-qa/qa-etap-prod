@@ -8,14 +8,21 @@ And (/^I change the template to Chisel on the existing Fundraiser page/) do
   fund.existing_fundraiser_change_template_chisel
 end
 
-And(/^I click in the Main Page text area after the word fundraiser on the existing Fundraiser page/) do
+And (/^I set the Main page Text to say '([^']*)' on the new Fundraiser page/) do |text|
   fund = Management::Fundraisers.new()
-  fund.existing_fundraiser_after_main_page_text_click
+  fund.set_main_page_text(text)
 end
 
-And (/^I add '([^']*)' in the Main Page text on the existing Fundraiser page/) do |text|
+And(/^I click Align Left in the Main page Text box on the new Fundraiser page/) do
   fund = Management::Fundraisers.new()
-  fund.add_main_page_text(text)
+  fund.main_page_text_align_left_click
 end
+
+And(/^I set the status to Disabled on the new Fundraiser page/) do
+  fund = Management::Fundraisers.new()
+  fund.select_status_click
+  fund.select_status_disabled_click
+end
+
 
 

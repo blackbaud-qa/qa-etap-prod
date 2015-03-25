@@ -107,12 +107,16 @@ module Cukesetaptesting
         @view.existing_fund_templatechisel.when_present.set
       end
 
-      def existing_fundraiser_after_main_page_text_click
-        @view.existing_fund_after_main_page_text.when_present.click
+      def main_page_text_align_left_click
+        @view.main_page_text_align_left_click.when_present.click
       end
 
-      def add_main_page_text(text)
-        @view.add_main_page_text.when_present.send_keys text
+      def select_status_click
+        @view.select_status.when_present.click
+      end
+
+      def select_status_disabled_click
+        @view.select_status_disabled.when_present.click
       end
 
     end
