@@ -1,3 +1,4 @@
+@ready
 Feature: Creating a new communications template
 
 #  Background:

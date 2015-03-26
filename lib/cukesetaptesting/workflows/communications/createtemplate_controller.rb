@@ -182,6 +182,7 @@ module Cukesetaptesting
 
       def new_template_footer_hover
         @view.new_template_footer.wait_until_present
+        sleep 1
         @view.new_template_footer.when_present.hover
         # @view.new_template_edit_guide.wait_until_present
         # @view.new_template_footer.hover
@@ -254,6 +255,7 @@ module Cukesetaptesting
 
       def new_template_receipt_next_click
         @view.new_template_next_content.wait_until_present
+        sleep 1
         @view.new_template_receipt_next.when_present.click
       end
 

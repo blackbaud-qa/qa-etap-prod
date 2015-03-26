@@ -1,3 +1,4 @@
+@ready
 Feature: Editing a fundraiser
 
   Background:
