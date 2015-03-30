@@ -1,4 +1,4 @@
-@ready
+@crit_proc
 Feature: Searching from advanced find
 
   Scenario: Searching by Name, pressing Enter

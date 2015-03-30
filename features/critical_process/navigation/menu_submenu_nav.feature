@@ -1,5 +1,5 @@
 #making a change to a different file
-@ready
+@crit_proc
 Feature: Critical Process - General Navigation
   As a QA analyst
   I want to run through general navigation during critical process testing

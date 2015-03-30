@@ -1,4 +1,4 @@
-@ready
+@crit_proc
 Feature: Editing a fundraiser
 
   Background:

@@ -1,10 +1,11 @@
-@ready
+@crit_proc
 Feature: Creating a new communications template
 
 #  Background:
 #    Given a query category has been created called Donation Queries
 #    And a query for all Donations Made Last Year has been created in the Donation Queries category
-
+#
+#
 #  Scenario: creating a simple business letter in guided mode
 #    Given I am logged into eTap
 #    And I click Communications on the main menu
@@ -38,8 +39,8 @@ Feature: Creating a new communications template
 #    And I choose Create Document on Save And Create Document on the new Correspondence Template page
 #    And I click Next on the new Correspondence Template page
 ##    And I click Save And Create Document on the new Correspondence Template page
-#    And I set the Category to Donation Queries on the Generate Letters page
-#    And I set the query to Donations Made Last Year on the Generate Letters page
+#    And I set the Category to Donation Queries
+#    And I set the query to Donations Made Last Year
 #    And I click Next on the Generate Letters page
 #    And I set the document type to PDF on the Generate Letters page
 #    And I set the Grouping to One Document Per Journal Entry on the Generate Letters page
@@ -54,7 +55,8 @@ Feature: Creating a new communications template
 ##    Then the PDF document should generate
 ##    And when you open the file it should contain X pages
 ##    And the document should display properly with your changes
-#
+###
+
   Scenario: Creating a Receipt with Stub in guided mode
     Given I am logged into eTap
     And I click Communications on the main menu
@@ -81,7 +83,7 @@ Feature: Creating a new communications template
     And I click Insert on the merge tags popup
     And I select all the text in the Body
     And I set the font to Times New Roman
-    And I set the size to 12pt
+    And I set the size to 12pt on the editor pop up
     And I click Update on the editor pop up
     And I click Save And Create Document
     And I set the Category to Donation Queries
