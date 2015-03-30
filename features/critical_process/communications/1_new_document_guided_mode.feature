@@ -1,9 +1,11 @@
+@crit_proc
 Feature: Creating a new communications template
 
 #  Background:
 #    Given a query category has been created called Donation Queries
 #    And a query for all Donations Made Last Year has been created in the Donation Queries category
-
+#
+#
 #  Scenario: creating a simple business letter in guided mode
 #    Given I am logged into eTap
 #    And I click Communications on the main menu
@@ -37,8 +39,8 @@ Feature: Creating a new communications template
 #    And I choose Create Document on Save And Create Document on the new Correspondence Template page
 #    And I click Next on the new Correspondence Template page
 ##    And I click Save And Create Document on the new Correspondence Template page
-#    And I set the Category to Donation Queries on the Generate Letters page
-#    And I set the query to Donations Made Last Year on the Generate Letters page
+#    And I set the Category to Donation Queries
+#    And I set the query to Donations Made Last Year
 #    And I click Next on the Generate Letters page
 #    And I set the document type to PDF on the Generate Letters page
 #    And I set the Grouping to One Document Per Journal Entry on the Generate Letters page
@@ -53,11 +55,13 @@ Feature: Creating a new communications template
 ##    Then the PDF document should generate
 ##    And when you open the file it should contain X pages
 ##    And the document should display properly with your changes
-#
+###
+
   Scenario: Creating a Receipt with Stub in guided mode
     Given I am logged into eTap
     And I click Communications on the main menu
     And I click Receipts on the Correspondence Categories page
+    And I delete any existing document to prevent automation errors
     And I click New Email or Document Template on the Correspondence Category page
 #    And I set the Name to 'Receipt w/ Stub (Bottom) - Guided Mode'
     And I set the Name to 'Receipt w/ Stub (Bottom) - Guided Mode' on the new Correspondence Template page
@@ -71,27 +75,28 @@ Feature: Creating a new communications template
     And I click on the Receipt w Stub Bottom template on the new Correspondence Template page
     And I hover over the Letter Closing block on the new Correspondence Template page
     And I click the red X to delete the block on the new Correspondence Template page
-#    And select Receipt Stub Copy from the Add Block list
+    And I select Receipt Stub Copy from the Add Block list
 #    And move the Receipt Stub Copy block above the Receipt Stub block
-#    And click on the Body block to open the Edit Contents pop up
-#    And double click on the Long Salutation merge tag
-#    And set the Field to Short Salutation
-#    And click Insert
-#    And select all the text in the Body
-#    And set the font to Times New Roman
-#    And set the size to 12pt
-#    And click Update
-#    And click Save And Create Document
-#    And set the Category to Donation Queries
-#    And set the query to Donations Made Last Year
-#    And click Next
-#    And set the document type to Word
-#    And set the Grouping to One Document Per Journal Entry
-#    And click Next
-#    And click Next
+    And I click on the Body block to open the Edit Contents pop up
+    And I double click on the Long Salutation merge tag
+    And I set the Field to Short Salutation
+    And I click Insert on the merge tags popup
+    And I select all the text in the Body
+    And I set the font to Times New Roman
+    And I set the size to 12pt on the editor pop up
+    And I click Update on the editor pop up
+    And I click Save And Create Document
+    And I set the Category to Donation Queries
+    And I set the query to Donations Made Last Year
+    And I click Next on the receipt template page
+    And I set the document type to Word on the receipt template page
+    And I set the Grouping to One Document Per Journal Entry on the receipt template page
+    And I click Next on the receipt template page
+    And I click Next on the receipt template page
 #    And set Receiving to Download documents
-#    And click Next
-#    And click Next
+    And I click Next on the receipt template page
+    And I click Next on the receipt template page
+#  Don't currently have a way of checking the final document, so will leave it here for now
 #    And click Run
 #    Then the Word document should generate
 #    And when you open the file it should contain X pages

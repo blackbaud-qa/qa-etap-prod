@@ -1,4 +1,4 @@
-@ready
+@crit_proc
 Feature:Create a new report
 
   Background:

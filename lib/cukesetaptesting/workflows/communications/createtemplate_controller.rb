@@ -163,6 +163,18 @@ module Cukesetaptesting
         @view.correspondence_cat_receipts.when_present.click
       end
 
+      def delete_existing_templates(name)
+        if template_exists? name
+          @view.template_list.h4(:text,name).parent.div(:class,'actions').a(:text,'Delete').when_present.click
+          @view.new_template_edit_guide_confirm_yes.when_present.click
+        end
+      #   delete any existing documents here
+      end
+
+      def template_exists?(name)
+          return @view.template_list.text.include? name
+      end
+
       def new_template_receipt_stub_bottom_click
         @view.browser.execute_script('arguments[0].scrollIntoView();',@view.new_template_reciept_stub_bottom)
         @view.new_template_reciept_stub_bottom.when_present.click
@@ -170,6 +182,7 @@ module Cukesetaptesting
 
       def new_template_footer_hover
         @view.new_template_footer.wait_until_present
+        sleep 1
         @view.new_template_footer.when_present.hover
         # @view.new_template_edit_guide.wait_until_present
         # @view.new_template_footer.hover
@@ -178,10 +191,82 @@ module Cukesetaptesting
       def new_template_delete_section_click
         @view.new_template_edit_guide.wait_until_present
         @view.new_template_edit_guide_delete.when_present.click
-        # @view.new_template_edit_guide_confirm_yes.wait_until_present
         @view.new_template_edit_guide_confirm_yes.when_present.click
-        # @view.new_template_delete_section.when_present.click
       end
+
+      def new_template_add_block(block)
+        @view.new_template_add_block.when_present.select block
+      end
+
+      # def new_template_move_stub
+      #   @view.new_template_stub_copy.when_present.hover
+      #   @view.new_template_edit_guide.wait_until_present
+      #   @view.new_template_edit_guide_move.when_present.click
+      # end
+
+      def new_template_body_click
+        @view.new_template_body.when_present.click
+      end
+
+      def new_template_long_salutation_dclick
+        @view.new_template_long_salutation.when_present.double_click
+        # @view.new_template_insert_merge.when_present.click
+      end
+
+      def merge_tags_field_select(selection)
+        @view.merge_tags_field.when_present.select selection
+      end
+
+      def merge_tags_insert_click
+        @view.merge_tags_insert.when_present.click
+      end
+
+      def select_all_text
+        @view.new_template_text.when_present.click
+        @view.new_template_text.send_keys [:control, 'a']
+      end
+
+      def select_font_tnr
+        @view.new_template_font.when_present.click
+        @view.new_template_font_tnr.when_present.click
+      end
+
+      def select_font_size_12
+        @view.new_template_font_size.when_present.click
+        @view.new_template_font_12.when_present.click
+      end
+
+      def template_pop_up_update_click
+        @view.template_pop_up_update.when_present.click
+      end
+
+      def new_template_save_and_create_click
+        @view.template_save_and_create.when_present.select 'Create Document'
+        @view.template_save_and.when_present.click
+      end
+
+      def new_template_donation_queries_click
+        @view.template_query_category.when_present.select 'Donation Queries'
+      end
+
+      def new_template_query_select
+        @view.new_template_query.when_present.select 'Donations Made Last Year - JE'
+      end
+
+      def new_template_receipt_next_click
+        @view.new_template_next_content.wait_until_present
+        sleep 1
+        @view.new_template_receipt_next.when_present.click
+      end
+
+      def new_template_doc_type_word_select
+        @view.new_template_doc_type_word.when_present.set
+      end
+
+      def new_template_grouping_one_per_set
+        @view.new_template_grouping_one_per.set
+      end
+
     end
   end
 end

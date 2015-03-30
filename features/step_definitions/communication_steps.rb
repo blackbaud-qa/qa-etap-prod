@@ -171,6 +171,11 @@ Given(/^I click Receipts on the Correspondence Categories page/) do
   letter.correspondence_cat_receipts_click
 end
 
+Given(/^I delete any existing document to prevent automation errors/) do
+  letter = Communications::Createtemplate.new()
+  letter.delete_existing_templates 'Receipt w/ Stub (Bottom) - Guided Mode'
+end
+
 Given(/^I click on the Receipt w Stub Bottom template on the new Correspondence Template page/) do
   letter = Communications::Createtemplate.new()
   letter.new_template_receipt_stub_bottom_click
@@ -184,4 +189,84 @@ end
 Given(/^I click the red X to delete the block on the new Correspondence Template page/) do
   letter = Communications::Createtemplate.new()
   letter.new_template_delete_section_click
+end
+
+Given(/^I select Receipt Stub Copy from the Add Block list/) do
+  letter = Communications::Createtemplate.new()
+  letter.new_template_add_block 'Receipt Stub Copy'
+end
+
+# Given(/^move the Receipt Stub Copy block above the Receipt Stub block/) do
+#   letter = Communications::Createtemplate.new()
+#   letter.new_template_move_stub
+# end
+
+Given(/^I click on the Body block to open the Edit Contents pop up/) do
+  letter = Communications::Createtemplate.new()
+  letter.new_template_body_click
+end
+
+Given(/^I double click on the Long Salutation merge tag/) do
+  letter = Communications::Createtemplate.new()
+  letter.new_template_long_salutation_dclick
+end
+
+Given(/^I set the Field to Short Salutation/) do
+  letter = Communications::Createtemplate.new()
+  letter.merge_tags_field_select "Short Salutation"
+end
+
+Given(/^I click Insert on the merge tags popup/) do
+  letter = Communications::Createtemplate.new()
+  letter.merge_tags_insert_click
+end
+
+Given(/^I select all the text in the Body/) do
+  letter = Communications::Createtemplate.new()
+  letter.select_all_text
+end
+
+Given(/^I set the font to Times New Roman/) do
+  letter = Communications::Createtemplate.new()
+  letter.select_font_tnr
+end
+
+Given(/^I set the size to 12pt/) do
+  letter = Communications::Createtemplate.new()
+  letter.select_font_size_12
+end
+
+Given(/^I click Update on the editor pop up/) do
+  letter = Communications::Createtemplate.new()
+  letter.template_pop_up_update_click
+end
+
+Given(/^I click Save And Create Document/) do
+  letter = Communications::Createtemplate.new()
+  letter.new_template_save_and_create_click
+end
+
+Given(/^I set the Category to Donation Queries/) do
+  letter = Communications::Createtemplate.new()
+  letter.new_template_donation_queries_click
+end
+
+Given(/^I set the query to Donations Made Last Year/) do
+  letter = Communications::Createtemplate.new()
+  letter.new_template_query_select
+end
+
+Given(/^I click Next on the receipt template page/) do
+  letter = Communications::Createtemplate.new()
+  letter.new_template_receipt_next_click
+end
+
+Given(/^I set the document type to Word on the receipt template page/) do
+  letter = Communications::Createtemplate.new()
+  letter.new_template_doc_type_word_select
+end
+
+Given(/^I set the Grouping to One Document Per Journal Entry on the receipt template page/) do
+  letter = Communications::Createtemplate.new()
+  letter.new_template_grouping_one_per_set
 end
