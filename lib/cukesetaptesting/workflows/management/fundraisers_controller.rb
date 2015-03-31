@@ -17,6 +17,7 @@ module Cukesetaptesting
     end
 
       def new_fundraiser_next_click
+        sleep 1
         @view.new_fundraiser_next.when_present.click
       end
 
