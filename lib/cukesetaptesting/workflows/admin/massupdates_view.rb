@@ -12,6 +12,20 @@ module Cukesetaptesting
       keyword(:mass_update_results) {content.div(:id,'finishStep').div(:class, 'informationSuccess')}
       keyword(:select_remove) {content.radio(:id, 'updateRemove')}
       keyword(:query_preview_results) {content.div(:id, 'etap.fieldset.area.1').td(:class, 'pageResults')}
+      keyword(:create_new_contacts) {content.a(:text, 'Create New Contacts')}
+      keyword(:mark_contact_final) {content.checkbox(:id, 'finalized')}
+      keyword(:new_contact_date) {content.div(:class,'calendarPopup').text_field(:id,'date')}
+      keyword(:set_contact_journal_subject) {content.text_field(:id, 'subject')}
+      keyword(:set_contact_journal_note) {content.text_field(:id, 'note')}
+      keyword(:click_contact) {content.a(:text, 'Contact')}
+      keyword(:contact_subject_text) {content.text_field(:name, 'subject')}
+      keyword(:contact_note_text) {content.textarea(:name, 'notes')}
+      keyword(:contact_delete_button) {content.button(:name, 'delete')}
+      keyword(:cannot_mass_update) {content.div(:id,'etap.fieldset.area.1').h3(:class, 'oops')}
+
+      #combo box for setting the contact method
+      keyword(:contact_method_type) {content.div(:id,'fields').img(:id, 'refUpdateField(contactMethod)_comboArrow')}
+      keyword(:contact_method_combo_list) {content.div(:id,'refUpdateField(contactMethod)_comboAllList')}
 
 
       def constituent_account_to_click(name)
@@ -27,7 +41,7 @@ module Cukesetaptesting
       end
 
       def click_query_category(category)
-        content.link(:text, category)
+        content.ul(:id, 'list_categories').link(:text, category)
       end
 
       def click_query(query)

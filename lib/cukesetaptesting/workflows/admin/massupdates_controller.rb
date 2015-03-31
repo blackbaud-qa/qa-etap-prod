@@ -70,9 +70,51 @@ module Cukesetaptesting
         @view.click_query(query).when_present.click
       end
 
-      def query_preview_screen(message)
-        leep 3
+      def query_preview_screen?(message)
+        sleep 3
         @view.query_preview_results.when_present.text.include? message
+      end
+
+      def click_create_new_contacts
+        @view.create_new_contacts.when_present.click
+      end
+
+      def mark_contact_as_final
+        @view.mark_contact_final.when_present.click
+      end
+
+      def select_contact_method(value)
+        @view.contact_method_type.when_present.click
+        @view.contact_method_combo_list.when_present.div(:text,value).click
+      end
+
+      def click_on_contact_journal_entry
+        @view.click_contact.when_present.click
+      end
+
+      def contact_subject
+        @view.contact_subject_text.when_present.value
+      end
+
+      def contact_note
+        @view.contact_note_text.when_present.value
+      end
+
+      def contact_delete_click
+        begin
+          @view.contact_delete_button.when_present.click
+        rescue
+          browser.alert.ok
+        end
+      end
+
+      def empty_query
+        @view.query_preview_results.present?
+      end
+
+      def cannot_perform_mass_update(message)
+        sleep 3
+        @view.cannot_mass_update.when_present.text.include? message
       end
 
     end

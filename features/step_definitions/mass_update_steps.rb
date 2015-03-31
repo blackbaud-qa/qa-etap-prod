@@ -68,3 +68,63 @@ Then (/^I should see the message '([^']*)' on the query preview screen/) do |mes
   mass = Admin::Massupdates.new
   expect(mass.query_preview_screen? message).to eq(true)
 end
+
+And (/^I click Create New Contacts on the Mass Update page/) do
+  mass = Admin::Massupdates.new
+  mass.click_create_new_contacts
+end
+
+And (/^I mark the Final checkbox on the Mass Add Journal Contacts page/) do
+  mass = Admin::Massupdates.new
+  mass.mark_contact_as_final
+end
+
+And(/^I set the date to Today on the Mass Add Journal Contacts page/) do
+  mass = Admin::Massupdates.new(:new_contact_date => Date.today.strftime('%x'))
+  mass.create
+end
+
+And (/^I set the Contact Method to '([^']*)'/) do |value|
+  mass = Admin::Massupdates.new
+  mass.select_contact_method value
+end
+
+And (/^I set the Subject to '([^']*)' on the Mass Add Journal Contacts page/) do |subject|
+  mass = Admin::Massupdates.new(:set_contact_journal_subject => subject)
+  mass.create
+end
+
+And(/^I set the Note to '([^']*)' on the Mass Add Journal Contacts page/) do |note|
+  mass = Admin::Massupdates.new(:set_contact_journal_note => note)
+  mass.create
+end
+
+And (/^I click Contact on the Query Preview page/) do
+  mass = Admin::Massupdates.new
+  mass.click_on_contact_journal_entry
+end
+
+And (/^I should see the Subject set to '([^']*)'/) do |value|
+  mass = Admin::Massupdates.new
+  expect(mass.contact_subject).to eq(value)
+end
+
+And (/^I should see the Note set to '([^']*)'/) do |value|
+  mass = Admin::Massupdates.new
+  expect(mass.contact_note).to eq(value)
+end
+
+And (/^I click Delete on the contact page/) do
+  mass = Admin::Massupdates.new
+  mass.contact_delete_click
+end
+
+And (/^I should see zero results on the query preview screen/) do
+  mass = Admin::Massupdates.new
+  expect(mass.empty_query).to eq(false)
+end
+
+Then (/^I should see '([^']*)' on the mass update preview page/) do |message|
+  mass = Admin::Massupdates.new
+  expect(mass.cannot_perform_mass_update message).to eq(true)
+end
