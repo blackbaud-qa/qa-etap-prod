@@ -43,8 +43,10 @@ module Cukesetaptesting
       keyword(:existing_fund_templatechisel) {content.radio(:id,'label.chisel')}
       keyword(:add_main_page_text) {content.iframe(:id,'eventInfoHtml_ifr')}
       keyword(:main_page_text_align_left_click) {content.div(:id,'mceu_3')}
-      keyword(:select_status) {content.div(:id,'etap.fieldset.table.1').select(:name,'enumPopulate(event.status)')}
+      # keyword(:select_status) {content.div(:id,'etap.fieldset.table.1').select(:name,'enumPopulate(event.status)')}
+      keyword(:select_status) {content.select(:name,'enumPopulate(event.status)')}
       keyword(:select_status_disabled) {select_status.option(:value,"label.disabled")}
+      keyword(:fundraisers_grid) {content.div(:id,'events_summary_1')}
 
       def home(model)
       end
