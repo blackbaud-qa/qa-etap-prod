@@ -92,7 +92,9 @@ module Cukesetaptesting
       end
 
       def new_fundraiser_save_and_finish_click
+        sleep 1
         @view.new_fundraiser_save_and_finish.when_present.click
+        # @view.fundraisers_grid.wait_until_present
       end
 
       def fundraiser_page_url_click
@@ -117,7 +119,7 @@ module Cukesetaptesting
       end
 
       def select_status_disabled_click
-        @view.select_status_disabled.when_present.click
+        @view.select_status.when_present.select 'Disabled'
       end
 
     end

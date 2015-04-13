@@ -14,7 +14,7 @@ require 'cucumber/rake/task'
 module RakeHelper
   def self.cucumber_task(task_name, files=nil)
     Cucumber::Rake::Task.new(task_name) do |t|
-      t.cucumber_opts = "-r features #{FileList[files]} -b --format html -o cucumber_#{task_name}.html --format pretty"
+      t.cucumber_opts = "-r features #{FileList[files]} -b -t @crit_proc -f json -o cucumber.json"
     end
   end
 end
@@ -24,3 +24,4 @@ RakeHelper.cucumber_task(:sub_menu_nav, "features/critical_process/navigation/me
 RakeHelper.cucumber_task(:create_new_cart, "features/critical_process/cart/Create_new_cart.feature")
 RakeHelper.cucumber_task(:advanced_find, "features/critical_process/find_account/advanced_find.feature")
 RakeHelper.cucumber_task(:fundraising_1, "features/critical_process/personal_fundraising/1_create_new_fundraiser.feature")
+RakeHelper.cucumber_task(:crit_proc,"features/critical_process/*")
