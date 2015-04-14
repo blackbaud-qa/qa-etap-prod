@@ -24,6 +24,21 @@ module Cukesetaptesting
 
       end
 
+      def test_throw_alert
+        @view.browser.execute_script("alert('testing');")
+        sleep 5
+
+      end
+
+
+      def handle_alert
+
+        if @view.browser.alert.exists?
+          @view.browser.alert.ok
+        end
+
+      end
+
       def browser_url
         return @view.browser.url
       end
@@ -342,30 +357,44 @@ module Cukesetaptesting
       end
 
       def management_dd_funds_click
+        @view.management_dd_funds.wait_until_present
+        # @view.browser.execute_script('arguments[0].scrollIntoView();',@view.management_dd_funds)
         @view.management_dd_funds.when_present.click
       end
 
       def management_dd_campaigns_click
+        @view.management_dd_campaigns.wait_until_present
+        # @view.browser.execute_script('arguments[0].scrollIntoView();',@view.management_dd_campaigns)
         @view.management_dd_campaigns.when_present.click
       end
 
       def management_dd_approaches_click
+        @view.management_dd_approaches.wait_until_present
+        # @view.browser.execute_script('arguments[0].scrollIntoView();',@view.management_dd_approaches)
         @view.management_dd_approaches.when_present.click
       end
 
       def management_dd_letters_click
+        @view.management_dd_letters.wait_until_present
+        # @view.browser.execute_script('arguments[0].scrollIntoView();',@view.management_dd_letters)
         @view.management_dd_letters.when_present.click
       end
 
       def management_dd_goals_click
+        @view.management_dd_goals.wait_until_present
+        # @view.browser.execute_script('arguments[0].scrollIntoView();',@view.management_dd_goals)
         @view.management_dd_goals.when_present.click
       end
 
       def management_dd_org_prefs_click
+        @view.management_dd_org_prefs.wait_until_present
+        # @view.browser.execute_script('arguments[0].scrollIntoView();',@view.management_dd_org_prefs)
         @view.management_dd_org_prefs.when_present.click
       end
 
       def management_dd_user_prefs_click
+        @view.management_dd_user_prefs.wait_until_present
+        # @view.browser.execute_script('arguments[0].scrollIntoView();',@view.management_dd_user_prefs)
         @view.management_dd_user_prefs.when_present.click
       end
 

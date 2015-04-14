@@ -11,6 +11,11 @@ end
 
 When(/^I am logged into eTap$/) do
  landing = Admin::Landing.new
+
+ # for testing only ---landing.test_throw_alert
+
+ landing.handle_alert
+
  unless landing.logged_in?
    step "I navigate to Fullhouse"
    step "I login into eTap"
