@@ -27,6 +27,7 @@ module Cukesetaptesting
       keyword(:combine_queries_add)  {content.img(:id, 'venadd')}
       keyword(:query_criteria_name_field) {content.text_field(:id, 'TestEntityRoleForNamesData.values')}
       keyword(:cannot_delete_query_ok)  {content.button(:value, 'Ok')}
+      keyword(:query_results_my_org_icon) {content.div(:id, 'etapreporttag1_outerdiv').img(:alt,'My Organization')}
 
 
 
@@ -69,6 +70,14 @@ module Cukesetaptesting
 
       def click_missing_query_category(category)
         content.ul(:id, 'list_categories').link(:text, category)
+      end
+
+      def preview_query(name)
+        content.ul(:id, 'list_queries').link(:text, name).parent.parent.div(:class, 'actions').a(:class, 'preview')
+      end
+
+      def query_preview_results_value(name)
+        content.div(:id, 'etapreporttag1_outerdiv').a(:text, name)
       end
 
     end
