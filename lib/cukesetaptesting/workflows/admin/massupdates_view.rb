@@ -57,6 +57,8 @@ module Cukesetaptesting
 
       def edit(model)
       end
+
+
     end
   end
 end
