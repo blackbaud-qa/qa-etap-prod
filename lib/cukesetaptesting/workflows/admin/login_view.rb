@@ -4,7 +4,11 @@ module Cukesetaptesting
       keyword(:username) {browser.text_field(:name => 'j_username')}
       keyword(:password) {browser.text_field(:name => 'j_password')}
       keyword(:submit) {browser.button(:id => 'loginSubmit')}
-      #keyword(:logout_frame) {browser.iframe(:name, "content")}
+
+      keyword(:hidden_noUsername_text) {browser.h2(:id => 'noUsernameText', :class => 'invalidText hidden')}
+      keyword(:hidden_noPassword_text) {browser.h2(:id => 'noPasswordText', :class => 'invalidText hidden')}
+      keyword(:noUsername_text) {browser.h2(:id => 'noUsernameText')}
+      keyword(:noPassword_text) {browser.h2(:id => 'noPasswordText')}
 
       def home(model)
       end

@@ -1,8 +1,22 @@
 module Cukesetaptesting
   module Account
     class AddAccountView < BaseView
+
+      keyword(:constituent_checkbox) { content.checkbox(:id, 'createCustomerRole') }
+      keyword(:tribute_checkbox) { content.checkbox(:id, 'createTributeRole') }
+      keyword(:user_checkbox) { content.checkbox(:id, 'createUserRole') }
+      keyword(:team_checkbox) { content.checkbox(:id, 'createTeamRole') }
+
       keyword(:add_account_element)  { content.form(:name, 'addAccountWizardForm') }
+
       keyword(:new_account_classic_name) {content.text_field(:id,'name')}
+      # New name format in develop branch:
+      keyword(:new_account_title) {content.select_list(:id,'title')}
+      keyword(:new_account_first_name) {content.text_field(:id,'firstName')}
+      keyword(:new_account_middle_name) {content.text_field(:id,'middleName')}
+      keyword(:new_account_last_name) {content.text_field(:id,'lastName')}
+
+
       keyword(:find_screen_add_account) {content.button(:value,'Add Account')}
       keyword(:new_account_classic_sort_name) {content.text_field(:id, 'sortKey')}
       keyword(:new_account_classic_address_lines) {content.text_field(:id, 'address')}
@@ -35,6 +49,10 @@ module Cukesetaptesting
       keyword(:find_account_phone) {content.text_field(:name, 'phone')}
       keyword(:filter_journal_results_message)
 
+
+      keyword(:login_id) {content.text_field(:id, 'loginId')}
+      keyword(:password) {content.text_field(:id, 'password')}
+      keyword(:repassword) {content.text_field(:id, 'confirmPassword')}
 
 
       def udf_to_click(udf)
