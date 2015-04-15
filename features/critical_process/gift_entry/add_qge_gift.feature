@@ -38,7 +38,7 @@ Feature: Adding a gift through quick gift entry
 
 
 
-  @ready
+  @crit_proc
   Scenario: Add a gift through quick gift entry, pulling by account number
     Given I am logged into eTap
     When I click Giving on the main menu

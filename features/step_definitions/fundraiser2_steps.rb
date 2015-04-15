@@ -20,7 +20,7 @@ end
 
 And(/^I set the status to Disabled on the new Fundraiser page/) do
   fund = Management::Fundraisers.new()
-  fund.select_status_click
+  # fund.select_status_click
   fund.select_status_disabled_click
 end
 

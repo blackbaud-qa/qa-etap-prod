@@ -1,4 +1,4 @@
-@ready
+@crit_proc
 Feature: Searching from quick find
 
   Background:

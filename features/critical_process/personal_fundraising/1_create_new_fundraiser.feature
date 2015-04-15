@@ -1,4 +1,4 @@
-@ready
+@crit_proc
 Feature: Creating a new fundraiser
 
   Background:
@@ -46,5 +46,5 @@ Feature: Creating a new fundraiser
     And I click Next on the new Fundraiser page
     And I choose General as the Fund to be applied to Donations on the new Fundraiser page
     And I click Save and Finish on the new Fundraiser page
-#   Then I should be able to click on the QA Fundraiser 1 url on the Fundraiser page
-#    And the QA Fundraiser url should load in a new browser window
+   Then I should be able to click on the QA Fundraiser 1 url on the Fundraiser page
+    And the QA Fundraiser url should load in a new browser window

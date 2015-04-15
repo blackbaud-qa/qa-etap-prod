@@ -31,6 +31,11 @@ end
 
 When(/^([^']*) (?:is|am) logged into eTap$/) do |user_name|
  landing = Admin::Landing.new
+
+ # for testing only ---landing.test_throw_alert
+
+ landing.handle_alert
+
  unless landing.logged_in?
    step "I navigate to Fullhouse"
 

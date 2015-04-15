@@ -17,6 +17,7 @@ module Cukesetaptesting
     end
 
       def new_fundraiser_next_click
+        sleep 1
         @view.new_fundraiser_next.when_present.click
       end
 
@@ -26,6 +27,7 @@ module Cukesetaptesting
       end
 
       def select_main_page_text
+        @view.select_main_page_text.wait_until_present
         @view.select_main_page_text.when_present.send_keys [:control, 'a']
       end
 
@@ -91,12 +93,25 @@ module Cukesetaptesting
       end
 
       def new_fundraiser_save_and_finish_click
+        sleep 1
         @view.new_fundraiser_save_and_finish.when_present.click
+        # @view.fundraisers_grid.wait_until_present
       end
 
       def fundraiser_page_url_click
       #  @view.fundraiser_page_url.when_present.click
-        @view.fundraiser_page_url.when_present.click
+        @view.fundraiser_page_title.wait_until_present
+        @view.fundraiser_page_title.parent.parent.div(:class,'actions').a.when_present.click
+      end
+
+      def fundraiser_on_fund_page?
+        @view.browser.window(:title => "QA Fundraiser 1").use do
+          @view.new_fundraiser_page_title.wait_until_present
+          @retVal = @view.new_fundraiser_page_title.exists?
+        end
+        @view.browser.window(:title => "QA Fundraiser 1").close
+        return @retVal
+
       end
 
       def fundraiser_page_title_click
@@ -116,7 +131,7 @@ module Cukesetaptesting
       end
 
       def select_status_disabled_click
-        @view.select_status_disabled.when_present.click
+        @view.select_status.when_present.select 'Disabled'
       end
 
     end

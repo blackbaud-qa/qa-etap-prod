@@ -37,14 +37,15 @@ module Cukesetaptesting
       # keyword(:applied_to_donations_fund_general){content.div(:id,'refPopulate(eventOptions.donationFund)_comboAllList_valueRow_47.0.3397')}
       keyword(:applied_to_donations_fund_general){content.div(:id,'refPopulate(eventOptions.donationFund)_comboAllList').div(:text,'General')}
       keyword(:new_fundraiser_save_and_finish) {content.input(:id,'wizardNavigationButton_1_saveAndFinish')}
-      #keyword(:fundraiser_page_url){content.div(:id,'etap.fieldset.table.1').ul(:id,'list_events').div(:class,'item').h4.a(:text,'QA Fundraiser x').parent.parent.div(:class,'actions').a}
-      keyword(:fundraiser_page_url){content.a(:text,'QA Fundraiser 1').parent.parent.div(:class,'actions').a}
       keyword(:fundraiser_page_title){content.a(:text,'QA Fundraiser 1')}
+      keyword(:new_fundraiser_page_title) {browser.div(:id,'etapAppSiteTitle').a(:text,'QA Fundraiser 1')}
       keyword(:existing_fund_templatechisel) {content.radio(:id,'label.chisel')}
       keyword(:add_main_page_text) {content.iframe(:id,'eventInfoHtml_ifr')}
       keyword(:main_page_text_align_left_click) {content.div(:id,'mceu_3')}
-      keyword(:select_status) {content.div(:id,'etap.fieldset.table.1').select(:name,'enumPopulate(event.status)')}
+      # keyword(:select_status) {content.div(:id,'etap.fieldset.table.1').select(:name,'enumPopulate(event.status)')}
+      keyword(:select_status) {content.select(:name,'enumPopulate(event.status)')}
       keyword(:select_status_disabled) {select_status.option(:value,"label.disabled")}
+      keyword(:fundraisers_grid) {content.div(:id,'events_summary_1')}
 
       def home(model)
       end

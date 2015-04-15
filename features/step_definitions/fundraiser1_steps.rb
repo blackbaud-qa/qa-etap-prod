@@ -169,3 +169,8 @@ And(/^I should be able to click on the QA Fundraiser 1 url on the Fundraiser pag
   fund = Management::Fundraisers.new()
   fund.fundraiser_page_url_click
 end
+
+And(/^the QA Fundraiser url should load in a new browser window/) do
+  fund = Management::Fundraisers.new()
+  expect( fund.fundraiser_on_fund_page?).to eq(true)
+end
