@@ -156,3 +156,18 @@ Then (/^I should see the '([^']*)' category has been removed from the page/) do 
   expect(query.try_to_click_on_query_category(category)).to eq(false)
 end
 
+And (/^I click preview below the '([^']*)' query on the Create a New Query page/) do |name|
+  query = Queries::Createquerycategory.new
+  query.preview_query_click(name)
+end
+
+And (/^I should see I should see my organization account in the query results/) do
+  query = Queries::Createquerycategory.new
+  expect(query.query_results_my_org).to eq(true)
+end
+
+Then (/^I should see '([^']*)' in the query results/) do |name|
+  query = Queries::Createquerycategory.new
+  expect(query.query_preview_results(name)).to eq(true)
+end
+

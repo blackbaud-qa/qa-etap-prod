@@ -112,6 +112,18 @@ module Cukesetaptesting
         @view.click_missing_query_category(category).present?
       end
 
+      def preview_query_click(name)
+        @view.preview_query(name).when_present.click
+      end
+
+      def query_results_my_org
+        @view.query_results_my_org_icon.present?
+      end
+
+      def query_preview_results(name)
+        @view.query_preview_results_value(name).present?
+      end
+
 
     end
   end
