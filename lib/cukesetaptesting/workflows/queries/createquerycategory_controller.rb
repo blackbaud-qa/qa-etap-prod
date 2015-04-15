@@ -65,7 +65,7 @@ module Cukesetaptesting
       end
 
       def custom_account_query_add_name_click(name)
-        @view.custom_account_query_add_name.when_present.click(name)
+        @view.custom_account_query_add_name(name).when_present.click
       end
 
       def find_account_popup_close_click
@@ -100,13 +100,16 @@ module Cukesetaptesting
         @view.combine_queries_add.when_present.click
       end
 
-      def query_cannot_be_deleted?(message)
-        sleep 3
-        @view.query_cannot_be_deleted_message.when_present.text.include? message
-      end
-
       def cannot_delete_query_ok_click
         @view.cannot_delete_query_ok.when_present.click
+      end
+
+      def tasks_menu_link_click (value)
+        @view.tasks_menu_link(value).when_present.click
+      end
+
+      def try_to_click_on_query_category(category)
+        @view.click_missing_query_category(category).present?
       end
 
 

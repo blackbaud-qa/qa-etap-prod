@@ -19,7 +19,7 @@ And (/^I click delete below the '([^']*)' query category/) do |category|
 end
 
 And (/^I click Yes to permanently delete the item/) do
-  sleep 3
+  sleep 2
   query = Queries::Createquerycategory.new
   query.delete_query_category_yes_click
 end
@@ -136,17 +136,23 @@ And (/^I set Combine the Queries to Add/) do
 end
 
 And (/^I type '([^']*)' into the Name field on the Create a New Query page/) do |name|
-  sleep 3
+  sleep 2
   query = Queries::Createquerycategory.new(:query_criteria_name_field => name)
   query.create
-end
-
-And (/^I should see the message '([^']*)' in an alert window/) do |message|
-  query = Queries::Createquerycategory.new
-  expect(query.query_cannot_be_deleted? message).to eq(true)
 end
 
 And (/^I click OK to dismiss the notification about not being able to delete a query/) do
   query = Queries::Createquerycategory.new
   query.cannot_delete_query_ok_click
 end
+
+And (/^I click '([^']*)' in the Tasks menu/) do |value|
+  query = Queries::Createquerycategory.new
+  query.tasks_menu_link_click(value)
+end
+
+Then (/^I should see the '([^']*)' category has been removed from the page/) do |category|
+  query = Queries::Createquerycategory.new
+  expect(query.try_to_click_on_query_category(category)).to eq(false)
+end
+

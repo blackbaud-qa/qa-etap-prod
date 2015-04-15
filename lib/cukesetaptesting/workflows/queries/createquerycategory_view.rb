@@ -26,8 +26,8 @@ module Cukesetaptesting
       keyword(:compound_query_two_select_value)  {content.select(:id, 'select.query.2')}
       keyword(:combine_queries_add)  {content.img(:id, 'venadd')}
       keyword(:query_criteria_name_field) {content.text_field(:id, 'TestEntityRoleForNamesData.values')}
-      keyword(:query_cannot_be_deleted_message) {content.div(:id, '1429044209423').div(:class, 'popContent')}
       keyword(:cannot_delete_query_ok)  {content.button(:value, 'Ok')}
+
 
 
       def home(model)
@@ -61,6 +61,14 @@ module Cukesetaptesting
 
       def custom_account_query_add_name(name)
         content.a(:text, name)
+      end
+
+      def tasks_menu_link(value)
+        content.a(:text, value)
+      end
+
+      def click_missing_query_category(category)
+        content.ul(:id, 'list_categories').link(:text, category)
       end
 
     end
