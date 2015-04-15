@@ -27,6 +27,7 @@ module Cukesetaptesting
       end
 
       def select_main_page_text
+        @view.select_main_page_text.wait_until_present
         @view.select_main_page_text.when_present.send_keys [:control, 'a']
       end
 
@@ -99,7 +100,18 @@ module Cukesetaptesting
 
       def fundraiser_page_url_click
       #  @view.fundraiser_page_url.when_present.click
-        @view.fundraiser_page_url.when_present.click
+        @view.fundraiser_page_title.wait_until_present
+        @view.fundraiser_page_title.parent.parent.div(:class,'actions').a.when_present.click
+      end
+
+      def fundraiser_on_fund_page?
+        @view.browser.window(:title => "QA Fundraiser 1").use do
+          @view.new_fundraiser_page_title.wait_until_present
+          @retVal = @view.new_fundraiser_page_title.exists?
+        end
+        @view.browser.window(:title => "QA Fundraiser 1").close
+        return @retVal
+
       end
 
       def fundraiser_page_title_click
