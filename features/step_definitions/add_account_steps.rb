@@ -8,6 +8,26 @@ And (/^I set Name to '([^']*)' on the classic add account page/) do |name|
   accounts.create
 end
 
+And (/^I set Title to '([^']*)' on the classic add account page/) do |name|
+  accounts = Account::AddAccount.new(:new_account_title => name)
+  accounts.create
+end
+
+And (/^I set First Name to '([^']*)' on the classic add account page/) do |name|
+  accounts = Account::AddAccount.new(:new_account_first_name => name)
+  accounts.create
+end
+
+And (/^I set Middle Name to '([^']*)' on the classic add account page/) do |name|
+  accounts = Account::AddAccount.new(:new_account_middle_name => name)
+  accounts.create
+end
+
+And (/^I set Last Name to '([^']*)' on the classic add account page/) do |name|
+  accounts = Account::AddAccount.new(:new_account_last_name => name)
+  accounts.create
+end
+
 And (/^I set Sort Name to '([^']*)' on the classic add account page/) do |name|
   accounts = Account::AddAccount.new(:new_account_classic_sort_name => name)
   accounts.create

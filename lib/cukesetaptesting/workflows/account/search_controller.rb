@@ -18,6 +18,9 @@ module Cukesetaptesting
       end
 
       def account_name_exists?(name)
+        # if @view.table_content.when_present.text.contains? "No Results Found"
+        #   return false
+        # end
 
         return @view.table_content.when_present.text.include? name
 
@@ -31,6 +34,9 @@ module Cukesetaptesting
         return @view.email_field.when_present.value.include? text
       end
 
+      def set_search_field(name)
+        @view.search_field.when_present.value = name
+      end
 
 #Role memebers-  may be able to move to a new class, but likely unnecessary
       def role_icon_click

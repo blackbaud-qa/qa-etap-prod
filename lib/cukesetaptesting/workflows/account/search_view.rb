@@ -18,8 +18,6 @@ module Cukesetaptesting
       keyword(:role_menu_other) {role_menu.li(:class, "other").a}
       keyword(:role_menu_defined_fields) {role_menu.li(:class, "definedFields").a}
 
-
-
       def home(model)
       end
 
