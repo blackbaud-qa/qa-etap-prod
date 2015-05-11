@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Add Account Classic View
 
   Scenario: Add new account - all fields populated
@@ -40,12 +41,12 @@ Feature: Add Account Classic View
     And I set City to 'Indianapolis' on the classic add account page
     And I set State to 'IN' on the classic add account page
     And I set Postal Code to '46220' on the classic add account page
-    And I set Voice to '317-219-4444' on the classic add account page
+    And I set Voice to '318-219-4444' on the classic add account page
     And I set Email to 'qa-1@blackbaud.com' on the classic add account page
     And I click Save And 'Go to Personas'
     And I click Accounts
     And I click Advanced Find
-    And I set Phone to '317-219-4444' on the Advanced Find screen
+    And I set Phone to '318-219-4444' on the Advanced Find screen
     And I click Find
     Then I should see the message: 'No Results Found'
 

@@ -4,6 +4,7 @@ module Cukesetaptesting
       #Search Keywords
       keyword(:search_field)  { content.text_field(:name => 'searchString') }
       keyword(:email_field)  { content.text_field(:name => 'email') }
+      keyword(:phone_field) {content.text_field(:name, 'phone')}
       keyword(:find_button) { content.button(:value => 'Find') }
       keyword(:advanced_link) { content.link(:text=> 'Advanced Find') }
       keyword(:exact_button) { content.button(:value => 'Exact Match') }

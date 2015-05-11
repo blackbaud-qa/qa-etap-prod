@@ -24,3 +24,9 @@ And(/^I type '([^']*)' into the Email field$/) do |email|
   search.clear_name_field
   search.create
 end
+
+And (/^I set Phone to '([^']*)' on the Advanced Find screen/) do |value|
+  search = Account::AdvancedSearch.new(:phone_field=>value)
+  search.clear_name_field
+  search.create
+end
