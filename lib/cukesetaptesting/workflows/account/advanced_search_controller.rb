@@ -20,6 +20,10 @@ module Cukesetaptesting
         @view.search_field.when_present.clear
       end
 
+      def clear_phone_field
+        @view.phone_field.when_present.clear
+      end
+
 
       def exact_match_click
         @view.exact_button.when_present.click

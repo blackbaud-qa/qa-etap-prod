@@ -11,6 +11,7 @@ end
 And(/^I type '([^']*)' into the Name field$/) do |name|
   search = Account::AdvancedSearch.new(:search_field=>name)
   search.clear_email_field
+  search.clear_phone_field
   search.create
 end
 
@@ -22,6 +23,7 @@ end
 And(/^I type '([^']*)' into the Email field$/) do |email|
   search = Account::AdvancedSearch.new(:email_field=>email)
   search.clear_name_field
+  search.clear_phone_field
   search.create
 end
 
