@@ -21,6 +21,14 @@ module Cukesetaptesting
       def select_query_all_constituents
         @view.query_all_constituents.when_present.click
       end
+
+      #export
+
+
+      def download_as(type)
+        @view.report_format.select(type)
+      end
+
     end
   end
 end

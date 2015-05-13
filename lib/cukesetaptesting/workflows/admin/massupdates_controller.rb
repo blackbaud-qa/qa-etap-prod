@@ -46,7 +46,7 @@ module Cukesetaptesting
       end
 
       def mass_update_completed_successfully?(message)
-        sleep 3
+        # sleep 3
         @view.mass_update_results.when_present.text.include? message
       end
 

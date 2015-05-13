@@ -15,6 +15,10 @@ module Cukesetaptesting
       def is_split_names?
         first_name_present = @view.new_account_first_name.present?
         last_name_present = @view.new_account_last_name.present?
+        #@view.content.div(:id,'etap.fieldset.table.2').wait_until_present
+        # sleep 5
+        # first_name_present = @view.new_account_first_name.exists?
+        # last_name_present = @view.new_account_last_name.exists?
 
         return first_name_present && last_name_present
       end
@@ -56,6 +60,7 @@ module Cukesetaptesting
       end
 
       def new_account_persona
+        Watir::Wait.until {@view.role_name_value.exists?}
         @view.role_name_value.value
       end
 
