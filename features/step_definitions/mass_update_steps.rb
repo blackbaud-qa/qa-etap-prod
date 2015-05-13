@@ -35,6 +35,7 @@ And (/^I should see the message Accounts to Update: '([^']*)' on the mass update
 end
 
 And (/^I should see the following message '([^']*)' as a result of this mass update/) do |message|
+  sleep 3
   mass = Admin::Massupdates.new
   expect(mass.mass_update_completed_successfully? message).to eq(true)
 end

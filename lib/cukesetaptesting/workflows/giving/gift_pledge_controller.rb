@@ -147,8 +147,10 @@ module Cukesetaptesting
         begin
         @view.save_and_button.when_present.click
         rescue
-          browser.alert.ok
-             end
+          if(browser.alert.exists?)
+            browser.alert.ok
+          end
+        end
       end
 
       def journal_gift_persona
