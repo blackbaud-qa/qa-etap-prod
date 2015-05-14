@@ -10,6 +10,13 @@ module Cukesetaptesting
       keyword(:exact_button) { content.button(:value => 'Exact Match') }
       keyword(:table_content) { content.table(:id => 'etapreporttag1')}
 
+
+
+      keyword(:dynamic_search_field) {content.div(:id, 'menuAccountSearch').input(:class, 'searchInput')}
+      keyword(:dynamic_search_glass) {content.div(:id, 'menuAccountSearch').img(:class, 'searchIcon')}
+      keyword(:dynamic_drop_down_info) {content.div(:id,'menuAccountSearch').li(:class,'searchItem')}
+
+
       def home(model)
       end
 

@@ -7,9 +7,9 @@ Feature: Run existing report
     And I click on run report next to the report Test
     And I click on the drop down box for query category Base
     And I click on the drop down box for query name All Constituents
-    And I accept on the default report format Display report on screen
+#    And I accept on the default report format Display report on screen
     When I click on submit
-    Then I should see the report and all columns displayed to screen
+#    Then I should see the report and all columns displayed to screen
 
 
 

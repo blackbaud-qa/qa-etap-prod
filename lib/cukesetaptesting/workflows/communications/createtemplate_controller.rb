@@ -267,6 +267,85 @@ module Cukesetaptesting
         @view.new_template_grouping_one_per.set
       end
 
+
+      def email_template
+        @view.email_templates.when_present.click
+      end
+
+      def new_email_document
+        @view.new_email_document.when_present.click
+      end
+
+      def click_next_on_nav
+        @view.nav_next.when_present.click
+      end
+
+      def new_pistachio_template
+        @view.pistachio_template.when_present.click
+      end
+
+      def hover_over_article_block
+        @view.first_article_block.wait_until_present
+        sleep 1
+        @view.first_article_block_hover.hover
+      end
+
+      def edit_first_article_block
+        @view.first_article_block_edit.when_present.click
+      end
+
+      def new_newsletter_set_title(text)
+        # @view.new_newsletter_title.when_present.click
+        @view.new_newsletter_content.when_present.send_keys [:command, 'a']
+        @view.new_newsletter_content.when_present.send_keys text
+        # @view.new_newsletter_content.when_present.click
+      end
+
+      def new_newsletter_content_update
+        # @view.new_newsletter_content_update.when_present.click
+        # @view.new_newsletter_content.when_present.send_keys [:null]
+        @view.new_newsletter_content_update.when_present.click
+        # @view.browser.send_keys :tab
+        # @view.browser.send_keys :return
+      end
+
+      #
+      def font_family_veranda_click
+        @view.article_font_dropdown.when_present.click
+        # @view.article_font_dropdown.when_present.select 'Verdana'
+        # @view.font_style_veranda.click
+      end
+
+      def article_font_size_16
+        @view.article_font_size_16.when_present.click
+      end
+
+      # def quick_formatting_update
+      #   # @view.quick_formatting_update.when_present.click
+      #   @view.browser.button(:value => 'Update').click
+      # end
+
+      def quick_links_edit
+        @view.quick_links_block.hover
+        @view.quick_links.when_present.click
+      end
+
+      def quick_links_content_update(text)
+        # @view.quick_links_href.when_present.send_keys
+        @view.quick_links_href.when_present.send_keys text
+        @view.quick_links_href.when_present.click
+      end
+
+      def save_and_mass_email
+        @view.select_mass_email.when_present.click
+        @view.save_and.when_present.click
+      end
+
+      def select_advanced_mass_email
+        @view_advanced_mass.when_present.click
+        # @view.browser.radio(:id => 'advancedMode"').set
+      end
+
     end
   end
 end
