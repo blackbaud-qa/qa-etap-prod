@@ -19,7 +19,8 @@ module Cukesetaptesting
 
 
       #run_existing_report
-      keyword(:run_report_link) {content.a(:text, 'Run Report')}
+      # keyword(:run_report_link) {content.a(:text, 'Run Report')}
+      keyword(:run_report_link) {content.a(:href, '/prod/reportLauncher.do?nextAction=/customExport&definitionRef=39.0.14256361')}
       keyword(:category_base) {content.select(:id, 'select.query.category.1').option(:text,'Base')}
       keyword(:query_all_constituents) {content.select(:id, 'select.query.1').option(:text,'All Constituents - A')}
 

@@ -1,14 +1,14 @@
-Feature: Export Report
-
-  Scenario: Download as PDF
-    Given I am logged into eTap
-    And I click on reports
-    And I click on the system category
-    And I click on run report next to the report Test
-    And I click on the drop down box for query category Base
-    And I click on the drop down box for query name All Constituents
-#    And I click on the report format
-    And I click on download as 'PDF' for the report format
+#Feature: Export Report
+#
+#  Scenario: Download as PDF
+#    Given I am logged into eTap
+#    And I click on reports
+#    And I click on the system category
+#    And I click on run report next to the report Test
+#    And I click on the drop down box for query category Base
+#    And I click on the drop down box for query name All Constituents
+##    And I click on the report format
+#    And I click on download as 'PDF' for the report format
 #    When I click on submit
 #    Then I should see the report downloaded as a PDF file
 #
