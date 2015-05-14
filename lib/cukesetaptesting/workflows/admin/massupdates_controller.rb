@@ -35,6 +35,7 @@ module Cukesetaptesting
 
       def mass_update_next_click
         begin
+          sleep 3
           @view.mass_update_next.when_present.click
         rescue
           browser.alert.ok
