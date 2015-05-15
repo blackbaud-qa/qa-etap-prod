@@ -12,3 +12,8 @@ And(/^I click on the drop down box for query name All Constituents$/) do
   category = Reports::Editreportscategory.new
   category.select_query_all_constituents
 end
+
+Then(/^I should see the report title '([^']*)' and all columns displayed to screen$/) do |page_title|
+  category = Reports::Editreportscategory.new
+  category.see_test_report? page_title
+end
