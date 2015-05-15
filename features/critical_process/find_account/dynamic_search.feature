@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Search using the dynamic search field
 
   Scenario: Searching for an account, pressing Enter
