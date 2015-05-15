@@ -43,6 +43,7 @@ module Cukesetaptesting
         return @view.email_field.when_present.value.include? text
       end
 
+      #dynamic search
       def click_magnifying_glass
         @view.dynamic_search_glass.when_present.click
       end
@@ -51,9 +52,20 @@ module Cukesetaptesting
         sleep 3
       end
 
-      def choose_from_dynamic_drop_down
-        @view.dynamic_drop_down_info.when_present.click
+      def dynamic_drop_down?
+        @view.dynamic_drop_down_info.when_present.present?
       end
+
+      def dynamic_drop_down_results(name)
+        @view.dynamic_drop_down_info_name.when_present.value.include? name
+      end
+
+      def on_find_account_page?(text)
+        return @view.find_account_page.when_present.value.include? text
+      end
+
+
+
 
 
     end

@@ -1,9 +1,4 @@
 
-# And(/^I type '([^']*)' into the dynamic search field$/) do |search|
-#   search = Account::AdvancedSearch.new(:dynamic_search_field=>search)
-#   search.create
-# end
-
 
 And(/^I click the magnifying glass$/) do
   search = Account::AdvancedSearch.new
@@ -15,7 +10,23 @@ And(/^I pause for 3 seconds or more$/) do
   search.pause
 end
 
-Then(/^choose the option from the dynamic drop down$/) do
+Then(/^the '([^']*)' screen should display$/) do |title|
   search = Account::AdvancedSearch.new
-  search.choose_from_dynamic_drop_down
+  search.on_find_account_page?(title)
 end
+
+Then(/^the dynamic drop down should appear$/) do
+  search = Account::AdvancedSearch.new
+  search.dynamic_drop_down?
+end
+
+Then(/^'([^']*)' Almond should show in the list$/) do |result|
+  search = Account::AdvancedSearch.new
+  search.dynamic_drop_down_results(result)
+end
+
+And(/^I select '([^']*)' from the drop down list$/) do |name|
+  search = Account::AdvancedSearch.new
+  search.choose_from_dynamic_drop_down(name)
+end
+
