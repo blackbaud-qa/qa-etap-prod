@@ -29,6 +29,10 @@ module Cukesetaptesting
         @view.report_format.select(type)
       end
 
+      def see_test_report?(title)
+        @view.page_title.when_present.text.include?(title)
+      end
+
     end
   end
 end
