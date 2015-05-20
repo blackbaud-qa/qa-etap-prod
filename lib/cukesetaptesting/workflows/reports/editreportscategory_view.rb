@@ -62,7 +62,8 @@ module Cukesetaptesting
       keyword(:category_1)  {content.a(:href,'SpecialReportCategories.jsp')}
       keyword(:category_2)  {content.a(:href,'viewCrossDBReports.do')}
       #this href link may be dynamic
-      keyword(:category_3)  {content.a(:href,'editReportCategory.do?categoryRef=45.0.2851')}
+      # keyword(:category_3)  {content.a(:href,'editReportCategory.do?categoryRef=45.0.2851')}
+      keyword(:category_3)  {content.a(:text,'System')}
 
 
     end
