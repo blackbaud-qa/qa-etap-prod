@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Reports load, can be copied,moved and can be deleted
 
 Scenario: Load reports
