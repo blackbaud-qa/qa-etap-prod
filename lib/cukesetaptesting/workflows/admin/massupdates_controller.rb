@@ -89,6 +89,11 @@ module Cukesetaptesting
         @view.contact_method_combo_list.when_present.div(:text,value).click
       end
 
+      def contact_journal_entry_exists?
+        sleep 1
+        return @view.click_contact.present?
+      end
+
       def click_on_contact_journal_entry
         @view.click_contact.when_present.click
       end

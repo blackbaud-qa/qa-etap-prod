@@ -3,6 +3,23 @@ And (/^I click Mass Update/) do
   mass.mass_update_link_click
 end
 
+When (/^I clear old data from the Mass Update query/) do
+  step "I navigate to the New Journal Contacts query"
+  mass = Admin::Massupdates.new
+  while (mass.contact_journal_entry_exists?)
+    step "I click Contact on the Query Preview page"
+    step "I click Delete on the contact page"
+    step "I navigate to the New Journal Contacts query"
+  end
+end
+
+And (/^I navigate to the New Journal Contacts query/) do
+  step "I click Queries on the main menu"
+  step "I click on the 'Mass Update' category"
+  step "I click on the 'New Journal Contacts' query"
+  step "I click Save And 'Preview'"
+end
+
 And (/^I click Update Existing Accounts on the Mass Update page/) do
   mass = Admin::Massupdates.new
   mass.update_existing_accounts_link_click
