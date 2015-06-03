@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Preview Query
 
 Scenario:Preview Base All Accounts
