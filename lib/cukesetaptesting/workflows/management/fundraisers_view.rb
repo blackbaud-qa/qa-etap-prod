@@ -2,6 +2,7 @@ module Cukesetaptesting
   module Management
     class FundraisersView < BaseView
       keyword(:management_fundraisers)  {content.div(:id,'managementPageContent').div(:id,'onlineContent').ul(:id,'homeQuickLinks').a(:href,'viewEvents.do')}
+      keyword(:fundraiser_status) {content.div(:class,'info')}
       keyword(:fundraiser_new_fundraiser) {content.a(:text,'New Fundraiser')}
       keyword(:new_fund_date) {content.div(:class,'calendarPopup').text_field(:id,'date')}
       keyword(:new_fund_name) {content.text_field(:name,'event.name')}
@@ -46,6 +47,7 @@ module Cukesetaptesting
       keyword(:select_status) {content.select(:name,'enumPopulate(event.status)')}
       keyword(:select_status_disabled) {select_status.option(:value,"label.disabled")}
       keyword(:fundraisers_grid) {content.div(:id,'events_summary_1')}
+      keyword(:sort_status) {content.a(:class,'status')}
 
       def home(model)
       end

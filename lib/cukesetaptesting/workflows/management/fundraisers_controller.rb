@@ -12,6 +12,10 @@ module Cukesetaptesting
       @view.fundraiser_new_fundraiser.when_present.click
     end
 
+    def active_fundraiser_exists?
+      return @view.fundraiser_status.text.include? "Active"
+    end
+
     def set_new_fundraiser_status_active
       @view.new_fundraiser_status.when_present.select "Active"
     end
@@ -96,6 +100,10 @@ module Cukesetaptesting
         sleep 1
         @view.new_fundraiser_save_and_finish.when_present.click
         # @view.fundraisers_grid.wait_until_present
+      end
+
+      def sort_status_click
+        @view.sort_status.when_present.click
       end
 
       def fundraiser_page_url_click
