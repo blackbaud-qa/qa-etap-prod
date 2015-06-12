@@ -9,6 +9,7 @@ Feature: Editing a fundraiser
     Given I am logged into eTap
     When I click Management on the main menu
     And I click Fundraisers on the Management menu
+    And I sort by Status on the Fundraisers Page
     And I click on the Fundraiser titled QA Fundraiser 1 on the Fundraisers page
     And I click Next on the new Fundraiser page
     And I change the template to Chisel on the existing Fundraiser page

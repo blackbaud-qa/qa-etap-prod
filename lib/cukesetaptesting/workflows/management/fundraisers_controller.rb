@@ -113,11 +113,13 @@ module Cukesetaptesting
       end
 
       def fundraiser_on_fund_page?
-        @view.browser.window(:title => "QA Fundraiser 1").use do
+        # @view.browser.window(:title => "QA Fundraiser 1").use do
+        @view.browser.windows.last.use do
           @view.new_fundraiser_page_title.wait_until_present
           @retVal = @view.new_fundraiser_page_title.exists?
         end
-        @view.browser.window(:title => "QA Fundraiser 1").close
+        # @view.browser.window(:title => "QA Fundraiser 1").close
+        @view.browser.windows.last.close
         return @retVal
 
       end
