@@ -73,12 +73,12 @@ module Cukesetaptesting
       def file_browser_image_upload_click
         with_modal_dialog do
           @view.new_file_browser_image_upload.click
+          @view.new_file_browser_image_upload_spinner.wait_while_present
         end
       end
 
       def file_browser_image_click
         with_modal_dialog do
-          @view.new_file_browser_image_upload_spinner.wait_while_present
           @view.file_browser_image.click
         end
       end

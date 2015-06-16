@@ -1,4 +1,4 @@
-@crit_proc 
+@crit_proc
 Feature: Disabling a fundraiser
 
   Background:

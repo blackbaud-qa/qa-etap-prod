@@ -15,7 +15,7 @@ module Cukesetaptesting
       keyword(:new_template_content_editor) {content.iframe(:id,'blockHtmlContents_ifr')}
       keyword(:new_template_insert_image) {new_template_content_editor.img}
       keyword(:new_template_image_menu_insert) {content.span(:text,'Insert image')}
-      keyword(:new_template_insert_image_browse) {content.div(:id,'mceu_85').button}
+      keyword(:new_template_insert_image_browse) {content.div(:class,'mce-combobox').button}
       keyword(:new_file_browser_image) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').file_field(:name,'NewFile')}
       keyword(:new_file_browser_image_upload) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').input(:id,'btnUpload')}
       keyword(:new_file_browser_image_upload_spinner) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').span(:id,'eUploadMessage').img}
