@@ -1,14 +1,19 @@
 Feature: SEPA 1 - Setting Preferences
 
-  Background:
-    Given I login as [USER]
+#  Background:
+#    Given I login as [USER]
 
   Scenario:  Adding Federal ID Number
-    Given I've clicked Management - My Organization
-    When I enter [123] in the Federal ID field
-    And click Save and Go to Personas
-    Then [123] should save in the Federal ID field
-    And I should be take to the Personas page
+
+    Given I log out of eTap
+    And I login into eTap with values 'automationbot.nl', 'spicypancakes1'
+#    And I've clicked Management - My Organization
+    And I click Management on the main menu
+    And I click on My Organization on the management page
+    And I enter '123' in the Federal ID field
+    And I click Save and Go to Personas on the My Organization page
+    Then '123' should save in the Federal ID field
+#    And I should be take to the Personas page
 
 #  Scenario: Empty Required Organization Preferences
 #    Given I've clicked Management - My Organization - Preferences

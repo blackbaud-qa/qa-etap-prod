@@ -127,6 +127,8 @@ module Cukesetaptesting
       keyword(:reports_page_title) {content.h1(:class, "pageTitle")}
       keyword(:management_page) {content.div(:id, "managementPageTop")}
 
+      keyword(:management_my_org) {content.a(:href,'editOrganization.do')}
+
 
       def home(model)
       end

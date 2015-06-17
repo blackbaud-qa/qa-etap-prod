@@ -398,6 +398,9 @@ module Cukesetaptesting
         @view.management_dd_user_prefs.when_present.click
       end
 
+      def management_my_org_click
+        @view.management_my_org.when_present.click
+      end
 
 
       def on_home_page?
