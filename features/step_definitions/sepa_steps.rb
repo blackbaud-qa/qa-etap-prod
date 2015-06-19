@@ -122,3 +122,52 @@ Then (/^'([^']*)' should save in the Organization Short Name field$/) do |field|
   org = Management::MyOrg.new()
   expect(org.org_short_name_field).to eq(field)
 end
+
+Given(/^I go to the journal of account '([^']*)'$/) do  |account|
+  step "I click Accounts on the main menu"
+  step "I type '" + account + "' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on '" + account + "' in the search results"
+  step "I click Journal"
+end
+
+Then(/^I should be taken the the New Recurring Gift Schedule screen$/) do
+  gift = Giving::GiftPledge.new
+  expect(gift.on_recurring_gift_page?).to eq(true)
+end
+
+And(/^the process type should default to SEPA$/) do
+  gift = Giving::GiftPledge.new
+  expect(gift.process_type_sepa_set?)
+end
+
+And(/^I populate the date field with yesterday$/) do
+  gift = Giving::GiftPledge.new(:new_pledge_date => Date.yesterday.strftime('%x'))
+  gift.create
+end
+
+And(/^I populate the IBAN field with '([^']*)'$/) do |value|
+  gift = Giving::GiftPledge.new(:IBAN=>value)
+  gift.create
+end
+
+And(/^I populate the Mandate Signature Date field with today$/) do
+  gift = Giving::GiftPledge.new(:mandate_sig_date=>Date.today.strftime('%x'))
+  gift.create
+end
+
+Then(/^the BIC field should be set to '([^']*)'$/) do |value|
+  gift = Giving::GiftPledge.new
+  expect(gift.journal_BIC).to eq(value)
+end
+
+And (/^I set the Recurring Installment Amount to '([^']*)'$/) do |amount|
+  gift = Giving::GiftPledge.new(:recurring_installment_amount => amount)
+  gift.create
+end
+
+Then(/^a unique mandate ID should appear$/) do
+  gift = Giving::GiftPledge.new
+  expect(gift.mandate_id_generated?).to eq(true)
+end
+

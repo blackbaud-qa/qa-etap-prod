@@ -4,7 +4,7 @@ Feature: Adding a gift with payment type of check
     Given I am logged into eTap
     When I type '/14' into the dynamic search field
     And I press Enter on the keyboard
-    And click Journal
+    And I click Journal
     And select Split Transaction from the Add New... drop down menu
     And set the date to '7/30/2090'
     And set the Received Amount Field to '200.00'

@@ -7,6 +7,7 @@ require 'watir-webdriver'
 require 'watirmark'
 require 'cukesetaptesting'
 require 'watirmark/cucumber/env'
+require 'active_support/all'
 
 if Watirmark::Configuration.instance.headless_enabled
   require 'headless'

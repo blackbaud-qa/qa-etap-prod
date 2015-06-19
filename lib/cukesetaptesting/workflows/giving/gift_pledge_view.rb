@@ -73,6 +73,7 @@ module Cukesetaptesting
       keyword(:frequency) {content.div(:id, 'SimpleDiv').option(:value, '12')}
       keyword(:installment_date) {content.div(:id, 'etap.fieldset.area.6').text_field(:id, 'scheduleFirstInstallmentDate')}
       keyword(:installment_amount) {content.div(:id, 'SimpleDiv').text_field(:id, 'scheduleInstallmentAmount')}
+      keyword(:recurring_installment_amount) {content.text_field(:name,'installmentAmount')}
       keyword(:pledge_info_bar) {content.div(:id, 'pledgeFieldsTitleBar')}
 
       keyword(:split_received_field) {content.div(:id,"segmentedGiftHeader").text_field(:id, "received")}
@@ -103,7 +104,7 @@ module Cukesetaptesting
       #combo box for adding a new journal entry from the Add New... combo box
       keyword(:add_new_journal_type) {content.select(:id, 'addEntry')}
 
-      keyword(:new_pledge_date) {content.input(:name, 'date')}
+      keyword(:new_pledge_date) {content.text_field(:name, 'date')}
       keyword(:set_pledged_field) {content.text_field(:name, 'receivable')}
       keyword(:create_pledge_schedule) {content.a(:text, 'Create Pledge Schedule')}
       keyword(:select_frequency_value) {content.select(:id, 'pledgeFrequencySelect')}
@@ -127,9 +128,13 @@ module Cukesetaptesting
       keyword(:journal_page_gift) {content.a(:text, 'Gift')}
       keyword(:non_deductible_field) {content.text_field(:name, 'nonDeductibleAmount')}
 
-
-
-
+      keyword(:page_title) {content.div(:class,'pageTitle')}
+      keyword(:process_type_sepa) {content.radio(:id,'processTypeSEPA')}
+      keyword(:IBAN) {content.text_field(:id,'IBANNumber')}
+      keyword(:BIC) {content.text_field(:id,'BICNumber')}
+      keyword(:mandate_sig_date) {content.text_field(:id,'mandateSignatureDate')}
+      keyword(:mandate_id) {content.text_field(:name,'mandateId')}
+      keyword(:mandate_manual) {content.checkbox(:name,'manualMandateCheck')}
 
       def popupSearch
         content.iframe(:id, 'popupFrame') #.when_present

@@ -62,6 +62,16 @@ And(/^I click Save And '([^']*)'$/) do |value|
   gift.click_save_and
 end
 
+And(/^I click Save And to see the error$/) do
+  begin
+    gift = Giving::GiftPledge.new
+    gift.click_save_for_error
+  rescue
+    #expected error...
+  end
+
+end
+
 And(/^set the Account Number field to '([^']*)'$/) do |value|
   gift = Giving::GiftPledge.new(:account_number=>value)
   gift.create
@@ -136,3 +146,4 @@ Then (/the Soft Credit Amount should be set to '([^']*)'$/) do |amount|
   gift = Giving::GiftPledge.new
   expect(gift.journal_gift_soft_credit_amount).to eq(amount)
 end
+
