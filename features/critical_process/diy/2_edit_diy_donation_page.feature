@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Edit a diy donation page
 
 #  Background:

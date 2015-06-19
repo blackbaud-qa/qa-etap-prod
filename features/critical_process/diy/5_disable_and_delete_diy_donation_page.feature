@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Disable and delete diy donation page
 
   Background:

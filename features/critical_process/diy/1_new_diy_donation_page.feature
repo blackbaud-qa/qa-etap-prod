@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Creating a new diy donation page
 
   Scenario: creating a new diy donation page

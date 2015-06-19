@@ -1,3 +1,4 @@
+@crit_proc
 Feature: SEPA 1 - Setting Preferences
 
   Background:
