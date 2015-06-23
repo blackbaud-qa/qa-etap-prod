@@ -674,7 +674,7 @@ Then(/^I should be taken to Fundraisers page$/) do
 end
 
 Then(/^I should be taken to My Online Forms page$/) do
-  forms = DIY::Onlineforms.new
+  forms = Diy::Onlineforms.new
   expect(forms.on_online_forms_page?).to eq(true)
 end
 
