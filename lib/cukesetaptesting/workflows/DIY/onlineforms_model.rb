@@ -1,5 +1,5 @@
 module Cukesetaptesting
-  module Diy
+  module DIY
     class OnlineformsModel < Watirmark::Model::Factory
       keywords OnlineformsView.keywords
     end
