@@ -8,8 +8,8 @@ Feature: Disable and delete diy donation page
     Given I am logged into eTap
     When I click Management on the main menu
     When I click on DIY Forms on the management page
-#    And I click Disable for the form titled Donation Page
-#    And I click Yes, Disable the Page
+    And I click Disable for the form titled Donation Page
+    And I click Yes, Disable the Page
     And I click Delete for the form titled Donation Page
     And I click Yes, Delete the Page
     Then the Donation Page should no longer show

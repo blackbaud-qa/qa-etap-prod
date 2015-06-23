@@ -61,6 +61,7 @@ Feature: SEPA - 3 Export
 #    And open my file
 #    Then I should see account [A]'s recurring gift data
 #
+  #This appears to be a duplicate of the test above
 #  Scenario: Regularly scheduled debits + Retry validation (Recurring)
 #    Given I click on Management and select SEPA Banking Export
 #    And I select these <values> from these <fields>

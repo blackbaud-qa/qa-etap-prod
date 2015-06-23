@@ -205,6 +205,10 @@ module Cukesetaptesting
         @view.donation_page_delete.when_present.click
       end
 
+      def donation_page_disable_confirm_click
+        @view.donation_page_disable_confirm.when_present.click
+      end
+
       def donation_page_delete_confirm_click
         @view.donation_page_delete_confirm.when_present.click
       end
