@@ -31,7 +31,7 @@ module Cukesetaptesting
       keyword(:new_account_classic_short_salutation) {content.text_field(:id, 'shortDesignation')}
       keyword(:new_account_classic_long_salutation) {content.text_field(:id, 'longDesignation')}
       keyword(:john_doe_link) {content.a(:text,'John Doe')}
-      keyword(:other_link) {content.a(:text,'Other')}
+      keyword(:other_link) {content.a(:text,'Account Settings')}
       keyword(:delete_role_button) {content.button(:name, 'delete')}
       keyword(:yes_button) {content.button(:value, 'Yes')}
       keyword(:role_name_value) {content.hidden(:name, 'entityRoleName')}
