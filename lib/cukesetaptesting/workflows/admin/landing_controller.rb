@@ -402,6 +402,14 @@ module Cukesetaptesting
         @view.management_my_org.when_present.click
       end
 
+      def management_standard_exports_click
+        @view.management_standard_exports.when_present.click
+      end
+
+      def management_sepa_banking_export_click
+        @view.management_sepa_banking_export.when_present.click
+      end
+
 
       def on_home_page?
         @view.home_page.wait_until_present

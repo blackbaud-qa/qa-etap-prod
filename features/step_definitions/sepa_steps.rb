@@ -171,3 +171,78 @@ Then(/^a unique mandate ID should appear$/) do
   expect(gift.mandate_id_generated?).to eq(true)
 end
 
+When(/^I click next on the SEPA banking export screen$/) do
+  export = Reports::Sepa.new
+  export.next_click
+end
+
+Then(/^I should see the '([^']*)' pop up error$/) do |error|
+  export = Reports::Sepa.new
+  expect(export.pop_up_error_includes? error).to eq(true)
+end
+
+Then(/^I should close the pop up error$/) do
+  export = Reports::Sepa.new
+  export.pop_up_ok_click
+end
+
+And(/^I select Retries Only for the Export Type field$/) do
+  export = Reports::Sepa.new
+  export.retries_only_select
+end
+
+And(/^I select Standard for the Export Method field$/) do
+  export = Reports::Sepa.new
+  export.standard_set
+end
+
+And(/^I select Live for the Export Mode field$/) do
+  export = Reports::Sepa.new
+  export.live_set
+end
+
+And(/^I select Today for the Process Date field$/) do
+  export = Reports::Sepa.new(:process_date => Date.today.strftime('%x'))
+  export.create
+end
+
+And (/^I select Tomorrow for the Process Date field$/) do
+  export = Reports::Sepa.new(:process_date => Date.tomorrow.strftime('%x'))
+  export.create
+end
+
+And (/^I select Regularly Scheduled Direct Debits for the Export Type field$/) do
+  export = Reports::Sepa.new
+  export.reg_sched_dd_select
+end
+
+And(/^I select Custom for the Export Method field$/) do
+  export = Reports::Sepa.new
+  export.custom_select
+end
+
+And(/^I select '([^']*)' for the Category field$/) do |category|
+  export = Reports::Sepa.new
+  export.custom_category_select category
+end
+
+And(/^I select '([^']*)' for the Query field$/) do |query|
+  export = Reports::Sepa.new
+  export.query_select query
+end
+
+And(/^I select This Month for the Gift Date Range field$/) do
+  export = Reports::Sepa.new
+  export.this_month_gift_set
+end
+
+And(/^I set First and One Off for the Gift Status field$/) do
+  export = Reports::Sepa.new
+  export.first_one_off_set
+end
+
+And(/^I see '([^']*)' listed under Exportable Gifts$/) do  |name|
+  sleep 2
+  export = Reports::Sepa.new
+  expect(export.export_data_contains? name).to eq(true)
+end
