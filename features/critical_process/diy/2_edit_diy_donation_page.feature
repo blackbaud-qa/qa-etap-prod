@@ -51,6 +51,9 @@ Feature: Edit a diy donation page
     And I click Update on the Add Text page
     And I click Save on the DIY editor page
     And I confirm saving my changes
+    And I click Go Live on the DIY editor page
+    And I click Yes, Go Live! on the DIY editor page
+    And I click Replace on the DIY editor page
 #    And click Go Live
 #    And click Yes, Go Live!
 #    And click Replace

@@ -213,9 +213,74 @@ module Cukesetaptesting
         @view.donation_page_delete_confirm.when_present.click
       end
 
+      def donation_page_replace_click
+        @view.donation_page_replace.when_present.click
+      end
+
       def donation_page_present? text
         return @view.content.span(:class=>'namePart',:text=>text).present?
       end
+
+      def donation_page_click
+        @view.donation_page_link.when_present.click
+      end
+
+      def switch_tab
+        @view.browser.windows.last.use
+      end
+
+      def live_fund_set fund
+        @view.live_fund.when_present.select fund
+      end
+
+      def live_gender_set gender
+        @view.live_gender.when_present.select gender
+      end
+
+      def live_amount_other_set
+        @view.live_amount_other.when_present.set
+      end
+
+      def live_freq_set freq
+        @view.live_freq.when_present.select freq
+      end
+
+      def live_title_set title
+        @view.live_title.when_present.select title
+      end
+
+      def live_country_set country
+        @view.live_country.when_present.select country
+      end
+
+      def live_state_set state
+        @view.live_state.when_present.select state
+      end
+
+      def live_card_type_set card
+        @view.live_card_type.when_present.set card
+      end
+
+      def live_exp_month_set exp
+        @view.live_exp_month.when_present.set exp
+      end
+
+      def live_exp_year_set exp
+        @view.live_exp_year.when_present.set exp
+      end
+
+      def live_submit_click
+        @view.live_submit.when_present.click
+      end
+
+      def live_transaction_successful?
+        @view.live_results_header.when_present.text.include? 'Transaction Successful'
+      end
+
+      def close_current_tab
+        @view.browser.windows.last.close
+      end
+
     end
   end
 end

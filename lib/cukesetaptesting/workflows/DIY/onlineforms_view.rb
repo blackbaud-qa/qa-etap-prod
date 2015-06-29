@@ -57,10 +57,39 @@ module Cukesetaptesting
       keyword(:update_text) {content.span(:class=>'titleText',:text=>'Edit Contents').parent.parent.button(:id=>'save')}
       keyword(:diy_save) {content.h6(:text,'Save')}
       keyword(:diy_save_confirm) {content.button(:id,'confirmSave')}
+      keyword(:donation_page_replace) {content.button(:id,'confirmOperation')}
       keyword(:donation_page_disable) {content.span(:class=>'namePart',:text=>'Donation Page').parent.parent.div(:class=>'linkBox',:text=>'Disable')}
       keyword(:donation_page_delete) {content.span(:class=>'namePart',:text=>'Donation Page').parent.parent.div(:class=>'linkBox',:text=>'Delete')}
       keyword(:donation_page_disable_confirm) {content.button(:id,'confirmDisable')}
       keyword(:donation_page_delete_confirm) {content.button(:id,'confirmDelete')}
+      keyword(:donation_page_link) {content.a(:class,'ecUrl')}
+      keyword(:live_fund) {browser.select(:id,'ecFundSelectField')}
+      keyword(:live_gender) {browser.h6(:class=>'dropdownType',:text=>'Gender').parent.parent.select}
+      keyword(:live_amount_other) {browser.radio(:id,'gift_amount_advanced_givingLevelsOther')}
+      keyword(:live_amount_field) {browser.text_field(:id,'otherAmt')}
+      keyword(:live_freq) {browser.select(:id,'rgsFrequencyField')}
+      keyword(:live_title) {browser.select(:id,'salutation')}
+      keyword(:live_first_name) {browser.text_field(:id,'firstName')}
+      keyword(:live_last_name)  {browser.text_field(:id,'lastName')}
+      keyword(:live_country)  {browser.select(:id,'countryField')}
+      keyword(:live_address) {browser.text_field(:id,'addressField')}
+      keyword(:live_city) {browser.text_field(:id,'cityField')}
+      keyword(:live_state) {browser.select(:id,'stateField')}
+      keyword(:live_postal) {browser.text_field(:id,'postalCodeField')}
+      keyword(:live_email) {browser.text_field(:id,'emailField')}
+      keyword(:live_email_confirm) {browser.text_field(:id,'confirmEmailField')}
+      keyword(:live_phone) {browser.text_field(:id,'phoneField')}
+      keyword(:live_card_type) {browser.select(:id,'cardTypeField')}
+      keyword(:live_card_name) {browser.text_field(:id,'cardholderNameField')}
+      keyword(:live_card_number) {browser.text_field(:id,'cardNumberField')}
+      keyword(:live_card_cvv) {browser.text_field(:id,'cardCVV2Field')}
+      keyword(:live_exp_month) {browser.select(:id,'cardExpMonthField')}
+      keyword(:live_exp_year) {browser.select(:id,'cardExpYearField')}
+      keyword(:live_submit) {browser.button(:id,'submitButton')}
+      keyword(:live_results_header) {browser.h1(:class,'resultHeader')}
+
+
+
 
       def click_on_fund(fund)
         funds_list.link(:text, fund)

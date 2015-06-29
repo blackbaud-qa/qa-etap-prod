@@ -282,7 +282,153 @@ And(/I click Yes, Delete the Page$/) do
   diy.donation_page_delete_confirm_click
 end
 
+And(/^I click Replace on the DIY editor page$/) do
+  diy = DIY::Onlineforms.new()
+  diy.donation_page_replace_click
+end
+
 Then(/the Donation Page should no longer show$/) do
   diy = DIY::Onlineforms.new()
   expect(diy.donation_page_present? 'Donation Page').to eq(false)
 end
+
+When(/^I click on the link for the form titled Donation Page$/) do
+  diy = DIY::Onlineforms.new()
+  diy.donation_page_click
+end
+
+And(/^I switch to the new tab in my browser$/) do
+  diy = DIY::Onlineforms.new()
+  diy.switch_tab
+end
+
+And(/^I set the Fund to '([^']*)' on the DIY Donation Page$/) do |fund|
+  diy = DIY::Onlineforms.new()
+  diy.live_fund_set fund
+end
+
+And(/^I set Gender to '([^']*)' on the DIY Donation Page$/) do |gender|
+  diy = DIY::Onlineforms.new()
+  diy.live_gender_set gender
+end
+
+And(/^I set the Donation Amount to Other on the DIY Donation Page$/) do
+  diy = DIY::Onlineforms.new()
+  diy.live_amount_other_set
+end
+
+And(/^I enter '([^']*)' as the amount on the DIY Donation Page$/) do |amount|
+  diy = DIY::Onlineforms.new(:live_amount_field=>amount)
+  diy.create
+end
+
+And(/^I set the Donation Frequency to '([^']*)' on the DIY Donation Page$/) do |freq|
+  diy = DIY::Onlineforms.new()
+  diy.live_freq_set freq
+end
+
+And(/^I set the Title to '([^']*)' on the DIY Donation Page$/) do |title|
+  diy = DIY::Onlineforms.new()
+  diy.live_title_set title
+end
+
+And(/^I set First Name to '([^']*)' on the DIY Donation Page$/) do |name|
+  diy = DIY::Onlineforms.new(:live_first_name=>name)
+  diy.create
+end
+
+And(/^I set Last Name to '([^']*)' on the DIY Donation Page$/) do |name|
+  diy = DIY::Onlineforms.new(:live_last_name=>name)
+  diy.create
+end
+
+And(/^I set Country to '([^']*)' on the DIY Donation Page$/) do |country|
+  diy = DIY::Onlineforms.new()
+  diy.live_country_set country
+end
+
+And(/^I set Address Lines to '([^']*)' on the DIY Donation Page$/) do |address|
+  diy = DIY::Onlineforms.new(:live_address=>address)
+  diy.create
+end
+
+And(/^I set City to '([^']*)' on the DIY Donation Page$/) do |city|
+  diy = DIY::Onlineforms.new(:live_city=>city)
+  diy.create
+end
+
+And(/^I set State to '([^']*)' on the DIY Donation Page$/) do |state|
+  diy = DIY::Onlineforms.new()
+  diy.live_state_set state
+end
+
+And(/^I set Postal Code to '([^']*)' on the DIY Donation Page$/) do |postal|
+  diy = DIY::Onlineforms.new(:live_postal=>postal)
+  diy.create
+end
+
+And(/^I set Email to '([^']*)' on the DIY Donation Page$/) do |email|
+  diy = DIY::Onlineforms.new(:live_email=>email)
+  diy.create
+end
+
+And(/^I set Confirm Email to '([^']*)' on the DIY Donation Page$/) do |email|
+  diy = DIY::Onlineforms.new(:live_email_confirm=>email)
+  diy.create
+end
+
+And(/^I set Phone to '([^']*)' on the DIY Donation Page$/) do |phone|
+  diy = DIY::Onlineforms.new(:live_phone=>phone)
+  diy.create
+end
+
+And(/^I set the Card Type to '([^']*)' on the DIY Donation Page$/) do |card|
+  diy = DIY::Onlineforms.new()
+  diy.live_card_type_set card
+end
+
+And(/^I set Name on Card to '([^']*)' on the DIY Donation Page$/) do |name|
+  diy = DIY::Onlineforms.new(:live_card_name=>name)
+  diy.create
+end
+
+And(/^I set Card Number to '([^']*)' on the DIY Donation Page$/) do |number|
+  diy = DIY::Onlineforms.new(:live_card_number=>number)
+  diy.create
+end
+
+And(/^I set CVV2 to '([^']*)' on the DIY Donation Page$/) do |cvv|
+  diy = DIY::Onlineforms.new(:live_card_cvv=>cvv)
+  diy.create
+end
+
+And(/^I set Expiration Month to '([^']*)' on the DIY Donation Page$/) do |exp|
+  diy = DIY::Onlineforms.new()
+  diy.live_exp_month_set exp
+end
+
+And(/^I set Expiration Year to '([^']*)' on the DIY Donation Page$/) do |exp|
+  diy = DIY::Onlineforms.new()
+  diy.live_exp_year_set exp
+end
+
+And(/^I click Submit on the DIY Donation Page$/) do
+  begin
+    diy = DIY::Onlineforms.new()
+    diy.live_submit_click
+  rescue
+    #expected possible error
+  end
+end
+
+Then(/^the transaction will process successfully$/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.live_transaction_successful?).to eq(true)
+end
+
+And(/^I close the current tab$/) do
+  diy = DIY::Onlineforms.new()
+  diy.close_current_tab
+end
+
+
