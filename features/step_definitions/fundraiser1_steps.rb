@@ -191,3 +191,8 @@ And(/^the QA Fundraiser url should load in a new browser window/) do
   fund = Management::Fundraisers.new()
   expect( fund.fundraiser_on_fund_page?).to eq(true)
 end
+
+And(/^I should be able to see the changed text '([^']*)'$/) do |text|
+  fund = Management::Fundraisers.new()
+  expect(fund.fundraiser_changes_made? text).to eq(true)
+end

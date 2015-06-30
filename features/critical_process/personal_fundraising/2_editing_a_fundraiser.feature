@@ -21,4 +21,6 @@ Feature: Editing a fundraiser
     And I choose B for Bold in the Main page Text box on the new Fundraiser page
     And I click Align Left in the Main page Text box on the new Fundraiser page
     And I click Save and Finish on the new Fundraiser page
-#    Then I should be able to click on the QA Fundraiser [X] url to view the live page with the updates I made
+    And I sort by Status on the Fundraisers Page
+    Then I should be able to click on the QA Fundraiser 1 url on the Fundraiser page
+    And I should be able to see the changed text 'Welcome to QAs wonderful fundraiser! Thank you for supporting our cause!'

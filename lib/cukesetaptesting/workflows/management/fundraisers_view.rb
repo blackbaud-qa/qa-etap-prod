@@ -48,6 +48,8 @@ module Cukesetaptesting
       keyword(:select_status_disabled) {select_status.option(:value,"label.disabled")}
       keyword(:fundraisers_grid) {content.div(:id,'events_summary_1')}
       keyword(:sort_status) {content.a(:class,'status')}
+      keyword(:new_fundraiser_content) {browser.div(:id,'etapAppEventInfo')}
+
 
       def home(model)
       end

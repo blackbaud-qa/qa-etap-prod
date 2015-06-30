@@ -124,6 +124,17 @@ module Cukesetaptesting
 
       end
 
+      def fundraiser_changes_made? text
+        @view.browser.windows.last.use do
+          @view.new_fundraiser_content.wait_until_present
+          @retVal = @view.new_fundraiser_content.text.include? text
+
+        end
+
+        @view.browser.windows.last.close
+        return @retVal
+      end
+
       def fundraiser_page_title_click
         @view.fundraiser_page_title.when_present.click
       end
