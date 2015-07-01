@@ -127,6 +127,12 @@ module Cukesetaptesting
       keyword(:journal_page_gift) {content.a(:text, 'Gift')}
       keyword(:non_deductible_field) {content.text_field(:name, 'nonDeductibleAmount')}
 
+      keyword(:segment_one_received_amount) {content.table(:class, 'formLabel').text_field(:name, 'segmentReceived(1)')}
+
+      #Fund combo box for segment 1 of split transaction
+      keyword(:fund_type_segment_one) {content.table(:class,'formLabel').img(:id, 'intentRef(1)_comboArrow')}
+      keyword(:fund_combo_list_segment_one) {content.table(:class,'formLabel').input(:id,'intentRef(1)')}
+
 
 
 

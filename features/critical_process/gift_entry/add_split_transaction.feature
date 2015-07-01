@@ -1,17 +1,17 @@
-Feature: Adding a gift with payment type of check
+Feature: Adding split transactions
 
-  Scenario: Add a gift from the journal page
+  Scenario: Add a split gift
     Given I am logged into eTap
     When I type '/14' into the dynamic search field
     And I press Enter on the keyboard
-    And click Journal
-    And select Split Transaction from the Add New... drop down menu
-    And set the date to '7/30/2090'
+    And I click Journal on the Gail Burch account
+    And I select 'Split Transaction' from the Add New... drop down menu
+    And set the date to '6/1/2018'
     And set the Received Amount Field to '200.00'
     And set the Number Of Segments to '2'
     And click Add Segments
-#    And on segment 1 set the Received amount to '125'
-#    And set the Fund to Unrestricted
+    And I set the Received amount on Segment 1 to '125'
+    And I set the Fund on Segment 1 to 'Unrestricted'
 #    And set the Campaign to Annual
 #    And set the Approach to Personal Ask
 #    And set the Gift Type to Check

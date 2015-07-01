@@ -18,45 +18,12 @@ And(/^click Add Segments$/) do
   search.click_add_segments
 end
 
-And(/^on segment (\d+) set the Received amount to '(\d+)'$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
+And(/^I set the Received amount on Segment 1 to '([^']*)'/) do |amount|
+  gift = Giving::GiftPledge.new(:segment_one_received_amount=>amount)
+  gift.create
 end
 
-And(/^set the Approach to Personal Ask$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+And(/^I set the Fund on Segment 1 to '([^']*)'/) do |name|
+  gift = Giving::GiftPledge.new
+  gift.set_fund_segment_one name
 end
-
-And(/^set the Tribute Information to Cindy Grant$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-And(/^set the Soft Credit Information to Anne Hatch$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-And(/^on segment (\d+) set the Received amount to '(\d+)'$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-And(/^set the Fund to General$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-And(/^set the Campaign to Capital$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-And(/^set the Approach to Personal Ask$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-And(/^set the Soft Credit Information to Anne Hatch$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-And(/^set the Transaction UDF to Value B$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-
-

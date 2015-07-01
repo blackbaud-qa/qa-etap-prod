@@ -320,6 +320,11 @@ module Cukesetaptesting
         @view.non_deductible_field.when_present.value
       end
 
+      def set_fund_segment_one(name)
+        @view.fund_type_segment_one.when_present.click
+        @view.fund_combo_list_segment_one(name).when_present.click
+      end
+
       end
   end
 end
