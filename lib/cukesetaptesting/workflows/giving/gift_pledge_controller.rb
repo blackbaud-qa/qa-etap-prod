@@ -332,7 +332,18 @@ module Cukesetaptesting
 
       def set_fund_segment_one(name)
         @view.fund_type_segment_one.when_present.click
-        @view.fund_combo_list_segment_one(name).when_present.click
+        @view.fund_combo_list_segment_one.when_present.div(:text,name).click
+      end
+
+      def set_campaign_segment_one(name)
+        @view.campaign_type_segment_one.when_present.click
+        @view.campaign_combo_list_segment_one.when_present.div(:text,name).click
+      end
+
+      def set_approach_segment_one(name)
+        @view.approach_type_segment_one.when_present.click
+        @view.approach_combo_list_segment_one.when_present.div(:text,name).click
+      end
 
       def on_recurring_gift_page?
         @view.page_title.text.include? 'New Recurring Gift Schedule'
@@ -350,7 +361,97 @@ module Cukesetaptesting
         return !(@view.mandate_id.present?)
       end
 
+      def set_fund_segment_two(name)
+        @view.fund_type_segment_two.when_present.click
+        @view.fund_combo_list_segment_two.when_present.div(:text,name).click
+      end
+
+      def set_campaign_segment_two(name)
+        @view.campaign_type_segment_two.when_present.click
+        @view.campaign_combo_list_segment_two.when_present.div(:text,name).click
+      end
+
+      def set_approach_segment_two(name)
+        @view.approach_type_segment_two.when_present.click
+        @view.approach_combo_list_segment_two.when_present.div(:text,name).click
+      end
+
+      def set_gift_type_segment_one(value)
+        @view.set_gift_type_segment_one_value.select(value)
+      end
+
+      def tribute_bar_click_segment_one
+        @view.tribute_bar_click_segment_one_click.when_present.click
+      end
+
+      def tribute_icon_click_segment_one
+        @view.tribute_icon_click_segment_one_click.when_present.click
+      end
+
+      def soft_credit_icon_click_segment_one
+        @view.soft_credit_icon_click_segment_one_click.when_present.click
+      end
+
+      def tribute_bar_click_segment_two
+        @view.tribute_bar_click_segment_two_click.when_present.click
+      end
+
+      def soft_credit_icon_click_segment_two
+        @view.soft_credit_icon_click_segment_two_click.when_present.click
+      end
+
+      def user_defined_fields_bar_segment_two
+        @view.user_defined_fields_bar_segment_two_click.when_present.click
+      end
+
+      def click_segment_two_udf(udf)
+        @view.click_segment_two_udf_click(udf).when_present.click
+      end
+
+      def set_segment_two_udf_value(udf, value)
+        @view.click_segment_two_udf_click(udf).parent.text_field.set value
+      end
+
+      def expand_all_segments
+        @view.expand_all_segments_click.when_present.click
+      end
+
+      def delete_split_transaction
+        begin
+          @view.split_transaction_delete_button.when_present.click
+        rescue
+          browser.alert.ok
+        end
+      end
+
+      def mark_split_transaction_box
+        @view.split_transaction_checkbox.when_present.click
+      end
+
+      def segment_one_received_amount
+        @view.segment_one_received_field.when_present.value
+      end
+
+      def segment_one_fund
+        @view.segment_one_fund_value.when_present.value
+      end
+
+      def segment_one_campaign
+        @view.segment_one_campaign_value.when_present.value
+      end
+
+      def segment_one_approach
+        @view.segment_one_approach_value.when_present.value
+      end
+
+      def segment_one_gift_type
+        @view.segment_one_gift_type_value.when_present.value
+      end
+
+      def segment_one_check_date
+        @view.segment_one_check_date_value.when_present.value
+      end
+
       end
   end
 end
-
