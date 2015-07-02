@@ -179,7 +179,7 @@ Then (/^the '([^']*)' should be set to '([^']*)'/) do |udf, value|
   expect(accounts.persona_page_company(udf)).to eq(value)
 end
 
-And (/^I set Phone to '([^']*)' on the Advanced Find screen/) do |value|
-  accounts = Account::AddAccount.new(:find_account_phone => value)
-  accounts.create
-end
+# And (/^I set Phone to '([^']*)' on the Advanced Find screen/) do |value|
+#   accounts = Account::AddAccount.new(:find_account_phone => value)
+#   accounts.create
+# end

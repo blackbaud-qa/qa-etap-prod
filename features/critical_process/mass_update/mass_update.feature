@@ -43,10 +43,10 @@ Feature: Mass Update
      And I click Save And 'Preview'
      Then I should see the message 'Displaying 1 - 2 of 2' on the query preview screen
 
-
     Scenario: Create New Contacts
      Given I am logged into eTap
-     When I click Management on the main menu
+     When I clear old data from the Mass Update query
+     And I click Management on the main menu
      And I click Mass Update
      And I click Create New Contacts on the Mass Update page
      And I set the query category to 'Mass Update'

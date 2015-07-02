@@ -1,14 +1,15 @@
+@crit_proc
 Feature: Disable and delete diy donation page
 
   Background:
-    Given a DIY form titled Donation Page already exists
+#    Given a DIY form titled Donation Page already exists
 
   Scenario: disabling and deleting a diy page
     Given I am logged into eTap
-    When I click Management
-    And click DIY Forms
-    And click Disable for the form titled Donation Page
-    And click Yes, Disable the Page
-    And click Delete for the form titled Donation Page
-    And click Yes, Delete the Page
+    When I click Management on the main menu
+    When I click on DIY Forms on the management page
+    And I click Disable for the form titled Donation Page
+    And I click Yes, Disable the Page
+    And I click Delete for the form titled Donation Page
+    And I click Yes, Delete the Page
     Then the Donation Page should no longer show

@@ -12,6 +12,10 @@ module Cukesetaptesting
       @view.fundraiser_new_fundraiser.when_present.click
     end
 
+    def active_fundraiser_exists?
+      return @view.fundraiser_status.text.include? "Active"
+    end
+
     def set_new_fundraiser_status_active
       @view.new_fundraiser_status.when_present.select "Active"
     end
@@ -98,6 +102,10 @@ module Cukesetaptesting
         # @view.fundraisers_grid.wait_until_present
       end
 
+      def sort_status_click
+        @view.sort_status.when_present.click
+      end
+
       def fundraiser_page_url_click
       #  @view.fundraiser_page_url.when_present.click
         @view.fundraiser_page_title.wait_until_present
@@ -105,13 +113,26 @@ module Cukesetaptesting
       end
 
       def fundraiser_on_fund_page?
-        @view.browser.window(:title => "QA Fundraiser 1").use do
+        # @view.browser.window(:title => "QA Fundraiser 1").use do
+        @view.browser.windows.last.use do
           @view.new_fundraiser_page_title.wait_until_present
           @retVal = @view.new_fundraiser_page_title.exists?
         end
-        @view.browser.window(:title => "QA Fundraiser 1").close
+        # @view.browser.window(:title => "QA Fundraiser 1").close
+        @view.browser.windows.last.close
         return @retVal
 
+      end
+
+      def fundraiser_changes_made? text
+        @view.browser.windows.last.use do
+          @view.new_fundraiser_content.wait_until_present
+          @retVal = @view.new_fundraiser_content.text.include? text
+
+        end
+
+        @view.browser.windows.last.close
+        return @retVal
       end
 
       def fundraiser_page_title_click

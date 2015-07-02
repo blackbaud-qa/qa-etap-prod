@@ -173,6 +173,7 @@ module Cukesetaptesting
       end
 
       def edit_cart_wait_for_load
+        sleep 2
         @view.edit_cart_content_frame.wait_until_present
       end
       def edit_cart_shipping_attributes_click

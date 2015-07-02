@@ -416,6 +416,21 @@ When(/^I click on Manage User Preferences on the management menu$/) do
   landing.management_dd_user_prefs_click
 end
 
+When(/^I click on My Organization on the management page$/) do
+  landing = Admin::Landing.new
+  landing.management_my_org_click
+end
+
+When(/^I click SEPA Banking Export on the management page$/) do
+  landing = Admin::Landing.new
+  landing.management_sepa_banking_export_click
+end
+
+When (/^I click Standard Exports on the management page$/) do
+  landing = Admin::Landing.new
+  landing.management_standard_exports_click
+end
+
 Then(/^I should be taken to Home$/) do
   landing = Admin::Landing.new
   expect(landing.on_home_page?).to eq(true)

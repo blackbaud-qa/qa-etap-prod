@@ -62,6 +62,31 @@ module Cukesetaptesting
         return @view.soft_credit_summary_tile.when_present.exists?
       end
 
+      def recent_journal_entry_click
+        @view.recent_journal_entry.when_present.click
+      end
+
+      def wait_on_tile_load
+        sleep 3
+        # @view.content.table(:id,'givingSummaryTable').wait_until_present
+      end
+
+      def on_journal_page?
+        return @view.journal_gift_header.present?
+      end
+
+      def last_gift_click
+        @view.last_gift.when_present.click
+      end
+
+      def five_year_summary_recent_click
+        @view.five_year_summary_recent.when_present.click
+      end
+
+      def viewing_current_year?
+        return @view.journal_start_date.when_present.value == ('01/01/' + Date.today.strftime("%Y"))
+      end
+
     end
   end
 end

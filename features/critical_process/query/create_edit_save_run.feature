@@ -34,7 +34,7 @@ Feature: Create, Edit, Save and Run Queries
     And I set the Name to 'Donors Named John' on the Create a New Query page
     And I set the data return type to 'Accounts' on the Create a New Query page
     And I set the Available Fields category to 'Account' on the Create a New Query page
-    And I click on 'Name' under Available Fields on the Create a New Query page
+    And I click on 'Short Salutation' under Available Fields on the Create a New Query page
     And I type 'John' into the Name field on the Create a New Query page
     And I click Save And 'Preview'
     And I should see the message 'Displaying 1 - 4 of 4' on the query preview screen

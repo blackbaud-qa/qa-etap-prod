@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Creating a new diy donation page
 
   Scenario: creating a new diy donation page
@@ -17,7 +18,7 @@ Feature: Creating a new diy donation page
     And I set the To what address(es)? to 'qa-1@blackbaud.com' on the DIY settings page
     And I set the Subject to 'Donation Received' on the DIY settings page
     And I set the Fund to 'General' on the DIY settings page
-    And I click Submit
-#    And I click Go Live
-#    And I click Yes, Go Live!
+    And I click Submit on the DIY settings page
+    And I click Go Live on the DIY editor page
+    And I click Yes, Go Live! on the DIY editor page
 #    Then the page will successfully go live

@@ -6,7 +6,7 @@ Feature: Adding a gift with payment type of credit card and process it
     When I type 'Bob Barker' into the dynamic search field
     And I press Enter on the keyboard
     And I click on Bob Barker Junior in the search results
-    And click Journal
+    And I click Journal
     And select Gift/Pledge from the Add New... drop down menu
     And set the date to '10/30/2090'
     And set the Received Amount to '7.00'

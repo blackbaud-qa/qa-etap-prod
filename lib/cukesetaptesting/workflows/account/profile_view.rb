@@ -17,6 +17,11 @@ module Cukesetaptesting
       keyword(:right_small_columns) {tiles.divs(:class, 'tilesetRightRow et-col-lg-4')}
       keyword(:soft_credit_summary_checkbox) {content.div(:id, 'etap.fieldset.area.2').checkbox(:value, '13')}
       keyword(:soft_credit_summary_tile) {content.div(:id, 'tile13')}
+      keyword(:recent_journal_entry) {content.table(:id,'journalEntriesTable').tr(:class=>'reportRowAlternate').a}
+      keyword(:journal_gift_header) {content.div(:id,'journalEntryBrowserCenter')}
+      keyword(:last_gift) {content.a(:text,'Last Gift')}
+      keyword(:five_year_summary_recent) {content.table(:id,'fiveYearSummaryTable').a}
+      keyword(:journal_start_date) {content.text_field(:id,'startDateField')}
 
       def tiles
         content.div(:class, 'tilesetContainer')

@@ -35,6 +35,7 @@ module Cukesetaptesting
 
       def mass_update_next_click
         begin
+          sleep 3
           @view.mass_update_next.when_present.click
         rescue
           browser.alert.ok
@@ -46,7 +47,7 @@ module Cukesetaptesting
       end
 
       def mass_update_completed_successfully?(message)
-        sleep 3
+        # sleep 3
         @view.mass_update_results.when_present.text.include? message
       end
 
@@ -86,6 +87,11 @@ module Cukesetaptesting
       def select_contact_method(value)
         @view.contact_method_type.when_present.click
         @view.contact_method_combo_list.when_present.div(:text,value).click
+      end
+
+      def contact_journal_entry_exists?
+        sleep 1
+        return @view.click_contact.present?
       end
 
       def click_on_contact_journal_entry

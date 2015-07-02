@@ -1,4 +1,4 @@
-
+@crit_proc
 Feature: Creating a new fundraiser
 
   Background:
@@ -8,6 +8,7 @@ Feature: Creating a new fundraiser
     Given I am logged into eTap
     When I click Management on the main menu
     And I click Fundraisers on the Management menu
+    And I ensure there are no active Fundraisers
     And I click New Fundraiser on the Fundraisers menu
     And I set the date to Today on the new Fundraiser page
     And I set Name to 'QA Fundraiser 1' on the new Fundraiser page
@@ -46,5 +47,6 @@ Feature: Creating a new fundraiser
     And I click Next on the new Fundraiser page
     And I choose General as the Fund to be applied to Donations on the new Fundraiser page
     And I click Save and Finish on the new Fundraiser page
+    And I sort by Status on the Fundraisers Page
    Then I should be able to click on the QA Fundraiser 1 url on the Fundraiser page
     And the QA Fundraiser url should load in a new browser window

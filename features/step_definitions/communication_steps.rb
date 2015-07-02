@@ -70,9 +70,12 @@ Given(/^I click Upload in resources browser/) do
 end
 
 Given(/^I click the uploaded image in resources browser/) do
+  sleep 5
   letter = Communications::Createtemplate.new()
   letter.file_browser_image_click
 end
+
+
 
 Given(/^I click Ok in resources browser/) do
   letter = Communications::Createtemplate.new()

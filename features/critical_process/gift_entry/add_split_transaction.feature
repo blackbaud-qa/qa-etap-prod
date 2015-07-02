@@ -4,9 +4,9 @@ Feature: Adding split transactions
     Given I am logged into eTap
     When I type '/14' into the dynamic search field
     And I press Enter on the keyboard
-    And I click Journal on the Gail Burch account
-    And I select 'Split Transaction' from the Add New... drop down menu
-    And set the date to '6/1/2018'
+    And I click Journal
+    And select Split Transaction from the Add New... drop down menu
+    And set the date to '7/30/2090'
     And set the Received Amount Field to '200.00'
     And set the Number Of Segments to '2'
     And click Add Segments

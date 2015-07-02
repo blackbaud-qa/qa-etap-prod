@@ -127,6 +127,10 @@ module Cukesetaptesting
       keyword(:reports_page_title) {content.h1(:class, "pageTitle")}
       keyword(:management_page) {content.div(:id, "managementPageTop")}
 
+      keyword(:management_my_org) {content.a(:href,'editOrganization.do')}
+      keyword(:management_sepa_banking_export) {content.a(:href,'wizard/SEPAExport.do')}
+      keyword(:management_standard_exports) {content.a(:href,'SpecialExportCategories.jsp')}
+
 
       def home(model)
       end

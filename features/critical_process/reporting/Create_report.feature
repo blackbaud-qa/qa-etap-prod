@@ -18,7 +18,7 @@ Feature:Create a new report
     When I click on submit
     Then I should see the report 'Test Report' and all columns displayed to screen
    |Fields        |
-   |Name          |
+   |Sort Name          |
    |Address Lines |
    |City          |
    |State/Province|

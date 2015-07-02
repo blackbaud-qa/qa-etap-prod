@@ -4,6 +4,17 @@ And(/^I click Fundraisers on the Management menu$/) do
   # pending # express the regexp above with the code you wish you had
 end
 
+And(/^I ensure there are no active Fundraisers$/) do
+  fund = Management::Fundraisers.new()
+  step "I sort by Status on the Fundraisers Page"
+  while(fund.active_fundraiser_exists?)
+    step "I click on the Fundraiser titled QA Fundraiser 1 on the Fundraisers page"
+    step "I set the status to Disabled on the new Fundraiser page"
+    step "I click Save and Finish on the new Fundraiser page"
+    step "I sort by Status on the Fundraisers Page"
+  end
+end
+
 And(/^I click New Fundraiser on the Fundraisers menu/) do
   fund = Management::Fundraisers.new()
   fund.fundraiser_new_fundraiser_click
@@ -165,6 +176,12 @@ And(/^I click Save and Finish on the new Fundraiser page/) do
   fund.new_fundraiser_save_and_finish_click
 end
 
+And(/^I sort by Status on the Fundraisers Page/) do
+  fund = Management::Fundraisers.new()
+  fund.sort_status_click
+  # sleep 3
+end
+
 And(/^I should be able to click on the QA Fundraiser 1 url on the Fundraiser page/) do
   fund = Management::Fundraisers.new()
   fund.fundraiser_page_url_click
@@ -173,4 +190,9 @@ end
 And(/^the QA Fundraiser url should load in a new browser window/) do
   fund = Management::Fundraisers.new()
   expect( fund.fundraiser_on_fund_page?).to eq(true)
+end
+
+And(/^I should be able to see the changed text '([^']*)'$/) do |text|
+  fund = Management::Fundraisers.new()
+  expect(fund.fundraiser_changes_made? text).to eq(true)
 end

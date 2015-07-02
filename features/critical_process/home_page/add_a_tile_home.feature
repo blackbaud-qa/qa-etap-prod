@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Select a layout and a tile
 
   Scenario: Selecting the 3 column layout

@@ -3,7 +3,7 @@ When(/^I type '([^']*)' into the dynamic search field$/) do |dynamic_search|
   search.create
 end
 
-And(/^click Journal$/) do
+And(/^I click Journal$/) do
   landing = Account::Profile.new
   landing.journal_link_click
 end
@@ -89,6 +89,11 @@ end
 And (/^I click on Bob Barker Junior in the search results/) do
   gift = Giving::GiftPledge.new
   gift.bob_barker_junior_click
+end
+
+And(/^I click on '([^']*)' in the search results$/) do |account|
+  gift = Giving::GiftPledge.new
+  gift.account_click(account)
 end
 
 And (/^I click on the Gift listed in the journal/) do

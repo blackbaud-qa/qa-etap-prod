@@ -15,7 +15,7 @@ module Cukesetaptesting
       keyword(:new_template_content_editor) {content.iframe(:id,'blockHtmlContents_ifr')}
       keyword(:new_template_insert_image) {new_template_content_editor.img}
       keyword(:new_template_image_menu_insert) {content.span(:text,'Insert image')}
-      keyword(:new_template_insert_image_browse) {content.div(:id,'mceu_85').button}
+      keyword(:new_template_insert_image_browse) {content.div(:class,'mce-combobox').button}
       keyword(:new_file_browser_image) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').file_field(:name,'NewFile')}
       keyword(:new_file_browser_image_upload) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').input(:id,'btnUpload')}
       keyword(:new_file_browser_image_upload_spinner) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').span(:id,'eUploadMessage').img}
@@ -69,6 +69,40 @@ module Cukesetaptesting
       keyword(:new_template_receipt_next) {content.input(:value,'Next')}
       keyword(:new_template_doc_type_word) {content.radio(:id,'docxExt')}
       keyword(:new_template_grouping_one_per) {content.radio(:value,'label.none')}
+
+      #newsletter
+      keyword(:email_templates) {content.div(:id, 'etap.fieldset.area.1').a(:href, 'displayCategory.do?category.ref=39.0.3299&categoryManagerId=Correspondence')}
+      keyword(:new_email_document) {content.a(:href,'wizard/letterGuideWizard.do?categoryRef=39.0.3299')}
+      keyword(:nav_next) {content.div(:id, 'wizardNavigationButtons_1').button(:id,'wizardNavigationNext_1')}
+      keyword(:pistachio_template) {content.div(:id, 'tabContentlayoutsnewsletters').img(:src, '/prod/letterGuideResource.do?type=thumbnail&guideId=newsletter004')}
+
+      # keyword(:first_article_block) {content.div(:id, 'guideContent')}
+      keyword(:first_article_block) {content.div(:id,'htmlPreview')}
+      keyword(:first_article_block_hover) {content.div(:id, 'guideContent').div(:class,'html block_article guideBlock')}
+
+      keyword(:first_article_block_edit) {content.div(:id, 'letterGuideClickToEdit').img(:src, '../images/edit16.gif')}
+      # keyword(:new_newsletter_content_editor) {content.iframe(:id,'blockHtmlContents_ifr').body(:id, 'guideContent').h2(:text, 'Article Title')}
+      keyword(:new_newsletter_title) {content.iframe(:id,'blockHtmlContents_ifr').body(:id,'guideContent').h2}
+      keyword(:new_newsletter_content_update) {content.button(:value, 'Update')}
+      keyword(:new_newsletter_content) {content.iframe(:id, 'blockHtmlContents_ifr').body(:id, 'guideContent')}
+
+      keyword(:article_font_dropdown) {content.div(:id,'letterGuide').div(:id, 'letterGuideStylesheet').div.divs[2].div.p.select(:class,'styleFont').option(:text, 'Verdana')}
+      # keyword(:article_font_dropdown) {content.div(:id,'letterGuide').div(:id, 'letterGuideStylesheet').div.divs[2].div(:class,'styleDefinition').select(:class,'styleFont').option('Verdana,Geneva')}
+
+
+      keyword(:article_font_size_16) {content.div(:id,'letterGuide').select(:class,'styleSize').option(:text, '16pt')}
+      keyword(:quick_formatting_update) {content.iframe(:id, 'etapContentIframe').div(:class, 'popupWindow').div(:class, 'popFooter').input(:id, 'save')}
+      keyword(:quick_links_block) {content.div(:class, 'html block_quickLinks guideBlock').h2}
+      keyword(:quick_links) {content.div(:id, 'letterGuideClickToEdit').img(:src, '../images/edit16.gif')}
+
+      keyword(:quick_links_href) {content.iframe(:id,'blockHtmlContents_ifr').body(:id, 'guideSidebar').p.a(:href, '#')}
+
+      #select mass email and save
+      keyword(:select_mass_email) {content.div(:class,'wizardSaveAndOptions').select(:id,'nextMapping').option(:value,'massEmail')}
+      keyword(:save_and) {content.div(:class,'taskPaneLeft').table(:id,'wizardWorkflowTable_taskWorkflow').a(:href,'javascript:Etap.Wizard.wizard.jump(3)')}
+      keyword(:advanced_mass) {content.div(:id,'etap.fieldset.table.1').input(:id,'advancedMode')}
+
+
 
 
 

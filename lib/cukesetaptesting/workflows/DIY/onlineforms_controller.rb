@@ -47,6 +47,240 @@ module Cukesetaptesting
       def go_live_click
         return @view.go_live_button.when_present.click
       end
+
+      def go_live_confirm_click
+        @view.go_live_confirm.when_present.click
+      end
+
+      def edit_form(page)
+        @tempPage = @view.content.span(:class=>'namePart', :text=> page)
+        @tempPage.wait_until_present
+        @tempPage.parent.parent.div(:class=>'linkBox', :text=>'Edit').when_present.click
+      end
+
+      def edit_style_click
+        @view.edit_style.when_present.click
+      end
+
+      def swap_template_click
+        @view.swap_template.when_present.click
+      end
+
+      def choose_steel_template_click
+        @view.choose_steel_template.when_present.click
+      end
+
+      def swap_to_this_template_click
+        @view.swap_to_this_template.when_present.click
+      end
+
+      def title_font_comic_sans_set
+        @view.diy_title_font.when_present.select 'Comic Sans'
+      end
+
+      def title_font_20pt_set
+        @view.diy_title_size.when_present.select '20pt'
+      end
+
+      def background_EEE_set
+        # @view.background_color.when_present.select ''
+      end
+
+      def edit_update_click
+        @view.edit_update.when_present.click
+      end
+
+      def edit_settings_click
+        @view.edit_settings.when_present.click
+      end
+
+      def change_funds_click
+        @view.change_funds.when_present.click
+      end
+
+      def settings_link_click(link)
+        @view.content.a(:text=>link)
+      end
+
+      def unrestricted_fund_click
+        @view.unrestricted_fund.when_present.click
+      end
+
+      def funds_update_click
+        @view.funds_update.when_present.click
+      end
+
+      def select_campaign_click
+        @view.select_campaign.when_present.click
+      end
+
+      def campaign_annual_click
+        @view.campaign_annual.when_present.click
+      end
+
+      def select_approach_click
+        @view.select_approach.when_present.click
+      end
+
+      def approach_unsolicited_click
+        @view.approach_unsolicited.when_present.click
+      end
+
+      def settings_update_click
+        @view.settings_update.when_present.click
+      end
+
+      def donation_section_hover
+        @view.donation_section.when_present.hover
+      end
+
+      def edit_section_click
+        @view.edit_section.when_present.click
+      end
+
+      def include_specific_check
+        @view.include_specific.when_present.set
+      end
+
+      def gift_update_click
+        @view.gift_update.when_present.click
+      end
+
+      def add_item_click
+        @view.add_item.when_present.click
+      end
+
+      def add_image_click
+        @view.add_image.when_present.click
+      end
+
+      def new_image_click
+        @view.new_image.when_present.right_click
+        @view.new_image_insert.when_present.click
+      end
+
+      def add_fields_click
+        @view.add_fields.when_present.click
+      end
+
+      def base_field_cat_select
+        @view.base_field_cat.when_present.select 'Base'
+      end
+
+      def field_select_gender_click
+        @view.field_select_gender.when_present.click
+      end
+
+      def fields_update_click
+        @view.fields_update.when_present.click
+      end
+
+      def add_text_click
+        @view.add_text.when_present.click
+      end
+
+      def update_default_text
+        @view.default_text.when_present.send_keys [:control, 'a']
+        @view.default_text.when_present.send_keys [:delete]
+        @view.default_text.when_present.send_keys "Testing with new text"
+      end
+
+      def update_text_click
+        @view.update_text.when_present.click
+      end
+
+      def diy_save_click
+        @view.diy_save.when_present.click
+      end
+
+      def diy_save_confirm_click
+        @view.diy_save_confirm.when_present.click
+      end
+
+      def donation_page_disable_click
+        @view.donation_page_disable.when_present.click
+      end
+
+      def donation_page_delete_click
+        @view.donation_page_delete.when_present.click
+      end
+
+      def donation_page_disable_confirm_click
+        @view.donation_page_disable_confirm.when_present.click
+      end
+
+      def donation_page_delete_confirm_click
+        @view.donation_page_delete_confirm.when_present.click
+      end
+
+      def donation_page_replace_click
+        @view.donation_page_replace.when_present.click
+      end
+
+      def donation_page_present? text
+        return @view.content.span(:class=>'namePart',:text=>text).present?
+      end
+
+      def donation_page_click
+        @view.donation_page_link.when_present.click
+      end
+
+      def switch_tab
+        @view.browser.windows.last.use
+      end
+
+      def live_fund_set fund
+        @view.live_fund.when_present.select fund
+      end
+
+      def live_gender_set gender
+        @view.live_gender.when_present.select gender
+      end
+
+      def live_amount_other_set
+        @view.live_amount_other.when_present.set
+      end
+
+      def live_freq_set freq
+        @view.live_freq.when_present.select freq
+      end
+
+      def live_title_set title
+        @view.live_title.when_present.select title
+      end
+
+      def live_country_set country
+        @view.live_country.when_present.select country
+      end
+
+      def live_state_set state
+        @view.live_state.when_present.select state
+      end
+
+      def live_card_type_set card
+        @view.live_card_type.when_present.set card
+      end
+
+      def live_exp_month_set exp
+        @view.live_exp_month.when_present.set exp
+      end
+
+      def live_exp_year_set exp
+        @view.live_exp_year.when_present.set exp
+      end
+
+      def live_submit_click
+        @view.live_submit.when_present.click
+      end
+
+      def live_transaction_successful?
+        @view.live_results_header.when_present.text.include? 'Transaction Successful'
+      end
+
+      def close_current_tab
+        @view.browser.windows.last.close
+      end
+
     end
   end
 end

@@ -36,4 +36,30 @@ end
 And (/I am on the home page$/) do
   account = Account::Profile.new
   expect(account.on_home_page?).to eq(true)
+  account.wait_on_tile_load
+end
+
+When(/^I click on transaction date from recent journal entries$/) do
+  account = Account::Profile.new
+  account.recent_journal_entry_click
+end
+
+Then(/^I should see the transaction on the journal page$/) do
+  account = Account::Profile.new
+  expect(account.on_journal_page?).to eq(true)
+end
+
+When(/^I click on last gift on the account home page$/) do
+  account = Account::Profile.new
+  account.last_gift_click
+end
+
+When(/^I click on most recent year on the account five year summary table$/) do
+  account = Account::Profile.new
+  account.five_year_summary_recent_click
+end
+
+Then(/^I should see all the transactions for most recent year$/) do
+  account = Account::Profile.new
+  expect(account.viewing_current_year?).to eq(true)
 end

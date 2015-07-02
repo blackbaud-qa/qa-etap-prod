@@ -18,7 +18,7 @@ module Cukesetaptesting
       keyword(:query_dropdown)  { content.select_list(:id,'select.query.1') }
       keyword(:report_format)  { content.select_list(:id,'modeSelection') }
 
-      keyword(:name_field_link)  { content.a(:text,'Name') }
+      keyword(:name_field_link)  { content.a(:text,'Sort Name') }
       keyword(:address_field_link)  { content.a(:text,'Address Lines') }
       keyword(:city_field_link)  { content.a(:text,'City') }
       keyword(:state_field_link)  { content.a(:text,'State/Province') }

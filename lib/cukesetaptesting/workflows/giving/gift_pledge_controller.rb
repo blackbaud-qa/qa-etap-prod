@@ -143,12 +143,18 @@ module Cukesetaptesting
         @view.save_and.select(value)
       end
 
+      def click_save_for_error
+        @view.save_and_button.when_present.click
+      end
+
       def click_save_and
         begin
-        @view.save_and_button.when_present.click
+        click_save_for_error
         rescue
-          browser.alert.ok
-             end
+          if(browser.alert.exists?)
+            browser.alert.ok
+          end
+        end
       end
 
       def journal_gift_persona
@@ -312,6 +318,10 @@ module Cukesetaptesting
         @view.bob_barker_junior.when_present.click
       end
 
+      def account_click(account)
+        @view.content.a(:text, account).when_present.click
+      end
+
       def journal_page_gift_click
         @view.journal_page_gift.when_present.click
       end
@@ -323,6 +333,21 @@ module Cukesetaptesting
       def set_fund_segment_one(name)
         @view.fund_type_segment_one.when_present.click
         @view.fund_combo_list_segment_one(name).when_present.click
+
+      def on_recurring_gift_page?
+        @view.page_title.text.include? 'New Recurring Gift Schedule'
+      end
+
+      def process_type_sepa_set?
+        return @view.process_type_sepa.when_present.set?
+      end
+
+      def journal_BIC
+        return @view.BIC.when_present.value
+      end
+
+      def mandate_id_generated?
+        return !(@view.mandate_id.present?)
       end
 
       end
