@@ -1,3 +1,4 @@
+@crit_proc
 Feature: SEPA - 3 Export
 
   Background:
@@ -44,7 +45,7 @@ Feature: SEPA - 3 Export
     And I select Live for the Export Mode field
     And I select Tomorrow for the Process Date field
     And I click next on the SEPA banking export screen
-    Then I see 'hammer' listed under Exportable Gifts
+    Then I see 'automation' listed under Exportable Gifts
 #
      #Currently don't have a good way of reading the full file
 #    When I click next on the SEPA banking export screen
