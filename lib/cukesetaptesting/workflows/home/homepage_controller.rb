@@ -36,6 +36,12 @@ module Cukesetaptesting
 =end
       end
 
+      def move_top_donors_tile
+
+#        @view.move_specific_tile_by_direction :tileTopDonors, :left
+        @view.move_specific_tile_onto_tile :tileTopDonors, :tileQuickLinks
+      end
+
       def is_present?
         @view.take_me_to_etap_iframe.present?
       end

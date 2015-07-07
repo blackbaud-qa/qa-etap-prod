@@ -124,7 +124,21 @@ module Cukesetaptesting
         @view.query_preview_results_value(name).present?
       end
 
+      def select_journal_entry_type_checkbox(checkbox_text)
+        @view.select_journal_entry_type_checkbox checkbox_text
+      end
 
+      def is_warning_present?
+        @view.duplicate_query_category_warning.present?
+      end
+
+      def is_duplicate_query_category_message_present?
+        @view.duplicate_query_category_warning.div(:value => 'The category name you have chosen, Donation Queries is already in use. Please choose another.').present?
+      end
+
+      def duplicate_query_category_back_button_click
+        @view.duplicate_query_category_back_button_click
+      end
     end
   end
 end

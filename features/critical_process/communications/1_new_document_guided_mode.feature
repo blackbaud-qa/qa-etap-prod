@@ -1,9 +1,9 @@
 @crit_proc
 Feature: Creating a new communications template
 
-#  Background:
-#    Given a query category has been created called Donation Queries
-#    And a query for all Donations Made Last Year has been created in the Donation Queries category
+  Background:
+    Given a query category has been created called 'Donation Queries'
+    And a query 'All Donations Made Last Year' has been created in the 'Donation Queries' category
 #
 #
 #  Scenario: creating a simple business letter in guided mode
@@ -40,7 +40,7 @@ Feature: Creating a new communications template
 #    And I click Next on the new Correspondence Template page
 ##    And I click Save And Create Document on the new Correspondence Template page
 #    And I set the Category to Donation Queries
-#    And I set the query to Donations Made Last Year
+#    And I set the query to 'All Donations Made Last Year'
 #    And I click Next on the Generate Letters page
 #    And I set the document type to PDF on the Generate Letters page
 #    And I set the Grouping to One Document Per Journal Entry on the Generate Letters page
@@ -59,35 +59,29 @@ Feature: Creating a new communications template
 
   Scenario: Creating a Receipt with Stub in guided mode
     Given I am logged into eTap
-    And I click Communications on the main menu
-    And I click Receipts on the Correspondence Categories page
-    And I delete any existing document to prevent automation errors
-    And I click New Email or Document Template on the Correspondence Category page
-#    And I set the Name to 'Receipt w/ Stub (Bottom) - Guided Mode'
-    And I set the Name to 'Receipt w/ Stub (Bottom) - Guided Mode' on the new Correspondence Template page
-#    And click Tab
+    And 'Receipt w/ Stub (Bottom) - Guided Mode' does not exist
+    When I click Communications on the main menu
+    And click Receipts on the Correspondence Categories page
+    And click New Email or Document Template on the Correspondence Category page
+    And set the Name to 'Receipt w/ Stub (Bottom) - Guided Mode' on the new Correspondence Template page
     And I press Tab on the keyboard
-#    And verify that the Subject now says Receipt w/ Stub (Bottom) - Guided Mode
-#    And click Next
-    And I click Next on the new Correspondence Template page
-#    And click Documents
+    And click Next on the new Correspondence Template page
     And I click Documents on the new Correspondence Template page
-    And I click on the Receipt w Stub Bottom template on the new Correspondence Template page
+    And I click on the Receipt w/ Stub (Bottom) template on the new Correspondence Template page
     And I hover over the Letter Closing block on the new Correspondence Template page
     And I click the red X to delete the block on the new Correspondence Template page
     And I select Receipt Stub Copy from the Add Block list
-#    And move the Receipt Stub Copy block above the Receipt Stub block
     And I click on the Body block to open the Edit Contents pop up
     And I double click on the Long Salutation merge tag
     And I set the Field to Short Salutation
     And I click Insert on the merge tags popup
     And I select all the text in the Body
     And I set the font to Times New Roman
-    And I set the size to 12pt on the editor pop up
+    And I set the font size to 12pt
     And I click Update on the editor pop up
     And I click Save And Create Document
     And I set the Category to Donation Queries
-    And I set the query to Donations Made Last Year
+    And I set the query to All Donations Made Last Year - JE
     And I click Next on the receipt template page
     And I set the document type to Word on the receipt template page
     And I set the Grouping to One Document Per Journal Entry on the receipt template page

@@ -8,4 +8,6 @@ gem 'builder'
 gem 'cucumber'
 gem 'gherkin'
 gem 'bundler'
-
+gem 'docx'
+gem 'pdf-reader'
+gem 'yomu'
