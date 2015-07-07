@@ -155,6 +155,86 @@ module Cukesetaptesting
         @view.select_status.when_present.select 'Disabled'
       end
 
+      def register_click
+        @view.register.when_present.click
+      end
+
+      def create_account_select
+        @view.create_account.when_present.set
+      end
+
+      def live_fundraiser_next_click
+        @view.live_fundraiser_next.when_present.click
+      end
+
+      def security_question_set question
+        @view.live_fundraiser_security_question.when_present.select question
+      end
+
+      def live_fundraiser_country_select country
+        @view.live_fundraiser_country.when_present.select country
+      end
+
+      def live_fundraiser_state_select state
+        @view.live_fundraiser_state.when_present.select state
+      end
+
+      def live_fundraiser_gender_select gender
+        @view.live_fundraiser_gender.when_present.select gender
+      end
+
+      def live_fundraiser_create_new_team_set
+        @view.live_fundraiser_create_new_team.when_present.set
+      end
+
+      def live_fundraiser_runner_set
+        @view.live_fundraiser_runner.when_present.set
+      end
+
+      def live_fundraiser_use_account_billing_set
+        @view.live_fundraiser_use_account_billing.when_present.set
+      end
+
+      def live_fundraiser_card_type_set card
+        @view.live_fundraiser_card_type.when_present.select card
+      end
+
+      def live_fundraiser_card_exp_month_select exp
+        @view.live_fundraiser_card_exp_month.when_present.select exp
+      end
+
+      def live_fundraiser_card_exp_select exp
+        @view.live_fundraiser_card_exp.when_present.select exp
+      end
+
+      def live_fundraiser_payment_type_cc_set
+        @view.live_fundraiser_payment_type_cc.when_present.set
+        sleep 1
+      end
+
+      def fundraising_content_text_contains? msg
+        @view.fundraising_content.wait_until_present
+        return @view.fundraising_content.text.include? msg
+      end
+
+      def previous_name_used?
+        @view.fundraising_content.wait_until_present
+        return @view.fundraising_content.text.include? 'name matched an existing'
+      end
+
+      def login_click
+        @view.login.when_present.click
+      end
+
+      def login_button_click
+        @view.login_button.when_present.click
+      end
+
+      def fundraising_center_text_contains? title
+        @view.fundraising_center_title.wait_until_present
+        return @view.fundraising_content.text.includes? title
+      end
+
     end
   end
 end

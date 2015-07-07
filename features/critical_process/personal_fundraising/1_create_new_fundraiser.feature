@@ -48,5 +48,5 @@ Feature: Creating a new fundraiser
     And I choose General as the Fund to be applied to Donations on the new Fundraiser page
     And I click Save and Finish on the new Fundraiser page
     And I sort by Status on the Fundraisers Page
-   Then I should be able to click on the QA Fundraiser 1 url on the Fundraiser page
+   Then I click on the QA Fundraiser 1 url on the Fundraiser page
     And the QA Fundraiser url should load in a new browser window

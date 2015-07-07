@@ -135,6 +135,7 @@ module Cukesetaptesting
       keyword(:mandate_sig_date) {content.text_field(:id,'mandateSignatureDate')}
       keyword(:mandate_id) {content.text_field(:name,'mandateId')}
       keyword(:mandate_manual) {content.checkbox(:name,'manualMandateCheck')}
+      keyword(:journal_page_participation) {content.a(:text,'Participation')}
 
       def popupSearch
         content.iframe(:id, 'popupFrame') #.when_present

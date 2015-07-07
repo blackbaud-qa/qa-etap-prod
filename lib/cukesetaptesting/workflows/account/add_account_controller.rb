@@ -43,8 +43,8 @@ module Cukesetaptesting
         @view.repassword.when_present.set value
       end
 
-      def john_doe_link_click
-        @view.john_doe_link.when_present.click
+      def name_link_click name
+        @view.content.a(:text,name).when_present.click
       end
 
       def other_link_click

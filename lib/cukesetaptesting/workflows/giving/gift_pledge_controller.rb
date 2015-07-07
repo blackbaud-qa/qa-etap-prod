@@ -346,6 +346,10 @@ module Cukesetaptesting
         return !(@view.mandate_id.present?)
       end
 
+      def journal_page_participation_exists?
+        @view.journal_page_participation.present?
+      end
+
       end
   end
 end

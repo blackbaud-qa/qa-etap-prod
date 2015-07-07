@@ -54,8 +54,8 @@ Feature: Add Account Classic View
     When I click Accounts
     And I type 'Doe' into the search field
     And I click Find
-    And I click on John Doe
-    And I click on the Other page for John Doe
-    And I click Delete Role for John Doe
-    And I click Yes for John Doe
+    And I click on 'John Doe' on the accounts page
+    And I click on the account settings page on the accounts page
+    And I click Delete Role on the Account Settings page
+    And I click Yes on the Account Settings page
     Then I should see the message: 'No Results Found'

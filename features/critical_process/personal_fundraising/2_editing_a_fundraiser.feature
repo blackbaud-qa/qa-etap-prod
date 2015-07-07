@@ -22,5 +22,5 @@ Feature: Editing a fundraiser
     And I click Align Left in the Main page Text box on the new Fundraiser page
     And I click Save and Finish on the new Fundraiser page
     And I sort by Status on the Fundraisers Page
-    Then I should be able to click on the QA Fundraiser 1 url on the Fundraiser page
+    Then I click on the QA Fundraiser 1 url on the Fundraiser page
     And I should be able to see the changed text 'Welcome to QAs wonderful fundraiser! Thank you for supporting our cause!'
