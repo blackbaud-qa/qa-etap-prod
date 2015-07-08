@@ -128,6 +128,45 @@ module Cukesetaptesting
       keyword(:journal_page_gift) {content.a(:text, 'Gift')}
       keyword(:non_deductible_field) {content.text_field(:name, 'nonDeductibleAmount')}
 
+      keyword(:segment_one_received_amount) {content.table(:class, 'formLabel').text_field(:name, 'segmentReceived(1)')}
+      keyword(:segment_two_received_amount) {content.div(:id,'etap.fieldset.table.9').text_field(:name, 'segmentReceived(2)')}
+      keyword(:set_gift_type_segment_one_value) {content.div(:id, 'giftTypes1').select(:name, 'paymentType(1)')}
+      keyword(:segment_one_check_date) {content.div(:id, 'giftTypes1').text_field(:name, 'checkDate(1)')}
+      keyword(:segment_one_check_number) {content.div(:id, 'giftTypes1').text_field(:name, 'checkNumber(1)')}
+      keyword(:tribute_bar_click_segment_one_click) {content.div(:id, 'etap.fieldset.table.5').div(:id, 'tributeFields1TitleBar')}
+      keyword(:tribute_icon_click_segment_one_click) {content.div(:id, 'tributeFields1').img(:src, 'images/magnifying-glass.png')}
+      keyword(:soft_credit_icon_click_segment_one_click) {content.div(:id, 'tributeFields1').div(:id, 'softCreditSection').img(:src, 'images/magnifying-glass.png')}
+      keyword(:segment_one_soft_credit_amount) {content.div(:id, 'softCreditFields1').text_field(:name, 'newSoftCreditAmount(1)')}
+      keyword(:tribute_bar_click_segment_two_click) {content.div(:id, 'etap.fieldset.table.11').div(:id, 'otherFieldsAccordion2').div(:id, 'tributeFields2TitleBar')}
+      keyword(:soft_credit_icon_click_segment_two_click) {content.div(:id, 'tributeFields2').div(:id, 'softCreditSection').img(:src, 'images/magnifying-glass.png')}
+      keyword(:segment_two_soft_credit_amount) {content.div(:id, 'softCreditFields2').text_field(:name, 'newSoftCreditAmount(2)')}
+      keyword(:user_defined_fields_bar_segment_two_click) {content.div(:id, 'etap.fieldset.table.11').div(:id, 'userDefinedFields2TitleBar')}
+      keyword(:expand_all_segments_click) {content.div(:id, 'collapseSegments').a(:text, 'Expand All Segments')}
+      keyword(:split_transaction_delete_button) {content.div(:id, 'etap.fieldset.area.15').button(:value, 'Delete')}
+      keyword(:split_transaction_checkbox) {content.checkbox(:value, 'label.segmentedTransaction')}
+      keyword(:segment_one_received_field) {content.div(:id, 'etap.fieldset.table.4').text_field(:name, 'segmentReceived(1)')}
+      keyword(:segment_one_fund_value) {content.div(:id, 'etap.fieldset.table.4').input(:name, 'intentRef(1)_comboText')}
+      keyword(:segment_one_campaign_value) {content.div(:id, 'etap.fieldset.table.4').input(:name, 'campaignRef(1)_comboText')}
+      keyword(:segment_one_approach_value) {content.div(:id, 'etap.fieldset.table.4').input(:name, 'approachRef(1)_comboText')}
+      keyword(:segment_one_gift_type_value) {content.div(:id, 'etap.fieldset.table.5').select(:name, 'paymentType(1)')}
+      keyword(:segment_one_check_date_value) {content.div(:id, 'etap.fieldset.table.5').text_field(:name, 'checkDate(1)')}
+
+
+
+
+
+      #Fund combo box for segment 1 of split transaction
+      keyword(:fund_type_segment_one) {content.div(:id,'etap.fieldset.table.3').img(:id, 'intentRef(1)_comboArrow')}
+      keyword(:fund_combo_list_segment_one) {content.div(:id,'intentRef(1)_comboAllList')}
+
+      #Campaign combo box for segment 1 of split transaction
+      keyword(:campaign_type_segment_one) {content.div(:id,'etap.fieldset.table.3').img(:id, 'campaignRef(1)_comboArrow')}
+      keyword(:campaign_combo_list_segment_one) {content.div(:id,'campaignRef(1)_comboAllList')}
+
+      #Approach combo box for segment 1 of split transaction
+      keyword(:approach_type_segment_one) {content.div(:id,'etap.fieldset.table.3').img(:id, 'approachRef(1)_comboArrow')}
+      keyword(:approach_combo_list_segment_one) {content.div(:id,'approachRef(1)_comboAllList')}
+
       keyword(:page_title) {content.div(:class,'pageTitle')}
       keyword(:process_type_sepa) {content.radio(:id,'processTypeSEPA')}
       keyword(:IBAN) {content.text_field(:id,'IBANNumber')}
@@ -136,6 +175,18 @@ module Cukesetaptesting
       keyword(:mandate_id) {content.text_field(:name,'mandateId')}
       keyword(:mandate_manual) {content.checkbox(:name,'manualMandateCheck')}
       keyword(:journal_page_participation) {content.a(:text,'Participation')}
+
+      #Fund combo box for segment 2 of split transaction
+      keyword(:fund_type_segment_two) {content.div(:id,'etap.fieldset.table.9').img(:id, 'intentRef(2)_comboArrow')}
+      keyword(:fund_combo_list_segment_two) {content.div(:id,'intentRef(2)_comboAllList')}
+
+      #Campaign combo box for segment 2 of split transaction
+      keyword(:campaign_type_segment_two) {content.div(:id,'etap.fieldset.table.9').img(:id, 'campaignRef(2)_comboArrow')}
+      keyword(:campaign_combo_list_segment_two) {content.div(:id,'campaignRef(2)_comboAllList')}
+
+      #Approach combo box for segment 2 of split transaction
+      keyword(:approach_type_segment_two) {content.div(:id,'etap.fieldset.table.9').img(:id, 'approachRef(2)_comboArrow')}
+      keyword(:approach_combo_list_segment_two) {content.div(:id,'approachRef(2)_comboAllList')}
 
       def popupSearch
         content.iframe(:id, 'popupFrame') #.when_present
@@ -158,6 +209,12 @@ module Cukesetaptesting
       def payment_udf_to_click(udf)
         content.link(:text, udf + ':')
       end
+
+      def click_segment_two_udf_click(udf)
+        content.div(:id,'userDefinedFields2').link(:text, udf + ':')
+      end
+
+
 
     end
   end
