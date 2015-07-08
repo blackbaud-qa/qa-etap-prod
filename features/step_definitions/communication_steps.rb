@@ -16,7 +16,7 @@ Given(/^There exists an account that has donated this year/) do
     search1 = Account::Search.new
     search1.arrow_down
     step "I press Enter on the keyboard"
-    step "click Journal"
+    step "I click Journal"
     step "select Gift/Pledge from the Add New... drop down menu"
   end
 

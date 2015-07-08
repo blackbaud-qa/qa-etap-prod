@@ -66,7 +66,7 @@ module Cukesetaptesting
       keyword(:new_template_delete_section) {content.div(:id,'letterGuideClickToEdit').div.p(:class,'hoverControls').a(:class,'delete')}
       keyword(:new_template_add_block) {content.select(:id,'addBlockSelector')}
       keyword(:new_template_body) {content.div(:class,'block_body')}
-      keyword(:new_template_long_salutation) {content.iframe(:id,'blockHtmlContents_ifr').a(:text,'Long Salutation')}
+      keyword(:new_template_long_salutation) {new_template_text.a(:text,'Long Salutation')}
       # keyword(:new_template_insert_merge) {content.div(:id,'mceu_26')}
       keyword(:merge_tags_field) {content.div(:class,'mce-reset').iframe.div(:id,'mergeTagsWrapper').select_list(:name,'field')}
       keyword(:merge_tags_insert) {content.div(:class,'mce-reset').iframe.div(:id,'mergeTagsWrapper').button(:id,'insert')}
