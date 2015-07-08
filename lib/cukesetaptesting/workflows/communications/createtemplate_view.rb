@@ -122,8 +122,8 @@ module Cukesetaptesting
       keyword(:quick_links_href) {content.iframe(:id,'blockHtmlContents_ifr').body(:id, 'guideSidebar').p.a(:href, '#')}
 
       def new_template_text
-        # template_frame
-        content.iframe(:id,'blockHtmlContents_ifr')
+        template_frame
+        # content.iframe(:id,'blockHtmlContents_ifr')
       end
 
       def new_template_content_editor_adv
@@ -139,10 +139,12 @@ module Cukesetaptesting
       end
 
       def template_frame
-        advanced = content.iframe(:id, 'templateHtml_ifr').present?
+        # content.iframe(:id, 'templateHtml_ifr')
+        # advanced = browser.iframe(:id, 'templateHtml_ifr').when_present.present?
+        advanced = !content.iframe(:id,'blockHtmlContents_ifr').present?
 
         if advanced
-          content.iframe(:id, 'templateHtml_ifr')
+          content.form(:name,'letterGuideWizardForm').iframe(:id, 'templateHtml_ifr')
         else
           content.iframe(:id,'blockHtmlContents_ifr')
         end
