@@ -29,7 +29,11 @@ module Cukesetaptesting
       keyword(:cannot_delete_query_ok)  {content.button(:value, 'Ok')}
       keyword(:query_results_my_org_icon) {content.div(:id, 'etapreporttag1_outerdiv').img(:alt,'My Organization')}
 
+      keyword(:duplicate_query_category_warning) {content.div(:class, 'informationWarning')}
 
+      def duplicate_query_category_back_button_click
+        content.button(:value => 'Back').when_present.click
+      end
 
       def home(model)
       end
@@ -80,6 +84,14 @@ module Cukesetaptesting
         content.div(:id, 'etapreporttag1_outerdiv').a(:text, name)
       end
 
+      def select_journal_entry_type_checkbox(checkbox_text)
+      #  content.div(:id => 'edit.com.eTapestry.transport.TestJournalEntryForAllTypesData').label(:text => checkbox_text).checkbox.when_present.set true
+        content.label(:text => checkbox_text).checkbox.when_present.set true
+      end
+
+      def deselect_journal_entry_type_checkbox(checkbox_text)
+        content.div(:id => 'edit.com.eTapestry.transport.TestJournalEntryForAllTypesData').label(:text => checkbox_text).checkbox.when_present.clear
+      end
     end
   end
 end

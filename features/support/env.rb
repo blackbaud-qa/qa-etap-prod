@@ -9,6 +9,10 @@ require 'cukesetaptesting'
 require 'watirmark/cucumber/env'
 require 'active_support/all'
 
+require 'docx'
+require 'pdf-reader'
+require 'yomu'
+
 if Watirmark::Configuration.instance.headless_enabled
   require 'headless'
 end

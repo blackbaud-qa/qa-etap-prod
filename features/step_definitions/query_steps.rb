@@ -70,6 +70,12 @@ And (/^I set Individual Transaction Received to '([^']*)' '([^']*)' on the Creat
   query.select_itr_first_comparison(item)
 end
 
+And (/^I select Journal Entry Type '([^']*)' on the Create a New Query page/) do |type|
+  query = Queries::Createquerycategory.new
+  #query.create
+  query.select_journal_entry_type_checkbox(type)
+end
+
 And (/^I click Edit on the query preview screen/) do
   query = Queries::Createquerycategory.new
   query.edit_query_click
@@ -171,3 +177,34 @@ Then (/^I should see '([^']*)' in the query results/) do |name|
   expect(query.query_preview_results(name)).to eq(true)
 end
 
+Then (/^a query category has been created called '([^']*)'/) do |cat|
+  step "I am logged into eTap"
+  step "I click Queries on the main menu"
+  step "I click New Category on the Query Categories page"
+  step %Q[I set the Name to '#{cat}' on the Create Query Category page]
+  step "I click Save Category on the Query Categories page"
+
+  query = Queries::Createquerycategory.new
+  if query.is_warning_present?
+    step "I click Queries on the main menu"
+  end
+end
+
+Then (/^a query '([^']*)' has been created in the '([^']*)' category/) do |query, cat|
+  from_date = "1/1/" + (Time.now.year - 1).to_s
+  to_date   = "12/31/" + (Time.now.year - 1).to_s
+  step "I click on the '#{cat}' category"
+  step "I click 'New Query' on the Edit Query Category page"
+  step %Q[I set the Name to '#{query}' on the Create a New Query page]
+  step "I set the data return type to 'Journal Entries' on the Create a New Query page"
+  step "I set the Available Fields category to 'Commonly Used Fields' on the Create a New Query page"
+  step "I click on 'Journal Entry Date' under Available Fields on the Create a New Query page"
+  step "I set the Journal Entry Date Range Type to 'Custom Range' on the Create a New Query page"
+  step %Q[I set the Journal Entry Date Start Date to '#{from_date}' on the Create a New Query page]
+  step %Q[I set the Journal Entry Date End Date to '#{to_date}' on the Create a New Query page]
+  step "I click on 'Journal Entry Types' under Available Fields on the Create a New Query page"
+  step "I select Journal Entry Type 'Gift' on the Create a New Query page"
+  step "I click Save And 'Preview'"
+
+
+end

@@ -19,7 +19,7 @@ And(/^click Tab$/) do
 end
 
 
-And(/^click Next$/) do
+And(/^I click Next$/) do
   letter = Communications::Createtemplate.new()
   letter.click_next_on_nav
 end
@@ -52,7 +52,7 @@ end
 #   letter.new_newsletter_set_content(text)
 # end
 
-And(/^I click Update$/) do
+And(/^click Update$/) do
   letter = Communications::Createtemplate.new()
   # letter.new_template_update_image_click
   letter.new_newsletter_content_update
