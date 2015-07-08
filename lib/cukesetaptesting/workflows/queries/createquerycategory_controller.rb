@@ -46,6 +46,7 @@ module Cukesetaptesting
 
       def click_query_criteria(item)
         @view.query_criteria(item).when_present.click
+        sleep 2
       end
 
       def select_journal_entry_date(value)
