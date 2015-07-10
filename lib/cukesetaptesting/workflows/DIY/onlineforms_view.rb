@@ -87,7 +87,10 @@ module Cukesetaptesting
       keyword(:live_exp_year) {browser.select(:id,'cardExpYearField')}
       keyword(:live_submit) {browser.button(:id,'submitButton')}
       keyword(:live_results_header) {browser.h1(:class,'resultHeader')}
-
+      keyword(:create_contact_page) {content.h1(:text,'Contact Page')}
+      keyword(:custom_template) {content.h1(:text,'Alliance for Lupus Research')}
+      keyword(:create_contact_next) {content.button(:id,'templateNext')}
+      keyword(:journal_contact_subject) {content.text_field(:id,'contactSubject')}
 
 
 
