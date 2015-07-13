@@ -82,7 +82,26 @@ module Cukesetaptesting
       keyword(:live_fundraiser_login_pass) {browser.text_field(:id,'password')}
       keyword(:login_button) {browser.button(:value,'Login')}
       keyword(:fundraising_center_title) {browser.h2}
-
+      keyword(:make_donation) {browser.a(:text,'Make a Donation')}
+      keyword(:team_goal_select) {browser.radio(:id,'searchOption')}
+      keyword(:fund_team_search) {browser.text_field(:id,'sponsorSearch')}
+      keyword(:team_search) {browser.button(:value,'Search')}
+      keyword(:john_sponsor) {browser.div(:id,'searchFormTable').radio(:name,'sponsor')}
+      keyword(:billing_first_name) {browser.text_field(:id,'billingFirst')}
+      keyword(:billing_last_name) {browser.text_field(:id,'billingLast')}
+      keyword(:billing_country) {browser.select(:id,'billingCountry')}
+      keyword(:billing_address) {browser.text_field(:id,'billingAddress')}
+      keyword(:billing_city) {browser.text_field(:id,'billingCity')}
+      keyword(:billing_state) {browser.select(:id,'billingState')}
+      keyword(:billing_zip) {browser.text_field(:id,'billingZip')}
+      keyword(:billing_phone) {browser.text_field(:id,'billingPhone')}
+      keyword(:billing_email) {browser.text_field(:id,'billingEmail')}
+      keyword(:donation_type) {browser.select(:id,'donationType')}
+      keyword(:billing_amount) {browser.text_field(:id,'otherAmt')}
+      keyword(:find_team) {browser.a(:text,'Find a Team/Participant')}
+      keyword(:participant_search_name) {browser.text_field(:id,'searchTerm')}
+      keyword(:participant_search) {browser.button(:value,'Search')}
+      keyword(:participant_donors) {browser.table(:id,'sponsorListTable')}
 
       def home(model)
       end

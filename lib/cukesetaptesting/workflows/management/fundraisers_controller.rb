@@ -235,6 +235,53 @@ module Cukesetaptesting
         return @view.fundraising_content.text.includes? title
       end
 
+      def make_donation_click
+        @view.make_donation.when_present.click
+      end
+
+      def team_goal_select
+        @view.team_goal_select.when_present.set
+        sleep 1
+      end
+
+      def team_search_click
+        @view.team_search.when_present.click
+        sleep 1
+      end
+
+      def john_sponsor_set
+        @view.john_sponsor.when_present.set
+      end
+
+      def billing_country_select country
+        @view.billing_country.when_present.select country
+      end
+
+      def billing_state_select state
+        @view.billing_state.when_present.select state
+      end
+
+      def donation_type_select type
+        @view.donation_type.when_present.select type
+      end
+
+      def find_team_click
+        @view.find_team.when_present.click
+      end
+
+      def participant_search_click
+        @view.participant_search.when_present.click
+      end
+
+      def participant_search_results_click name
+        @view.browser.a(:text,name).when_present.click
+      end
+
+      def participant_donors_contains? name
+        @view.participant_donors.wait_until_present
+        @view.participant_donors.text.include? name
+      end
+
     end
   end
 end
