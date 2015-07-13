@@ -40,7 +40,7 @@ Feature: Creating a new communications template
 #    And I click Next on the new Correspondence Template page
 ##    And I click Save And Create Document on the new Correspondence Template page
 #    And I set the Category to Donation Queries
-#    And I set the query to 'All Donations Made Last Year'
+#    And I set the template query to 'All Donations Made Last Year'
 #    And I click Next on the Generate Letters page
 #    And I set the document type to PDF on the Generate Letters page
 #    And I set the Grouping to One Document Per Journal Entry on the Generate Letters page
@@ -81,7 +81,7 @@ Feature: Creating a new communications template
     And I click Update on the editor pop up
     And I click Save And Create Document
     And I set the Category to Donation Queries
-    And I set the query to All Donations Made Last Year - JE
+    And I set the template query to All Donations Made Last Year - JE
     And I click Next on the receipt template page
     And I set the document type to Word on the receipt template page
     And I set the Grouping to One Document Per Journal Entry on the receipt template page

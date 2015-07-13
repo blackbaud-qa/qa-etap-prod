@@ -341,7 +341,7 @@ Given(/^(?:I |)set the Category to ([^']*)/) do |cat_name|
   letter.new_template_category_click cat_name
 end
 
-Given(/^(?:I |)set the query to ([^']*)/) do |query_name|
+Given(/^(?:I |)set the template query to ([^']*)/) do |query_name|
   letter = Communications::Createtemplate.new()
   letter.new_template_query_select query_name
 end
