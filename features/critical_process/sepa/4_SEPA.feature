@@ -40,13 +40,14 @@ Feature: SEPA 4 - Import - GMU02 File
     And there should be one Credit Transfer
     And there should be one Exception
 
-  Scenario: Duplicate Import - Download Results
-    Given I've run the GMU02 import for the second time
-    And I'm on step 3
-    When I click Download Results
-    Then a zipped file should be generated
-    And it should contain one file labeled BankImportFailures_(today's date)
-    And it should contain one file labeled BankImportSuccesses_(today's date)
+    #Excluding this for now, since we don't have a good way to open zip files
+#  Scenario: Duplicate Import - Download Results
+#    Given I've run the GMU02 import for the second time
+#    And I'm on step 3
+#    When I click Download Results
+#    Then a zipped file should be generated
+#    And it should contain one file labeled BankImportFailures_(today's date)
+#    And it should contain one file labeled BankImportSuccesses_(today's date)
 
   Scenario: Verify Journal Entries
     Given I search for account [A]

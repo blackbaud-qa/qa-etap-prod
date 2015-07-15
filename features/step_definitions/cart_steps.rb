@@ -289,3 +289,119 @@ Then(/^I should see '([^']*)' listed as an item under Category 1/) do |name|
   cart = Admin::Cart.new()
   expect(cart.category_item_exists?(name)).to eq(true)
 end
+
+And(/^I click on View Online Cart$/) do
+  cart = Admin::Cart.new()
+  cart.view_online_cart_click
+end
+
+And(/^I search for '([^']*)' on the live cart page$/) do |category|
+  cart = Admin::Cart.new(:cart_category_search => category)
+  cart.create
+  step "I press Enter on the keyboard"
+end
+
+And(/^I click View This Category under '([^']*)' on the live cart page$/) do |category|
+  cart = Admin::Cart.new()
+  cart.view_category_click category
+end
+
+And(/^I click on View This Item under '([^']*)' on the live cart page$/) do |item|
+  cart = Admin::Cart.new()
+  cart.view_item_click item
+end
+
+And(/^I click on Add item to Cart on the live cart page$/) do
+  cart = Admin::Cart.new()
+  cart.add_item_click
+end
+
+And(/^I click on Checkout on the live cart page$/) do
+  cart = Admin::Cart.new()
+  cart.item_checkout_click
+end
+
+And(/^I set the First Name field to '([^']*)' on the live cart page$/) do |name|
+  cart = Admin::Cart.new(:first_name => name)
+  cart.create
+end
+
+And(/^I set the Last Name field to '([^']*)' on the live cart page$/) do |name|
+  cart = Admin::Cart.new(:last_name => name)
+  cart.create
+end
+
+And(/^I set the Country to '([^']*)' on the live cart page$/) do |country|
+  cart = Admin::Cart.new()
+  cart.billing_country_select country
+end
+
+And(/^I set the Address to '([^']*)' on the live cart page$/) do |addr|
+  cart = Admin::Cart.new(:billing_address => addr)
+  cart.create
+end
+
+And(/^I set the City to '([^']*)' on the live cart page$/) do |city|
+  cart = Admin::Cart.new(:billing_city => city)
+  cart.create
+end
+
+And(/^I set the State to '([^']*)' on the live cart page$/) do |state|
+  cart = Admin::Cart.new()
+  cart.billing_state_select state
+end
+
+And(/^I set the Postal Code to '([^']*)' on the live cart page$/) do |zip|
+  cart = Admin::Cart.new(:billing_zip => zip)
+  cart.create
+end
+
+And(/^I set the Email field to '([^']*)' on the live cart page$/) do |email|
+  cart = Admin::Cart.new(:billing_email => email)
+  cart.create
+end
+
+And(/^I set the Phone to '([^']*)' on the live cart page$/) do |phone|
+  cart = Admin::Cart.new(:billing_phone => phone)
+  cart.create
+end
+
+And(/^I click Proceed on the live cart page$/) do
+  cart = Admin::Cart.new()
+  cart.proceed_click
+end
+
+And(/^I set the Cardholder Name to '([^']*)' on the live cart page$/) do |name|
+  cart = Admin::Cart.new(:cardholder_name => name)
+  cart.create
+end
+
+And(/^I set the Card type to '([^']*)' on the live cart page$/) do |type|
+  cart = Admin::Cart.new()
+  cart.card_type_select type
+end
+
+And(/^I set the card number to '([^']*)' on the live cart page$/) do |number|
+  cart = Admin::Cart.new(:card_number => number)
+  cart.create
+end
+
+And(/^I set the card security code to '([^']*)' on the live cart page$/) do |code|
+  cart = Admin::Cart.new(:card_code => code)
+  cart.create
+end
+
+And(/^I set the expiration month to '([^']*)' on the live cart page$/) do |exp|
+  cart = Admin::Cart.new()
+  cart.exp_month_select exp
+end
+
+And(/^I set the expiration year to '([^']*)' on the live cart page$/) do |exp|
+  cart = Admin::Cart.new()
+  cart.exp_year_select exp
+end
+
+And(/^I click on Process Order on the live cart page$/) do
+  cart = Admin::Cart.new()
+  cart.process_order_click
+end
