@@ -187,6 +187,8 @@ module Cukesetaptesting
       #Approach combo box for segment 2 of split transaction
       keyword(:approach_type_segment_two) {content.div(:id,'etap.fieldset.table.9').img(:id, 'approachRef(2)_comboArrow')}
       keyword(:approach_combo_list_segment_two) {content.div(:id,'approachRef(2)_comboAllList')}
+      keyword(:journal_page_soft_credit) {content.a(:text, 'Soft Credit')}
+      keyword(:journal_soft_credit_delete) {content.button(:value,'Delete')}
 
       def popupSearch
         content.iframe(:id, 'popupFrame') #.when_present

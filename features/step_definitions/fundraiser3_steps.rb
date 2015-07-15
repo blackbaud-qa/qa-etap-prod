@@ -6,12 +6,31 @@ When(/^I delete existing data for '([^']*)'$/) do |name|
   if search.account_name_exists? name
     step "I click on '" + name + "' on the accounts page"
     step "I click Journal"
-    step "I click on the Gift listed in the journal"
-    step "I click Delete on the transaction page"
+    gift = Giving::GiftPledge.new
+    if (gift.gift_link_present?)
+      step "I click on the Gift listed in the journal"
+      step "I click Delete on the transaction page"
+
+    end
+    if (gift.soft_credit_link_present?)
+      step "I click on the Soft Credit listed in the journal"
+      step "I click Delete on the soft credit page"
+    end
+
     step "I click on the account settings page on the accounts page"
     step "I click Delete Role on the Account Settings page"
     step "I click Yes on the Account Settings page"
   end
+end
+
+And(/^I click on the Soft Credit listed in the journal$/) do
+  gift = Giving::GiftPledge.new
+  gift.journal_soft_credit_gift_click
+end
+
+And(/^I click Delete on the soft credit page$/) do
+  gift = Giving::GiftPledge.new
+  gift.journal_soft_credit_delete_click
 end
 
 And(/^I click Register on the live fundraiser page$/) do
