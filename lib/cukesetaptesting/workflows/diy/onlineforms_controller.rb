@@ -135,7 +135,8 @@ module Cukesetaptesting
       end
 
       def edit_section_click
-        @view.edit_section.when_present.click
+        @view.edit_section.wait_until_present
+        @view.edit_section.img(:class,'edit').when_present.click
       end
 
       def include_specific_check
