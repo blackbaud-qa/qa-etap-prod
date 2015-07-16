@@ -34,6 +34,7 @@ Feature: Create a new Cart
   And I set the expiration year to '2020' on the live cart page
   And I click Proceed on the live cart page
   And I click on Process Order on the live cart page
+  And I close the current tab
 
 #  When I receive a confirmation email
 #  Then I should see the transaction in eTapestry
