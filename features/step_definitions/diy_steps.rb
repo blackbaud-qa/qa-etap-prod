@@ -175,6 +175,7 @@ end
 And(/I hover over the Donation Amount on the DIY editor page$/) do
   diy = DIY::Onlineforms.new()
   diy.donation_section_hover
+  sleep 2
 end
 
 And(/I click the pencil icon that appears on the DIY editor page$/) do
