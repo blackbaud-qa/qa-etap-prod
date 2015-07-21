@@ -40,7 +40,7 @@ module Cukesetaptesting
       # keyword(:settings_update) {content.span(:class=>'titleText',:text=>'Settings Editor').parent.parent.button(:id=>'settingsSave')}
       keyword(:settings_update) {content.button(:id,'settingsSave')}
       # keyword(:donation_section) {content.h6(:text,'Donation Amount*')}
-      keyword(:donation_section) {content.div(:id,'ecAdvancedDonationWidget')}
+      keyword(:donation_section) {content.div(:id,'gift_amount_simple')}
       # keyword(:edit_section) {content.span(:class,'hoverControls').img(:class,'edit')}
       keyword(:edit_section) {content.div(:class,'ecommManagerEditorClickToEdit')}
       keyword(:include_specific) {content.checkbox(:id,'ecDonateWidgetGivingType')}
