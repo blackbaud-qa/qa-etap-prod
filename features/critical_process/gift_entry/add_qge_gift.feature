@@ -1,4 +1,4 @@
-
+@crit_proc
 Feature: Adding a gift through quick gift entry
 
   Scenario: Add a gift through quick gift entry, searching by account name
@@ -38,7 +38,7 @@ Feature: Adding a gift through quick gift entry
 
 
 
-  @crit_proc
+
   Scenario: Add a gift through quick gift entry, pulling by account number
     Given I am logged into eTap
     When I click Giving on the main menu
