@@ -53,7 +53,7 @@ Given(/^rename the existing letter to prevent automation errors/) do
     letter.letter_click('Simple Business Letter - Guided Mode')
     name = 'Letter'+((0...8).map { (65 + rand(26)).chr }.join)
     letter.new_template_settings_click
-    step "I set the Name to '#{name}' on the new Correspondence Template page"
+    step "set the Name to '#{name}' on the new Correspondence Template page"
     letter.new_template_save_click
   end
 end
@@ -75,7 +75,7 @@ Given(/^(?:I |)press Tab on the keyboard/) do
   letter.press_tab
 end
 
-Given(/^click Next/) do
+Given(/^I click Next on the new Correspondence Template page$/) do
   letter = Communications::Createtemplate.new()
   letter.new_template_next_click
 end
@@ -147,6 +147,12 @@ Given(/^set the font to Comic Sans on the Edit Contents pop up/) do
   letter.font_family_comic_sans_click
 end
 
+And(/^I click Update on the template '([^']*)' pop up$/) do |title|
+# And(/^I click Update on the quick formatting Edit Contents pop up$/) do
+  letter = Communications::Createtemplate.new()
+  letter.template_update_click title
+end
+
 Given(/^set font to ([^']*)/) do |font_name|
   letter = Communications::Createtemplate.new()
   letter.select_font_name font_name
@@ -160,6 +166,16 @@ end
 Given(/^(?:I |)set the font size to ([^']*)/) do |font_size|
   letter = Communications::Createtemplate.new()
   letter.select_font_size font_size
+end
+
+And(/^I set the quick formatting font to '([^']*)' on the Edit Contents pop up$/) do |font|
+  letter = Communications::Createtemplate.new()
+  letter.quick_formatting_font_select font
+end
+
+And(/^I set the quick formatting size to '([^']*)' on the Edit Contents pop up$/) do |font|
+  letter = Communications::Createtemplate.new()
+  letter.quick_formatting_font_size_select font
 end
 
 Given(/^set the size to 12pt on the Edit Contents pop up/) do
@@ -266,6 +282,7 @@ end
 Given(/^(?:I |)click Advanced Mode/) do
   template = Communications::Createtemplate.new()
   template.advanced_editor_click
+  sleep 3
 end
 
 Given(/^(?:I |)click Advanced Editor Mode/) do
@@ -341,7 +358,7 @@ Given(/^(?:I |)set the Category to ([^']*)/) do |cat_name|
   letter.new_template_category_click cat_name
 end
 
-Given(/^(?:I |)set the template query to ([^']*)/) do |query_name|
+Given(/^(?:I |)set the template query to '([^']*)'/) do |query_name|
   letter = Communications::Createtemplate.new()
   letter.new_template_query_select query_name
 end

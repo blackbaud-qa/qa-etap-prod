@@ -24,6 +24,9 @@ module Cukesetaptesting
       keyword(:new_file_browser_image_upload_spinner) {browser.frameset(:class,'Frame').framesets[1].frameset.frame(:name,'frmUpload').span(:id,'eUploadMessage').img}
       keyword(:file_browser_image) {browser.frameset(:class,'Frame').framesets[1].frame(:name,'frmResourcesList').table(:id,'tableFiles').img(:class,'imagePreview')}
       keyword(:new_template_insert_image_ok) {content.div(:text,'Ok').button}
+      keyword(:quick_formatting_font) {content.select(:class,'styleFont')}
+      keyword(:quick_formatting_font_size) {content.select(:class,'styleSize')}
+      # keyword(:quick_formatting_update) {content.h1(:text,'Edit Styles').parent.div(:class,'popFooter').button(:value,'Update')}
 
       keyword(:new_template_quick_formatting) {comm_template.button(:value,'Quick Formatting')}
       keyword(:font_family) { content.div(:css => 'div[aria-label="Font Family"]') }
@@ -35,8 +38,8 @@ module Cukesetaptesting
       keyword(:font_format) {font_family.parent.div(:index => 1)}
       keyword(:formats) {content.div(:id,'mceu_8')}
       keyword(:formats_12pt) {content.div(:id,'mceu_130')}
-      # keyword(:new_template_footer) {comm_template.div(:id,'guideFooter')}
-      keyword(:new_template_footer) {comm_template.div(:class,'block_closing')}
+      keyword(:new_template_footer) {comm_template.div(:id,'guideFooter')}
+      # keyword(:new_template_footer) {comm_template.div(:class,'block_closing')}
       keyword(:new_template_select) {comm_template.select(:id,'nextMapping')}
       keyword(:new_template_save) {comm_template.a(:text,'Save and')}
       keyword(:new_template_settings) {comm_template.a(:text,'Settings')}
@@ -115,15 +118,15 @@ module Cukesetaptesting
 
 
       keyword(:article_font_size_16) {content.div(:id,'letterGuide').select(:class,'styleSize').option(:text, '16pt')}
-      keyword(:quick_formatting_update) {content.iframe(:id, 'etapContentIframe').div(:class, 'popupWindow').div(:class, 'popFooter').input(:id, 'save')}
+      # keyword(:quick_formatting_update) {content.iframe(:id, 'etapContentIframe').div(:class, 'popupWindow').div(:class, 'popFooter').input(:id, 'save')}
       keyword(:quick_links_block) {content.div(:class, 'html block_quickLinks guideBlock').h2}
       keyword(:quick_links) {content.div(:id, 'letterGuideClickToEdit').img(:src, '../images/edit16.gif')}
 
       keyword(:quick_links_href) {content.iframe(:id,'blockHtmlContents_ifr').body(:id, 'guideSidebar').p.a(:href, '#')}
 
       def new_template_text
-        template_frame
-        # content.iframe(:id,'blockHtmlContents_ifr')
+        #template_frame
+         content.iframe(:id,'blockHtmlContents_ifr')
       end
 
       def new_template_content_editor_adv
@@ -140,8 +143,8 @@ module Cukesetaptesting
 
       def template_frame
         # content.iframe(:id, 'templateHtml_ifr')
-        # advanced = browser.iframe(:id, 'templateHtml_ifr').when_present.present?
-        advanced = !content.iframe(:id,'blockHtmlContents_ifr').present?
+        advanced = browser.iframe(:id, 'templateHtml_ifr').when_present.present?
+        # advanced = !content.iframe(:id,'blockHtmlContents_ifr').present?
 
         if advanced
           content.form(:name,'letterGuideWizardForm').iframe(:id, 'templateHtml_ifr')
