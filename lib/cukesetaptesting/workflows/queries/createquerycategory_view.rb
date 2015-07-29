@@ -85,12 +85,32 @@ module Cukesetaptesting
       end
 
       def select_journal_entry_type_checkbox(checkbox_text)
-      #  content.div(:id => 'edit.com.eTapestry.transport.TestJournalEntryForAllTypesData').label(:text => checkbox_text).checkbox.when_present.set true
+        #  content.div(:id => 'edit.com.eTapestry.transport.TestJournalEntryForAllTypesData').label(:text => checkbox_text).checkbox.when_present.set true
         content.label(:text => checkbox_text).checkbox.when_present.set true
       end
 
       def deselect_journal_entry_type_checkbox(checkbox_text)
         content.div(:id => 'edit.com.eTapestry.transport.TestJournalEntryForAllTypesData').label(:text => checkbox_text).checkbox.when_present.clear
+      end
+
+      def account_name_selector(ids)
+        content.button(:name, ids)
+      end
+
+      def set_account_whoever_runs(ids)
+        content.checkbox(:id, ids)
+      end
+
+      def dropdown_selector(id)
+        content.select(:id, id)
+      end
+
+      def input_selector(id)
+        content.input(:id, id)
+      end
+
+      def checkbox_selector(name, value)
+        content.checkbox(:name, name).parent.parent.parent.checkbox(:value, value)
       end
     end
   end

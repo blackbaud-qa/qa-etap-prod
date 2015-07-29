@@ -34,6 +34,34 @@ And (/^I set the Name to '([^']*)' on the Create a New Query page/) do |value|
   query.create
 end
 
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type account/) do |ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  # query.create
+  if values == '' #If the Whoever Runs This Query box is checked
+    query.criteria_account_whoever_runs(ids)
+  else #If there is an account name
+    query.criteria_account_name(ids, values)
+  end
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type numRange/) do |ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  # query.create
+  query.criteria_num_range(prefix, ids, values)
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type checkboxes/) do |ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  # query.create
+  query.criteria_checkboxes(prefix, ids, values)
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type radius/) do |ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  # query.create
+  query.criteria_radius(prefix, ids, values)
+end
+
 And (/^I set the data return type to '([^']*)' on the Create a New Query page/) do |value|
   query = Queries::Createquerycategory.new
   query.select_data_return_type(value)

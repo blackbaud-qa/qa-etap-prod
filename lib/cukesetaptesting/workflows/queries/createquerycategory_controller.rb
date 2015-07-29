@@ -140,7 +140,39 @@ module Cukesetaptesting
       def duplicate_query_category_back_button_click
         @view.duplicate_query_category_back_button_click
       end
+
+      def criteria_account_name(ids, values)
+        @view.account_name_selector(ids).when_present.click
+        browser.windows.last.use do
+          sleep(2);
+          browser.send_keys values
+          browser.send_keys :enter
+        end
+      end
+
+      def criteria_account_whoever_runs(ids)
+        @view.set_account_whoever_runs(ids).when_present.set
+      end
+
+      def criteria_num_range(prefix, ids, values)
+        values_array = values.split(',')
+        ids_array = ids.split(',')
+        for i in 0..(values_array.length/2 - 1)
+          @view.dropdown_selector( prefix == '' ? ids_array[2*i].strip : prefix+'.'+ids_array[2*i].strip ).when_present.set values_array[2*i].strip
+          @view.input_selector( prefix == '' ? ids_array[2*i+1].strip : prefix+'.'+ids_array[2*i+1].strip ).when_present.send_keys values_array[2*i+1].strip
+        end
+      end
+
+      def criteria_checkboxes(prefix, name, values)
+        values_array = values.split(',')
+        values_array.each do |value|
+          @view.checkbox_selector(prefix == '' ? name : prefix+'.'+name, value).when_present.set
+        end
+      end
+
+      def criteria_radius(prefix, ids, values)
+
+      end
     end
   end
 end
-
