@@ -14,6 +14,10 @@ Feature: Create, Edit, Save and Run Queries
     And I click Save And 'Preview'
     And I click Edit on the query preview screen
     And I set the data return type to 'Accounts' on the Create a New Query page
+    And I click Queries on the main menu
+    And I click on the 'Lucene Testing' category
+    And I click delete below the '<query_name>' query on the Create a New Query page
+    And I click Yes to permanently delete the item
     Examples:
       | query_name                        | field_category     | field_name                | type              | prefix                                               | ids                                    | values                        |
       | Account-Account Created By 1      | Account            | Account Created By        | account           |                                                      | entityRoleCreatorSelectButton          | /2                            |
@@ -42,32 +46,13 @@ Feature: Create, Edit, Save and Run Queries
       | Account-Household Relationship    | Account            | Household Relationship    | select            | testByName(TestEntityRoleForHouseholdData)          | household                               | 2                             |
 #      | Account-Login Id Present 1        | Account            | Login Id Present          | radio             | testByName(TestEntityRoleForLoginIdData)            | withLoginId                             | false                         |
       | Account-Login Id Present 2        | Account            | Login Id Present          | radio             | testByName(TestEntityRoleForLoginIdData)            | withLoginId                             | true                          |
-  Scenario Outline: Deleting Queries
-    Given I am logged into eTap
-    When I click Queries on the main menu
-    And I click on the 'Lucene Testing' category
-    And I click delete below the '<query_name>' query on the Create a New Query page
-    And I click Yes to permanently delete the item
-    Examples:
-      | query_name                        |
-      | Account-Account Created By 1      |
-      | Account-Account Created By 2      |
-      | Account-Account Last Modified By 1|
-      | Account-Account Last Modified By 2|
-      | Account-Account Name 1            |
-      | Account-Account Name 2            |
-      | Account-Account Name 3            |
-      | Account-Address Lines 1           |
-      | Account-Address Lines 2           |
-      | Account-Address Lines 3           |
-      | Account-Address Lines 4           |
-      | Account-City 1                    |
-      | Account-City 2                    |
-      | Account-City 3                    |
-      | Account-City 4                    |
-      | Account-Household Relationship    |
-#      | Account-Login Id Present 1        |
-      | Account-Login Id Present 2        |
+      | Account-Opted Out 1               | Account            | Opted Out                 | radio             | testByName(TestEntityRoleForOptOutData)             | optedOut                                | false                         |
+      | Account-Opted Out 2               | Account            | Opted Out                 | radio             | testByName(TestEntityRoleForOptOutData)             | optedOut                                | true                          |
+      | Account-Phone Number 1            | Account            | Phone Number              | phone number      | TestEntityRoleForPhonesData                         | phoneNum                                | Voice, 1234567890             |
+      | Account-Phone Number 2            | Account            | Phone Number              | phone number      | TestEntityRoleForPhonesData                         | phoneNum                                | Voice, 1234567890, 1112223333 |
+      | Account-Phone Number 3            | Account            | Phone Number              | phone number      | TestEntityRoleForPhonesData                         | phoneNum                                | Voice, none                   |
+      | Account-Phone Number 4            | Account            | Phone Number              | phone number      | TestEntityRoleForPhonesData                         | phoneNum                                | Voice, any                    |
+      | Account-Phone Number 5            | Account            | Phone Number              | phone number      | TestEntityRoleForPhonesData                         | phoneNum                                | Mobile, 1234567890            |
 
   Scenario: Deleting Categories
     Given I am logged into eTap

@@ -145,6 +145,15 @@ module Cukesetaptesting
       def radio_button_by_name(name, value)
         content.radio(:name, name).parent.radio(:value, value)
       end
+
+      def criteria_phone_type_select
+        content.select(:name, 'testByName(TestEntityRoleForPhonesData).phoneTypeName')
+      end
+
+      def set_criteria_text_phone_number_first(prefix)
+        selector = prefix + '.phoneNum'
+        content.text_field(:id, selector)
+      end
     end
   end
 end

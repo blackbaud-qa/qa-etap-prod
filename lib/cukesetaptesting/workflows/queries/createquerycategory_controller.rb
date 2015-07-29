@@ -226,6 +226,29 @@ module Cukesetaptesting
         @view.radio_button_by_name(name, values).when_present.set
       end
 
+      def criteria_phone_type(phone_type)
+        @view.criteria_phone_type_select.when_present.select_value phone_type
+      end
+
+      def criteria_phone_number_value(prefix, phone_values)
+        value_array = phone_values.split(',')
+
+        value_array.each_with_index do |value, index|
+          value = value.strip
+          if index == 0
+            input = @view.set_criteria_text_phone_number_first(prefix)
+            input.when_present.set value
+          else
+            input = @view.set_criteria_text_value(prefix, index+1)
+            input.when_present.set value
+          end
+
+          if index != value_array.size - 1
+            input.parent.a.click
+          end
+        end
+      end
+
     end
   end
 end
