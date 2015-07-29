@@ -176,6 +176,10 @@ module Cukesetaptesting
         @view.communications_tab.when_present.click
       end
 
+      def communications_shift_click
+        @view.communications_tab.when_present.click(:control, :shift)
+      end
+
       def communications_dropdown_click
         @view.communications_dd.when_present.click
       end

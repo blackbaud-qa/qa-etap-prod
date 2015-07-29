@@ -15,7 +15,6 @@ Feature: Creating a new communications template
     And click New Email or Document Template on the Correspondence Category page
     And set the Name to 'Simple Business Letter - Guided Mode' on the new Correspondence Template page
     And I press Tab on the keyboard
-#    And verify that the Subject now says Simple Business Letter - Guided Mode
     And I click Next on the new Correspondence Template page
     And I click Documents on the new Correspondence Template page
     And I click on the Simple Business Letter template
@@ -39,7 +38,6 @@ Feature: Creating a new communications template
     And I click Update on the template 'Edit Contents' pop up
     And choose Create Document on Save And Create Document on the new Correspondence Template page
     And I click Next on the new Correspondence Template page
-#    And I click Save And Create Document on the new Correspondence Template page
     And I set the Category to Donation Queries
     And I set the template query to 'All Donations Made Last Year - JE'
     And click Next on the Generate Letters page
@@ -56,7 +54,7 @@ Feature: Creating a new communications template
 #    Then the PDF document should generate
 #    And when you open the file it should contain X pages
 #    And the document should display properly with your changes
-##
+
 
   Scenario: Creating a Receipt with Stub in guided mode
     Given I am logged into eTap

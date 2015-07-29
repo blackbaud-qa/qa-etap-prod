@@ -428,6 +428,14 @@ module Cukesetaptesting
       def quick_formatting_font_size_select font
         @view.quick_formatting_font_size.when_present.select font
       end
+
+      def preview_pdf_click
+        @view.preview_pdf.when_present.click
+      end
+
+      def preview_word_click
+        @view.preview_word.when_present.click
+      end
     end
   end
 end

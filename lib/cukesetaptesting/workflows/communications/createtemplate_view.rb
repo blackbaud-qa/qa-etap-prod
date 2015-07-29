@@ -157,6 +157,8 @@ module Cukesetaptesting
       keyword(:select_mass_email) {content.div(:class,'wizardSaveAndOptions').select(:id,'nextMapping').option(:value,'massEmail')}
       keyword(:save_and) {content.div(:class,'taskPaneLeft').table(:id,'wizardWorkflowTable_taskWorkflow').a(:href,'javascript:Etap.Wizard.wizard.jump(3)')}
       keyword(:advanced_mass) {content.div(:id,'etap.fieldset.table.1').input(:id,'advancedMode')}
+      keyword(:preview_pdf) {content.a(:text,'PDF')}
+      keyword(:preview_word) {content.a(:text,'Word')}
 
 
       def home(model)
