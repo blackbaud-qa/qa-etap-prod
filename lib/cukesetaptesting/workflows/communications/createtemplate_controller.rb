@@ -134,6 +134,14 @@ module Cukesetaptesting
         @view.browser.send_keys :return
       end
 
+      def quick_formatting_update_click
+        @view.quick_formatting_update.when_present.click
+      end
+
+      def template_update_click title
+        @view.content.h1(:text,title).parent.div(:class,'popFooter').button(:value,'Update').when_present.click
+      end
+
       def new_template_quick_formatting_click
         @view.new_template_quick_formatting.when_present.click
       end
@@ -411,6 +419,14 @@ module Cukesetaptesting
 
       def journal_entry_count
         @view.journal_entry_count.text
+      end
+
+      def quick_formatting_font_select font
+        @view.quick_formatting_font.when_present.select font
+      end
+
+      def quick_formatting_font_size_select font
+        @view.quick_formatting_font_size.when_present.select font
       end
     end
   end

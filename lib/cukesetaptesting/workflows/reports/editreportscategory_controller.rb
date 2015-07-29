@@ -152,6 +152,49 @@ module Cukesetaptesting
         return @view.content.a(:text,name).exists?
       end
 
+      def report_click report
+        @view.content.a(:text,report).when_present.click
+      end
+
+      def edit_report_save_click
+        @view.edit_report_save.when_present.click
+      end
+
+      def report_exists? name
+        @view.reports_grid.wait_until_present
+        return @view.reports_grid.text.include? name
+      end
+
+      def sort_name_expand_click
+        @view.sort_name_expand.when_present.click
+      end
+
+      def sort_order_z_click
+        @view.sort_order_z.when_present.click
+      end
+
+      def run_specific_report report
+        @view.content.a(:text,report).wait_until_present
+        @view.content.a(:text,report).parent.parent.a(:class,'run').when_present.click
+      end
+
+      def group_report_dropdown_click
+        @view.group_report_dropdown.when_present.click
+      end
+
+      def group_report_select group
+        @view.content.div(:id,'grouped_comboAllList').div(:text=>group).when_present.click
+      end
+
+      def delete_state_field_click
+        @view.delete_state_field.when_present.click
+      end
+
+      def state_field_present?
+        @view.state_field.wait_until_present
+        @view.state_field.text.include? 'State/Province'
+      end
+
     end
   end
 end
