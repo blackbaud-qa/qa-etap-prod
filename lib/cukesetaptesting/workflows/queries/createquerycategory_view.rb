@@ -142,6 +142,10 @@ module Cukesetaptesting
         content.select(:name, name)
       end
 
+      def text_select_by_name(name)
+        content.text_field(:name, name)
+      end
+
       def radio_button_by_name(name, value)
         content.radio(:name, name).parent.radio(:value, value)
       end
