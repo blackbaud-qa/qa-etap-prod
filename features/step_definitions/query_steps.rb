@@ -34,6 +34,72 @@ And (/^I set the Name to '([^']*)' on the Create a New Query page/) do |value|
   query.create
 end
 
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type account/) do | ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  # query.create
+  if values == '' #If the Whoever Runs This Query box is checked
+    query.criteria_account_whoever_runs(ids)
+  else #If there is an account name
+    query.criteria_account_name(ids, values)
+  end
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type numRange/) do |prefix, ids, values|
+  query = Queries::Createquerycategory.new
+  # query.create
+  if values == '' #If the Whoever Runs This Query box is checked
+    id_values = ''
+  else #If there is an account name
+    id_values = ids
+  end
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type AccountTextValues/) do | ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  # query.create
+  if values == 'none' #If the Whoever Runs This Query box is checked
+    query.criteria_text_value_none(prefix)
+  elsif values == 'any'
+    query.criteria_text_value_any(prefix)
+  else #If there is an account name
+    query.criteria_text_accounts_value(prefix, ids, values)
+  end
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type textValues/) do | ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  # query.create
+  if values == 'none' #If the Whoever Runs This Query box is checked
+    query.criteria_text_value_none(prefix)
+  elsif values == 'any'
+    query.criteria_text_value_any(prefix)
+  else #If there is an account name
+    query.criteria_text_value(prefix, ids, values)
+  end
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type numRange/) do |ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  # query.create
+  query.criteria_num_range(prefix, ids, values)
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type checkboxes/) do |ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  # query.create
+  query.criteria_checkboxes(prefix, ids, values)
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type select/) do |ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  query.criteria_select(prefix, ids, values)
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type radio/) do | ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  query.criteria_radio(prefix, ids, values)
+end
+
 And (/^I set the data return type to '([^']*)' on the Create a New Query page/) do |value|
   query = Queries::Createquerycategory.new
   query.select_data_return_type(value)
@@ -178,16 +244,20 @@ Then (/^I should see '([^']*)' in the query results/) do |name|
 end
 
 Then (/^a query category has been created called '([^']*)'/) do |cat|
+  query = Queries::Createquerycategory.new
   step "I am logged into eTap"
   step "I click Queries on the main menu"
-  step "I click New Category on the Query Categories page"
-  step %Q[I set the Name to '#{cat}' on the Create Query Category page]
-  step "I click Save Category on the Query Categories page"
-
-  query = Queries::Createquerycategory.new
-  if query.is_warning_present?
-    step "I click Queries on the main menu"
+  if query.try_to_click_on_query_category(cat)
+    # do nothing
+  else
+    step "I click New Category on the Query Categories page"
+    step %Q[I set the Name to '#{cat}' on the Create Query Category page]
+    step "I click Save Category on the Query Categories page"
   end
+
+  # if query.is_warning_present?
+  #   step "I click Queries on the main menu"
+  # end
 end
 
 Then (/^a query '([^']*)' has been created in the '([^']*)' category/) do |query, cat|
