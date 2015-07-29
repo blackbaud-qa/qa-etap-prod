@@ -144,6 +144,14 @@ module Cukesetaptesting
         end
       end
 
+      def possible_duplicate_detected?
+        return @view.content.h1(:class=>'pageTitle',:text=>'Possible Duplicates Report').present?
+      end
+
+      def not_duplicates_click
+        @view.not_duplicates.when_present.click
+      end
+
       # def create_person (account_name, sort_name, address = '', city = '', state = '', postal_code = '', county = '', voice = '', email = '', web_page = '', note = '', short_sal = '', long_sal = '', udf_name = 'Company', udf_value = '', desired_next_page = 'Go to Personas')
       #   step "I am logged into eTap"
       #   step "I click Accounts"

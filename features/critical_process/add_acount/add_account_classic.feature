@@ -20,6 +20,7 @@ Feature: Add Account Classic View
     And I set Long Salutation to 'Mr. Doe' on the classic add account page
     And I set the UDF 'Company' to 'Blackbaud' on the classic add account page
     And I click Save And 'Go to Personas'
+    And I handle the duplicate report if necessary
     Then I should be taken to the Persona page 'John Doe''s account
     And the Address Lines should be set to '501 N Pennsylvania Parkway'
     And the City should be set to 'Indianapolis'

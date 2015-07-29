@@ -154,6 +154,52 @@ module Cukesetaptesting
         @view.set_account_whoever_runs(ids).when_present.set
       end
 
+      def criteria_text_value_none(prefix)
+        @view.set_criteria_any_value(prefix).when_present.set
+      end
+
+      def criteria_text_value_any(prefix)
+        @view.set_criteria_no_value(prefix).when_present.set
+      end
+
+      def criteria_text_accounts_value(prefix, ids, values)
+        value_array = values.split(',')
+
+        value_array.each_with_index do |value, index|
+          value = value.strip
+          if index == 0
+            input = @view.set_criteria_text_value_account_first(prefix, ids)
+            input.when_present.set value
+          else
+            input = @view.set_criteria_text_value(prefix, index+1)
+            input.when_present.set value
+          end
+
+          if index != value_array.size - 1
+            input.parent.a.click
+          end
+        end
+      end
+
+      def criteria_text_value(prefix, ids, values)
+        value_array = values.split(',')
+
+        value_array.each_with_index do |value, index|
+          value = value.strip
+          if index == 0
+            input = @view.set_criteria_text_value_first(prefix, ids)
+            input.when_present.set value
+          else
+            input = @view.set_criteria_text_value(prefix, index+1)
+            input.when_present.set value
+          end
+
+          if index != value_array.size - 1
+            input.parent.a.click
+          end
+        end
+      end
+
       def criteria_num_range(prefix, ids, values)
         values_array = values.split(',')
         ids_array = ids.split(',')
@@ -173,6 +219,17 @@ module Cukesetaptesting
       def criteria_radius(prefix, ids, values)
 
       end
+
+      def criteria_select(prefix, ids, values)
+        name = (prefix == '') ? ids : (prefix + '.' + ids)
+        @view.dropdown_select_by_name(name).when_present.select_value values
+      end
+
+      def criteria_radio(prefix, ids, values)
+        name = (prefix == '') ? ids : (prefix + '.' + ids)
+        @view.radio_button_by_name(name, values).when_present.set
+      end
+
     end
   end
 end

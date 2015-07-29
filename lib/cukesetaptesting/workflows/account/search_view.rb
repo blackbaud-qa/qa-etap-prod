@@ -15,7 +15,7 @@ module Cukesetaptesting
       keyword(:role_menu_personas) {role_menu.li(:class, "personas").a }
       keyword(:role_menu_relationships) {role_menu.li(:class, "relationships").a}
       keyword(:role_menu_journal) {role_menu.li(:class, "journal").a}
-      keyword(:role_menu_other) {role_menu.li(:class, "other").a}
+      keyword(:role_menu_other) {role_menu.a(:text, "Account Settings")}
       keyword(:role_menu_defined_fields) {role_menu.li(:class, "definedFields").a}
 
       def home(model)

@@ -1,14 +1,8 @@
 Feature: Create, Edit, Save and Run Queries
 
-  Background:
-    Given I am logged into eTap
-    When I click Queries on the main menu
-    And I click New Category on the Query Categories page
-    And I set the Name to 'Lucene Testing' on the Create Query Category page
-    And I click Save Category on the Query Categories page
-
   Scenario Outline: Create and Edit a New Query
     Given I am logged into eTap
+    And a query category has been created called 'Lucene Testing'
     When I click Queries on the main menu
     And I click on the 'Lucene Testing' category
     And I click 'New Query' on the Edit Query Category page
@@ -22,7 +16,6 @@ Feature: Create, Edit, Save and Run Queries
     And I set the data return type to 'Accounts' on the Create a New Query page
     Examples:
       | query_name                        | field_category     | field_name                | type              | prefix                                               | ids                                    | values                        |
-      | Account-Postal Code Radius        | Account            | Postal Code Radius        | radius            | testByName(TestEntityRoleForPostalCodeRadiusData)    | postalCode, radius                     | 21043, 15                     |
       | Account-Account Created By 1      | Account            | Account Created By        | account           |                                                      | entityRoleCreatorSelectButton          | /2                            |
       | Account-Account Created By 2      | Account            | Account Created By        | account           |                                                      | userAsentityRoleCreator                |                               |
       | Account-Account Last Modified By 1| Account            | Account Last Modified By  | account           |                                                      | entityRoleModifierSelectButton         | /2                            |
@@ -47,6 +40,9 @@ Feature: Create, Edit, Save and Run Queries
 #    | Account-Envelope Salutation       | Account            | Envelope Salutation       | textValues        | testByName(TestEntityRoleForEnvelopeSalutationsData) | values                                 | Mr. John Carr                 |
 #    | Account-First Name                | Account            | First Name                | textValues        | testByName(TestEntityRoleForFirstNamesData)          | values                                 | John                          |
      | Account-Postal Code Radius        | Account            | Postal Code Radius        | radius            | testByName(TestEntityRoleForPostalCodeRadiusData) | postalCode, radius            | 21043, 15                     |
+      | Account-Household Relationship    | Account            | Household Relationship    | select            | testByName(TestEntityRoleForHouseholdData)          | household                               | 2                             |
+#      | Account-Login Id Present 1        | Account            | Login Id Present          | radio             | testByName(TestEntityRoleForLoginIdData)            | withLoginId                             | false                         |
+      | Account-Login Id Present 2        | Account            | Login Id Present          | radio             | testByName(TestEntityRoleForLoginIdData)            | withLoginId                             | true                          |
 
   Scenario Outline: Deleting Queries
     Given I am logged into eTap
@@ -54,7 +50,6 @@ Feature: Create, Edit, Save and Run Queries
     And I click on the 'Lucene Testing' category
     And I click delete below the '<query_name>' query on the Create a New Query page
     And I click Yes to permanently delete the item
-
     Examples:
       | query_name                        |
       | Account-Account Created By 1      |
@@ -72,15 +67,12 @@ Feature: Create, Edit, Save and Run Queries
       | Account-City 2                    |
       | Account-City 3                    |
       | Account-City 4                    |
-
+      | Account-Household Relationship    |
+#      | Account-Login Id Present 1        |
+      | Account-Login Id Present 2        |
 
   Scenario: Deleting Categories
     Given I am logged into eTap
-#    When I click Queries on the main menu
-#    And I click on the 'Lucene Testing' category
-#    And I click delete below the 'Donations made in January 2015' query on the Create a New Query page
-#    And I click Yes to permanently delete the item
-#    And I click OK to dismiss the notification about not being able to delete a query
     And I click Queries on the main menu
     And I click delete below the 'Lucene Testing' query category
     And I click Yes to permanently delete the item
