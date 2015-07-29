@@ -92,6 +92,59 @@ module Cukesetaptesting
       def deselect_journal_entry_type_checkbox(checkbox_text)
         content.div(:id => 'edit.com.eTapestry.transport.TestJournalEntryForAllTypesData').label(:text => checkbox_text).checkbox.when_present.clear
       end
+
+      def account_name_selector(ids)
+        content.button(:name, ids)
+      end
+
+      def set_account_whoever_runs(ids)
+        content.checkbox(:id, ids)
+      end
+
+      def set_criteria_no_value(prefix)
+        selector = prefix + '.fieldPopulatedTest'
+        content.checkbox(:id, selector)
+      end
+
+      def set_criteria_any_value(prefix)
+        selector = prefix + '.fieldEmptyTest'
+        content.checkbox(:id, selector)
+      end
+
+      def set_criteria_text_value_first(prefix, id)
+        selector = 'testByName(' + prefix + ')' + '.' + id
+        content.text_field(:id, selector)
+      end
+
+      def set_criteria_text_value_account_first(prefix, id)
+        selector = prefix + '.' + id
+        content.text_field(:id, selector)
+      end
+
+      def set_criteria_text_value(prefix, index)
+        selector = prefix + '.table_Row' + index.to_s
+        content.tr(:id, selector).text_field
+      end
+
+      def dropdown_selector(id)
+        content.select(:id, id)
+      end
+
+      def input_selector(id)
+        content.text_field(:id, id)
+      end
+
+      def checkbox_selector(name, value)
+        content.input(:value, value)
+      end
+
+      def dropdown_select_by_name(name)
+        content.select(:name, name)
+      end
+
+      def radio_button_by_name(name, value)
+        content.radio(:name, name).parent.radio(:value, value)
+      end
     end
   end
 end

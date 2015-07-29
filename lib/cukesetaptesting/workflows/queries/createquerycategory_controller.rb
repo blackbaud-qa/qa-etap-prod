@@ -140,7 +140,92 @@ module Cukesetaptesting
       def duplicate_query_category_back_button_click
         @view.duplicate_query_category_back_button_click
       end
+
+      def criteria_account_name(ids, values)
+        @view.account_name_selector(ids).when_present.click
+        browser.windows.last.use do
+          sleep(2);
+          browser.send_keys values
+          browser.send_keys :enter
+        end
+      end
+
+      def criteria_account_whoever_runs(ids)
+        @view.set_account_whoever_runs(ids).when_present.set
+      end
+
+      def criteria_text_value_none(prefix)
+        @view.set_criteria_any_value(prefix).when_present.set
+      end
+
+      def criteria_text_value_any(prefix)
+        @view.set_criteria_no_value(prefix).when_present.set
+      end
+
+      def criteria_text_accounts_value(prefix, ids, values)
+        value_array = values.split(',')
+
+        value_array.each_with_index do |value, index|
+          value = value.strip
+          if index == 0
+            input = @view.set_criteria_text_value_account_first(prefix, ids)
+            input.when_present.set value
+          else
+            input = @view.set_criteria_text_value(prefix, index+1)
+            input.when_present.set value
+          end
+
+          if index != value_array.size - 1
+            input.parent.a.click
+          end
+        end
+      end
+
+      def criteria_text_value(prefix, ids, values)
+        value_array = values.split(',')
+
+        value_array.each_with_index do |value, index|
+          value = value.strip
+          if index == 0
+            input = @view.set_criteria_text_value_first(prefix, ids)
+            input.when_present.set value
+          else
+            input = @view.set_criteria_text_value(prefix, index+1)
+            input.when_present.set value
+          end
+
+          if index != value_array.size - 1
+            input.parent.a.click
+          end
+        end
+      end
+
+      def criteria_num_range(prefix, ids, values)
+        values_array = values.split(',')
+        ids_array = ids.split(',')
+        for i in 0..(values_array.length/2 - 1)
+          @view.dropdown_selector( prefix == '' ? ids_array[2*i].strip : prefix+'.'+ids_array[2*i].strip ).when_present.set values_array[2*i].strip
+          @view.input_selector( prefix == '' ? ids_array[2*i+1].strip : prefix+'.'+ids_array[2*i+1].strip ).when_present.send_keys values_array[2*i+1].strip
+        end
+      end
+
+      def criteria_checkboxes(prefix, name, values)
+        values_array = values.split(',')
+        values_array.each do |value|
+          @view.checkbox_selector(prefix == '' ? name : prefix+'.'+name, value).when_present.set
+        end
+      end
+
+      def criteria_select(prefix, ids, values)
+        name = (prefix == '') ? ids : (prefix + '.' + ids)
+        @view.dropdown_select_by_name(name).when_present.select_value values
+      end
+
+      def criteria_radio(prefix, ids, values)
+        name = (prefix == '') ? ids : (prefix + '.' + ids)
+        @view.radio_button_by_name(name, values).when_present.set
+      end
+
     end
   end
 end
-
