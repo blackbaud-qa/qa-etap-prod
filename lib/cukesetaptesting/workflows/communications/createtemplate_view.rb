@@ -162,6 +162,21 @@ module Cukesetaptesting
       keyword(:preview_email) {content.a(:text,'Email')}
       keyword(:preview_email_address) {content.text_field(:id,'emailPreviewList')}
       keyword(:preview_email_send) {content.button(:value,'Send')}
+      keyword(:create_journal_contact) {content.checkbox(:id,'createContact')}
+      keyword(:journal_contact_subject) {content.text_field(:id,'contactSubject')}
+      keyword(:gen_letters_method) {content.select(:id,'contactMethod')}
+      keyword(:basic_mass_email) {content.radio(:id,'basicMode')}
+      keyword(:send_mass_email_section) {content.a(:text,'Send a Mass Email')}
+      keyword(:mass_email_content) {content.div(:class,'taskContentRight')}
+      keyword(:mass_email_next) {content.button(:value,'Next')}
+      keyword(:mass_update_name) {content.text_field(:id,'replyName')}
+      keyword(:mass_update_email) {content.text_field(:id,'replyEmail')}
+      keyword(:mass_update_reply) {content.text_field(:id,'confirmationEmail')}
+      keyword(:mass_email_create_contact) {content.checkbox(:id,'createContact')}
+      keyword(:mass_update_subject) {content.text_field(:id,'contactSubject')}
+      keyword(:mass_email_method) {content.select(:id,'contactMethod')}
+      keyword(:mass_email_send) {content.button(:value,'Send')}
+      keyword(:advanced_mass_email) {content.radio(:id,'advancedMode')}
 
 
       def home(model)

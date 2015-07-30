@@ -228,6 +228,21 @@ Given(/^click Next on the Generate Letters page/) do
   letter.gen_letters_next_click
 end
 
+And(/^I click Next on the Mass Email page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.mass_email_content_wait_for_load
+  letter.mass_email_next_click
+end
+
+And(/^I click Send on the Mass Email page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.mass_email_content_wait_for_load
+  # sleep 5
+  letter.mass_email_send_click
+  #adding a wait to give mass email time to process
+  sleep 5
+end
+
 Given(/^set the document type to PDF on the Generate Letters page/) do
   letter = Communications::Createtemplate.new()
   letter.gen_letters_set_doc_type_pdf
@@ -559,4 +574,76 @@ end
 And(/^I click Send on the letter template page$/) do
   letter = Communications::Createtemplate.new()
   letter.preview_email_send_click
+end
+
+And(/^I click '([^']*)' under '([^']*)' on the email templates page$/) do |link, name|
+  letter = Communications::Createtemplate.new()
+  letter.create_documents_click(link,name)
+end
+
+And(/^I mark the checkbox next to Create a Journal Contact for Each Account$/) do
+  letter = Communications::Createtemplate.new()
+  letter.create_journal_contact_set
+end
+
+And(/^I set the Subject to '([^']*)' on the Generate Letters page$/) do |subject|
+  letter = Communications::Createtemplate.new(:journal_contact_subject=>subject)
+  letter.create
+end
+
+And(/^I set the Method to '([^']*)' on the Generate Letters page$/) do |method|
+  letter = Communications::Createtemplate.new()
+  letter.gen_letters_method_select method
+end
+
+And(/^a contact dated for today with the subject '([^']*)' should be added to '([^']*)' journal page$/) do |document, name|
+  step "I type '" + name + "' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on '" + name + "' on the accounts page"
+  step "I click Journal"
+
+  journal = Account::Journal.new
+  expect(journal.journal_table_contains? document).to eq(true)
+
+end
+
+And(/^I select Basic Mass Email on the Mass Email page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.basic_mass_email_set
+end
+
+And(/^I click Send a Mass Email on the Mass Email page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.send_mass_email_section_click
+end
+
+And(/^I set the Name to '([^']*)' on the Mass Email page$/) do |name|
+  sleep 1
+  letter = Communications::Createtemplate.new(:mass_update_name=>name)
+  letter.create
+end
+
+And(/^I set both Email fields to '([^']*)' on the Mass Email page$/) do |email|
+  letter = Communications::Createtemplate.new(:mass_update_email=>email,:mass_update_reply=>email)
+  letter.create
+end
+
+And(/^I mark the checkbox next to Create a Journal Contact for All Recipients on the Mass Email page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.mass_email_create_contact_set
+end
+
+And(/^I set the Subject to '([^']*)' on the Mass Email page$/) do |subject|
+  letter = Communications::Createtemplate.new(:mass_update_subject=>subject)
+  letter.create
+end
+
+And(/^I set the Method to '([^']*)' on the Mass Email page$/) do |method|
+  letter = Communications::Createtemplate.new()
+  letter.mass_email_method_select method
+end
+
+And(/^I select Advanced Mass Email on the Mass Email page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.advanced_mass_email_set
 end

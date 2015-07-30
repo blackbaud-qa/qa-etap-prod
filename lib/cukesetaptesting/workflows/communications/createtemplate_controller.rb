@@ -444,6 +444,55 @@ module Cukesetaptesting
       def preview_email_send_click
         @view.preview_email_send.when_present.click
       end
+
+      def create_documents_click(link,name)
+        @view.content.a(:text,name).parent.parent.a(:text,link).when_present.click
+      end
+
+      def create_journal_contact_set
+        @view.create_journal_contact.when_present.set
+      end
+
+      def gen_letters_method_select method
+        @view.gen_letters_method.when_present.select method
+      end
+
+      def basic_mass_email_set
+        @view.basic_mass_email.when_present.set
+      end
+
+      def send_mass_email_section_click
+        @view.send_mass_email_section.when_present.click
+      end
+
+      def mass_email_content_wait_for_load
+        @view.mass_email_content.wait_until_present
+        # sleep 2
+      end
+
+      def mass_email_next_click
+        @view.mass_email_next.when_present.click
+      end
+
+      def mass_email_create_contact_set
+        @view.mass_email_create_contact.when_present.set
+      end
+
+      def mass_email_method_select method
+        @view.mass_email_method.when_present.select method
+      end
+
+      def mass_email_send_click
+        @view.mass_email_send.wait_until_present
+        Watir::Wait.until {@view.mass_email_send.enabled?}
+        @view.mass_email_send.when_present.click
+        sleep 5 #wait for mass email to process
+      end
+
+      def advanced_mass_email_set
+        @view.advanced_mass_email.when_present.set
+      end
+
       end
   end
 end

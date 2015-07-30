@@ -20,6 +20,11 @@ module Cukesetaptesting
         @view.journal_form.wait_until_present
       end
 
+      def journal_table_contains? document
+        @view.journal_table.wait_until_present
+        return @view.journal_table.text.include? document
+      end
+
     end
   end
 end

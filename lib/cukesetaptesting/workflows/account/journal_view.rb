@@ -9,6 +9,7 @@ module Cukesetaptesting
 
       keyword(:split_transaction) {add_entry.option(:text, 'Split Transaction')}
       keyword(:journal_form) {content.form(:name,'entityJournalForm')}
+      keyword(:journal_table) {content.table(:id,'entryList')}
 
 
       def home(model)
