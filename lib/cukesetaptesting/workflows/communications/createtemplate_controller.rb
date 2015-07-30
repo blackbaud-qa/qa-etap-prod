@@ -436,7 +436,15 @@ module Cukesetaptesting
       def preview_word_click
         @view.preview_word.when_present.click
       end
-    end
+
+      def preview_email_click
+        @view.preview_email.when_present.click
+      end
+
+      def preview_email_send_click
+        @view.preview_email_send.when_present.click
+      end
+      end
   end
 end
 

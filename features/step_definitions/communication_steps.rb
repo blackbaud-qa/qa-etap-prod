@@ -50,6 +50,7 @@ end
 And(/^I click on the '([^']*)' letter template$/) do |name|
   letter = Communications::Createtemplate.new()
   letter.letter_click(name)
+  sleep 2
 end
 
 Given(/^rename the existing letter to prevent automation errors/) do
@@ -527,6 +528,7 @@ end
 Then(/^The PDF document should be generated$/) do
   letter = Communications::Createtemplate.new()
 
+  sleep 5
   dwnld_path = get_download_location
   pdf_file = dwnld_path + "\\Document.pdf"
 
@@ -542,4 +544,19 @@ end
 And(/^I click PDF under the Preview menu on the letter template page$/) do
   letter = Communications::Createtemplate.new()
   letter.preview_pdf_click
+end
+
+And(/^I click Email under the Preview menu on the letter template page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.preview_email_click
+end
+
+And(/^I enter the email address '([^']*)'$/) do |address|
+  letter = Communications::Createtemplate.new(:preview_email_address=>address)
+  letter.create
+end
+
+And(/^I click Send on the letter template page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.preview_email_send_click
 end

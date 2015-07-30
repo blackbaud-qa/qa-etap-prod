@@ -159,6 +159,9 @@ module Cukesetaptesting
       keyword(:advanced_mass) {content.div(:id,'etap.fieldset.table.1').input(:id,'advancedMode')}
       keyword(:preview_pdf) {content.a(:text,'PDF')}
       keyword(:preview_word) {content.a(:text,'Word')}
+      keyword(:preview_email) {content.a(:text,'Email')}
+      keyword(:preview_email_address) {content.text_field(:id,'emailPreviewList')}
+      keyword(:preview_email_send) {content.button(:value,'Send')}
 
 
       def home(model)
