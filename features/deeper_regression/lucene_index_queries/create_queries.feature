@@ -39,9 +39,15 @@ Feature: Create, Edit, Save and Run Queries
 #    | Account-Email Address             | Account            | Email Address             | textValues        | testByName(TestEntityRoleForEmailsData)              | values                                 | John.Carr@blackbaud.com       |
 #    | Account-Envelope Salutation       | Account            | Envelope Salutation       | textValues        | testByName(TestEntityRoleForEnvelopeSalutationsData) | values                                 | Mr. John Carr                 |
 #    | Account-First Name                | Account            | First Name                | textValues        | testByName(TestEntityRoleForFirstNamesData)          | values                                 | John                          |
+     | Account-Postal Code Radius        | Account            | Postal Code Radius        | radius            | TestEntityRoleForPostalCodeRadiusData | postalCode, radius            | 21043, 15                     |
       | Account-Household Relationship    | Account            | Household Relationship    | select            | testByName(TestEntityRoleForHouseholdData)          | household                               | 2                             |
 #      | Account-Login Id Present 1        | Account            | Login Id Present          | radio             | testByName(TestEntityRoleForLoginIdData)            | withLoginId                             | false                         |
       | Account-Login Id Present 2        | Account            | Login Id Present          | radio             | testByName(TestEntityRoleForLoginIdData)            | withLoginId                             | true                          |
+    | Amounts - Individual Transaction Pledge Arrears | Amounts| Individual Transaction Pledge Arrears | arrears| testByName(TestTransactionForArrearsData)        | comparisonKey, amountString, dynamicDate, asOfDateString | Greater Than, 20, Custom Date, 7/15/2015 |
+      | Amounts - Upgraded/Split Transaction Total Arrears | Amounts| Upgraded/Split Transaction Total Arrears | arrears| testByName(TestTransactionForSegmentedArrearsData)        | comparisonKey, amountString, dynamicDate, asOfDateString | Less Than, 100, Start of Next Month |
+      | Dates - Account Created Date 1                     | Dates  | Account Created Date                     | dateRange | TestEntityRoleForCreatedDateData                       | dynamicDateRange, startDateString, endDateString         | Custom Range, 7/15/2015, 7/20/2015  |
+      | Dates - Account Created Date 2                     | Dates  | Account Created Date                     | dateRange | TestEntityRoleForCreatedDateData                       | dynamicDateRange                                         | Last 7 Days  |
+
   Scenario Outline: Deleting Queries
     Given I am logged into eTap
     When I click Queries on the main menu

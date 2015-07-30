@@ -78,16 +78,16 @@ And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)'
   end
 end
 
-And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type numRange/) do |ids, prefix, values|
-  query = Queries::Createquerycategory.new
-  # query.create
-  query.criteria_num_range(prefix, ids, values)
-end
-
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type checkboxes/) do |ids, prefix, values|
   query = Queries::Createquerycategory.new
   # query.create
   query.criteria_checkboxes(prefix, ids, values)
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type radius/) do |ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  # query.create
+  query.criteria_radius(prefix, ids, values)
 end
 
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type select/) do |ids, prefix, values|
@@ -98,6 +98,16 @@ end
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type radio/) do | ids, prefix, values|
   query = Queries::Createquerycategory.new
   query.criteria_radio(prefix, ids, values)
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type arrears/) do | ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  query.criteria_arrears(prefix, ids, values)
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type dateRange/) do | ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  query.criteria_date_range(prefix, ids, values)
 end
 
 And (/^I set the data return type to '([^']*)' on the Create a New Query page/) do |value|
