@@ -52,11 +52,11 @@ end
 #   letter.new_newsletter_set_content(text)
 # end
 
-And(/^click Update$/) do
-  letter = Communications::Createtemplate.new()
-  # letter.new_template_update_image_click
-  letter.new_newsletter_content_update
-end
+# And(/^click Update$/) do
+#   letter = Communications::Createtemplate.new()
+#   # letter.new_template_update_image_click
+#   letter.new_newsletter_content_update
+# end
 
 And(/^click Quick Formatting$/) do
   letter = Communications::Createtemplate.new()

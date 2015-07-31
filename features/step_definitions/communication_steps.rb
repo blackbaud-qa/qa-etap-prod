@@ -332,7 +332,7 @@ end
 #   letter.new_template_move_stub
 # end
 
-Given(/^(?:I |)click on the Body block to open the Edit Contents pop up/) do
+Given(/^(?:I |)click on the Body block to open the Edit Contents pop up$/) do
   letter = Communications::Createtemplate.new()
   letter.new_template_body_click
 end
@@ -646,4 +646,76 @@ end
 And(/^I select Advanced Mass Email on the Mass Email page$/) do
   letter = Communications::Createtemplate.new()
   letter.advanced_mass_email_set
+end
+
+And(/^I click on the Body block to open the Edit Contents pop up in the standard editor$/) do
+  sleep 3
+  letter = Communications::Createtemplate.new()
+  letter.standard_editor_body_click
+end
+
+And(/^I delete all of the text in the Edit Contents pop up$/) do
+  letter = Communications::Createtemplate.new()
+  letter.standard_editor_delete_text
+end
+
+And(/^I click Insert Letter Widget in the Edit Contents pop up$/) do
+  letter = Communications::Createtemplate.new()
+  letter.standard_editor_insert_letter_click
+  sleep 2
+end
+
+And(/^I select the Entry List widget$/) do
+  letter = Communications::Createtemplate.new()
+  letter.select_entry_list_click
+end
+
+And(/^I click insert on the Letter Widgets pop up$/) do
+  letter = Communications::Createtemplate.new()
+  letter.letter_widgets_insert_click
+end
+
+And(/^I double click the Entry List widget to edit it in the Edit Contents pop up$/) do
+  letter = Communications::Createtemplate.new()
+  letter.standard_editor_entry_list_dclick
+end
+
+And(/^I click Add Another Column on the Letter Widgets pop up$/) do
+  letter = Communications::Createtemplate.new()
+  letter.letter_widgets_add_column_click
+end
+
+And(/^I set the category to '([^']*)' on the Letter Widgets pop up$/) do |category|
+  letter = Communications::Createtemplate.new()
+  letter.letter_widgets_category_select category
+end
+
+And(/^I set the field to '([^']*)' on the Letter Widgets pop up$/) do |field|
+  letter = Communications::Createtemplate.new()
+  letter.letter_widgets_field_select field
+end
+
+And(/^I click Update on the Edit Contents pop up$/) do
+  letter = Communications::Createtemplate.new()
+  letter.edit_contents_update_click
+end
+
+And(/^I set Grouping to One Document Per Account$/) do
+  letter = Communications::Createtemplate.new()
+  letter.gen_letters_set_grouping_per_account
+end
+
+And(/^I delete all the text in the advanced editor on the template page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.advanced_editor_delete_text
+end
+
+And(/^I click Insert Letter Widget in the advanced editor on the template page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.advanced_editor_insert_letter_click
+end
+
+And(/^I double click the Entry List widget to edit it in the advanced editor$/) do
+  letter = Communications::Createtemplate.new()
+  letter.advanced_editor_entry_list_dclick
 end
