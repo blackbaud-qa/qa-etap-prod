@@ -145,14 +145,38 @@ module Cukesetaptesting
       keyword(:split_transaction_delete_button) {content.div(:id, 'etap.fieldset.area.15').button(:value, 'Delete')}
       keyword(:split_transaction_checkbox) {content.checkbox(:value, 'label.segmentedTransaction')}
       keyword(:segment_one_received_field) {content.div(:id, 'etap.fieldset.table.4').text_field(:name, 'segmentReceived(1)')}
-      keyword(:segment_one_fund_value) {content.div(:id, 'etap.fieldset.table.4').input(:name, 'intentRef(1)_comboText')}
-      keyword(:segment_one_campaign_value) {content.div(:id, 'etap.fieldset.table.4').input(:name, 'campaignRef(1)_comboText')}
-      keyword(:segment_one_approach_value) {content.div(:id, 'etap.fieldset.table.4').input(:name, 'approachRef(1)_comboText')}
-      keyword(:segment_one_gift_type_value) {content.div(:id, 'etap.fieldset.table.5').select(:name, 'paymentType(1)')}
+      keyword(:segment_one_fund_value) {content.div(:id, 'etap.fieldset.table.4').input(:id, 'intentRef(1)_comboText')}
+      keyword(:segment_one_campaign_value) {content.div(:id, 'etap.fieldset.table.4').input(:id, 'campaignRef(1)_comboText')}
+      keyword(:segment_one_approach_value) {content.div(:id, 'etap.fieldset.table.4').input(:id, 'approachRef(1)_comboText')}
       keyword(:segment_one_check_date_value) {content.div(:id, 'etap.fieldset.table.5').text_field(:name, 'checkDate(1)')}
+      keyword(:segment_one_check_number_value) {content.div(:id, 'etap.fieldset.table.5').text_field(:name, 'checkNumber(1)')}
+      keyword(:segment_one_tribute_value) {content.div(:id, 'tributeFields1').span(:id, 'tributeNameDiv1')}
+      keyword(:segment_one_soft_credit_name_value)  {content.div(:id, 'tributeFields1').span(:id, 'newSoftCreditNameDiv1')}
+      keyword(:segment_one_soft_credit_amount_value) {content.div(:id, 'softCreditFields1').input(:name, 'newSoftCreditAmount(1)')}
+      keyword(:segment_two_received_field) {content.div(:id, 'etap.fieldset.area.10').text_field(:name, 'segmentReceived(2)')}
+      keyword(:segment_two_fund_value) {content.div(:id, 'etap.fieldset.area.10').input(:id, 'intentRef(2)_comboText')}
+      keyword(:segment_two_campaign_value) {content.div(:id, 'etap.fieldset.area.10').input(:id, 'campaignRef(2)_comboText')}
+      keyword(:segment_two_approach_value) {content.div(:id, 'etap.fieldset.area.10').input(:id, 'approachRef(2)_comboText')}
+      keyword(:segment_two_tribute_value) {content.div(:id, 'tributeFields2').span(:id, 'tributeNameDiv2')}
+      keyword(:segment_two_soft_credit_name_value)  {content.div(:id, 'tributeFields2').span(:id, 'newSoftCreditNameDiv2')}
+      keyword(:segment_two_soft_credit_amount_value) {content.div(:id, 'softCreditFields2').input(:name, 'newSoftCreditAmount(2)')}
+      keyword(:udf_bar_click_segment_two_click) {content.div(:id, 'userDefinedFields2TitleBar')}
+
+      keyword(:journal_split_transaction_click) {content.a(:text, 'Split Transaction')}
+      keyword(:segment_three_received_amount) {content.div(:id, 'etap.fieldset.area.16').text_field(:name, 'segmentReceived(3)')}
+      keyword(:set_gift_type_segment_three_value) {content.div(:id, 'giftTypes3').select(:name, 'paymentType(3)')}
+      keyword(:segment_three_check_date) {content.div(:id, 'giftTypes3').text_field(:name, 'checkDate(3)')}
+      keyword(:segment_three_check_number) {content.div(:id, 'giftTypes3').text_field(:name, 'checkNumber(3)')}
+      keyword(:delete_segment_three_click)  {content.div(:id, 'etap.fieldset.table.15').button(:name, 'deleteSegment3')}
+      keyword(:edit_split_received_field) {content.table(:id, 'etap.fieldset.table.2').text_field(:name, 'received')}
+      keyword(:edit_segment_value) {content.table(:id, 'etap.fieldset.table.2').text_field(:name, 'numberOfSegments')}
 
 
 
+
+      #Fund combo box for segment 3 of split transaction
+      keyword(:fund_type_segment_three) {content.div(:id,'etap.fieldset.table.16').img(:id, 'intentRef(3)_comboArrow')}
+      keyword(:fund_combo_list_segment_three) {content.div(:id,'intentRef(3)_comboAllList')}
 
 
       #Fund combo box for segment 1 of split transaction
@@ -215,7 +239,6 @@ module Cukesetaptesting
       def click_segment_two_udf_click(udf)
         content.div(:id,'userDefinedFields2').link(:text, udf + ':')
       end
-
 
 
     end
