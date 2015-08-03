@@ -138,6 +138,10 @@ module Cukesetaptesting
         content.input(:value, value)
       end
 
+      def checkbox_selector_by_id(id)
+        content.checkbox(:id, id)
+      end
+
       def dropdown_select_by_name(name)
         content.select(:name, name)
       end
@@ -153,6 +157,15 @@ module Cukesetaptesting
       def set_criteria_text_phone_number_first(prefix)
         selector = prefix + '.phoneNum'
         content.text_field(:id, selector)
+      end
+
+      def click_criteria_dynamic_link(id)
+        content.span(id: id).link
+      end
+
+      def check_only_matching_gift_checkbox(id, prefix)
+        selector = 'testByName(' + prefix + ').' + id
+        content.checkbox(:name, selector)
       end
     end
   end

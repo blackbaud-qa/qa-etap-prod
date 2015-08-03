@@ -249,6 +249,56 @@ module Cukesetaptesting
         end
       end
 
+      def criteria_relationship_atributes(ids, prefix, values)
+        values_array = values.split(',')
+        ids_array = ids.split(',')
+        prefix_with_dot = prefix + '.'
+        values_array.each_with_index { |value, index|
+          values_array[index] = value.strip
+        }
+        ids_array.each_with_index { |id, index|
+          ids_array[index] = id.strip
+        }
+
+        @view.dropdown_selector(ids_array[0]).when_present.select values_array[0]
+        if values_array[1] === 'Dynamic'
+          @view.click_criteria_dynamic_link(ids_array[1]).click
+          if values_array[1]
+            @view.dropdown_selector(prefix_with_dot + ids_array[2]).select_value(values_array[2])
+          end
+        else
+          @view.input_selector(prefix_with_dot + ids_array[1]).set values_array[1]
+          @view.input_selector(prefix_with_dot + ids_array[2]).set values_array[2]
+        end
+
+        if values_array[3] === 'Dynamic'
+          @view.click_criteria_dynamic_link(ids_array[3]).click
+          if values_array[4]
+            @view.dropdown_selector(prefix_with_dot + ids_array[4]).select_value(values_array[4])
+          end
+        else
+          @view.input_selector(prefix_with_dot + ids_array[3]).set values_array[3]
+          @view.input_selector(prefix_with_dot + ids_array[4]).set values_array[4]
+        end
+
+        if ids_array.size > 5
+          if ids_array[5] == 'relationshipMatchingGift'
+            @view.check_only_matching_gift_checkbox(ids_array[5], prefix).when_present.set
+          else
+            @view.checkbox_selector_by_id(ids_array[5]).when_present.set
+          end
+        end
+
+        if ids_array.size > 6
+          if ids_array[6] == 'relationshipMatchingGift'
+            @view.check_only_matching_gift_checkbox(ids_array[6], prefix).when_present.set
+          else
+            @view.checkbox_selector_by_id(ids_array[6]).when_present.set
+          end
+        end
+
+      end
+
     end
   end
 end

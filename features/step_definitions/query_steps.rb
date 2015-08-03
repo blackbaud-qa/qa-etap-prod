@@ -117,6 +117,11 @@ And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)'
   end
 end
 
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type relationship attributes/) do | ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  query.criteria_relationship_atributes(ids, prefix, values)
+end
+
 And (/^I set the data return type to '([^']*)' on the Create a New Query page/) do |value|
   query = Queries::Createquerycategory.new
   query.select_data_return_type(value)
