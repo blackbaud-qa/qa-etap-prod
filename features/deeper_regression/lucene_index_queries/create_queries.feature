@@ -27,7 +27,7 @@ Feature: Create, Edit, Save and Run Queries
       | Account-Account Name 1            | Account            | Account Name              | AccountTextValues | TestEntityRoleForNamesData                           | values                                 | John Carr                     |
       | Account-Account Name 2            | Account            | Account Name              | AccountTextValues | TestEntityRoleForNamesData                           | values                                 | John Carr, Spencer Murphy     |
       | Account-Account Name 3            | Account            | Account Name              | AccountTextValues | TestEntityRoleForNamesData                           | values                                 | John Carr, Spencer Murphy, Xandra Harrison     |
-  #    | Account-Account Number            | Account            | Account Number            | numRange          | TestEntityRoleForIdRangeData                         | comparisonKey, id, comparison2Key, id2 | Greater Than, 3, Less Than, 5 |
+      | Account-Account Number            | Account            | Account Number            | numRange          | TestEntityRoleForIdRangeData                         | comparisonKey, id, comparison2Key, id2 | Greater Than, 3, Less Than, 5 |
   #    | Account-Account Recognition Name  | Account            | Account Recognition Name  | textValues        | testByName(TestCustomerForRecognitionNamesData)      | values                                 | John Carr                     |
   #    | Account-Account Recognition Types | Account            | Account Recognition Types | checkboxes        | testByName(TestCustomerForRecognitionTypesData)      | recognitionTypes                       | 0,2,3                         |
   #    | Account-Account Role              | Account            | Account Role              | checkboxes        |  |  |  |
@@ -65,6 +65,10 @@ Feature: Create, Edit, Save and Run Queries
       | Amounts - Upgraded/Split Transaction Total Arrears | Amounts| Upgraded/Split Transaction Total Arrears | arrears| testByName(TestTransactionForSegmentedArrearsData)        | comparisonKey, amountString, dynamicDate, asOfDateString | Less Than, 100, Start of Next Month |
       | Dates - Account Created Date 1                     | Dates  | Account Created Date                     | dateRange | TestEntityRoleForCreatedDateData                       | dynamicDateRange, startDateString, endDateString         | Custom Range, 7/15/2015, 7/20/2015  |
       | Dates - Account Created Date 2                     | Dates  | Account Created Date                     | dateRange | TestEntityRoleForCreatedDateData                       | dynamicDateRange                                         | Last 7 Days  |
+      | Defined Fields - Approaches 1     | Commonly Used Fields     | Approaches | checkbox refs     | TestTransactionForApproachesData                     | approachRefs                            | Direct Mail                  |
+      | Defined Fields - Approaches 2     | Commonly Used Fields     | Approaches | checkbox refs     | TestTransactionForApproachesData                     | approachRefs                            | any                          |
+      | Defined Fields - Approaches 3     | Commonly Used Fields     | Approaches | checkbox refs     | TestTransactionForApproachesData                     | approachRefs                            | no                           |
+      | Defined Fields - Approaches 4     | Commonly Used Fields     | Approaches | checkbox refs     | TestTransactionForApproachesData                     | approachRefs                            | Direct Mail, Unsolicited     |
 
 
   Scenario: Deleting Categories

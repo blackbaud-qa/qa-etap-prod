@@ -101,12 +101,12 @@ module Cukesetaptesting
         content.checkbox(:id, ids)
       end
 
-      def set_criteria_no_value(prefix)
+      def set_criteria_any_value(prefix)
         selector = prefix + '.fieldPopulatedTest'
         content.checkbox(:id, selector)
       end
 
-      def set_criteria_any_value(prefix)
+      def set_criteria_no_value(prefix)
         selector = prefix + '.fieldEmptyTest'
         content.checkbox(:id, selector)
       end
@@ -170,6 +170,10 @@ module Cukesetaptesting
       def check_only_matching_gift_checkbox(id, prefix)
         selector = 'testByName(' + prefix + ').' + id
         content.checkbox(:name, selector)
+      end
+
+      def checkbox_selector_by_text(name, value)
+        content.checkbox(:name, name).parent.parent.parent.label(:text, value).checkbox
       end
     end
   end

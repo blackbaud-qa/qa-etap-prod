@@ -44,7 +44,7 @@ And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)'
   end
 end
 
-And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type numRange/) do |prefix, ids, values|
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type numRange/) do |ids, prefix, values|
   query = Queries::Createquerycategory.new
   query.criteria_num_range(prefix, ids, values)
 end
@@ -125,6 +125,11 @@ end
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type dateRange/) do | ids, prefix, values|
   query = Queries::Createquerycategory.new
   query.criteria_date_range(prefix, ids, values)
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type checkbox refs/) do | ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  query.criteria_checkbox_refs(prefix, ids, values)
 end
 
 And (/^I set the data return type to '([^']*)' on the Create a New Query page/) do |value|

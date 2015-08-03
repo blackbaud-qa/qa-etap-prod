@@ -155,11 +155,11 @@ module Cukesetaptesting
       end
 
       def criteria_text_value_none(prefix)
-        @view.set_criteria_any_value(prefix).when_present.set
+        @view.set_criteria_no_value(prefix).when_present.set
       end
 
       def criteria_text_value_any(prefix)
-        @view.set_criteria_no_value(prefix).when_present.set
+        @view.set_criteria_any_value(prefix).when_present.set
       end
 
       def criteria_text_accounts_value(prefix, ids, values)
@@ -328,6 +328,20 @@ module Cukesetaptesting
 
       end
 
+      def criteria_checkbox_refs(prefix, id, values)
+        values_array = values.split(',');
+        name = 'testByName(' + prefix + ').' + id
+        values_array.each do |value|
+          value = value.strip
+          if value == 'any'
+            @view.set_criteria_any_value(prefix).when_present.set
+          elsif value == 'no'
+            @view.set_criteria_no_value(prefix).when_present.set
+          else
+            @view.checkbox_selector_by_text(name, value).when_present.set
+          end
+        end
+      end
     end
   end
 end
