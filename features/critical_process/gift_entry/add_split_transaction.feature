@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Adding split transactions
 
   Scenario: Add a split gift
@@ -53,7 +54,7 @@ Feature: Adding split transactions
     And I click Find on the journal page
     Then I should see the message 'No Journal Entries Found' on the journal page
 
-@crit_proc
+
   Scenario: Add another segment to an existing split gift and then delete it
     Given I am logged into eTap
     When I type '/17' into the dynamic search field
