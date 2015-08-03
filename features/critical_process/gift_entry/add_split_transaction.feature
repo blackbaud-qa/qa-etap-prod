@@ -64,7 +64,7 @@ Feature: Adding split transactions
     And I change the Number Of Segments to '3'
     And I click Expand All Segments
 ###  Had to add the click expand all segments step twice because the step for pressing tab was not updating the number of segments properly  ###
-    And I click Expand All Segments
+#    And I click Expand All Segments
     And I set the Received amount on Segment 3 to '50'
     And I set the Fund on Segment 3 to 'Unrestricted'
     And I set the Gift Type on Segment 3 to 'Check'

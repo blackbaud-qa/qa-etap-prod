@@ -125,6 +125,7 @@ end
 And(/^I click Delete on the split transaction page/) do
   gift = Giving::GiftPledge.new
   gift.delete_split_transaction
+  step "I should close the javascript popup"
 end
 
 And(/^I mark the checkbox next to Split Transaction on the journal page/) do
