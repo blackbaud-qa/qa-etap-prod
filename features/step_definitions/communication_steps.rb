@@ -47,6 +47,12 @@ Given(/^click New Email or Document Template on the Correspondence Category page
   letter.new_template_click
 end
 
+And(/^I click on the '([^']*)' letter template$/) do |name|
+  letter = Communications::Createtemplate.new()
+  letter.letter_click(name)
+  sleep 2
+end
+
 Given(/^rename the existing letter to prevent automation errors/) do
   letter = Communications::Createtemplate.new()
   if(letter.letter_exists? 'Simple Business Letter - Guided Mode')
@@ -222,6 +228,21 @@ Given(/^click Next on the Generate Letters page/) do
   letter.gen_letters_next_click
 end
 
+And(/^I click Next on the Mass Email page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.mass_email_content_wait_for_load
+  letter.mass_email_next_click
+end
+
+And(/^I click Send on the Mass Email page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.mass_email_content_wait_for_load
+  # sleep 5
+  letter.mass_email_send_click
+  #adding a wait to give mass email time to process
+  sleep 5
+end
+
 Given(/^set the document type to PDF on the Generate Letters page/) do
   letter = Communications::Createtemplate.new()
   letter.gen_letters_set_doc_type_pdf
@@ -311,7 +332,7 @@ end
 #   letter.new_template_move_stub
 # end
 
-Given(/^(?:I |)click on the Body block to open the Edit Contents pop up/) do
+Given(/^(?:I |)click on the Body block to open the Edit Contents pop up$/) do
   letter = Communications::Createtemplate.new()
   letter.new_template_body_click
 end
@@ -418,6 +439,10 @@ def get_download_location
   b = Page.browser.driver.capabilities[:browser_name]
 
   if b == "chrome"
+    # Trying to open this in a second tab to prevent issues with the main tab
+    step "I open a new tab in my browser"
+    step "I switch to the new tab in my browser"
+
     Page.browser.goto "chrome://settings"
 
     sleep 2
@@ -426,13 +451,16 @@ def get_download_location
 
     # return the download path. Should handle both Linux & Windows cases
     Page.browser.iframe(:name => 'settings').execute_script('arguments[0].scrollIntoView();', Page.browser.iframe(:name => 'settings').text_field(:id => 'downloadLocationPath'))
-    Page.browser.iframe(:name => 'settings').text_field(:id => 'downloadLocationPath').value
+    retval = Page.browser.iframe(:name => 'settings').text_field(:id => 'downloadLocationPath').value
 
+    step "I close the current tab"
+    return retval
   elsif b == "firefox"
     #TODO: how to get default download location?
   elsif b == "ie"
     #TODO: how to get default download location?
   end
+
 end
 
 Then(/^the Word document should contain as many pages as there are new journal entries/) do
@@ -467,4 +495,227 @@ Then(/^the PDF document should contain as many pages as there are new journal en
 
   File.delete pdf_file
   expect(File.exists? pdf_file).to be false
+end
+
+And(/^I delete the existing Document.pdf$/) do
+  letter = Communications::Createtemplate.new()
+
+  dwnld_path = get_download_location
+  pdf_file = dwnld_path + "\\Document.pdf"
+  # puts pdf_file
+  begin
+    reader = PDF::Reader.new pdf_file
+
+    File.delete pdf_file
+  rescue
+    #file not found - no action needed
+  end
+  expect(File.exists? pdf_file).to be false
+end
+
+And(/^I delete the existing Document.docx$/) do
+
+  letter = Communications::Createtemplate.new()
+
+  dwnld_path = get_download_location
+  docx_file = dwnld_path + "\\Document.docx"
+
+  begin
+    File.delete docx_file
+
+  rescue
+    #file not found - no action needed
+  end
+  expect(File.exists? docx_file).to be false
+
+end
+
+Then(/^The Word document should be generated$/) do
+  letter = Communications::Createtemplate.new()
+
+  dwnld_path = get_download_location
+  docx_file = dwnld_path + "\\Document.docx"
+
+  expect(File.exists? docx_file).to be true
+
+end
+
+Then(/^The PDF document should be generated$/) do
+  letter = Communications::Createtemplate.new()
+
+  sleep 5
+  dwnld_path = get_download_location
+  pdf_file = dwnld_path + "\\Document.pdf"
+
+  expect(File.exists? pdf_file).to be true
+
+end
+
+Then(/^I click Word under the Preview menu on the letter template page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.preview_word_click
+end
+
+And(/^I click PDF under the Preview menu on the letter template page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.preview_pdf_click
+end
+
+And(/^I click Email under the Preview menu on the letter template page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.preview_email_click
+end
+
+And(/^I enter the email address '([^']*)'$/) do |address|
+  letter = Communications::Createtemplate.new(:preview_email_address=>address)
+  letter.create
+end
+
+And(/^I click Send on the letter template page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.preview_email_send_click
+end
+
+And(/^I click '([^']*)' under '([^']*)' on the email templates page$/) do |link, name|
+  letter = Communications::Createtemplate.new()
+  letter.create_documents_click(link,name)
+end
+
+And(/^I mark the checkbox next to Create a Journal Contact for Each Account$/) do
+  letter = Communications::Createtemplate.new()
+  letter.create_journal_contact_set
+end
+
+And(/^I set the Subject to '([^']*)' on the Generate Letters page$/) do |subject|
+  letter = Communications::Createtemplate.new(:journal_contact_subject=>subject)
+  letter.create
+end
+
+And(/^I set the Method to '([^']*)' on the Generate Letters page$/) do |method|
+  letter = Communications::Createtemplate.new()
+  letter.gen_letters_method_select method
+end
+
+And(/^a contact dated for today with the subject '([^']*)' should be added to '([^']*)' journal page$/) do |document, name|
+  step "I type '" + name + "' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on '" + name + "' on the accounts page"
+  step "I click Journal"
+
+  journal = Account::Journal.new
+  expect(journal.journal_table_contains? document).to eq(true)
+
+end
+
+And(/^I select Basic Mass Email on the Mass Email page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.basic_mass_email_set
+end
+
+And(/^I click Send a Mass Email on the Mass Email page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.send_mass_email_section_click
+end
+
+And(/^I set the Name to '([^']*)' on the Mass Email page$/) do |name|
+  sleep 1
+  letter = Communications::Createtemplate.new(:mass_update_name=>name)
+  letter.create
+end
+
+And(/^I set both Email fields to '([^']*)' on the Mass Email page$/) do |email|
+  letter = Communications::Createtemplate.new(:mass_update_email=>email,:mass_update_reply=>email)
+  letter.create
+end
+
+And(/^I mark the checkbox next to Create a Journal Contact for All Recipients on the Mass Email page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.mass_email_create_contact_set
+end
+
+And(/^I set the Subject to '([^']*)' on the Mass Email page$/) do |subject|
+  letter = Communications::Createtemplate.new(:mass_update_subject=>subject)
+  letter.create
+end
+
+And(/^I set the Method to '([^']*)' on the Mass Email page$/) do |method|
+  letter = Communications::Createtemplate.new()
+  letter.mass_email_method_select method
+end
+
+And(/^I select Advanced Mass Email on the Mass Email page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.advanced_mass_email_set
+end
+
+And(/^I click on the Body block to open the Edit Contents pop up in the standard editor$/) do
+  sleep 3
+  letter = Communications::Createtemplate.new()
+  letter.standard_editor_body_click
+end
+
+And(/^I delete all of the text in the Edit Contents pop up$/) do
+  letter = Communications::Createtemplate.new()
+  letter.standard_editor_delete_text
+end
+
+And(/^I click Insert Letter Widget in the Edit Contents pop up$/) do
+  letter = Communications::Createtemplate.new()
+  letter.standard_editor_insert_letter_click
+  sleep 2
+end
+
+And(/^I select the Entry List widget$/) do
+  letter = Communications::Createtemplate.new()
+  letter.select_entry_list_click
+end
+
+And(/^I click insert on the Letter Widgets pop up$/) do
+  letter = Communications::Createtemplate.new()
+  letter.letter_widgets_insert_click
+end
+
+And(/^I double click the Entry List widget to edit it in the Edit Contents pop up$/) do
+  letter = Communications::Createtemplate.new()
+  letter.standard_editor_entry_list_dclick
+end
+
+And(/^I click Add Another Column on the Letter Widgets pop up$/) do
+  letter = Communications::Createtemplate.new()
+  letter.letter_widgets_add_column_click
+end
+
+And(/^I set the category to '([^']*)' on the Letter Widgets pop up$/) do |category|
+  letter = Communications::Createtemplate.new()
+  letter.letter_widgets_category_select category
+end
+
+And(/^I set the field to '([^']*)' on the Letter Widgets pop up$/) do |field|
+  letter = Communications::Createtemplate.new()
+  letter.letter_widgets_field_select field
+end
+
+And(/^I click Update on the Edit Contents pop up$/) do
+  letter = Communications::Createtemplate.new()
+  letter.edit_contents_update_click
+end
+
+And(/^I set Grouping to One Document Per Account$/) do
+  letter = Communications::Createtemplate.new()
+  letter.gen_letters_set_grouping_per_account
+end
+
+And(/^I delete all the text in the advanced editor on the template page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.advanced_editor_delete_text
+end
+
+And(/^I click Insert Letter Widget in the advanced editor on the template page$/) do
+  letter = Communications::Createtemplate.new()
+  letter.advanced_editor_insert_letter_click
+end
+
+And(/^I double click the Entry List widget to edit it in the advanced editor$/) do
+  letter = Communications::Createtemplate.new()
+  letter.advanced_editor_entry_list_dclick
 end

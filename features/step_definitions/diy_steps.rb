@@ -299,6 +299,12 @@ When(/^I click on the link for the form titled Donation Page$/) do
   diy.donation_page_click
 end
 
+And(/^I open a new tab in my browser$/) do
+  landing = Admin::Landing.new
+  landing.communications_shift_click
+
+end
+
 And(/^I switch to the new tab in my browser$/) do
   diy = DIY::Onlineforms.new()
   diy.switch_tab

@@ -46,12 +46,7 @@ end
 
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type numRange/) do |prefix, ids, values|
   query = Queries::Createquerycategory.new
-  # query.create
-  if values == '' #If the Whoever Runs This Query box is checked
-    id_values = ''
-  else #If there is an account name
-    id_values = ids
-  end
+  query.criteria_num_range(prefix, ids, values)
 end
 
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type AccountTextValues/) do | ids, prefix, values|
@@ -78,16 +73,16 @@ And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)'
   end
 end
 
-And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type numRange/) do |ids, prefix, values|
-  query = Queries::Createquerycategory.new
-  # query.create
-  query.criteria_num_range(prefix, ids, values)
-end
-
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type checkboxes/) do |ids, prefix, values|
   query = Queries::Createquerycategory.new
   # query.create
   query.criteria_checkboxes(prefix, ids, values)
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type radius/) do |ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  # query.create
+  query.criteria_radius(prefix, ids, values)
 end
 
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type select/) do |ids, prefix, values|
@@ -120,6 +115,16 @@ end
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type relationship attributes/) do | ids, prefix, values|
   query = Queries::Createquerycategory.new
   query.criteria_relationship_atributes(ids, prefix, values)
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type arrears/) do | ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  query.criteria_arrears(prefix, ids, values)
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type dateRange/) do | ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  query.criteria_date_range(prefix, ids, values)
 end
 
 And (/^I set the data return type to '([^']*)' on the Create a New Query page/) do |value|

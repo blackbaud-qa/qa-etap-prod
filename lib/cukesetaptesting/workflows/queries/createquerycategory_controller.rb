@@ -209,10 +209,39 @@ module Cukesetaptesting
         end
       end
 
+      def criteria_arrears(prefix, ids, values)
+        values_array = values.split(',')
+        ids_array = ids.split(',')
+        @view.dropdown_select_by_name(prefix == '' ? ids_array[0].strip : prefix+'.'+ids_array[0].strip).when_present.set values_array[0].strip
+        @view.text_select_by_name(prefix == '' ? ids_array[1].strip : prefix+'.'+ids_array[1].strip).when_present.set values_array[1].strip
+        @view.dropdown_select_by_name(prefix == '' ? ids_array[2].strip : prefix+'.'+ids_array[2].strip).when_present.set values_array[2].strip
+        if values_array.length > 3
+          @view.text_select_by_name(prefix == '' ? ids_array[3].strip : prefix+'.'+ids_array[3].strip).when_present.set values_array[3].strip
+        end
+      end
+
+      def criteria_date_range(prefix, ids, values)
+        values_array = values.split(',')
+        ids_array = ids.split(',')
+        @view.dropdown_selector(prefix == '' ? ids_array[0].strip : prefix+'.'+ids_array[0].strip).when_present.set values_array[0].strip
+        if values_array.length == 3
+          @view.input_selector(prefix == '' ? ids_array[1].strip : prefix+'.'+ids_array[1].strip).when_present.set values_array[1].strip
+          @view.input_selector(prefix == '' ? ids_array[2].strip : prefix+'.'+ids_array[2].strip).when_present.set values_array[2].strip
+        end
+      end
+
       def criteria_checkboxes(prefix, name, values)
         values_array = values.split(',')
         values_array.each do |value|
           @view.checkbox_selector(prefix == '' ? name : prefix+'.'+name, value).when_present.set
+        end
+      end
+
+      def criteria_radius(prefix, ids, values)
+        values_array = values.split(',')
+        ids_array = ids.split(',')
+        for i in 0..(ids_array.length - 1)
+          @view.input_selector(prefix == '' ? ids_array[i].strip : prefix+'.'+ids_array[i].strip).when_present.set values_array[i].strip
         end
       end
 

@@ -85,7 +85,7 @@ module Cukesetaptesting
       end
 
       def select_journal_entry_type_checkbox(checkbox_text)
-      #  content.div(:id => 'edit.com.eTapestry.transport.TestJournalEntryForAllTypesData').label(:text => checkbox_text).checkbox.when_present.set true
+        #  content.div(:id => 'edit.com.eTapestry.transport.TestJournalEntryForAllTypesData').label(:text => checkbox_text).checkbox.when_present.set true
         content.label(:text => checkbox_text).checkbox.when_present.set true
       end
 
@@ -135,7 +135,7 @@ module Cukesetaptesting
       end
 
       def checkbox_selector(name, value)
-        content.input(:value, value)
+        content.checkbox(:name, name).parent.parent.parent.checkbox(:value, value)
       end
 
       def checkbox_selector_by_id(id)
@@ -144,6 +144,10 @@ module Cukesetaptesting
 
       def dropdown_select_by_name(name)
         content.select(:name, name)
+      end
+
+      def text_select_by_name(name)
+        content.text_field(:name, name)
       end
 
       def radio_button_by_name(name, value)

@@ -428,7 +428,132 @@ module Cukesetaptesting
       def quick_formatting_font_size_select font
         @view.quick_formatting_font_size.when_present.select font
       end
-    end
+
+      def preview_pdf_click
+        @view.preview_pdf.when_present.click
+      end
+
+      def preview_word_click
+        @view.preview_word.when_present.click
+      end
+
+      def preview_email_click
+        @view.preview_email.when_present.click
+      end
+
+      def preview_email_send_click
+        @view.preview_email_send.when_present.click
+      end
+
+      def create_documents_click(link,name)
+        @view.content.a(:text,name).parent.parent.a(:text,link).when_present.click
+      end
+
+      def create_journal_contact_set
+        @view.create_journal_contact.when_present.set
+      end
+
+      def gen_letters_method_select method
+        @view.gen_letters_method.when_present.select method
+      end
+
+      def basic_mass_email_set
+        @view.basic_mass_email.when_present.set
+      end
+
+      def send_mass_email_section_click
+        @view.send_mass_email_section.when_present.click
+      end
+
+      def mass_email_content_wait_for_load
+        @view.mass_email_content.wait_until_present
+        # sleep 2
+      end
+
+      def mass_email_next_click
+        @view.mass_email_next.when_present.click
+      end
+
+      def mass_email_create_contact_set
+        @view.mass_email_create_contact.when_present.set
+      end
+
+      def mass_email_method_select method
+        @view.mass_email_method.when_present.select method
+      end
+
+      def mass_email_send_click
+        @view.mass_email_send.wait_until_present
+        Watir::Wait.until {@view.mass_email_send.enabled?}
+        @view.mass_email_send.when_present.click
+        sleep 5 #wait for mass email to process
+      end
+
+      def advanced_mass_email_set
+        @view.advanced_mass_email.when_present.set
+      end
+
+      def standard_editor_body_click
+        @view.standard_editor_body.when_present.click
+      end
+
+      def standard_editor_delete_text
+        @view.standard_editor_frame.when_present.send_keys [:control, 'a']
+        @view.standard_editor_frame.when_present.send_keys [:delete]
+      end
+
+      def standard_editor_insert_letter_click
+        @view.standard_editor_insert_letter.when_present.click
+      end
+
+      def select_entry_list_click
+        @view.select_entry_list.when_present.click
+        sleep 2
+      end
+
+      def letter_widgets_insert_click
+        @view.letter_widgets_insert.when_present.click
+        sleep 2
+      end
+
+      def standard_editor_entry_list_dclick
+        @view.standard_editor_entry_list.when_present.double_click
+      end
+
+      def letter_widgets_add_column_click
+        @view.letter_widgets_add_column.when_present.click
+      end
+
+      def letter_widgets_category_select category
+        @view.letter_widgets_category.when_present.select category
+      end
+
+      def letter_widgets_field_select field
+        @view.letter_widgets_field.when_present.select field
+      end
+
+      def edit_contents_update_click
+        @view.edit_contents_update.when_present.click
+      end
+
+      def gen_letters_set_grouping_per_account
+        @view.gen_letters_grouping_per_account.when_present.set
+      end
+
+      def advanced_editor_delete_text
+        @view.advanced_editor_frame.when_present.send_keys [:control, 'a']
+        @view.advanced_editor_frame.when_present.send_keys [:delete]
+      end
+
+      def advanced_editor_insert_letter_click
+        @view.advanced_editor_insert_letter.when_present.click
+      end
+
+      def advanced_editor_entry_list_dclick
+        @view.advanced_editor_entry_list.when_present.double_click
+      end
+
+      end
   end
 end
 
