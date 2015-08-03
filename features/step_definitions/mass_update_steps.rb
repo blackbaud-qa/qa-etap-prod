@@ -9,6 +9,7 @@ When (/^I clear old data from the Mass Update query/) do
   while (mass.contact_journal_entry_exists?)
     step "I click Contact on the Query Preview page"
     step "I click Delete on the contact page"
+    step "I should close the javascript popup"
     step "I navigate to the New Journal Contacts query"
   end
 end
@@ -135,6 +136,7 @@ end
 And (/^I click Delete on the contact page/) do
   mass = Admin::Massupdates.new
   mass.contact_delete_click
+  step "I should close the javascript popup"
 end
 
 And (/^I should see zero results on the query preview screen/) do

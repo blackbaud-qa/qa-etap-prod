@@ -55,7 +55,8 @@ module Cukesetaptesting
       end
 
       def letter_exists?(name)
-        return @view.category_letters.text.include? name
+        # return @view.category_letters.text.include? name
+        return @view.category_letters.a(:text,name).present?
       end
 
       def letter_click(name)

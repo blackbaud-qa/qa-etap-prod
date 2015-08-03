@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Adding split transactions
 
   Scenario: Add a split gift
@@ -53,7 +54,7 @@ Feature: Adding split transactions
     And I click Find on the journal page
     Then I should see the message 'No Journal Entries Found' on the journal page
 
-@crit_proc
+
   Scenario: Add another segment to an existing split gift and then delete it
     Given I am logged into eTap
     When I type '/17' into the dynamic search field
@@ -64,7 +65,7 @@ Feature: Adding split transactions
     And I change the Number Of Segments to '3'
     And I click Expand All Segments
 ###  Had to add the click expand all segments step twice because the step for pressing tab was not updating the number of segments properly  ###
-    And I click Expand All Segments
+#    And I click Expand All Segments
     And I set the Received amount on Segment 3 to '50'
     And I set the Fund on Segment 3 to 'Unrestricted'
     And I set the Gift Type on Segment 3 to 'Check'
