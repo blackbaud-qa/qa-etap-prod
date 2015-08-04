@@ -204,8 +204,7 @@ And (/^I click on the WhitePages button/) do
   accounts.whitepages_button
 end
 
-And (/^I should see '([^']*)' and '([^']*)' sent over to WhitePages.com/) do |name, value|
+And (/^I should see '([^']*)' sent over to WhitePages.com/) do |value|
   accounts = Account::AddAccount.new
-  expect(accounts.whitepages_people? name).to eq(true)
-  expect(accounts.whitepages_where? value).to eq(true)
+  expect(accounts.whitepages_url? value).to eq(true)
 end

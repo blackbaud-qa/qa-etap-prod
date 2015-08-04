@@ -181,12 +181,8 @@ module Cukesetaptesting
         @view.whitepages_button_click.when_present.click
       end
 
-      def whitepages_people?(name)
-        @view.whitepages_people_value.when_present.text.include? name
-      end
-
-      def whitepages_where?(value)
-        @view.whitepages_where_value.when_present.text.include? value
+      def whitepages_url?(value)
+        @view.browser.url == value
       end
 
       end
