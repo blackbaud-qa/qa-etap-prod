@@ -183,3 +183,29 @@ end
 #   accounts = Account::AddAccount.new(:find_account_phone => value)
 #   accounts.create
 # end
+
+And (/^I click on the USPS button/) do
+  accounts = Account::AddAccount.new
+  accounts.usps_button
+end
+
+And (/^I should see '([^']*)' returned as the postal code on USPS.com/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.usps_postal_code? value).to eq(true)
+end
+
+And (/^I click Personas/) do
+  accounts = Account::AddAccount.new
+  accounts.personas_link
+end
+
+And (/^I click on the WhitePages button/) do
+  accounts = Account::AddAccount.new
+  accounts.whitepages_button
+end
+
+And (/^I should see '([^']*)' and '([^']*)' sent over to WhitePages.com/) do |name, value|
+  accounts = Account::AddAccount.new
+  expect(accounts.whitepages_people? name).to eq(true)
+  expect(accounts.whitepages_where? value).to eq(true)
+end
