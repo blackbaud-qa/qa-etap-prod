@@ -190,4 +190,28 @@ And(/^I handle the duplicate report if necessary$/) do
     accounts.not_duplicates_click
     step "I click Yes on the Account Settings page"
   end
+
+  And (/^I click on the USPS button/) do
+  accounts = Account::AddAccount.new
+  accounts.usps_button
+end
+
+And (/^I should see '([^']*)' returned as the postal code on USPS.com/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.usps_postal_code? value).to eq(true)
+end
+
+And (/^I click Personas/) do
+  accounts = Account::AddAccount.new
+  accounts.personas_link
+end
+
+And (/^I click on the WhitePages button/) do
+  accounts = Account::AddAccount.new
+  accounts.whitepages_button
+end
+
+And (/^I should see '([^']*)' sent over to WhitePages.com/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.whitepages_url? value).to eq(true)
 end
