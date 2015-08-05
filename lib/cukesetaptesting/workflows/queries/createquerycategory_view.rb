@@ -101,12 +101,12 @@ module Cukesetaptesting
         content.checkbox(:id, ids)
       end
 
-      def set_criteria_no_value(prefix)
+      def set_criteria_any_value(prefix)
         selector = prefix + '.fieldPopulatedTest'
         content.checkbox(:id, selector)
       end
 
-      def set_criteria_any_value(prefix)
+      def set_criteria_no_value(prefix)
         selector = prefix + '.fieldEmptyTest'
         content.checkbox(:id, selector)
       end
@@ -138,6 +138,10 @@ module Cukesetaptesting
         content.checkbox(:name, name).parent.parent.parent.checkbox(:value, value)
       end
 
+      def checkbox_selector_by_id(id)
+        content.checkbox(:id, id)
+      end
+
       def dropdown_select_by_name(name)
         content.select(:name, name)
       end
@@ -148,6 +152,28 @@ module Cukesetaptesting
 
       def radio_button_by_name(name, value)
         content.radio(:name, name).parent.radio(:value, value)
+      end
+
+      def criteria_phone_type_select
+        content.select(:name, 'testByName(TestEntityRoleForPhonesData).phoneTypeName')
+      end
+
+      def set_criteria_text_phone_number_first(prefix)
+        selector = prefix + '.phoneNum'
+        content.text_field(:id, selector)
+      end
+
+      def click_criteria_dynamic_link(id)
+        content.span(id: id).link
+      end
+
+      def check_only_matching_gift_checkbox(id, prefix)
+        selector = 'testByName(' + prefix + ').' + id
+        content.checkbox(:name, selector)
+      end
+
+      def checkbox_selector_by_text(name, value)
+        content.checkbox(:name, name).parent.parent.parent.label(:text, value).checkbox
       end
     end
   end
