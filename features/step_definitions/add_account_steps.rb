@@ -190,8 +190,9 @@ And(/^I handle the duplicate report if necessary$/) do
     accounts.not_duplicates_click
     step "I click Yes on the Account Settings page"
   end
+end
 
-  And (/^I click on the USPS button/) do
+And (/^I click on the USPS button/) do
   accounts = Account::AddAccount.new
   accounts.usps_button
 end
