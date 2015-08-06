@@ -88,22 +88,22 @@ And (/^I set Long Salutation to '([^']*)' on the classic add account page/) do |
   accounts.create
 end
 
-And (/^I click on John Doe/) do
+And (/^I click on '([^']*)' on the accounts page/) do |name|
   accounts = Account::AddAccount.new
-  accounts.john_doe_link_click
+  accounts.name_link_click name
 end
 
-And (/^I click on the Other page for John Doe/) do
+And (/^I click on the account settings page on the accounts page/) do
   accounts = Account::AddAccount.new
   accounts.other_link_click
 end
 
-And (/^I click Delete Role for John Doe/) do
+And (/^I click Delete Role on the Account Settings page/) do
   accounts = Account::AddAccount.new
   accounts.delete_role_button_click
 end
 
-And (/^I click Yes for John Doe/) do
+And (/^I click Yes on the Account Settings page/) do
   accounts = Account::AddAccount.new
   accounts.yes_button_click
 end
@@ -183,6 +183,14 @@ end
 #   accounts = Account::AddAccount.new(:find_account_phone => value)
 #   accounts.create
 # end
+
+And(/^I handle the duplicate report if necessary$/) do
+  accounts = Account::AddAccount.new
+  if(accounts.possible_duplicate_detected?)
+    accounts.not_duplicates_click
+    step "I click Yes on the Account Settings page"
+  end
+end
 
 And (/^I click on the USPS button/) do
   accounts = Account::AddAccount.new

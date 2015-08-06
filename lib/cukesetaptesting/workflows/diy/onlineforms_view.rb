@@ -24,8 +24,8 @@ module Cukesetaptesting
       keyword(:swap_template) {content.h6(:text,'Swap Template')}
       keyword(:choose_steel_template) {content.h1(:class=>'ecommTemplateName', :text=>'Steel')}
       keyword(:swap_to_this_template) {content.button(:id,'swapSubmit')}
-      keyword(:diy_title_font) {content.span(:class=>'styleName', :text=>'Title').parent.select(:class=>'styleFont')}
-      keyword(:diy_title_size) {content.span(:class=>'styleName', :text=>'Title').parent.select(:class=>'styleSize')}
+      keyword(:diy_title_font) {content.div(:class=>'styleDefinition', :text=>/Title/).select(:class=>'styleFont')}
+      keyword(:diy_title_size) {content.div(:class=>'styleDefinition', :text=>/Title/).select(:class=>'styleSize')}
       keyword(:background_color) {content.span(:class=>'styleName', :text=>'Main Background').parent.text_field(:class=>'styleColor')}
       keyword(:edit_update) {content.button(:id,'save')}
       # keyword(:edit_update) {content.button(:value,'Update')}
@@ -39,9 +39,10 @@ module Cukesetaptesting
       keyword(:approach_unsolicited) {content.a(:text,'Unsolicited')}
       # keyword(:settings_update) {content.span(:class=>'titleText',:text=>'Settings Editor').parent.parent.button(:id=>'settingsSave')}
       keyword(:settings_update) {content.button(:id,'settingsSave')}
-      keyword(:donation_section) {content.h6(:text,'Donation Amount*')}
+      # keyword(:donation_section) {content.h6(:text,'Donation Amount*')}
+      keyword(:donation_section) {content.div(:id,'gift_amount_simple')}
       # keyword(:edit_section) {content.span(:class,'hoverControls').img(:class,'edit')}
-      keyword(:edit_section) {content.div(:class,'ecommManagerEditorClickToEdit').img(:class,'edit')}
+      keyword(:edit_section) {content.div(:class,'ecommManagerEditorClickToEdit')}
       keyword(:include_specific) {content.checkbox(:id,'ecDonateWidgetGivingType')}
       keyword(:gift_update) {content.span(:class=>'titleText',:text=>'Edit Gift Information').parent.parent.button(:id=>'save')}
       keyword(:add_item) {content.h6(:text,'Add Item')}
@@ -87,7 +88,10 @@ module Cukesetaptesting
       keyword(:live_exp_year) {browser.select(:id,'cardExpYearField')}
       keyword(:live_submit) {browser.button(:id,'submitButton')}
       keyword(:live_results_header) {browser.h1(:class,'resultHeader')}
-
+      keyword(:create_contact_page) {content.h1(:text,'Contact Page')}
+      keyword(:custom_template) {content.h1(:text,'Alliance for Lupus Research')}
+      keyword(:create_contact_next) {content.button(:id,'templateNext')}
+      keyword(:journal_contact_subject) {content.text_field(:id,'contactSubject')}
 
 
 

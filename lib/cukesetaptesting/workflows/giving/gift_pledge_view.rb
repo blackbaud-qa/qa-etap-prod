@@ -198,6 +198,7 @@ module Cukesetaptesting
       keyword(:mandate_sig_date) {content.text_field(:id,'mandateSignatureDate')}
       keyword(:mandate_id) {content.text_field(:name,'mandateId')}
       keyword(:mandate_manual) {content.checkbox(:name,'manualMandateCheck')}
+      keyword(:journal_page_participation) {content.a(:text,'Participation')}
 
       #Fund combo box for segment 2 of split transaction
       keyword(:fund_type_segment_two) {content.div(:id,'etap.fieldset.table.9').img(:id, 'intentRef(2)_comboArrow')}
@@ -210,6 +211,8 @@ module Cukesetaptesting
       #Approach combo box for segment 2 of split transaction
       keyword(:approach_type_segment_two) {content.div(:id,'etap.fieldset.table.9').img(:id, 'approachRef(2)_comboArrow')}
       keyword(:approach_combo_list_segment_two) {content.div(:id,'approachRef(2)_comboAllList')}
+      keyword(:journal_page_soft_credit) {content.a(:text, 'Soft Credit')}
+      keyword(:journal_soft_credit_delete) {content.button(:value,'Delete')}
 
       def popupSearch
         content.iframe(:id, 'popupFrame') #.when_present

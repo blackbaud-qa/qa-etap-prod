@@ -182,7 +182,7 @@ And(/^I sort by Status on the Fundraisers Page/) do
   # sleep 3
 end
 
-And(/^I should be able to click on the QA Fundraiser 1 url on the Fundraiser page/) do
+And(/^I click on the QA Fundraiser 1 url on the Fundraiser page/) do
   fund = Management::Fundraisers.new()
   fund.fundraiser_page_url_click
 end
@@ -196,3 +196,4 @@ And(/^I should be able to see the changed text '([^']*)'$/) do |text|
   fund = Management::Fundraisers.new()
   expect(fund.fundraiser_changes_made? text).to eq(true)
 end
+

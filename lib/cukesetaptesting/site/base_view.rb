@@ -14,6 +14,5 @@ module Cukesetaptesting
     def navbar_tab(name)
       navbar.li(:id, name)
     end
-
   end
 end

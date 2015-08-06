@@ -1,15 +1,21 @@
 Given(/^the Campaign Performance tile exists on my Dashboard$/) do
-  pending # express the regexp above with the code you wish you had
+
 end
 
 When(/^I click the x in the tile$/) do
-  pending # express the regexp above with the code you wish you had
+  hp = Home::Homepage.new
+  hp.click_delete_tile
 end
 
 And(/^click Ok$/) do
-  pending # express the regexp above with the code you wish you had
+
 end
 
 Then(/^the tile is removed$/) do
-  pending # express the regexp above with the code you wish you had
+
+end
+
+And (/^I drag the tile to the left$/) do
+  hp = Home::Homepage.new
+  hp.move_top_donors_tile
 end

@@ -58,6 +58,29 @@ module Cukesetaptesting
       keyword(:edit_cart_shipping_attributes) {cart_edit_page.img(:id,'refPopulate(preferences.shippingIntent)_comboArrow')}
       keyword(:edit_cart_shipping_attributes_general) {content.div(:id,'refPopulate(preferences.shippingIntent)_comboAllList_valueRow_39.0.3392')}
       keyword(:edit_cart_transaction_processor) {cart_edit_page.select_list(:name,'refPopulate(preferences.namedTransactionProcessor)')}
+      keyword(:view_online_cart) {content.a(:text,'View Online Cart')}
+      keyword(:cart_category_search) {browser.text_field(:id,'etapSearchField')}
+      keyword(:add_item) {browser.a(:text,'Add to cart')}
+      keyword(:item_checkout) {browser.button(:value,'Checkout')}
+      keyword(:first_name) {browser.text_field(:id,'billingFirstName')}
+      keyword(:last_name) {browser.text_field(:id,'billingLastName')}
+      keyword(:billing_country) {browser.select(:id,'billingCountry')}
+      keyword(:billing_address) {browser.text_field(:id,'billingAddress')}
+      keyword(:billing_city) {browser.text_field(:id,'billingCity')}
+      keyword(:billing_state) {browser.select(:id,'billingState')}
+      keyword(:billing_zip) {browser.text_field(:id,'billingPostalCode')}
+      keyword(:billing_email) {browser.text_field(:id,'billingEmail')}
+      keyword(:billing_phone) {browser.text_field(:id,'billingPhone')}
+      keyword(:proceed) {browser.button(:value,'Proceed')}
+      keyword(:cardholder_name) {browser.text_field(:id,'cardName')}
+      keyword(:card_type) {browser.select(:id,'cardType')}
+      keyword(:card_number) {browser.text_field(:id,'cardNumber')}
+      keyword(:card_code) {browser.text_field(:id,'cardCode')}
+      keyword(:exp_month) {browser.select(:id,'cardExpMonth')}
+      keyword(:exp_year) {browser.select(:id,'cardExpYear')}
+      keyword(:process_order) {browser.button(:value,'Process Order')}
+
+
 
 
       def home(model)

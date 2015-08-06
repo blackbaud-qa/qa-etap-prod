@@ -48,6 +48,7 @@ module Cukesetaptesting
       keyword(:long_salutation_field) {content.text_field(:id, 'longDesignation')}
       # keyword(:find_account_phone) {content.text_field(:name, 'phone')}
       keyword(:filter_journal_results_message)
+      keyword(:not_duplicates) {content.a(:text,/Not Duplicate Accounts/)}
 
 
       keyword(:login_id) {content.text_field(:id, 'loginId')}

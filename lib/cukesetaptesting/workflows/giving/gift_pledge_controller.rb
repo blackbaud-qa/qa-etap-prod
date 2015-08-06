@@ -326,6 +326,19 @@ module Cukesetaptesting
         @view.journal_page_gift.when_present.click
       end
 
+      def journal_soft_credit_gift_click
+        @view.journal_page_soft_credit.when_present.click
+      end
+
+      def journal_soft_credit_delete_click
+        # @view.journal_soft_credit_delete.when_present.click
+        begin
+          @view.journal_soft_credit_delete.when_present.click
+        rescue
+          browser.alert.ok
+        end
+      end
+
       def journal_gift_non_deductible_amount
         @view.non_deductible_field.when_present.value
       end
@@ -359,6 +372,10 @@ module Cukesetaptesting
 
       def mandate_id_generated?
         return !(@view.mandate_id.present?)
+      end
+
+      def journal_page_participation_exists?
+        @view.journal_page_participation.present?
       end
 
       def set_fund_segment_two(name)
@@ -448,6 +465,14 @@ module Cukesetaptesting
         @view.segment_one_check_date_value.when_present.value
       end
 
+      def gift_link_present?
+        return @view.journal_page_gift.present?
+      end
+
+      def soft_credit_link_present?
+        return @view.journal_page_soft_credit.present?
+      end
+
       def segment_one_check_number
         @view.segment_one_check_number_value.when_present.value
       end
@@ -532,7 +557,6 @@ module Cukesetaptesting
           browser.alert.ok
         end
       end
-
 
       def edit_segment(segments)
         @view.edit_segment_value.when_present.send_keys [:control, 'a']

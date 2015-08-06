@@ -49,7 +49,59 @@ module Cukesetaptesting
       keyword(:fundraisers_grid) {content.div(:id,'events_summary_1')}
       keyword(:sort_status) {content.a(:class,'status')}
       keyword(:new_fundraiser_content) {browser.div(:id,'etapAppEventInfo')}
-
+      keyword(:register) {browser.a(:text,'Register')}
+      keyword(:create_account) {browser.radio(:name,'createAccount')}
+      keyword(:live_fundraiser_next) {browser.button(:value,'Next')}
+      keyword(:live_fundraiser_first_name) {browser.text_field(:id,'firstName')}
+      keyword(:live_fundraiser_last_name) {browser.text_field(:id,'lastName')}
+      keyword(:live_fundraiser_email) {browser.text_field(:id,'email')}
+      keyword(:live_fundraiser_password) {browser.text_field(:id,'password')}
+      keyword(:live_fundraiser_confirm_password) {browser.text_field(:id,'confirm')}
+      keyword(:live_fundraiser_security_question) {browser.select(:id,'basicSecurityQuestion')}
+      keyword(:live_fundraiser_security_answer) {browser.text_field(:id,'securityAnswer')}
+      keyword(:live_fundraiser_country) {browser.select(:id,'country')}
+      keyword(:live_fundraiser_address) {browser.text_field(:id,'address')}
+      keyword(:live_fundraiser_city) {browser.text_field(:id,'city')}
+      keyword(:live_fundraiser_state) {browser.select(:id,'state')}
+      keyword(:live_fundraiser_postal) {browser.text_field(:id,'zip')}
+      keyword(:live_fundraiser_phone) {browser.text_field(:id,'phone')}
+      keyword(:live_fundraiser_gender) {browser.select(:id,'Gender')}
+      keyword(:live_fundraiser_create_new_team) {browser.radio(:id,'teamOptionCreate')}
+      keyword(:live_fundraiser_fund_name) {browser.text_field(:id,'name')}
+      keyword(:live_fundraiser_runner) {browser.label(:text=>/Runner/).parent.radio}
+      keyword(:live_fundraiser_use_account_billing) {browser.checkbox(:id,'billingUseAccountInfo')}
+      keyword(:live_fundraiser_payment_type_cc) {browser.radio(:id,'paymentMethodCC')}
+      keyword(:live_fundraiser_card_type) {browser.select(:id,'paymentCardType')}
+      keyword(:live_fundraiser_card_number) {browser.text_field(:id,'paymentCardNumber')}
+      keyword(:live_fundraiser_card_security) {browser.text_field(:id,'paymentCvv2')}
+      keyword(:live_fundraiser_card_exp_month) {browser.select(:id,'paymentExpirationMonth')}
+      keyword(:live_fundraiser_card_exp) {browser.select(:id,'paymentExpirationYear')}
+      keyword(:fundraising_content) {browser.div(:id,'etapAppMainContent')}
+      keyword(:login) {browser.a(:text,'Login')}
+      keyword(:live_fundraiser_login_email) {browser.text_field(:id,'username')}
+      keyword(:live_fundraiser_login_pass) {browser.text_field(:id,'password')}
+      keyword(:login_button) {browser.button(:value,'Login')}
+      keyword(:fundraising_center_title) {browser.h2}
+      keyword(:make_donation) {browser.a(:text,'Make a Donation')}
+      keyword(:team_goal_select) {browser.radio(:id,'searchOption')}
+      keyword(:fund_team_search) {browser.text_field(:id,'sponsorSearch')}
+      keyword(:team_search) {browser.button(:value,'Search')}
+      keyword(:john_sponsor) {browser.div(:id,'searchFormTable').radio(:name,'sponsor')}
+      keyword(:billing_first_name) {browser.text_field(:id,'billingFirst')}
+      keyword(:billing_last_name) {browser.text_field(:id,'billingLast')}
+      keyword(:billing_country) {browser.select(:id,'billingCountry')}
+      keyword(:billing_address) {browser.text_field(:id,'billingAddress')}
+      keyword(:billing_city) {browser.text_field(:id,'billingCity')}
+      keyword(:billing_state) {browser.select(:id,'billingState')}
+      keyword(:billing_zip) {browser.text_field(:id,'billingZip')}
+      keyword(:billing_phone) {browser.text_field(:id,'billingPhone')}
+      keyword(:billing_email) {browser.text_field(:id,'billingEmail')}
+      keyword(:donation_type) {browser.select(:id,'donationType')}
+      keyword(:billing_amount) {browser.text_field(:id,'otherAmt')}
+      keyword(:find_team) {browser.a(:text,'Find a Team/Participant')}
+      keyword(:participant_search_name) {browser.text_field(:id,'searchTerm')}
+      keyword(:participant_search) {browser.button(:value,'Search')}
+      keyword(:participant_donors) {browser.table(:id,'sponsorListTable')}
 
       def home(model)
       end

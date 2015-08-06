@@ -86,6 +86,12 @@ Feature: Create, Edit, Save and Run Queries
     And I click Save And 'Preview'
     Then I should see the message 'Displaying 1 - 16 of 16' on the query preview screen
 
+  Scenario: Create a Query Category
+    Given I am logged into eTap
+    When I click Queries on the main menu
+    And I click New Category on the Query Categories page
+    And I set the Name to 'Donation Queries' on the Create Query Category page
+    And I click Save Category on the Query Categories page
 
   Scenario: Deleting Queries and Categories
     Given I am logged into eTap

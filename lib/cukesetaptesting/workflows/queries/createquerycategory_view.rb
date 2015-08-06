@@ -29,7 +29,11 @@ module Cukesetaptesting
       keyword(:cannot_delete_query_ok)  {content.button(:value, 'Ok')}
       keyword(:query_results_my_org_icon) {content.div(:id, 'etapreporttag1_outerdiv').img(:alt,'My Organization')}
 
+      keyword(:duplicate_query_category_warning) {content.div(:class, 'informationWarning')}
 
+      def duplicate_query_category_back_button_click
+        content.button(:value => 'Back').when_present.click
+      end
 
       def home(model)
       end
@@ -80,6 +84,97 @@ module Cukesetaptesting
         content.div(:id, 'etapreporttag1_outerdiv').a(:text, name)
       end
 
+      def select_journal_entry_type_checkbox(checkbox_text)
+        #  content.div(:id => 'edit.com.eTapestry.transport.TestJournalEntryForAllTypesData').label(:text => checkbox_text).checkbox.when_present.set true
+        content.label(:text => checkbox_text).checkbox.when_present.set true
+      end
+
+      def deselect_journal_entry_type_checkbox(checkbox_text)
+        content.div(:id => 'edit.com.eTapestry.transport.TestJournalEntryForAllTypesData').label(:text => checkbox_text).checkbox.when_present.clear
+      end
+
+      def account_name_selector(ids)
+        content.button(:name, ids)
+      end
+
+      def set_account_whoever_runs(ids)
+        content.checkbox(:id, ids)
+      end
+
+      def set_criteria_any_value(prefix)
+        selector = prefix + '.fieldPopulatedTest'
+        content.checkbox(:id, selector)
+      end
+
+      def set_criteria_no_value(prefix)
+        selector = prefix + '.fieldEmptyTest'
+        content.checkbox(:id, selector)
+      end
+
+      def set_criteria_text_value_first(prefix, id)
+        selector = 'testByName(' + prefix + ')' + '.' + id
+        content.text_field(:id, selector)
+      end
+
+      def set_criteria_text_value_account_first(prefix, id)
+        selector = prefix + '.' + id
+        content.text_field(:id, selector)
+      end
+
+      def set_criteria_text_value(prefix, index)
+        selector = prefix + '.table_Row' + index.to_s
+        content.tr(:id, selector).text_field
+      end
+
+      def dropdown_selector(id)
+        content.select(:id, id)
+      end
+
+      def input_selector(id)
+        content.text_field(:id, id)
+      end
+
+      def checkbox_selector(name, value)
+        content.checkbox(:name, name).parent.parent.parent.checkbox(:value, value)
+      end
+
+      def checkbox_selector_by_id(id)
+        content.checkbox(:id, id)
+      end
+
+      def dropdown_select_by_name(name)
+        content.select(:name, name)
+      end
+
+      def text_select_by_name(name)
+        content.text_field(:name, name)
+      end
+
+      def radio_button_by_name(name, value)
+        content.radio(:name, name).parent.radio(:value, value)
+      end
+
+      def criteria_phone_type_select
+        content.select(:name, 'testByName(TestEntityRoleForPhonesData).phoneTypeName')
+      end
+
+      def set_criteria_text_phone_number_first(prefix)
+        selector = prefix + '.phoneNum'
+        content.text_field(:id, selector)
+      end
+
+      def click_criteria_dynamic_link(id)
+        content.span(id: id).link
+      end
+
+      def check_only_matching_gift_checkbox(id, prefix)
+        selector = 'testByName(' + prefix + ').' + id
+        content.checkbox(:name, selector)
+      end
+
+      def checkbox_selector_by_text(name, value)
+        content.checkbox(:name, name).parent.parent.parent.label(:text, value).checkbox
+      end
     end
   end
 end

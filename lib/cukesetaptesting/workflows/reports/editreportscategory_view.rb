@@ -64,6 +64,15 @@ module Cukesetaptesting
       #this href link may be dynamic
       # keyword(:category_3)  {content.a(:href,'editReportCategory.do?categoryRef=45.0.2851')}
       keyword(:category_3)  {content.a(:text,'System')}
+      keyword(:report_name) {content.text_field(:id,'definition.name')}
+      keyword(:edit_report_save) {content.button(:value,'Save')}
+      keyword(:reports_grid) {content.ul(:id,'list_reports')}
+      keyword(:sort_name_expand) {content.text_field(:id,'name.0').parent.a}
+      keyword(:sort_order_z) {content.img(:id,'descending_0')}
+      keyword(:group_report_dropdown) {content.span(:class,'etapComboBox').img}
+      keyword(:group_report) {content.div(:class=>'comboBoxRow',:text=>'').img}
+      keyword(:delete_state_field) {content.text_field(:id,'name.3').parent.parent.img(:class,'closeX')}
+      keyword(:state_field) {content.table(:id,'etapreporttag1')}
 
 
     end

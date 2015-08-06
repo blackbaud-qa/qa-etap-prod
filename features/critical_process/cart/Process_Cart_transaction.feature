@@ -1,40 +1,40 @@
+@crit_proc
 Feature: Create a new Cart
 
-  Background:
-    Given I am logged into eTap
-    And I have a Cart page listed under eStore (Cart)
+#  Background:
+#    Given I am logged into eTap
+#    And I have a Cart page listed under eStore (Cart)
 
  Scenario: View online Cart
   Given I am logged into eTap
-  Given I am in Cart
+  And I click on the Management drop down
+  And I click on eStore (Cart) on the management menu
   And I click on View Online Cart
-  And Iam on the live Cart URL
-  And I click on View This Category under Category 1
-  And I click on View This Item under Item 1
-  And I click on Add item to Cart
-  And I click on Checkout
-  And I Fill out the Contact information
-  And I Click Proceed
-  And I Click on Credit Card in Payment Information Method
-  And I Click on the drop down next to Card Type
-  And I choose Visa
-  And I type in Card Number 4111111111111111
-  And I type in Card Security Code 123
-  And I choose X expiration Month
-  And I choose X Expiration Year
-  And I click on Proceed
-  And I click on Process Order
-  When I receive a confirmation email
-  Then I should see the transaction in eTapestry
+  And I switch to the new tab in my browser
+  And I search for 'Category 1' on the live cart page
+  And I click View This Category under 'Category 1' on the live cart page
+  And I click on View This Item under 'Item 1' on the live cart page
+  And I click on Add item to Cart on the live cart page
+  And I click on Checkout on the live cart page
+  And I set the First Name field to 'First' on the live cart page
+  And I set the Last Name field to 'Last' on the live cart page
+  And I set the Country to 'United States' on the live cart page
+  And I set the Address to '123 Some Rd.' on the live cart page
+  And I set the City to 'Any' on the live cart page
+  And I set the State to 'South Carolina' on the live cart page
+  And I set the Postal Code to '12345' on the live cart page
+  And I set the Email field to 'any@any.com' on the live cart page
+  And I set the Phone to '333-333-3333' on the live cart page
+  And I click Proceed on the live cart page
+  And I set the Cardholder Name to 'First Last' on the live cart page
+  And I set the Card type to 'Visa' on the live cart page
+  And I set the card number to '4111111111111111' on the live cart page
+  And I set the card security code to '123' on the live cart page
+  And I set the expiration month to '04' on the live cart page
+  And I set the expiration year to '2020' on the live cart page
+  And I click Proceed on the live cart page
+  And I click on Process Order on the live cart page
+  And I close the current tab
 
-
-|Contact Information|Text         |
-|First Name         |First        |
-|Last Name          |Last         |
-|Country            |United States|
-|Street Address     |123          |
-|City               |Any          |
-|State/Province     |SC           |
-|Postal Code        |12345        |
-|Email              |any@any.com  |
-|Phone              |333-333-3333 |
+#  When I receive a confirmation email
+#  Then I should see the transaction in eTapestry

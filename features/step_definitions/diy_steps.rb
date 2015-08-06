@@ -173,8 +173,10 @@ And(/^I click Update on the DIY settings page$/) do
 end
 
 And(/I hover over the Donation Amount on the DIY editor page$/) do
+  sleep 1
   diy = DIY::Onlineforms.new()
   diy.donation_section_hover
+  sleep 1
 end
 
 And(/I click the pencil icon that appears on the DIY editor page$/) do
@@ -261,15 +263,15 @@ And(/I confirm saving my changes$/) do
   diy.diy_save_confirm_click
 end
 
-And(/I click Disable for the form titled Donation Page$/) do
+And(/I click Disable for the form titled '([^']*)'$/) do |name|
   diy = DIY::Onlineforms.new()
-  diy.donation_page_disable_click
+  diy.donation_page_disable_click name
 end
 
-And(/I click Delete for the form titled Donation Page$/) do
+And(/I click Delete for the form titled '([^']*)'$/) do |name|
   sleep 2
   diy = DIY::Onlineforms.new()
-  diy.donation_page_delete_click
+  diy.donation_page_delete_click name
 end
 
 And(/^I click Yes, Disable the Page$/) do
@@ -295,6 +297,12 @@ end
 When(/^I click on the link for the form titled Donation Page$/) do
   diy = DIY::Onlineforms.new()
   diy.donation_page_click
+end
+
+And(/^I open a new tab in my browser$/) do
+  landing = Admin::Landing.new
+  landing.communications_shift_click
+
 end
 
 And(/^I switch to the new tab in my browser$/) do
@@ -431,4 +439,27 @@ And(/^I close the current tab$/) do
   diy.close_current_tab
 end
 
+And(/^I click Contact Page$/) do
+  diy = DIY::Onlineforms.new()
+  diy.create_contact_page_click
+end
 
+And(/^I select the Custom template$/) do
+  diy = DIY::Onlineforms.new()
+  diy.custom_template_click
+end
+
+And(/^I click Next on the DIY create contact page$/) do
+  diy = DIY::Onlineforms.new()
+  diy.create_contact_next_click
+end
+
+And(/^I set the Journal Contact Subject to '([^']*)' on the DIY settings page$/) do |subject|
+  diy = DIY::Onlineforms.new(:journal_contact_subject => subject)
+  diy.create
+end
+
+Then(/^the custom template should be shown$/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.custom_template_displayed?).to eq(true)
+end

@@ -15,7 +15,7 @@ end
 
 Then (/^I should not see the Recently Viewed Accounts tile in the right hand column on the Dashboard/) do
   dashboard = Home::Homepage.new
-  expect(dashboard.dashboard_tile_add_recently_viewed_accounts_tile).to eq(false)
+  expect(dashboard.dashboard_tiles_recently_present?).to eq(false)
 end
 
 And (/^I click on 2 Equal Columns/) do

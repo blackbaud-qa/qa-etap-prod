@@ -20,6 +20,7 @@ Feature: Add Account Classic View
     And I set Long Salutation to 'Mr. Doe' on the classic add account page
     And I set the UDF 'Company' to 'Blackbaud' on the classic add account page
     And I click Save And 'Go to Personas'
+    And I handle the duplicate report if necessary
     Then I should be taken to the Persona page 'John Doe''s account
     And the Address Lines should be set to '501 N Pennsylvania Parkway'
     And the City should be set to 'Indianapolis'
@@ -54,8 +55,8 @@ Feature: Add Account Classic View
     When I click Accounts
     And I type 'Doe' into the search field
     And I click Find
-    And I click on John Doe
-    And I click on the Other page for John Doe
-    And I click Delete Role for John Doe
-    And I click Yes for John Doe
+    And I click on 'John Doe' on the accounts page
+    And I click on the account settings page on the accounts page
+    And I click Delete Role on the Account Settings page
+    And I click Yes on the Account Settings page
     Then I should see the message: 'No Results Found'

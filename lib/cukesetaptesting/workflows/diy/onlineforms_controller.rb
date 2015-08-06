@@ -135,7 +135,8 @@ module Cukesetaptesting
       end
 
       def edit_section_click
-        @view.edit_section.when_present.click
+        @view.edit_section.wait_until_present
+        @view.edit_section.img(:class,'edit').when_present.click
       end
 
       def include_specific_check
@@ -197,12 +198,12 @@ module Cukesetaptesting
         @view.diy_save_confirm.when_present.click
       end
 
-      def donation_page_disable_click
-        @view.donation_page_disable.when_present.click
+      def donation_page_disable_click name
+        @view.content.span(:class=>'namePart',:text=> name).parent.parent.div(:class=>'linkBox',:text=>'Disable').when_present.click
       end
 
-      def donation_page_delete_click
-        @view.donation_page_delete.when_present.click
+      def donation_page_delete_click name
+        @view.content.span(:class=>'namePart',:text=> name).parent.parent.div(:class=>'linkBox',:text=>'Delete').when_present.click
       end
 
       def donation_page_disable_confirm_click
@@ -279,6 +280,22 @@ module Cukesetaptesting
 
       def close_current_tab
         @view.browser.windows.last.close
+      end
+
+      def create_contact_page_click
+        @view.create_contact_page.when_present.click
+      end
+      
+      def custom_template_click
+        @view.custom_template.when_present.click
+      end
+
+      def create_contact_next_click
+        @view.create_contact_next.when_present.click
+      end
+
+      def custom_template_displayed?
+        return @view.browser.div(:id,'logo').present?
       end
 
     end

@@ -36,6 +36,12 @@ module Cukesetaptesting
 =end
       end
 
+      def move_top_donors_tile
+
+#        @view.move_specific_tile_by_direction :tileTopDonors, :left
+        @view.move_specific_tile_onto_tile :tileTopDonors, :tileQuickLinks
+      end
+
       def is_present?
         @view.take_me_to_etap_iframe.present?
       end
@@ -50,18 +56,29 @@ module Cukesetaptesting
 
 
       def dashboard_tile_add_recently_viewed_accounts_click
-        @view.dashboard_tile_recently_viewed_accounts_checkbox.when_present.click
+        @view.dashboard_tile_recently_viewed_accounts_checkbox.when_present.set
       end
 
       def dashboard_tile_add_recently_viewed_accounts_tile
-        @view.dashboard_tile_recently_viewed_accounts_tile.present?
+        @view.dashboard_tile_recently_viewed_accounts_tile.wait_until_present
+        return @view.dashboard_tile_recently_viewed_accounts_tile.present?
+        # sleep 5
+        # return @view.content.text.include? /Recently Viewed Accounts/
+      end
+
+      def dashboard_tiles_recently_present?
+        # puts "/"+text+"/"
+        sleep 3
+        return @view.content.div(:id,'mainContent').div(:id,'tile200').present?
       end
 
       def dashboard_tile_remove_recently_viewed_accounts_click
         begin
+          @view.browser.execute_script('arguments[0].scrollIntoView();',@view.dashboard_tile_remove_recently_viewed_accounts)
           @view.dashboard_tile_remove_recently_viewed_accounts.when_present.click
+          sleep 1
         rescue
-          browser.alert.ok
+          @view.browser.alert.ok
         end
       end
 

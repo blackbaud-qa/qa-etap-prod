@@ -187,6 +187,57 @@ module Cukesetaptesting
       def edit_cart_select_default_processor
         @view.edit_cart_transaction_processor.when_present.select 'iATS Test Processor'
       end
+
+      def view_online_cart_click
+        @view.view_online_cart.when_present.click
+      end
+
+      def view_category_click category
+        cat = @view.browser.div(:class => 'etapCategoryName', :text => category)
+        cat.parent.a.when_present.click
+      end
+
+      def view_item_click item
+        it = @view.browser.div(:class => 'etapItemName', :text => item)
+        it.parent.a.when_present.click
+      end
+
+      def add_item_click
+        @view.add_item.when_present.click
+      end
+
+      def item_checkout_click
+        @view.item_checkout.when_present.click
+      end
+
+      def proceed_click
+        @view.proceed.when_present.click
+      end
+
+      def billing_country_select country
+        @view.billing_country.when_present.select country
+      end
+
+      def billing_state_select state
+        @view.billing_state.when_present.select state
+      end
+
+      def card_type_select type
+        @view.card_type.when_present.select type
+      end
+
+      def exp_month_select exp
+        @view.exp_month.when_present.select exp
+      end
+
+      def exp_year_select exp
+        @view.exp_year.when_present.select exp
+      end
+
+      def process_order_click
+        @view.process_order.when_present.click
+      end
+
     end
   end
 end

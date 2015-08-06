@@ -43,8 +43,8 @@ module Cukesetaptesting
         @view.repassword.when_present.set value
       end
 
-      def john_doe_link_click
-        @view.john_doe_link.when_present.click
+      def name_link_click name
+        @view.content.a(:text,name).when_present.click
       end
 
       def other_link_click
@@ -142,6 +142,14 @@ module Cukesetaptesting
         elsif (role_name == 'team')
           set_team_checkbox value
         end
+      end
+
+      def possible_duplicate_detected?
+        return @view.content.h1(:class=>'pageTitle',:text=>'Possible Duplicates Report').present?
+      end
+
+      def not_duplicates_click
+        @view.not_duplicates.when_present.click
       end
 
       # def create_person (account_name, sort_name, address = '', city = '', state = '', postal_code = '', county = '', voice = '', email = '', web_page = '', note = '', short_sal = '', long_sal = '', udf_name = 'Company', udf_value = '', desired_next_page = 'Go to Personas')

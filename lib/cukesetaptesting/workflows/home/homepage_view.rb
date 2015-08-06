@@ -36,7 +36,8 @@ module Cukesetaptesting
       keyword(:take_me_to_etap_iframe)  { browser.iframe(:id, 'etapContentIframe').div(:id, 'welcomeDashboard').div(:class, 'popupWindow menuOverlay').div(:class, 'popContent').div(:index => 0).div(:index => 2).h2.link(:text, 'Take me to eTapestry!') }
 
       keyword(:dashboard_tile_recently_viewed_accounts_checkbox)  {content.div(:id, 'etap.fieldset.table.2').checkbox(:value,'200')}
-      keyword(:dashboard_tile_recently_viewed_accounts_tile)  {content.div(:class, 'tilesetRightRow et-col-lg-6 et-col-sm-6  et-col-xs-12').div(:id, 'tile200')}
+      # keyword(:dashboard_tile_recently_viewed_accounts_tile)  {content.div(:class, 'tilesetRightRow et-col-lg-6 et-col-sm-6  et-col-xs-12').div(:id, 'tile200')}
+      keyword(:dashboard_tile_recently_viewed_accounts_tile)  {content.div(:id,'mainContent').h3(:class=>'title',:text=>/Recently Viewed Accounts/)}
       keyword(:two_equal_column_layout) {content.radio(:value, '1')}
       keyword(:left_column) {content.divs(:class, 'tilesetRow et-col-lg-6')}
       keyword(:right_column) {content.divs(:class, 'tilesetRightRow et-col-lg-6')}
@@ -45,7 +46,7 @@ module Cukesetaptesting
       keyword(:set_camp_tile_end_date)  {content.div(:id, 'tile301').text_field(:name, 'campaignCustomEndDate')}
       keyword(:update_camp_performance_tile)  {content.div(:id, 'tile301').button(:value, 'Update')}
       keyword(:perform_full_report_results) {content.div(:id, 'dashboardDetailReport').td(:class, 'pageResults')}
-
+      keyword(:camp_perform_date_range_label) {content.div(:id,'asyncTileLoader301').table(:id,'etapreporttag1')}
 
 
 
@@ -56,9 +57,9 @@ module Cukesetaptesting
         content.div(:id, 'tile301').a(:text, value)
       end
 
-      def camp_perform_date_range_label
-        browser.iframe(:id, 'etapContentIframe').div(:id, 'welcomeDashboard').div(:id, 'mainContent').div(:class, 'tilesetContainer').div(:class, 'tilesetRow et-col-lg-6 et-col-sm-6 et-col-xs-12').div(:id,'dragDropList0').div(:id, 'tile301').div(:id, 'fauxFieldset').div(:class, 'fauxFieldsetInner').div(id, 'etap.fieldset.area.1').div(:class, 'tileBoundary').div(:class, 'tileBody').div(:class, 'thermometerTile').div(:class, 'data activity').div(:id, 'etapreporttag1_outerdiv').table(:id, 'etapreporttag1').tr(:class, 'current reportHeading').td(:class, 'name')
-      end
+      # def camp_perform_date_range_label
+      #   browser.iframe(:id, 'etapContentIframe').div(:id, 'welcomeDashboard').div(:id, 'mainContent').div(:class, 'tilesetContainer').div(:class, 'tilesetRow et-col-lg-6 et-col-sm-6 et-col-xs-12').div(:id,'dragDropList0').div(:id, 'tile301').div(:id, 'fauxFieldset').div(:class, 'fauxFieldsetInner').div(id, 'etap.fieldset.area.1').div(:class, 'tileBoundary').div(:class, 'tileBody').div(:class, 'thermometerTile').div(:class, 'data activity').div(:id, 'etapreporttag1_outerdiv').table(:id, 'etapreporttag1').tr(:class, 'current reportHeading').td(:class, 'name')
+      # end
 
       #
       # This function should receive one of the symbols used
@@ -72,6 +73,7 @@ module Cukesetaptesting
             return false
           end
 
+          # The second A HREF is the 'Delete' link
           (tileControls tile_name, tile_index).a(:index => 1).click
         rescue
           browser.alert.ok
@@ -79,6 +81,95 @@ module Cukesetaptesting
 
         return true
       end
+
+      def translate_column tile_name, direction
+        tile_index = findTileColumnIndex tile_name # 0, 1 or 2
+
+        target_column = -1
+
+        if direction == :left
+          target_column = move_left tile_index
+        elsif direction == :right
+          target_column = move_right tile_index
+        end
+      end
+
+      def move_left tile_index
+        if tile_index == 0
+          return 2
+        elsif tile_index == 1
+          return 0
+        elsif tile_index == 2
+          return 1
+        end
+      end
+
+      def move_right tile_index
+        if tile_index == 0
+          return 1
+        elsif tile_index == 1
+          return 2
+        elsif tile_index == 2
+          return 0
+        end
+      end
+
+      def move_specific_tile_by_direction tile_name, direction
+        begin
+          tile_index = findTileColumnIndex tile_name
+          if tile_index == -1
+            return false
+          end
+
+          target_column = translate_column tile_name, direction
+
+          # The first A HREF is the 'Move' link
+          (tileControls tile_name, tile_index).a(:index => 0).img(:src => 'images/moveGray16.png').drag_and_drop_by -100, 5
+        rescue
+          browser.alert.ok
+        end
+
+        return true
+      end
+
+      def move_specific_tile_onto_tile tile_name, target_tile
+        tile_index = findTileColumnIndex tile_name
+        if tile_index == -1
+          return false
+        end
+
+        target_tile_index = findTileColumnIndex target_tile
+        if target_tile_index == -1
+          return false
+        end
+
+        my_element = (tileControls tile_name, tile_index).a(:class => 'dragHandle')  #.element
+    #    target = (tileControls target_tile, target_tile_index).wd
+#        target = columnOne.div(:id => 'tile201').div(:class => 'fauxFieldset').div(:class => 'fauxFieldsetInner').div(:class => 'dashboardTile').div(:class => 'tileBoundary').div(:class => 'tileBody')
+        target = columnOne
+
+#        target = columnOne.element
+        #a.drag_and_drop_on b
+        # The first A HREF is the 'Move' link
+        #(tileControls tile_name, tile_index).a(:class => 'dragHandle').drag_and_drop_on columnOne
+
+        my_element.fire_event("onmousedown")
+        d=browser.driver
+
+        d.action.click_and_hold(my_element.wd).perform
+
+        sleep 3
+
+        d.action.move_to(target.wd).perform
+
+        sleep 3
+        my_element.fire_event("onmouseup")
+
+
+
+        return true
+      end
+
 
       # tileControls is used to get the tile controls div, which
       #  gives access to move & delete functionality.
@@ -148,10 +239,6 @@ module Cukesetaptesting
             columnThreeCache.div(:id => "#{tileID}").div(:class => 'fauxFieldset').div(:class => 'fauxFieldsetInner').div(:class => 'dashboardTile').div(:class => 'tileBoundary').div(:class => 'tileBody').h3.parent.parent.div(:class => 'controls')
           end
         end
-      end
-
-      def move_specific_tile tile_name
-        #TODO: Add code similar to delete logic to move the tile elsewhere.
       end
 
       def contentIFrame
