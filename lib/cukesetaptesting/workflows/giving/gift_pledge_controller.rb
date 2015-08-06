@@ -281,6 +281,13 @@ module Cukesetaptesting
           end
       end
 
+      def get_rid_of_ok
+        begin
+          if(browser.alert.exists?)
+            browser.alert.ok
+          end
+        end
+      end
 
       def pledge_entry_click
         @view.pledge_entry_to_click.when_present.click

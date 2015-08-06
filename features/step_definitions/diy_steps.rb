@@ -463,3 +463,16 @@ Then(/^the custom template should be shown$/) do
   diy = DIY::Onlineforms.new()
   expect(diy.custom_template_displayed?).to eq(true)
 end
+
+And(/^I click Update on the DIY Edit Ticket Options page/) do
+  diy = DIY::Onlineforms.new
+  diy.ticket_section_update
+end
+
+And(/^I hover over the Ticket Section on the DIY editor page/) do
+  sleep 1
+  diy = DIY::Onlineforms.new
+  diy.ticket_section_hover
+  sleep 1
+end
+
