@@ -155,11 +155,11 @@ module Cukesetaptesting
       end
 
       def criteria_text_value_none(prefix)
-        @view.set_criteria_any_value(prefix).when_present.set
+        @view.set_criteria_no_value(prefix).when_present.set
       end
 
       def criteria_text_value_any(prefix)
-        @view.set_criteria_no_value(prefix).when_present.set
+        @view.set_criteria_any_value(prefix).when_present.set
       end
 
       def criteria_text_accounts_value(prefix, ids, values)
@@ -255,6 +255,93 @@ module Cukesetaptesting
         @view.radio_button_by_name(name, values).when_present.set
       end
 
+      def criteria_phone_type(phone_type)
+        @view.criteria_phone_type_select.when_present.select_value phone_type
+      end
+
+      def criteria_phone_number_value(prefix, phone_values)
+        value_array = phone_values.split(',')
+
+        value_array.each_with_index do |value, index|
+          value = value.strip
+          if index == 0
+            input = @view.set_criteria_text_phone_number_first(prefix)
+            input.when_present.set value
+          else
+            input = @view.set_criteria_text_value(prefix, index+1)
+            input.when_present.set value
+          end
+
+          if index != value_array.size - 1
+            input.parent.a.click
+          end
+        end
+      end
+
+      def criteria_relationship_atributes(ids, prefix, values)
+        values_array = values.split(',')
+        ids_array = ids.split(',')
+        prefix_with_dot = prefix + '.'
+        values_array.each_with_index { |value, index|
+          values_array[index] = value.strip
+        }
+        ids_array.each_with_index { |id, index|
+          ids_array[index] = id.strip
+        }
+
+        @view.dropdown_selector(ids_array[0]).when_present.select values_array[0]
+        if values_array[1] === 'Dynamic'
+          @view.click_criteria_dynamic_link(ids_array[1]).click
+          if values_array[1]
+            @view.dropdown_selector(prefix_with_dot + ids_array[2]).select_value(values_array[2])
+          end
+        else
+          @view.input_selector(prefix_with_dot + ids_array[1]).set values_array[1]
+          @view.input_selector(prefix_with_dot + ids_array[2]).set values_array[2]
+        end
+
+        if values_array[3] === 'Dynamic'
+          @view.click_criteria_dynamic_link(ids_array[3]).click
+          if values_array[4]
+            @view.dropdown_selector(prefix_with_dot + ids_array[4]).select_value(values_array[4])
+          end
+        else
+          @view.input_selector(prefix_with_dot + ids_array[3]).set values_array[3]
+          @view.input_selector(prefix_with_dot + ids_array[4]).set values_array[4]
+        end
+
+        if ids_array.size > 5
+          if ids_array[5] == 'relationshipMatchingGift'
+            @view.check_only_matching_gift_checkbox(ids_array[5], prefix).when_present.set
+          else
+            @view.checkbox_selector_by_id(ids_array[5]).when_present.set
+          end
+        end
+
+        if ids_array.size > 6
+          if ids_array[6] == 'relationshipMatchingGift'
+            @view.check_only_matching_gift_checkbox(ids_array[6], prefix).when_present.set
+          else
+            @view.checkbox_selector_by_id(ids_array[6]).when_present.set
+          end
+        end
+
+      end
+
+      def criteria_checkbox_refs(prefix, id, values)
+        values_array = values.split(',');
+        name = 'testByName(' + prefix + ').' + id
+        values_array.each do |value|
+          value = value.strip
+          if value == 'any'
+            @view.set_criteria_any_value(prefix).when_present.set
+          elsif value == 'no'
+            @view.set_criteria_no_value(prefix).when_present.set
+          else
+            @view.checkbox_selector_by_text(name, value).when_present.set
+          end
+        end
+      end
     end
   end
 end
