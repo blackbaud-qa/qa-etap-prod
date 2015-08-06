@@ -76,6 +76,13 @@ module Cukesetaptesting
         @view.browser.send_keys :arrow_down
       end
 
+      def gift_box_icon_click
+        @view.gift_box_icon.when_present.click
+      end
+
+      def new_gift_and_pledge_page
+        @view.new_gift_and_pledge_page.present?
+      end
     end
 
   end
