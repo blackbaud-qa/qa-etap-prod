@@ -92,7 +92,8 @@ module Cukesetaptesting
       keyword(:custom_template) {content.h1(:text,'Alliance for Lupus Research')}
       keyword(:create_contact_next) {content.button(:id,'templateNext')}
       keyword(:journal_contact_subject) {content.text_field(:id,'contactSubject')}
-
+      keyword(:ticket_section)  {content.div(:id,'event_widget_block')}
+      keyword(:ticket_section_update_click) {content.span(:class=>'titleText',:text=>'Edit Ticket Options').parent.parent.button(:id=>'save')}
 
 
       def click_on_fund(fund)
