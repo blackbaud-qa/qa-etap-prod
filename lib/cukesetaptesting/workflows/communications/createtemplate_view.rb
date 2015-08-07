@@ -177,6 +177,21 @@ module Cukesetaptesting
       keyword(:mass_email_method) {content.select(:id,'contactMethod')}
       keyword(:mass_email_send) {content.button(:value,'Send')}
       keyword(:advanced_mass_email) {content.radio(:id,'advancedMode')}
+      keyword(:standard_editor_body) {content.div(:id,'guideContent')}
+      keyword(:standard_editor_frame) {content.iframe(:id,'blockHtmlContents_ifr')}
+      keyword(:standard_editor_insert_letter) {content.div(:id,'mceu_27').button}
+      # keyword(:select_entry_list) {letter_widgets.table.button(:id,'entryList')}
+      keyword(:select_entry_list) {letter_widgets.div(:class=>'heading',:text=>'Entry List').parent.parent.button}
+      keyword(:letter_widgets_insert) {letter_widgets_content.div(:id,'actionsPanel').button(:value,'Insert')}
+      keyword(:standard_editor_entry_list) {standard_editor_frame.input}
+      keyword(:letter_widgets_add_column) {letter_widgets_content.a(:text,'Add Another Column')}
+      keyword(:letter_widgets_category) {letter_widgets_content.select(:id,'category')}
+      keyword(:letter_widgets_field) {letter_widgets_content.select(:id,'field')}
+      keyword(:edit_contents_update) {content.h1(:text=>'Edit Contents').parent.div(:class,'popFooter').button(:value,'Update')}
+      keyword(:gen_letters_grouping_per_account) {content.radio(:value,'label.account')}
+      keyword(:advanced_editor_frame) {content.iframe(:id,'templateHtml_ifr')}
+      keyword(:advanced_editor_insert_letter) {content.div(:id,'mceu_32')}
+      keyword(:advanced_editor_entry_list) {advanced_editor_frame.input}
 
 
       def home(model)
@@ -186,6 +201,16 @@ module Cukesetaptesting
       end
 
       def edit(model)
+      end
+
+      def letter_widgets
+        content.div(:class=>'mce-title',:text=>'Letter Widgets').parent.parent.iframe
+      end
+
+      # No idea why simpler selector don't work, but this is the only one that works I've found so far...
+      # For some reason, just getting the iframe itself doesn't do the trick.  Guessing there are other iframes on the page matching at that level.
+      def letter_widgets_content
+        letter_widgets.div(:class=>'heading',:text=>'Entry List').parent.parent.parent.parent.parent.parent.parent.parent
       end
 
       def font_name_span(font_name)
@@ -261,6 +286,8 @@ module Cukesetaptesting
       def letter_guide
         content.form(:name,'letterLauncherWizardForm')
       end
+
+
     end
   end
 end

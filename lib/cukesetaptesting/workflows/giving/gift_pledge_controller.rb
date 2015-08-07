@@ -281,6 +281,13 @@ module Cukesetaptesting
           end
       end
 
+      def get_rid_of_ok
+        begin
+          if(browser.alert.exists?)
+            browser.alert.ok
+          end
+        end
+      end
 
       def pledge_entry_click
         @view.pledge_entry_to_click.when_present.click
@@ -461,10 +468,6 @@ module Cukesetaptesting
         @view.segment_one_approach_value.when_present.value
       end
 
-      def segment_one_gift_type
-        @view.segment_one_gift_type_value.when_present.value
-      end
-
       def segment_one_check_date
         @view.segment_one_check_date_value.when_present.value
       end
@@ -475,6 +478,96 @@ module Cukesetaptesting
 
       def soft_credit_link_present?
         return @view.journal_page_soft_credit.present?
+      end
+
+      def segment_one_check_number
+        @view.segment_one_check_number_value.when_present.value
+      end
+
+      def segment_one_tribute?(tribute)
+        @view.segment_one_tribute_value.when_present.text.include? tribute
+      end
+
+      def segment_one_soft_credit_name?(value)
+        @view.segment_one_soft_credit_name_value.when_present.text.include? value
+      end
+
+      def segment_one_soft_credit_amount
+        @view.segment_one_soft_credit_amount_value.when_present.value
+      end
+
+      def segment_two_received_amount
+        @view.segment_two_received_field.when_present.value
+      end
+
+      def segment_two_fund
+        @view.segment_two_fund_value.when_present.value
+      end
+
+      def segment_two_campaign
+        @view.segment_two_campaign_value.when_present.value
+      end
+
+      def segment_two_approach
+        @view.segment_two_approach_value.when_present.value
+      end
+
+      def segment_two_tribute?(tribute)
+        @view.segment_two_tribute_value.when_present.text.include? tribute
+      end
+
+      def segment_two_soft_credit_name?(value)
+        @view.segment_two_soft_credit_name_value.when_present.text.include? value
+      end
+
+      def segment_two_soft_credit_amount
+        @view.segment_two_soft_credit_amount_value.when_present.value
+      end
+
+      def segment_two_udf(udf)
+        @view.click_segment_two_udf_click(udf).parent.span.text
+      end
+
+      def udf_bar_click_segment_two
+        @view.udf_bar_click_segment_two_click.when_present.click
+      end
+
+      def journal_split_transaction
+        @view.journal_split_transaction_click.when_present.click
+      end
+
+      def segment_three_received_amount
+        @view.segment_three_received_field.when_present.value
+      end
+
+      def set_fund_segment_three(name)
+        @view.fund_type_segment_three.when_present.click
+        @view.fund_combo_list_segment_three.when_present.div(:text,name).click
+      end
+
+      def set_gift_type_segment_three(value)
+        @view.set_gift_type_segment_three_value.select(value)
+      end
+
+      def segment_three_check_date
+        @view.segment_three_check_date_value.when_present.value
+      end
+
+      def segment_three_check_number
+        @view.segment_three_check_number_value.when_present.value
+      end
+
+      def delete_segment_three
+        begin
+          @view.delete_segment_three_click.when_present.click
+        rescue
+          browser.alert.ok
+        end
+      end
+
+      def edit_segment(segments)
+        @view.edit_segment_value.when_present.send_keys [:control, 'a']
+        @view.edit_segment_value.when_present.send_keys segments
       end
 
       end

@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Adding split transactions
 
   Scenario: Add a split gift
@@ -33,22 +34,83 @@ Feature: Adding split transactions
     And the Fund on Segment 1 should be set to 'Unrestricted'
     And the Campaign on Segment 1 should be set to 'Annual'
     And the Approach on Segment 1 should be set to 'Direct Mail'
-    And the Gift Type on Segment 1 should be set to 'Check'
     And the Check Date on Segment 1 should be set to '7/28/2090'
-#    And the Check Number on Segment 1 should be set to '1145'
-#    And the Tribute Information on Segment 1 should be set to 'Cindy Grant'
-#    And the Soft Credit Information on Segment 1 should be set to 'Anne Hatch'
-#    And the Soft Credit Amount on Segment 1 should be set to '$125.00'
-#    And the Received amount on Segment 2 should be set to '$75.00'
-#    And the Fund on Segment 2 should be set to 'General'
-#    And the Campaign on Segment 2 should be set to 'Capital'
-#    And the Approach on Segment 2 should be set to 'Direct Mail'
-#    And the Soft Credit Information on Segment 2 should be set to 'Patrica Whitten'
-#    And the Soft Credit Amount on Segment 2 should be set to '$75.00'
-#    And the 'Ticket Quantity A' UDF on Segment 2 should be set to '4'
+    And the Check Number on Segment 1 should be set to '1145'
+    And the Tribute Information on Segment 1 should be set to 'Cindy Grant'
+    And the Soft Credit Information on Segment 1 should be set to 'Anne Hatch'
+    And the Soft Credit Amount on Segment 1 should be set to '$125.00'
+    And the Received amount on Segment 2 should be set to '$75.00'
+    And the Fund on Segment 2 should be set to 'General'
+    And the Campaign on Segment 2 should be set to 'Capital'
+    And the Approach on Segment 2 should be set to 'Direct Mail'
+    And the Tribute Information on Segment 2 should be set to 'No tribute selected'
+    And the Soft Credit Information on Segment 2 should be set to 'Patrica Whitten'
+    And the Soft Credit Amount on Segment 2 should be set to '$75.00'
+    And the 'Ticket Quantity A' UDF on Segment 2 should be set to '4'
     And I click Delete on the split transaction page
     And I click More Options on the journal page
     And I click Uncheck All on the journal page
     And I mark the checkbox next to Split Transaction on the journal page
     And I click Find on the journal page
     Then I should see the message 'No Journal Entries Found' on the journal page
+
+
+  Scenario: Add another segment to an existing split gift and then delete it
+    Given I am logged into eTap
+    When I type '/17' into the dynamic search field
+    And I press Enter on the keyboard
+    And I click Journal
+    And I click on the split transaction in the journal
+    And I change the Received Amount Field to '150.00'
+    And I change the Number Of Segments to '3'
+    And I click Expand All Segments
+###  Had to add the click expand all segments step twice because the step for pressing tab was not updating the number of segments properly  ###
+#    And I click Expand All Segments
+    And I set the Received amount on Segment 3 to '50'
+    And I set the Fund on Segment 3 to 'Unrestricted'
+    And I set the Gift Type on Segment 3 to 'Check'
+    And I set the Check Date on Segment 3 to '7/28/2090'
+    And I set the Check Number on Segment 3 to '1145'
+    And I click Save And 'Edit'
+    And I click Expand All Segments
+    And the Received amount on Segment 1 should be set to '$25.00'
+    And the Fund on Segment 1 should be set to 'General'
+    And the Campaign on Segment 1 should be set to 'Annual'
+    And the Approach on Segment 1 should be set to 'Direct Mail'
+    And the Check Date on Segment 1 should be set to '1/1/2010'
+    And the Check Number on Segment 1 should be set to '789'
+    And the Tribute Information on Segment 1 should be set to 'Cindy Grant'
+    And the Soft Credit Information on Segment 1 should be set to 'Anne Hatch'
+    And the Soft Credit Amount on Segment 1 should be set to '$25.00'
+    And the Received amount on Segment 2 should be set to '$75.00'
+    And the Fund on Segment 2 should be set to 'Unrestricted'
+    And the Campaign on Segment 2 should be set to 'Capital'
+    And the Approach on Segment 2 should be set to 'Direct Mail'
+    And the Tribute Information on Segment 2 should be set to 'No tribute selected'
+    And the Soft Credit Information on Segment 2 should be set to 'Patrica Whitten'
+    And the Soft Credit Amount on Segment 2 should be set to '$75.00'
+    Then the 'Ticket Quantity A' UDF on Segment 2 should be set to '3'
+    And I click Delete Segment 3
+    And I change the Received Amount Field to '100.00'
+    And I click Save And 'Edit'
+    And I click Expand All Segments
+    And the Received amount on Segment 1 should be set to '$25.00'
+    And the Fund on Segment 1 should be set to 'General'
+    And the Campaign on Segment 1 should be set to 'Annual'
+    And the Approach on Segment 1 should be set to 'Direct Mail'
+    And the Check Date on Segment 1 should be set to '1/1/2010'
+    And the Check Number on Segment 1 should be set to '789'
+    And the Tribute Information on Segment 1 should be set to 'Cindy Grant'
+    And the Soft Credit Information on Segment 1 should be set to 'Anne Hatch'
+    And the Soft Credit Amount on Segment 1 should be set to '$25.00'
+    And the Received amount on Segment 2 should be set to '$75.00'
+    And the Fund on Segment 2 should be set to 'Unrestricted'
+    And the Campaign on Segment 2 should be set to 'Capital'
+    And the Approach on Segment 2 should be set to 'Direct Mail'
+    And the Tribute Information on Segment 2 should be set to 'No tribute selected'
+    And the Soft Credit Information on Segment 2 should be set to 'Patrica Whitten'
+    And the Soft Credit Amount on Segment 2 should be set to '$75.00'
+    Then the 'Ticket Quantity A' UDF on Segment 2 should be set to '3'
+
+
+

@@ -63,6 +63,13 @@ module Cukesetaptesting
       keyword(:repassword) {content.text_field(:id, 'confirmPassword')}
 
 
+      keyword(:usps_button_click) {content.a(:id, 'postalCodeLink')}
+      keyword(:usps_postal_code_value)  {browser.div(:class, 'data').span(:class, 'zip')}
+      keyword(:personas_link_click) {content.a(:text,'Personas')}
+      keyword(:whitepages_button_click) {content.a(:id, 'whitePagesLink')}
+
+
+
       def udf_to_click(udf)
         # Should be ok for translation, as we
         #   are passing in a UDF's custom name

@@ -55,7 +55,8 @@ module Cukesetaptesting
       end
 
       def letter_exists?(name)
-        return @view.category_letters.text.include? name
+        # return @view.category_letters.text.include? name
+        return @view.category_letters.a(:text,name).present?
       end
 
       def letter_click(name)
@@ -491,6 +492,66 @@ module Cukesetaptesting
 
       def advanced_mass_email_set
         @view.advanced_mass_email.when_present.set
+      end
+
+      def standard_editor_body_click
+        @view.standard_editor_body.when_present.click
+      end
+
+      def standard_editor_delete_text
+        @view.standard_editor_frame.when_present.send_keys [:control, 'a']
+        @view.standard_editor_frame.when_present.send_keys [:delete]
+      end
+
+      def standard_editor_insert_letter_click
+        @view.standard_editor_insert_letter.when_present.click
+      end
+
+      def select_entry_list_click
+        @view.select_entry_list.when_present.click
+        sleep 2
+      end
+
+      def letter_widgets_insert_click
+        @view.letter_widgets_insert.when_present.click
+        sleep 2
+      end
+
+      def standard_editor_entry_list_dclick
+        @view.standard_editor_entry_list.when_present.double_click
+      end
+
+      def letter_widgets_add_column_click
+        @view.letter_widgets_add_column.when_present.click
+      end
+
+      def letter_widgets_category_select category
+        @view.letter_widgets_category.when_present.select category
+      end
+
+      def letter_widgets_field_select field
+        @view.letter_widgets_field.when_present.select field
+      end
+
+      def edit_contents_update_click
+        @view.edit_contents_update.when_present.click
+      end
+
+      def gen_letters_set_grouping_per_account
+        @view.gen_letters_grouping_per_account.when_present.set
+      end
+
+      def advanced_editor_delete_text
+        @view.advanced_editor_frame.when_present.send_keys [:control, 'a']
+        @view.advanced_editor_frame.when_present.send_keys [:delete]
+      end
+
+      def advanced_editor_insert_letter_click
+        @view.advanced_editor_insert_letter.when_present.click
+      end
+
+      def advanced_editor_entry_list_dclick
+        @view.advanced_editor_entry_list.when_present.double_click
       end
 
       end

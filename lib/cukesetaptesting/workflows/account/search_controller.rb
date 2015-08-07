@@ -91,6 +91,13 @@ module Cukesetaptesting
       def set_search_teams_checkbox(value)
         @view.teams_checkbox.when_present.set value
       end
+      def gift_box_icon_click
+        @view.gift_box_icon.when_present.click
+      end
+
+      def new_gift_and_pledge_page
+        @view.new_gift_and_pledge_page.present?
+      end
     end
 
   end

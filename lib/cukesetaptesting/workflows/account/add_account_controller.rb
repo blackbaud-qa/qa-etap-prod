@@ -176,6 +176,26 @@ module Cukesetaptesting
       #   step %Q[I click Save And '#{desired_next_page}'] # eg: 'Go to Personas'
       # end
 
+      def usps_button
+        @view.usps_button_click.when_present.click
+      end
+
+      def usps_postal_code?(value)
+        @view.usps_postal_code_value.when_present.text.include? value
+      end
+
+      def personas_link
+        @view.personas_link_click.when_present.click
+      end
+
+      def whitepages_button
+        @view.whitepages_button_click.when_present.click
+      end
+
+      def whitepages_url?(value)
+        @view.browser.url == value
+      end
+
       end
     end
   end

@@ -298,6 +298,16 @@ module Cukesetaptesting
         return @view.browser.div(:id,'logo').present?
       end
 
+      def ticket_section_update
+        @view.ticket_section_update_click.when_present.click
+      end
+
+      def ticket_section_hover
+        @view.ticket_section.when_present.hover
+      end
+
+
+
     end
   end
 end
