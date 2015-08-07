@@ -5,10 +5,8 @@ module Cukesetaptesting
       keyword(:dynamic_search) {content.div(:id,"menuAccountSearch").text_field(:class, "searchInput")}
       keyword(:dynamic_search_button) {content.div(:id,"menuAccountSearch").img(:class, "searchIcon")}
 
-      keyword(:logout_frame) {browser.iframe(:name, "content")}
-      #keyword(:accounts) {logout_frame.element(:css=> '#accountTab a')}
-
-      keyword(:logout_link) {content.link(:text, 'Logout')}
+      #OTG_INTL keyword(:logout_link) {content.link(:text, 'Logout')}
+      keyword(:logout_link) {content.div(:class => 'topMenuSignOut').link}
       keyword(:main_menu) {content.div(:id,'menuBodyDiv')}
 
       #nav bar
@@ -33,8 +31,7 @@ module Cukesetaptesting
       keyword(:management_tab) {navbar_tab('manageTab').link(:class, "menuTabText")}
       keyword(:management_dd) {navbar_tab('manageTab').img(:class, "menuTabButton")}
 
-      keyword(:logout_frame) {browser.iframe(:name, "content")}
-      keyword(:accounts) {logout_frame.element(:css=> '#accountTab a')}
+      keyword(:accounts) {content.element(:css=> '#accountTab a')}
 
       #nav bar home dropdown
       keyword(:home_dd_go_home) {home_div.li(:id, "dashboardButton").a}
@@ -77,6 +74,7 @@ module Cukesetaptesting
       keyword(:queries_dd_journal_entry) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2791')}
       keyword(:queries_dd_constit_journal_entry) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2792')}
       keyword(:queries_dd_lybunt) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2793')}
+      #DEV_HELP
       keyword(:queries_dd_pledges_payments) {queries_div.ul(:id,'queryCategories1').a(:text,'Pledges and Payments')}
       keyword(:queries_dd_processed_trans) {queries_div.ul(:id,'queryCategories2').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2822')}
       keyword(:queries_dd_security) {queries_div.ul(:id,'queryCategories2').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2481')}
@@ -84,7 +82,9 @@ module Cukesetaptesting
       #nav bar reports dropdown
       keyword(:reports_dd_manage_reports) {reports_div.li(:id,'manageReportButton').a}
       keyword(:reports_dd_relationship_filters) {reports_div.li(:id,'accountQueryButton').a}
+      #DEV_HELP
       keyword(:reports_dd_system) {reports_div.ul(:id,'reportCategories1').a(:text,'System')}
+      #DEV_HELP
       keyword(:reports_dd_top_donor) {reports_div.ul(:id,'topReports1').a(:text,'Top Donor Report')}
       keyword(:reports_dd_journal) {reports_div.ul(:id,'topReports1').a(:href,'/prod/reportLauncher.do?nextAction=journalEntryListReport.do&mode=report&type=JournalEntryList&name=Journal%20Entry%20List')}
       keyword(:reports_dd_recency) {reports_div.ul(:id,'topReports1').a(:href,'/prod/reportLauncher.do?nextAction=recencyReport.do&type=RecencyReport&mode=report&name=Recency%20Report')}

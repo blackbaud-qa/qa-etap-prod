@@ -9,10 +9,10 @@ Feature: Creating a new communications template
     When I click Communications on the main menu
     And click Email Templates
     And click New Email or Document Template
-    And set the Name to 'Pistachio Goodness1'
+    And set the Name to 'Pistachio Goodness'
 #- Guided Mode
     And click Tab
-#    And verify that the Subject now says Pistachio Goodness - Guided Mode
+    And verify that the Subject now says 'Pistachio Goodness'
     And click Next
     And click on the Pistachio Goodness template
 #    And hover over the Article block

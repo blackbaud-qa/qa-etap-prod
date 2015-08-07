@@ -19,7 +19,7 @@ And (/^I click delete below the '([^']*)' query category/) do |category|
 end
 
 And (/^I click Yes to permanently delete the item/) do
-  sleep 2
+  sleep 5
   query = Queries::Createquerycategory.new
   query.delete_query_category_yes_click
 end
@@ -178,8 +178,12 @@ And (/^I click Close in the Find Account popup window/) do
 end
 
 And (/^I type '([^']*)' into the search field in the Find Account popup window/) do |name|
-  query = Queries::Createquerycategory.new(:find_account_popup_search => name)
-  query.create
+  sleep 5
+#  query = Queries::Createquerycategory.new(:find_account_popup_search => name)
+#  query.create
+  query = Queries::Createquerycategory.new
+  sleep 3
+  query.set_find_account_popup_search name
 end
 
 And (/^I click Find in the Find Account popup window/) do
@@ -223,6 +227,12 @@ And (/^I type '([^']*)' into the Name field on the Create a New Query page/) do 
   query.create
 end
 
+And (/^I type '([^']*)' into the Short Salutation field on the Create a New Query page/) do |name|
+  sleep 2
+  query = Queries::Createquerycategory.new(:query_criteria_short_salutation_field => name)
+  query.create
+end
+
 And (/^I click OK to dismiss the notification about not being able to delete a query/) do
   query = Queries::Createquerycategory.new
   query.cannot_delete_query_ok_click
@@ -253,11 +263,51 @@ Then (/^I should see '([^']*)' in the query results/) do |name|
   expect(query.query_preview_results(name)).to eq(true)
 end
 
-Then (/^a query category has been created called '([^']*)'/) do |cat|
+Then (/^the query category '([^']*)' does not exist/) do |cat|
   query = Queries::Createquerycategory.new
   step "I am logged into eTap"
   step "I click Queries on the main menu"
-  if query.try_to_click_on_query_category(cat)
+  if query.string_exists_on_page?(cat)
+    query.delete_query_category_click cat
+    query.delete_query_category_yes_click
+  end
+end
+=begin
+Then (/^the query category '([^']*)' does exist/) do |cat|
+  query = Queries::Createquerycategory.new
+  step "I am logged into eTap"
+  step "I click Queries on the main menu"
+  if (!query.string_exists_on_page?(cat))
+    query.delete_query_category_click cat
+    query.delete_query_category_yes_click
+  end
+end
+=end
+Then (/^the query '([^']*)' does not exist in the '([^']*)' category/) do |query_name, cat|
+  query = Queries::Createquerycategory.new
+  step "I click Queries on the main menu"
+  step "I click on the '#{cat}' category"
+
+  if query.string_exists_on_page?(query_name)
+    query.delete_query_click query_name
+    query.delete_query_category_yes_click
+  end
+end
+=begin
+Then (/^the query '([^']*)' exists in the '([^']*)' category/) do |query_name, cat|
+  query = Queries::Createquerycategory.new
+  step "I click on the '#{cat}' category"
+
+  if (!query.string_exists_on_page?(query_name))
+    query.delete_query_click query_name
+  end
+end
+=end
+Then (/^a query category should exist called '([^']*)'/) do |cat|
+  query = Queries::Createquerycategory.new
+  step "I am logged into eTap"
+  step "I click Queries on the main menu"
+  if query.string_exists_on_page?(cat)
     # do nothing
   else
     step "I click New Category on the Query Categories page"
@@ -285,6 +335,53 @@ Then (/^a query '([^']*)' has been created in the '([^']*)' category/) do |query
   step "I click on 'Journal Entry Types' under Available Fields on the Create a New Query page"
   step "I select Journal Entry Type 'Gift' on the Create a New Query page"
   step "I click Save And 'Preview'"
+end
 
 
+And (/^a specific query 'Donations made in January 2015' has been created in the 'Critical Process Testing' category/) do
+  query = Queries::Createquerycategory.new
+  step "I click Queries on the main menu"
+  step "I click on the 'Critical Process Testing' category"
+
+  if (!query.string_exists_on_page?('Donations made in January 2015'))
+    step "I click Queries on the main menu"
+    step "I click on the 'Critical Process Testing' category"
+    step "I click 'New Query' on the Edit Query Category page"
+    step "I set the Name to 'Donations made in January 2015' on the Create a New Query page"
+    step "I set the data return type to 'Journal Entries' on the Create a New Query page"
+    step "I set the Available Fields category to 'Commonly Used Fields' on the Create a New Query page"
+    step "I click on 'Journal Entry Date' under Available Fields on the Create a New Query page"
+    step "I set the Journal Entry Date Range Type to 'Custom Range' on the Create a New Query page"
+    step "I set the Journal Entry Date Start Date to '1/1/2015' on the Create a New Query page"
+    step "I set the Journal Entry Date End Date to '1/31/2015' on the Create a New Query page"
+    step "I set the Available Fields category to 'Amounts' on the Create a New Query page"
+    step "I click on 'Individual Transaction Received' under Available Fields on the Create a New Query page"
+    step "I set Individual Transaction Received to 'Greater Than Or Equal To' '.01' on the Create a New Query page"
+    step "I click Save And 'Preview'"
+    step "I click Edit on the query preview screen"
+    step "I set the data return type to 'Accounts' on the Create a New Query page"
+    step "I click Save And 'Preview'"
+  end
+end
+
+And (/^a specific query 'Donors Named John - Custom Query' has been created in the 'Critical Process Testing' category/) do
+  query = Queries::Createquerycategory.new
+  step "I click Queries on the main menu"
+  step "I click on the 'Critical Process Testing' category"
+
+  if (!query.string_exists_on_page?('Donors Named John - Custom Query'))
+    step "When I click Queries on the main menu"
+    step "And I click on the 'Critical Process Testing' category"
+    step "And I click 'New Query' on the Edit Query Category page"
+    step "And I set the Name to 'Donors Named John' on the Create a New Query page"
+    step "And I set the data return type to 'Accounts' on the Create a New Query page"
+    step "And I set the Available Fields category to 'Account' on the Create a New Query page"
+    step "And I click on 'Short Salutation' under Available Fields on the Create a New Query page"
+    step "And I type 'John' into the Name field on the Create a New Query page"
+    step "And I click Save And 'Preview'"
+    step "And I click Edit on the query preview screen"
+    step "And I click Save And 'Create Custom Query'"
+    step "And I set the Name to 'Donors Named John - Custom Query' on the Create a New Query page"
+    step "And I click Save And 'Preview'"
+  end
 end

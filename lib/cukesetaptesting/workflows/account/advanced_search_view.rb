@@ -5,8 +5,11 @@ module Cukesetaptesting
       keyword(:search_field)  { content.text_field(:name => 'searchString') }
       keyword(:email_field)  { content.text_field(:name => 'email') }
       keyword(:phone_field) {content.text_field(:name, 'phone')}
+      #DEV_HELP
       keyword(:find_button) { content.button(:value => 'Find') }
+      #DEV_HELP
       keyword(:advanced_link) { content.link(:text=> 'Advanced Find') }
+      #DEV_HELP
       keyword(:exact_button) { content.button(:value => 'Exact Match') }
       keyword(:table_content) { content.table(:id => 'etapreporttag1')}
 

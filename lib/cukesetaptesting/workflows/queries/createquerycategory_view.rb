@@ -6,6 +6,7 @@ module Cukesetaptesting
       keyword(:set_query_category_name)  {content.text_field(:id, 'name')}
       keyword(:save_new_query_category)  {content.a(:text, 'Save Category')}
       keyword(:delete_query_category_yes) {content.button(:value, 'Yes')}
+
       keyword(:set_query_name)  {content.text_field(:id, 'query.name')}
       keyword(:select_data_return_type_value) {content.select(:name, 'returnType')}
       keyword(:select_query_criteria_category_value)  {content.select(:id, 'fieldCategory')}
@@ -17,8 +18,10 @@ module Cukesetaptesting
       keyword(:edit_query)  {content.button(:value, 'Edit')}
       keyword(:custom_account_query_add)  {content.div(:id, 'etap.fieldset.area.2').a(:text, 'Add')}
       keyword(:find_account_popup_close)  {content.button(:value, 'Close')}
-      keyword(:find_account_popup_search) {content.text_field(:id, 'searchString')}
-      keyword(:find_account_popup_close)  {content.button(:value, 'Find')}
+      #keyword(:find_account_popup_search) {content.text_field(:id, 'searchString')}
+      keyword(:find_account_popup_search) { browser.iframe(:name => 'content').form(:name => 'entitySearchForm').text_field(:id => 'searchString')}
+      keyword(:find_account_popup_find)  {content.button(:value, 'Find')}
+      keyword(:find_account_popup_close)  {content.button(:value, 'Close')}
       keyword(:combine_queries_subtract)  {content.img(:id, 'vensub')}
       keyword(:compound_category_one_select_value)  {content.select(:id, 'select.query.category.1')}
       keyword(:compound_query_one_select_value)  {content.select(:id, 'select.query.1')}
@@ -26,10 +29,15 @@ module Cukesetaptesting
       keyword(:compound_query_two_select_value)  {content.select(:id, 'select.query.2')}
       keyword(:combine_queries_add)  {content.img(:id, 'venadd')}
       keyword(:query_criteria_name_field) {content.text_field(:id, 'TestEntityRoleForNamesData.values')}
+      keyword(:query_criteria_short_salutation_field) {content.text_field(:id, 'testByName(TestEntityRoleForShortSalutationsData).values')}
       keyword(:cannot_delete_query_ok)  {content.button(:value, 'Ok')}
       keyword(:query_results_my_org_icon) {content.div(:id, 'etapreporttag1_outerdiv').img(:alt,'My Organization')}
 
       keyword(:duplicate_query_category_warning) {content.div(:class, 'informationWarning')}
+
+      def string_exists_on_page?(query_string)
+        content.link(:text => query_string).exists?
+      end
 
       def duplicate_query_category_back_button_click
         content.button(:value => 'Back').when_present.click

@@ -76,6 +76,21 @@ module Cukesetaptesting
         @view.browser.send_keys :arrow_down
       end
 
+      def set_search_constituents_checkbox(value)
+        @view.constituents_checkbox.when_present.set value
+      end
+
+      def set_search_users_checkbox(value)
+        @view.users_checkbox.when_present.set value
+      end
+
+      def set_search_tributes_checkbox(value)
+        @view.tributes_checkbox.when_present.set value
+      end
+
+      def set_search_teams_checkbox(value)
+        @view.teams_checkbox.when_present.set value
+      end
     end
 
   end

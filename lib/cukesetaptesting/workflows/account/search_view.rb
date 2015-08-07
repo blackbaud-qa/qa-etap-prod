@@ -18,6 +18,13 @@ module Cukesetaptesting
       keyword(:role_menu_other) {role_menu.a(:text, "Account Settings")}
       keyword(:role_menu_defined_fields) {role_menu.li(:class, "definedFields").a}
 
+
+      keyword(:constituents_checkbox) { content.checkbox(:name, 'showCustomersBox') }
+      keyword(:users_checkbox) { content.checkbox(:name, 'showUsersBox') }
+      keyword(:tributes_checkbox) { content.checkbox(:name, 'showTributesBox') }
+      keyword(:teams_checkbox) { content.checkbox(:name, 'showTeamsBox') }
+
+
       def home(model)
       end
 

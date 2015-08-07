@@ -8,5 +8,6 @@ Feature: Add User
     Given I am logged into eTap
     And User 'testUser' does not exist
     And I create user 'testUser'
+    And I log out of eTap
     And I login into eTap with values 'testUser', 'Password!'
     Then I should be logged in
