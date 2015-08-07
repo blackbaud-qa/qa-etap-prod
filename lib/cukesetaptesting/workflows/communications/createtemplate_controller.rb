@@ -239,6 +239,12 @@ module Cukesetaptesting
         template_locator.when_present.click
       end
 
+      def click_newsletter_template_name template_name
+        template_locator = @view.newsletter_template_locator template_name
+        @view.browser.execute_script('arguments[0].scrollIntoView();',template_locator)
+        template_locator.when_present.click
+      end
+
       def new_template_receipt_stub_bottom_click
         @view.browser.execute_script('arguments[0].scrollIntoView();',@view.new_template_reciept_stub_bottom)
         @view.new_template_reciept_stub_bottom.when_present.click
@@ -414,7 +420,7 @@ module Cukesetaptesting
       end
 
       def select_advanced_mass_email
-        @view_advanced_mass.when_present.click
+        @view.advanced_mass.when_present.click
         # @view.browser.radio(:id => 'advancedMode"').set
       end
 

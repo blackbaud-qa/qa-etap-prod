@@ -287,6 +287,11 @@ Given(/^(?:I |)click on the ([^']*) template/) do |template_name|
   letter.click_template_name template_name
 end
 
+Given(/^I click on the '([^']*)' newsletter template$/) do |name|
+  letter = Communications::Createtemplate.new()
+  letter.click_newsletter_template_name name
+end
+
 Given(/^delete the letter footer/) do
   letter = Communications::CorrespondenceEditor.new()
   sleep 3
