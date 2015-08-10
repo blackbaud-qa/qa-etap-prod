@@ -11,17 +11,11 @@ module Cukesetaptesting
       end
 
       def logged_in?
-        # return @view.browser.text.include?'Logout'
         return @view.main_menu.when_present.present?
       end
 
       def log_out
-        #if @view.logout_frame.exists? do
-          #@view.logout_frame.link(:text, 'Logout').when_present.click
         @view.logout_link.when_present.click
-       # end
-      #  end
-
       end
 
       def test_throw_alert
@@ -30,13 +24,10 @@ module Cukesetaptesting
 
       end
 
-
       def handle_alert
-
         if @view.browser.alert.exists?
           @view.browser.alert.ok
         end
-
       end
 
       def browser_url

@@ -4,8 +4,18 @@ module Cukesetaptesting
       @model = CreatequerycategoryModel
       @view = CreatequerycategoryView
 
+      def set_find_account_popup_search(val)
+        @view.browser.window(:title => 'Select Account Dialog').use do
+          @view.find_account_popup_search.when_present.set val
+        end
+      end
+
       def on_create_query_page?
         return @view.create_comms_category_title.when_present.text.include? 'Create Query Category'
+      end
+
+      def string_exists_on_page?(query_string)
+        @view.string_exists_on_page? query_string
       end
 
       def new_query_category_click
@@ -22,6 +32,8 @@ module Cukesetaptesting
 
       def delete_query_category_yes_click
         @view.delete_query_category_yes.when_present.click
+       # @view.get_query_delete_right
+
       end
 
       def delete_query_click(name)
@@ -66,15 +78,21 @@ module Cukesetaptesting
       end
 
       def custom_account_query_add_name_click(name)
-        @view.custom_account_query_add_name(name).when_present.click
+        @view.browser.window(:title => 'Select Account Dialog').use do
+          @view.custom_account_query_add_name(name).when_present.click
+        end
       end
 
       def find_account_popup_close_click
-        @view.find_account_popup_close.when_present.click
+        @view.browser.window(:title => 'Select Account Dialog').use do
+          @view.find_account_popup_close.when_present.click
+        end
       end
 
       def find_account_popup_find_click
-        @view.find_account_popup_find.when_present.click
+        @view.browser.window(:title => 'Select Account Dialog').use do
+          @view.find_account_popup_find.when_present.click
+        end
       end
 
       def combine_queries_subtract_click

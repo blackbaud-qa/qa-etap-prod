@@ -44,6 +44,9 @@ module Cukesetaptesting
       end
 
       def name_link_click name
+        # This uses the :text locator, but should be ok for
+        #   international usage since we are feeding in a
+        #   dynamic name value
         @view.content.a(:text,name).when_present.click
       end
 

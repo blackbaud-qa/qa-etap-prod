@@ -17,7 +17,8 @@ module Cukesetaptesting
       keyword(:new_account_last_name) {content.text_field(:id,'lastName')}
 
 
-      keyword(:find_screen_add_account) {content.button(:value,'Add Account')}
+      #OTG_INTL keyword(:find_screen_add_account) {content.button(:value,'Add Account')}
+      keyword(:find_screen_add_account) {content.span(:id => 'buttonArea').button(:index => 2)}
       keyword(:new_account_classic_sort_name) {content.text_field(:id, 'sortKey')}
       keyword(:new_account_classic_address_lines) {content.text_field(:id, 'address')}
       keyword(:new_account_classic_city) {content.text_field(:id, 'city')}
@@ -30,9 +31,14 @@ module Cukesetaptesting
       keyword(:new_account_classic_note) {content.text_field(:id, 'note')}
       keyword(:new_account_classic_short_salutation) {content.text_field(:id, 'shortDesignation')}
       keyword(:new_account_classic_long_salutation) {content.text_field(:id, 'longDesignation')}
-      keyword(:john_doe_link) {content.a(:text,'John Doe')}
+      #DEV_HELP: I had tried using the :index position of the Account
+      #           settings link, but that gets really complicated and
+      #           messy because the number of columns differs between
+      #           users and constituents.
       keyword(:other_link) {content.a(:text,'Account Settings')}
+      # keyword(:other_link) {content.div(:id => 'topMenu').li(:index => 6).a}
       keyword(:delete_role_button) {content.button(:name, 'delete')}
+      #DEV_HELP
       keyword(:yes_button) {content.button(:value, 'Yes')}
       keyword(:role_name_value) {content.hidden(:name, 'entityRoleName')}
       keyword(:address_field) {content.text_field(:id, 'address')}
@@ -48,6 +54,7 @@ module Cukesetaptesting
       keyword(:long_salutation_field) {content.text_field(:id, 'longDesignation')}
       # keyword(:find_account_phone) {content.text_field(:name, 'phone')}
       keyword(:filter_journal_results_message)
+      #DEV_HELP
       keyword(:not_duplicates) {content.a(:text,/Not Duplicate Accounts/)}
 
 
@@ -64,6 +71,8 @@ module Cukesetaptesting
 
 
       def udf_to_click(udf)
+        # Should be ok for translation, as we
+        #   are passing in a UDF's custom name
         content.link(:text, udf + ':')
       end
 

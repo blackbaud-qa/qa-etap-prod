@@ -71,6 +71,10 @@ Then (/^User '([^']*)' does not exist$/) do |user_name|
   landing.accounts_click
 
   search_page = Account::Search.new
+  search_page.set_search_users_checkbox true
+  search_page.set_search_constituents_checkbox false
+  search_page.set_search_tributes_checkbox false
+  search_page.set_search_teams_checkbox false
   search_page.set_search_field user_name
   search_page.find_click
 
@@ -78,6 +82,13 @@ Then (/^User '([^']*)' does not exist$/) do |user_name|
     step %Q[I delete user '#{user_name}']
     landing.log_out
   end
+end
+
+When (/^I delete user '([^']*)'$/) do |user_name|
+  step "I click on '#{user_name}' on the accounts page"
+  step "I click on the account settings page on the accounts page"
+  step "I click Delete Role on the Account Settings page"
+  step "I click Yes on the Account Settings page"
 end
 
 When (/^I create user '([^']*)'$/) do |user_name|
