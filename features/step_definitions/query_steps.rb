@@ -36,7 +36,6 @@ end
 
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type account/) do | ids, prefix, values|
   query = Queries::Createquerycategory.new
-  # query.create
   if values == '' #If the Whoever Runs This Query box is checked
     query.criteria_account_whoever_runs(ids)
   else #If there is an account name
@@ -51,7 +50,6 @@ end
 
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type AccountTextValues/) do | ids, prefix, values|
   query = Queries::Createquerycategory.new
-  # query.create
   if values == 'none'
     query.criteria_text_value_none(prefix)
   elsif values == 'any'
@@ -74,7 +72,6 @@ end
 
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type checkboxes/) do |ids, prefix, values|
   query = Queries::Createquerycategory.new
-  # query.create
   query.criteria_checkboxes(prefix, ids, values)
 end
 
