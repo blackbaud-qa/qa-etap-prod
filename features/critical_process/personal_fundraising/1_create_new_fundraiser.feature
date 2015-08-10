@@ -17,7 +17,7 @@ Feature: Creating a new fundraiser
     And I click Next on the new Fundraiser page
     And I set the Site Name on the new Fundraiser page
     And I set Administrative Contact Name to 'QA Team' on the new Fundraiser page
-    And I set Administrative Contact Email to 'qa-1@blackbaud.com' on the new Fundraiser page
+    And I set Administrative Contact Email to 'lance.moore@blackbaud.com' on the new Fundraiser page
     And I set the template to Float on the new Fundraiser page
     And I click Next on the new Fundraiser page
     And I highlight the Main page Text on the new Fundraiser page

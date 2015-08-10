@@ -22,7 +22,7 @@ Feature: Creating a new communications template
     And click the icon to open the Insert Edit image pop up
     And upload an image on my computer
     And select all the text in the template
-    And update the letter's email address from 'johndoe@abcorganization.com' to 'qa-1@blackbaud.com'
+    And update the letter's email address from 'johndoe@abcorganization.com' to 'lance.moore@blackbaud.com'
     And set font to Comic Sans
     And set the font size to 12pt
     And click Save And Create Document

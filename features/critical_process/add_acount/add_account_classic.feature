@@ -13,7 +13,7 @@ Feature: Add Account Classic View
     And I set Postal Code to '46280' on the classic add account page
     And I set County to 'Hamilton' on the classic add account page
     And I set Voice to '317-336-3827' on the classic add account page
-    And I set Email to 'qa-1@blackbaud.com' on the classic add account page
+    And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
     And I set Web Page to 'www.google.com' on the classic add account page
     And I set Note to 'Do not call after 6pm' on the classic add account page
     And I set Short Salutation to 'John' on the classic add account page
@@ -28,7 +28,7 @@ Feature: Add Account Classic View
     And the Postal Code should be set to '46280'
     And the County should be set to 'Hamilton'
     And the Voice should be set to '(317) 336-3827'
-    And the Email should be set to 'qa-1@blackbaud.com'
+    And the Email should be set to 'lance.moore@blackbaud.com'
     And the Web Page should be set to 'www.google.com'
     And the Note should be set to 'Do not call after 6pm'
     And the Short Salutation should be set to 'John'
@@ -43,7 +43,7 @@ Feature: Add Account Classic View
     And I set State to 'IN' on the classic add account page
     And I set Postal Code to '46220' on the classic add account page
     And I set Voice to '318-219-4444' on the classic add account page
-    And I set Email to 'qa-1@blackbaud.com' on the classic add account page
+    And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
     And I click Save And 'Go to Personas'
     And I click Accounts
     And I click Advanced Find

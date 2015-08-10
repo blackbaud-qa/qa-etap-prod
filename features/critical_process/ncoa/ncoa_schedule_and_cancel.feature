@@ -18,7 +18,7 @@ Feature: NCOA - Schedule and Cancel Job
     | Date: "tomorrow"                  |
     | Personas: Primary Personas        |
     | Formatting: Return All Addresses  |
-    | Email Address: qa-1@blackbaud.com |
+    | Email Address: lance.moore@blackbaud.com |
 
   Scenario: Validate the default query category can be changed
     Given I click NCOA under Management
@@ -98,7 +98,7 @@ Feature: NCOA - Schedule and Cancel Job
     | Total Accounts: x                                           |
     | Included Personas: Primary                                  |
     | USPS Formatting: Return all addresses with USPS formatting  |
-    | Completion email sent to: QA-1@blackbaud.com                |
+    | Completion email sent to: lance.moore@blackbaud.com                |
     When I click Submit
     Then I should be taken to the stats page
 
@@ -111,7 +111,7 @@ Feature: NCOA - Schedule and Cancel Job
     | Total Accounts: x                                           |
     | Included Personas: Primary                                  |
     | USPS Formatting: Return all addresses with USPS formatting  |
-    | Completion email sent to: QA-1@blackbaud.com                |
+    | Completion email sent to: lance.moore@blackbaud.com                |
     When I click Edit
     Then I should see the edit contents screen
     And the above settings should be populated

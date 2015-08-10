@@ -2,7 +2,7 @@ Feature: Creating a new communications template
 
   Background:
 #    Given a custom account query has been created for Talisha Almond
-#    And the email address on this account's primary person is set to qa-1@blackbaud.com
+#    And the email address on this account's primary person is set to lance.moore@blackbaud.com
 
   Scenario: creating a newsletter in guided mode
     Given I am logged into eTap
@@ -33,7 +33,7 @@ Feature: Creating a new communications template
 #    And highlight 'Google'
 #    And create a hyperlink to www.google.com
 #    And highlight Email Us
-#    And create a hyperlink to mailto:qa-1@blackbaud.com
+#    And create a hyperlink to mailto:lance.moore@blackbaud.com
 #    And click Update
 #    And click Save And Mass Email
 #    And select Advanced Mass Email
@@ -41,11 +41,11 @@ Feature: Creating a new communications template
 #    And set the query to Talisha Almond
 #    And click Next
 #    And set the Name to eTapestry QA
-#    And set both Email fields to qa-1@blackbaud.com
+#    And set both Email fields to lance.moore@blackbaud.com
 #    And click Next
 #    And click Next
 #    And click Send
-#    Then the email should send successfully to qa-1@blackbaud.com
+#    Then the email should send successfully to lance.moore@blackbaud.com
 #    And when you open the email it should display properly with your changes
 #    And the Google link should work
 #    And the Email Us link should work

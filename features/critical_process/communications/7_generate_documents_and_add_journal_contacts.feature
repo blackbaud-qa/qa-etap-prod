@@ -3,7 +3,7 @@ Feature: Previewing communications templates
 
 ##  Background:
 ##    Given a custom account query has been created for Talisha Almond
-##    And the email address on this account's primary person is set to qa-1@blackbaud.com
+##    And the email address on this account's primary person is set to lance.moore@blackbaud.com
 ##    And a template named Lapsed Donor Contact has already been created in the Email Templates category
 
   Scenario: generate Word documents and add journal contacts
@@ -63,14 +63,14 @@ Feature: Previewing communications templates
     And I set the template query to 'Talisha Almond - A'
     And I click Next on the Mass Email page
     And I set the Name to 'eTapestry QA' on the Mass Email page
-    And I set both Email fields to 'qa-1@blackbaud.com' on the Mass Email page
+    And I set both Email fields to 'lance.moore@blackbaud.com' on the Mass Email page
     And I click Next on the Mass Email page
     And I mark the checkbox next to Create a Journal Contact for All Recipients on the Mass Email page
     And I set the Subject to 'We Miss You! - Basic Mass Email' on the Mass Email page
     And I set the Method to 'Email' on the Mass Email page
     And I click Next on the Mass Email page
     And I click Send on the Mass Email page
-#    Then the email should send successfully to qa-1@blackbaud.com
+#    Then the email should send successfully to lance.moore@blackbaud.com
     Then a contact dated for today with the subject 'We Miss You! - Basic Mass Email' should be added to 'Talisha Almond' journal page
 
   Scenario: send advanced mass email and add journal contacts
@@ -84,13 +84,13 @@ Feature: Previewing communications templates
     And I set the template query to 'Talisha Almond - A'
     And I click Next on the Mass Email page
     And I set the Name to 'eTapestry QA' on the Mass Email page
-    And I set both Email fields to 'qa-1@blackbaud.com' on the Mass Email page
+    And I set both Email fields to 'lance.moore@blackbaud.com' on the Mass Email page
     And I click Next on the Mass Email page
     And I mark the checkbox next to Create a Journal Contact for All Recipients on the Mass Email page
     And I set the Subject to 'We Miss You! - Advanced Mass Email' on the Mass Email page
     And I set the Method to 'Email' on the Mass Email page
     And I click Next on the Mass Email page
     And I click Send on the Mass Email page
-#    Then the email should send successfully to qa-1@blackbaud.com
+#    Then the email should send successfully to lance.moore@blackbaud.com
     Then a contact dated for today with the subject 'We Miss You! - Advanced Mass Email' should be added to 'Talisha Almond' journal page
 
