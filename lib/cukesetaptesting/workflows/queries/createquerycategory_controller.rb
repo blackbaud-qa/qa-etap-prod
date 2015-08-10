@@ -237,7 +237,7 @@ module Cukesetaptesting
         end
       end
 
-      def criteria_radius(prefix, ids, values)
+      def criteria_multiple_textboxes_by_id(prefix, ids, values)
         values_array = values.split(',')
         ids_array = ids.split(',')
         for i in 0..(ids_array.length - 1)
@@ -253,6 +253,16 @@ module Cukesetaptesting
       def criteria_radio(prefix, ids, values)
         name = (prefix == '') ? ids : (prefix + '.' + ids)
         @view.radio_button_by_name(name, values).when_present.set
+      end
+
+      def criteria_first_last(prefix, ids, values)
+        values_array = values.split(',')
+        ids_array = ids.split(',')
+        first_value = values_array[0].strip
+        @view.dropdown_selector(prefix == '' ? ids_array[0].strip : prefix+'.'+ids_array[0].strip).when_present.set first_value
+        if first_value == 'First' or first_value == 'Last'
+          @view.dropdown_selector(prefix == '' ? ids_array[1].strip : prefix+'.'+ids_array[1].strip).when_present.set values_array[1].strip
+        end
       end
 
     end

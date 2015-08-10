@@ -57,23 +57,22 @@ end
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type AccountTextValues/) do | ids, prefix, values|
   query = Queries::Createquerycategory.new
   # query.create
-  if values == 'none' #If the Whoever Runs This Query box is checked
+  if values == 'none'
     query.criteria_text_value_none(prefix)
   elsif values == 'any'
     query.criteria_text_value_any(prefix)
-  else #If there is an account name
+  else
     query.criteria_text_accounts_value(prefix, ids, values)
   end
 end
 
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type textValues/) do | ids, prefix, values|
   query = Queries::Createquerycategory.new
-  # query.create
-  if values == 'none' #If the Whoever Runs This Query box is checked
+  if values == 'none'
     query.criteria_text_value_none(prefix)
   elsif values == 'any'
     query.criteria_text_value_any(prefix)
-  else #If there is an account name
+  else
     query.criteria_text_value(prefix, ids, values)
   end
 end
@@ -86,8 +85,7 @@ end
 
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type radius/) do |ids, prefix, values|
   query = Queries::Createquerycategory.new
-  # query.create
-  query.criteria_radius(prefix, ids, values)
+  query.criteria_multiple_textboxes_by_id(prefix, ids, values)
 end
 
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type select/) do |ids, prefix, values|
@@ -108,6 +106,22 @@ end
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type dateRange/) do | ids, prefix, values|
   query = Queries::Createquerycategory.new
   query.criteria_date_range(prefix, ids, values)
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type textNumRange/) do | ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  if values == 'none'
+    query.criteria_text_value_none(prefix)
+  elsif values == 'any'
+    query.criteria_text_value_any(prefix)
+  else
+    query.criteria_multiple_textboxes_by_id(prefix, ids, values)
+  end
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type firstLast/) do | ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  query.criteria_first_last(prefix, ids, values)
 end
 
 And (/^I set the data return type to '([^']*)' on the Create a New Query page/) do |value|
