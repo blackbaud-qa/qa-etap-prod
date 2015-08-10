@@ -86,7 +86,8 @@ Feature: Create, Edit, Save and Run Queries
       | Account-Name Formats 3                             | Account            | Name Formats                             | checkboxes        | testByName(TestEntityRoleForNameFormatsData)         | formats                                                  | 1                                        |
       | Account-Old Formatted Address 1                    | Account            | Old Formatted Address                    | radio             | testByName(TestEntityRoleForOldFormatData)           | oldFormat                                                | false                                    |
       | Account-Old Formatted Address 2                    | Account            | Old Formatted Address                    | radio             | testByName(TestEntityRoleForOldFormatData)           | oldFormat                                                | true                                     |
-      # OPTED OUT GOES HERE
+      | Account-Opted Out 1                                | Account            | Opted Out                                | radio             | testByName(TestEntityRoleForOptOutData)              | optedOut                                                 | false                                    |
+      | Account-Opted Out 2                                | Account            | Opted Out                                | radio             | testByName(TestEntityRoleForOptOutData)              | optedOut                                                 | true                                     |
       | Account-Persona Created By 1                       | Account            | Persona Created By                       | account           |                                                      | personaCreatorSelectButton                               | /2                                       |
       | Account-Persona Created By 2                       | Account            | Persona Created By                       | account           |                                                      | userAspersonaCreator                                     |                                          |
       | Account-Persona Last Modified By 1                 | Account            | Persona Last Modified By                 | account           |                                                      | personaModifierSelectButton                              | /2                                       |
@@ -95,7 +96,11 @@ Feature: Create, Edit, Save and Run Queries
       | Account-Persona Note 2                             | Account            | Persona Note                             | textValues        | testByName(TestEntityRoleForNotesData)               | values                                                   | Major Donor, Inactive                    |
       | Account-Persona Note 3                             | Account            | Persona Note                             | textValues        | testByName(TestEntityRoleForNotesData)               | values                                                   | none                                     |
       | Account-Persona Note 4                             | Account            | Persona Note                             | textValues        | testByName(TestEntityRoleForNotesData)               | values                                                   | any                                      |
-      # PHONE NUMBER GOES HERE
+      | Account-Phone Number 1                             | Account            | Phone Number                             | phone number      | TestEntityRoleForPhonesData                          | phoneNum                                                 | Voice, 1234567890                        |
+      | Account-Phone Number 2                             | Account            | Phone Number                             | phone number      | TestEntityRoleForPhonesData                          | phoneNum                                                 | Voice, 1234567890, 1112223333            |
+      | Account-Phone Number 3                             | Account            | Phone Number                             | phone number      | TestEntityRoleForPhonesData                          | phoneNum                                                 | Voice, none                              |
+      | Account-Phone Number 4                             | Account            | Phone Number                             | phone number      | TestEntityRoleForPhonesData                          | phoneNum                                                 | Voice, any                               |
+      | Account-Phone Number 5                             | Account            | Phone Number                             | phone number      | TestEntityRoleForPhonesData                          | phoneNum                                                 | Mobile, 1234567890                       |
       | Account-Postal Code 1                              | Account            | Postal Code                              | textValues        | testByName(TestEntityRoleForPostalCodeData)          | postalCodes                                              | 46060, 48721                             |
       | Account-Postal Code 2                              | Account            | Postal Code                              | textValues        | testByName(TestEntityRoleForPostalCodeData)          | postalCodes                                              | 46060                                    |
       | Account-Postal Code 3                              | Account            | Postal Code                              | textValues        | testByName(TestEntityRoleForPostalCodeData)          | postalCodes                                              | none                                     |
@@ -108,7 +113,13 @@ Feature: Create, Edit, Save and Run Queries
       | Account-Privacy Status 1                           | Account            | Privacy Status                           | checkboxes        | testByName(TestEntityRoleForPrivacyStatusData)       | status                                                   | -1, 0, 1                                 |
       | Account-Privacy Status 2                           | Account            | Privacy Status                           | checkboxes        | testByName(TestEntityRoleForPrivacyStatusData)       | status                                                   | 0, 1                                     |
       | Account-Privacy Status 3                           | Account            | Privacy Status                           | checkboxes        | testByName(TestEntityRoleForPrivacyStatusData)       | status                                                   | 1                                        |
-      # RELATIONSHIP ATTRIBUTES GOES HERE
+      | Account-Relationship Attributes 1                  | Account            | Relationship Attributes                  | relationship attributes | TestEntityRoleForRelationshipsData             | relationshipType, startDateStartString, startDateEndString, endDateStartString, endDateEndString | Parent / Child, 01/01/2000, 01/01/2010, 01/01/2000, 01/01/2010 |
+      | Account-Relationship Attributes 2                  | Account            | Relationship Attributes                  | relationship attributes | TestEntityRoleForRelationshipsData             | relationshipType, startDateStartString, startDateEndString, endDateStartString, endDateEndString, relationshipRoleFrom, relationshipMatchingGift | Parent / Child, 01/01/2000, 01/01/2010, 01/01/2000, 01/01/2010 |
+      | Account-Relationship Attributes 3                  | Account            | Relationship Attributes                  | relationship attributes | TestEntityRoleForRelationshipsData             | relationshipType, startDateStartString, startDateEndString, endDateStartString, endDateEndString, relationshipRoleFrom, relationshipMatchingGift | Parent / Child, 01/01/2000, , , 01/01/2010 |
+      | Account-Relationship Attributes 4                  | Account            | Relationship Attributes                  | relationship attributes | TestEntityRoleForRelationshipsData             | relationshipType, startDateStartString, startDateEndString, endDateStartString, endDateEndString, relationshipRoleFrom, relationshipMatchingGift | Parent / Child, 01/01/2000, , 01/01/2000, |
+      | Account-Relationship Attributes 5                  | Account            | Relationship Attributes                  | relationship attributes | TestEntityRoleForRelationshipsData             | relationshipType, startDateStartString, startDateEndString, endDateStartString, endDateEndString, relationshipMatchingGift | Parent / Child, 01/01/2000, 01/01/2010, 01/01/2000, 01/01/2010 |
+      | Account-Relationship Attributes 6                  | Account            | Relationship Attributes                  | relationship attributes | TestEntityRoleForRelationshipsData             | relationshipType, dynamicStartDate.label, dynamicStartDateRange, dynamicEndDate.label, dynamicEndDateRange | Parent / Child, Dynamic, 26, Dynamic, 16 |
+      | Account-Relationship Attributes 7                  | Account            | Relationship Attributes                  | relationship attributes | TestEntityRoleForRelationshipsData             | relationshipType, dynamicStartDate.label, dynamicStartDateRange, dynamicEndDate.label, dynamicEndDateRange | Parent / Child, Dynamic, 26, Dynamic, |
       | Account-Relationship Present 1                     | Account            | Relationship Present                     | radio             | testByName(TestEntityRoleForRelationshipData)        | hasRelationship                                          | false                                    |
       | Account-Relationship Present 2                     | Account            | Relationship Present                     | radio             | testByName(TestEntityRoleForRelationshipData)        | hasRelationship                                          | true                                     |
       | Account-Short Salutation 1                         | Account            | Short Salutation                         | textValues        | testByName(TestEntityRoleForShortSalutationsData)    | values                                                   | John, Spencer                            |
@@ -156,33 +167,10 @@ Feature: Create, Edit, Save and Run Queries
       | Journal-Transaction Receipt Range 1                | Journal            | Transaction Receipt Range                | textNumRange      | TestTransactionForReceiptRangeData                   | startReceipt, endReceipt                                 | 2, 12                                    |
       | Journal-Transaction Receipt Range 2                | Journal            | Transaction Receipt Range                | textNumRange      | TestTransactionForReceiptRangeData                   | startReceipt, endReceipt                                 | any                                      |
       | Journal-Transaction Receipt Range 3                | Journal            | Transaction Receipt Range                | textNumRange      | TestTransactionForReceiptRangeData                   | startReceipt, endReceipt                                 | none                                     |
-
-  Scenario Outline: Deleting Queries
-    Given I am logged into eTap
-    When I click Queries on the main menu
-    And I click on the 'Lucene Testing' category
-    And I click delete below the '<query_name>' query on the Create a New Query page
-    And I click Yes to permanently delete the item
-    Examples:
-      | query_name                        |
-      | Account-Account Created By 1      |
-      | Account-Account Created By 2      |
-      | Account-Account Last Modified By 1|
-      | Account-Account Last Modified By 2|
-      | Account-Account Name 1            |
-      | Account-Account Name 2            |
-      | Account-Account Name 3            |
-      | Account-Address Lines 1           |
-      | Account-Address Lines 2           |
-      | Account-Address Lines 3           |
-      | Account-Address Lines 4           |
-      | Account-City 1                    |
-      | Account-City 2                    |
-      | Account-City 3                    |
-      | Account-City 4                    |
-      | Account-Household Relationship    |
-#      | Account-Login Id Present 1        |
-      | Account-Login Id Present 2        |
+      | Defined Fields - Approaches 1                      | Commonly Used Fields     | Approaches                         | checkbox refs     | TestTransactionForApproachesData                     | approachRefs                                             | Direct Mail                              |
+      | Defined Fields - Approaches 2                      | Commonly Used Fields     | Approaches                         | checkbox refs     | TestTransactionForApproachesData                     | approachRefs                                             | any                                      |
+      | Defined Fields - Approaches 3                      | Commonly Used Fields     | Approaches                         | checkbox refs     | TestTransactionForApproachesData                     | approachRefs                                             | no                                       |
+      | Defined Fields - Approaches 4                      | Commonly Used Fields     | Approaches                         | checkbox refs     | TestTransactionForApproachesData                     | approachRefs                                             | Direct Mail, Unsolicited                 |
 
   Scenario: Deleting Categories
     Given I am logged into eTap

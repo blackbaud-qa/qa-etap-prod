@@ -250,6 +250,10 @@ module Cukesetaptesting
         comm_template.div(:id,'tabContentlayoutsdocuments').label(:text,"#{template_name}").parent.a
       end
 
+      def newsletter_template_locator template_name
+        comm_template.div(:id,'tabContentlayoutsnewsletters').label(:text,"#{template_name}").parent.a
+      end
+
       def category_div
         content.div(:id,'correspondenceCategory')
       end
