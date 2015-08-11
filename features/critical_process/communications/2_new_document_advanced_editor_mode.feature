@@ -1,7 +1,7 @@
 Feature: Creating a new communications template
 
   Background:
-    Given a query category has been created called 'Donation Queries'
+    Given a query category should exist called 'Donation Queries'
     And a query 'All Donations Made Last Year' has been created in the 'Donation Queries' category
 
   Scenario: creating a simple business letter in advanced editor mode
@@ -14,7 +14,7 @@ Feature: Creating a new communications template
     And set the Name to 'Simple Business Letter - Advanced Editor Mode' on the new Correspondence Template page
     And press Tab on the keyboard
     And verify that the Subject now says 'Simple Business Letter - Advanced Editor Mode'
-    And click Next
+    And I click Next on the new Correspondence Template page
     And click Documents on the new Correspondence Template page
     And click on the Simple Business Letter template
     And click Advanced Mode
@@ -27,16 +27,16 @@ Feature: Creating a new communications template
     And set the font size to 12pt
     And click Save And Create Document
     And set the Category to Base
-    And set the query to All Donations Made Last Year - JE
-    And click Next
+    And I set the template query to 'All Donations Made Last Year - JE'
+    And click Next on the Generate Letters page
     And set the document type to Word
   #  And name the file 'AdvLetter'
     And set the Grouping to One Document Per Journal Entry
-    And click Next
-    And click Next
+    And click Next on the Generate Letters page
+    And click Next on the Generate Letters page
     And set Receiving to Download documents
-    And click Next
-    And click Next
+    And click Next on the Generate Letters page
+    And click Next on the Generate Letters page
     And click Run
     # TODO: figure out how to get data out of a .docx file. Tried both docx and yomu. WIP.
 #    Then the Word document should contain as many pages as there are new journal entries
@@ -54,7 +54,7 @@ Feature: Creating a new communications template
     And set the Name to 'Receipt w/ Stub (Bottom) - Advanced Editor Mode'
     And press Tab on the keyboard
     And verify that the Subject now says 'Receipt w/ Stub (Bottom) - Advanced Editor Mode'
-    And click Next
+    And I click Next on the new Correspondence Template page
     And click Documents on the new Correspondence Template page
     And click on the Receipt w/ Stub (Bottom) template
     And delete the letter footer
@@ -70,15 +70,15 @@ Feature: Creating a new communications template
     And set the font size to 12pt
     And click Save And Create Document
     And set the Category to Base
-    And set the query to All Donations Made Last Year - JE
-    And click Next
+    And I set the template query to 'All Donations Made Last Year - JE'
+    And click Next on the Generate Letters page
     And set the document type to PDF
     And set the Grouping to One Document Per Journal Entry
-    And click Next
-    And click Next
+    And click Next on the Generate Letters page
+    And click Next on the Generate Letters page
     And set Receiving to Download documents
-    And click Next
-    And click Next
+    And click Next on the Generate Letters page
+    And click Next on the Generate Letters page
     And click Run
     Then the PDF document should contain as many pages as there are new journal entries
 #    Then the PDF document should generate
