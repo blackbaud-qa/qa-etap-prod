@@ -1,7 +1,5 @@
+@crit_proc
 Feature: NCOA - Schedule and Cancel Job
-#  As a user
-#  I want to utilize NCOA
-#  In order to update my addresses
 
   Background:
     Given I am logged into eTap
@@ -9,88 +7,115 @@ Feature: NCOA - Schedule and Cancel Job
 
   Scenario: Verify Settings page appears when no NCOA scheduled
     When I click Management on the main menu
-    When I click NCOA on the Management page
+    And I click NCOA on the Management page
     Then I should see the NCOA Settings page
 
-#  Scenario: Verify defaults on settings page
-#    When I click NCOA under Management
-#    Then the Category field should be set to 'Base' on the NCOA page
-#    And the Query field should be set to 'All Accounts' on the NCOA page
-#    And the Date field should be set to tomorrow on the NCOA page
-#    And the Personas field should be set to 'Primary Personas' on the NCOA page
-#    And the Formatting field should be set to 'Return All Addresses' on the NCOA page
-#    And the Email Address field should be set to 'lance.moore@blackbaud.com' on the NCOA page
-#
-#  Scenario: Validate the default query category can be changed
-#    Given I click NCOA under Management
-#    When I click the category drop down
-#    And select Constituent Journal Entry Date
-#    Then Constituent Journal Entry Date should populate in the category field
-#
-#  Scenario: Validate the default query can be changed
-#    Given I click NCOA under Management
-#    When I click the query drop down
-#    And select Last Week -JE
-#    Then Last Week - JE should populate in the query field
-#
-#  Scenario: Verify ability to click edit query
-#    Given I click NCOA under Management
-#    And the query is set to [non standard query]
-#    When I click Edit selected query
-#    Then I should be taken to the edit query page
-#
-#  Scenario: Verify saving query edits functions
-#    Given the query is set to [non standard query]
-#    And I click Edit selected query
-#    When I change the name to [test 1]
-#    And click save
-#    Then I should be taken back to settings page
-#
-#  Scenario: Validate Create New Query link works
-#    Given I have clicked New Query on Settings page
-#    And I enter NCOA 1 in name field
-#    And I accept the defaults
-#    And set the State to IN
-#    When I click Save
-#    Then I should be taken back to Settings page
-#    And NCOA1 should appear in query field
-#
-#  Scenario: Verify calendar appears upon clicking date picker
-#    When I click the calendar icon
-#    Then the calendar should appear
-#
-#  Scenario: Verify selecting date from picker populates date field
-#    Given I click the calendar icon
-#    When I select [mm/dd/yyyy]
-#    Then the date field should populate with [mm/dd/yyyy]
-#
-#  Scenario: Verify validation on date field
-#    Given all required fields are populated
-#    And I click in the date field
-#    When I enter test
-#    And I click submit
-#    Then I should see the following message: Date: The date format is not valid. Must be in a mm/dd/yyyy format.
-#
-#  Scenario: Verify validation on email field
-#    Given all required fields are populated
-#    And I enter test in the email field
-#    When I click Submit
-#    Then I should see the following error: This field must be a valid email address.
-#
-#  Scenario: Verify required fields cannot be blank
-#    Given a <field> is not populated
-#    When I click submit
-#    Then I should see this <error>
-#    |  field    | message                                              |
-#    |  category | Query: This field must be completed prior to saving. |
-#    |  query    | Query: This field must be complated prior to saving. |
-#    |  date     | Date: This field must be completed prior to saving.  |
-#    |  email    | Email: This field must be completed prior to saving. |
-#
-#  Scenario: Verify the USPS Address Standardization page
-#    When I click the USPS Address Standardization page
-#    Then I should be taken to the USPS page
-#
+  Scenario: Verify defaults on settings page
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    Then the Category field should be set to 'Base' on the NCOA page
+    And the Query field should be set to 'All Constituents - A' on the NCOA page
+    And the Date field should be set to tomorrow on the NCOA page
+    And the Personas field should be set to Primary Personas on the NCOA page
+    And the Formatting field should be set to All Return Addresses on the NCOA page
+    And the Email Address field should be set to 'trey.santerre@blackbaud.com' on the NCOA page
+
+  Scenario: Validate the default query category can be changed
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    When I select 'Constituent Journal Entry Date' for the Category field on the NCOA page
+    Then the Category field should be set to 'Constituent Journal Entry Date' on the NCOA page
+
+  Scenario: Validate the default query can be changed
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    When I select 'All Accounts - A' for the Query field on the NCOA page
+    Then the Query field should be set to 'All Accounts - A' on the NCOA page
+
+  Scenario: Verify ability to click edit query
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    And I select 'NCOA Query - A' for the Query field on the NCOA page
+    When I click Edit the Selected Query on the NCOA page
+    Then I should be taken to the edit query page
+
+  Scenario: Verify saving query edits functions
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    And I select 'NCOA Query - A' for the Query field on the NCOA page
+    When I click Edit the Selected Query on the NCOA page
+    And I set the Name to 'Test 1' on the Create a New Query page
+    And I click save on the Edit Query Definition page
+    Then I should see the NCOA Settings page
+    And I should reset the query name to 'NCOA Query' on the NCOA page
+
+  Scenario: Validate Create New Query link works
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    And I click Create a New Query on the NCOA page
+    And I set the Name to 'NCOA 1' on the Create a New Query page
+    And I set the Available Fields category to 'Account' on the Create a New Query page
+    And I click on 'State/Province' under Available Fields on the Create a New Query page
+    And I type 'IN' into the State field on the Create a New Query Page
+    And I click save on the Edit Query Definition page
+    Then I should see the NCOA Settings page
+    And the Query field should be set to 'NCOA 1 - A' on the NCOA page
+    And I delete the 'NCOA 1' query for the next run
+
+  Scenario: Verify calendar appears upon clicking date picker
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    And I click the calendar icon on the NCOA page
+    Then the calendar should appear on the NCOA page
+
+  Scenario: Verify selecting date from picker populates date field
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    And I click the calendar icon on the NCOA page
+    And I click Today on the calendar on the NCOA page
+    Then the date field should be populated with Today
+
+  Scenario: Verify validation on date field
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    And I set 'test' for the Date field on the NCOA page
+    And I click Schedule to see the error on the NCOA page
+    Then I should see the 'Date: The date must be in the future' error
+    And I should close the javascript popup
+
+  Scenario: Verify validation on email field
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    And I set 'test' for the Email field on the NCOA page
+    And I click Schedule to see the error on the NCOA page
+    Then I should see the 'Email: This field must be a valid email address' error
+    And I should close the javascript popup
+
+  Scenario: Verify required fields cannot be blank
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    And I select '(Select a Category of Queries)' for the Category field on the NCOA page
+    And I select '(Select a Query)' for the Query field on the NCOA page
+    And I set '' for the Date field on the NCOA page
+    And I set '' for the Email field on the NCOA page
+    And I click Schedule to see the error on the NCOA page
+    Then I should see the 'Query: This field must be completed prior to saving' error
+    And I should see the 'Date: This field must be completed prior to saving' error
+    And I should see the 'Email: This field must be completed prior to saving' error
+    And I should close the javascript popup
+
+  Scenario: Verify the USPS Address Standardization page
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    And I click the USPS Address Standardization page
+    And I switch to the new tab in my browser
+    Then I should be taken to the USPS page
+    And I close the current tab
+
+
+#  I believe running the following tests wouldn't be good for automation, since
+#  they will use up the service runs, which appear to have a limited number.
+
 #  Scenario: Verify successful schedule
 #    Given the <settings> are populated as follows:
 #    | Settings                                                    |

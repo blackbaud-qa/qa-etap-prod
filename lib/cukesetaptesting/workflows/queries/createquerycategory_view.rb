@@ -2,10 +2,13 @@ module Cukesetaptesting
   module Queries
     class CreatequerycategoryView < BaseView
       keyword(:create_comms_category_title)  { query_page.div(:class, 'pageTitle')}
+      keyword(:edit_query_title) {content.div(:id,'queryPage').div(:class,'pageTitle')}
       keyword(:new_query_category)  {content.a(:text, 'New Category')}
       keyword(:set_query_category_name)  {content.text_field(:id, 'name')}
       keyword(:save_new_query_category)  {content.a(:text, 'Save Category')}
+      keyword(:edit_query_save) {content.button(:id,'saveButton')}
       keyword(:delete_query_category_yes) {content.button(:value, 'Yes')}
+
 
       keyword(:set_query_name)  {content.text_field(:id, 'query.name')}
       keyword(:select_data_return_type_value) {content.select(:name, 'returnType')}
@@ -30,6 +33,7 @@ module Cukesetaptesting
       keyword(:combine_queries_add)  {content.img(:id, 'venadd')}
       keyword(:query_criteria_name_field) {content.text_field(:id, 'TestEntityRoleForNamesData.values')}
       keyword(:query_criteria_short_salutation_field) {content.text_field(:id, 'testByName(TestEntityRoleForShortSalutationsData).values')}
+      keyword(:query_criteria_state_field) {content.text_field(:id,'testByName(TestEntityRoleForStatesData).states')}
       keyword(:cannot_delete_query_ok)  {content.button(:value, 'Ok')}
       keyword(:query_results_my_org_icon) {content.div(:id, 'etapreporttag1_outerdiv').img(:alt,'My Organization')}
 
