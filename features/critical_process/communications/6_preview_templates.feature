@@ -62,7 +62,7 @@ Feature: Previewing communications templates
     And I enter the email address 'lance.moore@blackbaud.com'
     And I click Send on the letter template page
 #    No way to confirm the email atm, we'll leave it at the send for now
-#    Then the email should send successfully to qa-1@blackbaud.com
+#    Then the email should send successfully to lance.moore@blackbaud.com
 #    And when you open the email everything within it should display properly
 #
   Scenario: Email preview - advanced editor mode document
@@ -74,7 +74,7 @@ Feature: Previewing communications templates
     And I enter the email address 'lance.moore@blackbaud.com'
     And I click Send on the letter template page
 #    No way to confirm the email atm, we'll leave it at the send for now
-#    Then the email should send successfully to qa-1@blackbaud.com
+#    Then the email should send successfully to lance.moore@blackbaud.com
 #    And when you open the email everything within it should display properly
 
   Scenario: Email preview - guided mode newsletter
@@ -86,7 +86,7 @@ Feature: Previewing communications templates
     And I enter the email address 'lance.moore@blackbaud.com'
     And I click Send on the letter template page
 #    No way to confirm the email atm, we'll leave it at the send for now
-#    Then the email should send successfully to qa-1@blackbaud.com
+#    Then the email should send successfully to lance.moore@blackbaud.com
 #    And when you open the email everything within it should display properly
 
   Scenario: Email preview - advanced editor mode newsletter
@@ -98,5 +98,5 @@ Feature: Previewing communications templates
     And I enter the email address 'lance.moore@blackbaud.com'
     And I click Send on the letter template page
 #    No way to confirm the email atm, we'll leave it at the send for now
-#    Then the email should send successfully to qa-1@blackbaud.com
+#    Then the email should send successfully to lance.moore@blackbaud.com
 #    And when you open the email everything within it should display properly

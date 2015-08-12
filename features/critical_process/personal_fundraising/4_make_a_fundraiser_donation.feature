@@ -26,7 +26,7 @@ Feature: Making a donation to a fundraiser
     And I set the State to 'Indiana' on the live fundraiser donation page
     And I set the Postal Code to '46220' on the live fundraiser donation page
     And I set the Phone to '3173337788' on the live fundraiser donation page
-    And I set the Email field to 'qa-1@blackbaud.com' on the live fundraiser donation page
+    And I set the Email field to 'lance.moore@blackbaud.com' on the live fundraiser donation page
     And I set the donation type to 'One Time' on the live fundraiser donation page
     And I set the donation amount to '10' on the live fundraiser donation page
     And I select credit card for payment method on the live fundraiser page

@@ -40,3 +40,5 @@ Cukesetaptesting::Loader.load_workflow 'home/homepage'
 Cukesetaptesting::Loader.load_workflow 'management/my_org'
 Cukesetaptesting::Loader.load_workflow 'reports/sepa'
 Cukesetaptesting::Loader.load_workflow 'communications/correspondence_editor'
+Cukesetaptesting::Loader.load_workflow 'management/ncoa'
+

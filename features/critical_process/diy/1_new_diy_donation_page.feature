@@ -13,9 +13,9 @@ Feature: Creating a new diy donation page
     And I set the Name to 'Donation Page' on the DIY settings page
     And I set the Title to 'Donation Page' on the DIY settings page
     And I set the URL to 'Donate' on the DIY settings page
-    And I set the From what address? to 'qa-1@blackbaud.com' on the DIY settings page
+    And I set the From what address? to 'lance.moore@blackbaud.com' on the DIY settings page
     And I set the From Subject to 'Thank you for your donation!' on the DIY settings page
-    And I set the To what address(es)? to 'qa-1@blackbaud.com' on the DIY settings page
+    And I set the To what address(es)? to 'lance.moore@blackbaud.com' on the DIY settings page
     And I set the Subject to 'Donation Received' on the DIY settings page
     And I set the Fund to 'General' on the DIY settings page
     And I click Submit on the DIY settings page

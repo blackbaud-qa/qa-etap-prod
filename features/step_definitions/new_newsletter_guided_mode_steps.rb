@@ -2,12 +2,12 @@ And(/^click Email Templates$/) do
   template = Communications::Createtemplate.new()
   template.email_template
 end
-
+=begin
 And(/^click New Email or Document Template$/) do
   template = Communications::Createtemplate.new()
   template.new_email_document
 end
-
+=end
 And(/^set the Name to '([^']*)'$/) do |name|
   letter = Communications::Createtemplate.new(:new_template_name => name)
   letter.create
@@ -24,12 +24,12 @@ And(/^I click Next$/) do
   letter.click_next_on_nav
 end
 
-
+=begin
 And(/^click on the Pistachio Goodness template$/) do
   letter = Communications::Createtemplate.new()
   letter.new_pistachio_template
 end
-
+=end
 
 And(/^hover over the Article block$/) do
   letter = Communications::Createtemplate.new()
@@ -63,14 +63,16 @@ And(/^click Quick Formatting$/) do
   letter.new_template_quick_formatting_click
 end
 
-And(/^set the Article Title fonts to Veranda$/) do
+And(/^set the Article Title font to Verdana$/) do
   letter = Communications::Createtemplate.new()
-  letter.font_family_veranda_click
+#  letter.font_family_verdana_click
+  letter.quick_formatting_text_style "Article Title", "Verdana"
 end
 
 And(/^set the size to 16pt$/) do
   letter = Communications::Createtemplate.new()
-  letter.article_font_size_16
+  #letter.article_font_size_16
+  letter.quick_formatting_text_size "Article Title", "16pt"
 end
 
 
@@ -88,7 +90,10 @@ end
 #   letter.quick_formatting_update
 # end
 
-
+And(/^update the text styles$/) do
+  letter = Communications::Createtemplate.new()
+  letter.click_quick_format_update_button
+end
 
 And(/^click on the Quick Links block to open the Edit Contents pop up$/) do
   letter = Communications::Createtemplate.new()

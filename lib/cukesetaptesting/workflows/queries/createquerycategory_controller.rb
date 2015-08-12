@@ -4,8 +4,22 @@ module Cukesetaptesting
       @model = CreatequerycategoryModel
       @view = CreatequerycategoryView
 
+      def set_find_account_popup_search(val)
+        @view.browser.window(:title => 'Select Account Dialog').use do
+          @view.find_account_popup_search.when_present.set val
+        end
+      end
+
       def on_create_query_page?
         return @view.create_comms_category_title.when_present.text.include? 'Create Query Category'
+      end
+
+      def on_edit_query_page?
+        return @view.edit_query_title.when_present.text.include? 'Edit Query Definition'
+      end
+
+      def string_exists_on_page?(query_string)
+        @view.string_exists_on_page? query_string
       end
 
       def new_query_category_click
@@ -22,6 +36,8 @@ module Cukesetaptesting
 
       def delete_query_category_yes_click
         @view.delete_query_category_yes.when_present.click
+       # @view.get_query_delete_right
+
       end
 
       def delete_query_click(name)
@@ -66,15 +82,21 @@ module Cukesetaptesting
       end
 
       def custom_account_query_add_name_click(name)
-        @view.custom_account_query_add_name(name).when_present.click
+        @view.browser.window(:title => 'Select Account Dialog').use do
+          @view.custom_account_query_add_name(name).when_present.click
+        end
       end
 
       def find_account_popup_close_click
-        @view.find_account_popup_close.when_present.click
+        @view.browser.window(:title => 'Select Account Dialog').use do
+          @view.find_account_popup_close.when_present.click
+        end
       end
 
       def find_account_popup_find_click
-        @view.find_account_popup_find.when_present.click
+        @view.browser.window(:title => 'Select Account Dialog').use do
+          @view.find_account_popup_find.when_present.click
+        end
       end
 
       def combine_queries_subtract_click
@@ -237,7 +259,7 @@ module Cukesetaptesting
         end
       end
 
-      def criteria_radius(prefix, ids, values)
+      def criteria_multiple_textboxes_by_id(prefix, ids, values)
         values_array = values.split(',')
         ids_array = ids.split(',')
         for i in 0..(ids_array.length - 1)
@@ -253,6 +275,16 @@ module Cukesetaptesting
       def criteria_radio(prefix, ids, values)
         name = (prefix == '') ? ids : (prefix + '.' + ids)
         @view.radio_button_by_name(name, values).when_present.set
+      end
+
+      def criteria_first_last(prefix, ids, values)
+        values_array = values.split(',')
+        ids_array = ids.split(',')
+        first_value = values_array[0].strip
+        @view.dropdown_selector(prefix == '' ? ids_array[0].strip : prefix+'.'+ids_array[0].strip).when_present.set first_value
+        if first_value == 'First' or first_value == 'Last'
+          @view.dropdown_selector(prefix == '' ? ids_array[1].strip : prefix+'.'+ids_array[1].strip).when_present.set values_array[1].strip
+        end
       end
 
       def criteria_phone_type(phone_type)
@@ -342,6 +374,12 @@ module Cukesetaptesting
           end
         end
       end
+
+      def edit_query_save_click
+
+        @view.edit_query_save.when_present.click
+      end
+
     end
   end
 end

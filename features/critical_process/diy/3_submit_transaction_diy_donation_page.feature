@@ -23,8 +23,8 @@ Feature: Submit a transaction through a diy donation page
     And I set City to 'Indianapolis' on the DIY Donation Page
     And I set State to 'Indiana' on the DIY Donation Page
     And I set Postal Code to '46280' on the DIY Donation Page
-    And I set Email to 'qa-1@blackbaud.com' on the DIY Donation Page
-    And I set Confirm Email to 'qa-1@blackbaud.com' on the DIY Donation Page
+    And I set Email to 'lance.moore@blackbaud.com' on the DIY Donation Page
+    And I set Confirm Email to 'lance.moore@blackbaud.com' on the DIY Donation Page
     And I set Phone to '317-336-3827' on the DIY Donation Page
     And I set the Card Type to 'MasterCard' on the DIY Donation Page
     And I set Name on Card to 'Sally Jenkins' on the DIY Donation Page
@@ -57,8 +57,8 @@ Feature: Submit a transaction through a diy donation page
     And I set Address Lines to '345 West Elm Ave.' on the DIY Donation Page
     And I set City to 'Indianapolis' on the DIY Donation Page
     And I set Postal Code to '46280' on the DIY Donation Page
-    And I set Email to 'qa-1@blackbaud.com' on the DIY Donation Page
-    And I set Confirm Email to 'qa-1@blackbaud.com' on the DIY Donation Page
+    And I set Email to 'lance.moore@blackbaud.com' on the DIY Donation Page
+    And I set Confirm Email to 'lance.moore@blackbaud.com' on the DIY Donation Page
     And I set Phone to '317-219-7788' on the DIY Donation Page
     And I set the Card Type to 'MasterCard' on the DIY Donation Page
     And I set Name on Card to 'John Hopkins' on the DIY Donation Page

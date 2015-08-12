@@ -13,9 +13,9 @@ Feature: Publishing a diy page with a custom skin
     And I set the Title to 'Contact Page' on the DIY settings page
     And I set the URL to 'ContactUs' on the DIY settings page
     And I set the Journal Contact Subject to 'Online Sign Up' on the DIY settings page
-    And I set the From what address? to 'qa-1@blackbaud.com' on the DIY settings page
+    And I set the From what address? to 'lance.moore@blackbaud.com' on the DIY settings page
     And I set the From Subject to ' Thank you for signing up!' on the DIY settings page
-    And I set the To what address(es)? to 'qa-1@blackbaud.com' on the DIY settings page
+    And I set the To what address(es)? to 'lance.moore@blackbaud.com' on the DIY settings page
     And I set the Subject to 'Sign Up Received' on the DIY settings page
     And I click Submit on the DIY settings page
     And I click Go Live on the DIY editor page

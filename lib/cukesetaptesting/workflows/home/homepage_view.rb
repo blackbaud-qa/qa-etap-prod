@@ -33,6 +33,8 @@ module Cukesetaptesting
       # eTap develop branch as of 4/14/2015 has an additional id='closeMenuOverlayLink' on the 'take me to etap'
       #  link. It wasn't added to the mrsInvisibleWoman code base, as we were at release time.
       #keyword(:take_me_to_etap_iframe)  { browser.iframe(:id, 'etapContentIframe').div(:id, 'welcomeDashboard').div(:class, 'popupWindow menuOverlay').div(:class, 'popContent').div(:index => 0).div(:index => 2).h2.link(:id, 'closeMenuOverlayLink') }
+
+      #DEV_HELP - last iFrame uses a translatable string
       keyword(:take_me_to_etap_iframe)  { browser.iframe(:id, 'etapContentIframe').div(:id, 'welcomeDashboard').div(:class, 'popupWindow menuOverlay').div(:class, 'popContent').div(:index => 0).div(:index => 2).h2.link(:text, 'Take me to eTapestry!') }
 
       keyword(:dashboard_tile_recently_viewed_accounts_checkbox)  {content.div(:id, 'etap.fieldset.table.2').checkbox(:value,'200')}
@@ -44,6 +46,7 @@ module Cukesetaptesting
       keyword(:date_on_campaign_performance_tile) {content.div(:id, 'tile301').select(:id, 'campaignDateRange')}
       keyword(:set_camp_tile_start_date)  {content.div(:id, 'tile301').text_field(:name, 'campaignCustomStartDate')}
       keyword(:set_camp_tile_end_date)  {content.div(:id, 'tile301').text_field(:name, 'campaignCustomEndDate')}
+      #DEV_HELP
       keyword(:update_camp_performance_tile)  {content.div(:id, 'tile301').button(:value, 'Update')}
       keyword(:perform_full_report_results) {content.div(:id, 'dashboardDetailReport').td(:class, 'pageResults')}
       keyword(:camp_perform_date_range_label) {content.div(:id,'asyncTileLoader301').table(:id,'etapreporttag1')}
@@ -54,6 +57,8 @@ module Cukesetaptesting
       keyword(:dashboard_tile_remove_recently_viewed_accounts)  {content.div(:id, 'tile200').div(:class, 'controls').img(:src,'images/deleteGray16.png')}
 
       def link_on_campaign_performance_tile(value)
+        # Should be ok for internationalization as we are
+        #   passing in a specific string
         content.div(:id, 'tile301').a(:text, value)
       end
 

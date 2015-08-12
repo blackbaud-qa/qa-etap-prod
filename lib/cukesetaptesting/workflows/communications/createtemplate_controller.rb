@@ -86,6 +86,11 @@ module Cukesetaptesting
         @view.new_template_documents.when_present.click
       end
 
+      def new_template_newsletters_click
+        puts "new_template_newsletters_click"
+        @view.new_template_newsletters.when_present.click
+      end
+
       def new_template_simple_business_click
         @view.new_template_simple_business.when_present.click
       end
@@ -239,6 +244,13 @@ module Cukesetaptesting
         template_locator.when_present.click
       end
 
+      def click_newsletter_template_name template_name
+        template_locator = @view.newsletter_template_locator template_name
+#        sleep 1
+        @view.browser.execute_script('arguments[0].scrollIntoView();',template_locator)
+        template_locator.when_present.click
+      end
+
       def new_template_receipt_stub_bottom_click
         @view.browser.execute_script('arguments[0].scrollIntoView();',@view.new_template_reciept_stub_bottom)
         @view.new_template_reciept_stub_bottom.when_present.click
@@ -389,7 +401,7 @@ module Cukesetaptesting
         @view.new_newsletter_content_update.when_present.click
       end
 
-      def font_family_veranda_click
+      def font_family_verdana_click
         @view.article_font_dropdown.when_present.click
       end
 
@@ -414,7 +426,7 @@ module Cukesetaptesting
       end
 
       def select_advanced_mass_email
-        @view_advanced_mass.when_present.click
+        @view.advanced_mass.when_present.click
         # @view.browser.radio(:id => 'advancedMode"').set
       end
 
@@ -554,7 +566,22 @@ module Cukesetaptesting
         @view.advanced_editor_entry_list.when_present.double_click
       end
 
+      def quick_formatting_text_style style_section, font_name
+        @view.quick_formatting_text_style style_section, font_name
       end
+
+      def quick_formatting_text_size style_section, font_size
+        @view.quick_formatting_text_size style_section, font_size
+      end
+
+      def click_quick_format_update_button
+        @view.quick_format_update_button.when_present.click
+      end
+
+      def click_quick_format_cancel_button
+        @view.quick_format_cancel_button.when_present.click
+      end
+    end
   end
 end
 

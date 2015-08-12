@@ -34,7 +34,7 @@ Feature: Creating a new communications template
     And I set the quick formatting size to '12pt' on the Edit Contents pop up
     And I click Update on the template 'Edit Styles' pop up
     And click on the Letter Closing block to open the Edit Contents pop up
-    And change the email address to 'qa-1@blackbaud.com' in the Edit Contents pop up
+    And change the email address to 'lance.moore@blackbaud.com' in the Edit Contents pop up
     And I click Update on the template 'Edit Contents' pop up
     And choose Create Document on Save And Create Document on the new Correspondence Template page
     And I click Next on the new Correspondence Template page

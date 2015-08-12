@@ -29,6 +29,36 @@ Given(/^There exists an account that has donated this year/) do
   step "I click Save And 'Edit'"
 end
 
+Given(/^there exists an account that has donated in January 2015/) do
+  account_name = "Sample Donor"
+  step "I click Accounts on the main menu"
+  step "I type '#{account_name}' into the search field"
+  step "I press Enter on the keyboard"
+  search = Account::Search.new
+  if not search.account_name_exists? account_name
+    step "I click Accounts"
+    step "I click on Add Account on the find account screen"
+    step "I set Name to 'Sample Donor' on the classic add account page"
+    step "I set Sort Name to 'Donor, Sample' on the classic add account page"
+    step "I click Save And 'Add Gift/Pledge'"
+  else
+    step "I type 'Sample Donor' into the dynamic search field"
+    search1 = Account::Search.new
+    search1.arrow_down
+    step "I press Enter on the keyboard"
+    step "I click Journal"
+    step "select Gift/Pledge from the Add New... drop down menu"
+  end
+
+  step "set the date field to '1/5/2015'"
+  step "set the Received Amount field to '10.00'"
+  step "set the Fund to 'General'"
+  step "set the Gift Type to Check"
+  step "set the Check Date to '11/30/2090'"
+  step "set the Check Number to '879'"
+  step "I click Save And 'Edit'"
+end
+
 Given(/^click ([^']*) on the Correspondence Categories page/) do |item|
   letter = Communications::Createtemplate.new()
   letter.correspondence_category_click item
@@ -89,6 +119,11 @@ end
 Given(/^(?:I |)click Documents on the new Correspondence Template page/) do
   letter = Communications::Createtemplate.new()
   letter.new_template_documents_click
+end
+
+Given(/^(?:I |)click Newsletters on the new Correspondence Template page/) do
+  letter = Communications::Createtemplate.new()
+  letter.new_template_newsletters_click
 end
 
 Given(/^click on the image to open the Edit Contents pop up/) do
@@ -285,6 +320,11 @@ Given(/^(?:I |)click on the ([^']*) template/) do |template_name|
   letter = Communications::Createtemplate.new()
   #letter.new_template_simple_business_letter_click
   letter.click_template_name template_name
+end
+
+Given(/^I click on the '([^']*)' newsletter template$/) do |name|
+  letter = Communications::Createtemplate.new()
+  letter.click_newsletter_template_name name
 end
 
 Given(/^delete the letter footer/) do

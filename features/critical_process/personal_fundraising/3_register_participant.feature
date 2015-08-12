@@ -18,7 +18,7 @@ Feature: Registering a participant
     And I click Next on the live fundraiser page
     And I set the First Name field to 'John' on the live fundraiser page
     And I set the Last Name field to 'Crabtree' on the live fundraiser page
-    And I set the Email field to 'qa-1@blackbaud.com' on the live fundraiser page
+    And I set the Email field to 'lance.moore@blackbaud.com' on the live fundraiser page
     And I set the Password field to 'abc123' on the live fundraiser page
     And I set the Confirm Password field to 'abc123' on the live fundraiser page
     And I set the Security Question to 'What is your favorite color?' on the live fundraiser page
@@ -57,7 +57,7 @@ Feature: Registering a participant
     And I click on the QA Fundraiser 1 url on the Fundraiser page
     And I switch to the new tab in my browser
     When I click Login on the live fundraiser page
-    And I set the Email to 'qa-1@blackbaud.com' on the live fundraiser login page
+    And I set the Email to 'lance.moore@blackbaud.com' on the live fundraiser login page
     And I set the password to 'abc123' on the live fundraiser login page
     And I click Login on the live fundraiser login page
     Then the Fundraising Center page should say: 'Fundraising Center for John Crabtree'

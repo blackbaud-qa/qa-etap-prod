@@ -4,7 +4,7 @@ module Cukesetaptesting
       keyword(:date_field) {content.div(:class,"calendarPopup").text_field(:id, "date")}
       # keyword(:date_field) {content.text_field(:id, "date")}
       keyword(:calendar_button) {content.div(:class,"calendarPopup").img(:src, "/prod/images/newCalendarIcon.png")}
-      keyword(:transactions) {add_entry.option(:text, 'Gift/Pledge')}
+      #keyword(:transactions) {add_entry.option(:text, 'Gift/Pledge')}
 
       # field for money received
       keyword(:received_field) {content.table(:class,"pageTextNormal").text_field(:id, "recived")}
@@ -99,17 +99,20 @@ module Cukesetaptesting
       keyword(:tribute_name) {content.td(:id, 'tributeNameInput')}
       keyword(:soft_credit_name) {content.td(:id, 'newSoftCreditNameInput').link}
 
-      keyword(:journal_link)  {content.a(:text,'Journal')}
+      #OTG_INTL keyword(:journal_link)  {content.a(:text,'Journal')}
+      keyword(:journal_link)  {content.div(:id => 'topMenu').li(:index => 3).a}
 
       #combo box for adding a new journal entry from the Add New... combo box
       keyword(:add_new_journal_type) {content.select(:id, 'addEntry')}
 
       keyword(:new_pledge_date) {content.text_field(:name, 'date')}
       keyword(:set_pledged_field) {content.text_field(:name, 'receivable')}
-      keyword(:create_pledge_schedule) {content.a(:text, 'Create Pledge Schedule')}
+      #OTG_INTL keyword(:create_pledge_schedule) {content.a(:text, 'Create Pledge Schedule')}
+      keyword(:create_pledge_schedule) {content.div(:id => 'newPledgeScheduleLink').a}
       keyword(:select_frequency_value) {content.select(:id, 'pledgeFrequencySelect')}
       keyword(:first_installment_date) {content.input(:name, 'scheduleForm.firstInstallmentDate')}
       keyword(:set_installment_amount) {content.text_field(:name, 'scheduleForm.installmentAmount')}
+      #DEV_HELP
       keyword(:add_a_payment_for_this_pledge) {content.a(:text, 'Add a Payment for this Pledge')}
       keyword(:set_payment_check_date) {content.text_field(:name, "checkDate")}
       keyword(:set_check_number) {content.text_field(:name, 'checkNumber')}
@@ -117,7 +120,8 @@ module Cukesetaptesting
       keyword(:gift_types_section) {content.div(:id, 'giftTypesTitleBar')}
       keyword(:payment_delete_button) {content.button(:name, 'deleteButton')}
       keyword(:pledge_entry_to_click) {content.a(:text, 'Pledge')}
-      keyword(:more_options_link) {content.a(:text, 'More Options')}
+      #OTG_INTL keyword(:more_options_link) {content.a(:text, 'More Options')}
+      keyword(:more_options_link) {content.a(:id, 'advancedToggle')}
       keyword(:uncheck_all_link) {content.a(:text, 'Uncheck All')}
       keyword(:pledge_checkbox) {content.checkbox(:value, 'label.pledge')}
       keyword(:find_button_journal_page) {content.button(:value, 'Find')}

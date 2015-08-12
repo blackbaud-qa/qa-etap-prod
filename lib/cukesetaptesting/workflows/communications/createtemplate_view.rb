@@ -13,6 +13,7 @@ module Cukesetaptesting
       keyword(:new_template_nav) {comm_template.div(:class,'taskPaneLeft')}
       keyword(:new_template_next) {comm_template.button(:id,'wizardNavigationNext_1')}
       keyword(:new_template_documents) {comm_template.ul(:class,'tabs').li(:id,'tablayoutsdocuments').a}
+      keyword(:new_template_newsletters) {comm_template.ul(:class,'tabs').li(:id,'tablayoutsnewsletters').a}
       keyword(:new_template_simple_business) {comm_template.div(:id,'tabContentlayoutsdocuments').label(:text,'Simple Business Letter').parent.a}
       keyword(:new_template_edit_header) {comm_template.div(:id,'guideHeader')}
       keyword(:new_template_content_editor) {content.iframe(:id,'blockHtmlContents_ifr')}
@@ -113,6 +114,52 @@ module Cukesetaptesting
       keyword(:new_newsletter_content_update) {content.button(:value, 'Update')}
       keyword(:new_newsletter_content) {content.iframe(:id, 'blockHtmlContents_ifr').body(:id, 'guideContent')}
 
+      ## Edit Styles locators: Found under correspondence template --> Quick Formatting button
+#      keyword(:text_style_text_font) {content.div(:id,'letterGuide').div(:id, 'letterGuideStylesheet').div.divs[2].div.p.select(:class,'styleFont').option(:text, 'Verdana')}
+#      keyword(:text_style_text_size) {content.div(:id,'letterGuide').div(:id, 'letterGuideStylesheet').div.divs[2].div.p.select(:class,'styleFont').option(:text, 'Verdana')}
+
+      def quick_formatting_text_style style_section, font_name
+        if style_section == 'Text'
+          index = 0
+        elsif style_section == 'Title'
+          index = 1
+        elsif style_section == 'Article Title'
+          index = 2
+        elsif style_section == 'Article Subtitle'
+          index = 3
+        elsif style_section == 'Feature Text'
+          index = 4
+        elsif style_section == 'Secondary Feature Text'
+          index = 5
+        elsif style_section == 'Table of Contents'
+          index = 6
+        end
+
+        content.div(:id,'letterGuide').div(:id, 'letterGuideStylesheet').div.div(:index => index).div(:index => 0).p.select_list(:class,'styleFont').when_present.click
+        content.div(:id,'letterGuide').div(:id, 'letterGuideStylesheet').div.div(:index => index).div(:index => 0).p.select(:class,'styleFont').option(:text, '#{font_name}').click
+      end
+
+      def quick_formatting_text_size style_section, font_size
+        if style_section == 'Text'
+          index = 0
+        elsif style_section == 'Title'
+          index = 1
+        elsif style_section == 'Article Title'
+          index = 2
+        elsif style_section == 'Article Subtitle'
+          index = 3
+        elsif style_section == 'Feature Text'
+          index = 4
+        elsif style_section == 'Secondary Feature Text'
+          index = 5
+        elsif style_section == 'Table of Contents'
+          index = 6
+        end
+
+        content.div(:id,'letterGuide').div(:id, 'letterGuideStylesheet').div.div(:index => index).div(:index => 0).p.select_list(:class,'styleSize').when_present.click
+        content.div(:id,'letterGuide').div(:id, 'letterGuideStylesheet').div.div(:index => index).div(:index => 0).p.select(:class,'styleSize').option(:text, '#{font_size}').click
+      end
+
       keyword(:article_font_dropdown) {content.div(:id,'letterGuide').div(:id, 'letterGuideStylesheet').div.divs[2].div.p.select(:class,'styleFont').option(:text, 'Verdana')}
       # keyword(:article_font_dropdown) {content.div(:id,'letterGuide').div(:id, 'letterGuideStylesheet').div.divs[2].div(:class,'styleDefinition').select(:class,'styleFont').option('Verdana,Geneva')}
 
@@ -193,6 +240,8 @@ module Cukesetaptesting
       keyword(:advanced_editor_insert_letter) {content.div(:id,'mceu_32')}
       keyword(:advanced_editor_entry_list) {advanced_editor_frame.input}
 
+      keyword(:quick_format_update_button) {content.div(:id => 'letterGuide').div(:id => 'a1439342522113').div(:id => 'a1439342519186').div(:class => 'popFooter').button(:value => 'Update')}
+      keyword(:quick_format_cancel_button) {content.button(:value => 'Cancel')}
 
       def home(model)
       end
@@ -248,6 +297,11 @@ module Cukesetaptesting
       #      keyword(:new_template_simple_business_letter) {comm_template.div(:id,'tabContentlayoutsdocuments').label(:text,'Simple Business Letter').parent.a}
       def template_locator template_name
         comm_template.div(:id,'tabContentlayoutsdocuments').label(:text,"#{template_name}").parent.a
+      end
+
+      def newsletter_template_locator template_name
+#        comm_template.div(:id,'tabContentlayoutsnewsletters').label(:text,"#{template_name}").parent.a
+        comm_template.div(:id,'tabContentlayoutsnewsletters').label(:text,"#{template_name}").parent.a
       end
 
       def category_div
