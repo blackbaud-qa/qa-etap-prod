@@ -196,6 +196,10 @@ module Cukesetaptesting
         @view.browser.url == value
       end
 
+      def multiple_email_return(value)
+        @view.multiple_email_return.when_present.set value
+      end
+
       end
     end
   end
