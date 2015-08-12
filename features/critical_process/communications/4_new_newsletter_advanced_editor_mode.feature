@@ -8,8 +8,8 @@ Feature: Creating a new communications template
   Scenario: creating a newsletter in guided mode
     Given I am logged into eTap
     When I click Communications on the main menu
-    And click Email Templates
-    And click New Email or Document Template
+    And click Email Templates on the Correspondence Categories page
+    And click New Email or Document Template on the Correspondence Category page
     And set the Name to 'Simplicity - Advanced Editor Mode'
     And click Tab
 #    And verify that the Subject now says Simplicity - Advanced Editor Mode
