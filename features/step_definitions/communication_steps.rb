@@ -121,6 +121,11 @@ Given(/^(?:I |)click Documents on the new Correspondence Template page/) do
   letter.new_template_documents_click
 end
 
+Given(/^(?:I |)click Newsletters on the new Correspondence Template page/) do
+  letter = Communications::Createtemplate.new()
+  letter.new_template_newsletters_click
+end
+
 Given(/^click on the image to open the Edit Contents pop up/) do
   letter= Communications::Createtemplate.new()
   letter.new_template_edit_header_click

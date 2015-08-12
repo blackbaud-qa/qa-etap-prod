@@ -7,25 +7,27 @@ Feature: Creating a new communications template
   Scenario: creating a newsletter in guided mode
     Given I am logged into eTap
     When I click Communications on the main menu
-    And click Email Templates
-    And click New Email or Document Template
+    And click Email Templates on the Correspondence Categories page
+    And click New Email or Document Template on the Correspondence Category page
     And set the Name to 'Pistachio Goodness'
 #- Guided Mode
     And click Tab
     And verify that the Subject now says 'Pistachio Goodness'
-    And click Next
-    And click on the Pistachio Goodness template
+    And I click Next on the new Correspondence Template page
+    And I click Documents on the new Correspondence Template page
+    And I click Newsletters on the new Correspondence Template page
+    And I click on the 'Pistachio Goodness' newsletter template
 #    And hover over the Article block
 #    And click on the image to open the Edit Contents pop up
  #Having trouble being able to delete and update specific text(title and subtitle)- need to go back to this
 #    And change the title to 'Something Interesting'
 #    And change the subtitle to 'Is what this is about'
 #    And I click Update
-    And click Quick Formatting
-    #all of them have the same div class tag -- how to choose specific one versus the first one
-    And set the Article Title fonts to Veranda
-#    And set the size to 16pt
-#    And click Update
+  ### Unable to locate anything on the quick formatting pop-up.
+  #  And click Quick Formatting
+##    And set the Article Title font to Verdana
+##    And set the size to 16pt
+   # And update the text styles
 #    And click on the Quick Links block to open the Edit Contents pop up
 #    And delete the four default links
 #    And type in 'Google'
