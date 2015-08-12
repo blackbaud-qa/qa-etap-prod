@@ -34,6 +34,12 @@ And (/^I set the Name to '([^']*)' on the Create a New Query page/) do |value|
   query.create
 end
 
+And(/^I click save on the Edit Query Definition page$/) do
+  query = Queries::Createquerycategory.new
+  query.edit_query_save_click
+  step "I should close the javascript popup"
+end
+
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type account/) do | ids, prefix, values|
   query = Queries::Createquerycategory.new
   if values == '' #If the Whoever Runs This Query box is checked
@@ -263,6 +269,12 @@ end
 And (/^I type '([^']*)' into the Short Salutation field on the Create a New Query page/) do |name|
   sleep 2
   query = Queries::Createquerycategory.new(:query_criteria_short_salutation_field => name)
+  query.create
+end
+
+And (/^I type '([^']*)' into the State field on the Create a New Query Page$/) do |state|
+  sleep 2
+  query = Queries::Createquerycategory.new(:query_criteria_state_field => state)
   query.create
 end
 

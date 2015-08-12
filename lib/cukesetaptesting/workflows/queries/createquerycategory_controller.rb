@@ -14,6 +14,10 @@ module Cukesetaptesting
         return @view.create_comms_category_title.when_present.text.include? 'Create Query Category'
       end
 
+      def on_edit_query_page?
+        return @view.edit_query_title.when_present.text.include? 'Edit Query Definition'
+      end
+
       def string_exists_on_page?(query_string)
         @view.string_exists_on_page? query_string
       end
@@ -369,6 +373,11 @@ module Cukesetaptesting
             @view.checkbox_selector_by_text(name, value).when_present.set
           end
         end
+      end
+
+      def edit_query_save_click
+
+        @view.edit_query_save.when_present.click
       end
 
     end
