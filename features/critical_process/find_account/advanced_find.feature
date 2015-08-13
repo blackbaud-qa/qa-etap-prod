@@ -15,7 +15,7 @@ Feature: Searching from advanced find
 #    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I click Advanced Find
-    And I type 'lance.moore@blackbaud.com' into the Email field
+    And I type 'qa-1@blackbaud.com' into the Email field
     And I press Enter on the keyboard
     Then 'Talisha Almond' should show in the advanced find name results
 
@@ -33,6 +33,6 @@ Feature: Searching from advanced find
 #    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I click Advanced Find
-    And I type 'lance.moore@blackbaud.com' into the Email field
+    And I type 'qa-1@blackbaud.com' into the Email field
     And I click Find
     Then 'Talisha Almond' should show in the advanced find name results
