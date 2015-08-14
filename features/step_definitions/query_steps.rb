@@ -54,7 +54,7 @@ And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)'
   query.criteria_num_range(prefix, ids, values)
 end
 
-And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type AccountTextValues/) do | ids, prefix, values|
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type requiredTextValues/) do | ids, prefix, values|
   query = Queries::Createquerycategory.new
   if values == 'none'
     query.criteria_text_value_none(prefix)

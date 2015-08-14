@@ -255,7 +255,7 @@ module Cukesetaptesting
       def criteria_checkboxes(prefix, name, values)
         values_array = values.split(',')
         values_array.each do |value|
-          @view.checkbox_selector(prefix == '' ? name : prefix+'.'+name, value).when_present.set
+          @view.checkbox_selector(prefix == '' ? name : prefix+'.'+name, value.strip).when_present.set
         end
       end
 
