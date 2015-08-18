@@ -95,6 +95,65 @@ module Cukesetaptesting
       keyword(:ticket_section)  {content.div(:id,'event_widget_block')}
       keyword(:ticket_section_update_click) {content.span(:class=>'titleText',:text=>'Edit Ticket Options').parent.parent.button(:id=>'save')}
 
+      def diy_page_is_live?(name)
+        name_part = ''
+
+        content.spans(:class=>'namePart').each do |span|
+          if (span.text == name)
+            name_part = span
+            break
+          end
+        end
+
+        if name_part == ''
+          return false
+        end
+
+        # text should be 'draft' or 'live'
+        status_part_text = name_part.parent.span(:class=>'statusPart').span.text
+
+        if status_part_text == 'live'
+          return true
+        end
+
+        return false
+      end
+
+      def get_diy_page_state(name)
+        name_part = nil
+
+        content.spans(:class=>'namePart').each do |span|
+          if (span.text == name)
+            name_part = span
+            break
+          end
+        end
+
+        if (name_part == nil)
+          return 'unknown'
+        end
+
+        # text should be 'draft' or 'live'
+        status_part_text = name_part.parent.span(:class=>'statusPart').span.text
+
+        if (status_part_text == 'live')
+          return status_part_text
+        elsif (status_part_text == 'draft')
+          return status_part_text
+        else
+          return 'unknown'
+        end
+      end
+
+      def diy_page_exists?(name)
+        ret_val = false
+
+        content.spans(:class=>'namePart').each do |span|
+          ret_val = ret_val || (span.text == name)
+        end
+
+        return ret_val
+      end
 
       def click_on_fund(fund)
         funds_list.link(:text, fund)

@@ -476,3 +476,39 @@ And(/^I hover over the Ticket Section on the DIY editor page/) do
   sleep 1
 end
 
+And(/^a DIY form titled ([^']*) already exists/) do |name|
+  steps %Q{
+    Given I am logged into eTap
+    When I click Management on the main menu
+    And I click on DIY Forms on the management page
+  }
+
+  diy = DIY::Onlineforms.new
+  x = diy.diy_page_exists? name
+
+  pp diy.diy_page_is_live? name
+  pp diy.get_diy_page_state name
+end
+
+And(/^I create a new DIY page named ([^']*)/) do
+  steps %Q{
+    Given I am logged into eTap
+    When I click Management on the main menu
+    And I click on DIY Forms on the management page
+    And I click Create a Page
+    And I click Online Giving Page
+    And I select the Embeddable template
+    And I click Next on the DIY template page
+    And I set the Name to 'UDF Test 479480' on the DIY settings page
+    And I set the Title to 'UDF Test 479480' on the DIY settings page
+    And I set the URL to 'Donate' on the DIY settings page
+    And I set the From what address? to 'qa1@blackbaud.com' on the DIY settings page
+    And I set the From Subject to 'Thank you for your donation!' on the DIY settings page
+    And I set the To what address(es)? to 'qa1@blackbaud.com' on the DIY settings page
+    And I set the Subject to 'Donation Received' on the DIY settings page
+    And I set the Fund to 'General' on the DIY settings page
+    And I click Submit on the DIY settings page
+    And I click Go Live on the DIY editor page
+    And I click Yes, Go Live! on the DIY editor page
+  }
+end

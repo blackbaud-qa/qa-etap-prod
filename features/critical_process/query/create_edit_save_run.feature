@@ -132,7 +132,6 @@ Feature: Create, Edit, Save and Run Queries
     And I click 'Save Category' on the Edit Query Category page
     And I click delete below the 'Donors Named John - Custom Query' query on the Create a New Query page
     And I click Yes to permanently delete the item
-###   Cannot delete Hand Selected Donors until that scenario can run  ###
     And I click Queries on the main menu
     And I click on the 'Critical Process Testing' category
     And I click delete below the 'Hand Selected Donors' query on the Create a New Query page

@@ -4,6 +4,18 @@ module Cukesetaptesting
       @model = OnlineformsModel
       @view = OnlineformsView
 
+      def diy_page_is_live?(name)
+        return @view.diy_page_is_live? name
+      end
+
+      def get_diy_page_state(name)
+        return @view.get_diy_page_state name
+      end
+
+      def diy_page_exists?(name)
+        return @view.diy_page_exists? name
+      end
+
       def on_online_forms_page?
         return @view.online_forms_title.when_present.text.include? 'Online Forms'
       end
