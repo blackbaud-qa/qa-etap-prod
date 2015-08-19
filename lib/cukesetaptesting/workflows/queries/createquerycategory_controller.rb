@@ -15,7 +15,7 @@ module Cukesetaptesting
       end
 
       def on_edit_query_page?
-        return @view.edit_query_title.when_present.text.include? 'Edit Query Definition'
+        return @view.edit_query_title.when_present.text.include? 'Edit Query'
       end
 
       def string_exists_on_page?(query_string)
