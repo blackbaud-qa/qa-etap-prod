@@ -132,7 +132,8 @@ module Cukesetaptesting
       end
 
       def try_to_click_on_query_category(category)
-        @view.click_missing_query_category(category).present?
+        return @view.content.ul(:id,'list_categories').text.include? category
+        # @view.click_missing_query_category(category).present?
       end
 
       def preview_query_click(name)
