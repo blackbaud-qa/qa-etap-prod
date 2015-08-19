@@ -64,6 +64,7 @@ module Cukesetaptesting
       end
 
       def new_template_settings_click
+        sleep 1
         @view.new_template_content.wait_until_present
         @view.new_template_settings.when_present.click
       end
@@ -190,6 +191,7 @@ module Cukesetaptesting
       end
 
       def gen_letters_next_click
+        sleep 0.5
         @view.gen_letters_next.when_present.click
       end
 
