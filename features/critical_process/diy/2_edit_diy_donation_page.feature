@@ -4,7 +4,7 @@ Feature: Edit a diy donation page
 #  Background:
 #    Given a DIY form titled Donation Page already exists
 
-  Scenario: creating a new diy page
+  Scenario: editing a new diy page
     Given I am logged into eTap
     When I click Management on the main menu
     When I click on DIY Forms on the management page

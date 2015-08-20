@@ -3,6 +3,7 @@ module Cukesetaptesting
     class OnlineformsView < BaseView
       keyword(:online_forms_title)  { forms.h2(:id,'title') }
       keyword(:management_page_diy) { content.link(:href, 'ecommManagerHome.do')}
+      keyword(:create_a_page_first_time) { content.div(:id, 'getStartedButtonM')}
       keyword(:create_a_page) { content.div(:id, 'newPageButtonM')}
       keyword(:choose_online_giving_page) { content.div(:id, 'donateButtonM')}
       keyword(:choose_embedded_template) { content.div(:id, 'embeddiv')}
@@ -51,7 +52,6 @@ module Cukesetaptesting
       keyword(:new_image_insert) {content.span(:text,'Insert image')}
       keyword(:add_fields) {content.h6(:text,'Add Fields')}
       keyword(:base_field_cat) {content.select(:id,'availableCategoriesSelect')}
-      keyword(:field_select_gender) {content.a(:text,'Gender')}
       keyword(:fields_update) {content.span(:class=>'titleText',:text=>'Add Fields').parent.parent.button(:id=>'save')}
       keyword(:add_text) {content.h6(:text,'Add Text')}
       keyword(:default_text) {content.iframe(:id,'blockHtmlContents_ifr')}
@@ -63,11 +63,13 @@ module Cukesetaptesting
       keyword(:donation_page_delete) {content.span(:class=>'namePart',:text=>'Donation Page').parent.parent.div(:class=>'linkBox',:text=>'Delete')}
       keyword(:donation_page_disable_confirm) {content.button(:id,'confirmDisable')}
       keyword(:donation_page_delete_confirm) {content.button(:id,'confirmDelete')}
-      keyword(:donation_page_link) {content.a(:class,'ecUrl')}
+
       keyword(:live_fund) {browser.select(:id,'ecFundSelectField')}
       keyword(:live_gender) {browser.h6(:class=>'dropdownType',:text=>'Gender').parent.parent.select}
+      keyword(:live_maiden_name) {browser.h6(:class=>'simplefieldType',:text=>'Maiden Name').parent.parent.text_field}
       keyword(:live_amount_other) {browser.radio(:id,'gift_amount_advanced_givingLevelsOther')}
-      keyword(:live_amount_field) {browser.text_field(:id,'otherAmt')}
+      #keyword(:live_amount_field) {browser.text_field(:id,'otherAmt')}
+      keyword(:live_amount_field) {browser.text_field(:id,'gift_amount_simpleField')}
       keyword(:live_freq) {browser.select(:id,'rgsFrequencyField')}
       keyword(:live_title) {browser.select(:id,'salutation')}
       keyword(:live_first_name) {browser.text_field(:id,'firstName')}
@@ -94,6 +96,59 @@ module Cukesetaptesting
       keyword(:journal_contact_subject) {content.text_field(:id,'contactSubject')}
       keyword(:ticket_section)  {content.div(:id,'event_widget_block')}
       keyword(:ticket_section_update_click) {content.span(:class=>'titleText',:text=>'Edit Ticket Options').parent.parent.button(:id=>'save')}
+
+
+      #keyword(:donation_page_link) {content.a(:class,'ecUrl')}
+      def diy_page_link page_name
+        page_link = content
+
+        if diy_page_exists? page_name
+          content.spans(:class=>'namePart').each do |span|
+            if span.text == page_name
+              page_link = span.parent.parent.parent.div(:class=>'pageRightSection').a(:class=>'ecUrl')
+            end
+          end
+        end
+
+        return page_link
+      end
+
+      def donor_confirmation_email_checkbox val
+        val.downcase!
+
+        # If we've fed in an unknown string,
+        #  we shouldn't see any state change
+        if val == 'enable'
+          content.checkbox(:id=>'notifyDonor').when_present.set true
+        elsif val == 'disable'
+          content.checkbox(:id=>'notifyDonor').when_present.set false
+        end
+      end
+
+      def org_confirmation_email_checkbox val
+        val.downcase!
+
+        # If we've fed in an unknown string,
+        #  we shouldn't see any state change
+        if val == 'enable'
+          content.checkbox(:id=>'notifyOrg').when_present.set true
+        elsif val == 'disable'
+          content.checkbox(:id=>'notifyOrg').when_present.set false
+        end
+      end
+
+      #keyword(:field_select_gender) {content.a(:text,'Gender')}
+      def field_select(field_name)
+        sleep 1
+
+        # If the udf is unselectable, then it is present on the page but
+        #   is greyed out, which indicates that it has already been selected.
+        if content.div(:class=>'udfUnselectable',:text=>field_name).exists?
+          return content
+        end
+
+        return content.a(:text=>field_name)
+      end
 
       def diy_page_is_live?(name)
         name_part = ''

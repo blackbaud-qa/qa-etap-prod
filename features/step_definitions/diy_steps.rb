@@ -228,9 +228,9 @@ And(/I select Base for the field category on the DIY editor page$/) do
   diy.base_field_cat_select
 end
 
-And(/I click Gender on the DIY editor page$/) do
+And(/I click ([^']*) UDF on the DIY editor page$/) do |udf_name|
   diy = DIY::Onlineforms.new()
-  diy.field_select_gender_click
+  diy.field_select_click udf_name
 end
 
 And(/I click Update on the Add Fields page$/) do
@@ -294,9 +294,10 @@ Then(/the Donation Page should no longer show$/) do
   expect(diy.donation_page_present? 'Donation Page').to eq(false)
 end
 
-When(/^I click on the link for the form titled Donation Page$/) do
+When(/^I click on the link for the form titled ([^']*)$/) do |page_name|
   diy = DIY::Onlineforms.new()
-  diy.donation_page_click
+#  diy.donation_page_click
+  (diy.diy_page_link page_name).when_present.click
 end
 
 And(/^I open a new tab in my browser$/) do
@@ -318,6 +319,11 @@ end
 And(/^I set Gender to '([^']*)' on the DIY Donation Page$/) do |gender|
   diy = DIY::Onlineforms.new()
   diy.live_gender_set gender
+end
+
+And (/^I set Maiden Name to '([^']*)' on the DIY Donation Page/) do |maiden_name|
+  diy = DIY::Onlineforms.new()
+  diy.live_maiden_name_set maiden_name
 end
 
 And(/^I set the Donation Amount to Other on the DIY Donation Page$/) do
@@ -476,7 +482,7 @@ And(/^I hover over the Ticket Section on the DIY editor page/) do
   sleep 1
 end
 
-And(/^a DIY form titled ([^']*) already exists/) do |name|
+And(/^a DIY form titled ([^']*) exists/) do |page_name|
   steps %Q{
     Given I am logged into eTap
     When I click Management on the main menu
@@ -484,13 +490,16 @@ And(/^a DIY form titled ([^']*) already exists/) do |name|
   }
 
   diy = DIY::Onlineforms.new
-  x = diy.diy_page_exists? name
-
-  pp diy.diy_page_is_live? name
-  pp diy.get_diy_page_state name
+  if !diy.diy_page_exists? page_name
+    steps %Q{
+      And I create and publish a new DIY page named #{page_name}
+    }
+  end
 end
 
-And(/^I create a new DIY page named ([^']*)/) do
+And(/^I create and publish a new DIY page named ([^']*)/) do |page_name|
+  mod_page_name = page_name.gsub(" ", "_")
+
   steps %Q{
     Given I am logged into eTap
     When I click Management on the main menu
@@ -499,9 +508,9 @@ And(/^I create a new DIY page named ([^']*)/) do
     And I click Online Giving Page
     And I select the Embeddable template
     And I click Next on the DIY template page
-    And I set the Name to 'UDF Test 479480' on the DIY settings page
-    And I set the Title to 'UDF Test 479480' on the DIY settings page
-    And I set the URL to 'Donate' on the DIY settings page
+    And I set the Name to '#{page_name}' on the DIY settings page
+    And I set the Title to '#{page_name}' on the DIY settings page
+    And I set the URL to '#{mod_page_name}' on the DIY settings page
     And I set the From what address? to 'qa1@blackbaud.com' on the DIY settings page
     And I set the From Subject to 'Thank you for your donation!' on the DIY settings page
     And I set the To what address(es)? to 'qa1@blackbaud.com' on the DIY settings page
@@ -511,4 +520,150 @@ And(/^I create a new DIY page named ([^']*)/) do
     And I click Go Live on the DIY editor page
     And I click Yes, Go Live! on the DIY editor page
   }
+end
+
+And(/^the DIY page ([^']*) contains the UDF ([^']*)/) do |diy_page_name, udf_name|
+  sleep 1
+
+  steps %Q{
+    Given I am logged into eTap
+    When I click Management on the main menu
+    And I click on DIY Forms on the management page
+    And I click Edit for the form titled '#{diy_page_name}'
+
+    And I click Add Item on the DIY editor page
+    And I select Add Fields on the DIY editor page
+    And I select Base for the field category on the DIY editor page
+    And I click #{udf_name} UDF on the DIY editor page
+    And I click Update on the Add Fields page
+
+    And I click Save on the DIY editor page
+    And I confirm saving my changes
+    And I click Go Live on the DIY editor page
+    And I click Yes, Go Live! on the DIY editor page
+    And I click Replace on the DIY editor page
+  }
+end
+
+And(/^all email notifications are ([^']*) for the DIY page ([^']*)/) do |notification_state, diy_page_name|
+  sleep 1
+
+  steps %Q{
+    Given I am logged into eTap
+    When I click Management on the main menu
+    And I click on DIY Forms on the management page
+    And I click Edit for the form titled '#{diy_page_name}'
+
+    And I click Settings on the DIY editor page
+    And email notifications are #{notification_state}
+    And I click Update on the DIY settings page
+
+    And I click Save on the DIY editor page
+    And I confirm saving my changes
+    And I click Go Live on the DIY editor page
+    And I click Yes, Go Live! on the DIY editor page
+    And I click Replace on the DIY editor page
+  }
+end
+
+And(/^email notifications are ([^']*)/) do |notification_state|
+  diy = DIY::Onlineforms.new
+  diy.org_confirmation_email_checkbox 'disable'
+  diy.donor_confirmation_email_checkbox 'disable'
+end
+
+And(/^I submit a successful credit card transaction for ([^']*) ([^']*) on page ([^']*)/) do |donor_first_name, donor_last_name, page_name|
+  sleep 1
+
+  steps %Q{
+      Given I am logged into eTap
+      When I click Management on the main menu
+      When I click on DIY Forms on the management page
+      And I click on the link for the form titled #{page_name}
+      And I switch to the new tab in my browser
+      And I set Gender to 'Male' on the DIY Donation Page
+      And I enter '7' as the amount on the DIY Donation Page
+      And I set the Donation Frequency to 'One Time' on the DIY Donation Page
+      And I set the Title to 'Mr.' on the DIY Donation Page
+      And I set First Name to '#{donor_first_name}' on the DIY Donation Page
+      And I set Last Name to '#{donor_last_name}' on the DIY Donation Page
+      And I set Country to 'United States' on the DIY Donation Page
+      And I set Address Lines to '123 Main St.' on the DIY Donation Page
+      And I set City to 'Indianapolis' on the DIY Donation Page
+      And I set State to 'Indiana' on the DIY Donation Page
+      And I set Postal Code to '46280' on the DIY Donation Page
+      And I set Email to 'matt.dilts@blackbaud.com' on the DIY Donation Page
+      And I set Confirm Email to 'matt.dilts@blackbaud.com' on the DIY Donation Page
+      And I set Phone to '317-336-3827' on the DIY Donation Page
+      And I set the Card Type to 'MasterCard' on the DIY Donation Page
+      And I set Name on Card to '#{donor_first_name} #{donor_last_name}' on the DIY Donation Page
+      And I set Card Number to '4111111111111111' on the DIY Donation Page
+      And I set CVV2 to '123' on the DIY Donation Page
+      And I set Expiration Month to '02' on the DIY Donation Page
+      And I set Expiration Year to '2034' on the DIY Donation Page
+      And I click Submit on the DIY Donation Page
+      And I close the current tab
+  }
+end
+
+And(/^I submit a successful credit card transaction for ([^']*) '([^']*)' ([^']*) on page ([^']*)/) do |donor_first_name, donor_maiden_name, donor_last_name, page_name|
+  sleep 1
+
+  steps %Q{
+      Given I am logged into eTap
+      When I click Management on the main menu
+      When I click on DIY Forms on the management page
+      And I click on the link for the form titled #{page_name}
+      And I switch to the new tab in my browser
+      And I set Gender to 'Female' on the DIY Donation Page
+      And I set Maiden Name to '#{donor_maiden_name}' on the DIY Donation Page
+      And I enter '7' as the amount on the DIY Donation Page
+      And I set the Donation Frequency to 'One Time' on the DIY Donation Page
+      And I set the Title to 'Mr.' on the DIY Donation Page
+      And I set First Name to '#{donor_first_name}' on the DIY Donation Page
+      And I set Last Name to '#{donor_last_name}' on the DIY Donation Page
+      And I set Country to 'United States' on the DIY Donation Page
+      And I set Address Lines to '123 Main St.' on the DIY Donation Page
+      And I set City to 'Indianapolis' on the DIY Donation Page
+      And I set State to 'Indiana' on the DIY Donation Page
+      And I set Postal Code to '46280' on the DIY Donation Page
+      And I set Email to 'matt.dilts@blackbaud.com' on the DIY Donation Page
+      And I set Confirm Email to 'matt.dilts@blackbaud.com' on the DIY Donation Page
+      And I set Phone to '317-336-3827' on the DIY Donation Page
+      And I set the Card Type to 'MasterCard' on the DIY Donation Page
+      And I set Name on Card to '#{donor_first_name} #{donor_last_name}' on the DIY Donation Page
+      And I set Card Number to '4111111111111111' on the DIY Donation Page
+      And I set CVV2 to '123' on the DIY Donation Page
+      And I set Expiration Month to '02' on the DIY Donation Page
+      And I set Expiration Year to '2034' on the DIY Donation Page
+      And I click Submit on the DIY Donation Page
+      And I close the current tab
+  }
+end
+
+And(/^the constituent ([^']*) should appear as ([^']*) with Maiden Name ([^']*)/) do |constit_name, gender, maiden_name|
+  steps %Q{
+      Given I am logged into eTap
+      When I click Accounts on the main menu
+      And I type '#{constit_name}' into the search field
+      And I press Enter on the keyboard
+      And I click on Defined Fields from the Role Icon drop down
+    }
+
+  defined_fields = Account::DefinedFields.new
+  expect(defined_fields.udf_value_by_key 'Gender').to eq(gender)
+  expect(defined_fields.udf_value_by_key 'Maiden Name').to eq(maiden_name)
+end
+
+And(/^the constituent ([^']*) should be ([^']*)/) do |constit_name, gender|
+  steps %Q{
+      Given I am logged into eTap
+      When I click Accounts on the main menu
+      And I type '#{constit_name}' into the search field
+      And I press Enter on the keyboard
+      And I click on Defined Fields from the Role Icon drop down
+    }
+
+  defined_fields = Account::DefinedFields.new
+  expect(defined_fields.udf_value_by_key 'Gender').to eq(gender)
 end

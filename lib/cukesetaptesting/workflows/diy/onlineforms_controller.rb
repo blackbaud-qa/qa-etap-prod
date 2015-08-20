@@ -180,8 +180,15 @@ module Cukesetaptesting
         @view.base_field_cat.when_present.select 'Base'
       end
 
-      def field_select_gender_click
-        @view.field_select_gender.when_present.click
+      def field_select_click(field_name)
+        #@view.field_select_gender.when_present.click
+        field = @view.field_select field_name
+
+        # if we only received content back,
+        #   then the UDF was not found
+        if !(field == @view.content)
+          field.when_present.click
+        end
       end
 
       def fields_update_click
@@ -238,6 +245,10 @@ module Cukesetaptesting
         @view.donation_page_link.when_present.click
       end
 
+      def diy_page_link page_name
+        @view.diy_page_link page_name
+      end
+
       def switch_tab
         @view.browser.windows.last.use
       end
@@ -248,6 +259,10 @@ module Cukesetaptesting
 
       def live_gender_set gender
         @view.live_gender.when_present.select gender
+      end
+
+      def live_maiden_name_set maiden_name
+        @view.live_maiden_name.when_present.set maiden_name
       end
 
       def live_amount_other_set
@@ -318,8 +333,13 @@ module Cukesetaptesting
         @view.ticket_section.when_present.hover
       end
 
+      def donor_confirmation_email_checkbox val
+        @view.donor_confirmation_email_checkbox val
+      end
 
-
+      def org_confirmation_email_checkbox val
+        @view.org_confirmation_email_checkbox val
+      end
     end
   end
 end

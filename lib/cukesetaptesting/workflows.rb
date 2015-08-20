@@ -42,3 +42,4 @@ Cukesetaptesting::Loader.load_workflow 'reports/sepa'
 Cukesetaptesting::Loader.load_workflow 'communications/correspondence_editor'
 Cukesetaptesting::Loader.load_workflow 'management/ncoa'
 
+Cukesetaptesting::Loader.load_workflow 'account/defined_fields'
