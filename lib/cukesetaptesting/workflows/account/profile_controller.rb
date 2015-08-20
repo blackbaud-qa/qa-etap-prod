@@ -71,7 +71,7 @@ module Cukesetaptesting
         # @view.content.table(:id,'givingSummaryTable').wait_until_present
       end
 
-      def on_journal_page?
+      def on_trans_journal_page?
         return @view.journal_gift_header.present?
       end
 

@@ -155,6 +155,10 @@ module Cukesetaptesting
         @view.not_duplicates.when_present.click
       end
 
+      def duplicates_continue_click
+        @view.duplicates_continue.click
+      end
+
       # def create_person (account_name, sort_name, address = '', city = '', state = '', postal_code = '', county = '', voice = '', email = '', web_page = '', note = '', short_sal = '', long_sal = '', udf_name = 'Company', udf_value = '', desired_next_page = 'Go to Personas')
       #   step "I am logged into eTap"
       #   step "I click Accounts"

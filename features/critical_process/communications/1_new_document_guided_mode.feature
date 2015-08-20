@@ -8,12 +8,14 @@ Feature: Creating a new communications template
 #
   Scenario: creating a simple business letter in guided mode
     Given I am logged into eTap
+    And 'Simple Business Letter - Guided Mode Single' does not exist
     And I click Communications on the main menu
     And click Thank You Letters on the Correspondence Categories page
-    And rename the existing letter to prevent automation errors
+
+#    And rename the existing letter to prevent automation errors
 #    And I click New Email or Document Template on the Thank You Letters page
     And click New Email or Document Template on the Correspondence Category page
-    And set the Name to 'Simple Business Letter - Guided Mode' on the new Correspondence Template page
+    And set the Name to 'Simple Business Letter - Guided Mode Single' on the new Correspondence Template page
     And I press Tab on the keyboard
     And I click Next on the new Correspondence Template page
     And I click Documents on the new Correspondence Template page

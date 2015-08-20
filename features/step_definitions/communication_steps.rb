@@ -87,6 +87,7 @@ Given(/^rename the existing letter to prevent automation errors/) do
   letter = Communications::Createtemplate.new()
   if(letter.letter_exists? 'Simple Business Letter - Guided Mode')
     letter.letter_click('Simple Business Letter - Guided Mode')
+    sleep 0.5
     name = 'Letter'+((0...8).map { (65 + rand(26)).chr }.join)
     letter.new_template_settings_click
     step "set the Name to '#{name}' on the new Correspondence Template page"

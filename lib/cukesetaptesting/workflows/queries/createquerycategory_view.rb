@@ -73,7 +73,9 @@ module Cukesetaptesting
       end
 
       def query_criteria(item)
-        content.div(:class, 'scrollable').div(:id, 'listViewResults').a(:text,item)
+        # content.div(:id,'fieldCategory.Commonly Used Fields').a(:text,item)
+        content.div(:class,'browseSearchSection').a(:text,item)
+        # content.div(:class, 'scrollable').div(:id, 'listViewResults').a(:text,item)
       end
 
       def custom_account_query_add_name(name)
