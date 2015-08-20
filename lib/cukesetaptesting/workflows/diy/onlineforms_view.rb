@@ -51,7 +51,6 @@ module Cukesetaptesting
       keyword(:new_image_insert) {content.span(:text,'Insert image')}
       keyword(:add_fields) {content.h6(:text,'Add Fields')}
       keyword(:base_field_cat) {content.select(:id,'availableCategoriesSelect')}
-      keyword(:field_select_gender) {content.a(:text,'Gender')}
       keyword(:fields_update) {content.span(:class=>'titleText',:text=>'Add Fields').parent.parent.button(:id=>'save')}
       keyword(:add_text) {content.h6(:text,'Add Text')}
       keyword(:default_text) {content.iframe(:id,'blockHtmlContents_ifr')}
@@ -94,6 +93,15 @@ module Cukesetaptesting
       keyword(:journal_contact_subject) {content.text_field(:id,'contactSubject')}
       keyword(:ticket_section)  {content.div(:id,'event_widget_block')}
       keyword(:ticket_section_update_click) {content.span(:class=>'titleText',:text=>'Edit Ticket Options').parent.parent.button(:id=>'save')}
+      keyword(:unmark_donor_confirmation_click) {content.checkbox(:id, 'notifyDonor')}
+      keyword(:unmark_org_confirmation_click) {content.checkbox(:id, 'notifyOrg')}
+      keyword(:diy_udf_test_url_click)  {content.div(:id, 'etap.fieldset.area.1').span(:class=>'namePart',:text=>'UDF Test Page').parent.parent.parent.a(:class,'ecUrl')}
+      keyword(:defined_fields_page_click) {content.div(:id, 'topMenu').a(:text, 'Defined Fields')}
+      keyword(:account_settings_page_click) {content.div(:id, 'topMenu').a(:text, 'Account Settings')}
+      keyword(:diy_donation_amount_field) {browser.text_field(:id, 'gift_amount_simpleField')}
+      keyword(:diy_ticket_quantityA_value) {browser.h6(:class=>'simplefieldType',:text=>'Ticket Quantity A').parent.parent.text_field(:type, 'text')}
+      keyword(:live_account_type) {browser.h6(:class=>'dropdownType',:text=>'Account Type').parent.parent.select}
+      keyword(:diy_ticket_quantityB_value) {browser.h6(:class=>'simplefieldType',:text=>'Ticket Quantity B').parent.parent.text_field(:type, 'text')}
 
 
       def click_on_fund(fund)
@@ -111,6 +119,8 @@ module Cukesetaptesting
       def forms
         content.div(:id,'ecommStyling')
       end
+
+
     end
   end
 end

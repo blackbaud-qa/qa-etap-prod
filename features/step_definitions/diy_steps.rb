@@ -223,14 +223,14 @@ And(/I select Add Fields on the DIY editor page$/) do
   diy.add_fields_click
 end
 
-And(/I select Base for the field category on the DIY editor page$/) do
+And(/I select '([^']*)' for the field category on the DIY editor page$/) do |value|
   diy = DIY::Onlineforms.new()
-  diy.base_field_cat_select
+  diy.base_field_cat_select value
 end
 
-And(/I click Gender on the DIY editor page$/) do
-  diy = DIY::Onlineforms.new()
-  diy.field_select_gender_click
+And(/^I click '([^']*)' on the DIY editor page/) do |value|
+  diy = DIY::Onlineforms.new
+  diy.field_select_gender_click value
 end
 
 And(/I click Update on the Add Fields page$/) do
@@ -476,3 +476,53 @@ And(/^I hover over the Ticket Section on the DIY editor page/) do
   sleep 1
 end
 
+And (/^I unmark the checkbox next to Send the donor a confirmation email?/) do
+  diy = DIY::Onlineforms.new
+  diy.unmark_donor_confirmation
+end
+
+And (/^I unmark the checkbox nex to Send your organization a confirmation email?/) do
+  diy = DIY::Onlineforms.new
+  diy.unmark_org_confirmation
+end
+
+And (/^I click on the link for the form titled UDF Test Page/) do
+  sleep 3
+  diy = DIY::Onlineforms.new
+  diy.diy_udf_test_url
+end
+
+And (/^I click Defined Fields/) do
+  diy = DIY::Onlineforms.new
+  diy.defined_fields_page
+end
+
+And (/^I click Account Settings/) do
+  diy = DIY::Onlineforms.new
+  diy.account_settings_page
+end
+
+And (/^I set the Donation Amount to '([^']*)' on the DIY Donation Page/) do |amount|
+  diy = DIY::Onlineforms.new(:diy_donation_amount_field=>amount)
+  diy.create
+end
+
+And (/^I set Ticket Quantity A to '([^']*)' on the DIY Donation Page/) do |value|
+  diy = DIY::Onlineforms.new(:diy_ticket_quantityA_value=>value)
+  diy.create
+end
+
+Then (/^the UDF Test Page should no longer show/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.udf_test_page_present? 'UDF Test Page').to eq(false)
+end
+
+And (/^I set Account Type to '([^']*)' on the DIY Donation Page/) do |value|
+  diy = DIY::Onlineforms.new()
+  diy.live_account_type_set value
+end
+
+And (/^I set Ticket Quantity B to '([^']*)' on the DIY Donation Page/) do |value|
+  diy = DIY::Onlineforms.new(:diy_ticket_quantityB_value=>value)
+  diy.create
+end

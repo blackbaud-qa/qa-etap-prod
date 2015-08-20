@@ -41,8 +41,8 @@ Feature: Edit a diy donation page
 #    And I click Ok
     And I click Add Item on the DIY editor page
     And I select Add Fields on the DIY editor page
-    And I select Base for the field category on the DIY editor page
-    And I click Gender on the DIY editor page
+    And I select 'Base' for the field category on the DIY editor page
+    And I click 'Gender' on the DIY editor page
     And I click Update on the Add Fields page
 #    And move the Gender field down under Contact Information
     And I click Add Item on the DIY editor page
