@@ -5,7 +5,8 @@ module Cukesetaptesting
       @view = CreatequerycategoryView
 
       def set_find_account_popup_search(val)
-        @view.browser.window(:title => 'Select Account Dialog').use do
+        with_modal_dialog do
+        # @view.browser.window(:title => 'Select Account Dialog').use do
           @view.find_account_popup_search.when_present.set val
         end
       end
@@ -82,19 +83,23 @@ module Cukesetaptesting
       end
 
       def custom_account_query_add_name_click(name)
-        @view.browser.window(:title => 'Select Account Dialog').use do
+        with_modal_dialog do
+        # @view.browser.window(:title => 'Select Account Dialog').use do
           @view.custom_account_query_add_name(name).when_present.click
         end
       end
 
       def find_account_popup_close_click
-        @view.browser.window(:title => 'Select Account Dialog').use do
-          @view.find_account_popup_close.when_present.click
-        end
+        @view.browser.windows.last.close
+        # with_modal_dialog do
+        # # @view.browser.window(:title => 'Select Account Dialog').use do
+        #   @view.find_account_popup_close.when_present.click
+        # end
       end
 
       def find_account_popup_find_click
-        @view.browser.window(:title => 'Select Account Dialog').use do
+        with_modal_dialog do
+        # @view.browser.window(:title => 'Select Account Dialog').use do
           @view.find_account_popup_find.when_present.click
         end
       end

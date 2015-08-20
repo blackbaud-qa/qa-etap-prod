@@ -289,6 +289,7 @@ And (/^I click '([^']*)' in the Tasks menu/) do |value|
 end
 
 Then (/^I should see the '([^']*)' category has been removed from the page/) do |category|
+  sleep 3
   query = Queries::Createquerycategory.new
   expect(query.try_to_click_on_query_category(category)).to eq(false)
 end
