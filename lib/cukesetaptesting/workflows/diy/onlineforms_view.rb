@@ -52,6 +52,7 @@ module Cukesetaptesting
       keyword(:new_image_insert) {content.span(:text,'Insert image')}
       keyword(:add_fields) {content.h6(:text,'Add Fields')}
       keyword(:base_field_cat) {content.select(:id,'availableCategoriesSelect')}
+      keyword(:field_select_gender) {content.a(:text,'Gender')}
       keyword(:fields_update) {content.span(:class=>'titleText',:text=>'Add Fields').parent.parent.button(:id=>'save')}
       keyword(:add_text) {content.h6(:text,'Add Text')}
       keyword(:default_text) {content.iframe(:id,'blockHtmlContents_ifr')}
@@ -63,7 +64,7 @@ module Cukesetaptesting
       keyword(:donation_page_delete) {content.span(:class=>'namePart',:text=>'Donation Page').parent.parent.div(:class=>'linkBox',:text=>'Delete')}
       keyword(:donation_page_disable_confirm) {content.button(:id,'confirmDisable')}
       keyword(:donation_page_delete_confirm) {content.button(:id,'confirmDelete')}
-
+      keyword(:donation_page_link) {content.a(:class,'ecUrl')}
       keyword(:live_fund) {browser.select(:id,'ecFundSelectField')}
       keyword(:live_gender) {browser.h6(:class=>'dropdownType',:text=>'Gender').parent.parent.select}
       keyword(:live_maiden_name) {browser.h6(:class=>'simplefieldType',:text=>'Maiden Name').parent.parent.text_field}
