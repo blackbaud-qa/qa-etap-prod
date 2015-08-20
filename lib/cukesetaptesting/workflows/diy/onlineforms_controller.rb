@@ -176,19 +176,12 @@ module Cukesetaptesting
         @view.add_fields.when_present.click
       end
 
-      def base_field_cat_select
-        @view.base_field_cat.when_present.select 'Base'
+      def base_field_cat_select value
+        @view.base_field_cat.when_present.select value
       end
 
-      def field_select_click(field_name)
-        #@view.field_select_gender.when_present.click
-        field = @view.field_select field_name
-
-        # if we only received content back,
-        #   then the UDF was not found
-        if !(field == @view.content)
-          field.when_present.click
-        end
+      def field_select_gender_click(value)
+        @view.content.a(:text=>value).when_present.click
       end
 
       def fields_update_click
@@ -333,8 +326,35 @@ module Cukesetaptesting
         @view.ticket_section.when_present.hover
       end
 
+      def unmark_donor_confirmation
+        @view.unmark_donor_confirmation_click.when_present.click
+      end
       def donor_confirmation_email_checkbox val
         @view.donor_confirmation_email_checkbox val
+      end
+
+      def unmark_org_confirmation
+        @view.unmark_org_confirmation_click.when_present.click
+      end
+
+      def diy_udf_test_url
+        @view.diy_udf_test_url_click.when_present.click
+      end
+
+      def defined_fields_page
+        @view.defined_fields_page_click.when_present.click
+      end
+
+      def account_settings_page
+        @view.account_settings_page_click.when_present.click
+      end
+
+      def udf_test_page_present? text
+        return @view.content.div(:id, 'etap.fieldset.area.1').span(:class=>'namePart',:text=>text).present?
+      end
+
+      def live_account_type_set value
+        @view.live_account_type.when_present.select value
       end
 
       def org_confirmation_email_checkbox val
