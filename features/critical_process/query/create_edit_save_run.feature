@@ -57,6 +57,7 @@ Feature: Create, Edit, Save and Run Queries
 
   Scenario: Create a New Custom Account Query
     Given I am logged into eTap
+    And the query 'Hand Selected Donors' does not exist in the 'Critical Process Testing' category
     When I click Queries on the main menu
     And I click on the 'Critical Process Testing' category
     And I click 'New Custom Account Query' on the Edit Query Category page
