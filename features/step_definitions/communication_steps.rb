@@ -577,6 +577,7 @@ end
 Then(/^The Word document should be generated$/) do
   letter = Communications::Createtemplate.new()
 
+  sleep 7
   dwnld_path = get_download_location
   docx_file = dwnld_path + "\\Document.docx"
 
