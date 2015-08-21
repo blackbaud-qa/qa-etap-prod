@@ -68,6 +68,9 @@ module Cukesetaptesting
       keyword(:personas_link_click) {content.a(:text,'Personas')}
       keyword(:whitepages_button_click) {content.a(:id, 'whitePagesLink')}
 
+      keyword(:multiple_emails_return) {content.text_field(:id, 'emailAddress')}
+      keyword(:duplicates_continue) {content.button(:value,'Continue')}
+
 
 
       def udf_to_click(udf)

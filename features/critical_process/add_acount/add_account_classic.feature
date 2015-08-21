@@ -45,6 +45,7 @@ Feature: Add Account Classic View
     And I set Voice to '318-219-4444' on the classic add account page
     And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
     And I click Save And 'Go to Personas'
+    And I should close the javascript popup
     And I click Accounts
     And I click Advanced Find
     And I set Phone to '318-219-4444' on the Advanced Find screen

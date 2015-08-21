@@ -187,8 +187,9 @@ end
 And(/^I handle the duplicate report if necessary$/) do
   accounts = Account::AddAccount.new
   if(accounts.possible_duplicate_detected?)
-    accounts.not_duplicates_click
-    step "I click Yes on the Account Settings page"
+    accounts.duplicates_continue_click
+    # accounts.not_duplicates_click
+    # step "I click Yes on the Account Settings page"
   end
 end
 
@@ -216,3 +217,15 @@ And (/^I should see '([^']*)' sent over to WhitePages.com/) do |value|
   accounts = Account::AddAccount.new
   expect(accounts.whitepages_url? value).to eq(true)
 end
+
+Then (/^the Email field should be set to '([^']*)'/) do |name|
+  accounts = Account::AddAccount.new
+  name = name.gsub("\\n", "\n")
+  expect(accounts.persona_page_email).to eq(name)
+end
+
+And(/^I set Email field to$/) do |string|
+  accounts = Account::AddAccount.new(:multiple_emails_return => string)
+  accounts.create
+end
+

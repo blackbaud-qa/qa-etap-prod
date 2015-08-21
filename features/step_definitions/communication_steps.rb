@@ -69,7 +69,10 @@ Given(/^'([^']*)' does not exist/) do |template_name|
 
   letter = Communications::Createtemplate.new()
   letter.perform_search template_name
-  letter.delete_existing_templates template_name
+  if(letter.search_letter_exists? template_name)
+    letter.delete_existing_templates template_name
+  end
+
 end
 
 Given(/^click New Email or Document Template on the Correspondence Category page/) do
@@ -87,6 +90,7 @@ Given(/^rename the existing letter to prevent automation errors/) do
   letter = Communications::Createtemplate.new()
   if(letter.letter_exists? 'Simple Business Letter - Guided Mode')
     letter.letter_click('Simple Business Letter - Guided Mode')
+    sleep 0.5
     name = 'Letter'+((0...8).map { (65 + rand(26)).chr }.join)
     letter.new_template_settings_click
     step "set the Name to '#{name}' on the new Correspondence Template page"
@@ -272,7 +276,7 @@ end
 And(/^I click Send on the Mass Email page$/) do
   letter = Communications::Createtemplate.new()
   letter.mass_email_content_wait_for_load
-  # sleep 5
+  # sleep 1
   letter.mass_email_send_click
   #adding a wait to give mass email time to process
   sleep 5
@@ -573,6 +577,7 @@ end
 Then(/^The Word document should be generated$/) do
   letter = Communications::Createtemplate.new()
 
+  sleep 7
   dwnld_path = get_download_location
   docx_file = dwnld_path + "\\Document.docx"
 
@@ -583,7 +588,7 @@ end
 Then(/^The PDF document should be generated$/) do
   letter = Communications::Createtemplate.new()
 
-  sleep 5
+  sleep 7
   dwnld_path = get_download_location
   pdf_file = dwnld_path + "\\Document.pdf"
 

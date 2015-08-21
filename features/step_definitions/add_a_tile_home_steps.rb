@@ -46,7 +46,7 @@ end
 
 Then(/^I should see the transaction on the journal page$/) do
   account = Account::Profile.new
-  expect(account.on_journal_page?).to eq(true)
+  expect(account.on_trans_journal_page?).to eq(true)
 end
 
 When(/^I click on last gift on the account home page$/) do
