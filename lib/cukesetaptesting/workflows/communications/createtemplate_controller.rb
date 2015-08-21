@@ -59,6 +59,10 @@ module Cukesetaptesting
         return @view.category_letters.a(:text,name).present?
       end
 
+      def search_letter_exists?(name)
+        return @view.content.a(:text,name).present?
+      end
+
       def letter_click(name)
         @view.category_letters.a(:text,name).when_present.click
       end
@@ -482,7 +486,7 @@ module Cukesetaptesting
 
       def mass_email_content_wait_for_load
         @view.mass_email_content.wait_until_present
-        # sleep 2
+         sleep 1
       end
 
       def mass_email_next_click

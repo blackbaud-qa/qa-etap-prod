@@ -69,7 +69,10 @@ Given(/^'([^']*)' does not exist/) do |template_name|
 
   letter = Communications::Createtemplate.new()
   letter.perform_search template_name
-  letter.delete_existing_templates template_name
+  if(letter.search_letter_exists? template_name)
+    letter.delete_existing_templates template_name
+  end
+
 end
 
 Given(/^click New Email or Document Template on the Correspondence Category page/) do
@@ -273,7 +276,7 @@ end
 And(/^I click Send on the Mass Email page$/) do
   letter = Communications::Createtemplate.new()
   letter.mass_email_content_wait_for_load
-  # sleep 5
+  # sleep 1
   letter.mass_email_send_click
   #adding a wait to give mass email time to process
   sleep 5
@@ -584,7 +587,7 @@ end
 Then(/^The PDF document should be generated$/) do
   letter = Communications::Createtemplate.new()
 
-  sleep 5
+  sleep 7
   dwnld_path = get_download_location
   pdf_file = dwnld_path + "\\Document.pdf"
 
