@@ -204,6 +204,35 @@ module Cukesetaptesting
         @view.multiple_email_return.when_present.set value
       end
 
+      def management_user_defined_fields
+        @view.management_user_defined_fields.when_present.click
+      end
+
+      def udf_category
+        @view.udf_category.when_present.click
+      end
+
+      def account_type_udf
+        sleep 3
+        @view.account_type_udf.when_present.click
+      end
+
+      def field_attributes
+        @view.field_attributes.when_present.click
+      end
+
+      def require_udf
+        @view.require_udf.when_present.click
+      end
+
+      def save_and_finish_udf_page
+        @view.save_and_finish_udf_page.when_present.click
+      end
+
+      def required_icon
+        @view.required_icon.present?
+      end
+
       end
     end
   end
