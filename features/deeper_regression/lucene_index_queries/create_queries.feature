@@ -2,7 +2,7 @@
 Feature: Create, Edit, Save and Run Queries
 
   Scenario Outline: Create and Edit a New Query
-    Given I am logged into eTap
+    Given I am logged into Knight Rider
     And a query category should exist called 'Lucene Testing'
     When I click Queries on the main menu
     And I click on the 'Lucene Testing' category
@@ -498,8 +498,8 @@ Feature: Create, Edit, Save and Run Queries
       | Journal-Transaction Order Tax Region 2             | Journal                | Transaction Order Tax Region         | requiredTextValues | TestTransactionForTaxRegionData                     | states                                                   | 123, 321                                 |
       | Journal-Transaction Processor Vehicle 1            | Journal                | Transaction Processor Vehicle        | checkbox refs     | TestTransactionForVirtualTerminalProcessorVehiclesData | processorVehicles                                      | eCommerce Page                           |
       | Journal-Transaction Processor Vehicle 2            | Journal                | Transaction Processor Vehicle        | checkbox refs     | TestTransactionForVirtualTerminalProcessorVehiclesData | processorVehicles                                      | eCommerce Page, eTapestry Virtual Terminal |
-      | Journal-Transaction Processors 1                   | Journal                | Transaction Processors               | checkbox refs     | TestTransactionForNamedTransProcessorsData           | processorRefs                                            | BBMS Test Server w/ EFT                  |
-      | Journal-Transaction Processors 2                   | Journal                | Transaction Processors               | checkbox refs     | TestTransactionForNamedTransProcessorsData           | processorRefs                                            | BBMS Test Server w/ EFT, Test            |
+      | Journal-Transaction Processors 1                   | Journal                | Transaction Processors               | checkbox refs     | TestTransactionForNamedTransProcessorsData           | processorRefs                                            | Test                                     |
+      | Journal-Transaction Processors 2                   | Journal                | Transaction Processors               | checkbox refs     | TestTransactionForNamedTransProcessorsData           | processorRefs                                            | Test, Test 2                             |
       | Journal-Transaction Receipt Range 1                | Journal                | Transaction Receipt Range            | textNumRange      | TestTransactionForReceiptRangeData                   | startReceipt, endReceipt                                 | 2, 12                                    |
       | Journal-Transaction Receipt Range 2                | Journal                | Transaction Receipt Range            | textNumRange      | TestTransactionForReceiptRangeData                   | startReceipt, endReceipt                                 | any                                      |
       | Journal-Transaction Receipt Range 3                | Journal                | Transaction Receipt Range            | textNumRange      | TestTransactionForReceiptRangeData                   | startReceipt, endReceipt                                 | none                                     |

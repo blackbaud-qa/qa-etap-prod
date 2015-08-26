@@ -53,6 +53,10 @@ module Cukesetaptesting
       def login_nav
         @view.browser.goto Watirmark::Configuration.instance.site_url
       end
+
+      def login_nav_kr
+        @view.browser.goto Watirmark::Configuration.instance.site_url_knight_rider
+      end
     end
   end
 end

@@ -5,3 +5,6 @@ image_path: /home/trey/qa-etap-main/misc/cart_image.jpg
 headless_enabled: true
 complete_import_path: /home/trey/qa-etap-main/misc/import_a.csv
 incomplete_import_path: /home/trey/qa-etap-main/misc/import_b.csv
+site_url_knight_rider: https://etap-cdev-kr.blackbaudhosting.com/prod/
+username_kr:   automationbot.lucene.us
+password_kr:   spicypancakes1
