@@ -187,8 +187,9 @@ end
 And(/^I handle the duplicate report if necessary$/) do
   accounts = Account::AddAccount.new
   if(accounts.possible_duplicate_detected?)
-    accounts.not_duplicates_click
-    step "I click Yes on the Account Settings page"
+    accounts.duplicates_continue_click
+    # accounts.not_duplicates_click
+    # step "I click Yes on the Account Settings page"
   end
 end
 
@@ -329,4 +330,38 @@ end
 And (/^the Recognition Type should be set to '([^']*)'/) do |value|
   accounts = Account::AddAccount.new
   expect(accounts.recognition_type_existing_account value).to eq(true)
+end
+And(/^I click User Defined Fields on the management menu/) do
+  accounts = Account::AddAccount.new
+  accounts.management_user_defined_fields
+end
+
+And(/^I click the Base UDF category on the Edit User Defined Fields page/) do
+  accounts = Account::AddAccount.new
+  accounts.udf_category
+end
+
+And(/^I click Account Type on the UDF page/) do
+  accounts = Account::AddAccount.new
+  accounts.account_type_udf
+end
+
+And(/^I click Field Attributes/) do
+  accounts = Account::AddAccount.new
+  accounts.field_attributes
+end
+
+And(/^I click would you like to make this field required/) do
+  accounts = Account::AddAccount.new
+  accounts.require_udf
+end
+
+And(/^I click Save and Finish on the UDF page/) do
+  accounts = Account::AddAccount.new
+  accounts.save_and_finish_udf_page
+end
+
+Then(/^I should see a required icon by Account Type/) do
+  accounts = Account::AddAccount.new
+  expect(accounts.required_icon).to eq(true)
 end

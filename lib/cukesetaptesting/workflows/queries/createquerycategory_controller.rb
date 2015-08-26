@@ -5,7 +5,8 @@ module Cukesetaptesting
       @view = CreatequerycategoryView
 
       def set_find_account_popup_search(val)
-        @view.browser.window(:title => 'Select Account Dialog').use do
+        with_modal_dialog do
+        # @view.browser.window(:title => 'Select Account Dialog').use do
           @view.find_account_popup_search.when_present.set val
         end
       end
@@ -15,7 +16,7 @@ module Cukesetaptesting
       end
 
       def on_edit_query_page?
-        return @view.edit_query_title.when_present.text.include? 'Edit Query Definition'
+        return @view.edit_query_title.when_present.text.include? 'Edit Query'
       end
 
       def string_exists_on_page?(query_string)
@@ -82,19 +83,23 @@ module Cukesetaptesting
       end
 
       def custom_account_query_add_name_click(name)
-        @view.browser.window(:title => 'Select Account Dialog').use do
+        with_modal_dialog do
+        # @view.browser.window(:title => 'Select Account Dialog').use do
           @view.custom_account_query_add_name(name).when_present.click
         end
       end
 
       def find_account_popup_close_click
-        @view.browser.window(:title => 'Select Account Dialog').use do
-          @view.find_account_popup_close.when_present.click
-        end
+        @view.browser.windows.last.close
+        # with_modal_dialog do
+        # # @view.browser.window(:title => 'Select Account Dialog').use do
+        #   @view.find_account_popup_close.when_present.click
+        # end
       end
 
       def find_account_popup_find_click
-        @view.browser.window(:title => 'Select Account Dialog').use do
+        with_modal_dialog do
+        # @view.browser.window(:title => 'Select Account Dialog').use do
           @view.find_account_popup_find.when_present.click
         end
       end
@@ -132,7 +137,8 @@ module Cukesetaptesting
       end
 
       def try_to_click_on_query_category(category)
-        @view.click_missing_query_category(category).present?
+        return @view.content.ul(:id,'list_categories').text.include? category
+        # @view.click_missing_query_category(category).present?
       end
 
       def preview_query_click(name)

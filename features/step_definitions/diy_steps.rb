@@ -78,6 +78,7 @@ end
 And(/^I click Yes, Go Live! on the DIY editor page$/) do
   diy = DIY::Onlineforms.new()
   diy.go_live_confirm_click
+  sleep 3
 end
 
 And(/^I click Edit for the form titled '([^']*)'$/) do |page|

@@ -155,6 +155,10 @@ module Cukesetaptesting
         @view.not_duplicates.when_present.click
       end
 
+      def duplicates_continue_click
+        @view.duplicates_continue.click
+      end
+
       # def create_person (account_name, sort_name, address = '', city = '', state = '', postal_code = '', county = '', voice = '', email = '', web_page = '', note = '', short_sal = '', long_sal = '', udf_name = 'Company', udf_value = '', desired_next_page = 'Go to Personas')
       #   step "I am logged into eTap"
       #   step "I click Accounts"
@@ -198,6 +202,35 @@ module Cukesetaptesting
 
       def multiple_email_return(value)
         @view.multiple_email_return.when_present.set value
+      end
+
+      def management_user_defined_fields
+        @view.management_user_defined_fields.when_present.click
+      end
+
+      def udf_category
+        @view.udf_category.when_present.click
+      end
+
+      def account_type_udf
+        sleep 3
+        @view.account_type_udf.when_present.click
+      end
+
+      def field_attributes
+        @view.field_attributes.when_present.click
+      end
+
+      def require_udf
+        @view.require_udf.when_present.click
+      end
+
+      def save_and_finish_udf_page
+        @view.save_and_finish_udf_page.when_present.click
+      end
+
+      def required_icon
+        @view.required_icon.present?
       end
 
       def name_format_select(value)

@@ -23,6 +23,7 @@ module Cukesetaptesting
       #DEV_HELP
       keyword(:last_gift) {content.a(:text,'Last Gift')}
       keyword(:journal_start_date) {content.text_field(:id,'startDateField')}
+      keyword(:five_year_summary_recent) {content.table(:id,'fiveYearSummaryTable').a}
 
       def tiles
         content.div(:class, 'tilesetContainer')

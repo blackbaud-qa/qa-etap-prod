@@ -25,12 +25,12 @@ module Cukesetaptesting
       keyword(:find_account_popup_search) { browser.iframe(:name => 'content').form(:name => 'entitySearchForm').text_field(:id => 'searchString')}
       keyword(:find_account_popup_find)  {content.button(:value, 'Find')}
       keyword(:find_account_popup_close)  {content.button(:value, 'Close')}
-      keyword(:combine_queries_subtract)  {content.img(:id, 'vensub')}
+      keyword(:combine_queries_subtract)  {content.img(:src, 'images/queriesSubtract.png')}
       keyword(:compound_category_one_select_value)  {content.select(:id, 'select.query.category.1')}
       keyword(:compound_query_one_select_value)  {content.select(:id, 'select.query.1')}
       keyword(:compound_category_two_select_value)  {content.select(:id, 'select.query.category.2')}
       keyword(:compound_query_two_select_value)  {content.select(:id, 'select.query.2')}
-      keyword(:combine_queries_add)  {content.img(:id, 'venadd')}
+      keyword(:combine_queries_add)  {content.img(:src, 'images/queriesAdd.png')}
       keyword(:query_criteria_name_field) {content.text_field(:id, 'TestEntityRoleForNamesData.values')}
       keyword(:query_criteria_short_salutation_field) {content.text_field(:id, 'testByName(TestEntityRoleForShortSalutationsData).values')}
       keyword(:query_criteria_state_field) {content.text_field(:id,'testByName(TestEntityRoleForStatesData).states')}
@@ -73,7 +73,9 @@ module Cukesetaptesting
       end
 
       def query_criteria(item)
-        content.div(:class, 'scrollable').div(:id, 'listViewResults').a(:text,item)
+        # content.div(:id,'fieldCategory.Commonly Used Fields').a(:text,item)
+        content.div(:class,'browseSearchSection').a(:text,item)
+        # content.div(:class, 'scrollable').div(:id, 'listViewResults').a(:text,item)
       end
 
       def custom_account_query_add_name(name)
