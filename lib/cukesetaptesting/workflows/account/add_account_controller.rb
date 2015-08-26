@@ -200,6 +200,75 @@ module Cukesetaptesting
         @view.multiple_email_return.when_present.set value
       end
 
+      def name_format_select(value)
+        @view.name_format_select_value.when_present.select value
+      end
+
+      def title_select(value)
+        @view.title_select_value.when_present.select value
+      end
+
+      def set_save_and_account_page(value)
+        @view.save_and_account_page.select(value)
+      end
+
+      def click_save_and_account_page
+        @view.browser.send_keys :page_up
+        sleep 2
+        @view.save_and_button_account_page.when_present.click
+      end
+
+      def edit_salutation(value)
+        @view.edit_salutation_click_pencil(value).when_present.click
+      end
+
+      def envelope_salutation
+        @view.envelope_salutation_value.value
+      end
+
+      def name_format_existing_account
+        @view.name_format_select_value.value
+      end
+
+      def title_existing_account
+        @view.title_existing_account_value.value
+      end
+
+      def first_name_existing_account
+        @view.new_names_first_name.value
+      end
+
+      def middle_name_existing_account
+        @view.new_names_middle_name.value
+      end
+
+      def last_name_existing_account
+        @view.new_names_last_name.value
+      end
+
+      def suffix_existing_account
+        @view.new_names_suffix.value
+      end
+
+      def account_name_existing_account
+        @view.account_name_existing_account_value.value
+      end
+
+      def sort_name_existing_account
+        @view.sort_name_existing_account_value.value
+      end
+
+      def recognition_name_existing_account(value)
+        @view.recognition_name_existing_account_value.when_present.text.include? value
+      end
+
+      def recognition_type_existing_account(value)
+        @view.recognition_type_existing_account_value.when_present.text.include? value
+      end
+
+
+
+
       end
     end
   end
