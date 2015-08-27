@@ -2,10 +2,20 @@ Given(/^I navigate to Fullhouse$/) do
   Admin::Login.new.login_nav
 end
 
+Given(/^I navigate to Knight Rider$/) do
+  Admin::Login.new.login_nav_kr
+end
+
 When(/^I login into eTap$/) do
  page =  Admin::Login.new()
  page.create
  page.log_in
+end
+
+When(/^I login into Knight Rider/) do
+  page =  Admin::Login.new(:username => Watirmark::Configuration.instance.username_kr, :password => Watirmark::Configuration.instance.password_kr)
+  page.create
+  page.log_in
 end
 
 When(/^I login into eTap with values$/) do |login_table|
@@ -45,6 +55,24 @@ When(/^([^']*) (?:is|am) logged into eTap$/) do |user_name|
      step "I login into eTap with values '#{user_name}', '#{user_name}'"
    end
  end
+end
+
+When(/^([^']*) (?:is|am) logged into Knight Rider$/) do |user_name|
+  landing = Admin::Landing.new
+
+  # for testing only ---landing.test_throw_alert
+
+  landing.handle_alert
+
+  # unless landing.logged_in?
+    step "I navigate to Knight Rider"
+
+    if (user_name == "I")
+      step "I login into Knight Rider"
+    else
+      step "I login into eTap with values '#{user_name}', '#{user_name}'"
+    end
+  # end
 end
 
 When(/^I log out of eTap$/) do

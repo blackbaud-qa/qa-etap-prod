@@ -189,6 +189,14 @@ module Cukesetaptesting
       def checkbox_selector_by_text(name, value)
         content.checkbox(:name, name).parent.parent.parent.label(:text, value).checkbox
       end
+
+      def cart_home_button
+        content.div(:id, 'TestTransactionForOrderItemsData_mainInputs').images[0]
+      end
+
+      def checkbox_selector_for_cart(name, value)
+        content.checkbox(:name, name).parent.parent.parent.label(:text, value).parent.parent.checkbox
+      end
     end
   end
 end

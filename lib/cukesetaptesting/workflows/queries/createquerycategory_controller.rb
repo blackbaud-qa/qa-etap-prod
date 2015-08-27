@@ -261,7 +261,7 @@ module Cukesetaptesting
       def criteria_checkboxes(prefix, name, values)
         values_array = values.split(',')
         values_array.each do |value|
-          @view.checkbox_selector(prefix == '' ? name : prefix+'.'+name, value).when_present.set
+          @view.checkbox_selector(prefix == '' ? name : prefix+'.'+name, value.strip).when_present.set
         end
       end
 
@@ -381,9 +381,28 @@ module Cukesetaptesting
         end
       end
 
+      def criteria_cart_items(prefix, id, values)
+        values_array = values.split(',');
+        name = 'testByName(' + prefix + ').' + id
+        values_array.each do |value|
+          value = value.strip
+          if value == 'any'
+            @view.set_criteria_any_value(prefix).when_present.set
+          elsif value == 'no'
+            @view.set_criteria_no_value(prefix).when_present.set
+          else
+            @view.checkbox_selector_for_cart(name, value).when_present.set
+          end
+        end
+      end
+
       def edit_query_save_click
 
         @view.edit_query_save.when_present.click
+      end
+
+      def click_cart_home_button
+        @view.cart_home_button.when_present.click
       end
 
     end
