@@ -119,7 +119,10 @@ end
 
 And(/^I click Expand All Segments/) do
   gift = Giving::GiftPledge.new
-  gift.expand_all_segments
+  if expand_all_segments_exists?
+    gift.expand_all_segments
+  end
+
 end
 
 And(/^I click Delete on the split transaction page/) do

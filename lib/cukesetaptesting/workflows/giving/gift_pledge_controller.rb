@@ -440,6 +440,11 @@ module Cukesetaptesting
         @view.expand_all_segments_click.when_present.click
       end
 
+      def expand_all_segments_exists?
+        sleep 1
+        return @view.expand_all_segments_click.present?
+      end
+
       def delete_split_transaction
         begin
           @view.split_transaction_delete_button.when_present.click
