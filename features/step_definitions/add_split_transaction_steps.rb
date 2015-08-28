@@ -65,6 +65,7 @@ end
 
 And(/^I set the Check Date on Segment 1 to '([^']*)'/) do |date|
   gift = Giving::GiftPledge.new(:segment_one_check_date=>date)
+  gift.gift_bar_segment_one_click
   gift.create
 end
 
@@ -119,7 +120,7 @@ end
 
 And(/^I click Expand All Segments/) do
   gift = Giving::GiftPledge.new
-  if expand_all_segments_exists?
+  if gift.expand_all_segments_exists?
     gift.expand_all_segments
   end
 

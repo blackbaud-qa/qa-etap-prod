@@ -91,6 +91,7 @@ Feature: Adding split transactions
     And the Soft Credit Amount on Segment 2 should be set to '$75.00'
     Then the 'Ticket Quantity A' UDF on Segment 2 should be set to '3'
     And I click Delete Segment 3
+#    And I should close the javascript popup
     And I change the Received Amount Field to '100.00'
     And I click Save And 'Edit'
     And I click Expand All Segments
