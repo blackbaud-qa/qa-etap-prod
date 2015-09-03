@@ -184,6 +184,17 @@ module Cukesetaptesting
         @view.content.a(:text=>value).when_present.click
       end
 
+      def field_select_click(field_name)
+        #@view.field_select_gender.when_present.click
+        field = @view.field_select field_name
+
+        # if we only received content back,
+        #   then the UDF was not found
+        if !(field == @view.content)
+          field.when_present.click
+        end
+      end
+
       def fields_update_click
         @view.fields_update.when_present.click
       end
@@ -234,12 +245,8 @@ module Cukesetaptesting
         return @view.content.span(:class=>'namePart',:text=>text).present?
       end
 
-      def donation_page_click
-        @view.donation_page_link.when_present.click
-      end
-
-      def diy_page_link page_name
-        @view.diy_page_link page_name
+      def diy_page_link_click page_name
+        (@view.diy_page_link page_name).when_present.click
       end
 
       def switch_tab

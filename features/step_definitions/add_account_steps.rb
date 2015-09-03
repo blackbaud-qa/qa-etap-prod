@@ -113,6 +113,12 @@ And (/^I should be taken to the Persona page '([^']*)''s account/) do |name|
   expect(accounts.new_account_persona).to eq(name)
 end
 
+And (/^I set the UDF '([^']*)' dropdown to '([^']*)' on the classic add account page/) do |udf, value|
+  accounts = Account::AddAccount.new
+  accounts.click_udf(udf)
+  accounts.set_udf_dropdown_value(udf, value)
+end
+
 And (/^I set the UDF '([^']*)' to '([^']*)' on the classic add account page/) do |udf, value|
   accounts = Account::AddAccount.new
   accounts.click_udf(udf)

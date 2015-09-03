@@ -84,6 +84,96 @@ Then (/^User '([^']*)' does not exist$/) do |user_name|
   end
 end
 
+When (/^delete the accounts$/) do
+  steps %Q[When I click Accounts]
+  search = Account::Search.new
+
+  CSV.foreach("C:\\users\\matt.dilts\\Desktop\\test4k.csv") do |row|
+    steps %Q[
+      And I type '#{row[1]} #{row[2]} #{row[3]}' into the search field
+      And I click Exact Match
+    ]
+
+    if search.account_name_exists? row[1]+' '+row[2]+' '+row[3]
+      pp "000"
+      steps %Q[And I click on '#{row[1]} #{row[2]} #{row[3]}' on the accounts page]
+      pp "1111"
+      steps %Q[  And I click on the account settings page on the accounts page]
+      pp "22222"
+      steps %Q[And I click Delete Role on the Account Settings page]
+      pp "333333"
+      steps %Q[And I click Yes on the Account Settings page]
+      pp "4444444"
+    end
+
+    sleep 0.3
+  end
+end
+
+When (/^add the accounts$/) do
+  steps %Q[
+    When I click Accounts
+    And I click on Add Account on the find account screen
+  ]
+
+  CSV.foreach("C:\\users\\matt.dilts\\Desktop\\test4kc.csv") do |row|
+    pp "0"
+    steps %Q[When I set Title to '#{row[0]}' on the classic add account page]
+    pp "11"
+    steps %Q[And I set First Name to '#{row[1]}' on the classic add account page]
+    pp "222"
+    steps %Q[And I set Middle Name to '#{row[2]}' on the classic add account page]
+    pp "3333"
+    steps %Q[And I set Last Name to '#{row[3]}' on the classic add account page]
+    pp "44444"
+    steps %Q[And I set Address Lines to '#{row[4]}' on the classic add account page]
+    pp "555555"
+    steps %Q[And I set City to '#{row[5]}' on the classic add account page]
+    pp "6666666"
+    steps %Q[And I set State to '#{row[6]}' on the classic add account page]
+    pp "77777777"
+    steps %Q[And I set Postal Code to '#{row[8]}' on the classic add account page]
+    pp "888888888"
+    steps %Q[And I set Voice to '#{row[10]}' on the classic add account page]
+    pp "9999999999"
+    steps %Q[And I set Email to '#{row[9]}' on the classic add account page]
+    pp "aaa"
+    steps %Q[And I set Note to '#{row[1]} #{row[3]}' on the classic add account page]
+    pp "bbb"
+    steps %Q[And I set the UDF 'Account Type' dropdown to 'Individual' on the classic add account page]
+    pp "ccc"
+    steps %Q[And I set the UDF 'Gender' dropdown to '#{row[12]}' on the classic add account page]
+    pp "ddd"
+    steps %Q[And I set the UDF 'Date of Birth' to '#{row[11]}' on the classic add account page]
+    pp "eee"
+    steps %Q[And I click Save And 'New']
+    pp "fff"
+    steps %Q[And I handle the duplicate report if necessary]
+    pp "ggg"
+
+    sleep 0.3
+  end
+
+end
+
+Then (/^Constituent '([^']*)' does not exist$/) do |user_name|
+  landing = Admin::Landing.new
+  landing.accounts_click
+
+  search_page = Account::Search.new
+  search_page.set_search_users_checkbox false
+  search_page.set_search_constituents_checkbox true
+  search_page.set_search_tributes_checkbox false
+  search_page.set_search_teams_checkbox false
+  search_page.set_search_field user_name
+  search_page.find_click
+
+  if (search_page.account_name_exists? user_name)
+    step %Q[I delete user '#{user_name}']
+    landing.log_out
+  end
+end
+
 When (/^I delete user '([^']*)'$/) do |user_name|
   step "I click on '#{user_name}' on the accounts page"
   step "I click on the account settings page on the accounts page"
