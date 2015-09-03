@@ -370,4 +370,139 @@ end
 Then(/^I should see a required icon by Account Type/) do
   accounts = Account::AddAccount.new
   expect(accounts.required_icon).to eq(true)
+endAnd (/^I set the Name Format to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new
+  accounts.name_format_select(value)
+end
+
+And (/^I set the Title to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new
+  accounts.title_select(value)
+end
+
+And (/^I set the First Name to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:new_names_first_name => value)
+  accounts.create
+end
+
+And (/^I set the Middle Name to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:new_names_middle_name => value)
+  accounts.create
+end
+
+And (/^I set the Last Name to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:new_names_last_name => value)
+  accounts.create
+end
+
+And (/^I set the Suffix to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:new_names_suffix => value)
+  accounts.create
+end
+
+And(/^I click Save And '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new
+  accounts.set_save_and_account_page(value)
+  accounts.click_save_and_account_page
+end
+
+And(/^I click the edit icon next to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new
+  accounts.edit_salutation(value)
+end
+
+And(/^I set the Short Salutation to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:new_names_short_salutation => value)
+  accounts.create
+end
+
+And (/^the Envelope Salutation should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  # expect(accounts.envelope_salutation value).to eq(true)
+  expect(accounts.envelope_salutation).to eq(value)
+end
+
+And (/^the Name Format value should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.name_format_existing_account).to eq(value)
+end
+
+And (/^the Title should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  # expect(accounts.title_existing_account value).to eq(true)
+  expect(accounts.title_existing_account).to eq(value)
+end
+
+And (/^the First Name should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.first_name_existing_account).to eq(value)
+end
+
+And (/^the Middle Name should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.middle_name_existing_account).to eq(value)
+end
+
+And (/^the Last Name should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.last_name_existing_account).to eq(value)
+end
+
+And (/^the Suffix should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.suffix_existing_account).to eq(value)
+end
+
+And (/^the Account Name should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.account_name_existing_account).to eq(value)
+end
+
+And (/^the Sort Name should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.sort_name_existing_account).to eq(value)
+end
+
+And (/^the Recognition Name should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.recognition_name_existing_account value).to eq(true)
+end
+
+And (/^the Recognition Type should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.recognition_type_existing_account value).to eq(true)
+end
+And(/^I click User Defined Fields on the management menu/) do
+  accounts = Account::AddAccount.new
+  accounts.management_user_defined_fields
+end
+
+And(/^I click the Base UDF category on the Edit User Defined Fields page/) do
+  accounts = Account::AddAccount.new
+  accounts.udf_category
+end
+
+And(/^I click Account Type on the UDF page/) do
+  accounts = Account::AddAccount.new
+  accounts.account_type_udf
+end
+
+And(/^I click Field Attributes/) do
+  accounts = Account::AddAccount.new
+  accounts.field_attributes
+end
+
+And(/^I click would you like to make this field required/) do
+  accounts = Account::AddAccount.new
+  accounts.require_udf
+end
+
+And(/^I click Save and Finish on the UDF page/) do
+  accounts = Account::AddAccount.new
+  accounts.save_and_finish_udf_page
+end
+
+Then(/^I should see a required icon by Account Type/) do
+  accounts = Account::AddAccount.new
+  expect(accounts.required_icon).to eq(true)
 end

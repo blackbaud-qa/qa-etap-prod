@@ -337,10 +337,6 @@ module Cukesetaptesting
         @view.unmark_donor_confirmation_click.when_present.click
       end
 
-      def donor_confirmation_email_checkbox val
-        @view.donor_confirmation_email_checkbox val
-      end
-
       def unmark_org_confirmation
         @view.unmark_org_confirmation_click.when_present.click
       end
@@ -364,10 +360,11 @@ module Cukesetaptesting
       def live_account_type_set value
         @view.live_account_type.when_present.select value
       end
-
-      def org_confirmation_email_checkbox val
-        @view.org_confirmation_email_checkbox val
+      
+      def donor_confirmation_email_checkbox val
+        @view.donor_confirmation_email_checkbox val
       end
+
     end
   end
 end
