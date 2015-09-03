@@ -71,7 +71,7 @@ module Cukesetaptesting
       keyword(:sort_order_z) {content.img(:id,'descending_0')}
       keyword(:group_report_dropdown) {content.span(:class,'etapComboBox').img}
       keyword(:group_report) {content.div(:class=>'comboBoxRow',:text=>'').img}
-      keyword(:delete_state_field) {content.text_field(:id,'name.3').parent.parent.img(:class,'closeX')}
+      keyword(:delete_state_field) {content.text_field(:id,'name.3').parent.parent.i(:class,'fa fa-times-circle')}
       keyword(:state_field) {content.table(:id,'etapreporttag1')}
 
 

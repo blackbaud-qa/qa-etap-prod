@@ -59,6 +59,7 @@ module Cukesetaptesting
         @view.tribute_bar.when_present.click
       end
 
+
       def set_gift_type(type)
         @view.payment_method.select(type)
       end
@@ -408,6 +409,10 @@ module Cukesetaptesting
         @view.tribute_bar_click_segment_one_click.when_present.click
       end
 
+      def gift_bar_segment_one_click
+        @view.gift_bar_segment_one.when_present.click
+      end
+
       def tribute_icon_click_segment_one
         @view.tribute_icon_click_segment_one_click.when_present.click
       end
@@ -438,6 +443,11 @@ module Cukesetaptesting
 
       def expand_all_segments
         @view.expand_all_segments_click.when_present.click
+      end
+
+      def expand_all_segments_exists?
+        sleep 1
+        return @view.expand_all_segments_click.present?
       end
 
       def delete_split_transaction

@@ -138,6 +138,7 @@ module Cukesetaptesting
       keyword(:segment_one_check_date) {content.div(:id, 'giftTypes1').text_field(:name, 'checkDate(1)')}
       keyword(:segment_one_check_number) {content.div(:id, 'giftTypes1').text_field(:name, 'checkNumber(1)')}
       keyword(:tribute_bar_click_segment_one_click) {content.div(:id, 'etap.fieldset.table.5').div(:id, 'tributeFields1TitleBar')}
+      keyword(:gift_bar_segment_one) {content.div(:id,'etap.fieldset.table.5').div(:id,'giftTypes1TitleBar')}
       keyword(:tribute_icon_click_segment_one_click) {content.div(:id, 'tributeFields1').img(:src, 'images/magnifying-glass.png')}
       keyword(:soft_credit_icon_click_segment_one_click) {content.div(:id, 'tributeFields1').div(:id, 'softCreditSection').img(:src, 'images/magnifying-glass.png')}
       keyword(:segment_one_soft_credit_amount) {content.div(:id, 'softCreditFields1').text_field(:name, 'newSoftCreditAmount(1)')}

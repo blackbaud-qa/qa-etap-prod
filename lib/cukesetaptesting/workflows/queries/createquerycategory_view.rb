@@ -25,12 +25,12 @@ module Cukesetaptesting
       keyword(:find_account_popup_search) { browser.iframe(:name => 'content').form(:name => 'entitySearchForm').text_field(:id => 'searchString')}
       keyword(:find_account_popup_find)  {content.button(:value, 'Find')}
       keyword(:find_account_popup_close)  {content.button(:value, 'Close')}
-      keyword(:combine_queries_subtract)  {content.img(:id, 'vensub')}
+      keyword(:combine_queries_subtract)  {content.img(:src, 'images/queriesSubtract.png')}
       keyword(:compound_category_one_select_value)  {content.select(:id, 'select.query.category.1')}
       keyword(:compound_query_one_select_value)  {content.select(:id, 'select.query.1')}
       keyword(:compound_category_two_select_value)  {content.select(:id, 'select.query.category.2')}
       keyword(:compound_query_two_select_value)  {content.select(:id, 'select.query.2')}
-      keyword(:combine_queries_add)  {content.img(:id, 'venadd')}
+      keyword(:combine_queries_add)  {content.img(:src, 'images/queriesAdd.png')}
       keyword(:query_criteria_name_field) {content.text_field(:id, 'TestEntityRoleForNamesData.values')}
       keyword(:query_criteria_short_salutation_field) {content.text_field(:id, 'testByName(TestEntityRoleForShortSalutationsData).values')}
       keyword(:query_criteria_state_field) {content.text_field(:id,'testByName(TestEntityRoleForStatesData).states')}
@@ -188,6 +188,14 @@ module Cukesetaptesting
 
       def checkbox_selector_by_text(name, value)
         content.checkbox(:name, name).parent.parent.parent.label(:text, value).checkbox
+      end
+
+      def cart_home_button
+        content.div(:id, 'TestTransactionForOrderItemsData_mainInputs').images[0]
+      end
+
+      def checkbox_selector_for_cart(name, value)
+        content.checkbox(:name, name).parent.parent.parent.label(:text, value).parent.parent.checkbox
       end
     end
   end

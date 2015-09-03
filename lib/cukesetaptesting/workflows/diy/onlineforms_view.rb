@@ -52,7 +52,6 @@ module Cukesetaptesting
       keyword(:new_image_insert) {content.span(:text,'Insert image')}
       keyword(:add_fields) {content.h6(:text,'Add Fields')}
       keyword(:base_field_cat) {content.select(:id,'availableCategoriesSelect')}
-      keyword(:field_select_gender) {content.a(:text,'Gender')}
       keyword(:fields_update) {content.span(:class=>'titleText',:text=>'Add Fields').parent.parent.button(:id=>'save')}
       keyword(:add_text) {content.h6(:text,'Add Text')}
       keyword(:default_text) {content.iframe(:id,'blockHtmlContents_ifr')}

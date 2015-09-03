@@ -78,6 +78,7 @@ end
 And(/^I click Yes, Go Live! on the DIY editor page$/) do
   diy = DIY::Onlineforms.new()
   diy.go_live_confirm_click
+  sleep 3
 end
 
 And(/^I click Edit for the form titled '([^']*)'$/) do |page|
@@ -231,8 +232,8 @@ end
 And(/I click ([^']*) UDF on the DIY editor page$/) do |udf_name|
   diy = DIY::Onlineforms.new()
   diy.field_select_click udf_name
-end
-
+end  
+  
 And(/^I click '([^']*)' on the DIY editor page/) do |value|
   diy = DIY::Onlineforms.new
   diy.field_select_gender_click value
@@ -297,6 +298,11 @@ end
 Then(/the Donation Page should no longer show$/) do
   diy = DIY::Onlineforms.new()
   expect(diy.donation_page_present? 'Donation Page').to eq(false)
+end
+
+When(/^I click on the link for the form titled Donation Page$/) do
+  diy = DIY::Onlineforms.new()
+  diy.donation_page_click
 end
 
 And(/^I open a new tab in my browser$/) do

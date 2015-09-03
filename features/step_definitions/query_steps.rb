@@ -54,7 +54,7 @@ And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)'
   query.criteria_num_range(prefix, ids, values)
 end
 
-And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type AccountTextValues/) do | ids, prefix, values|
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type requiredTextValues/) do | ids, prefix, values|
   query = Queries::Createquerycategory.new
   if values == 'none'
     query.criteria_text_value_none(prefix)
@@ -147,6 +147,12 @@ end
 And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type checkbox refs/) do | ids, prefix, values|
   query = Queries::Createquerycategory.new
   query.criteria_checkbox_refs(prefix, ids, values)
+end
+
+And (/^I set the inputs with '([^']*)' with an optional '([^']*)' with '([^']*)' for type cartItems/) do | ids, prefix, values|
+  query = Queries::Createquerycategory.new
+  query.click_cart_home_button
+  query.criteria_cart_items(prefix, ids, values)
 end
 
 And (/^I set the data return type to '([^']*)' on the Create a New Query page/) do |value|
@@ -289,6 +295,7 @@ And (/^I click '([^']*)' in the Tasks menu/) do |value|
 end
 
 Then (/^I should see the '([^']*)' category has been removed from the page/) do |category|
+  sleep 3
   query = Queries::Createquerycategory.new
   expect(query.try_to_click_on_query_category(category)).to eq(false)
 end

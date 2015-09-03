@@ -71,7 +71,34 @@ module Cukesetaptesting
       keyword(:multiple_emails_return) {content.text_field(:id, 'emailAddress')}
       keyword(:duplicates_continue) {content.button(:value,'Continue')}
 
+      keyword(:management_user_defined_fields)  {content.div(:id,'managementPageContent').div(:id,'databaseContent').ul(:id,'homeQuickLinks').a(:href,'editUserDefinedFieldsCategories.do?mode=USER')}
+      keyword(:udf_category) {content.div(:class,'controls').a(:text,'Base')}
+      keyword(:account_type_udf) {content.a(:text, 'Account Type')}
+      keyword(:field_attributes) {content.img(:id, 'wizardWorkflowIcon_taskWorkflow_userDefinedFieldWizard_2')}
+      keyword(:require_udf) {content.input(:id, 'requiredCheckbox')}
+      keyword(:save_and_finish_udf_page) {content.input(:id, 'wizardNavigationButton_1_saveAndFinish')}
+      keyword(:required_icon) {content.a(:text, 'Account Type:').parent().parent().td(:class, 'udfRequiredCell').img(:src, '/prod/images/required8.gif')}
+      keyword(:name_format_select_value) {content.select(:id, 'nameFormat')}
+      keyword(:title_select_value) {content.select(:id, 'title')}
+      keyword(:new_names_first_name) {content.text_field(:id, 'firstName')}
+      keyword(:new_names_middle_name) {content.text_field(:id, 'middleName')}
+      keyword(:new_names_last_name) {content.text_field(:id, 'lastName')}
+      keyword(:new_names_suffix) {content.text_field(:id, 'suffix')}
+      keyword(:save_and_account_page) {content.div(:class, 'taskSpace').select(:id, 'destinationAfterSave')}
+      keyword(:save_and_button_account_page) {content.div(:class, 'taskSpace').button(:class, 'saveAndButton')}
+      keyword(:new_names_short_salutation) {content.text_field(:id, 'shortDesignation')}
+      keyword(:envelope_salutation_value) {content.text_field(:id, 'envelopeDesignation')}
+      keyword(:title_existing_account_value) {content.text_field(:id, 'title')}
+      keyword(:account_name_existing_account_value) {content.text_field(:id, 'accountName')}
+      keyword(:sort_name_existing_account_value) {content.text_field(:id, 'sortKey')}
+      keyword(:recognition_name_existing_account_value) {content.span(:id, 'recognitionNameDisplay')}
+      keyword(:recognition_type_existing_account_value) {content.span(:id, 'recognitionTypeDisplay')}
 
+
+
+      def edit_salutation_click_pencil(value)
+        content.div(:id, 'etap.fieldset.area.5').label(:class, value).a(:class, 'ng-scope')
+      end
 
       def udf_to_click(udf)
         # Should be ok for translation, as we

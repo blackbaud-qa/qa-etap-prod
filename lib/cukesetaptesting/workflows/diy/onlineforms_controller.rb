@@ -336,6 +336,7 @@ module Cukesetaptesting
       def unmark_donor_confirmation
         @view.unmark_donor_confirmation_click.when_present.click
       end
+
       def donor_confirmation_email_checkbox val
         @view.donor_confirmation_email_checkbox val
       end
