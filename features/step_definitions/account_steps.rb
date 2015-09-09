@@ -84,6 +84,74 @@ Then (/^User '([^']*)' does not exist$/) do |user_name|
   end
 end
 
+When (/^delete the accounts$/) do
+  steps %Q[When I click Accounts]
+  search = Account::Search.new
+
+  CSV.foreach("C:\\users\\matt.dilts\\Desktop\\test4k.csv") do |row|
+    steps %Q[
+      And I type '#{row[1]} #{row[2]} #{row[3]}' into the search field
+      And I click Exact Match
+    ]
+
+    if search.account_name_exists? row[1]+' '+row[2]+' '+row[3]
+      steps %Q[And I click on '#{row[1]} #{row[2]} #{row[3]}' on the accounts page]
+      steps %Q[  And I click on the account settings page on the accounts page]
+      steps %Q[And I click Delete Role on the Account Settings page]
+      steps %Q[And I click Yes on the Account Settings page]
+    end
+
+    sleep 0.3
+  end
+end
+
+When (/^add the accounts$/) do
+  steps %Q[
+    When I click Accounts
+    And I click on Add Account on the find account screen
+  ]
+
+  CSV.foreach("C:\\users\\matt.dilts\\Desktop\\test4kc.csv") do |row|
+    steps %Q[When I set Title to '#{row[0]}' on the classic add account page]
+    steps %Q[And I set First Name to '#{row[1]}' on the classic add account page]
+    steps %Q[And I set Middle Name to '#{row[2]}' on the classic add account page]
+    steps %Q[And I set Last Name to '#{row[3]}' on the classic add account page]
+    steps %Q[And I set Address Lines to '#{row[4]}' on the classic add account page]
+    steps %Q[And I set City to '#{row[5]}' on the classic add account page]
+    steps %Q[And I set State to '#{row[6]}' on the classic add account page]
+    steps %Q[And I set Postal Code to '#{row[8]}' on the classic add account page]
+    steps %Q[And I set Voice to '#{row[10]}' on the classic add account page]
+    steps %Q[And I set Email to '#{row[9]}' on the classic add account page]
+    steps %Q[And I set Note to '#{row[1]} #{row[3]}' on the classic add account page]
+    steps %Q[And I set the UDF 'Account Type' dropdown to 'Individual' on the classic add account page]
+    steps %Q[And I set the UDF 'Gender' dropdown to '#{row[12]}' on the classic add account page]
+    steps %Q[And I set the UDF 'Date of Birth' to '#{row[11]}' on the classic add account page]
+    steps %Q[And I click Save And 'New']
+    steps %Q[And I handle the duplicate report if necessary]
+
+    sleep 0.3
+  end
+
+end
+
+Then (/^Constituent '([^']*)' does not exist$/) do |user_name|
+  landing = Admin::Landing.new
+  landing.accounts_click
+
+  search_page = Account::Search.new
+  search_page.set_search_users_checkbox false
+  search_page.set_search_constituents_checkbox true
+  search_page.set_search_tributes_checkbox false
+  search_page.set_search_teams_checkbox false
+  search_page.set_search_field user_name
+  search_page.find_click
+
+  if (search_page.account_name_exists? user_name)
+    step %Q[I delete user '#{user_name}']
+    landing.log_out
+  end
+end
+
 When (/^I delete user '([^']*)'$/) do |user_name|
   step "I click on '#{user_name}' on the accounts page"
   step "I click on the account settings page on the accounts page"
@@ -156,23 +224,4 @@ When (/^I create user '([^']*)' with password '([^']*)'$/) do |user_name, passwo
   account.set_user_password password #user_name
   account.set_user_password_confirm password #user_name
   step %Q[I click Save And '#{desired_next_page}'] # eg: 'Go to Personas'
-
-  # step %Q[I am logged into eTap]
-  # step %Q[I click Accounts]
-  # step %Q[I click on Add Account on the find account screen]
-  # step %Q[I set Name to '#{account_name}' on the classic add account page]
-  # step %Q[I set Sort Name to '#{sort_name}' on the classic add account page]
-  # step %Q[I set Address Lines to '#{address}' on the classic add account page]
-  # step %Q[I set City to '#{city}' on the classic add account page]
-  # step %Q[I set State to '#{state}' on the classic add account page]
-  # step %Q[I set Postal Code to '#{postal_code}' on the classic add account page]
-  # step %Q[I set County to '#{county}' on the classic add account page]
-  # step %Q[I set Voice to '#{voice}' on the classic add account page]
-  # step %Q[I set Email to '#{email}' on the classic add account page]
-  # step %Q[I set Web Page to '#{web_page}' on the classic add account page]
-  # step %Q[I set Note to '#{note}' on the classic add account page]
-  # step %Q[I set Short Salutation to '#{short_sal}' on the classic add account page]
-  # step %Q[I set Long Salutation to '#{long_sal}' on the classic add account page]
-  # step %Q[I set the UDF '#{udf_name}' to '#{udf_value}' on the classic add account page]
-  # step %Q[I click Save And '#{desired_next_page}'] # eg: 'Go to Personas'
 end
