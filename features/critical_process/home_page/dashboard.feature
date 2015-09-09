@@ -11,6 +11,7 @@ Feature: Dashboard Functionality
     And I click Save
     And I should see the Recently Viewed Accounts tile
     And I click the X on the Recently Viewed Accounts tile
+    And I should close the javascript popup
     Then I should not see the Recently Viewed Accounts tile in the right hand column on the Dashboard
 
 #  #Still working on Drag and drop
