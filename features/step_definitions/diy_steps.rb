@@ -536,7 +536,9 @@ end
 And (/^I set Ticket Quantity B to '([^']*)' on the DIY Donation Page/) do |value|
   diy = DIY::Onlineforms.new(:diy_ticket_quantityB_value=>value)
   diy.create
-endAnd (/^I unmark the checkbox next to Send the donor a confirmation email?/) do
+end
+
+And (/^I unmark the checkbox next to Send the donor a confirmation email?/) do
   diy = DIY::Onlineforms.new
   diy.unmark_donor_confirmation
 end
