@@ -549,11 +549,11 @@ And (/^I unmark the checkbox nex to Send your organization a confirmation email?
 end
 
 
-When(/^I click on the link for the form titled ([^']*)$/) do |page_name|
-  sleep 1
-  diy = DIY::Onlineforms.new()
-  diy.diy_page_link_click page_name
-end
+# When(/^I click on the link for the form titled ([^']*)$/) do |page_name|
+#   sleep 1
+#   diy = DIY::Onlineforms.new()
+#   diy.diy_page_link_click page_name
+# end
 =begin
 When(/^I click on the link for the form titled Donation Page$/) do
   diy = DIY::Onlineforms.new()
