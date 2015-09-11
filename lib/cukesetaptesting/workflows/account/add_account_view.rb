@@ -87,12 +87,16 @@ module Cukesetaptesting
       keyword(:save_and_account_page) {content.div(:class, 'taskSpace').select(:id, 'destinationAfterSave')}
       keyword(:save_and_button_account_page) {content.div(:class, 'taskSpace').button(:class, 'saveAndButton')}
       keyword(:new_names_short_salutation) {content.text_field(:id, 'shortDesignation')}
+      keyword(:new_names_long_salutation) {content.text_field(:id, 'longDesignation')}
+      keyword(:new_names_envelope_salutation) {content.text_field(:id, 'envelopeDesignation')}
       keyword(:envelope_salutation_value) {content.text_field(:id, 'envelopeDesignation')}
       keyword(:title_existing_account_value) {content.text_field(:id, 'title')}
       keyword(:account_name_existing_account_value) {content.text_field(:id, 'accountName')}
       keyword(:sort_name_existing_account_value) {content.text_field(:id, 'sortKey')}
       keyword(:recognition_name_existing_account_value) {content.span(:id, 'recognitionNameDisplay')}
       keyword(:recognition_type_existing_account_value) {content.span(:id, 'recognitionTypeDisplay')}
+      keyword(:new_names_sort_name) {content.text_field(:id, 'sortKey')}
+      keyword(:new_names_account_name) {content.text_field(:id, 'accountName')}
 
 
 

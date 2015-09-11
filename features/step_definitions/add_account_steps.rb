@@ -275,6 +275,16 @@ And(/^I set the Short Salutation to '([^']*)' on the add account page/) do |valu
   accounts.create
 end
 
+And(/^I set the Long Salutation to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:new_names_long_salutation => value)
+  accounts.create
+end
+
+And(/^I set the Envelope Salutation to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:new_names_envelope_salutation => value)
+  accounts.create
+end
+
 And (/^the Envelope Salutation should be set to '([^']*)'/) do |value|
   accounts = Account::AddAccount.new
   # expect(accounts.envelope_salutation value).to eq(true)
@@ -364,4 +374,14 @@ end
 Then(/^I should see a required icon by Account Type/) do
   accounts = Account::AddAccount.new
   expect(accounts.required_icon).to eq(true)
+end
+
+And (/^I set the Sort Name to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:new_names_sort_name => value)
+  accounts.create
+end
+
+And (/^I set the Account Name to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:new_names_account_name => value)
+  accounts.create
 end

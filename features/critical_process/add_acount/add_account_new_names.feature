@@ -52,63 +52,146 @@ Feature: Add Account in New Names database
 #    And I click Delete Role on the Account Settings page
 #    And I click Yes on the Account Settings page
 #    Then I should see the message: 'Empty Search Criteria'
+#
+#
+#  Scenario: Missing Required Fields - Individual account
+#    Given I am logged into eTap
+#    When I click Accounts
+#    And I click on Add Account on the find account screen
+#    And I set the Name Format to 'Individual' on the add account page
+#    And I set the Title to 'Mr.' on the add account page
+#    And I set the First Name to 'Josh' on the add account page
+#    And I set the Middle Name to 'E.' on the add account page
+#    And I set the Suffix to 'Jr.' on the add account page
+#    And I set Address Lines to '7787 West Pine Ave' on the classic add account page
+#    And I set City to 'Indianapolis' on the classic add account page
+#    And I set State to 'IN' on the classic add account page
+#    And I set Postal Code to '46220' on the classic add account page
+#    And I set Voice to '318-219-4444' on the classic add account page
+#    And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
+#    And I click Save And 'Go to Personas' on the add account page
+#    And I click Accounts
+#    And I click Advanced Find
+#    And I set Phone to '318-219-4444' on the Advanced Find screen
+#    And I click Find
+#    Then I should see the message: 'No Results Found'
+#
+#
+#  Scenario: Missing Required Fields - Family account
+#    Given I am logged into eTap
+#    When I click Accounts
+#    And I click on Add Account on the find account screen
+#    And I set the Name Format to 'Family' on the add account page
+#    And I set the Sort Name to 'The Rusche Family' on the add account page
+#    And I set Address Lines to '7787 West Pine Ave' on the classic add account page
+#    And I set City to 'Indianapolis' on the classic add account page
+#    And I set State to 'IN' on the classic add account page
+#    And I set Postal Code to '46220' on the classic add account page
+#    And I set Voice to '318-219-4444' on the classic add account page
+#    And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
+#    And I click Save And 'Go to Personas' on the add account page
+#    And I click Accounts
+#    And I click Advanced Find
+#    And I set Phone to '318-219-4444' on the Advanced Find screen
+#    And I click Find
+#    Then I should see the message: 'No Results Found'
+#
+#
+#  Scenario: Missing Required Fields - Business account
+#    Given I am logged into eTap
+#    When I click Accounts
+#    And I click on Add Account on the find account screen
+#    And I set the Name Format to 'Business' on the add account page
+#    And I set the Account Name to 'The Rusche Family' on the add account page
+#    And I set the Sort Name to ' ' on the add account page
+#    And I set Address Lines to '7787 West Pine Ave' on the classic add account page
+#    And I set City to 'Indianapolis' on the classic add account page
+#    And I set State to 'IN' on the classic add account page
+#    And I set Postal Code to '46220' on the classic add account page
+#    And I set Voice to '318-219-4444' on the classic add account page
+#    And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
+#    And I click Save And 'Go to Personas' on the add account page
+#    And I click Accounts
+#    And I click Advanced Find
+#    And I set Phone to '318-219-4444' on the Advanced Find screen
+#    And I click Find
+#    Then I should see the message: 'No Results Found'
+#
+#
+#  Scenario: Add new family account - all fields populated
+#    Given I am logged into eTap
+#    When I click Accounts
+#    And I click on Add Account on the find account screen
+#    And I set the Name Format to 'Family' on the add account page
+#    And I set the Account Name to 'The Swinkle Family' on the add account page
+#    And I set the Short Salutation to 'Marvin and Sally' on the add account page
+#    And I set Address Lines to '987 N Destination Drive' on the classic add account page
+#    And I set City to 'Indianapolis' on the classic add account page
+#    And I set State to 'IN' on the classic add account page
+#    And I set Postal Code to '46355' on the classic add account page
+#    And I set County to 'Marion' on the classic add account page
+#    And I set Voice to '317-327-1564' on the classic add account page
+#    And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
+#    And I set Note to 'Wonderful Family' on the classic add account page
+#    And I click Save And 'Go to Personas' on the add account page
+#    And the Address Lines should be set to '987 N Destination Drive'
+#    And the City should be set to 'Indianapolis'
+#    And the State should be set to 'IN'
+#    And the Postal Code should be set to '46355'
+#    And the County should be set to 'Marion'
+#    And the Voice should be set to '(317) 327-1564'
+#    And the Email should be set to 'lance.moore@blackbaud.com'
+#    And the Note should be set to 'Wonderful Family'
+#    And the Short Salutation should be set to 'Marvin and Sally'
+#    And the Long Salutation should be set to 'The Swinkle Family'
+#    And the Envelope Salutation should be set to 'The Swinkle Family'
+#    And I click Account Settings
+####   Could only get Name Format verification to work if we check the value number: Individual=1, Family=2, Business=3  ###
+#    And the Name Format value should be set to '2'
+#    And the Account Name should be set to 'The Swinkle Family'
+#    And the Sort Name should be set to 'Swinkle Family, The'
+#    And the Recognition Name should be set to 'The Swinkle Family'
+#    And the Recognition Type should be set to '(account name)'
+#    And I click Delete Role on the Account Settings page
+#    And I click Yes on the Account Settings page
+#    Then I should see the message: 'Empty Search Criteria'
 
-  Scenario: Missing Required Fields - Individual account
-    When I click Accounts
-    And I click on Add Account on the find account screen
-    And I set the Name Format to 'Individual' on the add account page
-    And I set the Title to 'Mr.' on the add account page
-    And I set the First Name to 'Josh' on the add account page
-    And I set the Middle Name to 'E.' on the add account page
-    And I set the Suffix to 'Jr.' on the add account page
-    And I set Address Lines to '7787 West Pine Ave' on the classic add account page
-    And I set City to 'Indianapolis' on the classic add account page
-    And I set State to 'IN' on the classic add account page
-    And I set Postal Code to '46220' on the classic add account page
-    And I set Voice to '318-219-4444' on the classic add account page
-    And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
-    And I click Save And 'Go to Personas'
-    And I click Accounts
-    And I click Advanced Find
-    And I set Phone to '318-219-4444' on the Advanced Find screen
-    And I click Find
-    Then I should see the message: 'No Results Found'
-
-
-  Scenario: Missing Required Fields - Family account
-    When I click Accounts
-    And I click on Add Account on the find account screen
-    And I set the Name Format to 'Family' on the add account page
-    And I set the Sort Name to 'The Rusche Family' on the add account page
-    And I set Address Lines to '7787 West Pine Ave' on the classic add account page
-    And I set City to 'Indianapolis' on the classic add account page
-    And I set State to 'IN' on the classic add account page
-    And I set Postal Code to '46220' on the classic add account page
-    And I set Voice to '318-219-4444' on the classic add account page
-    And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
-    And I click Save And 'Go to Personas'
-    And I click Accounts
-    And I click Advanced Find
-    And I set Phone to '318-219-4444' on the Advanced Find screen
-    And I click Find
-    Then I should see the message: 'No Results Found'
-
-
-  Scenario: Missing Required Fields - Business account
+  Scenario: Add new business account - all fields populated
+    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Business' on the add account page
-    And I set the Account Name to 'The Rusche Family' on the add account page
-    And I set the Sort Name to ' ' on the add account page
-    And I set Address Lines to '7787 West Pine Ave' on the classic add account page
+    And I set the Account Name to 'Taco Bell' on the add account page
+    And I set the Short Salutation to 'Brian' on the add account page
+    And I set the Long Salutation to 'Mr. Niccol' on the add account page
+    And I set the Envelope Salutation to 'Mr. Brian Niccol' on the add account page
+    And I set Address Lines to '1439 E 86th St' on the classic add account page
     And I set City to 'Indianapolis' on the classic add account page
     And I set State to 'IN' on the classic add account page
-    And I set Postal Code to '46220' on the classic add account page
-    And I set Voice to '318-219-4444' on the classic add account page
+    And I set Postal Code to '46240' on the classic add account page
+    And I set County to 'Marion' on the classic add account page
+    And I set Voice to '317-205-3910' on the classic add account page
     And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
-    And I click Save And 'Go to Personas'
-    And I click Accounts
-    And I click Advanced Find
-    And I set Phone to '318-219-4444' on the Advanced Find screen
-    And I click Find
-    Then I should see the message: 'No Results Found'
+    And I set Note to 'Close to Blackbaud Indy office' on the classic add account page
+    And I click Save And 'Go to Personas' on the add account page
+    And the Address Lines should be set to '1439 E 86th St'
+    And the City should be set to 'Indianapolis'
+    And the State should be set to 'IN'
+    And the Postal Code should be set to '46240'
+    And the County should be set to 'Marion'
+    And the Voice should be set to '(317) 205-3910'
+    And the Email should be set to 'lance.moore@blackbaud.com'
+    And the Note should be set to 'Close to Blackbaud Indy office'
+    And the Short Salutation should be set to 'Brian'
+    And the Long Salutation should be set to 'Mr. Niccol'
+    And the Envelope Salutation should be set to 'Mr. Brian Niccol'
+    And I click Account Settings
+###   Could only get Name Format verification to work if we check the value number: Individual=1, Family=2, Business=3  ###
+    And the Name Format value should be set to '3'
+    And the Account Name should be set to 'Taco Bell'
+    And the Sort Name should be set to 'Taco Bell'
+    And the Recognition Name should be set to 'Taco Bell'
+    And the Recognition Type should be set to '(account name)'
+    And I click Delete Role on the Account Settings page
+    And I click Yes on the Account Settings page
+    Then I should see the message: 'Empty Search Criteria'
