@@ -193,6 +193,7 @@ module Cukesetaptesting
       end
 
       def view_category_click category
+        sleep 1
         cat = @view.browser.div(:class => 'etapCategoryName', :text => category)
         cat.parent.a.when_present.click
       end
