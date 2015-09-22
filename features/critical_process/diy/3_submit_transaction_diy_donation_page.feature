@@ -1,4 +1,4 @@
-@crit_proc
+@crit_proc_no_ff
 Feature: Submit a transaction through a diy donation page
 
 #  Background:
