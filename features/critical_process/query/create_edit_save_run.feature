@@ -1,4 +1,4 @@
-@crit_proc
+@crit_proc_no_ff
 Feature: Create, Edit, Save and Run Queries
 
   Background:

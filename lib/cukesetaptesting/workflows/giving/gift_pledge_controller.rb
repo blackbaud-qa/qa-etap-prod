@@ -278,14 +278,14 @@ module Cukesetaptesting
         begin
         @view.payment_delete_button.when_present.click
         rescue
-          browser.alert.ok
+          get_rid_of_ok
           end
       end
 
       def get_rid_of_ok
         begin
-          if(browser.alert.exists?)
-            browser.alert.ok
+          if(@view.browser.alert.exists?)
+            @view.browser.alert.ok
           end
         end
       end
