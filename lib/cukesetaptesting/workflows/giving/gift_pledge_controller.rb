@@ -448,11 +448,12 @@ module Cukesetaptesting
       end
 
       def delete_split_transaction
-        begin
-          @view.split_transaction_delete_button.when_present.click
-        rescue
-          browser.alert.ok
-        end
+        # begin
+        @view.click_and_confirm_alert(@view.split_transaction_delete_button)
+          # @view.split_transaction_delete_button.when_present.click
+        # rescue
+        #   browser.alert.ok
+        # end
       end
 
       def mark_split_transaction_box
@@ -565,11 +566,12 @@ module Cukesetaptesting
       end
 
       def delete_segment_three
-        begin
-          @view.delete_segment_three_click.when_present.click
-        rescue
-          browser.alert.ok
-        end
+        @view.click_and_confirm_alert(@view.delete_segment_three_click)
+        # begin
+        #   @view.delete_segment_three_click.when_present.click
+        # rescue
+        #   browser.alert.ok
+        # end
       end
 
       def edit_segment(segments)

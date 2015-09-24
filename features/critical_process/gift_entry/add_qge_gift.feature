@@ -1,4 +1,4 @@
-@crit_proc_no_ff
+@crit_proc
 Feature: Adding a gift through quick gift entry
 
   Scenario: Add a gift through quick gift entry, searching by account name
@@ -42,7 +42,7 @@ Feature: Adding a gift through quick gift entry
   Scenario: Add a gift through quick gift entry, pulling by account number
     Given I am logged into eTap
     When I click Giving on the main menu
-    And set the Account Number field to '42'
+    And set the Account Number field to '1062'
 #    And tab into the Date field   !!!!!!!!!!!!!!!!!!!!!! How do we want to distinguish tabs? !!!!!!!!!!!!!!!!!!!!!!!!!!!
     And set the date to '9/15/2090'
     And set the Received Amount to '250'

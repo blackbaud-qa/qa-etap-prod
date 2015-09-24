@@ -1,11 +1,12 @@
-@crit_proc_no_ff
+@crit_proc
 Feature: Testing payments and pledges
 
   Scenario: Add a pledge from the journal page
     Given I am logged into eTap
-    When I type '/14' into the dynamic search field
+    When I type 'Jon Snow' into the dynamic search field
     And I press Enter on the keyboard
-    And I click Journal on the Gail Burch account
+    And I click on 'Jon Snow' in the search results
+    And I click Journal
     And I select 'Gift/Pledge' from the Add New... drop down menu
     And I set the date to Today on the new pledge page
     And I set the Pledged Amount to '240'
