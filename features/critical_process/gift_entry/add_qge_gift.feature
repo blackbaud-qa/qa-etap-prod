@@ -1,13 +1,13 @@
-@crit_proc
+@crit_proc_no_ff
 Feature: Adding a gift through quick gift entry
 
   Scenario: Add a gift through quick gift entry, searching by account name
     Given I am logged into eTap
     When I click Giving on the main menu
     And I click Search for an Account
-    And type 'Bob Barker Junior' into the search field in popup
+    And type 'Jon Snow' into the search field in popup
     And click Find in popup
-    And select 'Bob Barker Junior' in popup
+    And select 'Jon Snow' in popup
     And set the date to '9/30/2090'
     And set the Received Amount to '500.00'
     And set the Fund to 'Unrestricted'
@@ -21,7 +21,7 @@ Feature: Adding a gift through quick gift entry
     And I set the Soft Credit Information to 'Anne Hatch'
     And the Soft Credit Amount to '500.00'
     And I click Save And 'Edit'
-    Then the gift should save properly on 'Bob Barker Junior''s account
+    Then the gift should save properly on 'Jon Snow''s account
     And the date should be set to '9/30/2090'
     And the Received Amount should be set to '$500.00'
     And the Fund should be set to 'Unrestricted'
@@ -53,7 +53,7 @@ Feature: Adding a gift through quick gift entry
     And set the Check Date to '9/15/2090'
     And set the Check Number to '473'
     And I click Save And 'Edit'
-    Then the gift should save properly on 'Bob Barker Junior''s account
+    Then the gift should save properly on 'Jon Snow''s account
     And the date should be set to '9/15/2090'
     And the Received Amount should be set to '$250.00'
     And the Fund should be set to 'Unrestricted'

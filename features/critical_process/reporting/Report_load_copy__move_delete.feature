@@ -1,4 +1,4 @@
-@crit_proc
+@crit_proc_no_ff
 Feature: Reports load, can be copied,moved and can be deleted
 
 Scenario: Load reports

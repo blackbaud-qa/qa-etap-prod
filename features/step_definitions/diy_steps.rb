@@ -302,7 +302,12 @@ end
 
 When(/^I click on the link for the form titled Donation Page$/) do
   diy = DIY::Onlineforms.new()
-  diy.donation_page_click
+  diy.diy_page_link_click "Donation Page"
+end
+
+When(/^I click on the link for the form titled '([^']*)'$/) do |name|
+  diy = DIY::Onlineforms.new()
+  diy.diy_page_link_click name
 end
 
 And(/^I open a new tab in my browser$/) do

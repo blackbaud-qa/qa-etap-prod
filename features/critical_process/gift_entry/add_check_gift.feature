@@ -1,11 +1,11 @@
-@crit_proc
+@crit_proc_no_ff
 Feature: Adding a gift with payment type of check
 
   Scenario: Add a gift from the journal page, no dollar sign in received amount
     Given I am logged into eTap
-    When I type 'Bob Barker' into the dynamic search field
+    When I type 'Jon Snow' into the dynamic search field
     And I press Enter on the keyboard
-    And I click on Bob Barker Junior in the search results
+    And I click on 'Jon Snow' in the search results
     And I click Journal
     And select Gift/Pledge from the Add New... drop down menu
     And set the date field to '11/30/2090'
@@ -37,9 +37,9 @@ Feature: Adding a gift with payment type of check
 
   Scenario: Add a gift from the journal page, include a dollar sign in received amount
     Given I am logged into eTap
-    When I type 'Bob Barker' into the dynamic search field
+    When I type 'Jon Snow' into the dynamic search field
     And I press Enter on the keyboard
-    And I click on Bob Barker Junior in the search results
+    And I click on 'Jon Snow' in the search results
     And I click Journal
     And select Gift/Pledge from the Add New... drop down menu
     And set the date field to '9/2/2090'

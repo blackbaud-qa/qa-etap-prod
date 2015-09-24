@@ -10,13 +10,13 @@ When(/^I delete existing data for '([^']*)'$/) do |name|
     if (gift.gift_link_present?)
       step "I click on the Gift listed in the journal"
       step "I click Delete on the transaction page"
-      step "I should close the javascript popup"
+      # step "I should close the javascript popup"
 
     end
     if (gift.soft_credit_link_present?)
       step "I click on the Soft Credit listed in the journal"
       step "I click Delete on the soft credit page"
-      step "I should close the javascript popup"
+      # step "I should close the javascript popup"
     end
 
     step "I click on the account settings page on the accounts page"

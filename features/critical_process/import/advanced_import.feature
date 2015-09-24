@@ -1,4 +1,4 @@
-@crit_proc
+@crit_proc_no_ff
 Feature: Importing Constituent and Gift Information
 
   Scenario: running a successful gift import with address information included

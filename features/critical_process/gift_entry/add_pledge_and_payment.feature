@@ -1,4 +1,4 @@
-@crit_proc
+@crit_proc_no_ff
 Feature: Testing payments and pledges
 
   Scenario: Add a pledge from the journal page

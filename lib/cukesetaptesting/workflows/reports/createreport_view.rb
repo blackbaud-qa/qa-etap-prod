@@ -9,7 +9,7 @@ module Cukesetaptesting
       keyword(:save_category_order_link)  { content.a(:text,'Save Category Order') }
       keyword(:etap_standard_reports_link)  { content.a(:text,'eTapestry Standard Reports') }
       keyword(:etap_benchmark_reports_link)  { content.a(:text,'eTapestry Benchmark Reports') }
-      keyword(:system_link)  { content.a(:text,'System') }
+      keyword(:system_link)  { content.ul(:id,'list_categories').a(:text,'System') }
       keyword(:new_report_link)  { content.a(:text,'New Report') }
       keyword(:delete_report_category_link)  { content.a(:text,'Delete') }
 
