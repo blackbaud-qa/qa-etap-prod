@@ -275,20 +275,16 @@ module Cukesetaptesting
       end
 
       def payment_delete_click
-        begin
-        @view.payment_delete_button.when_present.click
-        rescue
-          get_rid_of_ok
-          end
+        @view.click_and_confirm_alert(@view.payment_delete_button)
       end
 
-      def get_rid_of_ok
-        begin
-          if(@view.browser.alert.exists?)
-            @view.browser.alert.ok
-          end
-        end
-      end
+      # def get_rid_of_ok
+      #   begin
+      #     if(@view.browser.alert.exists?)
+      #       @view.browser.alert.ok
+      #     end
+      #   end
+      # end
 
       def pledge_entry_click
         @view.pledge_entry_to_click.when_present.click
@@ -340,11 +336,12 @@ module Cukesetaptesting
 
       def journal_soft_credit_delete_click
         # @view.journal_soft_credit_delete.when_present.click
-        begin
-          @view.journal_soft_credit_delete.when_present.click
-        rescue
-          browser.alert.ok
-        end
+        @view.click_and_confirm_alert(@view.journal_soft_credit_delete)
+        # begin
+        #   @view.journal_soft_credit_delete.when_present.click
+        # rescue
+        #   browser.alert.ok
+        # end
       end
 
       def journal_gift_non_deductible_amount
