@@ -19,7 +19,7 @@ module Cukesetaptesting
       keyword(:select_itr_first_comparison_value) {content.select(:id, 'TestTransactionForReceivedData.comparisonKey')}
       keyword(:itr_first_comparison_amount) {content.text_field(:id, 'TestTransactionForReceivedData.amountString')}
       keyword(:edit_query)  {content.button(:value, 'Edit')}
-      keyword(:custom_account_query_add)  {content.div(:id, 'etap.fieldset.area.2').a(:text, 'Add')}
+      keyword(:custom_account_query_add)  {content.div(:id, 'etap.fieldset.area.3').button(:value, 'Add Account')}
       keyword(:find_account_popup_close)  {content.button(:value, 'Close')}
       #keyword(:find_account_popup_search) {content.text_field(:id, 'searchString')}
       keyword(:find_account_popup_search) { browser.iframe(:name => 'content').form(:name => 'entitySearchForm').text_field(:id => 'searchString')}
