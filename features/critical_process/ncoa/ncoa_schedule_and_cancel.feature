@@ -74,35 +74,35 @@ Feature: NCOA - Schedule and Cancel Job
     And I click the calendar icon on the NCOA page
     And I click Today on the calendar on the NCOA page
     Then the date field should be populated with Today
+#
+  Scenario: Verify validation on date field
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    And I set 'test' for the Date field on the NCOA page
+    And I click Schedule to see the error on the NCOA page
+    Then I should see the 'Date: The date must be in the future' error
+    And I should close the javascript popup
 
-#  Scenario: Verify validation on date field
-#    When I click Management on the main menu
-#    And I click NCOA on the Management page
-#    And I set 'test' for the Date field on the NCOA page
-#    And I click Schedule to see the error on the NCOA page
-#    Then I should see the 'Date: The date must be in the future' error
-#    And I should close the javascript popup
+  Scenario: Verify validation on email field
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    And I set 'test' for the Email field on the NCOA page
+    And I click Schedule to see the error on the NCOA page
+    Then I should see the 'Email: This field must be a valid email address' error
+    And I should close the javascript popup
 
-#  Scenario: Verify validation on email field
-#    When I click Management on the main menu
-#    And I click NCOA on the Management page
-#    And I set 'test' for the Email field on the NCOA page
-#    And I click Schedule to see the error on the NCOA page
-#    Then I should see the 'Email: This field must be a valid email address' error
-#    And I should close the javascript popup
-
-#  Scenario: Verify required fields cannot be blank
-#    When I click Management on the main menu
-#    And I click NCOA on the Management page
-#    And I select '(Select a Category of Queries)' for the Category field on the NCOA page
-#    And I select '(Select a Query)' for the Query field on the NCOA page
-#    And I set '' for the Date field on the NCOA page
-#    And I set '' for the Email field on the NCOA page
-#    And I click Schedule to see the error on the NCOA page
-#    Then I should see the 'Query: This field must be completed prior to saving' error
-#    And I should see the 'Date: This field must be completed prior to saving' error
-#    And I should see the 'Email: This field must be completed prior to saving' error
-#    And I should close the javascript popup
+  Scenario: Verify required fields cannot be blank
+    When I click Management on the main menu
+    And I click NCOA on the Management page
+    And I select '(Select a Category of Queries)' for the Category field on the NCOA page
+    And I select '(Select a Query)' for the Query field on the NCOA page
+    And I set '' for the Date field on the NCOA page
+    And I set '' for the Email field on the NCOA page
+    And I click Schedule to see the error on the NCOA page
+    Then I should see the 'Query: This field must be completed prior to saving' error
+    And I should see the 'Date: This field must be completed prior to saving' error
+    And I should see the 'Email: This field must be completed prior to saving' error
+    And I should close the javascript popup
 
   Scenario: Verify the USPS Address Standardization page
     When I click Management on the main menu
