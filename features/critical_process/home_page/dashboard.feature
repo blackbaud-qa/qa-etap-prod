@@ -1,8 +1,7 @@
-
+@crit_proc
 Feature: Dashboard Functionality
 
 ### Test against automationbot before checkin ###
-@crit_proc_no_ff
   Scenario: Adding Tiles to the Dashboard
     Given I am logged into eTap
     When I click Home on the main menu
@@ -21,8 +20,7 @@ Feature: Dashboard Functionality
 #    And I click on the move icon on the Support Resources tile in the right hand column on the Dashboard
 #    And I drag the Support Resources tile to the left
 #    Then I should see the the Support Resources tile in the left hand column on the Dashboard
-
-  @crit_proc
+  
   Scenario: Moving Tiles on the Dashboard
     Given I am logged into eTap
     When I click Home on the main menu
@@ -34,7 +32,7 @@ Feature: Dashboard Functionality
     And I click on 2 Equal Columns
     And I click Save
     And I should see the homepage in 2 columns
-  @crit_proc
+
   Scenario: Running the Campaign Performance from the Dashboard
     Given I am logged into eTap
     When I click Home on the main menu
