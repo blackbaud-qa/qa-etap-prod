@@ -63,12 +63,12 @@ And(/^I click Save And '([^']*)'$/) do |value|
 end
 
 And(/^I click Save And to see the error$/) do
-  begin
+  # begin
     gift = Giving::GiftPledge.new
     gift.click_save_for_error
-  rescue
+  # rescue
     #expected error...
-  end
+  # end
 
 end
 

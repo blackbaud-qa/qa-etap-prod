@@ -298,7 +298,9 @@ module Cukesetaptesting
       end
 
       def live_submit_click
-        @view.live_submit.when_present.click
+        browser.without_checkers do
+          @view.live_submit.when_present.click
+        end
       end
 
       def live_transaction_successful?

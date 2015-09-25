@@ -1,4 +1,4 @@
-@crit_proc_no_ff
+@crit_proc
 Feature: SEPA 2 - Field validation and saving transactions
 
   Background:

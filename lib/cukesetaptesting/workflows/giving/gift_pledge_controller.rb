@@ -145,7 +145,9 @@ module Cukesetaptesting
       end
 
       def click_save_for_error
-        @view.save_and_button.when_present.click
+        browser.without_checkers do
+          @view.save_and_button.when_present.click
+        end
       end
 
       def click_save_and

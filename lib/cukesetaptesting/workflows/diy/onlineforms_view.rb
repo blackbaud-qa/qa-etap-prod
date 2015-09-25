@@ -69,7 +69,7 @@ module Cukesetaptesting
       keyword(:live_maiden_name) {browser.h6(:class=>'simplefieldType',:text=>'Maiden Name').parent.parent.text_field}
       keyword(:live_amount_other) {browser.radio(:id,'gift_amount_advanced_givingLevelsOther')}
       #keyword(:live_amount_field) {browser.text_field(:id,'otherAmt')}
-      keyword(:live_amount_field) {browser.text_field(:id,'gift_amount_simpleField')}
+      keyword(:live_amount_field) {browser.text_field(:id,'otherAmt')}
       keyword(:live_freq) {browser.select(:id,'rgsFrequencyField')}
       keyword(:live_title) {browser.select(:id,'salutation')}
       keyword(:live_first_name) {browser.text_field(:id,'firstName')}

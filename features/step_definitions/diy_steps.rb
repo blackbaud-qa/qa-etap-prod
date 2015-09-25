@@ -437,12 +437,14 @@ And(/^I set Expiration Year to '([^']*)' on the DIY Donation Page$/) do |exp|
 end
 
 And(/^I click Submit on the DIY Donation Page$/) do
-  begin
+  # begin
     diy = DIY::Onlineforms.new()
     diy.live_submit_click
-  rescue
+  # rescue
     #expected possible error
-  end
+  # end
+
+
 end
 
 Then(/^the transaction will process successfully$/) do
