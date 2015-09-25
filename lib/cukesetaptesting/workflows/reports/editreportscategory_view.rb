@@ -67,8 +67,8 @@ module Cukesetaptesting
       keyword(:report_name) {content.text_field(:id,'definition.name')}
       keyword(:edit_report_save) {content.button(:value,'Save')}
       keyword(:reports_grid) {content.ul(:id,'list_reports')}
-      keyword(:sort_name_expand) {content.text_field(:id,'name.0').parent.a}
-      keyword(:sort_order_z) {content.img(:id,'descending_0')}
+      keyword(:sort_name_expand) {content.text_field(:id,'name.0').parent.parent.i}
+      keyword(:sort_order_z) {content.img(:id,'descending_3')}
       keyword(:group_report_dropdown) {content.span(:class,'etapComboBox').img}
       keyword(:group_report) {content.div(:class=>'comboBoxRow',:text=>'').img}
       keyword(:delete_state_field) {content.text_field(:id,'name.3').parent.parent.i(:class,'fa fa-times-circle')}

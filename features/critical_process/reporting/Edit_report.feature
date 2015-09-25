@@ -11,19 +11,19 @@ Feature: Edit Custom Report
     Then I should see the report renamed to 'Test 1'
     And I rename the report to 'Test Report' for future tests
 
-#  Scenario: Edit Report Sort
-#    Given I am logged into eTap
-#    When I click on reports
-#    And I click on the system category
-#    And I click on the name of the report 'Test Report'
-#    And I click on the plus next to Sort Name on the edit report page
+  Scenario: Edit Report Sort
+    Given I am logged into eTap
+    When I click on reports
+    And I click on the system category
+    And I click on the name of the report 'Test Report'
+    And I click on the plus next to Sort Name on the edit report page
 #    And I choose the sort order Z on the edit report page
-#    And I click save on the edit report page
-#    And I click on Run Report under the report 'Test Report'
-#    And I click on the drop down box for query category Base
-#    And I click on the drop down box for query name All Constituents
-#    And I accept on the default report format 'Display Results on Screen'
-#    And I click on submit
+    And I click save on the edit report page
+    And I click on Run Report under the report 'Test Report'
+    And I click on the drop down box for query category Base
+    And I click on the drop down box for query name All Constituents
+    And I accept on the default report format 'Display Results on Screen'
+    And I click on submit
 #    Then I should see the report displayed to screen with the sort order of Z through A
 
   Scenario: Group Report
