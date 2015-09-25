@@ -1,4 +1,4 @@
-@crit_proc_no_ff
+@crit_proc
 Feature: Mass Update
 
     Scenario: Update Existing Account Values
