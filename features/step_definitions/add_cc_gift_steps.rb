@@ -71,6 +71,12 @@ And(/^click Save$/) do
   landing.save
 end
 
+And(/^click Save and ([^']*)$/) do |save_and_option|
+  landing = Giving::GiftPledge.new
+  landing.set_save_and save_and_option
+  landing.saveAnd
+end
+
 And(/^select Process Transaction from the drop down menu$/) do
   landing = Giving::GiftPledge.new
   landing.select_process
@@ -99,4 +105,35 @@ end
 And (/^I click on the Gift listed in the journal/) do
   gift = Giving::GiftPledge.new
   gift.journal_page_gift_click
+end
+
+And (/^I add a credit card gift for ([^']*) dollars to ([^']*)/) do |amount, constituent|
+  steps %Q{
+    When I type '#{constituent}' into the dynamic search field
+    And I press Enter on the keyboard
+    And I click on '#{constituent}' in the search results
+    And I click Journal
+    And select Gift/Pledge from the Add New... drop down menu
+    And set the date to '10/30/2015'
+    And set the Received Amount to '#{amount}'
+    And set the Fund to 'Unrestricted'
+    And set the Campaign to 'Annual'
+    And set the Approach to 'Unsolicited'
+    And set the Gift Type to Credit/Debit Card
+    And set the Credit/Debit Card Number to '4111111111111111'
+    And set the Expiration Month to '8'
+    And set the Expiration Year to '2016'
+}
+  sleep 1
+  steps %Q{
+    And click Save
+}
+sleep 1
+  steps %Q{
+    And select Process Transaction from the drop down menu}
+  sleep 1
+  steps %Q{
+    And click yes when the notification pops up
+  }
+  #And click Save and Process Transaction
 end

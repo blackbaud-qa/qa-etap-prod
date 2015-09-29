@@ -225,3 +225,23 @@ When (/^I create user '([^']*)' with password '([^']*)'$/) do |user_name, passwo
   account.set_user_password_confirm password #user_name
   step %Q[I click Save And '#{desired_next_page}'] # eg: 'Go to Personas'
 end
+
+When (/^I create constituent '([^']*) ([^']*)'$/) do |first_name, last_name|
+  desired_next_page = 'Go to Personas'
+
+  account = Account::AddAccount.new
+
+  step %Q[I am logged into eTap]
+  step %Q[I click Accounts]
+  step %Q[I click on Add Account on the find account screen]
+
+  if (account.is_split_names?)
+    step %Q[I set First Name to '#{first_name}' on the classic add account page]
+    step %Q[I set Last Name to '#{last_name}' on the classic add account page]
+  else
+    step %Q[I set Name to '#{first_name} #{last_name}' on the classic add account page]
+    step %Q[I set Sort Name to '#{last_name}, #{first_name}' on the classic add account page]
+  end
+
+  step %Q[I click Save And '#{desired_next_page}'] # eg: 'Go to Personas'
+end

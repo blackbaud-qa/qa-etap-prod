@@ -536,7 +536,9 @@ end
 And (/^I set Ticket Quantity B to '([^']*)' on the DIY Donation Page/) do |value|
   diy = DIY::Onlineforms.new(:diy_ticket_quantityB_value=>value)
   diy.create
-endAnd (/^I unmark the checkbox next to Send the donor a confirmation email?/) do
+end
+
+And (/^I unmark the checkbox next to Send the donor a confirmation email?/) do
   diy = DIY::Onlineforms.new
   diy.unmark_donor_confirmation
 end
@@ -552,26 +554,7 @@ When(/^I click on the link for the form titled ([^']*)$/) do |page_name|
   diy = DIY::Onlineforms.new()
   diy.diy_page_link_click page_name
 end
-=begin
-When(/^I click on the link for the form titled Donation Page$/) do
-  diy = DIY::Onlineforms.new()
-  diy.diy_page_link 'Donation Page'
-end
 
-And (/^I click on the link for the form titled UDF Test Page/) do
-  sleep 3
-  diy = DIY::Onlineforms.new
-  #diy.diy_udf_test_url
-  (diy.diy_page_link 'UDF Test Page').when_present.click
-end
-
-And (/^I click on the link for the form titled UDF Test 479480/) do
-  sleep 3
-  diy = DIY::Onlineforms.new
-  #diy.diy_udf_test_url
-  (diy.diy_page_link 'UDF Test 479480').when_present.click
-end
-=end
 And (/^I click Defined Fields/) do
   diy = DIY::Onlineforms.new
   diy.defined_fields_page

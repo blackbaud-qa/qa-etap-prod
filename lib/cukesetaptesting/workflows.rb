@@ -43,3 +43,8 @@ Cukesetaptesting::Loader.load_workflow 'communications/correspondence_editor'
 Cukesetaptesting::Loader.load_workflow 'management/ncoa'
 
 Cukesetaptesting::Loader.load_workflow 'account/defined_fields'
+Cukesetaptesting::Loader.load_workflow 'mobile/login'
+Cukesetaptesting::Loader.load_workflow 'mobile/account_find'
+Cukesetaptesting::Loader.load_workflow 'mobile/account'
+Cukesetaptesting::Loader.load_workflow 'mobile/journal'
+Cukesetaptesting::Loader.load_workflow 'mobile/gift'
