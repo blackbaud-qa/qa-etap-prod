@@ -74,7 +74,7 @@ Feature: NCOA - Schedule and Cancel Job
     And I click the calendar icon on the NCOA page
     And I click Today on the calendar on the NCOA page
     Then the date field should be populated with Today
-
+#
   Scenario: Verify validation on date field
     When I click Management on the main menu
     And I click NCOA on the Management page

@@ -173,6 +173,7 @@ end
 
 When(/^I click next on the SEPA banking export screen$/) do
   export = Reports::Sepa.new
+  sleep 1
   export.next_click
 end
 

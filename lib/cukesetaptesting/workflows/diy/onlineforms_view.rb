@@ -3,6 +3,7 @@ module Cukesetaptesting
     class OnlineformsView < BaseView
       keyword(:online_forms_title)  { forms.h2(:id,'title') }
       keyword(:management_page_diy) { content.link(:href, 'ecommManagerHome.do')}
+      keyword(:create_a_page_first_time) { content.div(:id, 'getStartedButtonM')}
       keyword(:create_a_page) { content.div(:id, 'newPageButtonM')}
       keyword(:choose_online_giving_page) { content.div(:id, 'donateButtonM')}
       keyword(:choose_embedded_template) { content.div(:id, 'embeddiv')}
@@ -65,7 +66,9 @@ module Cukesetaptesting
       keyword(:donation_page_link) {content.a(:class,'ecUrl')}
       keyword(:live_fund) {browser.select(:id,'ecFundSelectField')}
       keyword(:live_gender) {browser.h6(:class=>'dropdownType',:text=>'Gender').parent.parent.select}
+      keyword(:live_maiden_name) {browser.h6(:class=>'simplefieldType',:text=>'Maiden Name').parent.parent.text_field}
       keyword(:live_amount_other) {browser.radio(:id,'gift_amount_advanced_givingLevelsOther')}
+      #keyword(:live_amount_field) {browser.text_field(:id,'otherAmt')}
       keyword(:live_amount_field) {browser.text_field(:id,'otherAmt')}
       keyword(:live_freq) {browser.select(:id,'rgsFrequencyField')}
       keyword(:live_title) {browser.select(:id,'salutation')}
@@ -103,6 +106,118 @@ module Cukesetaptesting
       keyword(:live_account_type) {browser.h6(:class=>'dropdownType',:text=>'Account Type').parent.parent.select}
       keyword(:diy_ticket_quantityB_value) {browser.h6(:class=>'simplefieldType',:text=>'Ticket Quantity B').parent.parent.text_field(:type, 'text')}
 
+
+      #keyword(:donation_page_link) {content.a(:class,'ecUrl')}
+      def diy_page_link page_name
+        page_link = content
+
+        if diy_page_exists? page_name
+          content.spans(:class=>'namePart').each do |span|
+            if span.text == page_name
+              page_link = span.parent.parent.parent.div(:class=>'pageRightSection').a(:class=>'ecUrl')
+            end
+          end
+        end
+
+        return page_link
+      end
+
+      def donor_confirmation_email_checkbox val
+        val.downcase!
+
+        # If we've fed in an unknown string,
+        #  we shouldn't see any state change
+        if val == 'enable'
+          content.checkbox(:id=>'notifyDonor').when_present.set true
+        elsif val == 'disable'
+          content.checkbox(:id=>'notifyDonor').when_present.set false
+        end
+      end
+
+      def org_confirmation_email_checkbox val
+        val.downcase!
+
+        # If we've fed in an unknown string,
+        #  we shouldn't see any state change
+        if val == 'enable'
+          content.checkbox(:id=>'notifyOrg').when_present.set true
+        elsif val == 'disable'
+          content.checkbox(:id=>'notifyOrg').when_present.set false
+        end
+      end
+
+      #keyword(:field_select_gender) {content.a(:text,'Gender')}
+      def field_select(field_name)
+        sleep 1
+
+        # If the udf is unselectable, then it is present on the page but
+        #   is greyed out, which indicates that it has already been selected.
+        if content.div(:class=>'udfUnselectable',:text=>field_name).exists?
+          return content
+        end
+
+        return content.a(:text=>field_name)
+      end
+
+      def diy_page_is_live?(name)
+        name_part = ''
+
+        content.spans(:class=>'namePart').each do |span|
+          if (span.text == name)
+            name_part = span
+            break
+          end
+        end
+
+        if name_part == ''
+          return false
+        end
+
+        # text should be 'draft' or 'live'
+        status_part_text = name_part.parent.span(:class=>'statusPart').span.text
+
+        if status_part_text == 'live'
+          return true
+        end
+
+        return false
+      end
+
+      def get_diy_page_state(name)
+        name_part = nil
+
+        content.spans(:class=>'namePart').each do |span|
+          if (span.text == name)
+            name_part = span
+            break
+          end
+        end
+
+        if (name_part == nil)
+          return 'unknown'
+        end
+
+        # text should be 'draft' or 'live'
+        status_part_text = name_part.parent.span(:class=>'statusPart').span.text
+
+        if (status_part_text == 'live')
+          return status_part_text
+        elsif (status_part_text == 'draft')
+          return status_part_text
+        else
+          return 'unknown'
+        end
+      end
+
+      def diy_page_exists?(name)
+        ret_val = false
+
+        content.spans(:class=>'namePart').each do |span|
+          ret_val = ret_val || (span.text == name)
+        end
+
+        return ret_val
+      end
 
       def click_on_fund(fund)
         funds_list.link(:text, fund)

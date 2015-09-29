@@ -34,12 +34,12 @@ module Cukesetaptesting
       end
 
       def mass_update_next_click
-        begin
+        # begin
           sleep 3
-          @view.mass_update_next.when_present.click
-        rescue
-          browser.alert.ok
-        end
+          @view.click_and_confirm_alert(@view.mass_update_next)
+        # rescue
+          # browser.alert.ok
+        # end
       end
 
       def mass_update_number_of_accounts?(number)
@@ -107,11 +107,11 @@ module Cukesetaptesting
       end
 
       def contact_delete_click
-        begin
-          @view.contact_delete_button.when_present.click
-        rescue
-          browser.alert.ok
-        end
+        # begin
+          @view.click_and_confirm_alert(@view.contact_delete_button)
+        # rescue
+        #   browser.alert.ok
+        # end
       end
 
       def empty_query

@@ -73,13 +73,15 @@ module Cukesetaptesting
       end
 
       def dashboard_tile_remove_recently_viewed_accounts_click
-        begin
+        # begin
+        browser.without_checkers do
           @view.browser.execute_script('arguments[0].scrollIntoView();',@view.dashboard_tile_remove_recently_viewed_accounts)
           @view.dashboard_tile_remove_recently_viewed_accounts.when_present.click
           sleep 1
-        rescue
-          @view.browser.alert.ok
         end
+        # rescue
+          # @view.browser.alert.ok
+        # end
       end
 
       def choose_two_equal_column_layout

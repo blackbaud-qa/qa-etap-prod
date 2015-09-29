@@ -20,7 +20,7 @@ Feature: Publishing a diy page with a custom skin
     And I click Submit on the DIY settings page
     And I click Go Live on the DIY editor page
     And I click Yes, Go Live! on the DIY editor page
-    And I click on the link for the form titled Donation Page
+    And I click on the link for the form titled 'Contact Page'
     And I switch to the new tab in my browser
     Then the custom template should be shown
     And I close the current tab

@@ -4,6 +4,18 @@ module Cukesetaptesting
       @model = OnlineformsModel
       @view = OnlineformsView
 
+      def diy_page_is_live?(name)
+        return @view.diy_page_is_live? name
+      end
+
+      def get_diy_page_state(name)
+        return @view.get_diy_page_state name
+      end
+
+      def diy_page_exists?(name)
+        return @view.diy_page_exists? name
+      end
+
       def on_online_forms_page?
         return @view.online_forms_title.when_present.text.include? 'Online Forms'
       end
@@ -172,6 +184,17 @@ module Cukesetaptesting
         @view.content.a(:text=>value).when_present.click
       end
 
+      def field_select_click(field_name)
+        #@view.field_select_gender.when_present.click
+        field = @view.field_select field_name
+
+        # if we only received content back,
+        #   then the UDF was not found
+        if !(field == @view.content)
+          field.when_present.click
+        end
+      end
+
       def fields_update_click
         @view.fields_update.when_present.click
       end
@@ -222,8 +245,8 @@ module Cukesetaptesting
         return @view.content.span(:class=>'namePart',:text=>text).present?
       end
 
-      def donation_page_click
-        @view.donation_page_link.when_present.click
+      def diy_page_link_click page_name
+        (@view.diy_page_link page_name).when_present.click
       end
 
       def switch_tab
@@ -236,6 +259,10 @@ module Cukesetaptesting
 
       def live_gender_set gender
         @view.live_gender.when_present.select gender
+      end
+
+      def live_maiden_name_set maiden_name
+        @view.live_maiden_name.when_present.set maiden_name
       end
 
       def live_amount_other_set
@@ -271,7 +298,9 @@ module Cukesetaptesting
       end
 
       def live_submit_click
-        @view.live_submit.when_present.click
+        browser.without_checkers do
+          @view.live_submit.when_present.click
+        end
       end
 
       def live_transaction_successful?
@@ -332,6 +361,10 @@ module Cukesetaptesting
 
       def live_account_type_set value
         @view.live_account_type.when_present.select value
+      end
+      
+      def donor_confirmation_email_checkbox val
+        @view.donor_confirmation_email_checkbox val
       end
 
     end
