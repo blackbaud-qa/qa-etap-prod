@@ -5,7 +5,9 @@ module Cukesetaptesting
       @view = MyOrgView
 
     def save_and_personas_click
-      @view.save_and_personas.when_present.click
+      browser.without_checkers do
+        @view.save_and_personas.when_present.click
+      end
     rescue
 
     end
@@ -31,6 +33,7 @@ module Cukesetaptesting
         if (@view.browser.alert.exists?)
           @view.browser.alert.ok
         end
+        @view.browser.run_checkers
       end
 
       def iban_field

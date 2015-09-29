@@ -226,6 +226,41 @@ When (/^I create user '([^']*)' with password '([^']*)'$/) do |user_name, passwo
   step %Q[I click Save And '#{desired_next_page}'] # eg: 'Go to Personas'
 end
 
+And(/^I click the Move Values link$/) do
+  search = Account::Search.new
+  search.move_values_link
+end
+
+And(/^I click the Business checkbox$/) do
+  search = Account::Search.new
+  search.move_business_value
+end
+
+And(/^I click the Attributes radio button$/) do
+  search = Account::Search.new
+  search.move_value_to_attributes
+end
+
+And(/^I click the Move button$/) do
+  search = Account::Search.new
+  search.move_button
+end
+
+And(/^I click Attributes on the UDF page$/) do
+  search = Account::Search.new
+  search.attributes_udf
+end
+
+And(/^I click the Account Type radio button$/) do
+  search = Account::Search.new
+  search.move_value_to_account_type
+end
+
+Then(/^I should see the Edit User Defined Field Categories page$/) do
+  search = Account::Search.new
+  expect(search.edit_user_defined_field_categories_page).to eq(true)
+end
+
 When (/^I create constituent '([^']*) ([^']*)'$/) do |first_name, last_name|
   desired_next_page = 'Go to Personas'
 

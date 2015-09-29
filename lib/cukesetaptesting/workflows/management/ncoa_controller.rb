@@ -72,7 +72,9 @@ module Cukesetaptesting
       end
 
       def schedule_click
-        @view.schedule.when_present.click
+        browser.without_checkers do
+          @view.schedule.when_present.click
+        end
       end
 
       def category_value_clear

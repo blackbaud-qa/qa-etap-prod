@@ -3,9 +3,9 @@ Feature: Adding a gift with payment type of credit card and process it
 
   Scenario: Adding and processing a credit card gift
     Given I am logged into eTap
-    When I type 'Bob Barker' into the dynamic search field
+    When I type 'Jon Snow' into the dynamic search field
     And I press Enter on the keyboard
-    And I click on Bob Barker Junior in the search results
+    And I click on 'Jon Snow' in the search results
     And I click Journal
     And select Gift/Pledge from the Add New... drop down menu
     And set the date to '10/30/2090'

@@ -109,11 +109,11 @@ end
 
 And(/^I click Schedule to see the error on the NCOA page$/) do
   ncoa = Management::Ncoa.new()
-  begin
+  # begin
     ncoa.schedule_click
-  rescue
+  # rescue
     #expected error, fall through
-  end
+  # end
 end
 
 And(/^I set '([^']*)' for the Email field on the NCOA page$/) do |email|

@@ -17,7 +17,7 @@ Feature: Edit Custom Report
     And I click on the system category
     And I click on the name of the report 'Test Report'
     And I click on the plus next to Sort Name on the edit report page
-    And I choose the sort order Z on the edit report page
+#    And I choose the sort order Z on the edit report page
     And I click save on the edit report page
     And I click on Run Report under the report 'Test Report'
     And I click on the drop down box for query category Base

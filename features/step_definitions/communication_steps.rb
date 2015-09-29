@@ -500,7 +500,8 @@ def get_download_location
     step "I close the current tab"
     return retval
   elsif b == "firefox"
-    #TODO: how to get default download location?
+    retval = Watirmark::Configuration.instance.download_location
+    return retval
   elsif b == "ie"
     #TODO: how to get default download location?
   end

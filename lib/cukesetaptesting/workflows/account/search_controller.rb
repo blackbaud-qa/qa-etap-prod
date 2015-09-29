@@ -91,12 +91,41 @@ module Cukesetaptesting
       def set_search_teams_checkbox(value)
         @view.teams_checkbox.when_present.set value
       end
+
       def gift_box_icon_click
         @view.gift_box_icon.when_present.click
       end
 
       def new_gift_and_pledge_page
         @view.new_gift_and_pledge_page.present?
+      end
+
+      def move_values_link
+        @view.move_values_link.when_present.click
+      end
+
+      def move_business_value
+        @view.move_business_value.when_present.click
+      end
+
+      def move_value_to_attributes
+        @view.move_value_to_attributes.click
+      end
+
+      def move_button
+        @view.move_button.click
+      end
+
+      def attributes_udf
+        @view.attributes_udf.click
+      end
+
+      def move_value_to_account_type
+        @view.move_value_to_account_type.click
+      end
+
+      def edit_user_defined_field_categories_page
+        @view.edit_user_defined_field_categories_page.present?
       end
     end
 

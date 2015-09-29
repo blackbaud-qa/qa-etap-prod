@@ -145,7 +145,9 @@ module Cukesetaptesting
       end
 
       def click_save_for_error
-        @view.save_and_button.when_present.click
+        browser.without_checkers do
+          @view.save_and_button.when_present.click
+        end
       end
 
       def click_save_and
@@ -275,20 +277,16 @@ module Cukesetaptesting
       end
 
       def payment_delete_click
-        begin
-        @view.payment_delete_button.when_present.click
-        rescue
-          browser.alert.ok
-          end
+        @view.click_and_confirm_alert(@view.payment_delete_button)
       end
 
-      def get_rid_of_ok
-        begin
-          if(browser.alert.exists?)
-            browser.alert.ok
-          end
-        end
-      end
+      # def get_rid_of_ok
+      #   begin
+      #     if(@view.browser.alert.exists?)
+      #       @view.browser.alert.ok
+      #     end
+      #   end
+      # end
 
       def pledge_entry_click
         @view.pledge_entry_to_click.when_present.click
@@ -340,11 +338,12 @@ module Cukesetaptesting
 
       def journal_soft_credit_delete_click
         # @view.journal_soft_credit_delete.when_present.click
-        begin
-          @view.journal_soft_credit_delete.when_present.click
-        rescue
-          browser.alert.ok
-        end
+        @view.click_and_confirm_alert(@view.journal_soft_credit_delete)
+        # begin
+        #   @view.journal_soft_credit_delete.when_present.click
+        # rescue
+        #   browser.alert.ok
+        # end
       end
 
       def journal_gift_non_deductible_amount
@@ -451,11 +450,12 @@ module Cukesetaptesting
       end
 
       def delete_split_transaction
-        begin
-          @view.split_transaction_delete_button.when_present.click
-        rescue
-          browser.alert.ok
-        end
+        # begin
+        @view.click_and_confirm_alert(@view.split_transaction_delete_button)
+          # @view.split_transaction_delete_button.when_present.click
+        # rescue
+        #   browser.alert.ok
+        # end
       end
 
       def mark_split_transaction_box
@@ -568,11 +568,12 @@ module Cukesetaptesting
       end
 
       def delete_segment_three
-        begin
-          @view.delete_segment_three_click.when_present.click
-        rescue
-          browser.alert.ok
-        end
+        @view.click_and_confirm_alert(@view.delete_segment_three_click)
+        # begin
+        #   @view.delete_segment_three_click.when_present.click
+        # rescue
+        #   browser.alert.ok
+        # end
       end
 
       def edit_segment(segments)

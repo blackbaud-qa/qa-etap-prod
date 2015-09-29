@@ -3,8 +3,9 @@ Feature: Adding split transactions
 
   Scenario: Add a split gift
     Given I am logged into eTap
-    When I type '/14' into the dynamic search field
+    When I type 'Jon Snow' into the dynamic search field
     And I press Enter on the keyboard
+    And I click on 'Jon Snow' in the search results
     And I click Journal
     And select Split Transaction from the Add New... drop down menu
     And set the date to '7/30/2090'
