@@ -26,6 +26,13 @@ module Cukesetaptesting
       keyword(:tributes_checkbox) { content.checkbox(:name, 'showTributesBox') }
       keyword(:teams_checkbox) { content.checkbox(:name, 'showTeamsBox') }
 
+      keyword(:move_values_link) { content.a(:class, 'taskLink') }
+      keyword(:move_business_value) { content.label(:text, 'Business') }
+      keyword(:move_value_to_attributes) { content.label(:text, 'Attributes')}
+      keyword(:move_button) {content.input(:value, 'Move')}
+      keyword(:attributes_udf) {content.a(:text, 'Attributes')}
+      keyword(:move_value_to_account_type) {content.label(:text, 'Account Type')}
+      keyword(:edit_user_defined_field_categories_page) {content.a(:href, 'ImportMenu.jsp')}
 
       def home(model)
       end
