@@ -302,7 +302,12 @@ end
 
 When(/^I click on the link for the form titled Donation Page$/) do
   diy = DIY::Onlineforms.new()
-  diy.donation_page_click
+  diy.diy_page_link_click "Donation Page"
+end
+
+When(/^I click on the link for the form titled '([^']*)'$/) do |name|
+  diy = DIY::Onlineforms.new()
+  diy.diy_page_link_click name
 end
 
 And(/^I open a new tab in my browser$/) do
@@ -432,12 +437,14 @@ And(/^I set Expiration Year to '([^']*)' on the DIY Donation Page$/) do |exp|
 end
 
 And(/^I click Submit on the DIY Donation Page$/) do
-  begin
+  # begin
     diy = DIY::Onlineforms.new()
     diy.live_submit_click
-  rescue
+  # rescue
     #expected possible error
-  end
+  # end
+
+
 end
 
 Then(/^the transaction will process successfully$/) do
@@ -549,10 +556,15 @@ And (/^I unmark the checkbox nex to Send your organization a confirmation email?
 end
 
 
-When(/^I click on the link for the form titled ([^']*)$/) do |page_name|
-  sleep 1
+# When(/^I click on the link for the form titled ([^']*)$/) do |page_name|
+#   sleep 1
+#   diy = DIY::Onlineforms.new()
+#   diy.diy_page_link_click page_name
+# end
+=begin
+When(/^I click on the link for the form titled Donation Page$/) do
   diy = DIY::Onlineforms.new()
-  diy.diy_page_link_click page_name
+  diy.diy_page_link 'Donation Page'
 end
 
 And (/^I click Defined Fields/) do

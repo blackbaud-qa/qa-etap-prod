@@ -265,6 +265,22 @@ And (/^I set the Suffix to '([^']*)' on the add account page/) do |value|
   accounts.create
 end
 
+And(/^I click Save And '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new
+  accounts.set_save_and_account_page(value)
+  accounts.click_save_and_account_page
+end
+
+And(/^I click the edit icon next to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new
+  accounts.edit_salutation(value)
+end
+
+And(/^I set the Short Salutation to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:new_names_short_salutation => value)
+  accounts.create
+end
+
 And (/^the Envelope Salutation should be set to '([^']*)'/) do |value|
   accounts = Account::AddAccount.new
   # expect(accounts.envelope_salutation value).to eq(true)
@@ -355,7 +371,7 @@ end
 Then(/^I should see a required icon by Account Type/) do
   accounts = Account::AddAccount.new
   expect(accounts.required_icon).to eq(true)
-end
+  end
 
 And (/^I set the Name Format to '([^']*)' on the add account page/) do |value|
   accounts = Account::AddAccount.new
@@ -384,22 +400,6 @@ end
 
 And (/^I set the Suffix to '([^']*)' on the add account page/) do |value|
   accounts = Account::AddAccount.new(:new_names_suffix => value)
-  accounts.create
-end
-
-And(/^I click Save And '([^']*)' on the add account page/) do |value|
-  accounts = Account::AddAccount.new
-  accounts.set_save_and_account_page(value)
-  accounts.click_save_and_account_page
-end
-
-And(/^I click the edit icon next to '([^']*)' on the add account page/) do |value|
-  accounts = Account::AddAccount.new
-  accounts.edit_salutation(value)
-end
-
-And(/^I set the Short Salutation to '([^']*)' on the add account page/) do |value|
-  accounts = Account::AddAccount.new(:new_names_short_salutation => value)
   accounts.create
 end
 
