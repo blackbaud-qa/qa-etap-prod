@@ -252,7 +252,12 @@ module Cukesetaptesting
       def click_save_and_account_page
         @view.browser.send_keys :page_up
         sleep 2
+        @view.browser.send_keys :page_up
+        sleep 2
         @view.save_and_button_account_page.when_present.click
+        if (@view.browser.alert.exists?)
+          @view.browser.alert.ok
+        end
       end
 
       def edit_salutation(value)
