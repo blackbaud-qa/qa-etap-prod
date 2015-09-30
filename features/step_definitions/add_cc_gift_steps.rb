@@ -56,14 +56,19 @@ And(/^set the Credit\/Debit Card Number to '([^']*)'$/) do |number|
   landing.create
 end
 
+And(/^set the name on credit card to ([^']*)$/) do credit_card_name
+  landing = Giving::GiftPledge.new(:credit_card_name=>credit_card_name)
+  landing.create
+end
+
 And(/^set the Expiration Month to '([^']*)'$/) do |month|
-  landing = Giving::GiftPledge.new(:expiration_month=> month)
-  landing.set_expiration_month
+  landing = Giving::GiftPledge.new()
+  landing.set_expiration_month month
 end
 
 And(/^set the Expiration Year to '([^']*)'$/) do |year|
-  landing = Giving::GiftPledge.new(:expiration_year=> year)
-  landing.set_expiration_year
+  landing = Giving::GiftPledge.new()
+  landing.set_expiration_year year
 end
 
 And(/^click Save$/) do
@@ -121,18 +126,12 @@ And (/^I add a credit card gift for ([^']*) dollars to ([^']*)/) do |amount, con
     And set the Approach to 'Unsolicited'
     And set the Gift Type to Credit/Debit Card
     And set the Credit/Debit Card Number to '4111111111111111'
+    And set the name on credit card to
+
     And set the Expiration Month to '8'
     And set the Expiration Year to '2016'
-}
-  sleep 1
-  steps %Q{
     And click Save
-}
-sleep 1
-  steps %Q{
-    And select Process Transaction from the drop down menu}
-  sleep 1
-  steps %Q{
+    And select Process Transaction from the drop down menu
     And click yes when the notification pops up
   }
   #And click Save and Process Transaction

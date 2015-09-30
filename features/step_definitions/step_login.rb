@@ -100,6 +100,11 @@ When(/^I log out of eTap$/) do
   landing.log_out
 end
 
+When(/^I log out of eTap Mobile$/) do
+  page = Mobile::Login.new
+  page.click_logout_button
+end
+
 Then(/^I should be logged in$/) do
   landing = Admin::Landing.new
   expect(landing.logged_in?).to eq(true)

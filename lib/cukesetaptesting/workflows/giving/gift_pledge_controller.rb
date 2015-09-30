@@ -16,16 +16,12 @@ module Cukesetaptesting
         @view.check_field.when_present.click
       end
 
-      def enter_card_number
-        @view.card_number.when_present.set '4111111111111111'
+      def set_expiration_month month_value
+        (@view.expiration_month month_value).when_present.click
       end
 
-      def set_expiration_month
-        @view.expiration_month.when_present.click
-      end
-
-      def set_expiration_year
-        @view.expiration_year.when_present.click
+      def set_expiration_year year_value
+        (@view.expiration_year year_value).when_present.click
       end
 
       def set_fund(name)

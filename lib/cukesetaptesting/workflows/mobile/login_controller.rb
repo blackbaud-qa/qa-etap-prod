@@ -15,6 +15,10 @@ module Cukesetaptesting
       def click_login_button
         @view.login_button.when_present.click
       end
+
+      def click_logout_button
+        @view.logout_button.when_present.click
+      end
     end
   end
 end
