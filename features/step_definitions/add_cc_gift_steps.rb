@@ -56,7 +56,7 @@ And(/^set the Credit\/Debit Card Number to '([^']*)'$/) do |number|
   landing.create
 end
 
-And(/^set the name on credit card to ([^']*)$/) do credit_card_name
+And(/^set the name on credit card to ([^']*)$/) do |credit_card_name|
   landing = Giving::GiftPledge.new(:credit_card_name=>credit_card_name)
   landing.create
 end
@@ -126,7 +126,7 @@ And (/^I add a credit card gift for ([^']*) dollars to ([^']*)/) do |amount, con
     And set the Approach to 'Unsolicited'
     And set the Gift Type to Credit/Debit Card
     And set the Credit/Debit Card Number to '4111111111111111'
-    And set the name on credit card to
+    And set the name on credit card to #{constituent}
 
     And set the Expiration Month to '8'
     And set the Expiration Year to '2016'

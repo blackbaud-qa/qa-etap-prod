@@ -560,11 +560,6 @@ And (/^I click Defined Fields/) do
   diy.defined_fields_page
 end
 
-And (/^I click Account Settings/) do
-  diy = DIY::Onlineforms.new
-  diy.account_settings_page
-end
-
 And (/^I set the Donation Amount to '([^']*)' on the DIY Donation Page/) do |amount|
   diy = DIY::Onlineforms.new(:diy_donation_amount_field=>amount)
   diy.create
