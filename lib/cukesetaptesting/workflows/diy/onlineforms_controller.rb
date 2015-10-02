@@ -347,14 +347,6 @@ module Cukesetaptesting
         @view.diy_udf_test_url_click.when_present.click
       end
 
-      def defined_fields_page
-        @view.defined_fields_page_click.when_present.click
-      end
-
-      def account_settings_page
-        @view.account_settings_page_click.when_present.click
-      end
-
       def udf_test_page_present? text
         return @view.content.div(:id, 'etap.fieldset.area.1').span(:class=>'namePart',:text=>text).present?
       end

@@ -280,3 +280,18 @@ When (/^I create constituent '([^']*) ([^']*)'$/) do |first_name, last_name|
 
   step %Q[I click Save And '#{desired_next_page}'] # eg: 'Go to Personas'
 end
+
+When /^I Save And for an Account using:$/ do |table|
+
+end
+
+
+And (/^I click Defined Fields/) do
+  account = Account::AccountHeader.new
+  account.defined_fields_page_click
+end
+
+And (/^I click Account Settings/) do
+  account = Account::AccountHeader.new
+  account.account_settings_page_click
+end
