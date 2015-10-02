@@ -437,3 +437,28 @@ And (/^a specific query 'Donors Named John - Custom Query' has been created in t
     step "I click Save And 'Preview'"
   end
 end
+
+And (/^I set the Description to '([^']*)' on the Create a New Query page/) do |value|
+  query = Queries::Createquerycategory.new(:set_query_description => value)
+  query.create
+end
+
+And (/^I click Field has any value on the query page/) do
+  query = Queries::Createquerycategory.new
+  query.field_has_any_value_click
+end
+
+Then (/^I should see a query named Donor Review <= Acknowledgement on the Edit Query Category page/) do
+  query = Queries::Createquerycategory.new
+  expect(query.donor_review).to eq(true)
+end
+
+And (/^I should see a description of 2015 Donors <= with a mailing address/) do
+  query = Queries::Createquerycategory.new
+  expect(query.donor_review_description).to eq(true)
+end
+
+Then (/^I should not see a query named Donor Review <= Acknowledgement on the Edit Query Category page/) do
+  query = Queries::Createquerycategory.new
+  expect(query.donor_review).to eq(false)
+end

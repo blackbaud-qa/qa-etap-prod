@@ -39,6 +39,11 @@ module Cukesetaptesting
 
       keyword(:duplicate_query_category_warning) {content.div(:class, 'informationWarning')}
 
+      keyword(:set_query_description) {content.textarea(:name, 'query.description')}
+      keyword(:field_has_any_value) {content.input(:id, 'TestEntityRoleForAddressesData.fieldPopulatedTest')}
+      keyword(:donor_review) {content.a(:text, 'Donor Review <= Acknowledgement')}
+      keyword(:donor_review_description) {content.div(:text, '2015 Donors <= with a mailing address')}
+
       def string_exists_on_page?(query_string)
         content.link(:text => query_string).exists?
       end
@@ -197,6 +202,7 @@ module Cukesetaptesting
       def checkbox_selector_for_cart(name, value)
         content.checkbox(:name, name).parent.parent.parent.label(:text, value).parent.parent.checkbox
       end
+
     end
   end
 end
