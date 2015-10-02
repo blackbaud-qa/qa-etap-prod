@@ -172,8 +172,8 @@ Then(/^a unique mandate ID should appear$/) do
 end
 
 When(/^I click next on the SEPA banking export screen$/) do
+  sleep 3
   export = Reports::Sepa.new
-  sleep 1
   export.next_click
 end
 
