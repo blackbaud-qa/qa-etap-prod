@@ -359,6 +359,11 @@ module Cukesetaptesting
         @view.donor_confirmation_email_checkbox val
       end
 
+      def org_confirmation_email_checkbox val
+        @view.org_confirmation_email_checkbox val
+      end
+
+
     end
   end
 end

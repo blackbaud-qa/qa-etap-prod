@@ -300,9 +300,10 @@ Then(/the Donation Page should no longer show$/) do
   expect(diy.donation_page_present? 'Donation Page').to eq(false)
 end
 
-When(/^I click on the link for the form titled Donation Page$/) do
-  diy = DIY::Onlineforms.new()
-  diy.donation_page_click
+And (/^I click on the link for the form titled ([^']*)$/) do |diy_page_name|
+  sleep 3
+  diy = DIY::Onlineforms.new
+  diy.diy_page_link_click diy_page_name
 end
 
 And(/^I open a new tab in my browser$/) do
@@ -497,12 +498,6 @@ And (/^I unmark the checkbox nex to Send your organization a confirmation email?
   diy.unmark_org_confirmation
 end
 
-And (/^I click on the link for the form titled UDF Test Page/) do
-  sleep 3
-  diy = DIY::Onlineforms.new
-  diy.diy_udf_test_url
-end
-
 And (/^I set the Donation Amount to '([^']*)' on the DIY Donation Page/) do |amount|
   diy = DIY::Onlineforms.new(:diy_donation_amount_field=>amount)
   diy.create
@@ -628,7 +623,7 @@ And(/^I submit a successful credit card transaction for ([^']*) ([^']*) on page 
       And I click on the link for the form titled #{page_name}
       And I switch to the new tab in my browser
       And I set Gender to 'Male' on the DIY Donation Page
-      And I enter '7' as the amount on the DIY Donation Page
+      And I set the Donation Amount to '7.00' on the DIY Donation Page
       And I set the Donation Frequency to 'One Time' on the DIY Donation Page
       And I set the Title to 'Mr.' on the DIY Donation Page
       And I set First Name to '#{donor_first_name}' on the DIY Donation Page
@@ -663,7 +658,7 @@ And(/^I submit a successful credit card transaction for ([^']*) '([^']*)' ([^']*
       And I switch to the new tab in my browser
       And I set Gender to 'Female' on the DIY Donation Page
       And I set Maiden Name to '#{donor_maiden_name}' on the DIY Donation Page
-      And I enter '7' as the amount on the DIY Donation Page
+      And I set the Donation Amount to '7.00' on the DIY Donation Page
       And I set the Donation Frequency to 'One Time' on the DIY Donation Page
       And I set the Title to 'Mr.' on the DIY Donation Page
       And I set First Name to '#{donor_first_name}' on the DIY Donation Page
