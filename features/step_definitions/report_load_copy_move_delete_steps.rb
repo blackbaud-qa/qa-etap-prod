@@ -1,7 +1,7 @@
 And(/^If '([^']*)' exists then delete it$/) do |name|
   category_list = Reports::Editreportscategory.new
   if(category_list.category_name_exists?(name))
-    step "I click on delete next to '#{name}'"
+    step "I click on delete next to category '#{name}'"
     step "I click yes on the warning message Are you sure you want to delete the item '#{name}' permanently"
   end
 end
@@ -84,6 +84,11 @@ end
 And(/^I click on delete next to '([^']*)'$/) do |delete_report|
   delete = Reports::Editreportscategory.new
   delete.delete_report(delete_report)
+end
+
+And(/^I click on delete next to category '([^']*)'$/) do |name|
+  delete = Reports::Editreportscategory.new
+  delete.delete_report_category(name)
 end
 
 Then(/^I click yes on the warning message Are you sure you want to delete the item '([^']*)' permanently$/) do |delete|

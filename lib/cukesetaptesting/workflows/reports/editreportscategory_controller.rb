@@ -139,6 +139,11 @@ module Cukesetaptesting
         delete_button.click
       end
 
+      def delete_report_category report_name
+        delete_button = @view.content.ul(:id,'list_categories').h4(:text, report_name).when_present.parent.div(:class, "actions").a(:class, "delete")
+        delete_button.click
+      end
+
       def confirm_delete(delete_item)
         @view.delete_confirm_popup.when_present.text.include?(delete_item)
         @view.content.button(:value, "Yes").when_present.click
@@ -149,7 +154,7 @@ module Cukesetaptesting
       end
 
       def category_name_exists?(name)
-        return @view.content.a(:text,name).exists?
+        return @view.content.ul(:id,'list_categories').a(:text,name).exists?
       end
 
       def report_click report
