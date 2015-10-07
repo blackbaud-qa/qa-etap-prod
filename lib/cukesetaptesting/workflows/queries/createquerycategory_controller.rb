@@ -405,6 +405,18 @@ module Cukesetaptesting
         @view.cart_home_button.when_present.click
       end
 
+      def field_has_any_value_click
+        @view.field_has_any_value.when_present.click
+      end
+
+      def donor_review
+        @view.donor_review.present?
+      end
+
+      def donor_review_description
+        @view.donor_review_description.present?
+      end
+
     end
   end
 end
