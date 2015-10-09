@@ -6,6 +6,10 @@ Given(/^I navigate to Knight Rider$/) do
   Admin::Login.new.login_nav_kr
 end
 
+Given(/^I navigate to eTap Mobile$/) do
+  Admin::Login.new.login_nav_mobile
+end
+
 When(/^I login into eTap$/) do
  page =  Admin::Login.new()
  page.create
@@ -57,6 +61,22 @@ When(/^([^']*) (?:is|am) logged into eTap$/) do |user_name|
  end
 end
 
+When(/^([^']*) (?:is|am) logged into Mobile eTap$/) do |user_name|
+  landing = Admin::Landing.new
+
+  # for testing only ---landing.test_throw_alert
+
+  landing.handle_alert
+
+  step "I navigate to eTap Mobile"
+
+  if (user_name == "I")
+    step "I login into eTap"
+  else
+    step "I login into eTap with values '#{user_name}', '#{user_name}'"
+  end
+end
+
 When(/^([^']*) (?:is|am) logged into Knight Rider$/) do |user_name|
   landing = Admin::Landing.new
 
@@ -78,6 +98,11 @@ end
 When(/^I log out of eTap$/) do
   landing = Admin::Landing.new
   landing.log_out
+end
+
+When(/^I log out of eTap Mobile$/) do
+  page = Mobile::Login.new
+  page.click_logout_button
 end
 
 Then(/^I should be logged in$/) do

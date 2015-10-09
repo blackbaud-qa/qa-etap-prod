@@ -30,10 +30,16 @@ module Cukesetaptesting
       keyword(:card_number) {content.div(:id, 'creditCardFields').text_field(:name, "creditCardNumber")}
 
       keyword(:select_month) {content.div(:id, 'creditCardFields').select(:name, 'creditCardExpirationMonth')}
-      keyword(:expiration_month) {select_month.option(:value, "12")}
+      def expiration_month month_value
+        select_month.option(:value => month_value)
+      end
 
       keyword(:select_year) {content.div(:id, 'creditCardFields').select(:name, 'creditCardExpirationYear')}
-      keyword(:expiration_year) {select_year.option(:value, "2034")}
+      def expiration_year year_value
+        select_year.option(:value => year_value)
+      end
+
+      keyword(:credit_card_name) {content.div(:id, 'creditCardFields').text_field(:name => 'creditCardName')}
 
       keyword(:save) {content.div(:id, 'etap.fieldset.area.9').input(:name, 'saveAnd')}
       keyword(:saveAnd) {content.div(:id, 'etap.fieldset.area.5').input(:name, 'saveAnd')}
