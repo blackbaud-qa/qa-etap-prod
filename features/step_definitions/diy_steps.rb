@@ -300,14 +300,10 @@ Then(/the Donation Page should no longer show$/) do
   expect(diy.donation_page_present? 'Donation Page').to eq(false)
 end
 
-When(/^I click on the link for the form titled Donation Page$/) do
-  diy = DIY::Onlineforms.new()
-  diy.diy_page_link_click "Donation Page"
-end
-
-When(/^I click on the link for the form titled '([^']*)'$/) do |name|
-  diy = DIY::Onlineforms.new()
-  diy.diy_page_link_click name
+And (/^I click on the link for the form titled ([^']*)$/) do |diy_page_name|
+  sleep 3
+  diy = DIY::Onlineforms.new
+  diy.diy_page_link_click diy_page_name
 end
 
 And(/^I open a new tab in my browser$/) do
@@ -437,14 +433,12 @@ And(/^I set Expiration Year to '([^']*)' on the DIY Donation Page$/) do |exp|
 end
 
 And(/^I click Submit on the DIY Donation Page$/) do
-  # begin
+  begin
     diy = DIY::Onlineforms.new()
     diy.live_submit_click
-  # rescue
+  rescue
     #expected possible error
-  # end
-
-
+  end
 end
 
 Then(/^the transaction will process successfully$/) do
@@ -504,88 +498,6 @@ And (/^I unmark the checkbox nex to Send your organization a confirmation email?
   diy.unmark_org_confirmation
 end
 
-And (/^I click on the link for the form titled UDF Test Page/) do
-  sleep 3
-  diy = DIY::Onlineforms.new
-  diy.diy_udf_test_url
-end
-
-And (/^I click Defined Fields/) do
-  diy = DIY::Onlineforms.new
-  diy.defined_fields_page
-end
-
-And (/^I click Account Settings/) do
-  diy = DIY::Onlineforms.new
-  diy.account_settings_page
-end
-
-And (/^I set the Donation Amount to '([^']*)' on the DIY Donation Page/) do |amount|
-  diy = DIY::Onlineforms.new(:diy_donation_amount_field=>amount)
-  diy.create
-end
-
-And (/^I set Ticket Quantity A to '([^']*)' on the DIY Donation Page/) do |value|
-  diy = DIY::Onlineforms.new(:diy_ticket_quantityA_value=>value)
-  diy.create
-end
-
-Then (/^the UDF Test Page should no longer show/) do
-  diy = DIY::Onlineforms.new()
-  expect(diy.udf_test_page_present? 'UDF Test Page').to eq(false)
-end
-
-And (/^I set Account Type to '([^']*)' on the DIY Donation Page/) do |value|
-  diy = DIY::Onlineforms.new()
-  diy.live_account_type_set value
-end
-
-And (/^I set Ticket Quantity B to '([^']*)' on the DIY Donation Page/) do |value|
-  diy = DIY::Onlineforms.new(:diy_ticket_quantityB_value=>value)
-  diy.create
-end
-
-And (/^I unmark the checkbox next to Send the donor a confirmation email?/) do
-  diy = DIY::Onlineforms.new
-  diy.unmark_donor_confirmation
-end
-
-And (/^I unmark the checkbox nex to Send your organization a confirmation email?/) do
-  diy = DIY::Onlineforms.new
-  diy.unmark_org_confirmation
-end
-
-
-# When(/^I click on the link for the form titled ([^']*)$/) do |page_name|
-#   sleep 1
-#   diy = DIY::Onlineforms.new()
-#   diy.diy_page_link_click page_name
-# end
-=begin
-When(/^I click on the link for the form titled Donation Page$/) do
-  diy = DIY::Onlineforms.new()
-  diy.diy_page_link 'Donation Page'
-end
-
-And (/^I click on the link for the form titled UDF Test Page/) do
-  sleep 3
-  diy = DIY::Onlineforms.new
-  #diy.diy_udf_test_url
-  (diy.diy_page_link 'UDF Test Page').when_present.click
-end
-
-And (/^I click on the link for the form titled UDF Test 479480/) do
-  sleep 3
-  diy = DIY::Onlineforms.new
-  #diy.diy_udf_test_url
-  (diy.diy_page_link 'UDF Test 479480').when_present.click
-end
-=end
-And (/^I click Defined Fields/) do
-  diy = DIY::Onlineforms.new
-  diy.defined_fields_page
-end
-
 And (/^I set the Donation Amount to '([^']*)' on the DIY Donation Page/) do |amount|
   diy = DIY::Onlineforms.new(:diy_donation_amount_field=>amount)
   diy.create
@@ -622,7 +534,7 @@ And(/^a DIY form titled ([^']*) exists/) do |page_name|
   if !diy.diy_page_exists? page_name
     steps %Q{
       And I create and publish a new DIY page named #{page_name}
-    }
+          }
   end
 end
 
@@ -711,7 +623,7 @@ And(/^I submit a successful credit card transaction for ([^']*) ([^']*) on page 
       And I click on the link for the form titled #{page_name}
       And I switch to the new tab in my browser
       And I set Gender to 'Male' on the DIY Donation Page
-      And I enter '7' as the amount on the DIY Donation Page
+      And I set the Donation Amount to '7.00' on the DIY Donation Page
       And I set the Donation Frequency to 'One Time' on the DIY Donation Page
       And I set the Title to 'Mr.' on the DIY Donation Page
       And I set First Name to '#{donor_first_name}' on the DIY Donation Page
@@ -746,7 +658,7 @@ And(/^I submit a successful credit card transaction for ([^']*) '([^']*)' ([^']*
       And I switch to the new tab in my browser
       And I set Gender to 'Female' on the DIY Donation Page
       And I set Maiden Name to '#{donor_maiden_name}' on the DIY Donation Page
-      And I enter '7' as the amount on the DIY Donation Page
+      And I set the Donation Amount to '7.00' on the DIY Donation Page
       And I set the Donation Frequency to 'One Time' on the DIY Donation Page
       And I set the Title to 'Mr.' on the DIY Donation Page
       And I set First Name to '#{donor_first_name}' on the DIY Donation Page
