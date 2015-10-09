@@ -1,3 +1,4 @@
+@bugs
 Feature: Gift icon on Find Account results page
 
   Background:

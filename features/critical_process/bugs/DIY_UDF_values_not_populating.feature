@@ -1,3 +1,4 @@
+@bugs
 Feature: UDF values should still function properly after republishing
 
   Scenario: UDF values function on a published DIY page

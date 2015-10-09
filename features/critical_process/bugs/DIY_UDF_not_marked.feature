@@ -1,3 +1,4 @@
+@bugs
 Feature: Verifying that adding a UDF to existing DIY page does not prevent previous UDFs from working
 
   Scenario: Verifying that existing and newly added UDFs are both getting marked on incoming submissions
