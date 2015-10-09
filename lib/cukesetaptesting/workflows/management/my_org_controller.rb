@@ -5,7 +5,7 @@ module Cukesetaptesting
       @view = MyOrgView
 
     def save_and_personas_click
-      browser.without_checkers do
+      browser.after_hooks.without do |browser|
         @view.save_and_personas.when_present.click
       end
     rescue

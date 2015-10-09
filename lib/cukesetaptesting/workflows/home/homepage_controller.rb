@@ -74,7 +74,7 @@ module Cukesetaptesting
 
       def dashboard_tile_remove_recently_viewed_accounts_click
         # begin
-        browser.without_checkers do
+        browser.after_hooks.without do |browser|
           @view.browser.execute_script('arguments[0].scrollIntoView();',@view.dashboard_tile_remove_recently_viewed_accounts)
           @view.dashboard_tile_remove_recently_viewed_accounts.when_present.click
           sleep 1

@@ -298,7 +298,7 @@ module Cukesetaptesting
       end
 
       def live_submit_click
-        browser.without_checkers do
+        browser.after_hooks.without do |browser|
           @view.live_submit.when_present.click
         end
       end
