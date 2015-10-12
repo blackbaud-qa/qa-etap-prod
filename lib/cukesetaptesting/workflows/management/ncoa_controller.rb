@@ -72,7 +72,7 @@ module Cukesetaptesting
       end
 
       def schedule_click
-        browser.without_checkers do
+        browser.after_hooks.without do |browser|
           @view.schedule.when_present.click
         end
       end

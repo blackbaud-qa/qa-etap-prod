@@ -44,6 +44,10 @@ module Cukesetaptesting
         content.a(:text, report_name).when_present.parent.parent.div(:class, "actions").a(:class, "delete")
       end
 
+      # def get_delete_button_for_sub_category name
+      #   content.ul(:id,'list_reports').h4(:text, report_name).when_present.parent.div(:class, "actions").a(:class, "delete")
+      # end
+
       keyword(:system_category_page_title) {content.div(:class,'pageTitle')}
       keyword(:task_new_category) {content.div(:class,'taskSpace').a(:text, 'New Category')}
       keyword(:new_report_category_name) {content.text_field(:id,'name')}
@@ -54,7 +58,7 @@ module Cukesetaptesting
       keyword(:category_copy_button) {content.div(:class, 'popFooter').button(:value,'Copy')}
       keyword(:report_category_move) {content.div(:id,'etap.fieldset.area.2').lis[9].a(:text,'Move')}
       keyword(:category_move_button) {content.div(:class, 'popFooter').button(:value,'Move')}
-      keyword(:test_category_link) { content.a(:text,'Test Category') }
+      keyword(:test_category_link) { content.ul(:id,'list_categories').h4(:text,'Test Category').a }
       keyword(:test_category_page_title) {content.div(:class,'pageTitle')}
       keyword(:new_category_select) {content.select_list(:name,'categoryRef')}
       keyword(:delete_confirm_popup) {content.div(:class,'popContent')}

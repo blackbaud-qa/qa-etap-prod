@@ -260,3 +260,38 @@ Then(/^I should see the Edit User Defined Field Categories page$/) do
   search = Account::Search.new
   expect(search.edit_user_defined_field_categories_page).to eq(true)
 end
+
+When (/^I create constituent '([^']*) ([^']*)'$/) do |first_name, last_name|
+  desired_next_page = 'Go to Personas'
+
+  account = Account::AddAccount.new
+
+  step %Q[I am logged into eTap]
+  step %Q[I click Accounts]
+  step %Q[I click on Add Account on the find account screen]
+
+  if (account.is_split_names?)
+    step %Q[I set First Name to '#{first_name}' on the classic add account page]
+    step %Q[I set Last Name to '#{last_name}' on the classic add account page]
+  else
+    step %Q[I set Name to '#{first_name} #{last_name}' on the classic add account page]
+    step %Q[I set Sort Name to '#{last_name}, #{first_name}' on the classic add account page]
+  end
+
+  step %Q[I click Save And '#{desired_next_page}'] # eg: 'Go to Personas'
+end
+
+When /^I Save And for an Account using:$/ do |table|
+
+end
+
+
+And (/^I click Defined Fields/) do
+  account = Account::AccountHeader.new
+  account.defined_fields_page_click
+end
+
+And (/^I click Account Settings/) do
+  account = Account::AccountHeader.new
+  account.account_settings_page_click
+end

@@ -355,7 +355,7 @@ end
 Then(/^I should see a required icon by Account Type/) do
   accounts = Account::AddAccount.new
   expect(accounts.required_icon).to eq(true)
-  end
+end
 
 And (/^I set the Name Format to '([^']*)' on the add account page/) do |value|
   accounts = Account::AddAccount.new
@@ -365,6 +365,26 @@ end
 And (/^I set the Title to '([^']*)' on the add account page/) do |value|
   accounts = Account::AddAccount.new
   accounts.title_select(value)
+end
+
+And (/^I set the First Name to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:new_names_first_name => value)
+  accounts.create
+end
+
+And (/^I set the Middle Name to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:new_names_middle_name => value)
+  accounts.create
+end
+
+And (/^I set the Last Name to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:new_names_last_name => value)
+  accounts.create
+end
+
+And (/^I set the Suffix to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:new_names_suffix => value)
+  accounts.create
 end
 
 And (/^the Envelope Salutation should be set to '([^']*)'/) do |value|

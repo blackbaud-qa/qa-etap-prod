@@ -99,8 +99,6 @@ module Cukesetaptesting
       keyword(:unmark_donor_confirmation_click) {content.checkbox(:id, 'notifyDonor')}
       keyword(:unmark_org_confirmation_click) {content.checkbox(:id, 'notifyOrg')}
       keyword(:diy_udf_test_url_click)  {content.div(:id, 'etap.fieldset.area.1').span(:class=>'namePart',:text=>'UDF Test Page').parent.parent.parent.a(:class,'ecUrl')}
-      keyword(:defined_fields_page_click) {content.div(:id, 'topMenu').a(:text, 'Defined Fields')}
-      keyword(:account_settings_page_click) {content.div(:id, 'topMenu').a(:text, 'Account Settings')}
       keyword(:diy_donation_amount_field) {browser.text_field(:id, 'gift_amount_simpleField')}
       keyword(:diy_ticket_quantityA_value) {browser.h6(:class=>'simplefieldType',:text=>'Ticket Quantity A').parent.parent.text_field(:type, 'text')}
       keyword(:live_account_type) {browser.h6(:class=>'dropdownType',:text=>'Account Type').parent.parent.select}

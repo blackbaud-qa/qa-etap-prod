@@ -1,3 +1,4 @@
+@bugs
 Feature: Verifying that the dollar sign does not prevent a gift or pledge from being saved properly, bug 477369
 
   Scenario: Verifying that typing a dollar sign into the Received field does mess up the gift once saved

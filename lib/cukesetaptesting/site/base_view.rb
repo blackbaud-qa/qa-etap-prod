@@ -17,11 +17,11 @@ module Cukesetaptesting
 
     def click_and_confirm_alert(element)
       element.wait_until_present
-      browser.without_checkers do
+      browser.after_hooks.without do |browser|
         element.click
         browser.alert.ok if browser.alert.exists?
       end
-      browser.run_checkers
+      browser.after_hooks.run
     end
   end
 end

@@ -298,7 +298,7 @@ module Cukesetaptesting
       end
 
       def live_submit_click
-        browser.without_checkers do
+        browser.after_hooks.without do |browser|
           @view.live_submit.when_present.click
         end
       end
@@ -347,14 +347,6 @@ module Cukesetaptesting
         @view.diy_udf_test_url_click.when_present.click
       end
 
-      def defined_fields_page
-        @view.defined_fields_page_click.when_present.click
-      end
-
-      def account_settings_page
-        @view.account_settings_page_click.when_present.click
-      end
-
       def udf_test_page_present? text
         return @view.content.div(:id, 'etap.fieldset.area.1').span(:class=>'namePart',:text=>text).present?
       end
@@ -366,6 +358,11 @@ module Cukesetaptesting
       def donor_confirmation_email_checkbox val
         @view.donor_confirmation_email_checkbox val
       end
+
+      def org_confirmation_email_checkbox val
+        @view.org_confirmation_email_checkbox val
+      end
+
 
     end
   end
