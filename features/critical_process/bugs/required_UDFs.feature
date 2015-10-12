@@ -1,3 +1,4 @@
+@bugs
 Feature: Required UDFs appear as required
   Background:
     Given I am logged into eTap

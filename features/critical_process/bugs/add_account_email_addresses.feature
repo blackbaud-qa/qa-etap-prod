@@ -1,3 +1,4 @@
+@bugs
 Feature: Entering multiple email addresses when adding new accounts
 
   Background:

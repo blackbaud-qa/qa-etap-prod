@@ -1,3 +1,4 @@
+@bugs
 Feature: Query name with less than and equal sign not saving correctly
   Background:
     Given I am logged into eTap
