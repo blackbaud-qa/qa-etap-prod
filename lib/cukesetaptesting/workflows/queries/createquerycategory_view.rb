@@ -43,6 +43,16 @@ module Cukesetaptesting
       keyword(:field_has_any_value) {content.input(:id, 'TestEntityRoleForAddressesData.fieldPopulatedTest')}
       keyword(:donor_review) {content.a(:text, 'Donor Review <= Acknowledgement')}
       keyword(:donor_review_description) {content.div(:text, '2015 Donors <= with a mailing address')}
+      keyword(:set_journal_contact_subject) {content.input(:name, 'subject')}
+      keyword(:journal_contact_method) {content.img(:id, 'contactMethodRef_comboArrow')}
+      keyword(:journal_contact_method_phone) {content.div(:text, 'Phone')}
+      keyword(:enter_contact_subject_text) {content.input(:id, 'TestJournalEntryForSubjectsData.values')}
+      keyword(:plus_sign_query_criteria) {content.img(:src, 'images/plus-tick.gif')}
+      keyword(:enter_second_contact_subject_text) {content.tr(:id, 'TestJournalEntryForSubjectsData.table_Row2').input(:name, 'testByName(TestJournalEntryForSubjectsData).values')}
+      keyword(:display_query_results) {content.td(:text, 'Displaying 1 - 2 of 2')}
+      keyword(:click_delete_query_preview) {content.input(:id, 'null')}
+      keyword(:golf_outing_discussion_contact) {content.a(:text, 'Golf Outing Discussion')}
+      keyword(:gala_contact) {content.a(:text, 'Called to Discuss Gala')}
 
       def string_exists_on_page?(query_string)
         content.link(:text => query_string).exists?

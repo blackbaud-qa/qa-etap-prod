@@ -462,3 +462,50 @@ Then (/^I should not see a query named Donor Review <= Acknowledgement on the Ed
   query = Queries::Createquerycategory.new
   expect(query.donor_review).to eq(false)
 end
+
+And (/^I set the Subject field to '([^']*)' on the Journal Contact page/) do |text|
+  query = Queries::Createquerycategory.new()
+  query.set_journal_contact_subject(text)
+end
+
+And (/^I choose Phone from the Method drop down on the Journal Contact page/) do
+  query = Queries::Createquerycategory.new()
+  query.journal_contact_method_click
+  query.journal_contact_method_phone_click
+end
+
+And (/^I set the Contact Subject Text to '([^']*)' on the Create a New Query page/) do |text|
+  query = Queries::Createquerycategory.new()
+  query.enter_contact_subject_text(text)
+end
+
+And (/^I click the plus sign to add another Contact Subject Text field on the Create a New Query page/) do
+  query = Queries::Createquerycategory.new
+  query.plus_sign_query_criteria
+end
+
+And (/^I set the second Contact Subject Text to '([^']*)' on the Create a New Query page/) do |text|
+  query = Queries::Createquerycategory.new()
+  query.enter_second_contact_subject_text(text)
+end
+
+And (/^I should see Displaying 1 - 2 of 2 on the Query Preview page/) do
+  query = Queries::Createquerycategory.new
+  expect(query.display_query_results).to eq(true)
+end
+
+When (/^I click Delete on the query preview screen/) do
+  query = Queries::Createquerycategory.new
+  query.click_delete_query_preview
+end
+
+And (/^I click on the Golf Outing Discussion contact in the Journal/) do
+  query = Queries::Createquerycategory.new
+  query.golf_outing_discussion_contact
+end
+
+And (/^I click on the Called to Discuss Gala contact in the Journal/) do
+  query = Queries::Createquerycategory.new
+  query.gala_contact
+end
+
