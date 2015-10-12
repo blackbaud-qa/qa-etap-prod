@@ -18,10 +18,3 @@ And(/^set the Check Number field to '([^']*)'$/) do |check|
   search = Giving::GiftPledge.new(:check_number=>check)
   search.create
 end
-
-And(/^click Save and Edit$/) do
-  search = Giving::GiftPledge.new
-  search.saveAnd
-end
-
-

@@ -54,7 +54,7 @@ Then (/^I should be taken to '([^']*)' Journal page$/) do |name|
   expect(account.on_journal_page?).to eq(true)
 end
 
-Then (/^I should be taken to '([^']*)' Other page$/) do |name|
+Then (/^I should be taken to '([^']*)' Account Settings page$/) do |name|
   account = Account::Profile.new
   expect(account.constit_name_exists? name).to eq(true)
   expect(account.on_other_page?).to eq(true)
@@ -64,6 +64,17 @@ Then (/^I should be taken to '([^']*)' Defined Fields page$/) do |name|
   account = Account::Profile.new
   expect(account.constit_name_exists? name).to eq(true)
   expect(account.on_defined_fields_page?).to eq(true)
+end
+
+Then (/^I should be taken to '([^']*)' New Contact page$/) do |name|
+  account = Account::Profile.new
+  expect(account.constit_name_exists? name).to eq(true)
+  expect(account.on_defined_fields_page?).to eq(true)
+end
+
+Then (/^I should be taken to '([^']*)' Quick Gift Entry page$/) do |name|
+  landing = Admin::Landing.new
+  expect(landing.on_giving_page?).to eq(true)
 end
 
 Then (/^User '([^']*)' does not exist$/) do |user_name|
@@ -262,7 +273,7 @@ Then(/^I should see the Edit User Defined Field Categories page$/) do
 end
 
 When (/^I create constituent '([^']*) ([^']*)'$/) do |first_name, last_name|
-  desired_next_page = 'Go to Personas'
+  desired_next_page = 'Search'
 
   account = Account::AddAccount.new
 
@@ -281,17 +292,35 @@ When (/^I create constituent '([^']*) ([^']*)'$/) do |first_name, last_name|
   step %Q[I click Save And '#{desired_next_page}'] # eg: 'Go to Personas'
 end
 
+When (/^there exists constituent '([^']*)'$/) do |constituent_name|
+  landing = Admin::Landing.new
+  landing.accounts_click
+
+  search_page = Account::Search.new
+  search_page.set_search_field constituent_name
+  search_page.find_click
+
+  if (not search_page.account_name_exists? constituent_name)
+    step %Q[I create constituent '#{constituent_name}']
+  end
+end
+
 When /^I Save And for an Account using:$/ do |table|
 
 end
 
-
+And (/^I click tab ([^']*)/) do |tab_name|
+  profile = Account::Profile.new
+  profile.page_click tab_name
+end
+=begin
 And (/^I click Defined Fields/) do
   account = Account::AccountHeader.new
-  account.defined_fields_page_click
+  account.page_click 'Defined Fields'
 end
 
 And (/^I click Account Settings/) do
   account = Account::AccountHeader.new
-  account.account_settings_page_click
+  account.page_click 'Account Settings'
 end
+=end
