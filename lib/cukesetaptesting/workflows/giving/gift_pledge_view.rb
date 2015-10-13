@@ -41,8 +41,10 @@ module Cukesetaptesting
 
       keyword(:credit_card_name) {content.div(:id, 'creditCardFields').text_field(:name => 'creditCardName')}
 
-      keyword(:save) {content.div(:id, 'etap.fieldset.area.9').input(:name, 'saveAnd')}
-      keyword(:saveAnd) {content.div(:id, 'etap.fieldset.area.5').input(:name, 'saveAnd')}
+#      keyword(:save) {content.div(:id, 'etap.fieldset.area.9').input(:name, 'saveAnd')}
+#      keyword(:saveAnd) {content.div(:id, 'etap.fieldset.area.5').input(:name, 'saveAnd')}
+      keyword(:save) {content.button(:name => 'saveAnd')}
+      keyword(:saveAnd) {content.button(:name => 'saveAnd')}
 
       keyword(:yes) {content.div(:class, 'popFooter').input(:id, 'id')} #id for div changes each time so used the class
 

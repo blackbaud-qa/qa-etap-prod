@@ -55,14 +55,14 @@ Feature: Verifying that adding a UDF to existing DIY page does not prevent previ
     And I type 'Sparticus' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Sam Sparticus' on the accounts page
-    And I click Defined Fields
+    And I click tab Defined Fields
     And the 'Gender' should be set to 'Male'
     And I click Journal
     And I click on the Gift listed in the journal
     And I click on the User Defined Fields section on the new payment page
     And I should see 'Ticket Quantity A' set to '2' on the payment page
     And I click Delete on the transaction page
-    And I click Account Settings
+    And I click tab Account Settings
     And I click Delete Role on the Account Settings page
     And I click Yes on the Account Settings page
     And I should see the message: 'No Results Found'
@@ -112,7 +112,7 @@ Feature: Verifying that adding a UDF to existing DIY page does not prevent previ
     And I type 'Sparticus' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Sam Sparticus' on the accounts page
-    And I click Defined Fields
+    And I click tab Defined Fields
     And the 'Gender' should be set to 'Male'
     And the 'Account Type' should be set to 'Individual'
     And I click Journal
@@ -121,7 +121,7 @@ Feature: Verifying that adding a UDF to existing DIY page does not prevent previ
     And I should see 'Ticket Quantity A' set to '3' on the payment page
     And I should see 'Ticket Quantity B' set to '4' on the payment page
     And I click Delete on the transaction page
-    And I click Account Settings
+    And I click tab Account Settings
     And I click Delete Role on the Account Settings page
     And I click Yes on the Account Settings page
     And I should see the message: 'No Results Found'
