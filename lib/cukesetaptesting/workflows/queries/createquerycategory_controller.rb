@@ -417,6 +417,47 @@ module Cukesetaptesting
         @view.donor_review_description.present?
       end
 
+      def set_journal_contact_subject (text)
+        @view.set_journal_contact_subject.when_present.send_keys text
+      end
+
+      def journal_contact_method_click
+        @view.journal_contact_method.when_present.click
+      end
+
+      def journal_contact_method_phone_click
+        @view.journal_contact_method_phone.when_present.click
+      end
+
+      def enter_contact_subject_text (text)
+        @view.enter_contact_subject_text.when_present.send_keys text
+      end
+
+      def plus_sign_query_criteria
+        @view.plus_sign_query_criteria.when_present.click
+      end
+
+      def enter_second_contact_subject_text (text)
+        @view.enter_second_contact_subject_text.when_present.send_keys text
+        sleep 2
+      end
+
+      def display_query_results
+        @view.display_query_results.present?
+      end
+
+      def click_delete_query_preview
+        @view.click_delete_query_preview.when_present.click
+      end
+
+      def golf_outing_discussion_contact
+        @view.golf_outing_discussion_contact.when_present.click
+      end
+
+      def gala_contact
+        @view.gala_contact.when_present.click
+      end
+
     end
   end
 end
