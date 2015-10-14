@@ -75,7 +75,7 @@ module Cukesetaptesting
       keyword(:udf_category) {content.div(:class,'controls').a(:text,'Base')}
       keyword(:account_type_udf) {content.a(:text, 'Account Type')}
       keyword(:field_attributes) {content.img(:id, 'wizardWorkflowIcon_taskWorkflow_userDefinedFieldWizard_2')}
-      keyword(:require_udf) {content.input(:id, 'requiredCheckbox')}
+      keyword(:require_udf) {content.checkbox(:id => 'requiredCheckbox')}
       keyword(:save_and_finish_udf_page) {content.input(:id, 'wizardNavigationButton_1_saveAndFinish')}
       keyword(:required_icon) {content.a(:text, 'Account Type:').parent().parent().td(:class, 'udfRequiredCell').img(:src, '/prod/images/required8.gif')}
       keyword(:name_format_select_value) {content.select(:id, 'nameFormat')}
