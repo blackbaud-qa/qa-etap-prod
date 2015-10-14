@@ -305,10 +305,6 @@ When (/^there exists constituent '([^']*)'$/) do |constituent_name|
   end
 end
 
-When /^I Save And for an Account using:$/ do |table|
-
-end
-
 And (/^I click tab ([^']*)/) do |tab_name|
   profile = Account::Profile.new
   profile.page_click tab_name

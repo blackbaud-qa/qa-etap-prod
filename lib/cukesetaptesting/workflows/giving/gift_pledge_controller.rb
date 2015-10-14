@@ -316,10 +316,6 @@ module Cukesetaptesting
         @view.copy_pledge_udfs.when_present.click
       end
 
-      def bob_barker_junior_click
-        @view.bob_barker_junior.when_present.click
-      end
-
       def account_click(account)
         @view.content.a(:text, account).when_present.click
       end

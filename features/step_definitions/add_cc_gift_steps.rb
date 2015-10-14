@@ -97,11 +97,6 @@ And(/^wait for the journal page to display/) do
   journ.wait_for_page_load
 end
 
-And (/^I click on Bob Barker Junior in the search results/) do
-  gift = Giving::GiftPledge.new
-  gift.bob_barker_junior_click
-end
-
 And(/^I click on '([^']*)' in the search results$/) do |account|
   gift = Giving::GiftPledge.new
   gift.account_click(account)

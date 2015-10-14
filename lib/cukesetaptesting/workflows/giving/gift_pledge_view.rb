@@ -136,7 +136,6 @@ module Cukesetaptesting
       keyword(:journal_filter_results) {content.div(:id, 'etap.fieldset.area.3')}
       keyword(:copy_pledge_udfs) {content.input(:name, 'copyUdfsToFuturePayments')}
 
-      keyword(:bob_barker_junior) {content.a(:text, 'Bob Barker Junior')}
       keyword(:journal_page_gift) {content.a(:text, 'Gift')}
       keyword(:non_deductible_field) {content.text_field(:name, 'nonDeductibleAmount')}
 
