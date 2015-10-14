@@ -16,4 +16,5 @@ Feature: Required UDFs appear as required
     And I click on 'Talisha Almond' in the search results
     And I click on the 'Defined Fields' page of the constituent record
     Then I should see a required icon by Account Type
+    And I reset the required attribute for the next run
 
