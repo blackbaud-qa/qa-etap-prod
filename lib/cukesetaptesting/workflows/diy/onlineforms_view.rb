@@ -4,7 +4,7 @@ module Cukesetaptesting
       keyword(:online_forms_title)  { forms.h2(:id,'title') }
       keyword(:management_page_diy) { content.link(:href, 'ecommManagerHome.do')}
       keyword(:create_a_page_first_time) { content.div(:id, 'getStartedButtonM')}
-      keyword(:create_a_page) { content.div(:id, 'newPageButtonM')}
+      keyword(:create_a_page) { content.div(:id, 'createPageLink')}
       keyword(:choose_online_giving_page) { content.div(:id, 'donateButtonM')}
       keyword(:choose_embedded_template) { content.div(:id, 'embeddiv')}
       keyword(:template_next) { content.input(:id, 'templateNext')}
@@ -19,9 +19,9 @@ module Cukesetaptesting
       keyword(:funds_list) { content.div(:id, 'availableFunds')}
       keyword(:fund_update) { content.p(:id, 'fundSelectInfo').parent.parent.input(:id, 'save')}
       keyword(:settings_submit) { content.input(:id, 'optionsNext')}
-      keyword(:go_live_button) { content.div(:id, 'goLiveButtonM')}
+      keyword(:go_live_button) { content.div(:id, 'goLiveButtonM').parent}
       keyword(:go_live_confirm) { content.input(:id, 'publishConfirm')}
-      keyword(:edit_style) {content.h6(:text,'Edit Style')}
+      keyword(:edit_style) {content.h6(:text,'Edit Style').parent.parent}
       keyword(:swap_template) {content.h6(:text,'Swap Template')}
       keyword(:choose_steel_template) {content.h1(:class=>'ecommTemplateName', :text=>'Steel')}
       keyword(:swap_to_this_template) {content.button(:id,'swapSubmit')}
@@ -41,7 +41,8 @@ module Cukesetaptesting
       # keyword(:settings_update) {content.span(:class=>'titleText',:text=>'Settings Editor').parent.parent.button(:id=>'settingsSave')}
       keyword(:settings_update) {content.button(:id,'settingsSave')}
       # keyword(:donation_section) {content.h6(:text,'Donation Amount*')}
-      keyword(:donation_section) {content.div(:id,'gift_amount_simple')}
+      # keyword(:donation_section) {content.div(:id,'gift_amount_simple')}
+      keyword(:donation_section) {content.div(:id,'gift_information_widget_block')}
       # keyword(:edit_section) {content.span(:class,'hoverControls').img(:class,'edit')}
       keyword(:edit_section) {content.div(:class,'ecommManagerEditorClickToEdit')}
       keyword(:include_specific) {content.checkbox(:id,'ecDonateWidgetGivingType')}
