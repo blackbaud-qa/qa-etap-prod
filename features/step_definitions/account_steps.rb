@@ -313,14 +313,32 @@ And (/^I click tab ([^']*)/) do |tab_name|
   profile = Account::Profile.new
   profile.page_click tab_name
 end
-=begin
-And (/^I click Defined Fields/) do
-  account = Account::AccountHeader.new
-  account.page_click 'Defined Fields'
+
+And(/^I click on Preferences on the My User page$/) do
+  org = Management::MyOrg.new()
+  org.my_user_prefs_click
 end
 
-And (/^I click Account Settings/) do
-  account = Account::AccountHeader.new
-  account.page_click 'Account Settings'
+And (/^I have disabled Duplicate Checking/) do
+  myOrg = Management::UserDropdown.new
+  myOrg.down_arrow_click
+  myOrg.my_preferences_click
+
+  myPrefs = Account::Preferences.new
+  myPrefs.set_check_for_duplicates_checkbox false
+
+  desired_next_page = 'Edit'
+  step %Q[click Save and #{desired_next_page}]
 end
-=end
+
+And (/^I have enabled Duplicate Checking/) do
+  myOrg = Management::UserDropdown.new
+  myOrg.down_arrow_click
+  myOrg.my_preferences_click
+
+  myPrefs = Account::Preferences.new
+  myPrefs.set_check_for_duplicates_checkbox true
+
+  desired_next_page = 'Edit'
+  step %Q[click Save and #{desired_next_page}]
+end
