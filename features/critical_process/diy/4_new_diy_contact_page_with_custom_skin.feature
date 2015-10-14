@@ -24,6 +24,7 @@ Feature: Publishing a diy page with a custom skin
     And I switch to the new tab in my browser
     Then the custom template should be shown
     And I close the current tab
+    And I scroll up on the DIY page to prevent automation errors
     And I click Disable for the form titled 'Contact Page'
     And I click Yes, Disable the Page
     And I click Delete for the form titled 'Contact Page'
