@@ -273,7 +273,11 @@ Then(/^I should see the Edit User Defined Field Categories page$/) do
 end
 
 When (/^I create constituent '([^']*) ([^']*)'$/) do |first_name, last_name|
-  desired_next_page = 'Search'
+  step %Q[I create constituent 'first_name last_name' with Search desired landing page]
+end
+
+When (/^I create constituent '([^']*) ([^']*)' with '([^']*)' desired landing page$/) do |first_name, last_name, landing_page|
+  desired_next_page = landing_page
 
   account = Account::AddAccount.new
 
@@ -289,7 +293,7 @@ When (/^I create constituent '([^']*) ([^']*)'$/) do |first_name, last_name|
     step %Q[I set Sort Name to '#{last_name}, #{first_name}' on the classic add account page]
   end
 
-  step %Q[I click Save And '#{desired_next_page}'] # eg: 'Go to Personas'
+  step %Q[click Save and #{desired_next_page}]
 end
 
 When (/^there exists constituent '([^']*)'$/) do |constituent_name|
