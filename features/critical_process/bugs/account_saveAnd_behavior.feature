@@ -1,6 +1,5 @@
 Feature: The various 'Save And' options lead to the correct pages for a new Account.
-  Provides partial coverage for TFS bug 518185. This scenario does not currently
-  cover the Save And operations when duplicate checking is disabled.
+  Provides partial coverage for TFS bug 518185.
 
   Scenario Outline: Account page Save And navigation
     Given I am logged into eTap

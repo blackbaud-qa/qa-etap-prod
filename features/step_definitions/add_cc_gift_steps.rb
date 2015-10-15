@@ -40,6 +40,11 @@ And(/^set the Campaign to Annual$/) do
   landing.select_campaign
 end
 
+And(/^set the transaction to Finalized$/) do
+  landing = Giving::GiftPledge.new
+  landing.set_finalized_checkbox 'enable'
+end
+
 And(/^set the Approach to Unsolicited$/) do
   landing = Giving::GiftPledge.new
   landing.approach_input_arrow
@@ -129,5 +134,29 @@ And (/^I add a credit card gift for ([^']*) dollars to ([^']*)/) do |amount, con
     And select Process Transaction from the drop down menu
     And click yes when the notification pops up
   }
-  #And click Save and Process Transaction
+end
+
+And (/^I add a finalized credit card gift for ([^']*) dollars to ([^']*)/) do |amount, constituent|
+  steps %Q{
+    When I type '#{constituent}' into the dynamic search field
+    And I press Enter on the keyboard
+    And I click on '#{constituent}' in the search results
+    And I click Journal
+    And select Gift/Pledge from the Add New... drop down menu
+    And set the transaction to Finalized
+    And set the date to '10/30/2015'
+    And set the Received Amount to '#{amount}'
+    And set the Fund to 'Unrestricted'
+    And set the Campaign to 'Annual'
+    And set the Approach to 'Unsolicited'
+    And set the Gift Type to Credit/Debit Card
+    And set the Credit/Debit Card Number to '4111111111111111'
+    And set the name on credit card to #{constituent}
+
+    And set the Expiration Month to '8'
+    And set the Expiration Year to '2016'
+    And click Save
+    And select Process Transaction from the drop down menu
+    And click yes when the notification pops up
+  }
 end

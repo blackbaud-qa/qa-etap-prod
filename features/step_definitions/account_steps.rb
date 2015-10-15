@@ -267,13 +267,35 @@ And(/^I click the Account Type radio button$/) do
   search.move_value_to_account_type
 end
 
+And(/^set '([^']*)' rights to admin$/) do |user_name|
+  rights = Management::SecurityGroups.new
+  rights.user_rights_link_click user_name
+
+
+  step %Q[I click the 'Admin' security group]
+  step %Q[click Save and Edit]
+end
+
+And(/^set '([^']*)' rights to non admin$/) do |user_name|
+  rights = Management::SecurityGroups.new
+  rights.user_rights_link_click user_name
+
+  step %Q[I click the 'Default' security group]
+  step %Q[click Save and Edit]
+end
+
+And(/^I click the '([^']*)' security group$/) do |security_group|
+  rights = Account::Rights.new
+  rights.rights_group_click security_group
+end
+
 Then(/^I should see the Edit User Defined Field Categories page$/) do
   search = Account::Search.new
   expect(search.edit_user_defined_field_categories_page).to eq(true)
 end
 
 When (/^I create constituent '([^']*) ([^']*)'$/) do |first_name, last_name|
-  step %Q[I create constituent 'first_name last_name' with Search desired landing page]
+  step %Q[I create constituent '#{first_name} #{last_name}' with 'Search' desired landing page]
 end
 
 When (/^I create constituent '([^']*) ([^']*)' with '([^']*)' desired landing page$/) do |first_name, last_name, landing_page|
@@ -341,4 +363,9 @@ And (/^I have enabled Duplicate Checking/) do
 
   desired_next_page = 'Edit'
   step %Q[click Save and #{desired_next_page}]
+end
+
+And (/^set '([^']*)' rights to non admin%/) do |user_name|
+  security = Management::SecurityGroups.new
+  security.user_rights_link_click user_name
 end

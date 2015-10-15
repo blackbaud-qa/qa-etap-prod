@@ -183,7 +183,7 @@ module Cukesetaptesting
       keyword(:edit_split_received_field) {content.table(:id, 'etap.fieldset.table.2').text_field(:name, 'received')}
       keyword(:edit_segment_value) {content.table(:id, 'etap.fieldset.table.2').text_field(:name, 'numberOfSegments')}
 
-
+      keyword(:finalized_checkbox) {content.checkbox(:id, 'finalized')}
 
 
       #Fund combo box for segment 3 of split transaction

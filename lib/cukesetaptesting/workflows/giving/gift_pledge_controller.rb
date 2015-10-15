@@ -39,6 +39,10 @@ module Cukesetaptesting
         @view.approach_combo_list.when_present.div(:text,name).click
       end
 
+      def set_finalized_checkbox(value)
+        @view.finalized_checkbox.when_present.set value
+      end
+
       def save
         @view.save.when_present.click
       end
