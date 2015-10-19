@@ -71,6 +71,7 @@ module Cukesetaptesting
       end
 
       def edit_style_click
+        @view.edit_style.when_present.hover
         @view.edit_style.when_present.click
       end
 
@@ -143,7 +144,9 @@ module Cukesetaptesting
       end
 
       def donation_section_hover
-        @view.donation_section.when_present.hover
+        @view.donation_section.wait_until_present
+        @view.browser.execute_script('arguments[0].scrollIntoView();',@view.content.div(:id,'ecommEditorToolbar'))
+        @view.donation_section.hover
       end
 
       def edit_section_click
@@ -160,6 +163,8 @@ module Cukesetaptesting
       end
 
       def add_item_click
+        sleep 1
+        @view.browser.execute_script('arguments[0].scrollIntoView();',@view.content.h2(:class,'pageTitle'))
         @view.add_item.when_present.click
       end
 
@@ -233,6 +238,11 @@ module Cukesetaptesting
         @view.donation_page_disable_confirm.when_present.click
       end
 
+      def contact_scroll_top
+        @view.content.div(:id,'managerPageStats').wait_until_present
+        @view.browser.execute_script('arguments[0].scrollIntoView();',@view.content.div(:id,'managerPageStats'))
+      end
+
       def donation_page_delete_confirm_click
         @view.donation_page_delete_confirm.when_present.click
       end
@@ -298,6 +308,7 @@ module Cukesetaptesting
       end
 
       def live_submit_click
+        # browser.after_hooks.without do |browser|
         browser.without_checkers do
           @view.live_submit.when_present.click
         end

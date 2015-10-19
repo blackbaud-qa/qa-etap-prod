@@ -226,7 +226,13 @@ module Cukesetaptesting
       end
 
       def require_udf
-        @view.require_udf.when_present.click
+        sleep 1
+        @view.require_udf.when_present.set
+      end
+
+      def unrequire_udf
+        sleep 1
+        @view.require_udf.when_present.clear
       end
 
       def save_and_finish_udf_page

@@ -1,3 +1,4 @@
+@bugs
 Feature: Looking up a Postal Code via USPS
 
   Scenario: Looking up a Postal Code when adding a new account

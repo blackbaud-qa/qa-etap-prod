@@ -323,6 +323,7 @@ And (/^the Recognition Type should be set to '([^']*)'/) do |value|
 end
 
 And(/^I click User Defined Fields on the management menu/) do
+  sleep 1
   accounts = Account::AddAccount.new
   accounts.management_user_defined_fields
 end
@@ -350,6 +351,18 @@ end
 And(/^I click Save and Finish on the UDF page/) do
   accounts = Account::AddAccount.new
   accounts.save_and_finish_udf_page
+end
+
+And(/^I reset the required attribute for the next run$/) do
+  step "I click Management on the main menu"
+  step "I click User Defined Fields on the management menu"
+  step "I click the Base UDF category on the Edit User Defined Fields page"
+  step "I click Account Type on the UDF page"
+  step "I click Field Attributes"
+  accounts = Account::AddAccount.new
+  accounts.unrequire_udf
+  step "I click Save and Finish on the UDF page"
+
 end
 
 Then(/^I should see a required icon by Account Type/) do

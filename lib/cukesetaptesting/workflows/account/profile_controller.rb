@@ -4,21 +4,25 @@ module Cukesetaptesting
       @model = ProfileModel
       @view = ProfileView
 
-    def journal_link_click
-      @view.journal_link.when_present.click
-    end
+      def page_click page_name
+        (@view.account_header_link page_name).when_present.click
+      end
 
-    def constit_name_exists?(name)
-      return @view.constit_summary.when_present.text.include? name
-    end
+      def journal_link_click
+        @view.journal_link.when_present.click
+      end
 
-    def on_home_page?
-      return @view.home_page_class.present?
-    end
+      def constit_name_exists?(name)
+        return @view.constit_summary.when_present.text.include? name
+      end
 
-    def on_personas_page?
-      return @view.persona_page.present?
-    end
+      def on_home_page?
+        return @view.home_page_class.present?
+      end
+
+      def on_personas_page?
+        return @view.persona_page.present?
+      end
 
       def on_relationships_page?
         return @view.relationships_page.present?
@@ -33,7 +37,9 @@ module Cukesetaptesting
       end
 
       def on_defined_fields_page?
-        return @view.defined_fields_page.present?
+        base_div_is_present = @view.base_defined_fields_div.present?
+        sys_div_is_present = @view.system_defined_fields_div.present?
+        return (base_div_is_present && sys_div_is_present)
       end
 
       def click_select_tiles_and_layout

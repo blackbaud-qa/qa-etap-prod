@@ -1,3 +1,4 @@
+@bugs
 Feature: Looking up a Phone Number via White Pages
 
 ### The IP address for automation is currently being blocked by whitepages.com so I can only verify what is being sent over in the url rather than verifying that the proper fields are being populated on whitepages.com ###
