@@ -276,6 +276,63 @@ And(/^set '([^']*)' rights to admin$/) do |user_name|
   step %Q[click Save and Edit]
 end
 
+And(/^I create new security group '([^']*)'$/) do |group_name|
+  rights = Management::SecurityGroups.new
+  rights.new_security_group_link_click
+
+  rights.set_security_group_name group_name
+  rights.save_button_click
+end
+
+And(/^I start a new security group '([^']*)'$/) do |group_name|
+  rights = Management::SecurityGroups.new
+  rights.new_security_group_link_click
+
+  rights.set_security_group_name group_name
+end
+
+And(/^I set the security group query to ([^']*), ([^']*)$/) do |dropdown_name, dropdown_value|
+  rights = Management::SecurityGroups.new
+
+  rights.set_query_dropdown dropdown_name, dropdown_value
+end
+
+And(/^I set the security group queries to ([^']*), ([^']*), ([^']*), ([^']*)$/) do |account_read_query, account_update_query, journal_entry_read_query, journal_entry_update_query|
+  rights = Management::SecurityGroups.new
+
+  rights.set_query_dropdown 'entityRoleReadQuery', account_read_query
+  rights.set_query_dropdown 'entityRoleUpdateQuery', account_update_query
+  rights.set_query_dropdown 'journalReadQuery', journal_entry_read_query
+  rights.set_query_dropdown 'journalUpdateQuery', journal_entry_update_query
+end
+
+And(/^I (?:grant|deny) all query permissions$/) do |op|
+  rights = Management::SecurityGroups.new
+  rights.set_grant_deny 'Account Read', op
+  rights.set_grant_deny 'Account Update', op
+  rights.set_grant_deny 'Journal Read', op
+  rights.set_grant_deny 'Journal Update', op
+end
+
+And(/^I (?:grant|deny) permission ([^']*)$/) do |op, permission_name|
+  rights = Management::SecurityGroups.new
+  rights.set_grant_deny permission_name, op
+
+      # Call with:
+      #    'Account Read'
+      #    'Account Update'
+      #    'Journal Read'
+      #    'Journal Update'
+      #  and
+      #      'Grant' | 'Deny'
+end
+
+And(/^I save a security group$/) do
+  rights = Management::SecurityGroups.new
+  rights.save_button_click
+end
+
+
 And(/^set '([^']*)' rights to non admin$/) do |user_name|
   rights = Management::SecurityGroups.new
   rights.user_rights_link_click user_name
