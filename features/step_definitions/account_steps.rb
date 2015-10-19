@@ -23,7 +23,7 @@ When(/^I click on Journal from the Role Icon drop down$/) do
   search.role_menu_journal_click
 end
 
-When(/^I click on Other from the Role Icon drop down$/) do
+When(/^I click on Account Settings from the Role Icon drop down$/) do
   search = Account::Search.new
   search.role_icon_click
   search.role_menu_other_click
