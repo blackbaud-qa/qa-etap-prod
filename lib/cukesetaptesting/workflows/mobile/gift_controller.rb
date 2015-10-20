@@ -12,6 +12,14 @@ module Cukesetaptesting
         @view.gift_delete.when_present.click
       end
 
+      def is_save_button_present?
+        @view.gift_save.exists?
+      end
+
+      def is_delete_button_present?
+        @view.gift_delete.exists?
+      end
+
       def is_emtpy? field_name
         if(field_name == 'Received')
           @view.is_gift_received_amount_empty?

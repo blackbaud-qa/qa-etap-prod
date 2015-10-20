@@ -46,7 +46,7 @@ module Cukesetaptesting
       end
 
       def import_next_click
-        @view.import_next.when_present.click
+        @view.click_and_confirm_alert(@view.import_next)
       end
 
       def import_another_field_click

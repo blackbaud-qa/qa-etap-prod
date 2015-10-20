@@ -14,13 +14,13 @@ Feature: Critical Process - General Navigation
     Then I should be taken to 'Jose' <expected result> page
 
   Examples:
-    | page option    | expected result |
-    | Home           | Home            |
-    | Personas       | Personas        |
-    | Relationships  | Relationships   |
-    | Journal        | Journal         |
-    | Other          | Other           |
-    | Defined Fields | Defined Fields  |
+    | page option       | expected result  |
+    | Home              | Home             |
+    | Personas          | Personas         |
+    | Relationships     | Relationships    |
+    | Journal           | Journal          |
+    | Account Settings  | Account Settings |
+    | Defined Fields    | Defined Fields   |
 
   @crit_proc
   Scenario Outline:  Menu Navigation
