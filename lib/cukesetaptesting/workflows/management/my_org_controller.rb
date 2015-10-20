@@ -5,7 +5,8 @@ module Cukesetaptesting
       @view = MyOrgView
 
     def save_and_personas_click
-      browser.after_hooks.without do |browser|
+      # browser.after_hooks.without do |browser|
+      browser.without_checkers do
         @view.save_and_personas.when_present.click
       end
     rescue
@@ -20,7 +21,11 @@ module Cukesetaptesting
       @view.my_org_prefs.when_present.click
     end
 
-    def error_includes? error
+    def my_user_prefs_click
+      @view.my_user_prefs.when_present.click
+    end
+
+      def error_includes? error
       if (@view.browser.alert.exists?)
         @text = @view.browser.alert.text
 

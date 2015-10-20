@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
 gem 'watirmark', :git => 'https://github.com/convio/watirmark.git'
-gem 'watir-webdriver'
+gem 'selenium-webdriver', '2.47.1'
+gem 'watir-webdriver', '0.8.0'
 gem 'rspec'
 gem 'rake'
 gem 'builder'

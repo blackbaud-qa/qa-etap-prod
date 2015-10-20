@@ -39,6 +39,10 @@ module Cukesetaptesting
         @view.approach_combo_list.when_present.div(:text,name).click
       end
 
+      def set_finalized_checkbox(value)
+        @view.finalized_checkbox.when_present.set value
+      end
+
       def save
         @view.save.when_present.click
       end
@@ -141,7 +145,8 @@ module Cukesetaptesting
       end
 
       def click_save_for_error
-        browser.after_hooks.without do |browser|
+        # browser.after_hooks.without do |browser|
+        browser.without_checkers do
           @view.save_and_button.when_present.click
         end
       end
@@ -314,10 +319,6 @@ module Cukesetaptesting
 
       def copy_pledge_udfs_click
         @view.copy_pledge_udfs.when_present.click
-      end
-
-      def bob_barker_junior_click
-        @view.bob_barker_junior.when_present.click
       end
 
       def account_click(account)

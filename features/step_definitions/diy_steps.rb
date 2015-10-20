@@ -4,6 +4,7 @@ When(/^I click on DIY Forms on the management page/) do
 end
 
 When(/^I click Create a Page/) do
+  sleep 1
   diy = DIY::Onlineforms.new()
   diy.create_a_page_click
 end
@@ -82,11 +83,13 @@ And(/^I click Yes, Go Live! on the DIY editor page$/) do
 end
 
 And(/^I click Edit for the form titled '([^']*)'$/) do |page|
+  sleep 1
   diy = DIY::Onlineforms.new()
   diy.edit_form(page)
 end
 
 And(/^I click Edit Style on the DIY editor page$/) do
+  sleep 3
   diy = DIY::Onlineforms.new()
   diy.edit_style_click
 end
@@ -270,6 +273,7 @@ And(/I confirm saving my changes$/) do
 end
 
 And(/I click Disable for the form titled '([^']*)'$/) do |name|
+  sleep 1
   diy = DIY::Onlineforms.new()
   diy.donation_page_disable_click name
 end
@@ -707,4 +711,10 @@ And(/^the constituent ([^']*) should be ([^']*)/) do |constit_name, gender|
 
   defined_fields = Account::DefinedFields.new
   expect(defined_fields.udf_value_by_key 'Gender').to eq(gender)
+end
+
+And(/^I scroll up on the DIY page to prevent automation errors$/) do
+  diy = DIY::Onlineforms.new()
+  diy.contact_scroll_top
+
 end
