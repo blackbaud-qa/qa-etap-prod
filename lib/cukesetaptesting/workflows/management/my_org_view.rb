@@ -5,6 +5,7 @@ module Cukesetaptesting
       keyword(:save_and_personas) {content.button(:class=>'saveAndButton')}
       #OTG_INTL keyword(:my_org_prefs) {content.a(:text=>'Preferences')}
       keyword(:my_org_prefs) {content.div(:id => 'topMenu').li(:index => 3).a}
+      keyword(:my_user_prefs) {content.div(:id => 'topMenu').li(:index => 2).a}
       keyword(:IBAN) {content.text_field(:id=>'netherlandsIBAN')}
       keyword(:BIC) {content.text_field(:id=>'netherlandsBIC')}
       keyword(:cancellation_terms)  {content.text_field(:name=>'prefs.netherlandsCancellationTerms')}

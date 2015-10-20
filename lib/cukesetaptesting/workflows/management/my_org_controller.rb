@@ -21,7 +21,11 @@ module Cukesetaptesting
       @view.my_org_prefs.when_present.click
     end
 
-    def error_includes? error
+    def my_user_prefs_click
+      @view.my_user_prefs.when_present.click
+    end
+
+      def error_includes? error
       if (@view.browser.alert.exists?)
         @text = @view.browser.alert.text
 
