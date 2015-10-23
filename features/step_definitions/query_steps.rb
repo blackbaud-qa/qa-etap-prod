@@ -324,17 +324,7 @@ Then (/^the query category '([^']*)' does not exist/) do |cat|
     query.delete_query_category_yes_click
   end
 end
-=begin
-Then (/^the query category '([^']*)' does exist/) do |cat|
-  query = Queries::Createquerycategory.new
-  step "I am logged into eTap"
-  step "I click Queries on the main menu"
-  if (!query.string_exists_on_page?(cat))
-    query.delete_query_category_click cat
-    query.delete_query_category_yes_click
-  end
-end
-=end
+
 Then (/^the query '([^']*)' does not exist in the '([^']*)' category/) do |query_name, cat|
   query = Queries::Createquerycategory.new
   step "I click Queries on the main menu"
@@ -345,16 +335,7 @@ Then (/^the query '([^']*)' does not exist in the '([^']*)' category/) do |query
     query.delete_query_category_yes_click
   end
 end
-=begin
-Then (/^the query '([^']*)' exists in the '([^']*)' category/) do |query_name, cat|
-  query = Queries::Createquerycategory.new
-  step "I click on the '#{cat}' category"
 
-  if (!query.string_exists_on_page?(query_name))
-    query.delete_query_click query_name
-  end
-end
-=end
 Then (/^a query category should exist called '([^']*)'/) do |cat|
   query = Queries::Createquerycategory.new
   step "I am logged into eTap"
@@ -389,6 +370,27 @@ Then (/^a query '([^']*)' has been created in the '([^']*)' category/) do |query
   step "I click Save And 'Preview'"
 end
 
+Then (/^a query '([^']*)' for name '([^']*)' has been created/) do |query_name, account_name|
+  step "I click on the 'Base' category"
+  step "I click 'New Query' on the Edit Query Category page"
+  step %Q[I set the Name to '#{query_name}' on the Create a New Query page]
+  step "I set the data return type to 'Accounts' on the Create a New Query page"
+  step "I set the Available Fields category to 'Account' on the Create a New Query page"
+  step "I click on 'Account Name' under Available Fields on the Create a New Query page"
+  step "I set the inputs with 'values' with an optional 'TestEntityRoleForNamesData' with '#{account_name}' for type requiredTextValues"
+  step "I click Save And 'Preview'"
+end
+
+Then (/^account security query '([^']*)' for name '([^']*)' has been created/) do |query_name, account_name|
+  step "I click on the 'eTapestry Security' category"
+  step "I click 'New Query' on the Edit Query Category page"
+  step %Q[I set the Name to '#{query_name}' on the Create a New Query page]
+  step "I set the data return type to 'Accounts' on the Create a New Query page"
+  step "I set the Available Fields category to 'Account' on the Create a New Query page"
+  step "I click on 'Account Name' under Available Fields on the Create a New Query page"
+  step "I set the inputs with 'values' with an optional 'TestEntityRoleForNamesData' with '#{account_name}' for type requiredTextValues"
+  step "I click Save And 'Preview'"
+end
 
 And (/^a specific query 'Donations made in January 2015' has been created in the 'Critical Process Testing' category/) do
   query = Queries::Createquerycategory.new

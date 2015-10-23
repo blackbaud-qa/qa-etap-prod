@@ -136,7 +136,6 @@ module Cukesetaptesting
       keyword(:journal_filter_results) {content.div(:id, 'etap.fieldset.area.3')}
       keyword(:copy_pledge_udfs) {content.input(:name, 'copyUdfsToFuturePayments')}
 
-      keyword(:bob_barker_junior) {content.a(:text, 'Bob Barker Junior')}
       keyword(:journal_page_gift) {content.a(:text, 'Gift')}
       keyword(:non_deductible_field) {content.text_field(:name, 'nonDeductibleAmount')}
 
@@ -184,7 +183,7 @@ module Cukesetaptesting
       keyword(:edit_split_received_field) {content.table(:id, 'etap.fieldset.table.2').text_field(:name, 'received')}
       keyword(:edit_segment_value) {content.table(:id, 'etap.fieldset.table.2').text_field(:name, 'numberOfSegments')}
 
-
+      keyword(:finalized_checkbox) {content.checkbox(:id, 'finalized')}
 
 
       #Fund combo box for segment 3 of split transaction

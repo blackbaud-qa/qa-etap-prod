@@ -23,7 +23,7 @@ When(/^I click on Journal from the Role Icon drop down$/) do
   search.role_menu_journal_click
 end
 
-When(/^I click on Other from the Role Icon drop down$/) do
+When(/^I click on Account Settings from the Role Icon drop down$/) do
   search = Account::Search.new
   search.role_icon_click
   search.role_menu_other_click
@@ -267,13 +267,96 @@ And(/^I click the Account Type radio button$/) do
   search.move_value_to_account_type
 end
 
+And(/^set '([^']*)' rights to admin$/) do |user_name|
+  rights = Management::SecurityGroups.new
+  rights.user_rights_link_click user_name
+
+
+  step %Q[I click the 'Admin' security group]
+  step %Q[click Save and Edit]
+end
+
+And(/^I create new security group '([^']*)'$/) do |group_name|
+  rights = Management::SecurityGroups.new
+  rights.new_security_group_link_click
+
+  rights.set_security_group_name group_name
+  rights.save_button_click
+end
+
+And(/^I start a new security group '([^']*)'$/) do |group_name|
+  rights = Management::SecurityGroups.new
+  rights.new_security_group_link_click
+
+  rights.set_security_group_name group_name
+end
+
+And(/^I set the security group query to ([^']*), ([^']*)$/) do |dropdown_name, dropdown_value|
+  rights = Management::SecurityGroups.new
+
+  rights.set_query_dropdown dropdown_name, dropdown_value
+end
+
+And(/^I set the security group queries to ([^']*), ([^']*), ([^']*), ([^']*)$/) do |account_read_query, account_update_query, journal_entry_read_query, journal_entry_update_query|
+  rights = Management::SecurityGroups.new
+
+  rights.set_query_dropdown 'entityRoleReadQuery', account_read_query
+  rights.set_query_dropdown 'entityRoleUpdateQuery', account_update_query
+  rights.set_query_dropdown 'journalReadQuery', journal_entry_read_query
+  rights.set_query_dropdown 'journalUpdateQuery', journal_entry_update_query
+end
+
+And(/^I (?:grant|deny) all query permissions$/) do |op|
+  rights = Management::SecurityGroups.new
+  rights.set_grant_deny 'Account Read', op
+  rights.set_grant_deny 'Account Update', op
+  rights.set_grant_deny 'Journal Read', op
+  rights.set_grant_deny 'Journal Update', op
+end
+
+And(/^I (?:grant|deny) permission ([^']*)$/) do |op, permission_name|
+  rights = Management::SecurityGroups.new
+  rights.set_grant_deny permission_name, op
+
+      # Call with:
+      #    'Account Read'
+      #    'Account Update'
+      #    'Journal Read'
+      #    'Journal Update'
+      #  and
+      #      'Grant' | 'Deny'
+end
+
+And(/^I save a security group$/) do
+  rights = Management::SecurityGroups.new
+  rights.save_button_click
+end
+
+
+And(/^set '([^']*)' rights to non admin$/) do |user_name|
+  rights = Management::SecurityGroups.new
+  rights.user_rights_link_click user_name
+
+  step %Q[I click the 'Default' security group]
+  step %Q[click Save and Edit]
+end
+
+And(/^I click the '([^']*)' security group$/) do |security_group|
+  rights = Account::Rights.new
+  rights.rights_group_click security_group
+end
+
 Then(/^I should see the Edit User Defined Field Categories page$/) do
   search = Account::Search.new
   expect(search.edit_user_defined_field_categories_page).to eq(true)
 end
 
 When (/^I create constituent '([^']*) ([^']*)'$/) do |first_name, last_name|
-  desired_next_page = 'Search'
+  step %Q[I create constituent '#{first_name} #{last_name}' with 'Search' desired landing page]
+end
+
+When (/^I create constituent '([^']*) ([^']*)' with '([^']*)' desired landing page$/) do |first_name, last_name, landing_page|
+  desired_next_page = landing_page
 
   account = Account::AddAccount.new
 
@@ -289,7 +372,7 @@ When (/^I create constituent '([^']*) ([^']*)'$/) do |first_name, last_name|
     step %Q[I set Sort Name to '#{last_name}, #{first_name}' on the classic add account page]
   end
 
-  step %Q[I click Save And '#{desired_next_page}'] # eg: 'Go to Personas'
+  step %Q[click Save and #{desired_next_page}]
 end
 
 When (/^there exists constituent '([^']*)'$/) do |constituent_name|
@@ -305,22 +388,41 @@ When (/^there exists constituent '([^']*)'$/) do |constituent_name|
   end
 end
 
-When /^I Save And for an Account using:$/ do |table|
-
-end
-
 And (/^I click tab ([^']*)/) do |tab_name|
   profile = Account::Profile.new
   profile.page_click tab_name
 end
-=begin
-And (/^I click Defined Fields/) do
-  account = Account::AccountHeader.new
-  account.page_click 'Defined Fields'
+
+And(/^I click on Preferences on the My User page$/) do
+  org = Management::MyOrg.new()
+  org.my_user_prefs_click
 end
 
-And (/^I click Account Settings/) do
-  account = Account::AccountHeader.new
-  account.page_click 'Account Settings'
+And (/^I have disabled Duplicate Checking/) do
+  myOrg = Management::UserDropdown.new
+  myOrg.down_arrow_click
+  myOrg.my_preferences_click
+
+  myPrefs = Account::Preferences.new
+  myPrefs.set_check_for_duplicates_checkbox false
+
+  desired_next_page = 'Edit'
+  step %Q[click Save and #{desired_next_page}]
 end
-=end
+
+And (/^I have enabled Duplicate Checking/) do
+  myOrg = Management::UserDropdown.new
+  myOrg.down_arrow_click
+  myOrg.my_preferences_click
+
+  myPrefs = Account::Preferences.new
+  myPrefs.set_check_for_duplicates_checkbox true
+
+  desired_next_page = 'Edit'
+  step %Q[click Save and #{desired_next_page}]
+end
+
+And (/^set '([^']*)' rights to non admin%/) do |user_name|
+  security = Management::SecurityGroups.new
+  security.user_rights_link_click user_name
+end

@@ -43,3 +43,13 @@ When (/^I select the ([^']*) button/) do |button_type|
     gift.click_delete
   end
 end
+
+When (/^the Save button is not present/) do
+  gift = Mobile::Gift.new
+  expect(gift.is_save_button_present?).to be false
+end
+
+When (/^the Delete button is not present/) do
+  gift = Mobile::Gift.new
+  expect(gift.is_delete_button_present?).to be false
+end
