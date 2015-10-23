@@ -3,12 +3,12 @@ module Cukesetaptesting
     class SecurityGroupsView < BaseView
       keyword(:keyword_name)  { browser.text_field(:id, 'element_id') }
 
-      keyword(:new_security_group_link)  { browser.a(:href => /editSecurityGroup.do/, :text=>'New Security Group') }
-      keyword(:security_group_name)  { browser.input(:title=>'Name') }
+      keyword(:new_security_group_link)  { content.a(:text=>'New Security Group') }
+      keyword(:security_group_name)  { content.text_field(:title=>'Name') }
       keyword(:save_button) { content.button(:value=>'Save')}
 
-      keyword(:default_sec_group)  { browser.a(:href => /editSecurityGroup.do/, :name=> /Default/) }
-      keyword(:admin_sec_group)  { browser.a(:href => /editSecurityGroup.do/, :name=> /Admin/) }
+      keyword(:default_sec_group)  { content.a(:href => /editSecurityGroup.do/, :name=> /Default/) }
+      keyword(:admin_sec_group)  { content.a(:href => /editSecurityGroup.do/, :name=> /Admin/) }
 
 
       keyword(:account_read_query_grant) { content.radio(:id=>'entityRoleReadQueryGrant', :value => 'true') }
@@ -26,16 +26,16 @@ module Cukesetaptesting
 
 
 
-      def dropdown_select_by_name(name)
-        content.select(:name, name)
+      def dropdown_select_by_name name
+        content.select_list(:name => name)
       end
 
       def sec_group_link sec_group_name
-        content.a(:href => /editSecurityGroup.do/, :text=> /#{sec_group_name}/)
+        content.a(:text=> /#{sec_group_name}/)
       end
 
       def user_rights_link user_name
-        content.a(:href => /editUserRights.do/, :text=> /#{user_name}/)
+        content.a(:text=> /#{user_name}/)
         #content.a(:text=> '#{user_name}')
       end
 
