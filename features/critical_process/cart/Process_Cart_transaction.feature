@@ -1,5 +1,5 @@
 @crit_proc
-Feature: Create a new Cart
+Feature: Process Cart transaction
 
 #  Background:
 #    Given I am logged into eTap
