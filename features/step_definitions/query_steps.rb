@@ -331,7 +331,7 @@ Then (/^the query category '([^']*)' does not exist/) do |cat|
 end
 
 Then (/^the query '([^']*)' does not exist in the '([^']*)' category/) do |query_name, cat|
-  query_does_not_exist query_name, cat
+  query_does_not_exist_in_category query_name, cat
 end
 
 def query_does_not_exist_in_category query_name, cat
