@@ -50,9 +50,10 @@ And(/^I delete the existing transactions in the journal$/) do
       step "I click Delete on the split transaction page"
     end
 
-    # if(pledge_link_present?)
-    #   step ""
-    # end
+    if(gift.pledge_link_present?)
+      step "I click on the Pledge listed in the journal"
+      step "I click Delete on the transaction page"
+    end
   end
 
   sleep 1
@@ -69,10 +70,10 @@ And(/^I click Delete on the soft credit page$/) do
   gift.journal_soft_credit_delete_click
 end
 
-# And(/^I click on the Pledge listed in the journal$/) do
-#   gift = Giving::GiftPledge.new
-#   gift.journal_pledge_click
-# end
+And(/^I click on the Pledge listed in the journal$/) do
+  gift = Giving::GiftPledge.new
+  gift.journal_pledge_click
+end
 
 And(/^I click Register on the live fundraiser page$/) do
   fund = Management::Fundraisers.new()
