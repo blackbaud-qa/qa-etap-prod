@@ -226,6 +226,14 @@ module Cukesetaptesting
       keyword(:journal_page_soft_credit) {content.a(:text, 'Soft Credit')}
       keyword(:journal_soft_credit_delete) {content.button(:value,'Delete')}
 
+      keyword(:select_auto_process_option) {content.div(:id, 'recurringGiftScheduleFields').radio(:value, '1')}
+      keyword(:rgs_installment_amount) {content.text_field(:id, 'rgsia')}
+      keyword(:select_rgs_frequency_value) {content.select(:name, 'frequency')}
+      keyword(:transaction_processor_vehicle) {content.div(:id, 'creditCardFields').div(:class, 'formLabelRequired')}
+      keyword(:transaction_date_value)  {content.div(:class, 'calendarPopup').text_field(:name, 'date')}
+
+
+
       def popupSearch
         content.iframe(:id, 'popupFrame') #.when_present
         # when_present was necessary at one point to get the iframe to work but it doesn't look like it's needed now.
@@ -252,6 +260,14 @@ module Cukesetaptesting
         content.div(:id,'userDefinedFields2').link(:text, udf + ':')
       end
 
+      def account_header_link_click(link)
+        content.div(:id, 'topMenu').a(:text, link)
+      end
+
+      def journal_entry_click_link(type)
+        content.a(:text, type)
+
+      end
 
     end
   end
