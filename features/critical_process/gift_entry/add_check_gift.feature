@@ -7,6 +7,7 @@ Feature: Adding a gift with payment type of check
     And I press Enter on the keyboard
     And I click on 'Jon Snow' in the search results
     And I click Journal
+    And I delete the existing transactions in the journal
     And select Gift/Pledge from the Add New... drop down menu
     And set the date field to '11/30/2090'
     And set the Received Amount field to '10.00'
