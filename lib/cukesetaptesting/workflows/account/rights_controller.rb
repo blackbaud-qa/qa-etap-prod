@@ -5,7 +5,7 @@ module Cukesetaptesting
       @view = RightsView
 
       def rights_group_click rights_group
-        (@view.rights_group rights_group).when_present.set
+        (@view.rights_group rights_group).when_present.click
       end
     end
   end

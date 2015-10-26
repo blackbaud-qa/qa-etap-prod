@@ -4,7 +4,7 @@ module Cukesetaptesting
       keyword(:keyword_name)  { browser.text_field(:id, 'element_id') }
 
       def rights_group group_name
-        content.label(:text => /#{group_name}/)
+        content.label(:text => /#{group_name}/).radio
       end
 
       def home(model)
