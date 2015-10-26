@@ -322,7 +322,8 @@ module Cukesetaptesting
       end
 
       def account_click(account)
-        @view.content.a(:text, account).when_present.click
+        @view.content.table(:class,'etapReportTable').wait_until_present
+        @view.content.table(:class,'etapReportTable').a(:text, account).when_present.click
       end
 
       def journal_page_gift_click
