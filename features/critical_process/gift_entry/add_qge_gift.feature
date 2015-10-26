@@ -3,6 +3,11 @@ Feature: Adding a gift through quick gift entry
 
   Scenario: Add a gift through quick gift entry, searching by account name
     Given I am logged into eTap
+    When I type 'Jon Snow' into the dynamic search field
+    And I press Enter on the keyboard
+    And I click on 'Jon Snow' in the search results
+    And I click Journal
+    And I delete the existing transactions in the journal
     When I click Giving on the main menu
     And I click Search for an Account
     And type 'Jon Snow' into the search field in popup

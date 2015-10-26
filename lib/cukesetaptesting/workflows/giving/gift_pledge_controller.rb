@@ -343,6 +343,10 @@ module Cukesetaptesting
         # end
       end
 
+      # def journal_pledge_click
+      #   @view.journal_pledge.when_present.click
+      # end
+
       def journal_gift_non_deductible_amount
         @view.non_deductible_field.when_present.value
       end
@@ -486,6 +490,14 @@ module Cukesetaptesting
       def soft_credit_link_present?
         return @view.journal_page_soft_credit.present?
       end
+
+      def split_transaction_link_present?
+        return @view.journal_split_transaction_click.present?
+      end
+
+      # def pledge_link_present?
+      #   return @view.journal_pledge.present?
+      # end
 
       def segment_one_check_number
         @view.segment_one_check_number_value.when_present.value

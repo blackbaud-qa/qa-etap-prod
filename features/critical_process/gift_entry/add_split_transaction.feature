@@ -7,6 +7,7 @@ Feature: Adding split transactions
     And I press Enter on the keyboard
     And I click on 'Jon Snow' in the search results
     And I click Journal
+    And I delete the existing transactions in the journal
     And select Split Transaction from the Add New... drop down menu
     And set the date to '7/30/2090'
     And set the Received Amount Field to '200.00'
