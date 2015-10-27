@@ -17,6 +17,7 @@ module Cukesetaptesting
       end
 
       def no_home_page_photo?
+        sleep 3
         @view.no_home_page_photo_image.exists?
       end
 
@@ -37,14 +38,12 @@ module Cukesetaptesting
        @view.picture_tile_link_click(link).when_present.click
       end
 
-      def set_account_image_without_ampersand
-       @view.set_account_image_browse
-
+      def set_account_home_page_image(file)
+        @view.account_home_page_image.when_present.set(file)
       end
 
-      def set_account_image_with_ampersand
-        @view.set_account_image_browse
-
+      def account_image_upload
+        @view.account_image_upload_button.when_present.click
       end
 
     end

@@ -608,13 +608,32 @@ module Cukesetaptesting
       end
 
       def recurring_gift_message?(message)
-        @view.transaction_processor_vehicle.when_present.text.include? message
+        @view.processed_transaction_message.when_present.text.include? message
       end
 
       def verify_transaction_date_value
         @view.transaction_date_value.wait_until_present
         temp = Date.parse @view.transaction_date_value.value
         return temp.strftime('%x')
+      end
+
+      def my_organization_click
+        @view.my_organization_link.when_present.click
+      end
+
+      def ecommerce_processor(value)
+        @view.ecommerce_processor_link(value).when_present.click
+      end
+
+      def verify_eft_enabled
+          if @view.eft_enabled_yes.when_present.set? ==true
+          then @view.click_save_button.when_present.click
+        else
+            if @view.eft_enabled_yes.when_present.set? ==false
+            then @view.eft_enabled_yes.when_present.set
+            @view.click_save_button.when_present.click
+            end
+          end
       end
 
   end

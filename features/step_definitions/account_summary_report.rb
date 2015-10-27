@@ -18,12 +18,14 @@ And (/^I click '([^']*)' in the Picture Tile/) do |link|
   run_report.picture_tile_link(link)
 end
 
-And (/^I set the Account Image to one without an & in the name/) do
+And (/^I set the Account Image to one without an ampersand in the name/) do
   run_report = Reports::Standardreports.new
-  run_report.set_account_image_without_ampersand
+  run_report.set_account_home_page_image(Watirmark::Configuration.instance.account_photo_no_ampersand)
+  run_report.account_image_upload
 end
 
-And (/^I set the Account Image to one with an & in the name/) do
+And (/^I set the Account Image to one with an ampersand in the name/) do
   run_report = Reports::Standardreports.new
-  run_report.set_account_image_with_ampersand
+  run_report.set_account_home_page_image(Watirmark::Configuration.instance.account_photo_yes_ampersand)
+  run_report.account_image_upload
 end

@@ -32,6 +32,7 @@ module Cukesetaptesting
       end
 
       def delete_query_category_click(category)
+        # @view.click_and_confirm_alert(@view.delete_query_category(category).when_present.click)
         @view.delete_query_category(category).when_present.click
       end
 
@@ -456,6 +457,47 @@ module Cukesetaptesting
 
       def gala_contact
         @view.gala_contact.when_present.click
+      end
+
+      def mark_query_as_favorite
+        @view.favorite_query.when_present.set
+      end
+
+      def set_query_type_static
+        @view.change_query_type.when_present.click
+        @view.query_type_static.when_present.set
+        @view.query_type_continue.when_present.click
+      end
+
+      def queries_menu_tab
+        @view.queries_menu_tab_click.when_present.click
+      end
+
+      def favorite_query_link(name)
+        @view.favorite_query_link_click(name).when_present.click
+      end
+
+      def edit_custom_query_page
+        # @view.set_query_name.text.include? name
+        @view.set_query_name.when_present.value
+      end
+
+      def query_starting_criteria_category(value)
+        @view.set_query_starting_criteria_category.when_present.select value
+      end
+
+      def query_starting_criteria_query(value)
+        @view.set_query_starting_criteria_query.when_present.select value
+      end
+
+      def query_preview_on_screen(value)
+        @view.query_preview_on_screen_title.text.include? value
+      end
+
+      def set_query_type_dynamic
+        @view.change_query_type.when_present.click
+        @view.query_type_dynamic.when_present.set
+        @view.query_type_continue.when_present.click
       end
 
     end

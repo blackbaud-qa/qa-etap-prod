@@ -42,3 +42,28 @@ And(/^the date field on the transaction screen should be populated with Today/) 
   gift = Giving::GiftPledge.new
   expect(gift.verify_transaction_date_value).to eq(Date.today.strftime('%x'))
 end
+
+And(/^I click My Organization/) do
+  rgs = Giving::GiftPledge.new
+  rgs.my_organization_click
+end
+
+And(/^I click on the '([^']*)' processor/) do |value|
+  rgs = Giving::GiftPledge.new
+  rgs.ecommerce_processor(value)
+end
+
+And(/^I verify that the Supports EFT checkbox is marked/) do
+  rgs = Giving::GiftPledge.new
+  rgs.verify_eft_enabled
+end
+
+And(/^I set the Routing Number to '([^']*)'/) do |value|
+  rgs = Giving::GiftPledge.new(:eft_routing_number=>value)
+  rgs.create
+end
+
+And(/^I set the Account Number to '([^']*)'/) do |value|
+  rgs = Giving::GiftPledge.new(:eft_account_number=>value)
+  rgs.create
+end

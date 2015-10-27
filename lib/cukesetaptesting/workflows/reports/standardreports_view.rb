@@ -9,8 +9,10 @@ module Cukesetaptesting
       keyword(:show_recognition_info_checkbox) {content.checkbox(:name, 'showingRecognition')}
       keyword(:limit_journal_checkbox) {content.checkbox(:name, 'limitJournalEntries')}
       keyword(:account_summary_submit_button) {content.button(:value, 'Submit')}
-      keyword(:no_home_page_photo_image) {content.div(:id, 'tile2').div(:id, 'asyncTileLoader2').img(:src, '/prod/images/no-photo.png')}
-      keyword(:account_summary_report_name) {content.div(:id, 'etapreporttag4_outerdiv').div(:class, 'row').div(:class, 'singleCell')}
+      keyword(:no_home_page_photo_image) {content.img(:src, '/prod/images/no-photo.png')}
+      keyword(:account_summary_report_name) {content.div(:class=>'singleCell', :index=>0)}
+      keyword(:account_home_page_image) {content.file_field(:id=>'pictureFile')}
+      keyword(:account_image_upload_button) {content.button(:name=>'submitButton')}
 
       def picture_tile_link_click link
         content.div(:id, 'tile2').a(:text, link)
