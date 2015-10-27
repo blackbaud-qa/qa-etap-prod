@@ -56,6 +56,7 @@ And (/^I should see '([^']*)' on the full Campaign Performance report/) do |mess
 end
 
 Then (/^I should see '([^']*)' on the Campaign Performance tile/) do |message|
+  sleep 3
   dashboard = Home::Homepage.new
   expect(dashboard.camp_perform_date_range_description? message).to eq(true)
 end
