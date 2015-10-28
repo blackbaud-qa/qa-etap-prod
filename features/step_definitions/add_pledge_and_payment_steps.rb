@@ -109,6 +109,7 @@ Then (/^I should see the message '([^']*)' on the journal page/) do |message|
 end
 
 And (/^I mark the checkbox next to Copy Pledge Defined Fields on Future Payments/) do
+  sleep 1
   gift = Giving::GiftPledge.new
   gift.copy_pledge_udfs_click
 end

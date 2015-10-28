@@ -339,6 +339,7 @@ And(/^I click Account Type on the UDF page/) do
 end
 
 And(/^I click Field Attributes/) do
+  sleep 1
   accounts = Account::AddAccount.new
   accounts.field_attributes
 end
