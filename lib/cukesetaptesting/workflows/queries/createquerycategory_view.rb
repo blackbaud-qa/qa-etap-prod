@@ -54,6 +54,18 @@ module Cukesetaptesting
       keyword(:golf_outing_discussion_contact) {content.a(:text, 'Golf Outing Discussion')}
       keyword(:gala_contact) {content.a(:text, 'Called to Discuss Gala')}
 
+      keyword(:favorite_query) {content.checkbox(:id, 'favorite')}
+      keyword(:change_query_type) {content.a(:href, 'javascript:openDynamicStaticWindow()')}
+      keyword(:query_type_static) {content.radio(:id, 'modalStatic')}
+      keyword(:query_type_continue) {content.button(:value, 'Continue')}
+      keyword(:query_account_name) {content.text_field(:id, 'TestEntityRoleForNamesData.values')}
+      keyword(:queries_menu_tab_click) {content.div(:id, 'menuBottomBar').li(:id, 'queriesTab').img(:class, 'menuTabButton')}
+      keyword(:set_query_starting_criteria_category) {content.select(:id, 'select.query.category.1')}
+      keyword(:set_query_starting_criteria_query) {content.select(:id, 'select.query.1')}
+      keyword(:query_preview_on_screen_title) {content.div(:class, 'pageSubtitle')}
+      keyword(:query_type_dynamic) {content.radio(:id, 'modalDynamic')}
+
+
       def string_exists_on_page?(query_string)
         content.link(:text => query_string).exists?
       end
@@ -212,6 +224,11 @@ module Cukesetaptesting
       def checkbox_selector_for_cart(name, value)
         content.checkbox(:name, name).parent.parent.parent.label(:text, value).parent.parent.checkbox
       end
+
+      def favorite_query_link_click(name)
+        content.div(:id, 'queryFavoritesSection').a(:text, name)
+      end
+
 
     end
   end

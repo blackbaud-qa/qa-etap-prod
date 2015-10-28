@@ -227,6 +227,18 @@ module Cukesetaptesting
       keyword(:journal_pledge) {content.a(:text,'Pledge')}
       keyword(:journal_soft_credit_delete) {content.button(:value,'Delete')}
 
+      keyword(:select_auto_process_option) {content.div(:id, 'recurringGiftScheduleFields').radio(:value, '1')}
+      keyword(:rgs_installment_amount) {content.text_field(:id, 'rgsia')}
+      keyword(:select_rgs_frequency_value) {content.select(:name, 'frequency')}
+      keyword(:processed_transaction_message) {content.div(:class, 'formLabelRequired')}
+      keyword(:transaction_date_value)  {content.div(:class, 'calendarPopup').text_field(:name, 'date')}
+      keyword(:my_organization_link) {content.a(:href, 'editOrganization.do')}
+      keyword(:eft_enabled_yes) {content.checkbox(:name, 'eftSupported')}
+      keyword(:click_save_button) {content.button(:name, 'saveButton')}
+      keyword(:eft_routing_number) {content.text_field(:name, 'eftBankRoutingNumber')}
+      keyword(:eft_account_number) {content.text_field(:name, 'eftAccountNumber')}
+
+
       def popupSearch
         content.iframe(:id, 'popupFrame') #.when_present
         # when_present was necessary at one point to get the iframe to work but it doesn't look like it's needed now.
@@ -253,6 +265,17 @@ module Cukesetaptesting
         content.div(:id,'userDefinedFields2').link(:text, udf + ':')
       end
 
+      def account_header_link_click(link)
+        content.div(:id, 'topMenu').a(:text, link)
+      end
+
+      def journal_entry_click_link(type)
+        content.a(:text, type)
+      end
+
+      def ecommerce_processor_link(value)
+        content.a(:text, value)
+      end
 
     end
   end

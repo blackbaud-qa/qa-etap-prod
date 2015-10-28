@@ -147,7 +147,7 @@ module Cukesetaptesting
       def click_save_for_error
         # browser.after_hooks.without do |browser|
         browser.without_checkers do
-          @view.save_and_button.when_present.click
+          @view.click_and_confirm_alert(@view.save_and_button.when_present.click)
         end
       end
 
@@ -591,6 +591,52 @@ module Cukesetaptesting
         @view.edit_segment_value.when_present.send_keys segments
       end
 
+      def account_header_link(link)
+        @view.account_header_link_click(link).when_present.click
       end
+
+      def select_auto_process
+        @view.select_auto_process_option.when_present.set
+      end
+
+      def select_rgs_frequency(value)
+        @view.select_rgs_frequency_value.when_present.select (value)
+      end
+
+      def journal_entry_click(type)
+        @view.journal_entry_click_link(type).when_present.click
+      end
+
+      def recurring_gift_message?(message)
+        @view.processed_transaction_message.when_present.text.include? message
+      end
+
+      def verify_transaction_date_value
+        @view.transaction_date_value.wait_until_present
+        temp = Date.parse @view.transaction_date_value.value
+        return temp.strftime('%x')
+      end
+
+      def my_organization_click
+        @view.my_organization_link.when_present.click
+      end
+
+      def ecommerce_processor(value)
+        @view.ecommerce_processor_link(value).when_present.click
+      end
+
+      def verify_eft_enabled
+          if @view.eft_enabled_yes.when_present.set? ==true
+          then @view.click_save_button.when_present.click
+        else
+            if @view.eft_enabled_yes.when_present.set? ==false
+            then @view.eft_enabled_yes.when_present.set
+            @view.click_save_button.when_present.click
+            end
+          end
+      end
+
+  end
   end
 end
+
