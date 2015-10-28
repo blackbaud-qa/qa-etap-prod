@@ -315,6 +315,11 @@ Then (/^I should see '([^']*)' in the query results/) do |name|
   expect(query.query_preview_results(name)).to eq(true)
 end
 
+Then (/^I should not see '([^']*)' in the query results/) do |name|
+  query = Queries::Createquerycategory.new
+  expect(query.query_preview_results(name)).to eq(false)
+end
+
 Then (/^the query category '([^']*)' does not exist/) do |cat|
   query = Queries::Createquerycategory.new
   step "I am logged into eTap"
@@ -326,6 +331,10 @@ Then (/^the query category '([^']*)' does not exist/) do |cat|
 end
 
 Then (/^the query '([^']*)' does not exist in the '([^']*)' category/) do |query_name, cat|
+  query_does_not_exist_in_category query_name, cat
+end
+
+def query_does_not_exist_in_category query_name, cat
   query = Queries::Createquerycategory.new
   step "I click Queries on the main menu"
   step "I click on the '#{cat}' category"
@@ -334,6 +343,14 @@ Then (/^the query '([^']*)' does not exist in the '([^']*)' category/) do |query
     query.delete_query_click query_name
     query.delete_query_category_yes_click
   end
+end
+
+def query_exists_in_category? query_name, cat
+  query = Queries::Createquerycategory.new
+  step "I click Queries on the main menu"
+  step "I click on the '#{cat}' category"
+
+  query.string_exists_on_page?(query_name)
 end
 
 Then (/^a query category should exist called '([^']*)'/) do |cat|
@@ -371,25 +388,32 @@ Then (/^a query '([^']*)' has been created in the '([^']*)' category/) do |query
 end
 
 Then (/^a query '([^']*)' for name '([^']*)' has been created/) do |query_name, account_name|
-  step "I click on the 'Base' category"
-  step "I click 'New Query' on the Edit Query Category page"
-  step %Q[I set the Name to '#{query_name}' on the Create a New Query page]
-  step "I set the data return type to 'Accounts' on the Create a New Query page"
-  step "I set the Available Fields category to 'Account' on the Create a New Query page"
-  step "I click on 'Account Name' under Available Fields on the Create a New Query page"
-  step "I set the inputs with 'values' with an optional 'TestEntityRoleForNamesData' with '#{account_name}' for type requiredTextValues"
-  step "I click Save And 'Preview'"
+  if (not query_exists_in_category? query_name, 'Base')
+    step "I click Queries on the main menu"
+    step "I click on the 'Base' category"
+    step "I click 'New Query' on the Edit Query Category page"
+    step %Q[I set the Name to '#{query_name}' on the Create a New Query page]
+    step "I set the data return type to 'Accounts' on the Create a New Query page"
+    step "I set the Available Fields category to 'Account' on the Create a New Query page"
+    step "I click on 'Account Name' under Available Fields on the Create a New Query page"
+    step "I set the inputs with 'values' with an optional 'TestEntityRoleForNamesData' with '#{account_name}' for type requiredTextValues"
+    step "I click Save And 'Preview'"
+  end
 end
 
 Then (/^account security query '([^']*)' for name '([^']*)' has been created/) do |query_name, account_name|
-  step "I click on the 'eTapestry Security' category"
-  step "I click 'New Query' on the Edit Query Category page"
-  step %Q[I set the Name to '#{query_name}' on the Create a New Query page]
-  step "I set the data return type to 'Accounts' on the Create a New Query page"
-  step "I set the Available Fields category to 'Account' on the Create a New Query page"
-  step "I click on 'Account Name' under Available Fields on the Create a New Query page"
-  step "I set the inputs with 'values' with an optional 'TestEntityRoleForNamesData' with '#{account_name}' for type requiredTextValues"
-  step "I click Save And 'Preview'"
+  if (not query_exists_in_category? query_name, 'eTapestry Security')
+    step "I click Queries on the main menu"
+    step "I click on the 'eTapestry Security' category"
+    step "I click 'New Query' on the Edit Query Category page"
+    step %Q[I set the Name to '#{query_name}' on the Create a New Query page]
+    step "I set the data return type to 'Accounts' on the Create a New Query page"
+    step "I set the Available Fields category to 'Account' on the Create a New Query page"
+    step "I click on 'Account Name' under Available Fields on the Create a New Query page"
+    step "I set the inputs with 'values' with an optional 'TestEntityRoleForNamesData' with '#{account_name}' for type requiredTextValues"
+    step "I click Save And 'Preview'"
+  end
+
 end
 
 And (/^a specific query 'Donations made in January 2015' has been created in the 'Critical Process Testing' category/) do

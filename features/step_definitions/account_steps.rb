@@ -231,6 +231,7 @@ When (/^I create user '([^']*)' with password '([^']*)'$/) do |user_name, passwo
 
 
   account.set_role_checkbox('user',true)
+  account.set_role_checkbox('constituent',false)
   account.set_login_id user_name
   account.set_user_password password #user_name
   account.set_user_password_confirm password #user_name
@@ -306,7 +307,7 @@ And(/^I set the security group queries to ([^']*), ([^']*), ([^']*), ([^']*)$/) 
   rights.set_query_dropdown 'journalUpdateQuery', journal_entry_update_query
 end
 
-And(/^I (?:grant|deny) all query permissions$/) do |op|
+And(/^I (grant|deny)? all query permissions$/) do |op|
   rights = Management::SecurityGroups.new
   rights.set_grant_deny 'Account Read', op
   rights.set_grant_deny 'Account Update', op
@@ -314,7 +315,7 @@ And(/^I (?:grant|deny) all query permissions$/) do |op|
   rights.set_grant_deny 'Journal Update', op
 end
 
-And(/^I (?:grant|deny) permission ([^']*)$/) do |op, permission_name|
+And(/^I (grant|deny)? permission ([^']*)$/) do |op, permission_name|
   rights = Management::SecurityGroups.new
   rights.set_grant_deny permission_name, op
 
@@ -332,12 +333,11 @@ And(/^I save a security group$/) do
   rights.save_button_click
 end
 
-
-And(/^set '([^']*)' rights to non admin$/) do |user_name|
+And(/^set '([^']*)' rights to security group '([^']*)'$/) do |user_name, security_group|
   rights = Management::SecurityGroups.new
   rights.user_rights_link_click user_name
 
-  step %Q[I click the 'Default' security group]
+  step %Q[I click the '#{security_group}' security group]
   step %Q[click Save and Edit]
 end
 

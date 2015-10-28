@@ -147,7 +147,7 @@ module Cukesetaptesting
       def click_save_for_error
         # browser.after_hooks.without do |browser|
         browser.without_checkers do
-          @view.save_and_button.when_present.click
+          @view.click_and_confirm_alert(@view.save_and_button.when_present.click)
         end
       end
 
@@ -322,7 +322,8 @@ module Cukesetaptesting
       end
 
       def account_click(account)
-        @view.content.a(:text, account).when_present.click
+        @view.content.table(:class,'etapReportTable').wait_until_present
+        @view.content.table(:class,'etapReportTable').a(:text, account).when_present.click
       end
 
       def journal_page_gift_click
@@ -341,6 +342,10 @@ module Cukesetaptesting
         # rescue
         #   browser.alert.ok
         # end
+      end
+
+      def journal_pledge_click
+        @view.journal_pledge.when_present.click
       end
 
       def journal_gift_non_deductible_amount
@@ -487,6 +492,14 @@ module Cukesetaptesting
         return @view.journal_page_soft_credit.present?
       end
 
+      def split_transaction_link_present?
+        return @view.journal_split_transaction_click.present?
+      end
+
+      def pledge_link_present?
+        return @view.journal_pledge.present?
+      end
+
       def segment_one_check_number
         @view.segment_one_check_number_value.when_present.value
       end
@@ -578,6 +591,52 @@ module Cukesetaptesting
         @view.edit_segment_value.when_present.send_keys segments
       end
 
+      def account_header_link(link)
+        @view.account_header_link_click(link).when_present.click
       end
+
+      def select_auto_process
+        @view.select_auto_process_option.when_present.set
+      end
+
+      def select_rgs_frequency(value)
+        @view.select_rgs_frequency_value.when_present.select (value)
+      end
+
+      def journal_entry_click(type)
+        @view.journal_entry_click_link(type).when_present.click
+      end
+
+      def recurring_gift_message?(message)
+        @view.processed_transaction_message.when_present.text.include? message
+      end
+
+      def verify_transaction_date_value
+        @view.transaction_date_value.wait_until_present
+        temp = Date.parse @view.transaction_date_value.value
+        return temp.strftime('%x')
+      end
+
+      def my_organization_click
+        @view.my_organization_link.when_present.click
+      end
+
+      def ecommerce_processor(value)
+        @view.ecommerce_processor_link(value).when_present.click
+      end
+
+      def verify_eft_enabled
+          if @view.eft_enabled_yes.when_present.set? ==true
+          then @view.click_save_button.when_present.click
+        else
+            if @view.eft_enabled_yes.when_present.set? ==false
+            then @view.eft_enabled_yes.when_present.set
+            @view.click_save_button.when_present.click
+            end
+          end
+      end
+
+  end
   end
 end
+

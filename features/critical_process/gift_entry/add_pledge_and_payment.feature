@@ -7,6 +7,7 @@ Feature: Testing payments and pledges
     And I press Enter on the keyboard
     And I click on 'Jon Snow' in the search results
     And I click Journal
+    And I delete the existing transactions in the journal
     And I select 'Gift/Pledge' from the Add New... drop down menu
     And I set the date to Today on the new pledge page
     And I set the Pledged Amount to '240'

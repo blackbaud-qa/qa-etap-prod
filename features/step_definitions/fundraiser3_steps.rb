@@ -25,6 +25,41 @@ When(/^I delete existing data for '([^']*)'$/) do |name|
   end
 end
 
+And(/^I delete the existing transactions in the journal$/) do
+
+  count = 0
+  gift = Giving::GiftPledge.new
+  while (!(gift.journal_entry_exists? "No Journal Entries Found") && (count<10))
+    count += 1
+
+    if (gift.gift_link_present?)
+      step "I click on the Gift listed in the journal"
+      step "I click Delete on the transaction page"
+      # step "I should close the javascript popup"
+
+    end
+
+    if (gift.soft_credit_link_present?)
+      step "I click on the Soft Credit listed in the journal"
+      step "I click Delete on the soft credit page"
+      # step "I should close the javascript popup"
+    end
+
+    if(gift.split_transaction_link_present?)
+      step "I click on the split transaction in the journal"
+      step "I click Delete on the split transaction page"
+    end
+
+    if(gift.pledge_link_present?)
+      step "I click on the Pledge listed in the journal"
+      step "I click Delete on the transaction page"
+    end
+  end
+
+  sleep 1
+
+end
+
 And(/^I click on the Soft Credit listed in the journal$/) do
   gift = Giving::GiftPledge.new
   gift.journal_soft_credit_gift_click
@@ -33,6 +68,11 @@ end
 And(/^I click Delete on the soft credit page$/) do
   gift = Giving::GiftPledge.new
   gift.journal_soft_credit_delete_click
+end
+
+And(/^I click on the Pledge listed in the journal$/) do
+  gift = Giving::GiftPledge.new
+  gift.journal_pledge_click
 end
 
 And(/^I click Register on the live fundraiser page$/) do

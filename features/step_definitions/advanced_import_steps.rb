@@ -82,11 +82,13 @@ And(/^I should see '([^']*)' listed as a possible duplicate$/) do |name|
 end
 
 Then(/^I should see the Import Summary page$/) do
+  sleep 2
   import = Giving::Imports.new()
   expect(import.on_import_summary_page?).to eq(true)
 end
 
 And(/^I should see '([^']*)' on the Import Summary page$/) do |text|
+  sleep 1
   import = Giving::Imports.new()
   expect(import.import_summary_contains? text).to eq(true)
 end
