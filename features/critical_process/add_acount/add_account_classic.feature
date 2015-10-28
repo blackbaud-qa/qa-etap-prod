@@ -3,6 +3,7 @@ Feature: Add Account Classic View
 
   Scenario: Add new account - all fields populated
     Given I am logged into eTap
+    And I reset the required attribute for the next run
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set Name to 'John Doe' on the classic add account page
@@ -56,7 +57,8 @@ Feature: Add Account Classic View
     When I click Accounts
     And I type 'Doe' into the search field
     And I click Find
-    And I click on 'John Doe' on the accounts page
+    And I click on 'John Doe' in the search results
+#    And I click on 'John Doe' on the accounts page
     And I click on the account settings page on the accounts page
     And I click Delete Role on the Account Settings page
     And I click Yes on the Account Settings page
