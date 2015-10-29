@@ -13,18 +13,18 @@ Scenario: Create New Category
   And I click on eStore (Cart) on the management menu
   And I rename the existing category to prevent automation errors
   And I click on new Category on the cart page
-  And I name it 'Category 1' on create cart category
+  And I name it 'Automation Cat 1' on create cart category
   And I put in a description called 'Description' on create cart category
   And I click on Align Center on create cart category
   And I click on start date of today on create cart category
   And I select a file under Category Image on create cart category
   When I click on Save Category on create cart category
-  Then I should see the 'Category 1' listed on the cart page
+  Then I should see the 'Automation Cat 1' listed on the cart page
 
 Scenario: Create new Item
   Given I click on the Management drop down
   And I click on eStore (Cart) on the management menu
-  And I click on 'Category 1' on the cart page
+  And I click on 'Automation Cat 1' on the cart page
   And I click on new item under Tasks on the cart page
   And  I type 'Item 1' in the name field on the cart item page
   And I type 'Short description' in the short description field on the cart item page
@@ -52,7 +52,7 @@ Scenario: Create new Item
   And I type in 'test' in the display text on the cart item page
   And I click add on the cart item page
   And I click on Next on the cart item page
-  Then I should see 'Item 1' listed as an item under Category 1
+  Then I should see 'Item 1' listed as an item under Automation Cat 1
 
 Scenario: Edit Cart Preferences
   Given I click on the Management drop down

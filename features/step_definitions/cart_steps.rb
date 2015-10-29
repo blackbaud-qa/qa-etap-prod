@@ -6,8 +6,8 @@ end
 
 When(/^I rename the existing category to prevent automation errors/) do
   cart = Admin::Cart.new
-  if(cart.category_exists? 'Category 1')
-    cart.category_click('Category 1')
+  if(cart.category_exists? 'Automation Cat 1')
+    cart.category_click('Automation Cat 1')
     name = 'Category'+((0...8).map { (65 + rand(26)).chr }.join)
     step "I name it '#{name}' on create cart category"
     step "I click on Save Category on create cart category"
@@ -285,7 +285,7 @@ Then(/^I should see the '([^']*)' listed on the cart page$/) do |name|
   expect(cart.category_exists?(name)).to eq(true)
 end
 
-Then(/^I should see '([^']*)' listed as an item under Category 1/) do |name|
+Then(/^I should see '([^']*)' listed as an item under Automation Cat 1/) do |name|
   cart = Admin::Cart.new()
   expect(cart.category_item_exists?(name)).to eq(true)
 end

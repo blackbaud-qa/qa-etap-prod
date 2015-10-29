@@ -11,8 +11,8 @@ Feature: Process Cart transaction
   And I click on eStore (Cart) on the management menu
   And I click on View Online Cart
   And I switch to the new tab in my browser
-  And I search for 'Category 1' on the live cart page
-  And I click View This Category under 'Category 1' on the live cart page
+  And I search for 'Automation Cat 1' on the live cart page
+  And I click View This Category under 'Automation Cat 1' on the live cart page
   And I click on View This Item under 'Item 1' on the live cart page
   And I click on Add item to Cart on the live cart page
   And I click on Checkout on the live cart page
