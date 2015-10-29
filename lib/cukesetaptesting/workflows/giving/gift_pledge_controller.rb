@@ -147,7 +147,8 @@ module Cukesetaptesting
       def click_save_for_error
         # browser.after_hooks.without do |browser|
         browser.without_checkers do
-          @view.click_and_confirm_alert(@view.save_and_button.when_present.click)
+          @view.save_and_button.when_present.click
+          # @view.click_and_confirm_alert(@view.save_and_button)
         end
       end
 
