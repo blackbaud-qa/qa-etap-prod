@@ -381,26 +381,6 @@ And (/^I set the Title to '([^']*)' on the add account page/) do |value|
   accounts.title_select(value)
 end
 
-And (/^I set the First Name to '([^']*)' on the add account page/) do |value|
-  accounts = Account::AddAccount.new(:new_names_first_name => value)
-  accounts.create
-end
-
-And (/^I set the Middle Name to '([^']*)' on the add account page/) do |value|
-  accounts = Account::AddAccount.new(:new_names_middle_name => value)
-  accounts.create
-end
-
-And (/^I set the Last Name to '([^']*)' on the add account page/) do |value|
-  accounts = Account::AddAccount.new(:new_names_last_name => value)
-  accounts.create
-end
-
-And (/^I set the Suffix to '([^']*)' on the add account page/) do |value|
-  accounts = Account::AddAccount.new(:new_names_suffix => value)
-  accounts.create
-end
-
 And (/^the Envelope Salutation should be set to '([^']*)'/) do |value|
   accounts = Account::AddAccount.new
   # expect(accounts.envelope_salutation value).to eq(true)
