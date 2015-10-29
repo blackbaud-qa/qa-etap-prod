@@ -300,6 +300,7 @@ And(/^I click Replace on the DIY editor page$/) do
 end
 
 Then(/the Donation Page should no longer show$/) do
+  sleep 3
   diy = DIY::Onlineforms.new()
   expect(diy.donation_page_present? 'Donation Page').to eq(false)
 end

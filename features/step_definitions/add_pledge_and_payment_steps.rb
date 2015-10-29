@@ -57,6 +57,7 @@ And (/^I click on the User Defined Fields section on the new payment page/) do
 end
 
 And (/^I click on the Gift Types section on the new payment page/) do
+  sleep 3
   gift = Giving::GiftPledge.new
   gift.gift_types_section_click
 end
