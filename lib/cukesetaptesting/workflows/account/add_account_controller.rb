@@ -314,8 +314,85 @@ module Cukesetaptesting
         @view.recognition_type_existing_account_value.when_present.text.include? value
       end
 
+      def change_country_link
+        @view.change_country_link.when_present.click
+      end
 
+      def set_country_persona_modal(value)
+        @view.set_country_persona_modal.when_present.select(value)
+      end
 
+      def save_country_selection
+        @view.save_country_selection.when_present.click
+      end
+
+      def suburb_persona_page
+        @view.persona_page_suburb.value
+      end
+
+      def merge_role
+        @view.merge_role.when_present.click
+      end
+
+      def change_all_replace_link
+        @view.change_all_replace_link.when_present.click
+      end
+
+      def suburb_existing_account_value
+        @view.suburb_existing_account_value.value
+      end
+
+      def find_account_page
+        @view.find_account_page.present?
+      end
+
+      def street_name_persona_page
+        @view.persona_page_street_name.value
+      end
+
+      def building_number_persona_page
+        @view.persona_page_building_number.value
+      end
+
+      def apt_number_persona_page
+        @view.persona_page_apt_number.value
+      end
+
+      def street_name_existing_account_value
+        @view.street_name_existing_account_value.value
+      end
+
+      def building_number_existing_account_value
+        @view.building_number_existing_account_value.value
+      end
+
+      def apt_number_existing_account_value
+        @view.apt_number_existing_account_value.value
+      end
+
+      def enable_country_persona_modal(value)
+        @view.enable_country_persona_modal.when_present.select(value)
+      end
+
+      def management_system_defined_fields
+        @view.management_system_defined_fields.when_present.click
+      end
+
+      def edit_country_codes
+        @view.edit_country_codes.when_present.click
+      end
+
+      def disable_country_code(value)
+        @view.disable_country_code(value).when_present.click
+      end
+
+      def save_and_finish_country_codes
+        @view.save_and_finish_country_codes.when_present.click
+      end
+
+      def system_defined_fields_page
+        @view.system_defined_fields_page.present?
+      end
 
       end
     end

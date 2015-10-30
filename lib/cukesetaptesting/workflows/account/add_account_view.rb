@@ -97,7 +97,31 @@ module Cukesetaptesting
       keyword(:recognition_type_existing_account_value) {content.span(:id, 'recognitionTypeDisplay')}
       keyword(:new_names_sort_name) {content.text_field(:id, 'sortKey')}
       keyword(:new_names_account_name) {content.text_field(:id, 'accountName')}
+      keyword(:change_country_link) {content.a(:id, 'changeCountryLink')}
+      keyword(:set_country_persona_modal) {content.select(:id, 'countrySelect')}
+      keyword(:save_country_selection) {content.input(:id, 'save')}
+      keyword(:persona_page_suburb) {content.text_field(:id, 'suburb')}
+      keyword(:merge_role) {content.input(:name, 'merge')}
+      keyword(:suburb_existing_account_value) {content.text_field(:id, 'suburb')}
+      keyword(:change_all_replace_link) {content.a(:href, "javascript:self.massAssign('replace')")}
+      keyword(:find_account_page) {content.div(:id, 'searchPage')}
+      keyword(:persona_page_street_name) {content.text_field(:id, 'streetName')}
+      keyword(:persona_page_building_number) {content.text_field(:id, 'buildingNumber')}
+      keyword(:persona_page_apt_number) {content.text_field(:id, 'apartmentNumber')}
+      keyword(:street_name_existing_account_value) {content.text_field(:id, 'streetName')}
+      keyword(:building_number_existing_account_value) {content.text_field(:id, 'buildingNumber')}
+      keyword(:apt_number_existing_account_value) {content.text_field(:id, 'apartmentNumber')}
+      keyword(:enable_country_persona_modal) {content.select(:name, 'disabledCountry')}
+      keyword(:management_system_defined_fields)  {content.div(:id,'managementPageContent').div(:id,'databaseContent').ul(:id,'homeQuickLinks').a(:href,'editUserDefinedFields.do?mode=SYSTEM')}
+      keyword(:edit_country_codes) {content.a(:text, 'Country Codes')}
 
+      keyword(:save_and_finish_country_codes) {content.input(:id, 'wizardNavigationButton_1_saveAndFinish')}
+      keyword(:system_defined_fields_page) {content.div(:id, 'userDefinedCategory')}
+
+
+      def disable_country_code country_code
+        content.link(:text, country_code).parent.parent.div(:class, 'actions').a(:class, 'enable')
+      end
 
 
       def edit_salutation_click_pencil(value)
