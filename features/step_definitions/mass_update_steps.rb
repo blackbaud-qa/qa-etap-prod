@@ -81,6 +81,7 @@ end
 And (/^I click on the '([^']*)' query/) do |query|
   mass = Admin::Massupdates.new
   mass.click_on_query(query)
+  sleep 2
 end
 
 Then (/^I should see the message '([^']*)' on the query preview screen/) do |message|
