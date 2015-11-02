@@ -406,3 +406,105 @@ And (/^I set the Account Name to '([^']*)' on the add account page/) do |value|
   accounts = Account::AddAccount.new(:new_names_account_name => value)
   accounts.create
 end
+
+And (/^I click Change Country on the Personas page/) do
+  accounts = Account::AddAccount.new
+  accounts.change_country_link
+end
+
+And (/I set the country to '([^']*)' in the Change Country modal on the Personas page/) do |value|
+  accounts = Account::AddAccount.new
+  accounts.set_country_persona_modal value
+end
+
+And (/^I click Continue in the Change Country modal on the Personas page/) do
+  accounts = Account::AddAccount.new
+  accounts.save_country_selection
+end
+
+And (/^I set Suburb to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:persona_page_suburb => value)
+  accounts.create
+end
+
+And (/^I click Merge Role on the account settings page/) do
+  accounts = Account::AddAccount.new
+  accounts.merge_role
+end
+
+And (/^I click Change All to Replace on the Merge Role page/) do
+  accounts = Account::AddAccount.new
+  accounts.change_all_replace_link
+end
+
+And (/^the Suburb should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.suburb_existing_account_value).to eq(value)
+end
+
+Then(/^I should be taken to the Find Account page/) do
+  accounts= Account::AddAccount.new
+  expect(accounts.find_account_page).to eq(true)
+end
+
+And (/^I set Street Name to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:persona_page_street_name => value)
+  accounts.create
+end
+
+And (/^I set Building Number to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:persona_page_building_number => value)
+  accounts.create
+end
+
+And (/^I set Apt Number to '([^']*)' on the add account page/) do |value|
+  accounts = Account::AddAccount.new(:persona_page_apt_number => value)
+  accounts.create
+end
+
+And (/^the Street Name should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.street_name_existing_account_value).to eq(value)
+end
+
+And (/^the Building Number should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.building_number_existing_account_value).to eq(value)
+end
+
+And (/^the Apt Number should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.apt_number_existing_account_value).to eq(value)
+end
+
+And (/^I select '([^']*)' in the Select a country to enable drop down/) do |value|
+  accounts = Account::AddAccount.new
+  accounts.enable_country_persona_modal value
+end
+
+And(/^I click System Defined Fields on the management menu/) do
+  sleep 1
+  accounts = Account::AddAccount.new
+  accounts.management_system_defined_fields
+end
+
+And(/^I click Country Codes on the system defined fields page/) do
+  accounts = Account::AddAccount.new
+  accounts.edit_country_codes
+end
+
+And (/^I click Enabled under the country code '([^']*)' to disable the value/) do |value|
+  accounts = Account::AddAccount.new
+  accounts.disable_country_code (value)
+end
+
+And(/^I click Save and Finish on the Country Codes page/) do
+  accounts = Account::AddAccount.new
+  accounts.save_and_finish_country_codes
+end
+
+And(/^I should be taken to the System Defined Fields page/) do
+  sleep 5
+  accounts= Account::AddAccount.new
+  expect(accounts.system_defined_fields_page).to eq(true)
+end

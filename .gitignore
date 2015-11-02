@@ -2,3 +2,4 @@
 *.idea
 *.lock
 reports/screenshots
+config.yml
