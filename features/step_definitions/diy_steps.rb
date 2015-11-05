@@ -318,6 +318,7 @@ And(/^I open a new tab in my browser$/) do
 end
 
 And(/^I switch to the new tab in my browser$/) do
+  sleep 2
   diy = DIY::Onlineforms.new()
   diy.switch_tab
 end

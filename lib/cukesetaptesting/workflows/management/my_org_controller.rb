@@ -6,7 +6,7 @@ module Cukesetaptesting
 
     def save_and_personas_click
       # browser.after_hooks.without do |browser|
-      browser.without_checkers do
+      @view.browser.without_checkers do
         @view.save_and_personas.when_present.click
       end
     rescue
