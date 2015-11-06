@@ -1,4 +1,4 @@
-@crit_proc
+@crit_proc2
 Feature: Run existing report
 
   Scenario: Run constituent address report

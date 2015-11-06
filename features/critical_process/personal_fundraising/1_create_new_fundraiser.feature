@@ -1,4 +1,4 @@
-@crit_proc
+@crit_proc2
 Feature: Creating a new fundraiser
 
   Background:

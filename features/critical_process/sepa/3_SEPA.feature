@@ -1,4 +1,4 @@
-@crit_proc
+@crit_proc2
 Feature: SEPA - 3 Export
 
   Background:

@@ -1,4 +1,4 @@
-@crit_proc
+@crit_proc2
 Feature: Edit Custom Report
 
   Scenario: Edit the custom report name
