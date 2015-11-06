@@ -3,7 +3,7 @@ Feature: Critical Process - General Navigation
   I want to run through general navigation during critical process testing
   In order to ensure users can access all areas of eTapestry
 
-  @crit_proc
+  @crit_proc2
   Scenario Outline: Role Icon Navigation
     #Given I see a list of constituents accounts on the find account screen
     Given I am logged into eTap
@@ -22,7 +22,7 @@ Feature: Critical Process - General Navigation
     | Account Settings  | Account Settings |
     | Defined Fields    | Defined Fields   |
 
-  @crit_proc
+  @crit_proc2
   Scenario Outline:  Menu Navigation
     Given I am logged into eTap
     When I click <menu option> on the main menu
@@ -38,7 +38,7 @@ Feature: Critical Process - General Navigation
     | Reports        | Report Categories        |
     | Management     | Management               |
 
-  @crit_proc
+  @crit_proc2
   Scenario Outline:  Home SubMenu Navigation
     Given I am logged into eTap
     And I click on the Home drop down
@@ -69,7 +69,7 @@ Feature: Critical Process - General Navigation
 #    | Give Feedback on Idea Bank  | 'https://etapestry.uservoice.com/forums/17015-etapestry-idea-bank'                                          |
 #    | Help                        | 'https://www.blackbaud.com/files/support/helpfiles/etapestry/etapestry/default.html'                        |
 
-  @crit_proc
+  @crit_proc2
   Scenario Outline:  Accounts SubMenu Navigation
     Given I am logged into eTap
     And I click on the Accounts drop down
@@ -81,7 +81,7 @@ Feature: Critical Process - General Navigation
     | Find an Account | Find Account   |
 #    | Add an Account  | New Account Page  |
 #
-  @crit_proc
+  @crit_proc2
   Scenario Outline:  Giving SubMenu Navigation
     Given I am logged into eTap
     And I click on the Giving drop down
@@ -102,7 +102,7 @@ Feature: Critical Process - General Navigation
     | Planned Giving Calcs    | Planned Giving Calculators page   |
     | Cultivation Tools       | Cultivation Tools page            |
 
-  @crit_proc
+  @crit_proc2
   Scenario Outline:  Communications SubMenu Navigation
     Given I am logged into eTap
     And I click on the Communications drop down
@@ -115,7 +115,7 @@ Feature: Critical Process - General Navigation
     | Add a New Category      | Create Correspondence category page |
     | Constant Contact        | eTapestry & Constant Contact page   |
 
-  @crit_proc
+  @crit_proc2
   Scenario Outline:  Queries SubMenu Navigation
     Given I am logged into eTap
     And I click on the Queries drop down
@@ -155,7 +155,7 @@ Feature: Critical Process - General Navigation
     | eTapestry Standard Reports   | eTapestry Standard Reports page  |
     | eTapestry Benchmark Reports  | eTapestry Benchmark Reports page |
 
-  @crit_proc
+  @crit_proc2
   Scenario Outline:  Management SubMenu Navigation
     Given I am logged into eTap
     And I click on the Management drop down
