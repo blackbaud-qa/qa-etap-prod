@@ -14,6 +14,7 @@ Feature: Testing payments and pledges
     And set the Fund to 'Unrestricted'
     And set the Campaign to 'Annual'
     And set the Approach to 'Direct Mail'
+    And I click on the Pledge Information section on the transaction page
     And I mark the checkbox next to Copy Pledge Defined Fields on Future Payments
     And I click Create Pledge Schedule on the new pledge page
     And I set the Frequency to 'Monthly (12)'

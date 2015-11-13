@@ -114,3 +114,8 @@ And (/^I mark the checkbox next to Copy Pledge Defined Fields on Future Payments
   gift = Giving::GiftPledge.new
   gift.copy_pledge_udfs_click
 end
+
+And (/^I click on the Pledge Information section on the transaction page/) do
+  gift = Giving::GiftPledge.new
+  gift.click_pledge_information
+end
