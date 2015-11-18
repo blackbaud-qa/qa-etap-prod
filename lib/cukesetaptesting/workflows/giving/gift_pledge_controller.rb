@@ -635,6 +635,11 @@ module Cukesetaptesting
           end
       end
 
+      def pledge_received_amount
+        @view.received_field.when_present.click
+      end
+
+
   end
   end
 end
