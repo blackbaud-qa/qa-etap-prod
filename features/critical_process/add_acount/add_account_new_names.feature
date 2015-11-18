@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Add Account in New Names database
 
   Scenario: Add new individual account - all fields populated

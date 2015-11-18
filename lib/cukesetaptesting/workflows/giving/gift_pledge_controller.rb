@@ -153,12 +153,10 @@ module Cukesetaptesting
       end
 
       def click_save_and
-        begin
         click_save_for_error
-        rescue
-          if(browser.alert.exists?)
-            browser.alert.ok
-          end
+        sleep 1
+        if(browser.alert.exists?)
+          browser.alert.ok
         end
       end
 

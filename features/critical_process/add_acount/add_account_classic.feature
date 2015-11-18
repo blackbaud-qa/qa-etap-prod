@@ -1,4 +1,3 @@
-@crit_proc
 Feature: Add Account Classic View
 
   Scenario: Add new account - all fields populated
