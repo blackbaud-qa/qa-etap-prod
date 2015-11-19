@@ -3,7 +3,6 @@ Feature: Add Account in New Names database
 
   Scenario: Add new individual account - all fields populated
     Given I am logged into eTap
-    And I reset the required attribute for the next run
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Individual' on the add account page
@@ -25,8 +24,7 @@ Feature: Add Account in New Names database
     And I set Web Page to 'www.google.com' on the classic add account page
     And I set Note to 'Do not call after 6pm' on the classic add account page
     And I set the UDF 'Company' to 'Blackbaud' on the classic add account page
-#TODO: Remove step that makes Account Type unrequired and make single select UDF step work
-#    And I set the single select UDF 'Account Type' to 'Individual' on the add account page
+    And I set the UDF 'Account Type' dropdown to 'Individual' on the classic add account page
     And I click Save And 'Go to Personas' on the add account page
     And I handle the duplicate report if necessary
     And the Address Lines should be set to '501 N Pennsylvania Parkway'
@@ -42,14 +40,12 @@ Feature: Add Account in New Names database
     And the Long Salutation should be set to 'Mr. Doe'
     And the Envelope Salutation should be set to 'Mr. John Doe, Jr.'
     And the 'Company' should be set to 'Blackbaud'
-    #TODO: Enable Account Type Check once the step above is working
-#    And I click on 'Defined Fields' in the account header
-#    And the 'Account Type' should be set to 'Individual'
+    And I click on 'Defined Fields' in the account header
+    And the 'Account Type' should be set to 'Individual'
     And I click on 'Account Settings' in the account header
-###   Could only get Name Format verification to work if we check the value number: Individual=1, Family=2, Business=3  ###
-    And the Name Format value should be set to '1'
+    And the Name Format value should be set to 'Individual'
     And the Title should be set to 'Mr.'
-    And the First Name should be set to 'John'1
+    And the First Name should be set to 'John'
     And the Middle Name should be set to 'I.'
     And the Last Name should be set to 'Doe'
     And the Suffix should be set to 'Jr.'
@@ -63,7 +59,6 @@ Feature: Add Account in New Names database
 
   Scenario: Missing Required Fields - Individual account
     Given I am logged into eTap
-    And I reset the required attribute for the next run
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Individual' on the add account page
@@ -87,7 +82,6 @@ Feature: Add Account in New Names database
 
   Scenario: Missing Required Fields - Family account
     Given I am logged into eTap
-    And I reset the required attribute for the next run
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Family' on the add account page
@@ -108,7 +102,6 @@ Feature: Add Account in New Names database
 
   Scenario: Missing Required Fields - Business account
     Given I am logged into eTap
-    And I reset the required attribute for the next run
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Business' on the add account page
@@ -129,7 +122,6 @@ Feature: Add Account in New Names database
 
   Scenario: Add new family account - all fields populated
     Given I am logged into eTap
-    And I reset the required attribute for the next run
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Family' on the add account page
@@ -144,8 +136,7 @@ Feature: Add Account in New Names database
     And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
     And I set Web Page to 'www.google.com' on the classic add account page
     And I set Note to 'Do not call after 6pm' on the classic add account page
-#TODO: Remove step that makes Account Type unrequired and make single select UDF step work
-#    And I set the single select UDF 'Account Type' to 'Individual' on the add account page
+    And I set the UDF 'Account Type' dropdown to 'Individual' on the classic add account page
     And I click Save And 'Go to Personas' on the add account page
     And the Address Lines should be set to '2115 Fern Gully Lane'
     And the City should be set to 'Indianapolis'
@@ -159,14 +150,13 @@ Feature: Add Account in New Names database
     And the Short Salutation should be set to 'Tom and Heather'
     And the Long Salutation should be set to 'The Anderson Family'
     And the Envelope Salutation should be set to 'The Anderson Family'
-    #TODO: Enable Account Type Check once the step above is working
-#    And I click on 'Defined Fields' in the account header
-#    And the 'Account Type' should be set to 'Individual'
+    And I click on 'Defined Fields' in the account header
+    And the 'Account Type' should be set to 'Individual'
     And I click on 'Account Settings' in the account header
-###   Could only get Name Format verification to work if we check the value number: Individual=1, Family=2, Business=3  ###
-    And the Name Format value should be set to '2'
+    And the Name Format value should be set to 'Family'
     And the Account Name should be set to 'The Anderson Family'
-    And the Sort Name should be set to 'Anderson Family, The'
+  ##  And the Sort Name should be set to 'Anderson Family, The'
+    And the Sort Name should be set to 'The Anderson Family'
     And the Recognition Name should be set to 'The Anderson Family'
     And the Recognition Type should be set to '(account name)'
     And I click Delete Role on the Account Settings page
@@ -176,7 +166,6 @@ Feature: Add Account in New Names database
 
   Scenario: Add new business account - all fields populated
     Given I am logged into eTap
-    And I reset the required attribute for the next run
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Business' on the add account page
@@ -191,8 +180,7 @@ Feature: Add Account in New Names database
     And I set County to 'Marion' on the classic add account page
     And I set Voice to '866-915-9465' on the classic add account page
     And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
-#TODO: Remove step that makes Account Type unrequired and make single select UDF step work
-#    And I set the single select UDF 'Account Type' to 'Individual' on the add account page
+    And I set the UDF 'Account Type' dropdown to 'Individual' on the classic add account page
     And I click Save And 'Go to Personas' on the add account page
     And the Address Lines should be set to '8415 Allison Pointe Blvd #100'
     And the City should be set to 'Indianapolis'
@@ -204,12 +192,10 @@ Feature: Add Account in New Names database
     And the Short Salutation should be set to 'Neil'
     And the Long Salutation should be set to 'Mr. Berman'
     And the Envelope Salutation should be set to 'Mr. Neil Berman'
-  #TODO: Enable Account Type Check once the step above is working
-#    And I click on 'Defined Fields' in the account header
-#    And the 'Account Type' should be set to 'Individual'
+    And I click on 'Defined Fields' in the account header
+    And the 'Account Type' should be set to 'Individual'
     And I click on 'Account Settings' in the account header
-###   Could only get Name Format verification to work if we check the value number: Individual=1, Family=2, Business=3  ###
-    And the Name Format value should be set to '3'
+    And the Name Format value should be set to 'Business'
     And the Account Name should be set to 'Delivra'
     And the Sort Name should be set to 'Delivra'
     And the Recognition Name should be set to 'Delivra'

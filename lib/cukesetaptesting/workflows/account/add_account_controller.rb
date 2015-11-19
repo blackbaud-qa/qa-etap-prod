@@ -256,10 +256,10 @@ module Cukesetaptesting
       end
 
       def click_save_and_account_page
-        @view.browser.send_keys :page_up
-        sleep 2
-        @view.browser.send_keys :page_up
-        sleep 2
+#        @view.browser.send_keys :page_up
+#        sleep 2
+#        @view.browser.send_keys :page_up
+#        sleep 2
         @view.save_and_button_account_page.when_present.click
         if (@view.browser.alert.exists?)
           @view.browser.alert.ok
@@ -275,7 +275,8 @@ module Cukesetaptesting
       end
 
       def name_format_existing_account
-        @view.name_format_select_value.value
+        @view.name_format_select_value.option(:selected => 'selected').text
+        #@view.name_format_select_value.value
       end
 
       def title_existing_account
@@ -393,7 +394,6 @@ module Cukesetaptesting
       def system_defined_fields_page
         @view.system_defined_fields_page.present?
       end
-
 
       end
     end
