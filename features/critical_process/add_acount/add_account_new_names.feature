@@ -11,9 +11,8 @@ Feature: Add Account in New Names database
     And I set the Middle Name to 'I.' on the add account page
     And I set the Last Name to 'Doe' on the add account page
     And I set the Suffix to 'Jr.' on the add account page
-#TODO: Update Short Salutation Check to 'Mack' once the following two steps have been added to scenario
-#    And I click the edit icon next to 'Short Salutation' on the add account page
-#    And I set the Short Salutation to 'Mack' on the add account page
+    And I click the edit icon next to 'Short Salutation' on the add account page
+    And I set the Short Salutation to 'Mack' on the add account page
     And I set Address Lines to '501 N Pennsylvania Parkway' on the classic add account page
     And I set City to 'Indianapolis' on the classic add account page
     And I set State to 'IN' on the classic add account page
@@ -36,7 +35,7 @@ Feature: Add Account in New Names database
     And the Email should be set to 'lance.moore@blackbaud.com'
     And the Web Page should be set to 'www.google.com'
     And the Note should be set to 'Do not call after 6pm'
-    And the Short Salutation should be set to 'John'
+    And the Short Salutation should be set to 'Mack'
     And the Long Salutation should be set to 'Mr. Doe'
     And the Envelope Salutation should be set to 'Mr. John Doe, Jr.'
     And the 'Company' should be set to 'Blackbaud'
