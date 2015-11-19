@@ -119,3 +119,8 @@ And (/^I click on the Pledge Information section on the transaction page/) do
   gift = Giving::GiftPledge.new
   gift.click_pledge_information
 end
+
+And (/^I click into the Received Amount field/) do
+  gift = Giving::GiftPledge.new
+  gift.pledge_received_amount
+end

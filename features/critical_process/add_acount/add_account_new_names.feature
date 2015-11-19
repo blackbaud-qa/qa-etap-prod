@@ -2,9 +2,9 @@
 Feature: Add Account in New Names database
 
   Scenario: Add new individual account - all fields populated
-    Given I log out of eTap
-    When I login into eTap with values 'Automationbot.us2', 'spicypancakes1'
-    And I click Accounts
+    Given I am logged into eTap
+    And I reset the required attribute for the next run
+    When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Individual' on the add account page
     And I set the Title to 'Mr.' on the add account page
@@ -25,7 +25,10 @@ Feature: Add Account in New Names database
     And I set Web Page to 'www.google.com' on the classic add account page
     And I set Note to 'Do not call after 6pm' on the classic add account page
     And I set the UDF 'Company' to 'Blackbaud' on the classic add account page
+#TODO: Remove step that makes Account Type unrequired and make single select UDF step work
+#    And I set the single select UDF 'Account Type' to 'Individual' on the add account page
     And I click Save And 'Go to Personas' on the add account page
+    And I handle the duplicate report if necessary
     And the Address Lines should be set to '501 N Pennsylvania Parkway'
     And the City should be set to 'Indianapolis'
     And the State should be set to 'IN'
@@ -39,6 +42,9 @@ Feature: Add Account in New Names database
     And the Long Salutation should be set to 'Mr. Doe'
     And the Envelope Salutation should be set to 'Mr. John Doe, Jr.'
     And the 'Company' should be set to 'Blackbaud'
+    #TODO: Enable Account Type Check once the step above is working
+#    And I click on 'Defined Fields' in the account header
+#    And the 'Account Type' should be set to 'Individual'
     And I click on 'Account Settings' in the account header
 ###   Could only get Name Format verification to work if we check the value number: Individual=1, Family=2, Business=3  ###
     And the Name Format value should be set to '1'
@@ -56,9 +62,9 @@ Feature: Add Account in New Names database
     Then I should see the message: 'Empty Search Criteria'
 
   Scenario: Missing Required Fields - Individual account
-    Given I log out of eTap
-    When I login into eTap with values 'Automationbot.us2', 'spicypancakes1'
-    And I click Accounts
+    Given I am logged into eTap
+    And I reset the required attribute for the next run
+    When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Individual' on the add account page
     And I set the Title to 'Mr.' on the add account page
@@ -80,9 +86,9 @@ Feature: Add Account in New Names database
 
 
   Scenario: Missing Required Fields - Family account
-    Given I log out of eTap
-    When I login into eTap with values 'Automationbot.us2', 'spicypancakes1'
-    And I click Accounts
+    Given I am logged into eTap
+    And I reset the required attribute for the next run
+    When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Family' on the add account page
     And I set the Sort Name to 'The Rusche Family' on the add account page
@@ -101,9 +107,9 @@ Feature: Add Account in New Names database
 
 
   Scenario: Missing Required Fields - Business account
-    Given I log out of eTap
-    When I login into eTap with values 'Automationbot.us2', 'spicypancakes1'
-    And I click Accounts
+    Given I am logged into eTap
+    And I reset the required attribute for the next run
+    When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Business' on the add account page
     And I set the Account Name to 'The Rusche Family' on the add account page
@@ -120,3 +126,94 @@ Feature: Add Account in New Names database
     And I set Phone to '318-219-4444' on the Advanced Find screen
     And I click Find
     Then I should see the message: 'No Results Found'
+
+  Scenario: Add new family account - all fields populated
+    Given I am logged into eTap
+    And I reset the required attribute for the next run
+    When I click Accounts
+    And I click on Add Account on the find account screen
+    And I set the Name Format to 'Family' on the add account page
+    And I set the Account Name to 'The Anderson Family' on the add account page
+    And I set the Short Salutation to 'Tom and Heather' on the add account page
+    And I set Address Lines to '2115 Fern Gully Lane' on the classic add account page
+    And I set City to 'Indianapolis' on the classic add account page
+    And I set State to 'IN' on the classic add account page
+    And I set Postal Code to '46253' on the classic add account page
+    And I set County to 'Marion' on the classic add account page
+    And I set Voice to '317-259-1411' on the classic add account page
+    And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
+    And I set Web Page to 'www.google.com' on the classic add account page
+    And I set Note to 'Do not call after 6pm' on the classic add account page
+#TODO: Remove step that makes Account Type unrequired and make single select UDF step work
+#    And I set the single select UDF 'Account Type' to 'Individual' on the add account page
+    And I click Save And 'Go to Personas' on the add account page
+    And the Address Lines should be set to '2115 Fern Gully Lane'
+    And the City should be set to 'Indianapolis'
+    And the State should be set to 'IN'
+    And the Postal Code should be set to '46253'
+    And the County should be set to 'Marion'
+    And the Voice should be set to '(317) 259-1411'
+    And the Email should be set to 'lance.moore@blackbaud.com'
+    And the Web Page should be set to 'www.google.com'
+    And the Note should be set to 'Do not call after 6pm'
+    And the Short Salutation should be set to 'Tom and Heather'
+    And the Long Salutation should be set to 'The Anderson Family'
+    And the Envelope Salutation should be set to 'The Anderson Family'
+    #TODO: Enable Account Type Check once the step above is working
+#    And I click on 'Defined Fields' in the account header
+#    And the 'Account Type' should be set to 'Individual'
+    And I click on 'Account Settings' in the account header
+###   Could only get Name Format verification to work if we check the value number: Individual=1, Family=2, Business=3  ###
+    And the Name Format value should be set to '2'
+    And the Account Name should be set to 'The Anderson Family'
+    And the Sort Name should be set to 'Anderson Family, The'
+    And the Recognition Name should be set to 'The Anderson Family'
+    And the Recognition Type should be set to '(account name)'
+    And I click Delete Role on the Account Settings page
+    And I click Yes on the Account Settings page
+    Then I should see the message: 'Empty Search Criteria'
+
+
+  Scenario: Add new business account - all fields populated
+    Given I am logged into eTap
+    And I reset the required attribute for the next run
+    When I click Accounts
+    And I click on Add Account on the find account screen
+    And I set the Name Format to 'Business' on the add account page
+    And I set the Account Name to 'Delivra' on the add account page
+    And I set the Short Salutation to 'Neil' on the add account page
+    And I set the Long Salutation to 'Mr. Berman' on the add account page
+    And I set the Envelope Salutation to 'Mr. Neil Berman' on the add account page
+    And I set Address Lines to '8415 Allison Pointe Blvd #100' on the classic add account page
+    And I set City to 'Indianapolis' on the classic add account page
+    And I set State to 'IN' on the classic add account page
+    And I set Postal Code to '46250' on the classic add account page
+    And I set County to 'Marion' on the classic add account page
+    And I set Voice to '866-915-9465' on the classic add account page
+    And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
+#TODO: Remove step that makes Account Type unrequired and make single select UDF step work
+#    And I set the single select UDF 'Account Type' to 'Individual' on the add account page
+    And I click Save And 'Go to Personas' on the add account page
+    And the Address Lines should be set to '8415 Allison Pointe Blvd #100'
+    And the City should be set to 'Indianapolis'
+    And the State should be set to 'IN'
+    And the Postal Code should be set to '46250'
+    And the County should be set to 'Marion'
+    And the Voice should be set to '(866) 915-9465'
+    And the Email should be set to 'lance.moore@blackbaud.com'
+    And the Short Salutation should be set to 'Neil'
+    And the Long Salutation should be set to 'Mr. Berman'
+    And the Envelope Salutation should be set to 'Mr. Neil Berman'
+  #TODO: Enable Account Type Check once the step above is working
+#    And I click on 'Defined Fields' in the account header
+#    And the 'Account Type' should be set to 'Individual'
+    And I click on 'Account Settings' in the account header
+###   Could only get Name Format verification to work if we check the value number: Individual=1, Family=2, Business=3  ###
+    And the Name Format value should be set to '3'
+    And the Account Name should be set to 'Delivra'
+    And the Sort Name should be set to 'Delivra'
+    And the Recognition Name should be set to 'Delivra'
+    And the Recognition Type should be set to '(account name)'
+    And I click Delete Role on the Account Settings page
+    And I click Yes on the Account Settings page
+    Then I should see the message: 'Empty Search Criteria'

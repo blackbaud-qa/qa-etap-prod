@@ -13,7 +13,7 @@ Feature: Dashboard Functionality
     And I should close the javascript popup
     Then I should not see the Recently Viewed Accounts tile in the right hand column on the Dashboard
 
-#  #Still working on Drag and drop
+#TODO: Still working on Drag and drop
 #  Scenario: Moving Tiles on the Dashboard
 #    Given I am logged into eTap
 #    When I click Home on the main menu
