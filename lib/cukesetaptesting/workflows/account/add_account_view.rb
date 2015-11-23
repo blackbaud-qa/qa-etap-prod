@@ -118,6 +118,15 @@ module Cukesetaptesting
       keyword(:save_and_finish_country_codes) {content.input(:id, 'wizardNavigationButton_1_saveAndFinish')}
       keyword(:system_defined_fields_page) {content.div(:id, 'userDefinedCategory')}
 
+      keyword(:add_account_popup) {content.iframe(:id, 'popupFrame').div(:id,'etap.fieldset.area.1').button(:value,'Add Account')}
+      keyword(:popup_add_account_middle_name) {content.iframe(:id, 'popupFrame').text_field(:id, 'middleName')}
+      keyword(:popup_add_account_short_sal) {content.iframe(:id, 'popupFrame').text_field(:id, 'shortDesignation')}
+      keyword(:popup_add_account_address_lines) {content.iframe(:id, 'popupFrame').text_field(:id, 'address')}
+      keyword(:popup_add_account_city) {content.iframe(:id, 'popupFrame').text_field(:id, 'city')}
+      keyword(:popup_add_account_state) {content.iframe(:id, 'popupFrame').text_field(:id, 'state')}
+      keyword(:popup_add_account_postal_code) {content.iframe(:id, 'popupFrame').text_field(:id, 'postalCode')}
+      keyword(:popup_add_account_email) {content.iframe(:id, 'popupFrame').text_field(:id, 'emailAddress')}
+      keyword(:account_role_value) {content.tr(:class, 'entityTitle')}
 
       def disable_country_code country_code
         content.link(:text, country_code).parent.parent.div(:class, 'actions').a(:class, 'enable')
@@ -138,10 +147,28 @@ module Cukesetaptesting
         content.div(:class => /individualSalutations/).div(:index => sal_index).a
       end
 
+      def popup_add_account_get_edit_salutation_pencil(salutation_name)
+        sal_index = -1
+
+        if salutation_name == 'Short Salutation'
+          sal_index = 0
+        elsif salutation_name == 'Long Salutation'
+          sal_index = 1
+        elsif salutation_name == 'Envelope Salutation'
+          sal_index = 2
+        end
+
+        content.iframe(:id, 'popupFrame').div(:class => /individualSalutations/).div(:index => sal_index).a
+      end
+
       def udf_to_click(udf)
         # Should be ok for translation, as we
         #   are passing in a UDF's custom name
         content.link(:text, udf + ':')
+      end
+
+      def popup_add_account_udf_to_click(udf)
+        content.iframe(:id, 'popupFrame').link(:text, udf + ':')
       end
 
       def home(model)

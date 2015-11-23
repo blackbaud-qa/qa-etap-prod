@@ -509,3 +509,68 @@ And(/^I should be taken to the System Defined Fields page/) do
   expect(accounts.system_defined_fields_page).to eq(true)
 end
 
+And (/^I click on the Tribute magnifying glass/) do
+  landing = Giving::GiftPledge.new
+  landing.tribute_icon_click
+end
+
+And (/^I click Add Account on the pop up find account screen/) do
+  accounts = Account::AddAccount.new
+  accounts.add_account_popup_click
+end
+
+And (/^I set the Middle Name to '([^']*)' on the pop up find account screen/) do |value|
+  accounts = Account::AddAccount.new(:popup_add_account_middle_name => value)
+  accounts.create
+end
+
+And(/^I click the edit icon next to '([^']*)' on the pop up find account screen/) do |value|
+  accounts = Account::AddAccount.new
+  accounts.popup_add_account_edit_salutation(value)
+end
+
+And (/^I set the Short Salutation to '([^']*)' on the pop up find account screen/) do |value|
+  accounts = Account::AddAccount.new(:popup_add_account_short_sal => value)
+  accounts.create
+end
+
+And (/^I set Address Lines to '([^']*)' on the pop up find account screen/) do |value|
+  accounts = Account::AddAccount.new(:popup_add_account_address_lines => value)
+  accounts.create
+end
+
+And (/^I set City to '([^']*)' on the pop up find account screen/) do |value|
+  accounts = Account::AddAccount.new(:popup_add_account_city => value)
+  accounts.create
+end
+
+And (/^I set State to '([^']*)' on the pop up find account screen/) do |value|
+  accounts = Account::AddAccount.new(:popup_add_account_state => value)
+  accounts.create
+end
+
+And (/^I set Postal Code to '([^']*)' on the pop up find account screen/) do |value|
+  accounts = Account::AddAccount.new(:popup_add_account_postal_code => value)
+  accounts.create
+end
+
+And (/^I set Email to '([^']*)' on the pop up find account screen/) do |value|
+  accounts = Account::AddAccount.new(:popup_add_account_email => value)
+  accounts.create
+end
+
+And (/^the Role should be set to '([^']*)'/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.account_role(value)).to eq true
+end
+
+And (/^I click on the Soft Credit magnifying glass/) do
+  landing = Giving::GiftPledge.new
+  landing.soft_credit_icon_click
+end
+
+And (/^I set the UDF '([^']*)' dropdown to '([^']*)' on the pop up find account screen/) do |udf, value|
+  accounts = Account::AddAccount.new
+  accounts.popup_add_account_click_udf(udf)
+  accounts.popup_add_account_set_udf_dropdown_value(udf, value)
+end

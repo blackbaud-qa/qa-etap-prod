@@ -35,6 +35,19 @@ Feature: Process Cart transaction
   And I click Proceed on the live cart page
   And I click on Process Order on the live cart page
   And I close the current tab
+  And I type 'First Last' into the dynamic search field
+  And I press Enter on the keyboard
+  And I click on 'First Last' in the search results
+  And I click on 'Journal' in the account header
+  And I click on the Purchase listed in the journal
+  And the date field on the transaction screen should be populated with Today
+  And the Received Amount should be set to '$1.00' on the Purchase page
+  And the Fund should be set to 'General'
+  And I click Gift Types
+  And I should see the message 'Credit/Debit Card has been processed via' on the recurring gift screen
+  And I should see the message 'Online Cart' on the recurring gift screen
+  And I click on the Order Information section on the Purchase page
+  And the Name of the Item should be set to 'Item 1'
+  And I click Delete on the transaction page
+  Then I should be taken to 'First Last' Journal page
 
-#  When I receive a confirmation email
-#  Then I should see the transaction in eTapestry
