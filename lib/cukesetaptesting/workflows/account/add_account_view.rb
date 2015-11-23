@@ -124,7 +124,7 @@ module Cukesetaptesting
       end
 
 
-      def edit_salutation_click_pencil(salutation_name)
+      def get_edit_salutation_pencil(salutation_name)
         sal_index = -1
 
         if salutation_name == 'Short Salutation'

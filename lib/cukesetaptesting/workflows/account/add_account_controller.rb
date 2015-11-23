@@ -267,7 +267,7 @@ module Cukesetaptesting
       end
 
       def edit_salutation(value)
-        @view.edit_salutation_click_pencil(value).when_present.click
+        @view.get_edit_salutation_pencil(value).when_present.click
       end
 
       def envelope_salutation

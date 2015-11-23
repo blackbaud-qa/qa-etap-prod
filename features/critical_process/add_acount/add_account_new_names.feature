@@ -154,8 +154,7 @@ Feature: Add Account in New Names database
     And I click on 'Account Settings' in the account header
     And the Name Format value should be set to 'Family'
     And the Account Name should be set to 'The Anderson Family'
-  ##  And the Sort Name should be set to 'Anderson Family, The'
-    And the Sort Name should be set to 'The Anderson Family'
+    And the Sort Name should be set to 'Anderson Family, The'
     And the Recognition Name should be set to 'The Anderson Family'
     And the Recognition Type should be set to '(account name)'
     And I click Delete Role on the Account Settings page
