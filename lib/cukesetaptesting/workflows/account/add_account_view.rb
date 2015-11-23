@@ -124,8 +124,18 @@ module Cukesetaptesting
       end
 
 
-      def edit_salutation_click_pencil(value)
-        content.div(:id, 'etap.fieldset.area.5').label(:class, value).a(:class, 'ng-scope')
+      def get_edit_salutation_pencil(salutation_name)
+        sal_index = -1
+
+        if salutation_name == 'Short Salutation'
+          sal_index = 0
+        elsif salutation_name == 'Long Salutation'
+          sal_index = 1
+        elsif salutation_name == 'Envelope Salutation'
+          sal_index = 2
+        end
+
+        content.div(:class => /individualSalutations/).div(:index => sal_index).a
       end
 
       def udf_to_click(udf)
