@@ -405,3 +405,23 @@ And(/^I click on Process Order on the live cart page$/) do
   cart = Admin::Cart.new()
   cart.process_order_click
 end
+
+And (/^I click on the Purchase listed in the journal/) do
+  cart = Admin::Cart.new()
+  cart.purchase_entry_click
+end
+
+And (/^the Received Amount should be set to '([^']*)' on the Purchase page/) do |value|
+  cart = Admin::Cart.new()
+  expect(cart.purchase_received_amount).to eq (value)
+end
+
+And (/^I click on the Order Information section on the Purchase page/) do
+  cart = Admin::Cart.new()
+  cart.order_information_click
+end
+
+And (/^the Name of the Item should be set to '([^']*)'/) do |value|
+  cart = Admin::Cart.new()
+  expect(cart.item_information_name(value)).to eq true
+end

@@ -137,6 +137,7 @@ Feature: Add Account in New Names database
     And I set Note to 'Do not call after 6pm' on the classic add account page
     And I set the UDF 'Account Type' dropdown to 'Individual' on the classic add account page
     And I click Save And 'Go to Personas' on the add account page
+    And I handle the duplicate report if necessary
     And the Address Lines should be set to '2115 Fern Gully Lane'
     And the City should be set to 'Indianapolis'
     And the State should be set to 'IN'
@@ -178,8 +179,9 @@ Feature: Add Account in New Names database
     And I set County to 'Marion' on the classic add account page
     And I set Voice to '866-915-9465' on the classic add account page
     And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
-    And I set the UDF 'Account Type' dropdown to 'Individual' on the classic add account page
+    And I set the UDF 'Account Type' dropdown to 'Business' on the classic add account page
     And I click Save And 'Go to Personas' on the add account page
+    And I handle the duplicate report if necessary
     And the Address Lines should be set to '8415 Allison Pointe Blvd #100'
     And the City should be set to 'Indianapolis'
     And the State should be set to 'IN'
@@ -191,7 +193,7 @@ Feature: Add Account in New Names database
     And the Long Salutation should be set to 'Mr. Berman'
     And the Envelope Salutation should be set to 'Mr. Neil Berman'
     And I click on 'Defined Fields' in the account header
-    And the 'Account Type' should be set to 'Individual'
+    And the 'Account Type' should be set to 'Business'
     And I click on 'Account Settings' in the account header
     And the Name Format value should be set to 'Business'
     And the Account Name should be set to 'Delivra'
