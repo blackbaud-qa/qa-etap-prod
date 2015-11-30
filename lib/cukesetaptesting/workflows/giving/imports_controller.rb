@@ -45,6 +45,13 @@ module Cukesetaptesting
         @view.import_country.when_present.select country
       end
 
+      def import_name_format_select option
+        if(@view.import_name_select.present?)
+          @view.import_name_select.select option
+        end
+      end
+
+
       def import_next_click
         @view.click_and_confirm_alert(@view.import_next)
       end
@@ -60,6 +67,10 @@ module Cukesetaptesting
 
       def mapping_icon_click field
         @view.mapping_table_row(field).text_field(:class,'compactInput').parent.img.when_present.click
+      end
+
+      def mapping_icon_names_click field
+        @view.mapping_table_names_row(field).text_field(:class,'compactInput').parent.img.when_present.click
       end
 
       def import_mapping_field_click field
