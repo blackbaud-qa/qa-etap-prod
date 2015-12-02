@@ -19,6 +19,11 @@ And(/^I set the Name to '([^']*)' on the Import screen$/) do |name|
   import.create
 end
 
+And(/^I choose the working import file for names on the Import screen$/) do
+  import = Giving::Imports.new()
+  import.new_import_choose_file_set(Watirmark::Configuration.instance.complete_import_path_names)
+end
+
 And(/^I choose the working import file on the Import screen$/) do
   import = Giving::Imports.new()
   import.new_import_choose_file_set(Watirmark::Configuration.instance.complete_import_path)
@@ -29,6 +34,11 @@ And(/^I choose the incomplete import file on the Import screen$/) do
   import.new_import_choose_file_set(Watirmark::Configuration.instance.incomplete_import_path)
 end
 
+And(/^I choose the incomplete import file for names on the Import screen$/) do
+  import = Giving::Imports.new()
+  import.new_import_choose_file_set(Watirmark::Configuration.instance.incomplete_import_path_names)
+end
+
 And(/^I set the Select the Type of Information to Import to '([^']*)' on the Import screen$/) do |data|
   import = Giving::Imports.new()
   import.type_to_import_select data
@@ -37,6 +47,11 @@ end
 And(/^I set the Country to '([^']*)' on the Import screen$/) do |country|
   import = Giving::Imports.new()
   import.import_country_select country
+end
+
+And(/I set the name format to '([^']*)' on the Import screen$/) do |option|
+  import = Giving::Imports.new()
+  import.import_name_format_select option
 end
 
 And(/^I click Next on the Import screen$/) do
@@ -59,6 +74,11 @@ end
 And(/^I click on the '([^']*)' mapping icon on the Import screen$/) do |field|
   import = Giving::Imports.new()
   import.mapping_icon_click field
+end
+
+And(/^I click on the '([^']*)' mapping icon for names on the Import screen$/) do |field|
+  import = Giving::Imports.new()
+  import.mapping_icon_names_click field
 end
 
 And(/^I click '([^']*)' from my file$/) do |field|

@@ -79,8 +79,9 @@ module Cukesetaptesting
       keyword(:exp_month) {browser.select(:id,'cardExpMonth')}
       keyword(:exp_year) {browser.select(:id,'cardExpYear')}
       keyword(:process_order) {browser.button(:value,'Process Order')}
-
-
+      keyword(:purchase_entry) {content.a(:text, 'Purchase')}
+      keyword(:purchase_received_amount_value) {content.hidden(:name => "received")}
+      keyword(:order_information_section) {content.div(:id, 'orderInformationFieldsTitleBar')}
 
 
       def home(model)
@@ -107,6 +108,15 @@ module Cukesetaptesting
       def cart_edit_page
         content.form(:name,'cartPreferencesWizardForm')
       end
+
+      def purchase_received_amount_value
+        content.hidden(:name, 'received')
+      end
+
+      def item_name(value)
+        content.div(:id, 'orderInformationFields').a(:text, value)
+      end
+
     end
   end
 end

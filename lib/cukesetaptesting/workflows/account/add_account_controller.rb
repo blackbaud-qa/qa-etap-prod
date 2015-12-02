@@ -395,6 +395,26 @@ module Cukesetaptesting
         @view.system_defined_fields_page.present?
       end
 
+      def add_account_popup_click
+        @view.add_account_popup.when_present.click
+      end
+
+      def popup_add_account_edit_salutation(value)
+        @view.popup_add_account_get_edit_salutation_pencil(value).when_present.click
+      end
+
+      def account_role(value)
+        @view.account_role_value.when_present.text.include? value
+      end
+
+      def popup_add_account_click_udf(udf)
+        @view.popup_add_account_udf_to_click(udf).when_present.click
+      end
+
+      def popup_add_account_set_udf_dropdown_value(udf, value)
+        @view.popup_add_account_udf_to_click(udf).parent.select.when_present.select value
+      end
+
       end
     end
   end

@@ -239,6 +239,22 @@ module Cukesetaptesting
         @view.process_order.when_present.click
       end
 
+      def purchase_entry_click
+        @view.purchase_entry.when_present.click
+      end
+
+      def purchase_received_amount
+        @view.purchase_received_amount_value.value
+      end
+
+      def order_information_click
+        @view.order_information_section.when_present.click
+      end
+
+      def item_information_name(value)
+        @view.item_name(value).present?
+      end
+
     end
   end
 end

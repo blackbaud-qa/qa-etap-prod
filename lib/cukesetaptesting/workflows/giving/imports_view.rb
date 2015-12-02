@@ -8,6 +8,7 @@ module Cukesetaptesting
       keyword(:new_import_choose_file) {content.file_field(:id,'importFile')}
       keyword(:type_to_import) {content.select(:id,'importTypeSelector')}
       keyword(:import_country) {content.select(:id,'countrySelect')}
+      keyword(:import_name_select) {content.select(:id,'nameFormatSelector')}
       keyword(:import_next) {content.button(:value,'Next')}
       keyword(:import_another_field) {content.a(:text,'Import Another eTapestry Field')}
       keyword(:import_fields_pop_up) {content.span(:text,'Select eTapestry Field').parent.parent}
@@ -19,6 +20,10 @@ module Cukesetaptesting
 
       def mapping_table_row field
           content.table(:id,'mappingTable0').td(:text,field).parent
+      end
+
+      def mapping_table_names_row field
+        content.table(:id,'mappingTable1').td(:text,field).parent
       end
 
       def home(model)
