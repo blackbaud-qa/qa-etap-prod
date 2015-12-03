@@ -128,6 +128,16 @@ module Cukesetaptesting
       keyword(:popup_add_account_email) {content.iframe(:id, 'popupFrame').text_field(:id, 'emailAddress')}
       keyword(:account_role_value) {content.tr(:class, 'entityTitle')}
 
+      keyword(:add_account_button) {content.iframe(:id,'popupFrame').form(:name,'entitySearchForm').input(:value, 'Add Account')}
+      keyword(:magnifying_glass_tribute) {content.div(:id, 'tributeFields').img(:src, 'images/magnifying-glass.png')}
+      keyword(:title_select_modal) {content.iframe(:id, 'popupFrame').div(:id, 'etap.fieldset.area.3').select(:id, 'title')}
+      keyword(:tribute_first_name_field) {content.iframe(:id, 'popupFrame').div(:id, 'etap.fieldset.area.3').text_field(:id, 'firstName')}
+      keyword(:modal_middle_name_field) {content.iframe(:id, 'popupFrame').div(:id, 'etap.fieldset.area.3').text_field(:id, 'middleName')}
+      keyword(:modal_last_name_field) {content.iframe(:id, 'popupFrame').div(:id, 'etap.fieldset.area.3').text_field(:id, 'lastName')}
+      keyword(:save_button_modal) {content.iframe(:id, 'popupFrame').div(:id, 'etap.fieldset.area.10').button(:value, 'Save')}
+      keyword(:tribute_name_value) {content.div(:id, 'tributeFields').td(:id, 'tributeNameInput')}
+      keyword(:delete_tribute_from_transaction) {content.div(:id, 'tributeFields').img(:src, 'images/delete16.gif')}
+
       def disable_country_code country_code
         content.link(:text, country_code).parent.parent.div(:class, 'actions').a(:class, 'enable')
       end

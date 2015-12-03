@@ -415,6 +415,46 @@ module Cukesetaptesting
         @view.popup_add_account_udf_to_click(udf).parent.select.when_present.select value
       end
 
+      def magnifying_glass_tribute
+        @view.magnifying_glass_tribute.when_present.click
+      end
+
+      def add_account_button
+        @view.add_account_button.when_present.click
+      end
+
+      def title_select_modal(value)
+        @view.title_select_modal.when_present.select value
+      end
+
+      def tribute_first_name_field
+        @view.tribute_first_name_field.when_present.value
+      end
+
+      def modal_middle_name_field
+        sleep 2
+        @view.modal_middle_name_field.when_present.value
+      end
+
+      def modal_last_name_field
+        sleep 2
+        @view.modal_last_name_field.value
+      end
+
+      def save_button_modal
+        sleep 2
+        @view.save_button_modal.when_present.click
+      end
+
+      def tribute_name_value
+        @view.tribute_name_value.value
+      end
+
+      def delete_tribute_from_transaction
+        @view.delete_tribute_from_transaction.when_present.click
+      end
+
+
       end
     end
   end

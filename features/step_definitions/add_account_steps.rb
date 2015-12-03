@@ -574,3 +574,48 @@ And (/^I set the UDF '([^']*)' dropdown to '([^']*)' on the pop up find account 
   accounts.popup_add_account_click_udf(udf)
   accounts.popup_add_account_set_udf_dropdown_value(udf, value)
 end
+
+And (/^I click the magnifying glass to search for a tribute/) do
+  accounts = Account::AddAccount.new
+  accounts.magnifying_glass_tribute
+end
+
+When (/^I click the Add Account button in the Find an Account modal/) do
+  accounts=Account::AddAccount.new
+  accounts.add_account_button
+end
+
+And (/^I set the Title to '([^']*)' in the Find an Account modal/) do |value|
+  accounts = Account::AddAccount.new
+  accounts.title_select_modal(value)
+end
+
+And (/^I set the First Name to '([^']*)' in the Find an Account modal/) do |value|
+  accounts = Account::AddAccount.new(:tribute_first_name_field => value)
+  accounts.create
+end
+
+And (/^I set the Middle Name to '([^']*)' in the Find an Account modal/) do |value|
+  accounts = Account::AddAccount.new(:modal_middle_name_field => value)
+  accounts.create
+end
+
+And (/^I set the Last Name to '([^']*)' in the Find an Account modal/) do |value|
+  accounts = Account::AddAccount.new(:modal_last_name_field => value)
+  accounts.create
+end
+
+And (/^I click Save in the Find an Account modal/) do
+  accounts=Account::AddAccount.new
+  accounts.save_button_modal
+end
+
+And (/^I should see '([^']*)' under Tribute Information/) do |value|
+  accounts = Account::AddAccount.new
+  expect(accounts.tribute_name_value).to eq(value)
+end
+
+And (/^I delete the tribute from the transaction/) do
+  accounts = Account::AddAccount.new
+  accounts.delete_tribute_from_transaction
+end
