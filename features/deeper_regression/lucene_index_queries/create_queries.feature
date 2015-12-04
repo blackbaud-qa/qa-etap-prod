@@ -1,11 +1,13 @@
 @lucene_index
 Feature: Create, Edit, Save and Run Queries
 
-  Scenario Outline: Create and Edit a New Query
+  Scenario: Log in to eTap
     Given I am logged into Knight Rider
     And a query category should exist called 'Lucene Testing'
-    When I click Queries on the main menu
+    And I click Queries on the main menu
     And I click on the 'Lucene Testing' category
+
+  Scenario Outline: Create and Edit a New Query
     And I click 'New Query' on the Edit Query Category page
     And I set the Name to '<query_name>' on the Create a New Query page
     And I set the data return type to 'Accounts' on the Create a New Query page
