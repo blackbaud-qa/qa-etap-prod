@@ -35,7 +35,6 @@ end
 
 When (/^I type '([^']*)' into the State field/) do |state_name|
   search = Account::AdvancedSearch.new(:state_field=>state_name)
-  sleep 3
   search.create
   search.clear_name_field
   search.clear_phone_field
