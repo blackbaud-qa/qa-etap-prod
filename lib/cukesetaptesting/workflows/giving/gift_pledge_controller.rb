@@ -141,7 +141,7 @@ module Cukesetaptesting
       end
 
       def set_save_and(value)
-        @view.save_and.select(value)
+        @view.save_and.when_present.select(value)
       end
 
       def click_save_for_error
