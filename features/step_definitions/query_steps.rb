@@ -535,3 +535,7 @@ And (/^I click on the Called to Discuss Gala contact in the Journal/) do
   query.gala_contact
 end
 
+And (/^I mark the checkbox for '([^']*)' under Journal Entry Types on the Query page/) do |value|
+  query = Queries::Createquerycategory.new()
+  query.journal_entry_type_selection value
+end
