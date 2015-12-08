@@ -64,7 +64,9 @@ module Cukesetaptesting
         return @view.find_account_page.when_present.value.include? text
       end
 
-
+      def udf_show_hide(value)
+        @view.udf_show_hide_links(value).when_present.click
+      end
 
 
 

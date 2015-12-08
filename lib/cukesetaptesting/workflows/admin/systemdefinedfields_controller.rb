@@ -84,6 +84,10 @@ module Cukesetaptesting
         @view.gift_udf_to_click(udf).when_present.click
       end
 
+      def set_single_select_udf_value(udf, value)
+        @view.gift_udf_to_click(udf).parent.select.set value
+      end
+
     end
   end
 end

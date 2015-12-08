@@ -86,3 +86,13 @@ And (/^I set the multi-select UDF '([^']*)' to '([^']*)' on the gift screen/) do
   advsecurity.set_multi_select_udf_value(udf, value)
 end
 
+And (/^I click the '([^']*)' on the transaction page/) do |value|
+  advsecurity = Admin::Systemdefinedfields.new
+  advsecurity.udf_show_hide(value)
+end
+
+And (/^I set the single-select UDF '([^']*)' to '([^']*)' on the gift screen/) do |udf, value|
+  advsecurity = Admin::Systemdefinedfields.new
+  advsecurity.click_gift_udf(udf)
+  advsecurity.set_single_select_udf_value(udf, value)
+end
