@@ -500,6 +500,10 @@ module Cukesetaptesting
         @view.query_type_continue.when_present.click
       end
 
+      def query_journal_entry_type (value)
+        @view.journal_entry_type_selection(value).when_present.click
+      end
+
     end
   end
 end

@@ -65,6 +65,8 @@ module Cukesetaptesting
       keyword(:query_preview_on_screen_title) {content.div(:class, 'pageSubtitle')}
       keyword(:query_type_dynamic) {content.radio(:id, 'modalDynamic')}
 
+      keyword(:journal_entry_type_selection) {content.div(:id, 'criteriaList').input(:value, 'label.contact')}
+
 
       def string_exists_on_page?(query_string)
         content.link(:text => query_string).exists?
