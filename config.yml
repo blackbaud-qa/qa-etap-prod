@@ -2,7 +2,7 @@ username:   Automationbot.us
 password:   spicypancakes1
 site_url:   https://etap-cdev-fh.blackbaudhosting.com/prod/
 #image_path: /home/ubuntu/qa-etap-main/misc/cart_image.jpg
-headless_enabled: false
+headless_enabled: true
 #complete_import_path: /home/ubuntu/qa-etap-main/misc/import_a.csv
 #incomplete_import_path: /home/ubuntu/qa-etap-main/misc/import_b.csv
 #complete_import_path_names: /home/ubuntu/qa-etap-main/misc/import_a_names.csv
