@@ -32,3 +32,16 @@ And (/^I set Phone to '([^']*)' on the Advanced Find screen/) do |value|
   search.clear_name_field
   search.create
 end
+
+When (/^I type '([^']*)' into the State field/) do |state_name|
+  search = Account::AdvancedSearch.new(:state_field=>state_name)
+  search.create
+  search.clear_name_field
+  search.clear_phone_field
+  search.clear_email_field
+end
+
+When (/^I type '([^']*)' into the Address Lines field/) do |address|
+  search = Account::AdvancedSearch.new(:address_lines_field=>address)
+  search.create
+end

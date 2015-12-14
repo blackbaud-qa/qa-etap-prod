@@ -3,7 +3,6 @@ Feature: Searching from advanced find
 
   Scenario: Searching by Name, pressing Enter
     Given I am logged into eTap
-#    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I click Advanced Find
     And I type 'Jose' into the Name field
@@ -12,7 +11,6 @@ Feature: Searching from advanced find
 
   Scenario: Searching by Email, pressing Enter
     Given I am logged into eTap
-#    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I click Advanced Find
     And I type 'qa-1@blackbaud.com' into the Email field
@@ -21,7 +19,6 @@ Feature: Searching from advanced find
 
   Scenario: Searching by Name, clicking Find
     Given I am logged into eTap
-#    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I click Advanced Find
     And I type 'Jose' into the Name field
@@ -30,9 +27,19 @@ Feature: Searching from advanced find
 
   Scenario: Searching by Email, clicking Find
     Given I am logged into eTap
-#    And my Default Search Type user preference is set to Quick Find
     When I click Accounts
     And I click Advanced Find
     And I type 'qa-1@blackbaud.com' into the Email field
     And I click Find
     Then 'Talisha Almond' should show in the advanced find name results
+
+  Scenario: Searching by State and Street Name
+    Given I am logged into eTap
+    When I click Accounts
+    And I click Advanced Find
+    And I type 'IN' into the State field
+    And I type 'Fremont' into the Address Lines field
+    And I click Find
+    Then 'Ed Smith' should show in the advanced find name results
+
+

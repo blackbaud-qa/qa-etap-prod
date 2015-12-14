@@ -20,6 +20,10 @@ module Cukesetaptesting
       keyword(:dynamic_drop_down_info_name) {content.div(:id,'menuAccountSearch').li(:class,'searchItem').span(:class,'searchItemName')}
       keyword(:find_account_page) {content.div(:class,'pageTitle')}
 
+      def udf_show_hide_links(value)
+        content.div(:id, 'userDefinedFieldsTitleBar').a(:text, value)
+      end
+
 
       def home(model)
       end
