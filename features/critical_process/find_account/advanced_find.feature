@@ -37,8 +37,10 @@ Feature: Searching from advanced find
     Given I am logged into eTap
     When I click Accounts
     And I click Advanced Find
-    And I type 'IN' into the State field on the advanced find page
-    And I type 'Fremont' into the Address Lines field
+#    And I set the State to 'IN' on the advanced find page
+    And I set State to 'IN' on the classic add account page
+#    And I type 'Fremont' into the Address Lines field
+    And I set Address Lines to 'Fremont' on the classic add account page
     And I click Find
     Then 'Ed Smith' should show in the advanced find name results
 
