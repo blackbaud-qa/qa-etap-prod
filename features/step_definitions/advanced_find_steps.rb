@@ -33,8 +33,8 @@ And (/^I set Phone to '([^']*)' on the Advanced Find screen/) do |value|
   search.create
 end
 
-When (/^I type '([^']*)' into the State field on the advanced find page/) do |state_name|
-  search = Account::AdvancedSearch.new(:state_field=>state_name)
+When (/^I set the State to '([^']*)' on the advanced find page/) do |state_name|
+  search = Account::AdvancedSearch.new(:adv_find_state_field=>state_name)
   search.create
   search.clear_name_field
   search.clear_phone_field
