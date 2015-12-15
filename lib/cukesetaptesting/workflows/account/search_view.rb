@@ -19,7 +19,8 @@ module Cukesetaptesting
       keyword(:role_menu_defined_fields) {role_menu.li(:class, "definedFields").a}
       keyword(:gift_box_icon) {content.div(:id, 'etapreporttag1_outerdiv').img(:src, 'images/gift16.gif')}
       keyword(:new_gift_and_pledge_page) {content.form(:name, 'journalGiftForm')}
-
+      keyword(:adv_find_state_field) {content.text_field(:id, 'state')}
+      keyword(:address_lines_field) {content.text_field(:id, 'address')}
 
       keyword(:constituents_checkbox) { content.checkbox(:name, 'showCustomersBox') }
       keyword(:users_checkbox) { content.checkbox(:name, 'showUsersBox') }
