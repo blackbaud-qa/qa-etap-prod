@@ -114,6 +114,7 @@ module Cukesetaptesting
       keyword(:new_newsletter_content_update) {content.button(:value, 'Update')}
       keyword(:new_newsletter_content) {content.iframe(:id, 'blockHtmlContents_ifr').body(:id, 'guideContent')}
 
+
       ## Edit Styles locators: Found under correspondence template --> Quick Formatting button
 #      keyword(:text_style_text_font) {content.div(:id,'letterGuide').div(:id, 'letterGuideStylesheet').div.divs[2].div.p.select(:class,'styleFont').option(:text, 'Verdana')}
 #      keyword(:text_style_text_size) {content.div(:id,'letterGuide').div(:id, 'letterGuideStylesheet').div.divs[2].div.p.select(:class,'styleFont').option(:text, 'Verdana')}
@@ -243,6 +244,9 @@ module Cukesetaptesting
       keyword(:quick_format_update_button) {content.div(:id => 'letterGuide').div(:id => 'a1439342522113').div(:id => 'a1439342519186').div(:class => 'popFooter').button(:value => 'Update')}
       keyword(:quick_format_cancel_button) {content.button(:value => 'Cancel')}
 
+      keyword(:select_account_photo_widget) {letter_widgets.div(:class=>'heading',:text=>'Account Photo').parent.parent.button}
+      keyword(:correspondence_template_exists) {content.ul(:id, 'list_templates').link(:text, 'Lapsed Donor with Account Photo Widget')}
+
       def home(model)
       end
 
@@ -339,6 +343,10 @@ module Cukesetaptesting
 
       def letter_guide
         content.form(:name,'letterLauncherWizardForm')
+      end
+
+      def delete_correspondence_template(name)
+        content.ul(:id, 'list_templates').link(:text, name).parent.parent.div(:class, 'actions').a(:class, 'delete')
       end
 
 

@@ -765,3 +765,18 @@ And(/^I double click the Entry List widget to edit it in the advanced editor$/) 
   letter = Communications::Createtemplate.new()
   letter.advanced_editor_entry_list_dclick
 end
+
+And(/^I select the Account Photo widget$/) do
+  letter = Communications::Createtemplate.new()
+  letter.select_account_photo_widget_click
+end
+
+And (/^I click delete below the '([^']*)' template on the Correspondence Category page/) do |name|
+  letter = Communications::Createtemplate.new()
+  letter.delete_correspondence_template name
+end
+
+Then (/^I should see the '([^']*)' template has been removed from the Correspondence Category page/) do |template|
+  letter = Communications::Createtemplate.new
+  expect(letter.correspondence_template_exists(template)).to eq(false)
+end
