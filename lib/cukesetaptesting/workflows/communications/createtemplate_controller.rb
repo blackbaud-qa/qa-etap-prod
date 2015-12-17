@@ -587,6 +587,20 @@ module Cukesetaptesting
       def click_quick_format_cancel_button
         @view.quick_format_cancel_button.when_present.click
       end
+
+      def select_account_photo_widget_click
+        @view.select_account_photo_widget.when_present.click
+        sleep 2
+      end
+
+      def delete_correspondence_template(name)
+        @view.delete_correspondence_template(name).when_present.click
+      end
+
+      def correspondence_template_exists (template)
+        @view.correspondence_template_exists(template).present?
+      end
+
     end
   end
 end

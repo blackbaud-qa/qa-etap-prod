@@ -97,3 +97,40 @@ Feature: Creating a new communications template
 #    And when you open the file it should contain X pages
 #    And the document should display properly with your changes
 #    And fields should be aligned properly
+
+  Scenario: Adding Account Photo Widget to template and creating document
+    Given I am logged into eTap
+    And I click Communications on the main menu
+    And click Thank You Letters on the Correspondence Categories page
+    And click New Email or Document Template on the Correspondence Category page
+    And set the Name to 'Lapsed Donor with Account Photo Widget' on the new Correspondence Template page
+    And I press Tab on the keyboard
+    And I click Next on the new Correspondence Template page
+    And I click Documents on the new Correspondence Template page
+    And I click on the Lapsed Donor template
+    And I hover over the Letter Closing block on the new Correspondence Template page
+    And I click the red X to delete the block on the new Correspondence Template page
+    And I click on the Body block to open the Edit Contents pop up
+    And I delete all of the text in the Edit Contents pop up
+    And I click Insert Letter Widget in the Edit Contents pop up
+    And I select the Account Photo widget
+    And I click insert on the Letter Widgets pop up
+    And I click Update on the Edit Contents pop up
+    And I click Save And Create Document
+    And I set the Category to Base
+    And I set the template query to 'All Constituents - A'
+    And I click Next on the receipt template page
+    And I set the document type to PDF on the receipt template page
+    And I click Next on the receipt template page
+    And I click Next on the receipt template page
+    And I click Next on the receipt template page
+    And I click Run on the Generate Letters page
+  #  And The PDF document should be generated
+    And I click Communications on the main menu
+    And click Thank You Letters on the Correspondence Categories page
+    And I click delete below the 'Lapsed Donor with Account Photo Widget' template on the Correspondence Category page
+    When I click Yes to permanently delete the item
+    Then I should see the 'Lapsed Donor with Account Photo Widget' template has been removed from the Correspondence Category page
+
+
+
