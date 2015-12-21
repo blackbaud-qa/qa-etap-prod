@@ -177,6 +177,11 @@ module Cukesetaptesting
         content.link(:text, udf + ':')
       end
 
+      def udf_section_to_click udf
+        # content.div(:id,'etap.fieldset.table.customerFields').div(:class=> 'fakeLinkBold', :text=> 'User Defined Fields: ' + udf)
+        content.img(:id,'etap.fieldset.tick.customerFields')
+      end
+
       def popup_add_account_udf_to_click(udf)
         content.iframe(:id, 'popupFrame').link(:text, udf + ':')
       end
