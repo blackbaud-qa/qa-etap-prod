@@ -27,9 +27,19 @@ module Cukesetaptesting
       @view.udf_to_click(udf).when_present.click
       end
 
+      def click_udf_section(udf)
+        @view.udf_section_to_click(udf).when_present.click
+      end
+
+
+
       def set_udf_dropdown_value(udf, value)
         @view.udf_to_click(udf).parent.select.when_present.select value
       end
+
+      # def set_udf_section_dropdown_value(udf, value)
+      #   @view.udf_section_to_click(udf).parent.parent.parent.link(:text, udf + ':').select.when_present.select value
+      # end
 
       def set_udf_value(udf, value)
         @view.udf_to_click(udf).parent.text_field.set value

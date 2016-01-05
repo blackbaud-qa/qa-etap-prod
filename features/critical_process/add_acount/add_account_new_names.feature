@@ -23,7 +23,7 @@ Feature: Add Account in New Names database
     And I set Web Page to 'www.google.com' on the classic add account page
     And I set Note to 'Do not call after 6pm' on the classic add account page
     And I set the UDF 'Company' to 'Blackbaud' on the classic add account page
-    And I set the UDF 'Account Type' dropdown to 'Individual' on the classic add account page
+    And I set the UDF 'Account Type' dropdown to 'Individual' in the UDF section on the classic add account page
     And I click Save And 'Go to Personas' on the add account page
     And I handle the duplicate report if necessary
     And the Address Lines should be set to '501 N Pennsylvania Parkway'
@@ -135,7 +135,7 @@ Feature: Add Account in New Names database
     And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
     And I set Web Page to 'www.google.com' on the classic add account page
     And I set Note to 'Do not call after 6pm' on the classic add account page
-    And I set the UDF 'Account Type' dropdown to 'Individual' on the classic add account page
+    And I set the UDF 'Account Type' dropdown to 'Individual' in the UDF section on the classic add account page
     And I click Save And 'Go to Personas' on the add account page
     And I handle the duplicate report if necessary
     And the Address Lines should be set to '2115 Fern Gully Lane'
@@ -179,7 +179,7 @@ Feature: Add Account in New Names database
     And I set County to 'Marion' on the classic add account page
     And I set Voice to '866-915-9465' on the classic add account page
     And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
-    And I set the UDF 'Account Type' dropdown to 'Business' on the classic add account page
+    And I set the UDF 'Account Type' dropdown to 'Business' in the UDF section on the classic add account page
     And I click Save And 'Go to Personas' on the add account page
     And I handle the duplicate report if necessary
     And the Address Lines should be set to '8415 Allison Pointe Blvd #100'

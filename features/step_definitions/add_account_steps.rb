@@ -125,6 +125,14 @@ And (/^I set the UDF '([^']*)' to '([^']*)' on the classic add account page/) do
   accounts.set_udf_value(udf, value)
 end
 
+And(/^I set the UDF '([^']*)' dropdown to '([^']*)' in the UDF section on the classic add account page$/) do |udf, value|
+  accounts = Account::AddAccount.new
+  accounts.click_udf_section(udf)
+  # accounts.set_udf_section_dropdown_value(udf, value)
+  accounts.click_udf(udf)
+  accounts.set_udf_dropdown_value(udf, value)
+end
+
 Then (/^the Address Lines should be set to '([^']*)'/) do |name|
   accounts = Account::AddAccount.new
   expect(accounts.persona_page_address_lines).to eq(name)
