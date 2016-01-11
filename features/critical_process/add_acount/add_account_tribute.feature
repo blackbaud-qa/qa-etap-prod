@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Add Tribute Account From A Transaction
 
   Scenario: Add new tribute account
