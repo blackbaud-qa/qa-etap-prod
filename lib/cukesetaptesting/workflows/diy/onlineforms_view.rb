@@ -4,7 +4,7 @@ module Cukesetaptesting
       keyword(:online_forms_title)  { forms.h2(:id,'title') }
       keyword(:management_page_diy) { content.link(:href, 'ecommManagerHome.do')}
       keyword(:create_a_page_first_time) { content.div(:id, 'getStartedButtonM')}
-      keyword(:create_a_page) { content.div(:id, 'createPageLink')}
+      keyword(:create_a_page) { content.button(:id, 'createPageLink')}
       keyword(:choose_online_giving_page) { content.div(:id, 'donateButtonM')}
       keyword(:choose_embedded_template) { content.div(:id, 'embeddiv')}
       keyword(:template_next) { content.input(:id, 'templateNext')}
@@ -23,7 +23,7 @@ module Cukesetaptesting
       keyword(:go_live_confirm) { content.input(:id, 'publishConfirm')}
       keyword(:edit_style) {content.h6(:text,'Edit Style').parent.parent}
       keyword(:swap_template) {content.h6(:text,'Swap Template')}
-      keyword(:choose_steel_template) {content.h1(:class=>'ecommTemplateName', :text=>'Steel')}
+      keyword(:choose_steel_template) {content.h6(:class=>'ecommTemplateName', :text=>'Steel')}
       keyword(:swap_to_this_template) {content.button(:id,'swapSubmit')}
       keyword(:diy_title_font) {content.div(:class=>'styleDefinition', :text=>/Title/).select(:class=>'styleFont')}
       keyword(:diy_title_size) {content.div(:class=>'styleDefinition', :text=>/Title/).select(:class=>'styleSize')}

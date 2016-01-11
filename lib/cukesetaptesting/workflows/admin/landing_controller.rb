@@ -319,6 +319,14 @@ module Cukesetaptesting
         @view.management_dd_sec_groups.when_present.click
       end
 
+      def management_dd_ncoa_click
+        @view.management_dd_ncoa.when_present.click
+      end
+
+      def management_dd_social_media_finder_click
+        @view.management_dd_social_media_finder.when_present.click
+      end
+
       def management_dd_wizard_click
         @view.management_dd_wizard.when_present.click
       end

@@ -54,7 +54,7 @@ Feature: Adding split transactions
     And I click Uncheck All on the journal page
     And I mark the checkbox next to Split Transaction on the journal page
     And I click Find on the journal page
-    Then I should see the message 'No Journal Entries Found' on the journal page
+    Then I should see the message '0 Journal Entries' on the journal page
 
 
   Scenario: Add another segment to an existing split gift and then delete it

@@ -11,25 +11,32 @@ module Cukesetaptesting
 
       #nav bar
       keyword(:home_tab) {navbar_tab('homeTab').link(:class, "menuTabText")}
-      keyword(:home_dd) {navbar_tab('homeTab').img(:class, "menuTabButton")}
+      #keyword(:home_dd) {navbar_tab('homeTab').img(:class, "menuTabButton")}
+      keyword(:home_dd) {navbar_tab('homeTab').link(:index=>1)}
 
       keyword(:accounts_tab) {navbar_tab('accountTab').link(:class, "menuTabText")}
-      keyword(:accounts_dd) {navbar_tab('accountTab').img(:class, "menuTabButton")}
+      #keyword(:accounts_dd) {navbar_tab('accountTab').img(:class, "menuTabButton")}
+      keyword(:accounts_dd) {navbar_tab('accountTab').link(:index=>1)}
 
       keyword(:giving_tab) {navbar_tab('givingTab').link(:class, "menuTabText")}
-      keyword(:giving_dd) {navbar_tab('givingTab').img(:class, "menuTabButton")}
+      #keyword(:giving_dd) {navbar_tab('givingTab').img(:class, "menuTabButton")}
+      keyword(:giving_dd) {navbar_tab('givingTab').link(:index=>1)}
 
       keyword(:communications_tab) {navbar_tab('communicationTab').link(:class, "menuTabText")}
-      keyword(:communications_dd) {navbar_tab('communicationTab').img(:class, "menuTabButton")}
+      #keyword(:communications_dd) {navbar_tab('communicationTab').img(:class, "menuTabButton")}
+      keyword(:communications_dd) {navbar_tab('communicationTab').link(:index=>1)}
 
       keyword(:queries_tab) {navbar_tab('queriesTab').link(:class, "menuTabText")}
-      keyword(:queries_dd) {navbar_tab('queriesTab').img(:class, "menuTabButton")}
+      #keyword(:queries_dd) {navbar_tab('queriesTab').img(:class, "menuTabButton")}
+      keyword(:queries_dd) {navbar_tab('queriesTab').link(:index=>1)}
 
       keyword(:reports_tab) {navbar_tab('reportsTab').link(:class, "menuTabText")}
-      keyword(:reports_dd) {navbar_tab('reportsTab').img(:class, "menuTabButton")}
+      #keyword(:reports_dd) {navbar_tab('reportsTab').img(:class, "menuTabButton")}
+      keyword(:reports_dd) {navbar_tab('reportsTab').link(:index=>1)}
 
       keyword(:management_tab) {navbar_tab('manageTab').link(:class, "menuTabText")}
-      keyword(:management_dd) {navbar_tab('manageTab').img(:class, "menuTabButton")}
+  #    keyword(:management_dd) {navbar_tab('manageTab').img(:class, "menuTabButton")}
+      keyword(:management_dd) {navbar_tab('manageTab').link(:index=>1)}
 
       keyword(:accounts) {content.element(:css=> '#accountTab a')}
 
@@ -103,6 +110,8 @@ module Cukesetaptesting
       keyword(:management_dd_user_act) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/reportLauncher.do?nextAction=orgAdmin/userActivitySummaryReport.do&type=UserActivity&mode=report&name=User Activity')}
       keyword(:management_dd_sec_groups) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/editSecurityGroups.do')}
       keyword(:management_dd_wizard) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/gettingStartedWizard.do')}
+      keyword(:management_dd_ncoa) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/ncoa.do')}
+      keyword(:management_dd_social_media_finder) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/socialFinder.do')}
       keyword(:management_dd_estore) {management_div.ul(:id,'manageOnlineItems').a(:href,'/prod/editShoppingCarts.do')}
       keyword(:management_dd_fundraisers) {management_div.ul(:id,'manageOnlineItems').a(:href,'/prod/viewEvents.do')}
       keyword(:management_dd_diy) {management_div.ul(:id,'manageOnlineItems').a(:href,'/prod/ecommManagerHome.do')}
@@ -128,7 +137,7 @@ module Cukesetaptesting
       keyword(:management_page) {content.div(:id, "managementPageTop")}
 
       keyword(:management_my_org) {content.a(:href,'editOrganization.do')}
-      keyword(:management_sepa_banking_export) {content.a(:href,'wizard/SEPAExport.do')}
+      keyword(:management_sepa_banking_export) {content.a(:href,'prod/wizard/SEPAExport.do')}
       keyword(:management_standard_exports) {content.a(:href,'SpecialExportCategories.jsp')}
 
 

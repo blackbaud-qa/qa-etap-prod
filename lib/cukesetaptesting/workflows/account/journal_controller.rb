@@ -5,7 +5,8 @@ module Cukesetaptesting
       @view = JournalView
 
       def add_entry
-        @view.transactions.when_present.click
+        @view.add_entry.when_present.click
+        @view.gift_pledge.when_present.click
       end
 
       def click_date
@@ -13,6 +14,7 @@ module Cukesetaptesting
       end
 
       def select_split_transaction
+        @view.add_entry.when_present.click
         @view.split_transaction.when_present.click
       end
 

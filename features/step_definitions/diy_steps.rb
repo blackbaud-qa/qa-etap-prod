@@ -1,8 +1,3 @@
-When(/^I click on DIY Forms on the management page/) do
-  diy = DIY::Onlineforms.new()
-  diy.management_page_diy_click
-end
-
 When(/^I click Create a Page/) do
   sleep 1
   diy = DIY::Onlineforms.new()
@@ -532,8 +527,8 @@ end
 And(/^a DIY form titled ([^']*) exists/) do |page_name|
   steps %Q{
     Given I am logged into eTap
-    When I click Management on the main menu
-    And I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
   }
 
   diy = DIY::Onlineforms.new
@@ -549,8 +544,8 @@ And(/^I create and publish a new DIY page named ([^']*)/) do |page_name|
 
   steps %Q{
     Given I am logged into eTap
-    When I click Management on the main menu
-    And I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
     And I click Create a Page
     And I click Online Giving Page
     And I select the Embeddable template
@@ -574,8 +569,8 @@ And(/^the DIY page ([^']*) contains the UDF ([^']*)/) do |diy_page_name, udf_nam
 
   steps %Q{
     Given I am logged into eTap
-    When I click Management on the main menu
-    And I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
     And I click Edit for the form titled '#{diy_page_name}'
 
     And I click Add Item on the DIY editor page
@@ -597,8 +592,8 @@ And(/^all email notifications are ([^']*) for the DIY page ([^']*)/) do |notific
 
   steps %Q{
     Given I am logged into eTap
-    When I click Management on the main menu
-    And I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
     And I click Edit for the form titled '#{diy_page_name}'
 
     And I click Settings on the DIY editor page
@@ -624,8 +619,8 @@ And(/^I submit a successful credit card transaction for ([^']*) ([^']*) on page 
 
   steps %Q{
       Given I am logged into eTap
-      When I click Management on the main menu
-      When I click on DIY Forms on the management page
+      When I click on the Management drop down
+      And I click on DIY Forms on the management menu
       And I click on the link for the form titled #{page_name}
       And I switch to the new tab in my browser
       And I set Gender to 'Male' on the DIY Donation Page
@@ -658,8 +653,8 @@ And(/^I submit a successful credit card transaction for ([^']*) '([^']*)' ([^']*
 
   steps %Q{
       Given I am logged into eTap
-      When I click Management on the main menu
-      When I click on DIY Forms on the management page
+      When I click on the Management drop down
+      And I click on DIY Forms on the management menu
       And I click on the link for the form titled #{page_name}
       And I switch to the new tab in my browser
       And I set Gender to 'Female' on the DIY Donation Page

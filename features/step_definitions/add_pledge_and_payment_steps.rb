@@ -89,9 +89,20 @@ And (/^I click More Options on the journal page/) do
   gift.more_options_link_click
 end
 
+And (/^I click the Filters icon/) do
+  gift = Giving::GiftPledge.new
+  gift.filters_icon_click
+end
+
+#TODO: Remove due to Sky
 And (/^I click Uncheck All on the journal page/) do
   gift = Giving::GiftPledge.new
   gift.uncheck_all_link_click
+end
+
+And (/^I click Clear button on the journal filter/) do
+  gift = Giving::GiftPledge.new
+  gift.clear_button_click
 end
 
 And (/^I mark the checkbox next to Pledge on the journal page/) do
@@ -121,6 +132,8 @@ And (/^I click on the Pledge Information section on the transaction page/) do
 end
 
 And (/^I click into the Received Amount field/) do
+  sleep 1
   gift = Giving::GiftPledge.new
-  gift.pledge_received_amount
+  gift.pledge_received_amount_click
+  sleep 0.5
 end

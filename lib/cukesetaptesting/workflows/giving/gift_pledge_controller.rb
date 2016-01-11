@@ -296,11 +296,20 @@ module Cukesetaptesting
         @view.more_options_link.when_present.click
       end
 
+      def filters_icon_click
+        @view.filters_icon.when_present.click
+      end
+
       def uncheck_all_link_click
         @view.uncheck_all_link.when_present.click
       end
 
+      def clear_button_click
+        @view.clear_button.when_present.click
+      end
+
       def pledge_checkbox_click
+        sleep 3
         @view.pledge_checkbox.when_present.click
       end
 
@@ -309,7 +318,7 @@ module Cukesetaptesting
       end
 
       def filter_journal_results(item)
-        puts browser.text.include?(item) == 'No Journal Entries Found'
+        puts browser.text.include?(item) == '0 Journal Entries'
       end
 
       def journal_entry_exists?(message)
@@ -635,7 +644,7 @@ module Cukesetaptesting
           end
       end
 
-      def pledge_received_amount
+      def pledge_received_amount_click
         @view.received_field.when_present.click
       end
 

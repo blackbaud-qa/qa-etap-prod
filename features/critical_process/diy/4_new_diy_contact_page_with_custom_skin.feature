@@ -3,8 +3,8 @@ Feature: Publishing a diy page with a custom skin
 
   Scenario: creating a new diy contact page with custom skin
     Given I am logged into eTap
-    When I click Management on the main menu
-    And I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
     And I click Create a Page
     And I click Contact Page
     And I select the Custom template

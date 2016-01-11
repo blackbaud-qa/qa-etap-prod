@@ -346,6 +346,16 @@ When(/^I click on Getting Started Wizard on the management menu$/) do
   landing.management_dd_wizard_click
 end
 
+When(/^I click on NCOA on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_ncoa_click
+end
+
+When(/^I click on Social Media Finder on the management menu$/) do
+  landing = Admin::Landing.new
+  landing.management_dd_social_media_finder_click
+end
+
 When(/^I click on eStore \(Cart\) on the management menu$/) do
   landing = Admin::Landing.new
   landing.management_dd_estore_click
@@ -416,19 +426,9 @@ When(/^I click on Manage User Preferences on the management menu$/) do
   landing.management_dd_user_prefs_click
 end
 
-When(/^I click on My Organization on the management page$/) do
-  landing = Admin::Landing.new
-  landing.management_my_org_click
-end
-
-When(/^I click SEPA Banking Export on the management page$/) do
+When(/^I click on SEPA Banking Export on the management menu/) do
   landing = Admin::Landing.new
   landing.management_sepa_banking_export_click
-end
-
-When (/^I click Standard Exports on the management page$/) do
-  landing = Admin::Landing.new
-  landing.management_standard_exports_click
 end
 
 Then(/^I should be taken to Home$/) do
