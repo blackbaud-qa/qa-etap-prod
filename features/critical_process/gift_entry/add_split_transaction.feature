@@ -50,8 +50,8 @@ Feature: Adding split transactions
     And the Soft Credit Amount on Segment 2 should be set to '$75.00'
     And the 'Ticket Quantity A' UDF on Segment 2 should be set to '4'
     And I click Delete on the split transaction page
-    And I click More Options on the journal page
-    And I click Uncheck All on the journal page
+    And I click the Filters icon
+    And I click Clear button on the journal filter
     And I mark the checkbox next to Split Transaction on the journal page
     And I click Find on the journal page
     Then I should see the message '0 Journal Entries' on the journal page
@@ -92,7 +92,7 @@ Feature: Adding split transactions
     And the Soft Credit Information on Segment 2 should be set to 'Patrica Whitten'
     And the Soft Credit Amount on Segment 2 should be set to '$75.00'
     Then the 'Ticket Quantity A' UDF on Segment 2 should be set to '3'
-    And I click Delete Segment 3
+    Then I click Delete Segment 3
     And I should close the javascript popup
     And I change the Received Amount Field to '100.00'
     And I click Save And 'Edit'
@@ -113,7 +113,7 @@ Feature: Adding split transactions
     And the Tribute Information on Segment 2 should be set to 'No tribute selected'
     And the Soft Credit Information on Segment 2 should be set to 'Patrica Whitten'
     And the Soft Credit Amount on Segment 2 should be set to '$75.00'
-    Then the 'Ticket Quantity A' UDF on Segment 2 should be set to '3'
+    And the 'Ticket Quantity A' UDF on Segment 2 should be set to '3'
 
 
 

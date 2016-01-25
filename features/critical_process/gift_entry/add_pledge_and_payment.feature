@@ -36,7 +36,7 @@ Feature: Testing payments and pledges
     And I click Delete on the transaction page
 #    And I click More Options on the journal page
     And I click the Filters icon
-#    And I click Clear button on the journal filter
+    And I click Clear button on the journal filter
     And I mark the checkbox next to Pledge on the journal page
     And I click Find on the journal page
     Then I should see the message '0 Journal Entries' on the journal page

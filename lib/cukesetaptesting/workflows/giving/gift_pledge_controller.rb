@@ -59,7 +59,6 @@ module Cukesetaptesting
         @view.tribute_bar.when_present.click
       end
 
-
       def set_gift_type(type)
         @view.payment_method.select(type)
       end
@@ -72,16 +71,8 @@ module Cukesetaptesting
         @view.popup_search_find.when_present.click
       end
 
-      def choose_persona
-        @view.tribute_persona.when_present.click
-      end
-
       def search_glass
         @view.search_icon2.when_present.click
-      end
-
-      def choose_anne
-        @view.persona.when_present.click
       end
 
       def fund_input_arrow
@@ -310,13 +301,16 @@ module Cukesetaptesting
 
       def pledge_checkbox_click
         sleep 3
-        @view.pledge_checkbox.when_present.click
+        @view.filter_pledge_checkbox.when_present.click
       end
 
       def find_button_journal_page_click
         @view.find_button_journal_page.when_present.click
       end
 
+      def apply_journal_filters_click
+        @view.apply_filters_button.when_present.click
+      end
       def filter_journal_results(item)
         puts browser.text.include?(item) == '0 Journal Entries'
       end
@@ -330,8 +324,8 @@ module Cukesetaptesting
       end
 
       def account_click(account)
-        @view.content.table(:class,'etapReportTable').wait_until_present
-        @view.content.table(:class,'etapReportTable').a(:text, account).when_present.click
+        #@view.content.table(:class,'etapReportTable').wait_until_present
+        @view.content.table(:id=>/bbgrid-table/).a(:text, account).when_present.click
       end
 
       def journal_page_gift_click
@@ -469,7 +463,7 @@ module Cukesetaptesting
       end
 
       def mark_split_transaction_box
-        @view.split_transaction_checkbox.when_present.click
+        @view.filter_split_transaction_checkbox.when_present.click
       end
 
       def segment_one_received_amount
@@ -647,9 +641,7 @@ module Cukesetaptesting
       def pledge_received_amount_click
         @view.received_field.when_present.click
       end
-
-
-  end
+    end
   end
 end
 
