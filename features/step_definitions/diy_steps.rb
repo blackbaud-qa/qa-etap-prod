@@ -82,6 +82,16 @@ And(/^I click Yes, Go Live! on the DIY editor page$/) do
   sleep 3
 end
 
+And(/^I should see the new DIY page$/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.on_new_diy_page?).to eq(true)
+end
+
+And(/^I should see the edited DIY page$/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.on_edited_diy_page?).to eq(true)
+end
+
 And(/^I click Edit for the form titled '([^']*)'$/) do |page|
   sleep 1
   diy = DIY::Onlineforms.new()
@@ -308,6 +318,7 @@ end
 And (/^I click on the link for the form titled ([^']*)$/) do |diy_page_name|
   sleep 3
   diy = DIY::Onlineforms.new
+  diy.diy_page_wait_for_title
   diy.diy_page_link_click diy_page_name
 end
 

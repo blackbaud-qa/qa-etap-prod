@@ -1,7 +1,7 @@
 module Cukesetaptesting
   module DIY
     class OnlineformsView < BaseView
-      keyword(:online_forms_title)  { forms.h2(:id,'title') }
+      keyword(:online_forms_title)  { forms.h1(:id,'pageListHeader') }
       keyword(:management_page_diy) { content.link(:href, 'ecommManagerHome.do')}
       keyword(:create_a_page_first_time) { content.div(:id, 'getStartedButtonM')}
       keyword(:create_a_page) { content.div(:id, 'createPageLink')}
@@ -65,6 +65,8 @@ module Cukesetaptesting
       keyword(:donation_page_disable_confirm) {content.button(:id,'confirmDisable')}
       keyword(:donation_page_delete_confirm) {content.button(:id,'confirmDelete')}
       keyword(:donation_page_link) {content.a(:class,'ecUrl')}
+      keyword(:live_page) {browser.div(:id,'pageRoot')}
+      keyword(:live_page_title) {browser.h1(:id,'headerText')}
       keyword(:live_fund) {browser.select(:id,'ecFundSelectField')}
       keyword(:live_gender) {browser.h6(:class=>'dropdownType',:text=>'Gender').parent.parent.select}
       keyword(:live_maiden_name) {browser.h6(:class=>'simplefieldType',:text=>'Maiden Name').parent.parent.text_field}
