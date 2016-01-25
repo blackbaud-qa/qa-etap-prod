@@ -137,6 +137,10 @@ module Cukesetaptesting
       keyword(:copy_pledge_udfs) {content.input(:name, 'copyUdfsToFuturePayments')}
 
       keyword(:journal_page_gift) {content.a(:text, 'Gift')}
+      keyword(:journal_page_note) {content.a(:text,'Note')}
+
+      keyword(:note_page_delete) {content.input(:value,'Delete')}
+
       keyword(:non_deductible_field) {content.text_field(:name, 'nonDeductibleAmount')}
 
       keyword(:segment_one_received_amount) {content.table(:class, 'formLabel').text_field(:name, 'segmentReceived(1)')}

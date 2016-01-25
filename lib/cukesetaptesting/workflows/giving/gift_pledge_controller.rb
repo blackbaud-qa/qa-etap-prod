@@ -329,6 +329,15 @@ module Cukesetaptesting
         @view.journal_page_gift.when_present.click
       end
 
+      def journal_page_note_click
+        @view.journal_page_note.when_present.click
+      end
+
+      def note_page_delete_click
+        @view.click_and_confirm_alert(@view.note_page_delete)
+        # @view.note_page_delete.when_present.click
+      end
+
       def journal_soft_credit_gift_click
         @view.journal_page_soft_credit.when_present.click
       end

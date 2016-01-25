@@ -113,6 +113,16 @@ And (/^I click on the Gift listed in the journal/) do
   gift.journal_page_gift_click
 end
 
+And(/^I click on the Note listed in the journal$/) do
+  gift = Giving::GiftPledge.new
+  gift.journal_page_note_click
+end
+
+And(/^I click delete on the note page$/) do
+  gift = Giving::GiftPledge.new
+  gift.note_page_delete_click
+end
+
 And (/^I add a credit card gift for ([^']*) dollars to ([^']*)/) do |amount, constituent|
   steps %Q{
     When I type '#{constituent}' into the dynamic search field

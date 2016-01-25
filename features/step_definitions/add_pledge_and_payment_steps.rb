@@ -109,6 +109,11 @@ Then (/^I should see the message '([^']*)' on the journal page/) do |message|
   expect(gift.journal_entry_exists? message).to eq(true)
 end
 
+And(/^I delete the duplicate info note on the journal page$/) do
+  gift = Giving::giftPledge.new
+  gift.journal_page_delete_note
+end
+
 And (/^I mark the checkbox next to Copy Pledge Defined Fields on Future Payments/) do
   sleep 3
   gift = Giving::GiftPledge.new
