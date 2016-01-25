@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Login
   As a user
   I want to login to my database
