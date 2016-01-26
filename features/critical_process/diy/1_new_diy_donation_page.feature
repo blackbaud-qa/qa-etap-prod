@@ -21,4 +21,9 @@ Feature: Creating a new diy donation page
     And I click Submit on the DIY settings page
     And I click Go Live on the DIY editor page
     And I click Yes, Go Live! on the DIY editor page
+    And I click on the link for the form titled Donation Page
+    And I switch to the new tab in my browser
+    Then I should see the new DIY page
+    And I close the current tab
+
 #    Then the page will successfully go live
