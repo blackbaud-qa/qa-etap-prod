@@ -3,7 +3,7 @@ Feature: Importing Constituent and Gift Information
 
   Scenario: running a successful gift import with address information included
     Given I am logged into eTap
-    And I clear the old import data
+  #  And I clear the old import data
     When I click Management on the main menu
     And I click Import on the Managment page
     And I click 'Standard eTapestry Imports' on the Imports screen

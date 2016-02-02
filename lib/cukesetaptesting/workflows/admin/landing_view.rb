@@ -41,8 +41,8 @@ module Cukesetaptesting
       keyword(:accounts) {content.element(:css=> '#accountTab a')}
 
       #nav bar home dropdown
-      keyword(:home_dd_go_home) {home_div.li(:id, "dashboardButton").a}
-      keyword(:home_dd_manage_preferences) {home_div.li(:id, "preferencesButton").a}
+      keyword(:home_dd_go_home) {home_div.button(:id, "dashboardButton")}
+      keyword(:home_dd_manage_preferences) {home_div.button(:id, "preferencesButton")}
       keyword(:home_dd_find_account) {home_quick_links.a(:href, "/prod/entitySearch.do")}
       keyword(:home_dd_add_gift) {home_quick_links.a(:href,"/prod/addJournalTransaction.do?addingByAccountNumberStatus=new&type=Gift")}
       keyword(:home_dd_manage_comms) {home_quick_links.a(:href,"/prod/displayCategories.do?categoryManagerId=Correspondence")}
@@ -58,8 +58,8 @@ module Cukesetaptesting
       keyword(:accounts_dd_add_account) {accounts_div.button(:id,"addAccountButton")}
 
       #nav bar giving dropdown
-      keyword(:giving_dd_add_gift) {giving_div.li(:id,"addGiftButton").a}
-      keyword(:giving_dd_import_gifts) {giving_div.li(:id,"preferencesButton").a}
+      keyword(:giving_dd_add_gift) {giving_div.button(:id,"addGiftButton")}
+      keyword(:giving_dd_import_gifts) {giving_div.button(:id,"preferencesButton")}
       keyword(:giving_dd_giving_dynamics) {giving_div.a(:href,"/prod/reportLauncher.do?nextAction=givingDynamicsSummaryReport.do&type=GivingDynamics&mode=report&name=Giving%20Dynamics%20Report")}
       keyword(:giving_dd_top_donor) {giving_div.a(:href,"/prod/reportLauncher.do?nextAction=topDonorReport.do&type=TopDonor&mode=report&name=Top%20Donor%20Report")}
       keyword(:giving_dd_pledge_report) {giving_div.a(:href,"/prod/reportLauncher.do?nextAction=pledgeReport.do&mode=report&type=PledgeReport&name=Pledge%20Report")}
@@ -70,13 +70,13 @@ module Cukesetaptesting
       keyword(:giving_dd_cultivation_tools) {giving_div.a(:href,"/prod/CultivationTools.jsp")}
 
       #nav bar communications dropdown
-      keyword(:communications_dd_manage_comms) {comms_div.li(:id,'manageCommButton').a}
-      keyword(:communications_add_category) {comms_div.li(:id,'addNewCategoryButton').a}
+      keyword(:communications_dd_manage_comms) {comms_div.button(:id,'manageCommButton')}
+      keyword(:communications_add_category) {comms_div.button(:id,'addNewCategoryButton')}
       keyword(:communications_constant_contact) {comms_div.div(:id, 'commConstantContact').a(:href,'ccPreferences.do?initialSetup=true')}
 
       #nav bar queries dropdown
-      keyword(:queries_dd_manage) {queries_div.li(:id,'manageQueryButton').a}
-      keyword(:queries_dd_add_category) {queries_div.li(:id,'addNewCategoryButton').a}
+      keyword(:queries_dd_manage) {queries_div.button(:id,'manageQueryButton')}
+      keyword(:queries_dd_add_category) {queries_div.button(:id,'addNewCategoryButton')}
       keyword(:queries_dd_base) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2735')}
       keyword(:queries_dd_journal_entry) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2791')}
       keyword(:queries_dd_constit_journal_entry) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2792')}
@@ -87,8 +87,8 @@ module Cukesetaptesting
       keyword(:queries_dd_security) {queries_div.ul(:id,'queryCategories2').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2481')}
 
       #nav bar reports dropdown
-      keyword(:reports_dd_manage_reports) {reports_div.li(:id,'manageReportButton').a}
-      keyword(:reports_dd_relationship_filters) {reports_div.li(:id,'accountQueryButton').a}
+      keyword(:reports_dd_manage_reports) {reports_div.button(:id,'manageReportButton')}
+      keyword(:reports_dd_relationship_filters) {reports_div.button(:id,'accountQueryButton')}
       #DEV_HELP
       keyword(:reports_dd_system) {reports_div.ul(:id,'reportCategories1').a(:text,'System')}
       #DEV_HELP
@@ -101,9 +101,9 @@ module Cukesetaptesting
       keyword(:reports_dd_benchmark) {reports_div.ul(:id,'reportStandard').a(:href,'/prod/viewCrossDBReports.do')}
 
       #nav bar managment dropdown
-      keyword(:management_dd_import) {management_div.li(:id,'importButton').a}
-      keyword(:management_dd_exports) {management_div.li(:id,'exportButton').a}
-      keyword(:management_dd_mass_update) {management_div.li(:id,'massUpdateButton').a}
+      keyword(:management_dd_import) {management_div.button(:id,'importButton')}
+      keyword(:management_dd_exports) {management_div.button(:id,'exportButton')}
+      keyword(:management_dd_mass_update) {management_div.button(:id,'massUpdateButton')}
       keyword(:management_dd_my_org) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/editOrganization.do')}
       keyword(:management_dd_my_user) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/entityRoleHome.do?entityRoleRef=39.0.2534')}
       keyword(:management_dd_all_users) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/orgAdmin/editUsers.do')}
