@@ -135,7 +135,7 @@ Feature: Critical Process - General Navigation
     | eTapestry Security             | Edit Query Category: eTapestry Security             |
 
 #  Currently Excluded due to errors
-#  @crit_proc
+  @crit_proc2
   Scenario Outline:  Reports SubMenu Navigation
     Given I am logged into eTap
     And I click on the Reports drop down
