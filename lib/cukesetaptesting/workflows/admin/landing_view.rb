@@ -54,8 +54,8 @@ module Cukesetaptesting
       keyword(:home_dd_wizard) {home_div.a(:href,"/prod/gettingStartedWizard.do")}
 
       #nav bar accounts dropdown
-      keyword(:accounts_dd_find_account) {accounts_div.li(:id,"findAccountButton").a}
-      keyword(:accounts_dd_add_account) {accounts_div.li(:id,"addAccountButton").a}
+      keyword(:accounts_dd_find_account) {accounts_div.button(:id,"findAccountButton")}
+      keyword(:accounts_dd_add_account) {accounts_div.button(:id,"addAccountButton")}
 
       #nav bar giving dropdown
       keyword(:giving_dd_add_gift) {giving_div.li(:id,"addGiftButton").a}

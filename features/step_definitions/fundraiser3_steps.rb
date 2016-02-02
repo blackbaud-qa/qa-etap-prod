@@ -1,5 +1,6 @@
 When(/^I delete existing data for '([^']*)'$/) do |name|
   step "I click Accounts on the main menu"
+  step "I click on Find an Account on the accounts menu"
   step "I type '" + name + "' into the search field"
   step "I press Enter on the keyboard"
   search = Account::Search.new
