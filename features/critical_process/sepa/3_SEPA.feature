@@ -11,9 +11,12 @@ Feature: SEPA - 3 Export
 #    And account [B] contains a retry
 
   Scenario: Verify validation on fields in step 1 of export
-    Given I click Management on the main menu
-    And I click Standard Exports on the management page
-    And I click SEPA Banking Export on the management page
+    Given I click on the Management drop down
+    # Rather than Mgmt --> Stand Exports --> SEPA Bank Export,
+    #  this is now clicking SEPA Bank Export straight from the
+    #  Mgmt dropdown:
+#    And I click on Standard Exports on the management menu
+    And I click on SEPA Banking Export on the management menu
     When I click next on the SEPA banking export screen
     Then I should see the 'Export Type: You must select a value.' pop up error
     And I should see the 'Export Method: You must select a value.' pop up error
@@ -24,9 +27,12 @@ Feature: SEPA - 3 Export
     And I should close the pop up error
 
   Scenario: Verify Process Date validation
-    Given I click Management on the main menu
-    And I click Standard Exports on the management page
-    And I click SEPA Banking Export on the management page
+    Given I click on the Management drop down
+    # Rather than Mgmt --> Stand Exports --> SEPA Bank Export,
+    #  this is now clicking SEPA Bank Export straight from the
+    #  Mgmt dropdown:
+#    And I click on Standard Exports on the management menu
+    And I click on SEPA Banking Export on the management menu
     And I select Retries Only for the Export Type field
     And I select Standard for the Export Method field
     And I select Live for the Export Mode field
@@ -37,9 +43,12 @@ Feature: SEPA - 3 Export
 
 #
   Scenario: Verify Retry validation
-    Given I click Management on the main menu
-    And I click Standard Exports on the management page
-    And I click SEPA Banking Export on the management page
+    Given I click on the Management drop down
+    # Rather than Mgmt --> Stand Exports --> SEPA Bank Export,
+    #  this is now clicking SEPA Bank Export straight from the
+    #  Mgmt dropdown:
+#    And I click on Standard Exports on the management menu
+    And I click on SEPA Banking Export on the management menu
     And I select Retries Only for the Export Type field
     And I select Standard for the Export Method field
     And I select Live for the Export Mode field
@@ -55,9 +64,12 @@ Feature: SEPA - 3 Export
 
 
   Scenario: Regularly scheduled debits + Retry validation (First and One Off)
-    Given I click Management on the main menu
-    And I click Standard Exports on the management page
-    And I click SEPA Banking Export on the management page
+    Given I click on the Management drop down
+    # Rather than Mgmt --> Stand Exports --> SEPA Bank Export,
+    #  this is now clicking SEPA Bank Export straight from the
+    #  Mgmt dropdown:
+#    And I click on Standard Exports on the management menu
+    And I click on SEPA Banking Export on the management menu
     And I select Regularly Scheduled Direct Debits for the Export Type field
     And I select Custom for the Export Method field
     And I select 'Base' for the Category field

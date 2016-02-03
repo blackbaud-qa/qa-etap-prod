@@ -36,22 +36,6 @@ And(/^click on the Search Glass$/) do
 
 end
 
-And(/^set the Tribute Information to '([^']*)'$/) do |tribute|
-  landing = Giving::GiftPledge.new(:tribute_search=>tribute)
-  landing.create
-  landing.click_find
-  landing.choose_persona
-end
-
-And(/^set the Soft Credit Information to '([^']*)'$/) do |info|
-  credit = Giving::GiftPledge.new
-  credit.search_glass
-  soft = Giving::GiftPledge.new(:credit_info=>info)
-  soft.create
-  soft.click_find
-  soft.choose_anne
-end
-
 And(/^the Soft Credit Amount to '([^']*)'$/) do |credit|
   amount = Giving::GiftPledge.new(:credit_amount=>credit)
   amount.create

@@ -3,8 +3,8 @@ Feature: Verifying that the dollar sign does not prevent a gift or pledge from b
 
   Scenario: Verifying that typing a dollar sign into the Received field does mess up the gift once saved
     Given I am logged into eTap
-    When I click Management on the main menu
-    And I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Event Page'
     And I hover over the Ticket Section on the DIY editor page
     And I click the pencil icon that appears on the DIY editor page
@@ -33,13 +33,13 @@ Feature: Verifying that the dollar sign does not prevent a gift or pledge from b
     And the Check Date should be set to '9/2/2090'
     And the Check Number should be set to '879'
     And I click Delete on the transaction page
-    Then I should see the message 'No Journal Entries Found' on the journal page
+    Then I should see the message '0 Journal Entries' on the journal page
 
 
   Scenario: Verifying that the dollar sign in the Pledge Installment Amount field does not prevent a pledge from being saved
     Given I am logged into eTap
-    When I click Management on the main menu
-    And I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Event Page'
     And I hover over the Ticket Section on the DIY editor page
     And I click the pencil icon that appears on the DIY editor page
@@ -62,4 +62,4 @@ Feature: Verifying that the dollar sign does not prevent a gift or pledge from b
     And I set the Frequency to 'Monthly (12)'
     And I click Save And 'Edit'
     And I click Delete on the transaction page
-    Then I should see the message 'No Journal Entries Found' on the journal page
+    Then I should see the message '0 Journal Entries' on the journal page

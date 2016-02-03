@@ -3,8 +3,8 @@ Feature: Creating a new diy donation page
 
   Scenario: creating a new diy donation page
     Given I am logged into eTap
-    When I click Management on the main menu
-    When I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
 #    This is currently dependent on there already being a DIY page created
     And I click Create a Page
     And I click Online Giving Page
