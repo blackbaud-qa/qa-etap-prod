@@ -4,7 +4,6 @@ module Cukesetaptesting
       @model = ImportsModel
       @view = ImportsView
 
-
       def managment_import_click
         @view.managment_import.when_present.click
       end
@@ -66,11 +65,11 @@ module Cukesetaptesting
       end
 
       def mapping_icon_click field
-        @view.mapping_table_row(field).text_field(:class,'compactInput').parent.img.when_present.click
+        @view.mapping_table_other_fields_row(field).text_field(:class,'compactInput').parent.img.when_present.click
       end
 
       def mapping_icon_names_click field
-        @view.mapping_table_names_row(field).text_field(:class,'compactInput').parent.img.when_present.click
+        @view.mapping_table_individual_name_format_row(field).text_field(:class,'compactInput').parent.img.when_present.click
       end
 
       def import_mapping_field_click field
@@ -80,11 +79,26 @@ module Cukesetaptesting
 
       def import_mapping_x_click
         @view.import_mapping_pop_up.wait_until_present
-        @view.import_mapping_pop_up.parent.img.when_present.click
+        @view.import_mapping_pop_up_corner_x.when_present.click
       end
 
-      def field_checkbox_set field
-        @view.mapping_table_row(field).checkbox.when_present.set
+      def individual_fields_checkbox_set field
+        @view.mapping_table_individual_name_format_row(field).checkbox.when_present.set
+
+      end
+
+      def family_fields_checkbox_set field
+        @view.mapping_table_family_name_format_row(field).checkbox.when_present.set
+
+      end
+
+      def business_fields_checkbox_set field
+        @view.mapping_table_business_name_format_row(field).checkbox.when_present.set
+
+      end
+
+      def other_fields_checkbox_set field
+        @view.mapping_table_other_fields_row(field).checkbox.when_present.set
       end
 
       def possible_duplicates_exist? name
@@ -96,7 +110,7 @@ module Cukesetaptesting
       end
 
       def import_summary_contains? text
-        return @view.import_summary_title.parent.text.include? text
+        return @view.import_summary_title.parent.parent.text.include? text
       end
 
       def error_message_contains? msg

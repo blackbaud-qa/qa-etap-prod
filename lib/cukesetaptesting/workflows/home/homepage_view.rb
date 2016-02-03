@@ -39,7 +39,7 @@ module Cukesetaptesting
 
       keyword(:dashboard_tile_recently_viewed_accounts_checkbox)  {content.div(:id, 'etap.fieldset.table.2').checkbox(:value,'200')}
       # keyword(:dashboard_tile_recently_viewed_accounts_tile)  {content.div(:class, 'tilesetRightRow et-col-lg-6 et-col-sm-6  et-col-xs-12').div(:id, 'tile200')}
-      keyword(:dashboard_tile_recently_viewed_accounts_tile)  {content.div(:id,'mainContent').h3(:class=>'title',:text=>/Recently Viewed Accounts/)}
+      keyword(:dashboard_tile_recently_viewed_accounts_tile)  {content.div(:id,'mainContent').h2(:class=>'bb-tile-header',:text=>/Recently Viewed Accounts/)}
       keyword(:two_equal_column_layout) {content.radio(:value, '1')}
       keyword(:left_column) {content.divs(:class, 'tilesetRow et-col-lg-6')}
       keyword(:right_column) {content.divs(:class, 'tilesetRightRow et-col-lg-6')}
