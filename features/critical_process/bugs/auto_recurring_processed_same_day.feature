@@ -6,7 +6,7 @@ Feature: Setting up auto processing Recurring Gift Schedules
     And I press Enter on the keyboard
     And I click on the 'Niles Baker' account
     And I click on 'Journal' in the account header
-    And I should see the message 'No Journal Entries Found' on the journal page
+    And I should see the message '0 Journal Entries' on the journal page
     And I select 'Recurring Gift Schedule' from the Add New... drop down menu
     And I set the date to Today on the new pledge page
     And set the Installment Amount to '7.00' on the Recurring Gift Schedule
@@ -30,7 +30,7 @@ Feature: Setting up auto processing Recurring Gift Schedules
     And I click Delete on the transaction page
     And I click on the 'Recurring Gift Schedule' in the journal
     And I click Delete on the transaction page
-    Then I should see the message 'No Journal Entries Found' on the journal page
+    Then I should see the message '0 Journal Entries' on the journal page
 
 
   Scenario: Setting up an auto processing EFT Recurring Gift Schedule and processing the first payment today
@@ -44,7 +44,7 @@ Feature: Setting up auto processing Recurring Gift Schedules
     And I press Enter on the keyboard
     And I click on the 'Niles Baker' account
     And I click on 'Journal' in the account header
-    And I should see the message 'No Journal Entries Found' on the journal page
+    And I should see the message '0 Journal Entries' on the journal page
     And I select 'Recurring Gift Schedule' from the Add New... drop down menu
     And I set the date to Today on the new pledge page
     And set the Installment Amount to '10.00' on the Recurring Gift Schedule
@@ -67,5 +67,5 @@ Feature: Setting up auto processing Recurring Gift Schedules
     And I click Delete on the transaction page
     And I click on the 'Recurring Gift Schedule' in the journal
     And I click Delete on the transaction page
-    Then I should see the message 'No Journal Entries Found' on the journal page
+    Then I should see the message '0 Journal Entries' on the journal page
 

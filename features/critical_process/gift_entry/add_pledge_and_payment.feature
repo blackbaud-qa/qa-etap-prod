@@ -8,7 +8,7 @@ Feature: Testing payments and pledges
     And I click on 'Jon Snow' in the search results
     And I click Journal
     And I delete the existing transactions in the journal
-    And I select 'Gift/Pledge' from the Add New... drop down menu
+    And select Gift/Pledge from the Add New... drop down menu
     And I set the date to Today on the new pledge page
     And I set the Pledged Amount to '240'
     And I click into the Received Amount field
@@ -34,11 +34,12 @@ Feature: Testing payments and pledges
     And I click Delete on the transaction page
     And I click Pledge on the journal page
     And I click Delete on the transaction page
-    And I click More Options on the journal page
-    And I click Uncheck All on the journal page
+#    And I click More Options on the journal page
+    And I click the Filters icon
+    And I click Clear button on the journal filter
     And I mark the checkbox next to Pledge on the journal page
     And I click Find on the journal page
-    Then I should see the message 'No Journal Entries Found' on the journal page
+    Then I should see the message '0 Journal Entries' on the journal page
 
 
 

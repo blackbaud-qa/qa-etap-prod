@@ -59,7 +59,7 @@ Feature: Verifying that non-admins cannot remove data from UDFs they do not have
     And the Fund should be set to 'Unrestricted'
     And the date should be set to '11/3/2090'
     And I click Delete on the transaction page
-    And I should see the message 'No Journal Entries Found' on the journal page
+    And I should see the message '0 Journal Entries' on the journal page
     And I click on 'Account Settings' in the account header
     And I click Delete Role on the Account Settings page
     And I click Yes to permanently delete the item

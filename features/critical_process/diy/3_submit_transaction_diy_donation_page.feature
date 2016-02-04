@@ -6,28 +6,28 @@ Feature: Submit a transaction through a diy donation page
 
   Scenario: submitting a successful credit card transaction
     Given I am logged into eTap
-    When I click Management on the main menu
-    When I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
     And I click on the link for the form titled Donation Page
     And I switch to the new tab in my browser
     And I set the Fund to 'Unrestricted' on the DIY Donation Page
-    And I set Gender to 'Female' on the DIY Donation Page
+    And I set Gender to 'Male' on the DIY Donation Page
     And I set the Donation Amount to Other on the DIY Donation Page
     And I enter '7' as the amount on the DIY Donation Page
     And I set the Donation Frequency to 'One Time' on the DIY Donation Page
-    And I set the Title to 'Mrs.' on the DIY Donation Page
-    And I set First Name to 'Sally' on the DIY Donation Page
-    And I set Last Name to 'Jenkins' on the DIY Donation Page
+    And I set the Title to 'Mr.' on the DIY Donation Page
+    And I set First Name to 'Jon' on the DIY Donation Page
+    And I set Last Name to 'Snow' on the DIY Donation Page
     And I set Country to 'United States' on the DIY Donation Page
-    And I set Address Lines to '123 Main St.' on the DIY Donation Page
-    And I set City to 'Indianapolis' on the DIY Donation Page
-    And I set State to 'Indiana' on the DIY Donation Page
-    And I set Postal Code to '46280' on the DIY Donation Page
+    And I set Address Lines to 'asdf' on the DIY Donation Page
+    And I set City to 'asdf' on the DIY Donation Page
+    And I set State to 'South Carolina' on the DIY Donation Page
+    And I set Postal Code to '12345' on the DIY Donation Page
     And I set Email to 'lance.moore@blackbaud.com' on the DIY Donation Page
     And I set Confirm Email to 'lance.moore@blackbaud.com' on the DIY Donation Page
-    And I set Phone to '317-336-3827' on the DIY Donation Page
+    And I set Phone to '123-123-1234' on the DIY Donation Page
     And I set the Card Type to 'MasterCard' on the DIY Donation Page
-    And I set Name on Card to 'Sally Jenkins' on the DIY Donation Page
+    And I set Name on Card to 'Jon Snow' on the DIY Donation Page
     And I set Card Number to '4111111111111111' on the DIY Donation Page
     And I set CVV2 to '123' on the DIY Donation Page
     And I set Expiration Month to '02' on the DIY Donation Page
@@ -36,13 +36,13 @@ Feature: Submit a transaction through a diy donation page
     And I click Submit on the DIY Donation Page
     Then the transaction will process successfully
     And I close the current tab
-#    And the transaction will be added to the database with accurate information
+    And the transaction will be added to the database with accurate information
 
 
   Scenario: Submitting an unsuccessful credit card transaction
     Given I am logged into eTap
-    When I click Management on the main menu
-    When I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
     And I click on the link for the form titled Donation Page
     And I switch to the new tab in my browser
     And I set the Fund to 'General' on the DIY Donation Page

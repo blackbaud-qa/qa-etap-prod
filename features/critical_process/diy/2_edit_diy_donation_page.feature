@@ -6,8 +6,8 @@ Feature: Edit a diy donation page
 
   Scenario: editing a new diy page
     Given I am logged into eTap
-    When I click Management on the main menu
-    When I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Donation Page'
     And I click Edit Style on the DIY editor page
     And I click Swap Template on the DIY editor page
@@ -54,6 +54,10 @@ Feature: Edit a diy donation page
     And I click Go Live on the DIY editor page
     And I click Yes, Go Live! on the DIY editor page
     And I click Replace on the DIY editor page
+    And I click on the link for the form titled Donation Page
+    And I switch to the new tab in my browser
+    Then I should see the edited DIY page
+    And I close the current tab
 #    And click Go Live
 #    And click Yes, Go Live!
 #    And click Replace

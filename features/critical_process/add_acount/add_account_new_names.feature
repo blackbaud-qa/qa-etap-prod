@@ -11,7 +11,7 @@ Feature: Add Account in New Names database
     And I set the Middle Name to 'I.' on the add account page
     And I set the Last Name to 'Doe' on the add account page
     And I set the Suffix to 'Jr.' on the add account page
-    And I click the edit icon next to 'Short Salutation' on the add account page
+#    And I click the edit icon next to 'Short Salutation' on the add account page
     And I set the Short Salutation to 'Mack' on the add account page
     And I set Address Lines to '501 N Pennsylvania Parkway' on the classic add account page
     And I set City to 'Indianapolis' on the classic add account page

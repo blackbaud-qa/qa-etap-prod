@@ -3,8 +3,8 @@ Feature: Creating a new diy donation page
 
   Scenario: creating a new diy donation page
     Given I am logged into eTap
-    When I click Management on the main menu
-    When I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
 #    This is currently dependent on there already being a DIY page created
     And I click Create a Page
     And I click Online Giving Page
@@ -21,4 +21,9 @@ Feature: Creating a new diy donation page
     And I click Submit on the DIY settings page
     And I click Go Live on the DIY editor page
     And I click Yes, Go Live! on the DIY editor page
+    And I click on the link for the form titled Donation Page
+    And I switch to the new tab in my browser
+    Then I should see the new DIY page
+    And I close the current tab
+
 #    Then the page will successfully go live

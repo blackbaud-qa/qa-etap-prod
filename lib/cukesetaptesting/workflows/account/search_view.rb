@@ -7,7 +7,8 @@ module Cukesetaptesting
       keyword(:find_button) { content.button(:value => 'Find') }
       keyword(:advanced_link) { content.link(:text=> 'Advanced Find') }
       keyword(:exact_button) { content.button(:value => 'Exact Match') }
-      keyword(:table_content) { content.table(:id => 'etapreporttag1')}
+      #keyword(:table_content) { content.table(:id => 'etapreporttag1')}
+      keyword(:table_content) { content.table(:class => 'ui-jqgrid-htable')}
       #Role Keywords-  May be able to put this in its own class, but probably not necessary
       keyword(:role_icon) { table_content.img(:class => 'contextMenuActivation') }
       keyword(:role_menu) { content.div(:class, "contextMenu") }

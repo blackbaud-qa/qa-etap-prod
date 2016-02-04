@@ -1,10 +1,10 @@
 module Cukesetaptesting
   module DIY
     class OnlineformsView < BaseView
-      keyword(:online_forms_title)  { forms.h2(:id,'title') }
+      keyword(:online_forms_title)  { forms.h1(:id,'pageListHeader') }
       keyword(:management_page_diy) { content.link(:href, 'ecommManagerHome.do')}
       keyword(:create_a_page_first_time) { content.div(:id, 'getStartedButtonM')}
-      keyword(:create_a_page) { content.div(:id, 'createPageLink')}
+      keyword(:create_a_page) { content.button(:id, 'createPageLink')}
       keyword(:choose_online_giving_page) { content.div(:id, 'donateButtonM')}
       keyword(:choose_embedded_template) { content.div(:id, 'embeddiv')}
       keyword(:template_next) { content.input(:id, 'templateNext')}
@@ -23,7 +23,7 @@ module Cukesetaptesting
       keyword(:go_live_confirm) { content.input(:id, 'publishConfirm')}
       keyword(:edit_style) {content.h6(:text,'Edit Style').parent.parent}
       keyword(:swap_template) {content.h6(:text,'Swap Template')}
-      keyword(:choose_steel_template) {content.h1(:class=>'ecommTemplateName', :text=>'Steel')}
+      keyword(:choose_steel_template) {content.h6(:class=>'ecommTemplateName', :text=>'Steel')}
       keyword(:swap_to_this_template) {content.button(:id,'swapSubmit')}
       keyword(:diy_title_font) {content.div(:class=>'styleDefinition', :text=>/Title/).select(:class=>'styleFont')}
       keyword(:diy_title_size) {content.div(:class=>'styleDefinition', :text=>/Title/).select(:class=>'styleSize')}
@@ -65,6 +65,8 @@ module Cukesetaptesting
       keyword(:donation_page_disable_confirm) {content.button(:id,'confirmDisable')}
       keyword(:donation_page_delete_confirm) {content.button(:id,'confirmDelete')}
       keyword(:donation_page_link) {content.a(:class,'ecUrl')}
+      keyword(:live_page) {browser.div(:id,'pageRoot')}
+      keyword(:live_page_title) {browser.h1(:id,'headerText')}
       keyword(:live_fund) {browser.select(:id,'ecFundSelectField')}
       keyword(:live_gender) {browser.h6(:class=>'dropdownType',:text=>'Gender').parent.parent.select}
       keyword(:live_maiden_name) {browser.h6(:class=>'simplefieldType',:text=>'Maiden Name').parent.parent.text_field}
