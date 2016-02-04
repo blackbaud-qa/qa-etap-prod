@@ -33,7 +33,7 @@ Feature: Adding a gift with payment type of check
     And the Soft Credit Information should be set to 'Anne Hatch'
     And the Soft Credit Amount should be set to '$10.00'
     And I click Delete on the transaction page
-    Then I should see the message 'No Journal Entries Found' on the journal page
+    Then I should see the message '0 Journal Entries' on the journal page
 
 
   Scenario: Add a gift from the journal page, include a dollar sign in received amount
@@ -71,4 +71,4 @@ Feature: Adding a gift with payment type of check
     And I click on the User Defined Fields section on the new payment page
     And I should see 'Ticket Quantity A' set to '85' on the payment page
     And I click Delete on the transaction page
-    Then I should see the message 'No Journal Entries Found' on the journal page
+    Then I should see the message '0 Journal Entries' on the journal page

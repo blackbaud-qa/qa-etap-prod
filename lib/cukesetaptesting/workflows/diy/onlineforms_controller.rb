@@ -64,6 +64,14 @@ module Cukesetaptesting
         @view.go_live_confirm.when_present.click
       end
 
+      def on_new_diy_page?
+        return @view.live_page.present?
+      end
+
+      def on_edited_diy_page?
+        return @view.live_page_title.text.include? 'My Organization'
+      end
+
       def edit_form(page)
         @tempPage = @view.content.span(:class=>'namePart', :text=> page)
         @tempPage.wait_until_present
@@ -253,6 +261,10 @@ module Cukesetaptesting
 
       def donation_page_present? text
         return @view.content.span(:class=>'namePart',:text=>text).present?
+      end
+
+      def diy_page_wait_for_title
+        @view.online_forms_title.wait_until_present
       end
 
       def diy_page_link_click page_name

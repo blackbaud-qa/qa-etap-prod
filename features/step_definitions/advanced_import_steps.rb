@@ -91,9 +91,24 @@ And(/^I the X on the Import mapping pop up$/) do
   import.import_mapping_x_click
 end
 
-And(/^I mark the checkbox next to '([^']*)' on the import screen$/) do |field|
+And(/^I mark the Individual fields checkbox next to '([^']*)' on the import screen$/) do |field|
   import = Giving::Imports.new()
-  import.field_checkbox_set field
+  import.individual_fields_checkbox_set field
+end
+
+And(/^I mark the Family fields checkbox next to '([^']*)' on the import screen$/) do |field|
+  import = Giving::Imports.new()
+  import.family_fields_checkbox_set field
+end
+
+And(/^I mark the Business fields checkbox next to '([^']*)' on the import screen$/) do |field|
+  import = Giving::Imports.new()
+  import.business_fields_checkbox_set field
+end
+
+And(/^I mark the other fields checkbox next to '([^']*)' on the import screen$/) do |field|
+  import = Giving::Imports.new()
+  import.other_fields_checkbox_set field
 end
 
 And(/^I should see '([^']*)' listed as a possible duplicate$/) do |name|

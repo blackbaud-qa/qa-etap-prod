@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Add Tribute Account From A Transaction
 
   Scenario: Add new tribute account
@@ -11,7 +12,7 @@ Feature: Add Tribute Account From A Transaction
     And I set the First Name to 'George' on the pop up find account screen
     And I set the Middle Name to 'T.' on the pop up find account screen
     And I set the Last Name to 'Washington' on the pop up find account screen
-    And I click the edit icon next to 'Short Salutation' on the pop up find account screen
+#    And I click the edit icon next to 'Short Salutation' on the pop up find account screen
     And I set the Short Salutation to 'Georgy Porgy' on the pop up find account screen
     And I set Address Lines to '547 Potomac Drive' on the pop up find account screen
     And I set City to 'Indianapolis' on the pop up find account screen

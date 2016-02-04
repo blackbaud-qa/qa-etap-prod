@@ -1,8 +1,3 @@
-When(/^I click NCOA on the Management page$/) do
-  ncoa = Management::Ncoa.new()
-  ncoa.management_ncoa_click
-end
-
 Then(/^I should see the NCOA Settings page$/) do
   # sleep 2
   ncoa = Management::Ncoa.new()

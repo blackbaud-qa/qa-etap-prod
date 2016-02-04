@@ -11,7 +11,7 @@ Feature: Add Constituent Account From The Soft Credit Section Of A Transaction
     And I set the First Name to 'Laney' on the pop up find account screen
     And I set the Middle Name to 'P.' on the pop up find account screen
     And I set the Last Name to 'Thompkins' on the pop up find account screen
-    And I click the edit icon next to 'Short Salutation' on the pop up find account screen
+  #  And I click the edit icon next to 'Short Salutation' on the pop up find account screen
     And I set the Short Salutation to 'Laney P.' on the pop up find account screen
     And I set Address Lines to '1235 East Loop' on the pop up find account screen
     And I set City to 'Fishers' on the pop up find account screen

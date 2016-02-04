@@ -18,14 +18,14 @@ Feature: Making a donation to a fundraiser
     And I search for 'John' on the live fundraiser page
     And I select Sponsor John Crabtree - Individual on the live fundraiser page
     And I click Next on the live fundraiser page
-    And I set the First Name field to 'Robert' on the live fundraiser donation page
-    And I set the Last Name field to 'Howell' on the live fundraiser donation page
+    And I set the First Name field to 'Ronald' on the live fundraiser donation page
+    And I set the Last Name field to 'Jackson' on the live fundraiser donation page
     And I set the Country to 'United States' on the live fundraiser donation page
-    And I set the Address to '8771 W. Vine Place' on the live fundraiser donation page
+    And I set the Address to '123 Sunset Ln.' on the live fundraiser donation page
     And I set the City to 'Indianapolis' on the live fundraiser donation page
     And I set the State to 'Indiana' on the live fundraiser donation page
     And I set the Postal Code to '46220' on the live fundraiser donation page
-    And I set the Phone to '3173337788' on the live fundraiser donation page
+    And I set the Phone to '1231231234' on the live fundraiser donation page
     And I set the Email field to 'lance.moore@blackbaud.com' on the live fundraiser donation page
     And I set the donation type to 'One Time' on the live fundraiser donation page
     And I set the donation amount to '10' on the live fundraiser donation page
@@ -51,15 +51,15 @@ Feature: Making a donation to a fundraiser
     And I click Find a Team Participant on the live fundraiser page
     And I search for 'John' on the live fundraiser participant search page
     And I click on 'John Crabtree' on the live fundraiser participant search page
-    Then I should see 'Robert Howell' listed as a donor
+    Then I should see 'Ronald Jackson' listed as a donor
     And I close the current tab
 
   Scenario: verify the donation is in the database with the soft credit link
     Given I am logged into eTap
     When I click Accounts on the main menu
-    And I type 'Robert Howell' into the search field
+    And I type 'Ronald Jackson' into the search field
     And I click Find
-    And I click on 'Robert Howell' in the search results
+    And I click on 'Ronald Jackson' in the search results
     And I click Journal
     And I click on the Gift listed in the journal
     And click on Tribute Information

@@ -1,8 +1,3 @@
-When(/^I click on DIY Forms on the management page/) do
-  diy = DIY::Onlineforms.new()
-  diy.management_page_diy_click
-end
-
 When(/^I click Create a Page/) do
   sleep 1
   diy = DIY::Onlineforms.new()
@@ -80,6 +75,16 @@ And(/^I click Yes, Go Live! on the DIY editor page$/) do
   diy = DIY::Onlineforms.new()
   diy.go_live_confirm_click
   sleep 3
+end
+
+And(/^I should see the new DIY page$/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.on_new_diy_page?).to eq(true)
+end
+
+And(/^I should see the edited DIY page$/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.on_edited_diy_page?).to eq(true)
 end
 
 And(/^I click Edit for the form titled '([^']*)'$/) do |page|
@@ -308,6 +313,7 @@ end
 And (/^I click on the link for the form titled ([^']*)$/) do |diy_page_name|
   sleep 3
   diy = DIY::Onlineforms.new
+  diy.diy_page_wait_for_title
   diy.diy_page_link_click diy_page_name
 end
 
@@ -452,6 +458,23 @@ Then(/^the transaction will process successfully$/) do
   expect(diy.live_transaction_successful?).to eq(true)
 end
 
+And(/^the transaction will be added to the database with accurate information$/) do
+  steps %Q{
+    When I type 'Jon Snow' into the dynamic search field
+    And I press Enter on the keyboard
+    And I click on 'Jon Snow' in the search results
+    And I click Journal
+    And wait for the journal page to display
+    And I click on the Gift listed in the journal
+    And the Received Amount should be set to '$7.00'
+    And the Fund should be set to 'Unrestricted'
+    And I click Delete on the transaction page
+    And I click on the Note listed in the journal
+    And I click delete on the note page
+    Then I should see the message 'No Journal Entries Found' on the journal page
+  }
+end
+
 And(/^I close the current tab$/) do
   diy = DIY::Onlineforms.new()
   diy.close_current_tab
@@ -532,8 +555,8 @@ end
 And(/^a DIY form titled ([^']*) exists/) do |page_name|
   steps %Q{
     Given I am logged into eTap
-    When I click Management on the main menu
-    And I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
   }
 
   diy = DIY::Onlineforms.new
@@ -549,8 +572,8 @@ And(/^I create and publish a new DIY page named ([^']*)/) do |page_name|
 
   steps %Q{
     Given I am logged into eTap
-    When I click Management on the main menu
-    And I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
     And I click Create a Page
     And I click Online Giving Page
     And I select the Embeddable template
@@ -574,8 +597,8 @@ And(/^the DIY page ([^']*) contains the UDF ([^']*)/) do |diy_page_name, udf_nam
 
   steps %Q{
     Given I am logged into eTap
-    When I click Management on the main menu
-    And I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
     And I click Edit for the form titled '#{diy_page_name}'
 
     And I click Add Item on the DIY editor page
@@ -597,8 +620,8 @@ And(/^all email notifications are ([^']*) for the DIY page ([^']*)/) do |notific
 
   steps %Q{
     Given I am logged into eTap
-    When I click Management on the main menu
-    And I click on DIY Forms on the management page
+    When I click on the Management drop down
+    And I click on DIY Forms on the management menu
     And I click Edit for the form titled '#{diy_page_name}'
 
     And I click Settings on the DIY editor page
@@ -624,8 +647,8 @@ And(/^I submit a successful credit card transaction for ([^']*) ([^']*) on page 
 
   steps %Q{
       Given I am logged into eTap
-      When I click Management on the main menu
-      When I click on DIY Forms on the management page
+      When I click on the Management drop down
+      And I click on DIY Forms on the management menu
       And I click on the link for the form titled #{page_name}
       And I switch to the new tab in my browser
       And I set Gender to 'Male' on the DIY Donation Page
@@ -658,8 +681,8 @@ And(/^I submit a successful credit card transaction for ([^']*) '([^']*)' ([^']*
 
   steps %Q{
       Given I am logged into eTap
-      When I click Management on the main menu
-      When I click on DIY Forms on the management page
+      When I click on the Management drop down
+      And I click on DIY Forms on the management menu
       And I click on the link for the form titled #{page_name}
       And I switch to the new tab in my browser
       And I set Gender to 'Female' on the DIY Donation Page

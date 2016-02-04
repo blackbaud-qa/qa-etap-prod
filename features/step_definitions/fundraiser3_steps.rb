@@ -1,5 +1,6 @@
 When(/^I delete existing data for '([^']*)'$/) do |name|
   step "I click Accounts on the main menu"
+  step "I click on Find an Account on the accounts menu"
   step "I type '" + name + "' into the search field"
   step "I press Enter on the keyboard"
   search = Account::Search.new
@@ -29,7 +30,7 @@ And(/^I delete the existing transactions in the journal$/) do
 
   count = 0
   gift = Giving::GiftPledge.new
-  while (!(gift.journal_entry_exists? "No Journal Entries Found") && (count<10))
+  while (!(gift.journal_entry_exists? "0 Journal Entries") && (count<10))
     count += 1
 
     if (gift.gift_link_present?)
