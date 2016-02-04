@@ -1,10 +1,6 @@
 @crit_proc
 Feature: Process Cart transaction
 
-#  Background:
-#    Given I am logged into eTap
-#    And I have a Cart page listed under eStore (Cart)
-
  Scenario: View online Cart
   Given I am logged into eTap
   And I click on the Management drop down

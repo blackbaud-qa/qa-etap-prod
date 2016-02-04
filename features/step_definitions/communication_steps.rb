@@ -443,6 +443,11 @@ Given(/^(?:I |)set Receiving to Download documents/) do
   letter.download_docs_radio_select
 end
 
+Given(/^(?:I |)set Receiving to Place documents in My Drop Box/) do
+  letter = Communications::Createtemplate.new()
+  letter.drop_box_docs_radio_select
+end
+
 Given(/^(?:I |)update the letter's email address from '([^']*)' to '([^']*)'/) do |old_email, new_email|
   letter = Communications::Createtemplate.new()
   letter.update_email_address old_email, new_email
@@ -642,7 +647,7 @@ And(/^I set the Method to '([^']*)' on the Generate Letters page$/) do |method|
   letter.gen_letters_method_select method
 end
 
-And(/^a contact dated for today with the subject '([^']*)' should be added to '([^']*)' journal page$/) do |document, name|
+And(/^a contact with the subject '([^']*)' should be added to '([^']*)' journal page$/) do |document, name|
   step "I type '" + name + "' into the dynamic search field"
   step "I press Enter on the keyboard"
   step "I click on '" + name + "' on the accounts page"
@@ -779,4 +784,30 @@ end
 Then (/^I should see the '([^']*)' template has been removed from the Correspondence Category page/) do |template|
   letter = Communications::Createtemplate.new
   expect(letter.correspondence_template_exists(template)).to eq(false)
+end
+
+And (/^I create a custom account query has been created for '([^']*)'/) do |value|
+  letter = Communications::Createtemplate.new()
+  letter.create_custom_account_query value
+end
+
+And (/^I click on '([^']*)' on the home menu/) do |value|
+  letter = Communications::Createtemplate.new()
+  letter.home_submenu_link_click value
+end
+
+And (/^I delete '([^']*)' from the drop box/) do |value|
+  letter = Communications::Createtemplate.new()
+  letter.drop_box_file_delete value
+end
+
+And (/^I Click here to make the necessary edits to your template/) do
+  letter = Communications::Createtemplate.new()
+  letter.click_to_make_necessary_edits
+  letter.fill_in_subject_line
+end
+
+And(/^I click Save And Mass Email on the Correspondence Template/) do
+  letter = Communications::Createtemplate.new
+  letter.click_save_and
 end

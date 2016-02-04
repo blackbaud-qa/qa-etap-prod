@@ -255,6 +255,24 @@ module Cukesetaptesting
         @view.item_name(value).present?
       end
 
+      def initial_cart_alert(value)
+        @view.initial_cart_alert_text(value).present?
+      end
+
+      def account_header_link_eCommerce_click
+        @view.account_header_link_eCommerce.when_present.click
+      end
+
+      def add_iats_processor(value)
+        if !@view.processor_reference_name_list.text.include? value
+          then @view.add_iats_processor_link.when_present.click
+          @view.iats_ref_name_field.when_present.set value
+          @view.online_agent_key.when_present.set 'TEST88'
+          @view.online_agent_password.when_present.set 'TEST88'
+          @view.processor_save_button.when_present.click
+        end
+      end
+
     end
   end
 end
