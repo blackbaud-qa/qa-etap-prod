@@ -3,7 +3,7 @@ Feature: Verifying that the dollar sign does not prevent a gift or pledge from b
 
   Scenario: Verifying that typing a dollar sign into the Received field does mess up the gift once saved
     Given I am logged into eTap
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Event Page'
     And I hover over the Ticket Section on the DIY editor page
@@ -38,7 +38,7 @@ Feature: Verifying that the dollar sign does not prevent a gift or pledge from b
 
   Scenario: Verifying that the dollar sign in the Pledge Installment Amount field does not prevent a pledge from being saved
     Given I am logged into eTap
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Event Page'
     And I hover over the Ticket Section on the DIY editor page

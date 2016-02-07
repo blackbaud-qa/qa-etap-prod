@@ -63,7 +63,7 @@ Feature: Verifying that non-admins cannot remove data from UDFs they do not have
     And I click on 'Account Settings' in the account header
     And I click Delete Role on the Account Settings page
     And I click Yes to permanently delete the item
-    Then I should see the message: 'No Results Found'
+    Then I should see the message: '0 accounts found'
 
 
 

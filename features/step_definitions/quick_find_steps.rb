@@ -19,10 +19,8 @@ Then(/^'([^']*)' should show in the results$/) do |name|
 end
 
 Then(/^I should see the message: '([^']*)'$/) do |message|
-  # pending # express the regexp above with the code you wish you had
   search = Account::Search.new
-  expect(search.account_name_exists? message).to eq(true)
-
+  expect(search.search_result_count_message).to eq(message)
 end
 
 Then (/^I should be taken to '([^']*)' Home page$/) do |name|

@@ -158,7 +158,7 @@ Feature: Critical Process - General Navigation
   @crit_proc2
   Scenario Outline:  Management SubMenu Navigation
     Given I am logged into eTap
-    And I click on the Management drop down
+    And I click Management on the main menu
     When I click on <submenu option> on the management menu
     Then I should be taken to <expected result>
 

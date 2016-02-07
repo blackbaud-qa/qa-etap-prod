@@ -18,12 +18,16 @@ module Cukesetaptesting
       end
 
       def account_name_exists?(name)
-        # if @view.table_content.when_present.text.contains? "No Results Found"
+        # if @view.table_content.when_present.text.contains? "0 accounts found"
         #   return false
         # end
 
-        return @view.table_content.when_present.text.include? name
+        return @view.account_name.when_present.text.include? name
 
+      end
+
+      def search_result_count_message
+        @view.search_result_count_message.when_present.text
       end
 
       def search_field_contains?(text)

@@ -4,11 +4,14 @@ module Cukesetaptesting
       #Search Keywords
       keyword(:search_field)  { content.text_field(:name => 'searchString') }
       keyword(:email_field)  { content.text_field(:name => 'email') }
-      keyword(:find_button) { content.button(:value => 'Find') }
+      keyword(:find_button) { content.form(:id=>'advancedSearchForm').div(:id => 'quickSearchFields').button(:value => 'Find') }
       keyword(:advanced_link) { content.link(:text=> 'Advanced Find') }
-      keyword(:exact_button) { content.button(:value => 'Exact Match') }
-      #keyword(:table_content) { content.table(:id => 'etapreporttag1')}
-      keyword(:table_content) { content.table(:class => 'ui-jqgrid-htable')}
+      keyword(:exact_button) { content.div(:id => 'quickSearchFields').button(:value => 'Exact Match') }
+#      keyword(:table_content) { content.table(:class => 'ui-jqgrid-htable')}
+      keyword(:table_content) { content.table(:id => 'bbgrid-table-7')}
+
+      keyword(:account_name) { table_content.tr(:index => 1).td(:index => 2)}
+      keyword(:search_result_count_message) { content.div(:id=>'searchResultCount').span}
       #Role Keywords-  May be able to put this in its own class, but probably not necessary
       keyword(:role_icon) { table_content.img(:class => 'contextMenuActivation') }
       keyword(:role_menu) { content.div(:class, "contextMenu") }

@@ -5,12 +5,12 @@ Feature: NCOA - Schedule and Cancel Job
     Given I am logged into eTap
 
   Scenario: Verify Settings page appears when no NCOA scheduled
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on NCOA on the management menu
     Then I should see the NCOA Settings page
 
   Scenario: Verify defaults on settings page
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on NCOA on the management menu
     Then the Category field should be set to 'Base' on the NCOA page
     And the Query field should be set to 'All Constituents - A' on the NCOA page
@@ -20,26 +20,26 @@ Feature: NCOA - Schedule and Cancel Job
     And the Email Address field should be set to 'trey.santerre@blackbaud.com' on the NCOA page
 
   Scenario: Validate the default query category can be changed
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on NCOA on the management menu
     When I select 'Constituent Journal Entry Date' for the Category field on the NCOA page
     Then the Category field should be set to 'Constituent Journal Entry Date' on the NCOA page
 
   Scenario: Validate the default query can be changed
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on NCOA on the management menu
     When I select 'All Accounts - A' for the Query field on the NCOA page
     Then the Query field should be set to 'All Accounts - A' on the NCOA page
 
   Scenario: Verify ability to click edit query
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on NCOA on the management menu
     And I select 'NCOA Query - A' for the Query field on the NCOA page
     When I click Edit the Selected Query on the NCOA page
     Then I should be taken to the edit query page
 
   Scenario: Verify saving query edits functions
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on NCOA on the management menu
     And I select 'NCOA Query - A' for the Query field on the NCOA page
     When I click Edit the Selected Query on the NCOA page
@@ -49,7 +49,7 @@ Feature: NCOA - Schedule and Cancel Job
     And I should reset the query name to 'NCOA Query' on the NCOA page
 
   Scenario: Validate Create New Query link works
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on NCOA on the management menu
     And I click Create a New Query on the NCOA page
     And I set the Name to 'NCOA 1' on the Create a New Query page
@@ -62,20 +62,20 @@ Feature: NCOA - Schedule and Cancel Job
     And I delete the 'NCOA 1' query for the next run
 
   Scenario: Verify calendar appears upon clicking date picker
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on NCOA on the management menu
     And I click the calendar icon on the NCOA page
     Then the calendar should appear on the NCOA page
 
   Scenario: Verify selecting date from picker populates date field
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on NCOA on the management menu
     And I click the calendar icon on the NCOA page
     And I click Today on the calendar on the NCOA page
     Then the date field should be populated with Today
 
   Scenario: Verify validation on date field
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on NCOA on the management menu
     And I set 'test' for the Date field on the NCOA page
     And I click Schedule to see the error on the NCOA page
@@ -83,7 +83,7 @@ Feature: NCOA - Schedule and Cancel Job
     And I should close the javascript popup
 
   Scenario: Verify validation on email field
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on NCOA on the management menu
     And I set 'test' for the Email field on the NCOA page
     And I click Schedule to see the error on the NCOA page
@@ -91,7 +91,7 @@ Feature: NCOA - Schedule and Cancel Job
     And I should close the javascript popup
 
   Scenario: Verify required fields cannot be blank
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on NCOA on the management menu
     And I select '(Select a Category of Queries)' for the Category field on the NCOA page
     And I select '(Select a Query)' for the Query field on the NCOA page
@@ -104,7 +104,7 @@ Feature: NCOA - Schedule and Cancel Job
     And I should close the javascript popup
 
   Scenario: Verify the USPS Address Standardization page
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on NCOA on the management menu
     And I click the USPS Address Standardization page
     And I switch to the new tab in my browser
