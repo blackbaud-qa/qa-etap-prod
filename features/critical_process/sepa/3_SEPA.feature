@@ -11,7 +11,7 @@ Feature: SEPA - 3 Export
 #    And account [B] contains a retry
 
   Scenario: Verify validation on fields in step 1 of export
-    Given I click on the Management drop down
+    Given I click Management on the main menu
     # Rather than Mgmt --> Stand Exports --> SEPA Bank Export,
     #  this is now clicking SEPA Bank Export straight from the
     #  Mgmt dropdown:
@@ -27,7 +27,7 @@ Feature: SEPA - 3 Export
     And I should close the pop up error
 
   Scenario: Verify Process Date validation
-    Given I click on the Management drop down
+    Given I click Management on the main menu
     # Rather than Mgmt --> Stand Exports --> SEPA Bank Export,
     #  this is now clicking SEPA Bank Export straight from the
     #  Mgmt dropdown:
@@ -43,7 +43,7 @@ Feature: SEPA - 3 Export
 
 #
   Scenario: Verify Retry validation
-    Given I click on the Management drop down
+    Given I click Management on the main menu
     # Rather than Mgmt --> Stand Exports --> SEPA Bank Export,
     #  this is now clicking SEPA Bank Export straight from the
     #  Mgmt dropdown:
@@ -64,7 +64,7 @@ Feature: SEPA - 3 Export
 
 
   Scenario: Regularly scheduled debits + Retry validation (First and One Off)
-    Given I click on the Management drop down
+    Given I click Management on the main menu
     # Rather than Mgmt --> Stand Exports --> SEPA Bank Export,
     #  this is now clicking SEPA Bank Export straight from the
     #  Mgmt dropdown:

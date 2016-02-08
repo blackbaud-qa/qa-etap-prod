@@ -9,7 +9,7 @@ Feature: Create a new Cart
 
 Scenario: Create New Category
   Given I am logged into eTap
-  And I click on the Management drop down
+  And I click Management on the main menu
   And I click on eStore (Cart) on the management menu
   And I rename the existing category to prevent automation errors
   And I click on new Category on the cart page
@@ -22,7 +22,7 @@ Scenario: Create New Category
   Then I should see the 'Automation Cat 1' listed on the cart page
 
 Scenario: Create new Item
-  Given I click on the Management drop down
+  Given I click Management on the main menu
   And I click on eStore (Cart) on the management menu
   And I click on 'Automation Cat 1' on the cart page
   And I click on new item under Tasks on the cart page
@@ -55,7 +55,7 @@ Scenario: Create new Item
   Then I should see 'Item 1' listed as an item under Automation Cat 1
 
 Scenario: Edit Cart Preferences
-  Given I click on the Management drop down
+  Given I click Management on the main menu
   And I click on eStore (Cart) on the management menu
 #  And I click on 'Category 1' on the cart page
    And I click on Edit Cart Preferences on the cart page

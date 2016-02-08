@@ -1,6 +1,6 @@
 And (/^I click on Add Account on the find account screen/) do
-  accounts = Account::AddAccount.new()
-  accounts.find_screen_add_account_click
+  landing = Admin::Landing.new
+  landing.accounts_dd_add_account_click
 end
 
 And (/^I set Name to '([^']*)' on the classic add account page/) do |name|

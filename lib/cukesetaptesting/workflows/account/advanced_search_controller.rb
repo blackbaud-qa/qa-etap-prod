@@ -30,9 +30,7 @@ module Cukesetaptesting
       end
 
       def account_name_exists?(name)
-
-        return @view.table_content.when_present.text.include? name
-
+        return @view.account_name.when_present.text.include? name
       end
 
       def search_field_contains?(text)
