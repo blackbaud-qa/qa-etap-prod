@@ -73,6 +73,7 @@ Feature: Add Account in New Names database
     And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
     And I click Save And 'Go to Personas'
     And I click Accounts
+    And I click on Find an Account on the accounts menu
     And I click Advanced Find
     And I set Phone to '318-219-4444' on the Advanced Find screen
     And I click Find
@@ -93,6 +94,7 @@ Feature: Add Account in New Names database
     And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
     And I click Save And 'Go to Personas'
     And I click Accounts
+    And I click on Find an Account on the accounts menu
     And I click Advanced Find
     And I set Phone to '318-219-4444' on the Advanced Find screen
     And I click Find
@@ -114,6 +116,7 @@ Feature: Add Account in New Names database
     And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
     And I click Save And 'Go to Personas'
     And I click Accounts
+    And I click on Find an Account on the accounts menu
     And I click Advanced Find
     And I set Phone to '318-219-4444' on the Advanced Find screen
     And I click Find

@@ -4,13 +4,26 @@ module Cukesetaptesting
       #Search Keywords
       keyword(:search_field)  { content.text_field(:name => 'searchString') }
       keyword(:email_field)  { content.text_field(:name => 'email') }
-      keyword(:find_button) { content.form(:id=>'advancedSearchForm').div(:id => 'quickSearchFields').button(:value => 'Find') }
+      def find_button
+        # 0 - indicates that Basic search is visible and advanced is hidden
+        active_li = content.li(:class=>'ng-isolate-scope active')
+        quick_is_active = active_li.link(:text=>'Quick Find').exists?
+
+        if quick_is_active
+          content.div(:id => 'quickSearchFields').button(:value => 'Find')
+        else
+          content.form(:id=>'advancedSearchForm').div(:id => 'quickSearchFields').button(:value => 'Find')
+        end
+      end
+
       keyword(:advanced_link) { content.link(:text=> 'Advanced Find') }
       keyword(:exact_button) { content.div(:id => 'quickSearchFields').button(:value => 'Exact Match') }
-#      keyword(:table_content) { content.table(:class => 'ui-jqgrid-htable')}
       keyword(:table_content) { content.table(:id => 'bbgrid-table-7')}
 
-      keyword(:account_name) { table_content.tr(:index => 1).td(:index => 2)}
+      def account_name index_value
+        table_content.tr(:index => index_value).td(:index => 2)
+      end
+
       keyword(:search_result_count_message) { content.div(:id=>'searchResultCount').span}
       #Role Keywords-  May be able to put this in its own class, but probably not necessary
       keyword(:role_icon) { table_content.img(:class => 'contextMenuActivation') }
@@ -38,7 +51,6 @@ module Cukesetaptesting
       keyword(:attributes_udf) {content.a(:text, 'Attributes')}
       keyword(:move_value_to_account_type) {content.label(:text, 'Account Type')}
       keyword(:edit_user_defined_field_categories_page) {content.a(:href, 'ImportMenu.jsp')}
-
       def home(model)
       end
 

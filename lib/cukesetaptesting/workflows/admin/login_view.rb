@@ -5,10 +5,9 @@ module Cukesetaptesting
       keyword(:password) {browser.text_field(:name => 'j_password')}
       keyword(:submit) {browser.button(:id => 'loginSubmit')}
 
-      keyword(:hidden_noUsername_text) {browser.h2(:id => 'noUsernameText', :class => 'invalidText hidden')}
-      keyword(:hidden_noPassword_text) {browser.h2(:id => 'noPasswordText', :class => 'invalidText hidden')}
-      keyword(:noUsername_text) {browser.h2(:id => 'noUsernameText')}
-      keyword(:noPassword_text) {browser.h2(:id => 'noPasswordText')}
+      keyword(:noUsername_text) {browser.div(:id => 'noUsernameText')}
+      keyword(:noPassword_text) {browser.div(:id => 'noPasswordText')}
+      keyword(:badPasswordAttempt_text) {browser.div(:id => 'badAttemptText')}
 
       def home(model)
       end
