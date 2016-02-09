@@ -154,18 +154,29 @@ Then(/^I should see: '([^']*)'$/) do |message|
   page = Admin::Login.new
   force_dialog = Admin::Force.new
 
+  any_selected = 0
+
   if page.is_username_error_present?
     expect(page.username_error == message).to eq(true)
+    any_selected = 1
+  end
+
+  if page.is_badPasswordAttempt_error_present?
+    expect(page.badPasswordAttempt_error == message).to eq(true)
+    any_selected = 1
   end
 
   if page.is_password_error_present?
     expect(page.password_error == message).to eq(true)
+    any_selected = 1
   end
 
   if force_dialog.lightbox_is_present?
     expect(force_dialog.get_duplicate_login_message == message).to eq(true)
+    any_selected = 1
   end
 
+  expect(any_selected > 0).to eq(true)
 end
 
 Then(/^I see the error '([^']*)'$/) do |message|

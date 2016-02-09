@@ -176,6 +176,7 @@ module Cukesetaptesting
       def udf_to_click(udf)
         # Should be ok for translation, as we
         #   are passing in a UDF's custom name
+        sleep 0.5
         content.link(:text, udf + ':')
       end
 

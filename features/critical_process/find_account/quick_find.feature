@@ -5,6 +5,7 @@ Feature: Searching from quick find
 #    Given my Default Search Type user preference is set to Quick Find
     Given I am logged into eTap
     When I click Accounts on the main menu
+    And I click on Find an Account on the accounts menu
 
   Scenario: Searching for an account, pressing Enter
 

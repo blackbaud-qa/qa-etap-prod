@@ -177,12 +177,13 @@ end
 When (/^there exists user '([^']*)'$/) do |user_name|
   landing = Admin::Landing.new
   landing.accounts_click
+  landing.accounts_dd_find_account_click
 
   search_page = Account::Search.new
   search_page.set_search_field user_name
   search_page.find_click
 
-  if (not search_page.account_name_exists? user_name)
+  if (not search_page.new_account_name_exists? user_name)
     step %Q[I create user '#{user_name}' with password 'tempPassword']
     landing.log_out
 
@@ -211,8 +212,6 @@ def process_user_account_security(password, email_address, security_question, se
 end
 
 When (/^I create user '([^']*)' with password '([^']*)'$/) do |user_name, password|
- # account.create_person 'testUser', 'testUser'
-
   desired_next_page = 'Go to Personas'
 
   account = Account::AddAccount.new

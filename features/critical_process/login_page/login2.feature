@@ -18,7 +18,7 @@ Feature: Login
     When I login into eTap with values
       | username | password |
       |          |          |
-    Then I should see: 'Please enter your login id' and 'Please enter your password'
+    Then I should see: 'Please enter your login ID' and 'Please enter your password'
 
   Scenario: Login with no password
     When I login into eTap with values
@@ -30,29 +30,29 @@ Feature: Login
     When I login into eTap with values
       | username | password         |
       |          | Password! |
-    Then I should see: 'Please enter your login id'
+    Then I should see: 'Please enter your login ID'
 
   Scenario: Login with invalid username
     When I login into eTap with values
       | username                | password  |
       | username_does_not_exist | Password! |
-    Then I should see: 'Invalid login id or password'
+    Then I should see: 'The login ID and/or password is not valid. Please check the spelling and try again.'
 
   Scenario: Login with invalid password
     When I login into eTap with values
       | username | password     |
       | testUser | bad_password |
-    Then I should see: 'Invalid login id or password'
+    Then I should see: 'The login ID and/or password is not valid. Please check the spelling and try again.'
 
   Scenario: Should not allow multiple logins at the same time
     Given I login into eTap with values 'testUser', 'Password!'
     When I login into eTap a second time with values
       | username | password  |
       | testUser | Password! |
-    Then I should see: 'That login id is already logged in.'
+    Then I should see: 'This login ID is already in use.'
 
   Scenario: Should be able to force a login when multiple sessions detected
-    Given I see the error 'That login id is already logged in.'
+    Given I see the error 'This login ID is already in use.'
     When I submit the values
       | username | password  |
       | testUser | Password! |
