@@ -132,15 +132,16 @@ module Cukesetaptesting
       #WORKS: keyword(:pledge_checkbox) { content.element(:xpath => './/*[@id=\'journal\']/div[3]/form/div[1]/div/section/div[1]/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/label/span')}
       keyword(:pledge_checkbox) { content.element(:xpath => './/*[@id=\'journal\']/div[@/label/span')}
       keyword(:find_button_journal_page) {content.button(:value, 'Find')}
-      keyword(:journal_filter_results) {content.div(:class=>/et-journal-count/)}
+      keyword(:journal_filter_results) {content.div(:id=>'et-journal-count-container')}
       keyword(:copy_pledge_udfs) {content.input(:name, 'copyUdfsToFuturePayments')}
 
       keyword(:journal_page_gift) {content.a(:text=>/Gift/)}
       keyword(:journal_page_soft_credit) {content.a(:text=>/Soft Credit/)}
       keyword(:journal_split_transaction_click) {content.a(:text=>/Split Transaction/)}
       keyword(:journal_pledge) {content.a(:text=>/Pledge/)}
-
       keyword(:journal_page_participation) {content.a(:text=>/Participation/)}
+      keyword(:journal_page_note) {content.a(:text,'Note')}
+      keyword(:note_page_delete) {content.input(:value,'Delete')}
 
       keyword(:non_deductible_field) {content.text_field(:name, 'nonDeductibleAmount')}
 

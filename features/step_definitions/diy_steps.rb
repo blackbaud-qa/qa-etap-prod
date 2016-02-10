@@ -67,6 +67,7 @@ When(/^I click Submit on the DIY settings page/) do
 end
 
 When(/^I click Go Live on the DIY editor page$/) do
+  sleep 2
   diy = DIY::Onlineforms.new()
   diy.go_live_click
 end
@@ -464,14 +465,14 @@ And(/^the transaction will be added to the database with accurate information$/)
     And I press Enter on the keyboard
     And I click on 'Jon Snow' in the search results
     And I click Journal
-    And wait for the journal page to display
+
     And I click on the Gift listed in the journal
     And the Received Amount should be set to '$7.00'
     And the Fund should be set to 'Unrestricted'
     And I click Delete on the transaction page
     And I click on the Note listed in the journal
     And I click delete on the note page
-    Then I should see the message 'No Journal Entries Found' on the journal page
+    Then I should see the message '0 Journal Entries' on the journal page
   }
 end
 

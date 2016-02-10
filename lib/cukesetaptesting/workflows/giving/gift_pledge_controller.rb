@@ -136,10 +136,8 @@ module Cukesetaptesting
       end
 
       def click_save_for_error
-        # browser.after_hooks.without do |browser|
         @view.browser.without_checkers do
           @view.save_and_button.when_present.click
-          # @view.click_and_confirm_alert(@view.save_and_button)
         end
       end
 
@@ -271,14 +269,6 @@ module Cukesetaptesting
         @view.click_and_confirm_alert(@view.payment_delete_button)
       end
 
-      # def get_rid_of_ok
-      #   begin
-      #     if(@view.browser.alert.exists?)
-      #       @view.browser.alert.ok
-      #     end
-      #   end
-      # end
-
       def pledge_entry_click
         @view.pledge_entry_to_click.when_present.click
       end
@@ -324,7 +314,6 @@ module Cukesetaptesting
       end
 
       def account_click(account)
-        #@view.content.table(:class,'etapReportTable').wait_until_present
         @view.content.table(:id=>/bbgrid-table/).a(:text, account).when_present.click
       end
 
@@ -346,13 +335,7 @@ module Cukesetaptesting
       end
 
       def journal_soft_credit_delete_click
-        # @view.journal_soft_credit_delete.when_present.click
         @view.click_and_confirm_alert(@view.journal_soft_credit_delete)
-        # begin
-        #   @view.journal_soft_credit_delete.when_present.click
-        # rescue
-        #   browser.alert.ok
-        # end
       end
 
       def journal_pledge_click
@@ -463,12 +446,7 @@ module Cukesetaptesting
       end
 
       def delete_split_transaction
-        # begin
         @view.click_and_confirm_alert(@view.split_transaction_delete_button)
-          # @view.split_transaction_delete_button.when_present.click
-        # rescue
-        #   browser.alert.ok
-        # end
       end
 
       def mark_split_transaction_box
@@ -590,11 +568,6 @@ module Cukesetaptesting
 
       def delete_segment_three
         @view.click_and_confirm_alert(@view.delete_segment_three_click)
-        # begin
-        #   @view.delete_segment_three_click.when_present.click
-        # rescue
-        #   browser.alert.ok
-        # end
       end
 
       def edit_segment(segments)

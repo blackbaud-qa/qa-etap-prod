@@ -10,8 +10,9 @@ module Cukesetaptesting
       keyword(:relationships_page) {content.div(:id, 'relationships_summary_1')}
       keyword(:base_defined_fields_div) {content.div(:id => 'UDFS.udf.category.base')}
       keyword(:system_defined_fields_div) {content.div(:id => 'UDFS.udf.category.systemdefinedfields')}
-      keyword(:journal_page) {content.form(:name, 'entityJournalForm')}
-      keyword(:other_page) {content.form(:name, 'entityOtherForm')}
+      #keyword(:journal_page) {content.form(:name, 'entityJournalForm')}
+      keyword(:journal_page) {content.div(:id, 'journal')}
+      keyword(:other_page) {content.section(:class=>'bb-grid-container ng-isolate-scope').form(:name, 'entityOtherForm')}
       keyword(:defined_fields_page) {content.form(:name, 'entityUserDefinedValuesForm')}
       keyword(:select_tiles_and_layout_link) {content.h3(:class, 'dashboardManagement').link}
       keyword(:three_equal_columns_layout) {content.div(:id, 'etap.fieldset.area.1').radio(:value, '0')}
