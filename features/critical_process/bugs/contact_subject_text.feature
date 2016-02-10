@@ -3,6 +3,7 @@ Feature: Contact Subject Text Query
   Scenario: Querying on multiple contact subjects with quotations
     Given I am logged into eTap
     And I click Accounts on the main menu
+    And I click on Find an Account on the accounts menu
     And I type 'Talisha' into the search field
     And I press Enter on the keyboard
     And I click on 'Talisha Almond' in the search results
@@ -17,6 +18,7 @@ Feature: Contact Subject Text Query
     And I choose Phone from the Method drop down on the Journal Contact page
     And I click Save And 'Go to Personas'
     And I click Queries on the main menu
+    And I click on the 'New Journal Contacts' query
     And I click on the 'Base' category
     And I click 'New Query' on the Edit Query Category page
     And I set the Name to 'Contact Subject' on the Create a New Query page
@@ -29,10 +31,12 @@ Feature: Contact Subject Text Query
     And I click Save And 'Preview'
     And I should see Displaying 1 - 2 of 2 on the Query Preview page
     And I click Queries on the main menu
+    And I click on the 'New Journal Contacts' query
     And I click on the 'Base' category
     When I click delete below the 'Contact Subject' query on the Create a New Query page
     And I click Yes to permanently delete the item
     And I click Accounts on the main menu
+    And I click on Find an Account on the accounts menu
     And I type 'Talisha' into the search field
     And I press Enter on the keyboard
     And I click on 'Talisha Almond' in the search results

@@ -57,6 +57,7 @@ Feature: Making a donation to a fundraiser
   Scenario: verify the donation is in the database with the soft credit link
     Given I am logged into eTap
     When I click Accounts on the main menu
+    And I click on Find an Account on the accounts menu
     And I type 'Ronald Jackson' into the search field
     And I click Find
     And I click on 'Ronald Jackson' in the search results

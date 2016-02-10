@@ -8,6 +8,7 @@ Feature: Critical Process - General Navigation
     #Given I see a list of constituents accounts on the find account screen
     Given I am logged into eTap
     And I click Accounts on the main menu
+    And I click on Find an Account on the accounts menu
     When I type 'Jose' into the search field
     And I press Enter on the keyboard
     And I click on <page option> from the Role Icon drop down

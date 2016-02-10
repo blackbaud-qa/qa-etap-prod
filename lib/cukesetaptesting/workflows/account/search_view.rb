@@ -20,6 +20,7 @@ module Cukesetaptesting
       keyword(:exact_button) { content.div(:id => 'quickSearchFields').button(:value => 'Exact Match') }
       keyword(:table_content) { content.table(:id => 'bbgrid-table-7')}
 
+   #   keyword(:account_name) { table_content.tr(:index => 1).td(:index => 2)}
       def account_name index_value
         table_content.tr(:index => index_value).td(:index => 2)
       end

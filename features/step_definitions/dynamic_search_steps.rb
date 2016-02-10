@@ -1,6 +1,7 @@
 
 
 And(/^I click the magnifying glass$/) do
+  sleep 0.5
   search = Account::AdvancedSearch.new
   search.click_magnifying_glass
 end

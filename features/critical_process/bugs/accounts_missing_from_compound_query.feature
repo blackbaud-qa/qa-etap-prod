@@ -10,6 +10,7 @@ Feature: Accounts Missing from Compound Query when adding Journal Entries and Ac
     And I click Save And 'Go to Personas'
     And I create constituent 'Cindy Smith'
     And I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click New Category on the Query Categories page
     And I set the Name to 'Compound Queries' on the Create Query Category page
     And I click Save Category on the Query Categories page
@@ -43,14 +44,17 @@ Feature: Accounts Missing from Compound Query when adding Journal Entries and Ac
     And I click Delete Role on the Account Settings page
     And I click Yes to permanently delete the item
     And I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click on the 'Compound Queries' category
     And I click delete below the 'All Constituents + Journal Contacts' query on the Create a New Query page
     And I click Yes to permanently delete the item
     And I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click on the 'Compound Queries' category
     And I click delete below the 'Journal Contacts' query on the Create a New Query page
     And I click Yes to permanently delete the item
     And I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click delete below the 'Compound Queries' query category
     When I click Yes to permanently delete the item
     Then I should see the 'Compound Queries' category has been removed from the page

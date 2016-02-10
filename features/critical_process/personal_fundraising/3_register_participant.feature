@@ -66,6 +66,7 @@ Feature: Registering a participant
   Scenario: verify the registered participant is in the database with participation
     Given I am logged into eTap
   When I click Accounts on the main menu
+  And I click on Find an Account on the accounts menu
   And I type 'John Crabtree' into the search field
   And I press Enter on the keyboard
   And I click on 'John Crabtree' on the accounts page
@@ -75,6 +76,7 @@ Feature: Registering a participant
   Scenario: verify the team was created in the database
     Given I am logged into eTap
     When I click Accounts on the main menu
+    And I click on Find an Account on the accounts menu
     And I type 'Awesome' into the search field
     And I press Enter on the keyboard
     Then 'Team Awesome' should show in the results

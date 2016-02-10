@@ -67,6 +67,7 @@ end
 
 And(/^I delete the '([^']*)' query for the next run$/) do |name|
   step "I click Queries on the main menu"
+  step "I click on Manage Queries on the queries menu"
   step "I click on the 'Base' category"
   step "I click delete below the '"+name+"' query on the Create a New Query page"
   step "I click Yes to permanently delete the item"
