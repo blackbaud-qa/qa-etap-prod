@@ -716,6 +716,7 @@ And(/^the constituent ([^']*) should appear as ([^']*) with Maiden Name ([^']*)/
   steps %Q{
       Given I am logged into eTap
       When I click Accounts on the main menu
+      And I click on Find an Account on the accounts menu
       And I type '#{constit_name}' into the search field
       And I press Enter on the keyboard
       And I click on Defined Fields from the Role Icon drop down
@@ -730,6 +731,7 @@ And(/^the constituent ([^']*) should be ([^']*)/) do |constit_name, gender|
   steps %Q{
       Given I am logged into eTap
       When I click Accounts on the main menu
+      And I click on Find an Account on the accounts menu
       And I type '#{constit_name}' into the search field
       And I press Enter on the keyboard
       And I click on Defined Fields from the Role Icon drop down

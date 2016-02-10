@@ -44,7 +44,7 @@ module Cukesetaptesting
       keyword(:donor_review) {content.a(:text, 'Donor Review <= Acknowledgement')}
       keyword(:donor_review_description) {content.div(:text, '2015 Donors <= with a mailing address')}
       keyword(:set_journal_contact_subject) {content.input(:name, 'subject')}
-      keyword(:journal_contact_method) {content.img(:id, 'contactMethodRef_comboArrow')}
+      keyword(:journal_contact_method) {content.i(:id, 'contactMethodRef_comboArrow')}
       keyword(:journal_contact_method_phone) {content.div(:text, 'Phone')}
       keyword(:enter_contact_subject_text) {content.input(:id, 'TestJournalEntryForSubjectsData.values')}
       keyword(:plus_sign_query_criteria) {content.img(:src, 'images/plus-tick.gif')}

@@ -4,6 +4,7 @@ Feature: Gift icon on Find Account results page
   Background:
     Given I am logged into eTap
     When I click Accounts on the main menu
+    And I click on Find an Account on the accounts menu
 
   Scenario: Clicking gift icon on Find Account results page
     When I type '"Kevin Smith"' into the search field

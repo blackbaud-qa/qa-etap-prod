@@ -96,7 +96,10 @@ Then (/^User '([^']*)' does not exist$/) do |user_name|
 end
 
 When (/^delete the accounts$/) do
-  steps %Q[When I click Accounts]
+  steps %Q[
+      When I click Accounts
+      And I click on Find an Account on the accounts menu
+      ]
   search = Account::Search.new
 
   CSV.foreach("C:\\users\\matt.dilts\\Desktop\\test4k.csv") do |row|

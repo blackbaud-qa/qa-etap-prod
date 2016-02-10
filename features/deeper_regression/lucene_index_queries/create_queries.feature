@@ -5,6 +5,7 @@ Feature: Create, Edit, Save and Run Queries
     Given I am logged into Knight Rider
     And a query category should exist called 'Lucene Testing'
     And I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click on the 'Lucene Testing' category
 
   Scenario Outline: Create and Edit a New Query
@@ -18,6 +19,7 @@ Feature: Create, Edit, Save and Run Queries
     And I click Edit on the query preview screen
     And I set the data return type to 'Accounts' on the Create a New Query page
     And I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click on the 'Lucene Testing' category
     And I click delete below the '<query_name>' query on the Create a New Query page
     And I click Yes to permanently delete the item
@@ -537,6 +539,7 @@ Feature: Create, Edit, Save and Run Queries
   Scenario: Deleting Categories
     Given I am logged into eTap
     And I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click delete below the 'Lucene Testing' query category
     And I click Yes to permanently delete the item
     Then I should see the 'Lucene Testing' category has been removed from the page
