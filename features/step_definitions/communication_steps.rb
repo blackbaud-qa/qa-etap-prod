@@ -4,7 +4,7 @@ Given(/^There exists an account that has donated this year/) do
   step "I type '#{account_name}' into the search field"
   step "I press Enter on the keyboard"
   search = Account::Search.new
-  if not search.account_name_exists? account_name
+  if not search.new_account_name_exists? account_name
     step "I click Accounts"
     step "I click on Add Account on the find account screen"
     step "I set Name to 'Sample Donor' on the classic add account page"
@@ -35,7 +35,7 @@ Given(/^there exists an account that has donated in January 2015/) do
   step "I type '#{account_name}' into the search field"
   step "I press Enter on the keyboard"
   search = Account::Search.new
-  if not search.account_name_exists? account_name
+  if not search.new_account_name_exists? account_name
     step "I click Accounts"
     step "I click on Add Account on the find account screen"
 #    step "I set Name to 'Sample Donor' on the classic add account page"

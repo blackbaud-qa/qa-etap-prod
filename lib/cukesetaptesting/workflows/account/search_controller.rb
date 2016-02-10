@@ -19,7 +19,6 @@ module Cukesetaptesting
 
       def account_name_exists?(name)
         return @view.account_name.when_present.text.include? name
-
       end
 
       def new_account_name_exists?(input_name)
@@ -30,7 +29,7 @@ module Cukesetaptesting
         #  look for those rows.
         input_name.downcase!
 
-        sleep 2
+        sleep 2.5
         accounts_found_text = @view.search_result_count_message.when_present.text
 
         account_quantity_match = /(\d+)/.match(accounts_found_text)
