@@ -86,6 +86,11 @@ And(/^I click '([^']*)' from my file$/) do |field|
   import.import_mapping_field_click field
 end
 
+And(/^I click '([^']*)' and '([^']*)' from my file$/) do |field1, field2|
+  import = Giving::Imports.new()
+  import.import_mapping_fields_click field1, field2
+end
+
 And(/^I the X on the Import mapping pop up$/) do
   import = Giving::Imports.new()
   import.import_mapping_x_click
@@ -134,7 +139,7 @@ end
 # end
 
 And(/^I clear the old import data$/) do
-  step "I delete existing data for 'Joseph N. Hicks'"
+  step "I delete existing data for 'Joseph Hicks'"
 end
 
 And(/^I receive the following import message: '([^']*)'$/) do |msg|

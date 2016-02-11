@@ -27,7 +27,7 @@ module Cukesetaptesting
         #  have greater than 25, we don't currently bother with
         #  load more. If we have fewer than 25, then we'll only
         #  look for those rows.
-        input_name.downcase!
+        lower_input_name = input_name.downcase
 
         sleep 2.5
         accounts_found_text = @view.search_result_count_message.when_present.text
@@ -46,7 +46,7 @@ module Cukesetaptesting
           temp_account = (@view.account_name tr_index).text
           temp_account.downcase!
 
-          if temp_account.include? input_name
+          if temp_account.include? lower_input_name
             account_found = true
             return account_found
           end

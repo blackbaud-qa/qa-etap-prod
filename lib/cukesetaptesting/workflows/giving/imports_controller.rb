@@ -77,6 +77,17 @@ module Cukesetaptesting
         @view.import_mapping_pop_up.a(:text,field).when_present.click
       end
 
+      def import_mapping_fields_click field1, field2
+        @view.import_mapping_pop_up.wait_until_present
+        @view.import_mapping_pop_up.a(:text,field1).when_present.click
+
+        @view.import_mapping_pop_up.wait_until_present
+        @view.import_mapping_pop_up.a(:text,'Space').when_present.click
+
+        @view.import_mapping_pop_up.wait_until_present
+        @view.import_mapping_pop_up.a(:text,field2).when_present.click
+      end
+
       def import_mapping_x_click
         @view.import_mapping_pop_up.wait_until_present
         @view.import_mapping_pop_up_corner_x.when_present.click
