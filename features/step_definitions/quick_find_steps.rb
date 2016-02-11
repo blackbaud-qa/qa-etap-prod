@@ -6,6 +6,8 @@ end
 When(/^I click Find$/) do
   search = Account::Search.new
   search.find_click
+
+  sleep 2
 end
 
 When(/^I click Exact Match$/) do

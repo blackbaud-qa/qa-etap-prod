@@ -44,7 +44,7 @@ module Cukesetaptesting
       end
 
       def save
-        @view.save.when_present.click
+        @view.click_and_confirm_alert(@view.save)
       end
 
       def saveAnd

@@ -75,8 +75,9 @@ module Cukesetaptesting
       end
 
 #Role memebers-  may be able to move to a new class, but likely unnecessary
-      def role_icon_click
-        @view.role_icon.when_present.click
+      def role_icon_click account_name
+        (@view.role_icon_by_account_name account_name).when_present.click
+#        @view.role_icon.when_present.click
       end
 
       def role_menu_home_click

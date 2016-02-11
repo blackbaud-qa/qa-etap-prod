@@ -1,37 +1,37 @@
-When(/^I click on Home from the Role Icon drop down$/) do
+When(/^I click on Home from the Role Icon drop down for '([^']*)'$/) do |account_name|
   search = Account::Search.new
-  search.role_icon_click
+  search.role_icon_click account_name
   search.role_menu_home_click
 
 end
 
-When(/^I click on Personas from the Role Icon drop down$/) do
+When(/^I click on Personas from the Role Icon drop down for '([^']*)'$/) do |account_name|
   search = Account::Search.new
-  search.role_icon_click
+  search.role_icon_click account_name
   search.role_menu_personas_click
 end
 
-When(/^I click on Relationships from the Role Icon drop down$/) do
+When(/^I click on Relationships from the Role Icon drop down for '([^']*)'$/) do |account_name|
   search = Account::Search.new
-  search.role_icon_click
+  search.role_icon_click account_name
   search.role_menu_relationships_click
 end
 
-When(/^I click on Journal from the Role Icon drop down$/) do
+When(/^I click on Journal from the Role Icon drop down for '([^']*)'$/) do |account_name|
   search = Account::Search.new
-  search.role_icon_click
+  search.role_icon_click account_name
   search.role_menu_journal_click
 end
 
-When(/^I click on Account Settings from the Role Icon drop down$/) do
+When(/^I click on Account Settings from the Role Icon drop down for '([^']*)'$/) do |account_name|
   search = Account::Search.new
-  search.role_icon_click
+  search.role_icon_click account_name
   search.role_menu_other_click
 end
 
-When(/^I click on Defined Fields from the Role Icon drop down$/) do
+When(/^I click on Defined Fields from the Role Icon drop down for '([^']*)'$/) do |account_name|
   search = Account::Search.new
-  search.role_icon_click
+  search.role_icon_click account_name
   search.role_menu_defined_fields_click
 end
 
