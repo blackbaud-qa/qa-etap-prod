@@ -4,10 +4,6 @@ module Cukesetaptesting
       @model = NcoaModel
       @view = NcoaView
       
-      def management_ncoa_click
-        @view.management_ncoa.when_present.click
-      end
-
       def on_ncoa_settings_page?
         return @view.ncoa_page.present?
       end
@@ -29,6 +25,7 @@ module Cukesetaptesting
       end
 
       def primary_personas_set?
+        sleep 1
         @view.ncoa_settings_primary_personas.wait_until_present
         return @view.ncoa_settings_primary_personas.set?
       end

@@ -241,51 +241,61 @@ When(/^I click on the Reports drop down$/) do
 end
 
 When(/^I click on Manage Reports on the reports menu$/) do
+  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_manage_reports_click
 end
 
 When(/^I click on Relationship Filters on the reports menu$/) do
+  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_rel_filters_click
 end
 
 When(/^I click on System on the reports menu$/) do
+  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_system_click
 end
 
 When(/^I click on Top Donor Report on the reports menu$/) do
+  sleep 3
   landing = Admin::Landing.new
   landing.reports_dd_top_donor_click
 end
 
 When(/^I click on Journal Entry List on the reports menu$/) do
+  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_journal_click
 end
 
 When(/^I click on Recency Report on the reports menu$/) do
+  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_recency_click
 end
 
 When(/^I click on Shared Links Report on the reports menu$/) do
+  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_shared_click
 end
 
 When(/^I click on Aging Pledge Summary on the reports menu$/) do
+  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_aging_pledge_click
 end
 
 When(/^I click on eTapestry Standard Reports on the reports menu$/) do
+  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_standard_click
 end
 
 When(/^I click on eTapestry Benchmark Reports on the reports menu$/) do
+  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_benchmark_click
 end
@@ -629,11 +639,13 @@ Then(/^I should be taken to Launch Aging Pledge Summary$/) do
 end
 
 Then(/^I should be taken to eTapestry Standard Reports page$/) do
+  sleep 1
   report = Reports::Standardreports.new
   expect(report.on_standard_reports_page?).to eq(true)
 end
 
 Then(/^I should be taken to eTapestry Benchmark Reports page$/) do
+  sleep 1
   report = Reports::Standardreports.new
   expect(report.on_benchmark_reports_page?).to eq(true)
 end

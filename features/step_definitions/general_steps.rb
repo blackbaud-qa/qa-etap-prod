@@ -1,6 +1,8 @@
 When(/^I press Enter on the keyboard$/) do
   search = Account::Search.new
   search.press_enter
+
+  sleep 2
 end
 
 When(/^I close the browser$/) do

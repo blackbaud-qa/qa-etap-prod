@@ -1,7 +1,8 @@
 module Cukesetaptesting
   module Reports
     class StandardreportsView < BaseView
-      keyword(:standard_reports_title)  { content.div(:class,'pageTitle') }
+      keyword(:standard_reports_title)  { content.div(:class,'et-page-title') }
+      keyword(:alt_standard_reports_title)  { content.div(:class,'pageTitle') }
 
       keyword(:generate_account_summary_report_click) {content.a(:text, 'Generate Account Summary Report')}
       keyword(:show_relationships_checkbox)  {content.checkbox(:name, 'showingRelationships')}

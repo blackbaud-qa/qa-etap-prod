@@ -1,12 +1,12 @@
 module Cukesetaptesting
   module Management
     class NcoaView < BaseView
-      keyword(:management_ncoa)  {content.div(:id,'managementPageContent').div(:id,'adminContent').ul(:id,'homeQuickLinks').a(:href,'ncoa.do')}
-      keyword(:ncoa_page) {content.div(:id,'ncoaContainer')}
+#      keyword(:ncoa_page) {content.div(:id,'ncoaContainer')}
+      keyword(:ncoa_page) {content.h2(:text,'Scheduling your service')}
       keyword(:category_value) {content.select(:id,'select.query.category.1')}
       keyword(:query_value) {content.select(:id,'select.query.1')}
-      keyword(:ncoa_settings_date) {content.text_field(:id,'startDateField')}
-      keyword(:ncoa_settings_primary_personas) {content.radio(:name,'personaMode')}
+      keyword(:ncoa_settings_date) {content.text_field(:name,'startDate')}
+      keyword(:ncoa_settings_primary_personas) {content.input(:name,'personaMode')}
       keyword(:ncoa_settings_standard_all_addresses) {content.radio(:name,'formattingMode')}
       keyword(:ncoa_settings_email) {content.text_field(:name,'notificationEmails')}
       keyword(:edit_query) {content.a(:text,'Edit the Selected Query')}

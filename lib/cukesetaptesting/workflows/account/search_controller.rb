@@ -27,7 +27,7 @@ module Cukesetaptesting
         #  have greater than 25, we don't currently bother with
         #  load more. If we have fewer than 25, then we'll only
         #  look for those rows.
-        input_name.downcase!
+        lower_input_name = input_name.downcase
 
         sleep 2.5
         accounts_found_text = @view.search_result_count_message.when_present.text
@@ -46,7 +46,7 @@ module Cukesetaptesting
           temp_account = (@view.account_name tr_index).text
           temp_account.downcase!
 
-          if temp_account.include? input_name
+          if temp_account.include? lower_input_name
             account_found = true
             return account_found
           end
@@ -75,8 +75,9 @@ module Cukesetaptesting
       end
 
 #Role memebers-  may be able to move to a new class, but likely unnecessary
-      def role_icon_click
-        @view.role_icon.when_present.click
+      def role_icon_click account_name
+        (@view.role_icon_by_account_name account_name).when_present.click
+#        @view.role_icon.when_present.click
       end
 
       def role_menu_home_click

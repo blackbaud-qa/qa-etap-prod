@@ -11,7 +11,7 @@ Feature: Critical Process - General Navigation
     And I click on Find an Account on the accounts menu
     When I type 'Jose' into the search field
     And I press Enter on the keyboard
-    And I click on <page option> from the Role Icon drop down
+    And I click on <page option> from the Role Icon drop down for 'Jose'
     Then I should be taken to 'Jose' <expected result> page
 
   Examples:
@@ -23,21 +23,23 @@ Feature: Critical Process - General Navigation
     | Account Settings  | Account Settings |
     | Defined Fields    | Defined Fields   |
 
-  @crit_proc2
-  Scenario Outline:  Menu Navigation
-    Given I am logged into eTap
-    When I click <menu option> on the main menu
-    Then I should be taken to <expected result>
-
-  Examples:
-    | menu option    | expected result          |
-    | Home           | Home                     |
-    | Accounts       | Find Account             |
-    | Giving         | Quick Gift Entry         |
-    | Communications | Communication Categories |
-    | Queries        | Query Categories         |
-    | Reports        | Report Categories        |
-    | Management     | Management               |
+    # 7.19 eTap with Sky UX removed the ability to click directly
+    #   on the menu drop downs to switch to landing pages:
+#  @crit_proc2
+#  Scenario Outline:  Menu Navigation
+#    Given I am logged into eTap
+#    When I click <menu option> on the main menu
+#    Then I should be taken to <expected result>
+#
+#  Examples:
+#    | menu option    | expected result          |
+#    | Home           | Home                     |
+#    | Accounts       | Find Account             |
+#    | Giving         | Quick Gift Entry         |
+#    | Communications | Communication Categories |
+#    | Queries        | Query Categories         |
+#    | Reports        | Report Categories        |
+#    | Management     | Management               |
 
   @crit_proc2
   Scenario Outline:  Home SubMenu Navigation
@@ -55,7 +57,7 @@ Feature: Critical Process - General Navigation
     | Manage Communications       | Communication Categories     |
     | Open My Scheduled Items     | My Scheduled Items           |
     | Open My Drop Box            | Drop Box                     |
-    | Getting Started Wizard      | Getting Started Wizard       |
+#    | Getting Started Wizard      | Getting Started Wizard       |
 
 
 #
@@ -148,11 +150,11 @@ Feature: Critical Process - General Navigation
     | Manage Reports               | Report Categories                |
     | Relationship Filters         | Relationship Filters page        |
 #    | System                       | Edit Report Category: System     |
-    | Top Donor Report             | Launch Top Donor Report          |
-    | Journal Entry List           | Launch Journal Entry List        |
-    | Recency Report               | Launch Recency Report            |
-    | Shared Links Report          | Launch Shared Links Report       |
-    | Aging Pledge Summary         | Launch Aging Pledge Summary      |
+###    | Top Donor Report             | Launch Top Donor Report          |
+#    | Journal Entry List           | Launch Journal Entry List        |
+#    | Recency Report               | Launch Recency Report            |
+#    | Shared Links Report          | Launch Shared Links Report       |
+#    | Aging Pledge Summary         | Launch Aging Pledge Summary      |
     | eTapestry Standard Reports   | eTapestry Standard Reports page  |
     | eTapestry Benchmark Reports  | eTapestry Benchmark Reports page |
 
@@ -187,4 +189,4 @@ Feature: Critical Process - General Navigation
     | Letters                         | Letters page                |
     | Goals                           | Goals page                  |
 #    | Manage Organization Preferences | Orgs Preferences page      |
-    | Manage User Preferences         | User Preferences     |
+#    | Manage User Preferences         | User Preferences     |
