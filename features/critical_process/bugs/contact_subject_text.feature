@@ -18,6 +18,7 @@ Feature: Contact Subject Text Query
     And I choose Phone from the Method drop down on the Journal Contact page
     And I click Save And 'Go to Personas'
     And I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click on the 'New Journal Contacts' query
     And I click on the 'Base' category
     And I click 'New Query' on the Edit Query Category page
@@ -31,6 +32,7 @@ Feature: Contact Subject Text Query
     And I click Save And 'Preview'
     And I should see Displaying 1 - 2 of 2 on the Query Preview page
     And I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click on the 'New Journal Contacts' query
     And I click on the 'Base' category
     When I click delete below the 'Contact Subject' query on the Create a New Query page

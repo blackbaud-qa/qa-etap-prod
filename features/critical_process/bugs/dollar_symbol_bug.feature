@@ -15,6 +15,7 @@ Feature: Verifying that the dollar sign does not prevent a gift or pledge from b
     And I click Yes, Go Live! on the DIY editor page
     And I click Replace on the DIY editor page
     And I click Home on the main menu
+    And I click on Go to Home on the home menu
     And I type 'Niles' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Niles Baker' in the search results
@@ -50,6 +51,7 @@ Feature: Verifying that the dollar sign does not prevent a gift or pledge from b
     And I click Yes, Go Live! on the DIY editor page
     And I click Replace on the DIY editor page
     And I click Home on the main menu
+    And I click on Go to Home on the home menu
     And I type 'Niles' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Niles Baker' in the search results

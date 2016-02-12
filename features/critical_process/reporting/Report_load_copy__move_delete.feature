@@ -14,6 +14,7 @@ Scenario: Load reports
   Scenario: Create Category
     Given I am logged into eTap
     And I click on reports
+    And I click on Manage Reports on the reports menu
     And If 'Test Category' exists then delete it
     And I click on New Category
     And I name it 'Test Category'
@@ -22,6 +23,8 @@ Scenario: Load reports
 
   Scenario: Copy Report
     Given I am logged into eTap
+    And I click on reports
+    And I click on Manage Reports on the reports menu
     And I click on the system category
     And If 'Constituent Address(Copy)' exists then delete it
     And I click on copy next to 'Constituent Address'
@@ -32,6 +35,7 @@ Scenario: Load reports
   Scenario: Move Report
     Given I am logged into eTap
     And I click on reports
+    And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on move beneath 'Constituent Address(Copy)'
     And I select 'Test Category' from the new category drop down
@@ -41,6 +45,7 @@ Scenario: Load reports
   Scenario: Delete Report
     Given I am logged into eTap
     And I click on reports
+    And I click on Manage Reports on the reports menu
     And I click on the test category
     And I click on delete next to 'Constituent Address(Copy)'
     Then I click yes on the warning message Are you sure you want to delete the item 'Constituent Address(Copy)' permanently

@@ -9,6 +9,7 @@ Feature: Adding a gift through quick gift entry
     And I click Journal
     And I delete the existing transactions in the journal
     When I click Giving on the main menu
+    And I click on Add a Gift or Pledge on the giving menu
     And I click Search for an Account
     And type 'Jon Snow' into the search field in popup
     And click Find in popup
@@ -47,6 +48,7 @@ Feature: Adding a gift through quick gift entry
   Scenario: Add a gift through quick gift entry, pulling by account number
     Given I am logged into eTap
     When I click Giving on the main menu
+    And I click on Add a Gift or Pledge on the giving menu
     And set the Account Number field to '1062'
 #    And tab into the Date field   !!!!!!!!!!!!!!!!!!!!!! How do we want to distinguish tabs? !!!!!!!!!!!!!!!!!!!!!!!!!!!
     And set the date to '9/15/2090'
