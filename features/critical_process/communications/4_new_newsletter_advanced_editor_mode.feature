@@ -9,6 +9,7 @@ Feature: Creating a new communications template
     Given I am logged into eTap
     And 'Simplicity - Advanced Editor Mode' does not exist
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Email Templates on the Correspondence Categories page
     And click New Email or Document Template on the Correspondence Category page
     And set the Name to 'Simplicity - Advanced Editor Mode'

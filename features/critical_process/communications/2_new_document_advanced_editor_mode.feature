@@ -9,6 +9,7 @@ Feature: Creating a new communications template
     And There exists an account that has donated this year
     And 'Simple Business Letter - Advanced Editor Mode' does not exist
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Thank You Letters on the Correspondence Categories page
     And click New Email or Document Template on the Correspondence Category page
     And set the Name to 'Simple Business Letter - Advanced Editor Mode' on the new Correspondence Template page
@@ -49,6 +50,7 @@ Feature: Creating a new communications template
     #And There exists an account that has donated this year
     And 'Receipt w/ Stub (Bottom) - Advanced Editor Mode' does not exist
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Receipts on the Correspondence Categories page
     And click New Email or Document Template on the Correspondence Category page
     And set the Name to 'Receipt w/ Stub (Bottom) - Advanced Editor Mode'

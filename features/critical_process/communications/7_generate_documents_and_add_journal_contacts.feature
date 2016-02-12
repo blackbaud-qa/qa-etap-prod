@@ -10,6 +10,7 @@ Feature: Previewing communications templates
     Given I am logged into eTap
     And I delete the existing Document.docx
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Email Templates
     And I click 'Create Documents' under 'Lapsed Donor Contact' on the email templates page
     And set the Category to Custom Account Queries
@@ -33,6 +34,7 @@ Feature: Previewing communications templates
     Given I am logged into eTap
     And I delete the existing Document.pdf
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Email Templates
     And I click 'Create Documents' under 'Lapsed Donor Contact' on the email templates page
     And set the Category to Custom Account Queries
@@ -55,6 +57,7 @@ Feature: Previewing communications templates
   Scenario: send basic mass email and add journal contacts
     Given I am logged into eTap
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Email Templates
     And I click 'Mass Email' under 'Lapsed Donor Contact' on the email templates page
     And I select Basic Mass Email on the Mass Email page
@@ -76,6 +79,7 @@ Feature: Previewing communications templates
   Scenario: send advanced mass email and add journal contacts
     Given I am logged into eTap
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Email Templates
     And I click 'Mass Email' under 'Lapsed Donor Contact' on the email templates page
     And I select Advanced Mass Email on the Mass Email page
