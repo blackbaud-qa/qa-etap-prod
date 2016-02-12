@@ -115,7 +115,7 @@ module Cukesetaptesting
         if diy_page_exists? page_name
           content.spans(:class=>'namePart').each do |span|
             if span.text == page_name
-              page_link = span.parent.parent.parent.div(:class=>'pageRightSection').a(:class=>'ecUrl')
+              page_link = span.parent.parent.parent.div(:class=>'pageRightSection').div(:class=>'pageSharingSection').a(:class=>'ecUrl')
             end
           end
         end

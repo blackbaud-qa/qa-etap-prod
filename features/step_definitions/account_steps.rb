@@ -37,30 +37,35 @@ end
 
 
 Then (/^I should be taken to '([^']*)' Personas page$/) do |name|
+  sleep 2
   account = Account::Profile.new
   expect(account.constit_name_exists? name).to eq(true)
   expect(account.on_personas_page?).to eq(true)
 end
 
 Then (/^I should be taken to '([^']*)' Relationships page$/) do |name|
+  sleep 2
   account = Account::Profile.new
   expect(account.constit_name_exists? name).to eq(true)
   expect(account.on_relationships_page?).to eq(true)
 end
 
 Then (/^I should be taken to '([^']*)' Journal page$/) do |name|
+  sleep 2
   account = Account::Profile.new
   expect(account.constit_name_exists? name).to eq(true)
   expect(account.on_journal_page?).to eq(true)
 end
 
 Then (/^I should be taken to '([^']*)' Account Settings page$/) do |name|
+  sleep 2
   account = Account::Profile.new
   expect(account.constit_name_exists? name).to eq(true)
   expect(account.on_other_page?).to eq(true)
 end
 
 Then (/^I should be taken to '([^']*)' Defined Fields page$/) do |name|
+  sleep 2
   account = Account::Profile.new
   expect(account.constit_name_exists? name).to eq(true)
   expect(account.on_defined_fields_page?).to eq(true)
