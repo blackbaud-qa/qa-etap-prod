@@ -312,7 +312,7 @@ Then(/the Donation Page should no longer show$/) do
 end
 
 And (/^I click on the link for the form titled ([^']*)$/) do |diy_page_name|
-  sleep 3
+  sleep 5
   diy = DIY::Onlineforms.new
   diy.diy_page_wait_for_title
   diy.diy_page_link_click diy_page_name
