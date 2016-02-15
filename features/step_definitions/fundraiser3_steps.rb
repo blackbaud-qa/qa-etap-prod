@@ -263,6 +263,7 @@ Then(/^the Fundraising Center page should say: '([^']*)'$/) do |title|
 end
 
 Then(/^there should be a Participation journal entry$/) do
+  sleep 2
   gift = Giving::GiftPledge.new
   expect(gift.journal_page_participation_exists?).to eq(true)
 end

@@ -140,6 +140,7 @@ module Cukesetaptesting
       keyword(:journal_split_transaction_click) {content.a(:text=>/Split Transaction/)}
       keyword(:journal_pledge) {content.a(:text=>/Pledge/)}
       keyword(:journal_page_participation) {content.a(:text=>/Participation/)}
+      # keyword(:journal_page_participation) {content.a(:href=>/editEventParticipation/)}
       keyword(:journal_page_note) {content.a(:text,'Note')}
       keyword(:note_page_delete) {content.input(:value,'Delete')}
 
