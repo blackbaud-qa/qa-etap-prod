@@ -9,6 +9,7 @@ Feature: NCOA - Schedule and Cancel Job
     And I click on NCOA on the management menu
     Then I should see the NCOA Settings page
 
+
   Scenario: Verify defaults on settings page
     When I click Management on the main menu
     And I click on NCOA on the management menu
@@ -67,12 +68,13 @@ Feature: NCOA - Schedule and Cancel Job
     And I click the calendar icon on the NCOA page
     Then the calendar should appear on the NCOA page
 
-  Scenario: Verify selecting date from picker populates date field
-    When I click Management on the main menu
-    And I click on NCOA on the management menu
-    And I click the calendar icon on the NCOA page
-    And I click Today on the calendar on the NCOA page
-    Then the date field should be populated with Today
+#    Removing this since there is no longer a 'Today' button on the calendar.  Defaults to today.
+#  Scenario: Verify selecting date from picker populates date field
+#    When I click Management on the main menu
+#    And I click on NCOA on the management menu
+#    And I click the calendar icon on the NCOA page
+#    And I click Today on the calendar on the NCOA page
+#    Then the date field should be populated with Today
 
   Scenario: Verify validation on date field
     When I click Management on the main menu

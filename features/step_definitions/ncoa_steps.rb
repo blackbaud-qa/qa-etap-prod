@@ -21,12 +21,12 @@ end
 
 And(/^the Personas field should be set to Primary Personas on the NCOA page$/) do
   ncoa = Management::Ncoa.new()
-  expect(ncoa.primary_personas_set?).to eq(true)
+  expect(ncoa.radio_option_set? 'Primary personas only').to eq(true)
 end
 
 And(/^the Formatting field should be set to All Return Addresses on the NCOA page$/) do
   ncoa = Management::Ncoa.new()
-  expect(ncoa.reformat_all_addresses_set?).to eq(true)
+  expect(ncoa.radio_option_set? 'Standardize all return addresses').to eq(true)
 end
 
 And(/^the Email Address field should be set to '([^']*)' on the NCOA page$/) do |value|
