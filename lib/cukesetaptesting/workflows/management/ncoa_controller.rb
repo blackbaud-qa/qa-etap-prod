@@ -27,7 +27,33 @@ module Cukesetaptesting
       def primary_personas_set?
         sleep 1
         @view.ncoa_settings_primary_personas.wait_until_present
-        return @view.ncoa_settings_primary_personas.set?
+        # return @view.ncoa_settings_primary_personas.set?
+        rgb_color = @view.ncoa_settings_primary_personas.style 'background-color'
+        rgb_color = rgb_color.sub("rgba(","")
+        rgb_color = rgb_color.sub(")","")
+        hex_color = rgb_color.split(",")
+        checkcolor = "#%02X%02X%02X%02X" % hex_color
+
+
+         return checkcolor.downcase.include? '#1C84C6'.downcase
+
+      end
+
+
+      def radio_option_set? name_label
+        sleep 1
+
+        radio_label = @view.content.label(:class=>'radio bb-check-wrapper',:text=>name_label).span
+
+        rgb_color = radio_label.style 'background-color'
+        rgb_color = rgb_color.sub("rgba(","")
+        rgb_color = rgb_color.sub(")","")
+        hex_color = rgb_color.split(",")
+        checkcolor = "#%02X%02X%02X%02X" % hex_color
+
+
+        return checkcolor.downcase.include? '#1C84C6'.downcase
+
       end
 
       def reformat_all_addresses_set?
