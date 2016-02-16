@@ -19,23 +19,39 @@ module Cukesetaptesting
       end
 
       def is_username_error_present?
-        if @view.hidden_noUsername_text.present?
+        if @view.noUsername_text.visible?
+          return true
+        else
           return false
         end
       end
 
       def username_error
-        return @view.noUsername_text.when_present
+        return @view.noUsername_text.when_present.text
       end
 
       def is_password_error_present?
-        if @view.hidden_noPassword_text.present?
+        if @view.noPassword_text.visible?
+          return true
+        else
           return false
         end
       end
 
       def password_error
-        return @view.noPassword_text.when_present
+        return @view.noPassword_text.when_present.text
+      end
+
+      def is_badPasswordAttempt_error_present?
+        if @view.badPasswordAttempt_text.visible?
+          return true
+        else
+          return false
+        end
+      end
+
+      def badPasswordAttempt_error
+        return @view.badPasswordAttempt_text.when_present.text
       end
 
       def is_duplicate_login_message_present?

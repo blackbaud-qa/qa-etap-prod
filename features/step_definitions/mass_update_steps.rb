@@ -16,6 +16,7 @@ end
 
 And (/^I navigate to the New Journal Contacts query/) do
   step "I click Queries on the main menu"
+  step "I click on Manage Queries on the queries menu"
   step "I click on the 'Mass Update' category"
   step "I click on the 'New Journal Contacts' query"
   step "I click Save And 'Preview'"

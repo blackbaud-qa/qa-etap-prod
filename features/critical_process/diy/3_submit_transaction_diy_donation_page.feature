@@ -6,7 +6,7 @@ Feature: Submit a transaction through a diy donation page
 
   Scenario: submitting a successful credit card transaction
     Given I am logged into eTap
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click on the link for the form titled Donation Page
     And I switch to the new tab in my browser
@@ -41,7 +41,7 @@ Feature: Submit a transaction through a diy donation page
 
   Scenario: Submitting an unsuccessful credit card transaction
     Given I am logged into eTap
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click on the link for the form titled Donation Page
     And I switch to the new tab in my browser

@@ -3,7 +3,7 @@ Feature: Verifying that adding a UDF to existing DIY page does not prevent previ
 
   Scenario: Verifying that existing and newly added UDFs are both getting marked on incoming submissions
     Given I am logged into eTap
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on DIY Forms on the management menu
 ###   This is currently dependent on there already being a DIY page created   ###
     And I click Create a Page
@@ -65,8 +65,8 @@ Feature: Verifying that adding a UDF to existing DIY page does not prevent previ
     And I click tab Account Settings
     And I click Delete Role on the Account Settings page
     And I click Yes on the Account Settings page
-    And I should see the message: 'No Results Found'
-    And I click on the Management drop down
+    And I should see the message: '0 accounts found'
+    And I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'UDF Test Page'
     And I click Add Item on the DIY editor page
@@ -124,8 +124,8 @@ Feature: Verifying that adding a UDF to existing DIY page does not prevent previ
     And I click tab Account Settings
     And I click Delete Role on the Account Settings page
     And I click Yes on the Account Settings page
-    And I should see the message: 'No Results Found'
-    And I click on the Management drop down
+    And I should see the message: '0 accounts found'
+    And I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Disable for the form titled 'UDF Test Page'
     And I click Yes, Disable the Page

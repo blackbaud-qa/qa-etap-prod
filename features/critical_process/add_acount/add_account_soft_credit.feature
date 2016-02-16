@@ -3,6 +3,7 @@ Feature: Add Constituent Account From The Soft Credit Section Of A Transaction
   Scenario: Add new constituent account from the soft credit section of a transaction
     Given I am logged into eTap
     When I click Giving on the main menu
+    And I click on Add a Gift or Pledge on the giving menu
     And I click the Tribute bar
     And I click on the Soft Credit magnifying glass
     And I click Add Account on the pop up find account screen
@@ -11,7 +12,7 @@ Feature: Add Constituent Account From The Soft Credit Section Of A Transaction
     And I set the First Name to 'Laney' on the pop up find account screen
     And I set the Middle Name to 'P.' on the pop up find account screen
     And I set the Last Name to 'Thompkins' on the pop up find account screen
-  #  And I click the edit icon next to 'Short Salutation' on the pop up find account screen
+    And I click the edit icon next to 'Short Salutation' on the pop up find account screen
     And I set the Short Salutation to 'Laney P.' on the pop up find account screen
     And I set Address Lines to '1235 East Loop' on the pop up find account screen
     And I set City to 'Fishers' on the pop up find account screen
@@ -43,4 +44,4 @@ Feature: Add Constituent Account From The Soft Credit Section Of A Transaction
     And the Sort Name should be set to 'Thompkins, Laney P.'
     And I click Delete Role on the Account Settings page
     And I click Yes on the Account Settings page
-    Then I should see the message: 'No Results Found'
+    Then I should see the message: '0 accounts found'

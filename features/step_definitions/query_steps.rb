@@ -324,6 +324,7 @@ Then (/^the query category '([^']*)' does not exist/) do |cat|
   query = Queries::Createquerycategory.new
   step "I am logged into eTap"
   step "I click Queries on the main menu"
+  step "I click on Manage Queries on the queries menu"
   if query.string_exists_on_page?(cat)
     query.delete_query_category_click cat
     query.delete_query_category_yes_click
@@ -337,6 +338,7 @@ end
 def query_does_not_exist_in_category query_name, cat
   query = Queries::Createquerycategory.new
   step "I click Queries on the main menu"
+  step "I click on Manage Queries on the queries menu"
   step "I click on the '#{cat}' category"
 
   if query.string_exists_on_page?(query_name)
@@ -348,6 +350,7 @@ end
 def query_exists_in_category? query_name, cat
   query = Queries::Createquerycategory.new
   step "I click Queries on the main menu"
+  step "I click on Manage Queries on the queries menu"
   step "I click on the '#{cat}' category"
 
   query.string_exists_on_page?(query_name)
@@ -357,6 +360,7 @@ Then (/^a query category should exist called '([^']*)'/) do |cat|
   query = Queries::Createquerycategory.new
   step "I am logged into eTap"
   step "I click Queries on the main menu"
+  step "I click on Manage Queries on the queries menu"
   if query.string_exists_on_page?(cat)
     # do nothing
   else
@@ -367,6 +371,7 @@ Then (/^a query category should exist called '([^']*)'/) do |cat|
 
   # if query.is_warning_present?
   #   step "I click Queries on the main menu"
+  #   step "I click on Manage Queries on the queries menu"
   # end
 end
 
@@ -390,6 +395,7 @@ end
 Then (/^a query '([^']*)' for name '([^']*)' has been created/) do |query_name, account_name|
   if (not query_exists_in_category? query_name, 'Base')
     step "I click Queries on the main menu"
+    step "I click on Manage Queries on the queries menu"
     step "I click on the 'Base' category"
     step "I click 'New Query' on the Edit Query Category page"
     step %Q[I set the Name to '#{query_name}' on the Create a New Query page]
@@ -404,6 +410,7 @@ end
 Then (/^account security query '([^']*)' for name '([^']*)' has been created/) do |query_name, account_name|
   if (not query_exists_in_category? query_name, 'eTapestry Security')
     step "I click Queries on the main menu"
+    step "I click on Manage Queries on the queries menu"
     step "I click on the 'eTapestry Security' category"
     step "I click 'New Query' on the Edit Query Category page"
     step %Q[I set the Name to '#{query_name}' on the Create a New Query page]
@@ -419,10 +426,12 @@ end
 And (/^a specific query 'Donations made in January 2015' has been created in the 'Critical Process Testing' category/) do
   query = Queries::Createquerycategory.new
   step "I click Queries on the main menu"
+  step "I click on Manage Queries on the queries menu"
   step "I click on the 'Critical Process Testing' category"
 
   if (!query.string_exists_on_page?('Donations made in January 2015'))
     step "I click Queries on the main menu"
+    step "I click on Manage Queries on the queries menu"
     step "I click on the 'Critical Process Testing' category"
     step "I click 'New Query' on the Edit Query Category page"
     step "I set the Name to 'Donations made in January 2015' on the Create a New Query page"
@@ -445,10 +454,12 @@ end
 And (/^a specific query 'Donors Named John - Custom Query' has been created in the 'Critical Process Testing' category/) do
   query = Queries::Createquerycategory.new
   step "I click Queries on the main menu"
+  step "I click on Manage Queries on the queries menu"
   step "I click on the 'Critical Process Testing' category"
 
   if (!query.string_exists_on_page?('Donors Named John - Custom Query'))
     step "I click Queries on the main menu"
+    step "I click on Manage Queries on the queries menu"
     step "I click on the 'Critical Process Testing' category"
     step "I click 'New Query' on the Edit Query Category page"
     step "I set the Name to 'Donors Named John' on the Create a New Query page"

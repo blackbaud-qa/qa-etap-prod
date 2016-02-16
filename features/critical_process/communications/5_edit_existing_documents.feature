@@ -11,6 +11,7 @@ Feature: Editing a communications template
     Given I am logged into eTap
     And I delete the existing Document.docx
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Thank You Letters on the Correspondence Categories page
     And I click on the 'Simple Business Letter - Guided Mode Static' letter template
     And I click on the Body block to open the Edit Contents pop up in the standard editor
@@ -46,6 +47,7 @@ Feature: Editing a communications template
     Given I am logged into eTap
     And I delete the existing Document.pdf
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Thank You Letters on the Correspondence Categories page
     And I click on the 'Simple Business Letter - Advanced Editor Mode Static' letter template
     And I delete all the text in the advanced editor on the template page

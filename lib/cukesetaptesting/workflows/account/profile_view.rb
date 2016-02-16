@@ -10,14 +10,16 @@ module Cukesetaptesting
       keyword(:relationships_page) {content.div(:id, 'relationships_summary_1')}
       keyword(:base_defined_fields_div) {content.div(:id => 'UDFS.udf.category.base')}
       keyword(:system_defined_fields_div) {content.div(:id => 'UDFS.udf.category.systemdefinedfields')}
-      keyword(:journal_page) {content.form(:name, 'entityJournalForm')}
+      #keyword(:journal_page) {content.form(:name, 'entityJournalForm')}
+      keyword(:journal_page) {content.div(:id, 'journal')}
+      #keyword(:other_page) {content.section(:class=>'bb-grid-container ng-isolate-scope').form(:name, 'entityOtherForm')}
       keyword(:other_page) {content.form(:name, 'entityOtherForm')}
       keyword(:defined_fields_page) {content.form(:name, 'entityUserDefinedValuesForm')}
       keyword(:select_tiles_and_layout_link) {content.h3(:class, 'dashboardManagement').link}
       keyword(:three_equal_columns_layout) {content.div(:id, 'etap.fieldset.area.1').radio(:value, '0')}
       keyword(:save_button) {content.div(:class, 'taskCategory').div(:class, 'taskSpace').input}
-      keyword(:left_small_columns) {tiles.divs(:class, 'tilesetRow et-col-lg-4')}
-      keyword(:right_small_columns) {tiles.divs(:class, 'tilesetRightRow et-col-lg-4')}
+      keyword(:left_small_columns) {tiles.divs(:class, /tilesetRow/)}
+      keyword(:right_small_columns) {tiles.divs(:class, /tilesetRightRow/)}
       keyword(:soft_credit_summary_checkbox) {content.div(:id, 'etap.fieldset.area.2').checkbox(:value, '13')}
       keyword(:soft_credit_summary_tile) {content.div(:id, 'tile13')}
       keyword(:recent_journal_entry) {content.table(:id,'journalEntriesTable').tr(:class=>'reportRowAlternate').a}

@@ -3,6 +3,7 @@ Feature: Running the Account Summary Report
   Scenario: Running the Account Summary Report from an account when there is no image on the Home page
     Given I am logged into eTap
     When I click Accounts
+    And I click on Find an Account on the accounts menu
     And I type 'Sally' into the search field
     And I click Find
     And I click on the 'Sally Jenkins' account
@@ -14,6 +15,7 @@ Feature: Running the Account Summary Report
   Scenario: Running the Account Summary Report from an account when there is an image on the Home page without an & in the name
     Given I am logged into eTap
     When I click Accounts
+    And I click on Find an Account on the accounts menu
     And I type 'Sally' into the search field
     And I click Find
     And I click on the 'Sally Jenkins' account
@@ -30,6 +32,7 @@ Feature: Running the Account Summary Report
   Scenario: Running the Account Summary Report from an account when there is an image on the Home page with an & in the name
     Given I am logged into eTap
     When I click Accounts
+    And I click on Find an Account on the accounts menu
     And I type 'Sally' into the search field
     And I click Find
     And I click on the 'Sally Jenkins' account

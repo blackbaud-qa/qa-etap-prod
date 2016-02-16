@@ -7,7 +7,7 @@ Feature: SEPA 1 - Setting Preferences
     And I login into eTap with values 'automationbot.nl', 'spicypancakes1'
 
   Scenario:  Adding Federal ID Number
-    Given I click on the Management drop down
+    Given I click Management on the main menu
     And I click on My Organization on the management menu
     And I enter '123' in the Federal ID field
     And I click Save and Go to Personas on the My Organization page
@@ -15,7 +15,7 @@ Feature: SEPA 1 - Setting Preferences
 
 
   Scenario: Empty Required Organization Preferences
-    Given I click on the Management drop down
+    Given I click Management on the main menu
     And I click on My Organization on the management menu
     And I click on Preferences on the My Organization page
     When I leave the IBAN field empty
@@ -31,7 +31,7 @@ Feature: SEPA 1 - Setting Preferences
 
 
   Scenario: Invalid Organization Preferences - IBAN
-    Given I click on the Management drop down
+    Given I click Management on the main menu
     And I click on My Organization on the management menu
     And I click on Preferences on the My Organization page
     When I enter 'NL91ABNA04171643XX' for the IBAN field
@@ -47,7 +47,7 @@ Feature: SEPA 1 - Setting Preferences
 
 
   Scenario: Adding My Organization Preferences
-    Given I click on the Management drop down
+    Given I click Management on the main menu
     And I click on My Organization on the management menu
     And I click on Preferences on the My Organization page
     When I enter 'NL91ABNA0417164300' for the IBAN field

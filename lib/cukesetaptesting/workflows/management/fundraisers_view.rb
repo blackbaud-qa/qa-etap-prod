@@ -1,7 +1,7 @@
 module Cukesetaptesting
   module Management
     class FundraisersView < BaseView
-      keyword(:management_fundraisers)  {content.div(:id,'managementPageContent').div(:id,'onlineContent').ul(:id,'homeQuickLinks').a(:href,'viewEvents.do')}
+      keyword(:management_fundraisers)  {content.a(:title,'Fundraisers')}
       keyword(:fundraiser_status) {content.div(:class,'info')}
       keyword(:fundraiser_new_fundraiser) {content.a(:text,'New Fundraiser')}
       keyword(:new_fund_date) {content.div(:class,'calendarPopup').text_field(:id,'date')}
@@ -18,7 +18,7 @@ module Cukesetaptesting
       keyword(:main_page_text_align_center_click) {content.div(:id,'mceu_4')}
       keyword(:new_fund_team_goal) {content.text_field(:name,'currencyPopulate(eventOptions.recommendedTeamGoal)')}
       keyword(:new_fund_individual_goal) {content.text_field(:name,'currencyPopulate(eventOptions.recommendedIndividualGoal)')}
-      keyword(:field_name) {content.img(:id,'questionField_comboArrow')}
+      keyword(:field_name) {content.i(:id,'questionField_comboArrow')}
       # keyword(:field_name_base_gender) {content.div(:id,'questionField_comboAllList_valueRow_47.0.2670')}
       keyword(:field_name_base_gender) {content.div(:text,'Base: Gender')}
       keyword(:required_check_box) {content.checkbox(:id,'questionRequired')}
@@ -26,7 +26,7 @@ module Cukesetaptesting
       keyword(:new_fundraiser_add) {content.input(:id,'addQuestionButton')}
       keyword(:new_fund_fee_name) {content.text_field(:id,'feeName')}
       keyword(:new_fund_fee_amount){content.text_field(:id,'feeAmount')}
-      keyword(:fee_level_fund){content.img(:id,'feeIntent_comboArrow')}
+      keyword(:fee_level_fund){content.i(:id,'feeIntent_comboArrow')}
       # keyword(:fee_level_fund_general){content.div(:id,'feeIntent_comboAllList_valueRow_47.0.3397')}
       keyword(:fee_level_fund_general){content.div(:text,'General')}
       keyword(:new_fundraiser_add_fee_level) {content.input(:id,'addFeeButton')}
@@ -34,7 +34,7 @@ module Cukesetaptesting
       keyword(:new_fund_second_fee_amount){content.text_field(:id,'feeAmount')}
       keyword(:second_fee_level_fund){content.img(:id,'feeIntent_comboArrow')}
       keyword(:second_fee_level_fund_general){content.div(:id,'feeIntent_comboAllList_valueRow_47.0.3397')}
-      keyword(:applied_to_donations_fund){content.img(:id,'refPopulate(eventOptions.donationFund)_comboArrow')}
+      keyword(:applied_to_donations_fund){content.i(:id,'refPopulate(eventOptions.donationFund)_comboArrow')}
       # keyword(:applied_to_donations_fund_general){content.div(:id,'refPopulate(eventOptions.donationFund)_comboAllList_valueRow_47.0.3397')}
       keyword(:applied_to_donations_fund_general){content.div(:id,'refPopulate(eventOptions.donationFund)_comboAllList').div(:text,'General')}
       keyword(:new_fundraiser_save_and_finish) {content.input(:id,'wizardNavigationButton_1_saveAndFinish')}

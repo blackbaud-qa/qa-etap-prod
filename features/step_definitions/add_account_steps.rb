@@ -1,6 +1,6 @@
 And (/^I click on Add Account on the find account screen/) do
-  accounts = Account::AddAccount.new()
-  accounts.find_screen_add_account_click
+  landing = Admin::Landing.new
+  landing.accounts_dd_add_account_click
 end
 
 And (/^I set Name to '([^']*)' on the classic add account page/) do |name|
@@ -127,7 +127,8 @@ end
 
 And(/^I set the UDF '([^']*)' dropdown to '([^']*)' in the UDF section on the classic add account page$/) do |udf, value|
   accounts = Account::AddAccount.new
-#  accounts.click_udf_section(udf)
+  #accounts.click_udf_section(udf)
+  accounts.click_main_udf_section
   # accounts.set_udf_section_dropdown_value(udf, value)
   accounts.click_udf(udf)
   accounts.set_udf_dropdown_value(udf, value)

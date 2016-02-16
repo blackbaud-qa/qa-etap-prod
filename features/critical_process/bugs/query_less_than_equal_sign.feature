@@ -6,6 +6,7 @@ Feature: Query name with less than and equal sign not saving correctly
   Scenario: Save query with less than and equal sign in name
     Given I am logged into eTap
     When I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click on the 'Base' category
     And I click 'New Query' on the Edit Query Category page
     And I set the Name to 'Donor Review <= Acknowledgement' on the Create a New Query page

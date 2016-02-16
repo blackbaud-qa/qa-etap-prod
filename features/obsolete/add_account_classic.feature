@@ -50,7 +50,7 @@ Feature: Add Account Classic View
     And I click Advanced Find
     And I set Phone to '318-219-4444' on the Advanced Find screen
     And I click Find
-    Then I should see the message: 'No Results Found'
+    Then I should see the message: '0 accounts found'
 
   Scenario: Deleting an account
     When I click Accounts
@@ -61,4 +61,4 @@ Feature: Add Account Classic View
     And I click on the account settings page on the accounts page
     And I click Delete Role on the Account Settings page
     And I click Yes on the Account Settings page
-    Then I should see the message: 'No Results Found'
+    Then I should see the message: '0 accounts found'

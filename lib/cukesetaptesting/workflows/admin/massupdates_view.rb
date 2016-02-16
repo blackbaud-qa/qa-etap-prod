@@ -24,7 +24,7 @@ module Cukesetaptesting
       keyword(:cannot_mass_update) {content.div(:id,'etap.fieldset.area.1').h3(:class, 'oops')}
 
       #combo box for setting the contact method
-      keyword(:contact_method_type) {content.div(:id,'fields').img(:id, 'refUpdateField(contactMethod)_comboArrow')}
+      keyword(:contact_method_type) {content.i(:id, 'refUpdateField(contactMethod)_comboArrow')}
       keyword(:contact_method_combo_list) {content.div(:id,'refUpdateField(contactMethod)_comboAllList')}
 
 

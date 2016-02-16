@@ -126,7 +126,9 @@ module Cukesetaptesting
       keyword(:popup_add_account_state) {content.iframe(:id, 'popupFrame').text_field(:id, 'state')}
       keyword(:popup_add_account_postal_code) {content.iframe(:id, 'popupFrame').text_field(:id, 'postalCode')}
       keyword(:popup_add_account_email) {content.iframe(:id, 'popupFrame').text_field(:id, 'emailAddress')}
-      keyword(:account_role_value) {content.tr(:class, 'entityTitle')}
+      #keyword(:account_role_value) {content.tr(:class, 'entityTitle')}
+      keyword(:account_role_value) { content.element(:xpath => './/*[@id=\'etap.fieldset.area.1\']/div[1]/div[2]/div[1]') }
+#      keyword(:account_role_value) {content.div(:id=>'followMeDiv1').div.div.div(:index=>1).div.div(:index=>0).div(:index=>1).div}
 
       keyword(:add_account_button) {content.iframe(:id,'popupFrame').form(:name,'entitySearchForm').input(:value, 'Add Account')}
       keyword(:magnifying_glass_tribute) {content.div(:id, 'tributeFields').img(:src, 'images/magnifying-glass.png')}
@@ -174,7 +176,12 @@ module Cukesetaptesting
       def udf_to_click(udf)
         # Should be ok for translation, as we
         #   are passing in a UDF's custom name
+        sleep 0.5
         content.link(:text, udf + ':')
+      end
+
+      def udf_main_section
+        content.h2(:text=>'User Defined Fields: Constituent')
       end
 
       def udf_section_to_click udf

@@ -4,20 +4,51 @@ module Cukesetaptesting
       #Search Keywords
       keyword(:search_field)  { content.text_field(:name => 'searchString') }
       keyword(:email_field)  { content.text_field(:name => 'email') }
-      keyword(:find_button) { content.button(:value => 'Find') }
+      def find_button
+        # 0 - indicates that Basic search is visible and advanced is hidden
+        active_li = content.li(:class=>'ng-isolate-scope active')
+        quick_is_active = active_li.link(:text=>'Quick Find').exists?
+
+        if quick_is_active
+          content.div(:id => 'quickSearchFields').button(:value => 'Find')
+        else
+          content.form(:id=>'advancedSearchForm').div(:id => 'quickSearchFields').button(:value => 'Find')
+        end
+      end
+
       keyword(:advanced_link) { content.link(:text=> 'Advanced Find') }
-      keyword(:exact_button) { content.button(:value => 'Exact Match') }
-      #keyword(:table_content) { content.table(:id => 'etapreporttag1')}
-      keyword(:table_content) { content.table(:class => 'ui-jqgrid-htable')}
+      keyword(:exact_button) { content.div(:id => 'quickSearchFields').button(:value => 'Exact Match') }
+      keyword(:table_content) { content.table(:id => 'bbgrid-table-7')}
+
+   #   keyword(:account_name) { table_content.tr(:index => 1).td(:index => 2)}
+      def account_name index_value
+        table_content.tr(:index => index_value).td(:index => 2)
+      end
+
+      keyword(:search_result_count_message) { content.div(:id=>'searchResultCount').span}
       #Role Keywords-  May be able to put this in its own class, but probably not necessary
       keyword(:role_icon) { table_content.img(:class => 'contextMenuActivation') }
-      keyword(:role_menu) { content.div(:class, "contextMenu") }
-      keyword(:role_menu_home) {role_menu.li(:class, "home").a }
-      keyword(:role_menu_personas) {role_menu.li(:class, "personas").a }
-      keyword(:role_menu_relationships) {role_menu.li(:class, "relationships").a}
-      keyword(:role_menu_journal) {role_menu.li(:class, "journal").a}
-      keyword(:role_menu_other) {role_menu.a(:text, "Account Settings")}
-      keyword(:role_menu_defined_fields) {role_menu.li(:class, "definedFields").a}
+      def role_icon_by_account_name account_name
+        account_trs = table_content.trs
+
+        proper_table_row = nil
+        table_content.trs(:id=>/bb-grid-row-7/).each do |tr|
+          if tr.td(:index=>2).text.include? account_name
+            proper_table_row = tr
+          end
+        end
+
+        proper_table_row.td(:index=>0).div.button(:class=>/bb-context-menu-btn/)
+      end
+
+
+      keyword(:role_menu) { content.ul(:index=>1, :class=>"dropdown-menu") }
+      keyword(:role_menu_home) {role_menu.li(:index=>0).link }
+      keyword(:role_menu_personas) {role_menu.li(:index=>1).link }
+      keyword(:role_menu_relationships) {role_menu.li(:index=>2).link }
+      keyword(:role_menu_journal) {role_menu.li(:index=>3).link }
+      keyword(:role_menu_other) {role_menu.li(:index=>4).link }
+      keyword(:role_menu_defined_fields) {role_menu.li(:index=>5).link }
       keyword(:gift_box_icon) {content.div(:id, 'etapreporttag1_outerdiv').img(:src, 'images/gift16.gif')}
       keyword(:new_gift_and_pledge_page) {content.form(:name, 'journalGiftForm')}
       keyword(:adv_find_state_field) {content.text_field(:id, 'state')}
@@ -35,7 +66,6 @@ module Cukesetaptesting
       keyword(:attributes_udf) {content.a(:text, 'Attributes')}
       keyword(:move_value_to_account_type) {content.label(:text, 'Account Type')}
       keyword(:edit_user_defined_field_categories_page) {content.a(:href, 'ImportMenu.jsp')}
-
       def home(model)
       end
 

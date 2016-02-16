@@ -6,6 +6,8 @@ end
 When(/^I click Find$/) do
   search = Account::Search.new
   search.find_click
+
+  sleep 2
 end
 
 When(/^I click Exact Match$/) do
@@ -14,15 +16,15 @@ When(/^I click Exact Match$/) do
 end
 
 Then(/^'([^']*)' should show in the results$/) do |name|
+  sleep 3
+
   search = Account::Search.new
-  expect(search.account_name_exists? name).to eq(true)
+  expect(search.new_account_name_exists? name).to eq(true)
 end
 
 Then(/^I should see the message: '([^']*)'$/) do |message|
-  # pending # express the regexp above with the code you wish you had
   search = Account::Search.new
-  expect(search.account_name_exists? message).to eq(true)
-
+  expect(search.search_result_count_message).to eq(message)
 end
 
 Then (/^I should be taken to '([^']*)' Home page$/) do |name|

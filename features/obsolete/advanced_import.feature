@@ -4,7 +4,7 @@ Feature: Importing Constituent and Gift Information
     Given I am logged into eTap
     And I clear the old import data
     When I click Management on the main menu
-    And I click Import on the Managment page
+    And I click on Import on the management menu
     And I click 'Standard eTapestry Imports' on the Imports screen
     And I click New Import on the Standard eTapestry Imports screen
     And I set the Name to 'Constituent and Gift Import' on the Import screen
@@ -106,7 +106,7 @@ Feature: Importing Constituent and Gift Information
 Scenario: missing required fields
   Given I am logged into eTap
   When I click Management on the main menu
-  And I click Import on the Managment page
+  And I click on Import on the management menu
   And I click 'Standard eTapestry Imports' on the Imports screen
   And I click 'Constituent and Gift Import' on the Imports screen
   And I choose the incomplete import file on the Import screen
@@ -120,7 +120,7 @@ Scenario: missing required fields
   Scenario: deleting imported information and the import template
     Given I am logged into eTap
     And I clear the old import data
-    When I click Management on the main menu
+    When I click on Import on the management menu
     And I click Import on the Managment page
     And I click 'Standard eTapestry Imports' on the Imports screen
 #  Leaving Adell in for now, as she is supposed to be a dupe
@@ -130,7 +130,7 @@ Scenario: missing required fields
 #    And I click Journal
 #    And I click on the 3/15/2020 journal entry
 #    And I click Delete on the transaction page
-#    And I click Management on the main menu
+#    And I click on Import on the management menu
     And I click Delete below the 'Constituent and Gift Import' on the Standard eTapestry Imports screen
     And I click Yes to delete the import template
     Then I should not see the 'Constituent and Gift Import' import template

@@ -4,6 +4,7 @@ Feature: Run existing report
   Scenario: Run constituent address report
     Given I am logged into eTap
     And I click on reports
+    And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on run report next to the report Test
     And I click on the drop down box for query category Base
