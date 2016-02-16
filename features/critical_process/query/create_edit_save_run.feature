@@ -51,7 +51,7 @@ Feature: Create, Edit, Save and Run Queries
 #    And I should see the message 'Displaying 1 - 4 of 4' on the query preview screen
     And I should see the message 'Displaying 1 - ' on the query preview screen
     And I click Edit on the query preview screen
-    And I click Save And 'Create Custom Query'
+    And I click Save And 'Create a custom account query'
     And I set the Name to 'Donors Named John - Custom Query' on the Create a New Query page
     And I click Save And 'Preview'
 #    Then I should see the message 'Displaying 1 - 4 of 4' on the query preview screen

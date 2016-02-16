@@ -41,8 +41,10 @@ module Cukesetaptesting
       # keyword(:dashboard_tile_recently_viewed_accounts_tile)  {content.div(:class, 'tilesetRightRow et-col-lg-6 et-col-sm-6  et-col-xs-12').div(:id, 'tile200')}
       keyword(:dashboard_tile_recently_viewed_accounts_tile)  {content.div(:id,'mainContent').h2(:class=>'bb-tile-header',:text=>/Recently Viewed Accounts/)}
       keyword(:two_equal_column_layout) {content.radio(:value, '1')}
-      keyword(:left_column) {content.divs(:class, 'tilesetRow et-col-lg-6')}
-      keyword(:right_column) {content.divs(:class, 'tilesetRightRow et-col-lg-6')}
+
+      keyword(:left_column) {tiles.divs(:class, /tilesetRow/)}
+      keyword(:right_column) {tiles.divs(:class, /tilesetRightRow/)}
+
       keyword(:date_on_campaign_performance_tile) {content.div(:id, 'tile301').select(:id, 'campaignDateRange')}
       keyword(:set_camp_tile_start_date)  {content.div(:id, 'tile301').text_field(:name, 'campaignCustomStartDate')}
       keyword(:set_camp_tile_end_date)  {content.div(:id, 'tile301').text_field(:name, 'campaignCustomEndDate')}
@@ -51,10 +53,12 @@ module Cukesetaptesting
       keyword(:perform_full_report_results) {content.div(:id, 'dashboardDetailReport').td(:class, 'pageResults')}
       keyword(:camp_perform_date_range_label) {content.div(:id,'asyncTileLoader301').table(:id,'etapreporttag1')}
 
-
+      def tiles
+        content.div(:class, 'tilesetContainer')
+      end
 
      # This keyword does not work, the error returned is element is not clickable at point (867, 881).
-      keyword(:dashboard_tile_remove_recently_viewed_accounts)  {content.div(:id, 'tile200').div(:class, 'controls').img(:src,'images/deleteGray16.png')}
+      keyword(:dashboard_tile_remove_recently_viewed_accounts)  {content.div(:id, 'tile200').div(:class, 'bb-tile-tools').a}#img(:src,'images/deleteGray16.png')}
 
       def link_on_campaign_performance_tile(value)
         # Should be ok for internationalization as we are

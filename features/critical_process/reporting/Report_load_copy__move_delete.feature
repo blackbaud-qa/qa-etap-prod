@@ -4,6 +4,7 @@ Feature: Reports load, can be copied,moved and can be deleted
 Scenario: Load reports
   Given I am logged into eTap
   When I click on reports
+  And I click on Manage Reports on the reports menu
   Then all the 'Report Categories' should load
 
   |Links|
