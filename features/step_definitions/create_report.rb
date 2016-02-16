@@ -2,6 +2,7 @@
 Given (/^the report '([^']*)' does not exist$/) do |report_name|
   step "I am logged into eTap"
   step "I click on reports"
+  step "I click on Manage Reports on the reports menu"
   step "I click on the system category"
 
   # Delete 'Test Report'

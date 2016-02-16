@@ -11,6 +11,7 @@ Feature: Testing payments and pledges
     And select Gift/Pledge from the Add New... drop down menu
     And I set the date to Today on the new pledge page
     And I set the Pledged Amount to '240'
+    And click Tab
     And I click into the Received Amount field
     And set the Fund to 'Unrestricted'
     And set the Campaign to 'Annual'

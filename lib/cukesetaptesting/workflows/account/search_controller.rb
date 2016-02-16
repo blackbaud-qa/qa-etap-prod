@@ -29,7 +29,7 @@ module Cukesetaptesting
         #  look for those rows.
         lower_input_name = input_name.downcase
 
-        sleep 2.5
+        sleep 4
         accounts_found_text = @view.search_result_count_message.when_present.text
 
         account_quantity_match = /(\d+)/.match(accounts_found_text)
