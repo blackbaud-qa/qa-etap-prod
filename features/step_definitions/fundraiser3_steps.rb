@@ -4,20 +4,26 @@ When(/^I delete existing data for '([^']*)'$/) do |name|
   step "I type '" + name + "' into the search field"
   step "I press Enter on the keyboard"
   search = Account::Search.new
-  if search.account_name_exists? name
+  if search.new_account_name_exists? name
     step "I click on '" + name + "' on the accounts page"
     step "I click Journal"
+    sleep 2
+
     gift = Giving::GiftPledge.new
-    if (gift.gift_link_present?)
+    max_loops = 10
+    while (gift.gift_link_present? && max_loops > 0)
       step "I click on the Gift listed in the journal"
       step "I click Delete on the transaction page"
+      max_loops = max_loops - 1
       # step "I should close the javascript popup"
-
     end
-    if (gift.soft_credit_link_present?)
+
+    max_loops = 10
+    while (gift.soft_credit_link_present? && max_loops > 0)
       step "I click on the Soft Credit listed in the journal"
       step "I click Delete on the soft credit page"
       # step "I should close the javascript popup"
+      max_loops = max_loops - 1
     end
 
     step "I click on the account settings page on the accounts page"
@@ -257,6 +263,7 @@ Then(/^the Fundraising Center page should say: '([^']*)'$/) do |title|
 end
 
 Then(/^there should be a Participation journal entry$/) do
+  sleep 2
   gift = Giving::GiftPledge.new
   expect(gift.journal_page_participation_exists?).to eq(true)
 end

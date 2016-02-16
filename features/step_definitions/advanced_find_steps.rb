@@ -21,8 +21,9 @@ And(/^I clear the email field on the advanced find page$/) do
 end
 
 Then(/^'([^']*)' should show in the advanced find name results$/) do |name|
+  sleep 0.5
   search = Account::AdvancedSearch.new
-  expect(search.account_name_exists? name).to eq(true)
+  expect(search.new_account_name_exists? name).to eq(true)
 end
 #
 And(/^I type '([^']*)' into the Email field$/) do |email|

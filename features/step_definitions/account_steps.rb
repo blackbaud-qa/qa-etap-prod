@@ -1,66 +1,71 @@
-When(/^I click on Home from the Role Icon drop down$/) do
+When(/^I click on Home from the Role Icon drop down for '([^']*)'$/) do |account_name|
   search = Account::Search.new
-  search.role_icon_click
+  search.role_icon_click account_name
   search.role_menu_home_click
 
 end
 
-When(/^I click on Personas from the Role Icon drop down$/) do
+When(/^I click on Personas from the Role Icon drop down for '([^']*)'$/) do |account_name|
   search = Account::Search.new
-  search.role_icon_click
+  search.role_icon_click account_name
   search.role_menu_personas_click
 end
 
-When(/^I click on Relationships from the Role Icon drop down$/) do
+When(/^I click on Relationships from the Role Icon drop down for '([^']*)'$/) do |account_name|
   search = Account::Search.new
-  search.role_icon_click
+  search.role_icon_click account_name
   search.role_menu_relationships_click
 end
 
-When(/^I click on Journal from the Role Icon drop down$/) do
+When(/^I click on Journal from the Role Icon drop down for '([^']*)'$/) do |account_name|
   search = Account::Search.new
-  search.role_icon_click
+  search.role_icon_click account_name
   search.role_menu_journal_click
 end
 
-When(/^I click on Account Settings from the Role Icon drop down$/) do
+When(/^I click on Account Settings from the Role Icon drop down for '([^']*)'$/) do |account_name|
   search = Account::Search.new
-  search.role_icon_click
+  search.role_icon_click account_name
   search.role_menu_other_click
 end
 
-When(/^I click on Defined Fields from the Role Icon drop down$/) do
+When(/^I click on Defined Fields from the Role Icon drop down for '([^']*)'$/) do |account_name|
   search = Account::Search.new
-  search.role_icon_click
+  search.role_icon_click account_name
   search.role_menu_defined_fields_click
 end
 
 
 Then (/^I should be taken to '([^']*)' Personas page$/) do |name|
+  sleep 2
   account = Account::Profile.new
   expect(account.constit_name_exists? name).to eq(true)
   expect(account.on_personas_page?).to eq(true)
 end
 
 Then (/^I should be taken to '([^']*)' Relationships page$/) do |name|
+  sleep 2
   account = Account::Profile.new
   expect(account.constit_name_exists? name).to eq(true)
   expect(account.on_relationships_page?).to eq(true)
 end
 
 Then (/^I should be taken to '([^']*)' Journal page$/) do |name|
+  sleep 2
   account = Account::Profile.new
   expect(account.constit_name_exists? name).to eq(true)
   expect(account.on_journal_page?).to eq(true)
 end
 
 Then (/^I should be taken to '([^']*)' Account Settings page$/) do |name|
+  sleep 2
   account = Account::Profile.new
   expect(account.constit_name_exists? name).to eq(true)
   expect(account.on_other_page?).to eq(true)
 end
 
 Then (/^I should be taken to '([^']*)' Defined Fields page$/) do |name|
+  sleep 2
   account = Account::Profile.new
   expect(account.constit_name_exists? name).to eq(true)
   expect(account.on_defined_fields_page?).to eq(true)
@@ -89,14 +94,17 @@ Then (/^User '([^']*)' does not exist$/) do |user_name|
   search_page.set_search_field user_name
   search_page.find_click
 
-  if (search_page.account_name_exists? user_name)
+  if (search_page.new_account_name_exists? user_name)
     step %Q[I delete user '#{user_name}']
     landing.log_out
   end
 end
 
 When (/^delete the accounts$/) do
-  steps %Q[When I click Accounts]
+  steps %Q[
+      When I click Accounts
+      And I click on Find an Account on the accounts menu
+      ]
   search = Account::Search.new
 
   CSV.foreach("C:\\users\\matt.dilts\\Desktop\\test4k.csv") do |row|
@@ -105,7 +113,7 @@ When (/^delete the accounts$/) do
       And I click Exact Match
     ]
 
-    if search.account_name_exists? row[1]+' '+row[2]+' '+row[3]
+    if search.new_account_name_exists? row[1]+' '+row[2]+' '+row[3]
       steps %Q[And I click on '#{row[1]} #{row[2]} #{row[3]}' on the accounts page]
       steps %Q[  And I click on the account settings page on the accounts page]
       steps %Q[And I click Delete Role on the Account Settings page]
@@ -157,7 +165,7 @@ Then (/^Constituent '([^']*)' does not exist$/) do |user_name|
   search_page.set_search_field user_name
   search_page.find_click
 
-  if (search_page.account_name_exists? user_name)
+  if (search_page.new_account_name_exists? user_name)
     step %Q[I delete user '#{user_name}']
     landing.log_out
   end
@@ -177,12 +185,13 @@ end
 When (/^there exists user '([^']*)'$/) do |user_name|
   landing = Admin::Landing.new
   landing.accounts_click
+  landing.accounts_dd_find_account_click
 
   search_page = Account::Search.new
   search_page.set_search_field user_name
   search_page.find_click
 
-  if (not search_page.account_name_exists? user_name)
+  if (not search_page.new_account_name_exists? user_name)
     step %Q[I create user '#{user_name}' with password 'tempPassword']
     landing.log_out
 
@@ -211,8 +220,6 @@ def process_user_account_security(password, email_address, security_question, se
 end
 
 When (/^I create user '([^']*)' with password '([^']*)'$/) do |user_name, password|
- # account.create_person 'testUser', 'testUser'
-
   desired_next_page = 'Go to Personas'
 
   account = Account::AddAccount.new
@@ -383,7 +390,7 @@ When (/^there exists constituent '([^']*)'$/) do |constituent_name|
   search_page.set_search_field constituent_name
   search_page.find_click
 
-  if (not search_page.account_name_exists? constituent_name)
+  if (not search_page.new_account_name_exists? constituent_name)
     step %Q[I create constituent '#{constituent_name}']
   end
 end

@@ -4,6 +4,7 @@ Feature: Edit Custom Report
   Scenario: Edit the custom report name
     Given I am logged into eTap
     And I click on reports
+    And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on the name of the report 'Test Report'
     And I set the name to 'Test 1' on the edit report page
@@ -14,6 +15,7 @@ Feature: Edit Custom Report
   Scenario: Edit Report Sort
     Given I am logged into eTap
     When I click on reports
+    And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on the name of the report 'Test Report'
     And I click on the plus next to Sort Name on the edit report page
@@ -29,6 +31,7 @@ Feature: Edit Custom Report
   Scenario: Group Report
     Given I am logged into eTap
     When I click on reports
+    And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on the name of the report 'Test Report'
     And I click on the drop down next to the field Group Report on the edit report page
@@ -44,6 +47,7 @@ Feature: Edit Custom Report
   Scenario: Delete Field name
     Given I am logged into eTap
     When I click on reports
+    And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on the name of the report 'Test Report'
     And I click on the X next to the field State

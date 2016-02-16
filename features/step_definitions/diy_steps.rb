@@ -67,6 +67,7 @@ When(/^I click Submit on the DIY settings page/) do
 end
 
 When(/^I click Go Live on the DIY editor page$/) do
+  sleep 2
   diy = DIY::Onlineforms.new()
   diy.go_live_click
 end
@@ -311,7 +312,7 @@ Then(/the Donation Page should no longer show$/) do
 end
 
 And (/^I click on the link for the form titled ([^']*)$/) do |diy_page_name|
-  sleep 3
+  sleep 5
   diy = DIY::Onlineforms.new
   diy.diy_page_wait_for_title
   diy.diy_page_link_click diy_page_name
@@ -464,14 +465,14 @@ And(/^the transaction will be added to the database with accurate information$/)
     And I press Enter on the keyboard
     And I click on 'Jon Snow' in the search results
     And I click Journal
-    And wait for the journal page to display
+
     And I click on the Gift listed in the journal
     And the Received Amount should be set to '$7.00'
     And the Fund should be set to 'Unrestricted'
     And I click Delete on the transaction page
     And I click on the Note listed in the journal
     And I click delete on the note page
-    Then I should see the message 'No Journal Entries Found' on the journal page
+    Then I should see the message '0 Journal Entries' on the journal page
   }
 end
 
@@ -555,7 +556,7 @@ end
 And(/^a DIY form titled ([^']*) exists/) do |page_name|
   steps %Q{
     Given I am logged into eTap
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on DIY Forms on the management menu
   }
 
@@ -572,7 +573,7 @@ And(/^I create and publish a new DIY page named ([^']*)/) do |page_name|
 
   steps %Q{
     Given I am logged into eTap
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Create a Page
     And I click Online Giving Page
@@ -597,7 +598,7 @@ And(/^the DIY page ([^']*) contains the UDF ([^']*)/) do |diy_page_name, udf_nam
 
   steps %Q{
     Given I am logged into eTap
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled '#{diy_page_name}'
 
@@ -620,7 +621,7 @@ And(/^all email notifications are ([^']*) for the DIY page ([^']*)/) do |notific
 
   steps %Q{
     Given I am logged into eTap
-    When I click on the Management drop down
+    When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled '#{diy_page_name}'
 
@@ -647,7 +648,7 @@ And(/^I submit a successful credit card transaction for ([^']*) ([^']*) on page 
 
   steps %Q{
       Given I am logged into eTap
-      When I click on the Management drop down
+      When I click Management on the main menu
       And I click on DIY Forms on the management menu
       And I click on the link for the form titled #{page_name}
       And I switch to the new tab in my browser
@@ -681,7 +682,7 @@ And(/^I submit a successful credit card transaction for ([^']*) '([^']*)' ([^']*
 
   steps %Q{
       Given I am logged into eTap
-      When I click on the Management drop down
+      When I click Management on the main menu
       And I click on DIY Forms on the management menu
       And I click on the link for the form titled #{page_name}
       And I switch to the new tab in my browser
@@ -715,6 +716,7 @@ And(/^the constituent ([^']*) should appear as ([^']*) with Maiden Name ([^']*)/
   steps %Q{
       Given I am logged into eTap
       When I click Accounts on the main menu
+      And I click on Find an Account on the accounts menu
       And I type '#{constit_name}' into the search field
       And I press Enter on the keyboard
       And I click on Defined Fields from the Role Icon drop down
@@ -729,6 +731,7 @@ And(/^the constituent ([^']*) should be ([^']*)/) do |constit_name, gender|
   steps %Q{
       Given I am logged into eTap
       When I click Accounts on the main menu
+      And I click on Find an Account on the accounts menu
       And I type '#{constit_name}' into the search field
       And I press Enter on the keyboard
       And I click on Defined Fields from the Role Icon drop down

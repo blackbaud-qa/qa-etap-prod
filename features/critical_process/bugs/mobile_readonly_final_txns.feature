@@ -9,7 +9,7 @@ Feature: TFS 534545 reported that mobile non-admin users were able to modify
     And I create user 'testUser1'
     And I log out of eTap
     And I am logged into eTap
-    And I click on the Management drop down
+    And I click Management on the main menu
     And I click on Security Groups on the management menu
     And set 'testUser1' rights to non admin
     And I log out of eTap

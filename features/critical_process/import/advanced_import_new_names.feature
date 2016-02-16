@@ -31,6 +31,9 @@ Feature: Importing Constituent and Gift Information
     And I click 'Persona Type' from my file
     And I the X on the Import mapping pop up
     And I click on the 'Account Name' mapping icon for names on the Import screen
+    And I click 'First Name' and 'Last Name' from my file
+    And I the X on the Import mapping pop up
+    And I click on the 'First Name' mapping icon for names on the Import screen
     And I click 'First Name' from my file
     And I the X on the Import mapping pop up
     And I click on the 'Last Name' mapping icon for names on the Import screen
@@ -93,6 +96,7 @@ Feature: Importing Constituent and Gift Information
     And I should see 'Accounts Created 1' on the Import Summary page
     And I should see 'Accounts Modified 1' on the Import Summary page
     And I should see 'Journal Entries Created 2' on the Import Summary page
+    And I click Next on the Import screen
 
 Scenario: missing required fields
   Given I am logged into eTap

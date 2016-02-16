@@ -10,6 +10,7 @@ Feature: Creating a new communications template
     Given I am logged into eTap
     And 'Simple Business Letter - Guided Mode Single' does not exist
     And I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Thank You Letters on the Correspondence Categories page
 
 #    And rename the existing letter to prevent automation errors
@@ -62,6 +63,7 @@ Feature: Creating a new communications template
     Given I am logged into eTap
     And 'Receipt w/ Stub (Bottom) - Guided Mode' does not exist
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Receipts on the Correspondence Categories page
     And click New Email or Document Template on the Correspondence Category page
     And set the Name to 'Receipt w/ Stub (Bottom) - Guided Mode' on the new Correspondence Template page
@@ -101,6 +103,7 @@ Feature: Creating a new communications template
   Scenario: Adding Account Photo Widget to template and creating document
     Given I am logged into eTap
     And I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Thank You Letters on the Correspondence Categories page
     And click New Email or Document Template on the Correspondence Category page
     And set the Name to 'Lapsed Donor with Account Photo Widget' on the new Correspondence Template page
@@ -127,6 +130,7 @@ Feature: Creating a new communications template
     And I click Run on the Generate Letters page
   #  And The PDF document should be generated
     And I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Thank You Letters on the Correspondence Categories page
     And I click delete below the 'Lapsed Donor with Account Photo Widget' template on the Correspondence Category page
     When I click Yes to permanently delete the item

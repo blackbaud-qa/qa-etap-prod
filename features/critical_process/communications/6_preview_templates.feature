@@ -12,6 +12,7 @@ Feature: Previewing communications templates
     Given I am logged into eTap
     And I delete the existing Document.pdf
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Thank You Letters on the Correspondence Categories page
     And I click on the 'Simple Business Letter - Guided Mode Static' letter template
     And I click PDF under the Preview menu on the letter template page
@@ -23,6 +24,7 @@ Feature: Previewing communications templates
     Given I am logged into eTap
     And I delete the existing Document.pdf
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Thank You Letters on the Correspondence Categories page
     And I click on the 'Simple Business Letter - Advanced Editor Mode Static' letter template
     And I click PDF under the Preview menu on the letter template page
@@ -34,6 +36,7 @@ Feature: Previewing communications templates
     Given I am logged into eTap
     And I delete the existing Document.docx
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Thank You Letters on the Correspondence Categories page
     And I click on the 'Simple Business Letter - Guided Mode Static' letter template
     And I click Word under the Preview menu on the letter template page
@@ -46,6 +49,7 @@ Feature: Previewing communications templates
     Given I am logged into eTap
     And I delete the existing Document.docx
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Thank You Letters on the Correspondence Categories page
     And I click on the 'Simple Business Letter - Advanced Editor Mode Static' letter template
     And I click Word under the Preview menu on the letter template page
@@ -56,6 +60,7 @@ Feature: Previewing communications templates
   Scenario: Email preview - guided mode document
     Given I am logged into eTap
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Thank You Letters on the Correspondence Categories page
     And I click on the 'Simple Business Letter - Guided Mode Static' letter template
     And I click Email under the Preview menu on the letter template page
@@ -68,6 +73,7 @@ Feature: Previewing communications templates
   Scenario: Email preview - advanced editor mode document
     Given I am logged into eTap
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Thank You Letters on the Correspondence Categories page
     And I click on the 'Simple Business Letter - Advanced Editor Mode Static' letter template
     And I click Email under the Preview menu on the letter template page
@@ -80,6 +86,7 @@ Feature: Previewing communications templates
   Scenario: Email preview - guided mode newsletter
     Given I am logged into eTap
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Email Templates on the Correspondence Categories page
     And I click on the 'Pistachio Goodness - Guided Mode Static' letter template
     And I click Email under the Preview menu on the letter template page
@@ -92,6 +99,7 @@ Feature: Previewing communications templates
   Scenario: Email preview - advanced editor mode newsletter
     Given I am logged into eTap
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Email Templates on the Correspondence Categories page
     And I click on the 'Simplicity - Advanced Editor Mode Static' letter template
     And I click Email under the Preview menu on the letter template page

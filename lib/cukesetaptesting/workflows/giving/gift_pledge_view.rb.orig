@@ -58,13 +58,13 @@ module Cukesetaptesting
 
       keyword(:credit_amount) {content.div(:id, 'softCreditSection').text_field(:id,'newSoftCreditAmount')}
 
-      keyword(:fund_input_arrow) {content.div(:id, 'basic').img(:id, 'intentRef_comboArrow')}
+      keyword(:fund_input_arrow) {content.div(:id, 'basic').i(:id, 'intentRef_comboArrow')}
       keyword(:fund_unrestricted) {content.div(:id, 'intentRef_comboAllList_valueRow_39.0.3393')}
 
-      keyword(:campaign_input_arrow) {content.div(:id, 'basic').img(:id, 'campaignRef_comboArrow')}
+      keyword(:campaign_input_arrow) {content.div(:id, 'basic').i(:id, 'campaignRef_comboArrow')}
       keyword(:campaign_annual) {content.div(:id, 'campaignRef_comboAllList_valueRow_39.0.3345')}
 
-      keyword(:approach_input_arrow) {content.div(:id, 'basic').img(:id, 'approachRef_comboArrow')}
+      keyword(:approach_input_arrow) {content.div(:id, 'basic').i(:id, 'approachRef_comboArrow')}
       keyword(:approach) {content.div(:id, 'approachRef_comboAllList_valueRow_39.0.3367')}
 
       keyword(:approach_direct_mail) {content.div(:id, 'approachRef_comboAllList_valueRow_39.0.3365')}

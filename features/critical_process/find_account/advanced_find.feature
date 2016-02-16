@@ -4,6 +4,7 @@ Feature: Searching from advanced find
   Scenario: Searching by Name, pressing Enter
     Given I am logged into eTap
     When I click Accounts
+    And I click on Find an Account on the accounts menu
     And I click Advanced Find
     And I type 'Jose' into the Name field
     And I press Enter on the keyboard
@@ -12,6 +13,7 @@ Feature: Searching from advanced find
   Scenario: Searching by Email, pressing Enter
     Given I am logged into eTap
     When I click Accounts
+    And I click on Find an Account on the accounts menu
     And I click Advanced Find
     And I type 'qa-1@blackbaud.com' into the Email field
     And I press Enter on the keyboard
@@ -20,6 +22,7 @@ Feature: Searching from advanced find
   Scenario: Searching by Name, clicking Find
     Given I am logged into eTap
     When I click Accounts
+    And I click on Find an Account on the accounts menu
     And I click Advanced Find
     And I type 'Jose' into the Name field
     And I click Find
@@ -28,6 +31,7 @@ Feature: Searching from advanced find
   Scenario: Searching by Email, clicking Find
     Given I am logged into eTap
     When I click Accounts
+    And I click on Find an Account on the accounts menu
     And I click Advanced Find
     And I type 'qa-1@blackbaud.com' into the Email field
     And I click Find
@@ -36,6 +40,7 @@ Feature: Searching from advanced find
   Scenario: Searching by State and Street Name
     Given I am logged into eTap
     When I click Accounts
+    And I click on Find an Account on the accounts menu
     And I click Advanced Find
 #    And I set the State to 'IN' on the advanced find page
     And I set State to 'IN' on the classic add account page

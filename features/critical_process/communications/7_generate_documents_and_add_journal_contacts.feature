@@ -9,6 +9,7 @@ Feature: Previewing communications templates
     And I click on 'Talisha Almond' in the search results
     And I create a custom account query has been created for 'Talisha Almond'
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Email Templates
     And I click 'Create Documents' under 'Lapsed Donor Contact' on the email templates page
     And set the Category to Custom Account Queries
@@ -42,6 +43,7 @@ Feature: Previewing communications templates
     And I click on 'Martine Stallworth' in the search results
     And I create a custom account query has been created for 'Martine Stallworth'
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Email Templates
     And I click 'Create Documents' under 'Lapsed Donor Contact' on the email templates page
     And set the Category to Custom Account Queries
@@ -78,6 +80,7 @@ Feature: Previewing communications templates
     And I click on 'Home' in the account header
     And I create a custom account query has been created for 'Gregory Dumont'
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Email Templates
     And I click 'Mass Email' under 'Lapsed Donor Contact' on the email templates page
     And I Click here to make the necessary edits to your template
@@ -96,6 +99,7 @@ Feature: Previewing communications templates
     And I click Next on the Mass Email page
     And I click Send on the Mass Email page
     When I click Communications on the main menu
+    And I click on Manage Communications on the communications menu
     And click Email Templates
     And I click 'Mass Email' under 'Lapsed Donor Contact' on the email templates page
     And I select Advanced Mass Email on the Mass Email page

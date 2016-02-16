@@ -3,7 +3,7 @@ Feature: Process Cart transaction
 
  Scenario: View online Cart
   Given I am logged into eTap
-  And I click on the Management drop down
+  And I click Management on the main menu
   And I click on eStore (Cart) on the management menu
   And I click on View Online Cart
   And I switch to the new tab in my browser

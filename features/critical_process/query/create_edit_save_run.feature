@@ -10,6 +10,7 @@ Feature: Create, Edit, Save and Run Queries
     And the query 'Donations made in January 2015' does not exist in the 'Critical Process Testing' category
     And there exists an account that has donated in January 2015
     When I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click on the 'Critical Process Testing' category
     And I click 'New Query' on the Edit Query Category page
     And I set the Name to 'Donations made in January 2015' on the Create a New Query page
@@ -38,6 +39,7 @@ Feature: Create, Edit, Save and Run Queries
     And the query 'Donors Named John - Custom Query' does not exist in the 'Critical Process Testing' category
     And the query 'Donations made in January 2015' does not exist in the 'Critical Process Testing' category
     When I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click on the 'Critical Process Testing' category
     And I click 'New Query' on the Edit Query Category page
     And I set the Name to 'Donors Named John' on the Create a New Query page
@@ -49,7 +51,7 @@ Feature: Create, Edit, Save and Run Queries
 #    And I should see the message 'Displaying 1 - 4 of 4' on the query preview screen
     And I should see the message 'Displaying 1 - ' on the query preview screen
     And I click Edit on the query preview screen
-    And I click Save And 'Create Custom Query'
+    And I click Save And 'Create a custom account query'
     And I set the Name to 'Donors Named John - Custom Query' on the Create a New Query page
     And I click Save And 'Preview'
 #    Then I should see the message 'Displaying 1 - 4 of 4' on the query preview screen
@@ -59,6 +61,7 @@ Feature: Create, Edit, Save and Run Queries
     Given I am logged into eTap
     And the query 'Hand Selected Donors' does not exist in the 'Critical Process Testing' category
     When I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click on the 'Critical Process Testing' category
     And I click 'New Custom Account Query' on the Edit Query Category page
     And I set the Name to 'Hand Selected Donors' on the Create a New Query page
@@ -87,6 +90,7 @@ Feature: Create, Edit, Save and Run Queries
     And a specific query 'Donations made in January 2015' has been created in the 'Critical Process Testing' category
     And a specific query 'Donors Named John - Custom Query' has been created in the 'Critical Process Testing' category
     When I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click on the 'Critical Process Testing' category
     And I click 'New Compound Query' on the Edit Query Category page
     And I set the Name to 'January 2015 Donors Minus Donors Named John - Custom Query' on the Create a New Query page
@@ -108,6 +112,7 @@ Feature: Create, Edit, Save and Run Queries
   Scenario: Create a Query Category
     Given I am logged into eTap
     When I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click New Category on the Query Categories page
     And I set the Name to 'Donation Queries' on the Create Query Category page
     And I click Save Category on the Query Categories page
@@ -117,6 +122,7 @@ Feature: Create, Edit, Save and Run Queries
     And a specific query 'Donations made in January 2015' has been created in the 'Critical Process Testing' category
     And a specific query 'Donors Named John - Custom Query' has been created in the 'Critical Process Testing' category
     When I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click on the 'Critical Process Testing' category
     And I click delete below the 'Donations made in January 2015' query on the Create a New Query page
     And I click Yes to permanently delete the item
@@ -135,10 +141,14 @@ Feature: Create, Edit, Save and Run Queries
     And I click delete below the 'Donors Named John - Custom Query' query on the Create a New Query page
     And I click Yes to permanently delete the item
     And I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
+    And I click on the 'New Journal Contacts' query
     And I click on the 'Critical Process Testing' category
     And I click delete below the 'Hand Selected Donors' query on the Create a New Query page
     And I click Yes to permanently delete the item
     And I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
+    And I click on the 'New Journal Contacts' query
     And I click delete below the 'Critical Process Testing' query category
     And I click Yes to permanently delete the item
     Then I should see the 'Critical Process Testing' category has been removed from the page

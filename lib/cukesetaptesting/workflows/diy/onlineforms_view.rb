@@ -94,7 +94,7 @@ module Cukesetaptesting
       keyword(:live_submit) {browser.button(:id,'submitButton')}
       keyword(:live_results_header) {browser.h1(:class,'resultHeader')}
       keyword(:create_contact_page) {content.h1(:text,'Contact Page')}
-      keyword(:custom_template) {content.h1(:text,'Alliance for Lupus Research')}
+      keyword(:custom_template) {content.h6(:text,'Alliance for Lupus Research')}
       keyword(:create_contact_next) {content.button(:id,'templateNext')}
       keyword(:journal_contact_subject) {content.text_field(:id,'contactSubject')}
       keyword(:ticket_section)  {content.div(:id,'event_widget_block')}
@@ -115,7 +115,7 @@ module Cukesetaptesting
         if diy_page_exists? page_name
           content.spans(:class=>'namePart').each do |span|
             if span.text == page_name
-              page_link = span.parent.parent.parent.div(:class=>'pageRightSection').a(:class=>'ecUrl')
+              page_link = span.parent.parent.parent.div(:class=>'pageRightSection').div(:class=>'pageSharingSection').a(:class=>'ecUrl')
             end
           end
         end

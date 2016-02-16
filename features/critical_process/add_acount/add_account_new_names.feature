@@ -11,7 +11,7 @@ Feature: Add Account in New Names database
     And I set the Middle Name to 'I.' on the add account page
     And I set the Last Name to 'Doe' on the add account page
     And I set the Suffix to 'Jr.' on the add account page
-#    And I click the edit icon next to 'Short Salutation' on the add account page
+    And I click the edit icon next to 'Short Salutation' on the add account page
     And I set the Short Salutation to 'Mack' on the add account page
     And I set Address Lines to '501 N Pennsylvania Parkway' on the classic add account page
     And I set City to 'Indianapolis' on the classic add account page
@@ -54,7 +54,7 @@ Feature: Add Account in New Names database
     And the Recognition Type should be set to '(account name)'
     And I click Delete Role on the Account Settings page
     And I click Yes on the Account Settings page
-    Then I should see the message: 'Empty Search Criteria'
+    Then I should see the message: '0 accounts found'
 
   Scenario: Missing Required Fields - Individual account
     Given I am logged into eTap
@@ -73,10 +73,11 @@ Feature: Add Account in New Names database
     And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
     And I click Save And 'Go to Personas'
     And I click Accounts
+    And I click on Find an Account on the accounts menu
     And I click Advanced Find
     And I set Phone to '318-219-4444' on the Advanced Find screen
     And I click Find
-    Then I should see the message: 'No Results Found'
+    Then I should see the message: '0 accounts found'
 
 
   Scenario: Missing Required Fields - Family account
@@ -93,10 +94,11 @@ Feature: Add Account in New Names database
     And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
     And I click Save And 'Go to Personas'
     And I click Accounts
+    And I click on Find an Account on the accounts menu
     And I click Advanced Find
     And I set Phone to '318-219-4444' on the Advanced Find screen
     And I click Find
-    Then I should see the message: 'No Results Found'
+    Then I should see the message: '0 accounts found'
 
 
   Scenario: Missing Required Fields - Business account
@@ -114,10 +116,11 @@ Feature: Add Account in New Names database
     And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
     And I click Save And 'Go to Personas'
     And I click Accounts
+    And I click on Find an Account on the accounts menu
     And I click Advanced Find
     And I set Phone to '318-219-4444' on the Advanced Find screen
     And I click Find
-    Then I should see the message: 'No Results Found'
+    Then I should see the message: '0 accounts found'
 
   Scenario: Add new family account - all fields populated
     Given I am logged into eTap
@@ -160,7 +163,7 @@ Feature: Add Account in New Names database
     And the Recognition Type should be set to '(account name)'
     And I click Delete Role on the Account Settings page
     And I click Yes on the Account Settings page
-    Then I should see the message: 'Empty Search Criteria'
+    Then I should see the message: '0 accounts found'
 
 
   Scenario: Add new business account - all fields populated
@@ -202,4 +205,4 @@ Feature: Add Account in New Names database
     And the Recognition Type should be set to '(account name)'
     And I click Delete Role on the Account Settings page
     And I click Yes on the Account Settings page
-    Then I should see the message: 'Empty Search Criteria'
+    Then I should see the message: '0 accounts found'

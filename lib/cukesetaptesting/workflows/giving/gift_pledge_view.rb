@@ -132,15 +132,17 @@ module Cukesetaptesting
       #WORKS: keyword(:pledge_checkbox) { content.element(:xpath => './/*[@id=\'journal\']/div[3]/form/div[1]/div/section/div[1]/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/label/span')}
       keyword(:pledge_checkbox) { content.element(:xpath => './/*[@id=\'journal\']/div[@/label/span')}
       keyword(:find_button_journal_page) {content.button(:value, 'Find')}
-      keyword(:journal_filter_results) {content.div(:class=>/et-journal-count/)}
+      keyword(:journal_filter_results) {content.div(:id=>'et-journal-count-container')}
       keyword(:copy_pledge_udfs) {content.input(:name, 'copyUdfsToFuturePayments')}
 
       keyword(:journal_page_gift) {content.a(:text=>/Gift/)}
       keyword(:journal_page_soft_credit) {content.a(:text=>/Soft Credit/)}
       keyword(:journal_split_transaction_click) {content.a(:text=>/Split Transaction/)}
       keyword(:journal_pledge) {content.a(:text=>/Pledge/)}
-
       keyword(:journal_page_participation) {content.a(:text=>/Participation/)}
+      # keyword(:journal_page_participation) {content.a(:href=>/editEventParticipation/)}
+      keyword(:journal_page_note) {content.a(:text,'Note')}
+      keyword(:note_page_delete) {content.input(:value,'Delete')}
 
       keyword(:non_deductible_field) {content.text_field(:name, 'nonDeductibleAmount')}
 
@@ -170,20 +172,21 @@ module Cukesetaptesting
       keyword(:expand_all_segments_click) {content.div(:id, 'collapseSegments').a(:text, 'Expand All Segments')}
       keyword(:split_transaction_delete_button) {content.button(:value, 'Delete')}
 
-      keyword(:filter_gift_checkbox) {content.checkbox(:value, 'label.gift')}
-      keyword(:filter_pledge_checkbox) {content.checkbox(:value, 'label.pledge')}
-      keyword(:filter_split_transaction_checkbox) {content.div(:id=>'journal').section(:class=>/bb-grid-container/).label(:text=>/Split Transaction/)}
-      #keyword(:filter_split_transaction_checkbox) {content.div(:id=>'journal').div(:class=>/bb-grid-filters-body-group-content/).div(:index=>2).label}
-#      keyword(:filter_split_transaction_checkbox) {content.label(:xpath=>'.//*[@id=\'journal\']/div[3]/div/div/section/div[1]/div/div/div[2]/div[2]/div/div[2]/div[2]/div[3]/label')}
+      keyword(:filter_gift_checkbox_label) {content.label(:text=>'Gift')}
+      keyword(:filter_pledge_checkbox_label) {content.label(:text=>'Pledge')}
+      keyword(:filter_split_transaction_checkbox_label) {content.label(:text=>'Split Transaction')}
+      keyword(:filter_payment_checkbox_label) {content.label(:text=>'Payment')}
+      keyword(:filter_soft_credit_checkbox_label) {content.label(:text=>'Soft Credit')}
+      keyword(:filter_recurring_gift_checkbox_label) {content.label(:text=>'Recurring Gift')}
+      keyword(:filter_disbursement_checkbox_label) {content.label(:text=>'Disbursement')}
+      keyword(:filter_recurring_gift_schedule_checkbox_label) {content.label(:text=>'Recurring Gift Schedule')}
+      keyword(:filter_upgraded_pledge_checkbox_label) {content.label(:text=>'Upgraded Pledge')}
+      keyword(:filter_purchase_checkbox_label) {content.label(:text=>'Purchase')}
 
-      keyword(:filter_payment_checkbox) {content.checkbox(:value, 'label.payment')}
-      keyword(:filter_soft_credit_checkbox) {content.checkbox(:value, 'label.softCredit')}
-      keyword(:filter_recurring_gift_checkbox) {content.checkbox(:value, 'label.recurringGift')}
-      keyword(:filter_disbursement_checkbox) {content.checkbox(:value, 'label.disbursement')}
-      keyword(:filter_recurring_gift_schedule_checkbox) {content.checkbox(:value, 'label.recurringGiftSchedule')}
-      keyword(:filter_upgraded_pledge_checkbox) {content.checkbox(:value, 'label.upgradedPledge')}
-      keyword(:filter_purchase_checkbox) {content.checkbox(:value, 'label.purchase')}
-
+      keyword(:filter_note_checkbox_label) {content.label(:text=>'Note')}
+      keyword(:filter_contact_checkbox_label) {content.label(:text=>'Contact')}
+      keyword(:filter_participation_checkbox_label) {content.label(:text=>'Participation')}
+      keyword(:filter_calendar_item_checkbox_label) {content.label(:text=>'Calendar Item')}
 
 
       keyword(:segment_one_received_field) {content.div(:id=>'segmentDiv1').div(:id, 'basic').text_field(:name, 'segmentReceived(1)')}

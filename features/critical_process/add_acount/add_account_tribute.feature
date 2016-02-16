@@ -4,6 +4,7 @@ Feature: Add Tribute Account From A Transaction
   Scenario: Add new tribute account
     Given I am logged into eTap
     When I click Giving on the main menu
+    And I click on Add a Gift or Pledge on the giving menu
     And I click the Tribute bar
     And I click on the Tribute magnifying glass
     And I click Add Account on the pop up find account screen
@@ -12,7 +13,7 @@ Feature: Add Tribute Account From A Transaction
     And I set the First Name to 'George' on the pop up find account screen
     And I set the Middle Name to 'T.' on the pop up find account screen
     And I set the Last Name to 'Washington' on the pop up find account screen
-#    And I click the edit icon next to 'Short Salutation' on the pop up find account screen
+    And I click the edit icon next to 'Short Salutation' on the pop up find account screen
     And I set the Short Salutation to 'Georgy Porgy' on the pop up find account screen
     And I set Address Lines to '547 Potomac Drive' on the pop up find account screen
     And I set City to 'Indianapolis' on the pop up find account screen
@@ -43,4 +44,4 @@ Feature: Add Tribute Account From A Transaction
     And the Sort Name should be set to 'Washington, George T.'
     And I click Delete Role on the Account Settings page
     And I click Yes on the Account Settings page
-    Then I should see the message: 'No Results Found'
+    Then I should see the message: '0 accounts found'

@@ -13,6 +13,7 @@ Feature: Verifying that non-admins cannot remove data from UDFs they do not have
     And I click the 'Base' category on the User Defined Fields page
     And I add the User Defined Field 'Transaction Number' with 'Admins Only' Security Rights Applied
     And I click Giving on the main menu
+    And I click on Add a Gift or Pledge on the giving menu
     And I click Search for an Account
     And I click on Add Account on the pop up find account screen
     And I set the Name Format to 'Individual' on the pop up find account screen
@@ -63,7 +64,7 @@ Feature: Verifying that non-admins cannot remove data from UDFs they do not have
     And I click on 'Account Settings' in the account header
     And I click Delete Role on the Account Settings page
     And I click Yes to permanently delete the item
-    Then I should see the message: 'No Results Found'
+    Then I should see the message: '0 accounts found'
 
 
 

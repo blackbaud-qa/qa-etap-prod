@@ -5,6 +5,7 @@ Feature: Searching from quick find
 #    Given my Default Search Type user preference is set to Quick Find
     Given I am logged into eTap
     When I click Accounts on the main menu
+    And I click on Find an Account on the accounts menu
 
   Scenario: Searching for an account, pressing Enter
 
@@ -16,7 +17,7 @@ Feature: Searching from quick find
 
     When I type 'alm' into the search field
     And I press Enter on the keyboard
-    Then I should see the message: 'No Results Found'
+    Then I should see the message: '0 accounts found'
 
   Scenario: Searching by account number with one slash, pressing Enter
 
@@ -52,7 +53,7 @@ Feature: Searching from quick find
 
     When I type 'alm' into the search field
     And I click Find
-    Then I should see the message: 'No Results Found'
+    Then I should see the message: '0 accounts found'
 
   Scenario: Searching by account number with one slash, clicking Find
 

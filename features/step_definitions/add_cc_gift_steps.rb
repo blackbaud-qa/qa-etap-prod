@@ -13,6 +13,11 @@ And(/^select Gift\/Pledge from the Add New\.\.\. drop down menu$/) do
   landing.add_entry
 end
 
+And(/^select Recurring Gift Schedule from the Add New\.\.\. drop down menu$/) do
+  landing = Account::Journal.new
+  landing.select_recurring_gift_transaction
+end
+
 And(/^set the date to '([^']*)'$/) do |date|
   search = Giving::GiftPledge.new(:date_field=>date)
   search.create
