@@ -142,13 +142,13 @@ Feature: Create, Edit, Save and Run Queries
     And I click Yes to permanently delete the item
     And I click Queries on the main menu
     And I click on Manage Queries on the queries menu
-    And I click on the 'New Journal Contacts' query
+#    And I click on the 'New Journal Contacts' query
     And I click on the 'Critical Process Testing' category
     And I click delete below the 'Hand Selected Donors' query on the Create a New Query page
     And I click Yes to permanently delete the item
     And I click Queries on the main menu
     And I click on Manage Queries on the queries menu
-    And I click on the 'New Journal Contacts' query
+#    And I click on the 'New Journal Contacts' query
     And I click delete below the 'Critical Process Testing' query category
     And I click Yes to permanently delete the item
     Then I should see the 'Critical Process Testing' category has been removed from the page
