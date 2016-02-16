@@ -18,6 +18,11 @@ module Cukesetaptesting
         @view.split_transaction.when_present.click
       end
 
+      def select_recurring_gift_transaction
+        @view.add_entry.when_present.click
+        @view.recurring_gift_schedule.when_present.click
+      end
+
       def wait_for_page_load
         @view.journal_form.wait_until_present
       end

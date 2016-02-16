@@ -41,7 +41,7 @@ module Cukesetaptesting
 
       keyword(:gail_date_field) {content.div(:id, 'etapreporttag1_outerdiv').a(:href,'/prod/editJournalTransaction.do?entityRoleRef=39.0.3667&transactionRef=39.0.3666')}
 
-      keyword(:journal_form) {content.form(:name,'entityJournalForm')}
+      keyword(:journal_form) {content.div(:id,'journal')}
       keyword(:journal_table) {content.table(:id,'entryList')}
 
       def home(model)

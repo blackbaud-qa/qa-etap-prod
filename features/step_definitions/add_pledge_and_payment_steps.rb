@@ -15,6 +15,7 @@ end
 And (/^I set the Pledged Amount to '([^']*)'/) do |amount|
   gift = Giving::GiftPledge.new(:set_pledged_field => amount)
   gift.create
+  sleep 2
 end
 
 And (/^I click Create Pledge Schedule on the new pledge page/) do
