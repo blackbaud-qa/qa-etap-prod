@@ -1,5 +1,5 @@
 Given (/I am on an account$/) do
-  step "I type '/27' into the dynamic search field"
+  step "I type '/270' into the dynamic search field"
   step "I press Enter on the keyboard"
 end
 
