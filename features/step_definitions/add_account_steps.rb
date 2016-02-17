@@ -128,7 +128,9 @@ end
 And(/^I set the UDF '([^']*)' dropdown to '([^']*)' in the UDF section on the classic add account page$/) do |udf, value|
   accounts = Account::AddAccount.new
   #accounts.click_udf_section(udf)
-#  accounts.click_main_udf_section
+  if accounts.main_udf_section_is_collapsed?
+    accounts.click_main_udf_section
+  end
   # accounts.set_udf_section_dropdown_value(udf, value)
   accounts.click_udf(udf)
   accounts.set_udf_dropdown_value(udf, value)

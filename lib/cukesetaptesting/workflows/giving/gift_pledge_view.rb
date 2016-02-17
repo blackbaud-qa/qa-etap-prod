@@ -177,7 +177,7 @@ module Cukesetaptesting
       keyword(:filter_gift_checkbox_label) {content.label(:text=>'Gift')}
       keyword(:filter_pledge_checkbox_label) {content.label(:text=>'Pledge')}
       keyword(:filter_split_transaction_checkbox_label) {content.label(:text=>'Split Transaction')}
-      keyword(:filter_split_transaction_checkbox) {content.div(:id=>'journal').section(:class=>/bb-grid-container/).label(:text=>/Split Transaction/)}
+      #keyword(:filter_split_transaction_checkbox) {content.div(:id=>'journal').section(:class=>/bb-grid-container/).label(:text=>/Split Transaction/)}
       #keyword(:filter_split_transaction_checkbox) {content.div(:id=>'journal').div(:class=>/bb-grid-filters-body-group-content/).div(:index=>2).label}
       #      keyword(:filter_split_transaction_checkbox) {content.label(:xpath=>'.//*[@id=\'journal\']/div[3]/div/div/section/div[1]/div/div/div[2]/div[2]/div/div[2]/div[2]/div[3]/label')}
 

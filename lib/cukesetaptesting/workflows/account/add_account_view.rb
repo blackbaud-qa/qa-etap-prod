@@ -184,6 +184,10 @@ module Cukesetaptesting
         content.h2(:text=>'User Defined Fields: Constituent')
       end
 
+      def udf_main_section_collapsed?
+        a = content.section(:class=>'bb-tile-nested bb-tile ng-isolate-scope collapsed').present?
+      end
+
       def udf_section_to_click udf
         # content.div(:id,'etap.fieldset.table.customerFields').div(:class=> 'fakeLinkBold', :text=> 'User Defined Fields: ' + udf)
         content.img(:id,'etap.fieldset.tick.customerFields')
