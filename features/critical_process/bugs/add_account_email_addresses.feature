@@ -8,8 +8,8 @@ Feature: Entering multiple email addresses when adding new accounts
     Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
-    And I set Name to 'James Smith' on the classic add account page
-    And I set Sort Name to 'Smith, James' on the classic add account page
+    And I set the First Name to 'James' on the add account page
+    And I set the Last Name to 'Smith' on the add account page
     And I set Address Lines to '5582 Main Street' on the classic add account page
     And I set City to 'Indianapolis' on the classic add account page
     And I set State to 'IN' on the classic add account page
@@ -19,9 +19,12 @@ Feature: Entering multiple email addresses when adding new accounts
     And I set Email to 'qa-1@blackbaud.com james@test.com' on the classic add account page
     And I set Web Page to 'www.google.com' on the classic add account page
     And I set Note to 'Do not call after 6pm' on the classic add account page
-    And I set Short Salutation to 'James' on the classic add account page
-    And I set Long Salutation to 'Mr. Smith' on the classic add account page
+    And I click the edit icon next to 'Short Salutation' on the add account page
+    And I set the Short Salutation to 'James' on the add account page
+    And I click the edit icon next to 'Long Salutation' on the add account page
+    And I set the Long Salutation to 'Mr. Smith' on the add account page
     And I set the UDF 'Company' to 'Rolls Royce' on the classic add account page
+    And I set the UDF 'Account Type' dropdown to 'Individual' in the UDF section on the classic add account page
     And I click Save And 'Go to Personas'
     And I handle the duplicate report if necessary
     Then I should be taken to the Persona page 'James Smith''s account
@@ -42,8 +45,8 @@ Feature: Entering multiple email addresses when adding new accounts
     Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
-    And I set Name to 'Mark Cuban' on the classic add account page
-    And I set Sort Name to 'Cuban, Mark' on the classic add account page
+    And I set the First Name to 'Mark' on the add account page
+    And I set the Last Name to 'Cuban' on the add account page
     And I set Address Lines to '4321 Fifth Street' on the classic add account page
     And I set City to 'Indianapolis' on the classic add account page
     And I set State to 'IN' on the classic add account page
@@ -53,9 +56,12 @@ Feature: Entering multiple email addresses when adding new accounts
     And I set Email to 'qa-1@blackbaud.com, mark@test.com mark2@test.com,mark2@test.com' on the classic add account page
     And I set Web Page to 'www.google.com' on the classic add account page
     And I set Note to 'Do not call after 6pm' on the classic add account page
-    And I set Short Salutation to 'Mark' on the classic add account page
-    And I set Long Salutation to 'Mr. Cuban' on the classic add account page
+    And I click the edit icon next to 'Short Salutation' on the add account page
+    And I set the Short Salutation to 'Mark' on the add account page
+    And I click the edit icon next to 'Long Salutation' on the add account page
+    And I set the Long Salutation to 'Mr. Cuban' on the add account page
     And I set the UDF 'Company' to 'Dell' on the classic add account page
+    And I set the UDF 'Account Type' dropdown to 'Individual' in the UDF section on the classic add account page
     And I click Save And 'Go to Personas'
     And I handle the duplicate report if necessary
     Then I should be taken to the Persona page 'Mark Cuban''s account
@@ -76,8 +82,8 @@ Feature: Entering multiple email addresses when adding new accounts
     Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
-    And I set Name to 'Steven Smith' on the classic add account page
-    And I set Sort Name to 'Smith, Steven' on the classic add account page
+    And I set the First Name to 'Steven' on the add account page
+    And I set the Last Name to 'Smith' on the add account page
     And I set Address Lines to '7655 Cherry Street' on the classic add account page
     And I set City to 'Indianapolis' on the classic add account page
     And I set State to 'IN' on the classic add account page
@@ -87,9 +93,12 @@ Feature: Entering multiple email addresses when adding new accounts
     And I set Email to 'steve@test.com; steven.smith@test.com;steve2@test.com' on the classic add account page
     And I set Web Page to 'www.bing.com' on the classic add account page
     And I set Note to 'Do not call after 9pm' on the classic add account page
-    And I set Short Salutation to 'Steven' on the classic add account page
-    And I set Long Salutation to 'Mr. Smith' on the classic add account page
+    And I click the edit icon next to 'Short Salutation' on the add account page
+    And I set the Short Salutation to 'Steven' on the add account page
+    And I click the edit icon next to 'Long Salutation' on the add account page
+    And I set the Long Salutation to 'Mr. Smith' on the add account page
     And I set the UDF 'Company' to 'Eli Lilly' on the classic add account page
+    And I set the UDF 'Account Type' dropdown to 'Individual' in the UDF section on the classic add account page
     And I click Save And 'Go to Personas'
     And I handle the duplicate report if necessary
     Then I should be taken to the Persona page 'Steven Smith''s account
@@ -110,8 +119,8 @@ Feature: Entering multiple email addresses when adding new accounts
     Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
-    And I set Name to 'Mike Rusche' on the classic add account page
-    And I set Sort Name to 'Rusche, Mike' on the classic add account page
+    And I set the First Name to 'Mike' on the add account page
+    And I set the Last Name to 'Rusche' on the add account page
     And I set Address Lines to '9999 Tenth Street' on the classic add account page
     And I set City to 'Indianapolis' on the classic add account page
     And I set State to 'IN' on the classic add account page
@@ -125,9 +134,12 @@ Feature: Entering multiple email addresses when adding new accounts
      """
     And I set Web Page to 'www.blackbaud.com' on the classic add account page
     And I set Note to 'Do not call after 8pm' on the classic add account page
-    And I set Short Salutation to 'Mike' on the classic add account page
-    And I set Long Salutation to 'Mr. Rusche' on the classic add account page
+    And I click the edit icon next to 'Short Salutation' on the add account page
+    And I set the Short Salutation to 'Mike' on the add account page
+    And I click the edit icon next to 'Long Salutation' on the add account page
+    And I set the Long Salutation to 'Mr. Rusche' on the add account page
     And I set the UDF 'Company' to 'Blackbaud' on the classic add account page
+    And I set the UDF 'Account Type' dropdown to 'Individual' in the UDF section on the classic add account page
     And I click Save And 'Go to Personas'
     And I handle the duplicate report if necessary
     Then I should be taken to the Persona page 'Mike Rusche''s account

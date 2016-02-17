@@ -462,12 +462,7 @@ module Cukesetaptesting
         @view.tribute_name_value.value
       end
 
-      def delete_tribute_from_transaction
-        @view.delete_tribute_from_transaction.when_present.click
-      end
-
-
-      end
     end
   end
+end
 
