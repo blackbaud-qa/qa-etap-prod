@@ -90,7 +90,7 @@ module Cukesetaptesting
       end
 
       def viewing_current_year?
-        return @view.journal_start_date.when_present.value == ('01/01/' + Date.today.strftime("%Y"))
+        return @view.journal_start_date.when_present.text == ('From 1/1/' + Date.today.strftime("%Y"))
       end
 
     end
