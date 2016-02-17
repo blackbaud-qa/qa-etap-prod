@@ -1,4 +1,5 @@
 When(/^I click on Home from the Role Icon drop down for '([^']*)'$/) do |account_name|
+  sleep 2
   search = Account::Search.new
   search.role_icon_click account_name
   search.role_menu_home_click
@@ -6,6 +7,7 @@ When(/^I click on Home from the Role Icon drop down for '([^']*)'$/) do |account
 end
 
 When(/^I click on Personas from the Role Icon drop down for '([^']*)'$/) do |account_name|
+  sleep 2
   search = Account::Search.new
   search.role_icon_click account_name
   search.role_menu_personas_click
