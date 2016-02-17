@@ -4,9 +4,14 @@ module Cukesetaptesting
       @model = JournalModel
       @view = JournalView
 
-      def add_entry
+      def select_gift_pledge_transaction
         @view.add_entry.when_present.click
         @view.gift_pledge.when_present.click
+      end
+
+      def select_contact_transaction
+        @view.add_entry.when_present.click
+        @view.contact.when_present.click
       end
 
       def click_date

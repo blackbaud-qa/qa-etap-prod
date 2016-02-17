@@ -381,12 +381,14 @@ When (/^I create constituent '([^']*) ([^']*)' with '([^']*)' desired landing pa
     step %Q[I set Sort Name to '#{last_name}, #{first_name}' on the classic add account page]
   end
 
+  step %Q[I set the UDF 'Account Type' dropdown to 'Individual' in the UDF section on the classic add account page]
   step %Q[click Save and #{desired_next_page}]
 end
 
 When (/^there exists constituent '([^']*)'$/) do |constituent_name|
   landing = Admin::Landing.new
   landing.accounts_click
+  landing.accounts_dd_find_account_click
 
   search_page = Account::Search.new
   search_page.set_search_field constituent_name

@@ -10,7 +10,12 @@ end
 
 And(/^select Gift\/Pledge from the Add New\.\.\. drop down menu$/) do
   landing = Account::Journal.new
-  landing.add_entry
+  landing.select_gift_pledge_transaction
+end
+
+And(/^select Contact from the Add New\.\.\. drop down menu$/) do
+  landing = Account::Journal.new
+  landing.select_contact_transaction
 end
 
 And(/^select Recurring Gift Schedule from the Add New\.\.\. drop down menu$/) do
