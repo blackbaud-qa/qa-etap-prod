@@ -48,7 +48,9 @@ module Cukesetaptesting
 
       keyword(:tribute_bar) {content.div(:id, 'tributeFieldsTitleBar')}
       keyword(:tribute_info) {content.td(:id=>'tributeNameInput').parent.td(:index=>1).a(:class=>/fa-search/)}
+      keyword(:tribute_delete) {content.td(:id=>'tributeNameInput').parent.td(:index=>1).a(:class=>/fa-times/)}
       keyword(:soft_credit_info) {content.td(:id=>'newSoftCreditNameInput').parent.td(:index=>1).a(:class=>/fa-search/)}
+      keyword(:soft_credit_delete) {content.td(:id=>'newSoftCreditNameInput').parent.td(:index=>1).a(:class=>/fa-times/)}
 
       keyword(:tribute_search) {content.iframe(:id,'popupFrame').form(:name,'entitySearchForm').text_field(:id,'searchString')}
 

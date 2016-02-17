@@ -128,7 +128,7 @@ end
 And(/^I set the UDF '([^']*)' dropdown to '([^']*)' in the UDF section on the classic add account page$/) do |udf, value|
   accounts = Account::AddAccount.new
   #accounts.click_udf_section(udf)
-  accounts.click_main_udf_section
+#  accounts.click_main_udf_section
   # accounts.set_udf_section_dropdown_value(udf, value)
   accounts.click_udf(udf)
   accounts.set_udf_dropdown_value(udf, value)
@@ -584,11 +584,6 @@ And (/^I set the UDF '([^']*)' dropdown to '([^']*)' on the pop up find account 
   accounts.popup_add_account_set_udf_dropdown_value(udf, value)
 end
 
-And (/^I click the magnifying glass to search for a tribute/) do
-  accounts = Account::AddAccount.new
-  accounts.magnifying_glass_tribute
-end
-
 When (/^I click the Add Account button in the Find an Account modal/) do
   accounts=Account::AddAccount.new
   accounts.add_account_button
@@ -625,6 +620,6 @@ And (/^I should see '([^']*)' under Tribute Information/) do |value|
 end
 
 And (/^I delete the tribute from the transaction/) do
-  accounts = Account::AddAccount.new
-  accounts.delete_tribute_from_transaction
+  landing = Giving::GiftPledge.new
+  landing.tribute_account_delete
 end

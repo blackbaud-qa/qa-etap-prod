@@ -67,6 +67,10 @@ module Cukesetaptesting
         @view.tribute_info.when_present.click
       end
 
+      def tribute_account_delete
+        @view.tribute_delete.when_present.click
+      end
+
       def click_find
         @view.popup_search_find.when_present.click
       end
