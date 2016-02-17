@@ -295,7 +295,7 @@ module Cukesetaptesting
 
       def pledge_checkbox_click
         sleep 3
-        @view.filter_pledge_checkbox.when_present.click
+        @view.filter_pledge_checkbox_label.when_present.click
       end
 
       def find_button_journal_page_click
