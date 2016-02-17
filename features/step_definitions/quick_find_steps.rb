@@ -16,7 +16,7 @@ When(/^I click Exact Match$/) do
 end
 
 Then(/^'([^']*)' should show in the results$/) do |name|
-  sleep 3
+  sleep 5
 
   search = Account::Search.new
   expect(search.new_account_name_exists? name).to eq(true)
