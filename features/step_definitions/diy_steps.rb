@@ -746,3 +746,19 @@ And(/^I scroll up on the DIY page to prevent automation errors$/) do
   diy.contact_scroll_top
 
 end
+
+
+And(/^I click the magnifying glass in the DIY Add Fields modal$/) do
+  diy = DIY::Onlineforms.new()
+  diy.diy_magnifying_glass_click
+end
+
+And (/^I type '([^']*)' in the search field in the DIY Add Fields modal/) do |value|
+  diy = DIY::Onlineforms.new(:diy_search_field_text => value)
+  diy.create
+end
+
+Then (/I should see Account Type as disabled in the DIY Add Fields modal/) do
+  diy = DIY::Onlineforms.new
+  expect(diy.diy_disabled_account_type_udf).to eq(true)
+end
