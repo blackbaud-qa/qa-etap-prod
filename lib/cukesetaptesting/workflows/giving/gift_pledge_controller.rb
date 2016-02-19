@@ -454,7 +454,8 @@ module Cukesetaptesting
       end
 
       def mark_split_transaction_box
-        @view.filter_split_transaction_checkbox.when_present.click
+        sleep 3
+        @view.filter_split_transaction_checkbox_label.when_present.click
       end
 
       def segment_one_received_amount
