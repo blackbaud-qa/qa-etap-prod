@@ -4,6 +4,10 @@ module Cukesetaptesting
       @model = SearchModel
       @view = SearchView
 
+      def set_search_field value
+        @view.search_field.when_present.set value
+      end
+
       def find_click
         @view.find_button.when_present.click
       end
