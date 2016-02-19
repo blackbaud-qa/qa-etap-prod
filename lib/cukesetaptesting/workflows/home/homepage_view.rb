@@ -53,6 +53,8 @@ module Cukesetaptesting
       keyword(:perform_full_report_results) {content.div(:id, 'dashboardDetailReport').td(:class, 'pageResults')}
       keyword(:camp_perform_date_range_label) {content.div(:id,'asyncTileLoader301').table(:id,'etapreporttag1')}
 
+      keyword(:campaign_performance_change_link) { content.table(:id=>'etapreporttag1').td(:class=>'change') }
+
       def tiles
         content.div(:class, 'tilesetContainer')
       end
