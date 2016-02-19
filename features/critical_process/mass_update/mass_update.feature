@@ -8,7 +8,8 @@ Feature: Mass Update
      And I click Update Existing Accounts on the Mass Update page
      And I set the query category to 'Mass Update'
      And I set the query to 'Update Existing Account Values - A'
-     And the 'Account Type' single select field should be set to 'Individual'
+     #And the 'Account Type' single select field should be set to 'Individual'
+     And I set the UDF 'Account Type' dropdown to 'Individual' in the UDF section on the classic add account page
      And I click Next on the Mass Update page
      And I should see the message Accounts to Update: '4' on the mass update page
      And I click Next on the Mass Update page
@@ -33,7 +34,8 @@ Feature: Mass Update
      And I set the query category to 'Mass Update'
      And I set the query to 'Update Existing Account Values - A'
      And I set the Update Type to Remove
-     And the 'Account Type' single select field should be set to 'Individual'
+     #And the 'Account Type' single select field should be set to 'Individual'
+     And I set the UDF 'Account Type' dropdown to 'Individual' in the UDF section on the classic add account page
      And I click Next on the Mass Update page
      And I should see the message Accounts to Update: '4' on the mass update page
      And I click Next on the Mass Update page
@@ -119,6 +121,7 @@ Feature: Mass Update
      ####    Add query to automationbot.us database before checkin  ###
      And I set the query category to 'Mass Update'
      And I set the query to 'Empty Query - A'
-     And the 'Account Type' single select field should be set to 'Individual'
+     #And the 'Account Type' single select field should be set to 'Individual'
+     And I set the UDF 'Account Type' dropdown to 'Individual' in the UDF section on the classic add account page
      And I click Next on the Mass Update page
      Then I should see 'You cannot perform your mass update because there are no accounts in your query.' on the mass update preview page
