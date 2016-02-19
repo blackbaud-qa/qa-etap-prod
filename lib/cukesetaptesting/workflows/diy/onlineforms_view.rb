@@ -106,6 +106,11 @@ module Cukesetaptesting
       keyword(:diy_ticket_quantityA_value) {browser.h6(:class=>'simplefieldType',:text=>'Ticket Quantity A').parent.parent.text_field(:type, 'text')}
       keyword(:live_account_type) {browser.h6(:class=>'dropdownType',:text=>'Account Type').parent.parent.select}
       keyword(:diy_ticket_quantityB_value) {browser.h6(:class=>'simplefieldType',:text=>'Ticket Quantity B').parent.parent.text_field(:type, 'text')}
+      keyword(:diy_magnifying_glass) {content.button(:id, 'udfSearchViewIcon')}
+      keyword(:diy_search_field_text) {content.text_field(:id, 'fieldSearch')}
+      keyword(:diy_select_udf) {content.div(:class, 'availableUDFItem pointer').a(:text, 'Account Type')}
+      keyword(:diy_disabled_udf) {content.div(:class, 'udfCategory').div(:class=>'udfUnselectable',:text=>'Account Type')}
+
 
 
       #keyword(:donation_page_link) {content.a(:class,'ecUrl')}
