@@ -21,13 +21,13 @@ Feature: Searching from quick find
 
   Scenario: Searching by account number with one slash, pressing Enter
 
-    When I type '/425' into the search field
+    When I type '/27' into the search field
     And I press Enter on the keyboard
     Then I should be taken to 'Talisha Almond' Home page
 
   Scenario: Searching by account number with two slashes, pressing Enter
 
-    When I type '//425' into the search field
+    When I type '//27' into the search field
     And I press Enter on the keyboard
     Then 'Talisha Almond' should show in the results
 #
@@ -57,7 +57,7 @@ Feature: Searching from quick find
 
   Scenario: Searching by account number with one slash, clicking Find
 
-    When I type '/425' into the search field
+    When I type '/27' into the search field
     And I click Find
     Then I should be taken to 'Talisha Almond' Home page
 
@@ -69,7 +69,7 @@ Feature: Searching from quick find
 
   Scenario: Searching by account number with two slashes, clicking Find
 
-    When I type '//425' into the search field
+    When I type '//27' into the search field
     And I click Find
     Then 'Talisha Almond' should show in the results
 
@@ -83,5 +83,5 @@ Feature: Searching from quick find
 
     When I type 'bob barker' into the search field
     And I click Exact Match
-    Then the text in the search field should update to '"Bob Barker"'
+    Then the text in the search field should update to '"bob barker"'
     And 'Bob Barker Junior' should show in the results
