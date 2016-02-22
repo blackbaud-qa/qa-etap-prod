@@ -4,7 +4,7 @@ When(/^I delete existing data for '([^']*)'$/) do |name|
   step "I type '" + name + "' into the search field"
   step "I press Enter on the keyboard"
   search = Account::Search.new
-  if search.new_account_name_exists? name
+  if search.account_name_exists? name
     step "I click on '" + name + "' on the accounts page"
     step "I click Journal"
     sleep 2
