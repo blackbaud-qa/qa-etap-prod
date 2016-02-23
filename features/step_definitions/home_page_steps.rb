@@ -29,7 +29,7 @@ And (/^I should see the homepage in 2 columns/) do
 end
 
 And(/^I click '([^']*)' on the Campaign Performance tile/) do |value|
-  sleep 3
+  sleep 10
   dashboard = Home::Homepage.new
   dashboard.click_link_on_campaign_performance_tile(value)
 end
