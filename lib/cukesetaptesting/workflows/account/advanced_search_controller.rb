@@ -26,7 +26,6 @@ module Cukesetaptesting
         @view.phone_field.when_present.clear
       end
 
-
       def exact_match_click
         @view.exact_button.when_present.click
       end
@@ -39,11 +38,6 @@ module Cukesetaptesting
         return @view.email_field.when_present.value.include? text
       end
 
-      #dynamic search
-      def click_magnifying_glass
-        @view.dynamic_search_glass.when_present.click
-      end
-
       def account_name_exists?(input_name)
         # Call it in the base class
         super
@@ -53,18 +47,6 @@ module Cukesetaptesting
         @view.search_result_count_message.when_present.text
       end
 
-      def pause
-        sleep 3
-      end
-
-      def dynamic_drop_down?
-        @view.dynamic_drop_down_info.when_present.present?
-      end
-
-      def dynamic_drop_down_results(name)
-        @view.dynamic_drop_down_info_name.when_present.value.include? name
-      end
-
       def on_find_account_page?(text)
         return @view.find_account_page.when_present.value.include? text
       end
@@ -72,9 +54,6 @@ module Cukesetaptesting
       def udf_show_hide(value)
         @view.udf_show_hide_links(value).when_present.click
       end
-
-
-
     end
   end
 end
