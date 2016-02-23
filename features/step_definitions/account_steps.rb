@@ -96,7 +96,7 @@ Then (/^User '([^']*)' does not exist$/) do |user_name|
   search_page.set_search_field user_name
   search_page.find_click
 
-  if (search_page.new_account_name_exists? user_name)
+  if (search_page.account_name_exists? user_name)
     step %Q[I delete user '#{user_name}']
     landing.log_out
   end
@@ -115,7 +115,7 @@ When (/^delete the accounts$/) do
       And I click Exact Match
     ]
 
-    if search.new_account_name_exists? row[1]+' '+row[2]+' '+row[3]
+    if search.account_name_exists? row[1]+' '+row[2]+' '+row[3]
       steps %Q[And I click on '#{row[1]} #{row[2]} #{row[3]}' on the accounts page]
       steps %Q[  And I click on the account settings page on the accounts page]
       steps %Q[And I click Delete Role on the Account Settings page]
@@ -167,7 +167,7 @@ Then (/^Constituent '([^']*)' does not exist$/) do |user_name|
   search_page.set_search_field user_name
   search_page.find_click
 
-  if (search_page.new_account_name_exists? user_name)
+  if (search_page.account_name_exists? user_name)
     step %Q[I delete user '#{user_name}']
     landing.log_out
   end
@@ -196,7 +196,7 @@ When (/^there exists user '([^']*)'$/) do |user_name|
   search_page.find_click
   sleep 4
 
-  if (not search_page.new_account_name_exists? user_name)
+  if (not search_page.account_name_exists? user_name)
     step %Q[I create user '#{user_name}' with password 'tempPassword']
     landing.log_out
 
@@ -397,7 +397,7 @@ When (/^there exists constituent '([^']*)'$/) do |constituent_name|
   search_page.set_search_field constituent_name
   search_page.find_click
 
-  if (not search_page.new_account_name_exists? constituent_name)
+  if (not search_page.account_name_exists? constituent_name)
     step %Q[I create constituent '#{constituent_name}']
   end
 end

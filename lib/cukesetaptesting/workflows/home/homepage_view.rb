@@ -38,7 +38,6 @@ module Cukesetaptesting
       keyword(:take_me_to_etap_iframe)  { browser.iframe(:id, 'etapContentIframe').div(:id, 'welcomeDashboard').div(:class, 'popupWindow menuOverlay').div(:class, 'popContent').div(:index => 0).div(:index => 2).h2.link(:text, 'Take me to eTapestry!') }
 
       keyword(:dashboard_tile_recently_viewed_accounts_checkbox)  {content.div(:id, 'etap.fieldset.table.2').checkbox(:value,'200')}
-      # keyword(:dashboard_tile_recently_viewed_accounts_tile)  {content.div(:class, 'tilesetRightRow et-col-lg-6 et-col-sm-6  et-col-xs-12').div(:id, 'tile200')}
       keyword(:dashboard_tile_recently_viewed_accounts_tile)  {content.div(:id,'mainContent').h2(:class=>'bb-tile-header',:text=>/Recently Viewed Accounts/)}
       keyword(:two_equal_column_layout) {content.radio(:value, '1')}
 
@@ -60,17 +59,13 @@ module Cukesetaptesting
       end
 
      # This keyword does not work, the error returned is element is not clickable at point (867, 881).
-      keyword(:dashboard_tile_remove_recently_viewed_accounts)  {content.div(:id, 'tile200').div(:class, 'bb-tile-tools').a}#img(:src,'images/deleteGray16.png')}
+      keyword(:dashboard_tile_remove_recently_viewed_accounts)  {content.div(:id, 'tile200').div(:class, 'bb-tile-tools').a}
 
       def link_on_campaign_performance_tile(value)
         # Should be ok for internationalization as we are
         #   passing in a specific string
         content.div(:id, 'tile301').a(:text, value)
       end
-
-      # def camp_perform_date_range_label
-      #   browser.iframe(:id, 'etapContentIframe').div(:id, 'welcomeDashboard').div(:id, 'mainContent').div(:class, 'tilesetContainer').div(:class, 'tilesetRow et-col-lg-6 et-col-sm-6 et-col-xs-12').div(:id,'dragDropList0').div(:id, 'tile301').div(:id, 'fauxFieldset').div(:class, 'fauxFieldsetInner').div(id, 'etap.fieldset.area.1').div(:class, 'tileBoundary').div(:class, 'tileBody').div(:class, 'thermometerTile').div(:class, 'data activity').div(:id, 'etapreporttag1_outerdiv').table(:id, 'etapreporttag1').tr(:class, 'current reportHeading').td(:class, 'name')
-      # end
 
       #
       # This function should receive one of the symbols used
@@ -155,14 +150,7 @@ module Cukesetaptesting
         end
 
         my_element = (tileControls tile_name, tile_index).a(:class => 'dragHandle')  #.element
-    #    target = (tileControls target_tile, target_tile_index).wd
-#        target = columnOne.div(:id => 'tile201').div(:class => 'fauxFieldset').div(:class => 'fauxFieldsetInner').div(:class => 'dashboardTile').div(:class => 'tileBoundary').div(:class => 'tileBody')
         target = columnOne
-
-#        target = columnOne.element
-        #a.drag_and_drop_on b
-        # The first A HREF is the 'Move' link
-        #(tileControls tile_name, tile_index).a(:class => 'dragHandle').drag_and_drop_on columnOne
 
         my_element.fire_event("onmousedown")
         d=browser.driver
@@ -257,7 +245,6 @@ module Cukesetaptesting
       end
 
       def tileSetContainer
-        #contentIFrame.div(:id, 'welcomeDashboard').div(:class => 'ng-scope').div(:id => 'mainContent').div(:class => 'tilesetContainer')
         contentIFrame.div(:id, 'welcomeDashboard').div(:id => 'mainContent').div(:class => 'tilesetContainer')
       end
 

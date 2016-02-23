@@ -55,9 +55,34 @@ And(/I set the name format to '([^']*)' on the Import screen$/) do |option|
 end
 
 And(/^I click Next on the Import screen$/) do
+  sleep 0.5
   import = Giving::Imports.new()
   import.import_next_click
-  sleep 1
+  sleep 1.5
+end
+
+And(/^I click Next on the Import step 1$/) do
+  import = Giving::Imports.new()
+  import.import_next_click
+  import.import_step_2_is_loaded?
+end
+
+And(/^I click Next on the Import step 2$/) do
+  import = Giving::Imports.new()
+  import.import_next_click
+  import.import_step_3_is_loaded?
+end
+
+And(/^I click Next on the Import step 3$/) do
+  import = Giving::Imports.new()
+  import.import_next_click
+  import.import_step_4_is_loaded?
+end
+
+And(/^I click Next on the Import step 4$/) do
+  import = Giving::Imports.new()
+  import.import_next_click
+  import.import_step_5_is_loaded?
 end
 
 And(/^I click Import Another eTapestry Field on the Import screen$/) do

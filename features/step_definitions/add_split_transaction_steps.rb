@@ -1,8 +1,3 @@
-And(/^select Split Transaction from the Add New\.\.\. drop down menu$/) do
-  landing = Account::Journal.new
-  landing.select_split_transaction
-end
-
 And(/^set the Received Amount Field to '([^']*)'$/) do |amount|
   search = Giving::GiftPledge.new(:split_received_field=>amount)
   search.create
