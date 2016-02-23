@@ -189,9 +189,12 @@ When (/^there exists user '([^']*)'$/) do |user_name|
   landing.accounts_click
   landing.accounts_dd_find_account_click
 
+  sleep 3
   search_page = Account::Search.new
   search_page.set_search_field user_name
+  sleep 3
   search_page.find_click
+  sleep 4
 
   if (not search_page.new_account_name_exists? user_name)
     step %Q[I create user '#{user_name}' with password 'tempPassword']

@@ -49,6 +49,8 @@ end
 And (/^I click Update on the Campaign Performance tile/) do
   dashboard = Home::Homepage.new
   dashboard.click_update_camp_performance_tile
+
+  dashboard.wait_for_campaign_performance_change_link
 end
 
 And (/^I should see '([^']*)' on the full Campaign Performance report/) do |message|

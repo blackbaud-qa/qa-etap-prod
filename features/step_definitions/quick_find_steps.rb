@@ -1,6 +1,8 @@
 When(/^I type '([^']*)' into the search field$/) do |name|
-  search = Account::Search.new(:search_field=>name)
-  search.create
+  sleep 5
+  search = Account::Search.new
+  search.set_search_field name
+  sleep 3
 end
 
 When(/^I click Find$/) do

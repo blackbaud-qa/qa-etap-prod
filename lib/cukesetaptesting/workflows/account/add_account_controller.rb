@@ -31,6 +31,10 @@ module Cukesetaptesting
         @view.udf_section_to_click(udf).when_present.click
       end
 
+      def main_udf_section_is_collapsed?
+        @view.udf_main_section_collapsed?
+      end
+
       def click_main_udf_section
         @view.udf_main_section.when_present.click
       end
