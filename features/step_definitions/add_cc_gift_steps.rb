@@ -11,7 +11,7 @@ end
 And(/^select ([^']*) from the Add New\.\.\. drop down menu$/) do |operation|
   landing = Account::Journal.new
 
-  if operation == 'Gift\/Pledge'
+  if operation == 'Gift/Pledge'
     landing.select_gift_pledge
   elsif operation == 'Contact'
     landing.select_contact
