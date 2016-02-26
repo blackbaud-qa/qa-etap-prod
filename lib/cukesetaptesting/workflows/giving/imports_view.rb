@@ -19,6 +19,13 @@ module Cukesetaptesting
       keyword(:import_summary_title) {content.h5(:text,'Import Summary')}
       keyword(:confirm_delete) {content.button(:value,'Yes')}
 
+      keyword(:main_import_div) { content.div(:id=>'importWizard')}
+      keyword(:page_1_shaded_icon) { content.img(:src=>'/prod/images/1b0.gif') }
+      keyword(:page_2_shaded_icon) { content.img(:src=>'/prod/images/2b0.gif') }
+      keyword(:page_3_shaded_icon) { content.img(:src=>'/prod/images/3b0.gif') }
+      keyword(:page_4_shaded_icon) { content.img(:src=>'/prod/images/4b0.gif') }
+      keyword(:page_5_shaded_icon) { content.img(:src=>'/prod/images/5b0.gif') }
+
       def mapping_table_other_fields_row field
           content.table(:id,'mappingTable0').td(:text,field).parent
       end

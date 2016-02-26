@@ -8,19 +8,34 @@ And(/^I click Journal$/) do
   landing.journal_link_click
 end
 
-And(/^select Gift\/Pledge from the Add New\.\.\. drop down menu$/) do
+And(/^select ([^']*) from the Add New\.\.\. drop down menu$/) do |operation|
   landing = Account::Journal.new
-  landing.select_gift_pledge_transaction
-end
 
-And(/^select Contact from the Add New\.\.\. drop down menu$/) do
-  landing = Account::Journal.new
-  landing.select_contact_transaction
-end
-
-And(/^select Recurring Gift Schedule from the Add New\.\.\. drop down menu$/) do
-  landing = Account::Journal.new
-  landing.select_recurring_gift_transaction
+  if operation == 'Gift/Pledge'
+    landing.select_gift_pledge
+  elsif operation == 'Contact'
+    landing.select_contact
+  elsif operation == 'Split Transaction'
+    landing.select_split_transaction
+  elsif operation == 'Recurring Gift Schedule'
+    landing.select_recurring_gift_schedule
+  elsif operation == 'Recurring Gift'
+    landing.select_recurring_gift
+  elsif operation == 'Soft Credit'
+    landing.select_soft_credit
+  elsif operation == 'Disbursement'
+    landing.select_disbursement
+  elsif operation == 'Note'
+    landing.select_note
+  elsif operation == 'Contact'
+    landing.select_contact
+  elsif operation == 'Participation'
+    landing.select_participation
+  elsif operation == 'Planned Giving'
+    landing.select_planned_giving
+  elsif operation == 'Calendar Item'
+    landing.select_calendar_item
+  end
 end
 
 And(/^set the date to '([^']*)'$/) do |date|

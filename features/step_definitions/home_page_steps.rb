@@ -29,7 +29,7 @@ And (/^I should see the homepage in 2 columns/) do
 end
 
 And(/^I click '([^']*)' on the Campaign Performance tile/) do |value|
-  sleep 3
+  sleep 10
   dashboard = Home::Homepage.new
   dashboard.click_link_on_campaign_performance_tile(value)
 end
@@ -47,8 +47,11 @@ And (/^I set the Start Date to '([^']*)' and I set the End Date to '([^']*)'/) d
 end
 
 And (/^I click Update on the Campaign Performance tile/) do
+  sleep 3
   dashboard = Home::Homepage.new
   dashboard.click_update_camp_performance_tile
+
+  dashboard.wait_for_campaign_performance_change_link
 end
 
 And (/^I should see '([^']*)' on the full Campaign Performance report/) do |message|

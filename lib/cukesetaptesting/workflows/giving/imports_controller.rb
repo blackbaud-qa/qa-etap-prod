@@ -140,6 +140,30 @@ module Cukesetaptesting
         return @view.content.text.include? name
       end
 
+      def import_step_1_is_loaded?
+        @view.main_import_div.wait_until_present
+        @view.page_1_shaded_icon.wait_until_present
+      end
+
+      def import_step_2_is_loaded?
+        @view.main_import_div.wait_until_present
+        @view.page_2_shaded_icon.wait_until_present
+      end
+
+      def import_step_3_is_loaded?
+        @view.main_import_div.wait_until_present
+        @view.page_3_shaded_icon.wait_until_present
+      end
+
+      def import_step_4_is_loaded?
+        @view.main_import_div.wait_until_present
+        @view.page_4_shaded_icon.wait_until_present
+      end
+
+      def import_step_5_is_loaded?
+        @view.main_import_div.wait_until_present
+        @view.page_5_shaded_icon.wait_until_present
+      end
     end
   end
 end
