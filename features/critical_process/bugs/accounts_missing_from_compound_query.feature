@@ -1,3 +1,4 @@
+@bugs
 Feature: Accounts Missing from Compound Query when adding Journal Entries and Accounts
 
   Scenario: Adding Journal Entries and Accounts in Compound Query

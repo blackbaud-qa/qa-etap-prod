@@ -1,3 +1,4 @@
+@bugs
 Feature: Certain fields was not being replaced when merging (Bug 536046)
 
   Scenario: Suburb not being replaced when merging AU accounts

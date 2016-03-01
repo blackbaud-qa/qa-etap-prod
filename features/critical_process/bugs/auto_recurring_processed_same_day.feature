@@ -1,3 +1,4 @@
+@bugs
 Feature: Setting up auto processing Recurring Gift Schedules
 
   Scenario: Setting up an auto processing CC Recurring Gift Schedule and processing the first payment today

@@ -1,3 +1,4 @@
+@bugs
 Feature: Saving a query as static and then as dynamic
 
   Scenario: Setting up a Journal Entry query as static, saving it, and then changing it to dynamic

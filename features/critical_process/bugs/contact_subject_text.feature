@@ -1,3 +1,4 @@
+@bugs
 Feature: Contact Subject Text Query
 
   Scenario: Querying on multiple contact subjects with quotations
