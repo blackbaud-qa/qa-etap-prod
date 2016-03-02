@@ -47,7 +47,7 @@ And (/^I set the Start Date to '([^']*)' and I set the End Date to '([^']*)'/) d
 end
 
 And (/^I click Update on the Campaign Performance tile/) do
-  sleep 5
+  sleep 10
   dashboard = Home::Homepage.new
   dashboard.click_update_camp_performance_tile
 
