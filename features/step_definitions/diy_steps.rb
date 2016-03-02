@@ -137,6 +137,7 @@ And(/^I click Update on the DIY editor page$/) do
 end
 
 And(/^I click Settings on the DIY editor page$/) do
+  sleep 3
   diy = DIY::Onlineforms.new()
   diy.edit_settings_click
 end
@@ -719,7 +720,7 @@ And(/^the constituent ([^']*) should appear as ([^']*) with Maiden Name ([^']*)/
       And I click on Find an Account on the accounts menu
       And I type '#{constit_name}' into the search field
       And I press Enter on the keyboard
-      And I click on Defined Fields from the Role Icon drop down
+      And I click on Defined Fields from the Role Icon drop down for '#{constit_name}'
     }
 
   defined_fields = Account::DefinedFields.new
@@ -734,7 +735,7 @@ And(/^the constituent ([^']*) should be ([^']*)/) do |constit_name, gender|
       And I click on Find an Account on the accounts menu
       And I type '#{constit_name}' into the search field
       And I press Enter on the keyboard
-      And I click on Defined Fields from the Role Icon drop down
+      And I click on Defined Fields from the Role Icon drop down for '#{constit_name}'
     }
 
   defined_fields = Account::DefinedFields.new

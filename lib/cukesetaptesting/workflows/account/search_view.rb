@@ -48,7 +48,8 @@ module Cukesetaptesting
       keyword(:role_menu_relationships) {role_menu.li(:index=>2).link }
       keyword(:role_menu_journal) {role_menu.li(:index=>3).link }
       keyword(:role_menu_other) {role_menu.li(:index=>4).link }
-      keyword(:role_menu_defined_fields) {role_menu.li(:index=>5).link }
+      # keyword(:role_menu_defined_fields) {role_menu.li(:index=>5) }
+      keyword(:role_menu_defined_fields) {content.span(:text,'Defined Fields') }
       keyword(:gift_box_icon) {content.div(:id, 'etapreporttag1_outerdiv').img(:src, 'images/gift16.gif')}
       keyword(:new_gift_and_pledge_page) {content.form(:name, 'journalGiftForm')}
       keyword(:adv_find_state_field) {content.text_field(:id, 'state')}
