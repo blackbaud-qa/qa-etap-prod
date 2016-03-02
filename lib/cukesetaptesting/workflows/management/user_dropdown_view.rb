@@ -3,7 +3,7 @@ module Cukesetaptesting
     class UserDropdownView < BaseView
       keyword(:keyword_name)  { browser.text_field(:id, 'element_id') }
 
-      keyword(:down_arrow)  { content.image(:id, 'menuUser') }
+      keyword(:down_arrow)  { content.i(:id, 'menuUser') }
 
       keyword(:my_user)  { content.link(:href, /entityRoleHome.do/) }
       keyword(:my_preferences)  { content.link(:href, /editUserPrefs.do/) }
