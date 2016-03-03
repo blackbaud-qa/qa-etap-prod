@@ -271,11 +271,13 @@ And(/I click Update on the Add Text page$/) do
 end
 
 And(/I click Save on the DIY editor page$/) do
+  sleep 2
   diy = DIY::Onlineforms.new()
   diy.diy_save_click
 end
 
 And(/I confirm saving my changes$/) do
+  sleep 2
   diy = DIY::Onlineforms.new()
   diy.diy_save_confirm_click
 end
