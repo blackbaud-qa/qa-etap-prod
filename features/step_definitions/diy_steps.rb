@@ -137,7 +137,7 @@ And(/^I click Update on the DIY editor page$/) do
 end
 
 And(/^I click Settings on the DIY editor page$/) do
-  sleep 3
+  sleep 5
   diy = DIY::Onlineforms.new()
   diy.edit_settings_click
 end
@@ -179,6 +179,7 @@ And(/^I click Unsolicited on the DIY settings page$/) do
 end
 
 And(/^I click Update on the DIY settings page$/) do
+  sleep 3
   diy = DIY::Onlineforms.new()
   diy.settings_update_click
 end
@@ -643,6 +644,7 @@ And(/^email notifications are ([^']*)/) do |notification_state|
   diy = DIY::Onlineforms.new
   diy.org_confirmation_email_checkbox 'disable'
   diy.donor_confirmation_email_checkbox 'disable'
+  sleep 1
 end
 
 And(/^I submit a successful credit card transaction for ([^']*) ([^']*) on page ([^']*)/) do |donor_first_name, donor_last_name, page_name|
