@@ -280,13 +280,13 @@ And(/I confirm saving my changes$/) do
 end
 
 And(/I click Disable for the form titled '([^']*)'$/) do |name|
-  sleep 1
+  sleep 2
   diy = DIY::Onlineforms.new()
   diy.donation_page_disable_click name
 end
 
 And(/I click Delete for the form titled '([^']*)'$/) do |name|
-  sleep 2
+  sleep 3
   diy = DIY::Onlineforms.new()
   diy.donation_page_delete_click name
 end
@@ -540,6 +540,7 @@ And (/^I set Ticket Quantity A to '([^']*)' on the DIY Donation Page/) do |value
 end
 
 Then (/^the UDF Test Page should no longer show/) do
+  sleep 3
   diy = DIY::Onlineforms.new()
   expect(diy.udf_test_page_present? 'UDF Test Page').to eq(false)
 end
