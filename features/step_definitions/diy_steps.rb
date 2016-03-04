@@ -468,7 +468,7 @@ And(/^the transaction will be added to the database with accurate information$/)
 
     And I click on the Gift listed in the journal
     And the Received Amount should be set to '$7.00'
-    And the Fund should be set to 'Unrestricted'
+    And the Fund should be set to 'General'
     And I click Delete on the transaction page
     And I click on the Note listed in the journal
     And I click delete on the note page
