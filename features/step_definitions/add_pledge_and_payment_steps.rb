@@ -3,11 +3,6 @@ And (/^I click Journal on the Gail Burch account/) do
   gift.journal_link_click
 end
 
-And (/^I select '([^']*)' from the Add New... drop down menu$/) do |value|
-  gift = Giving::GiftPledge.new
-  gift.select_add_new_journal_entry value
-end
-
 And(/^I set the date to Today on the new pledge page/) do
     gift = Giving::GiftPledge.new(:new_pledge_date => Date.today.strftime('%x'))
 end
@@ -78,6 +73,7 @@ And (/^I click Delete on the transaction page/) do
   gift = Giving::GiftPledge.new
   gift.payment_delete_click
   # gift.get_rid_of_ok
+  sleep 2
 end
 
 And (/^I click Pledge on the journal page/) do

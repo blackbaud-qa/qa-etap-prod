@@ -1,3 +1,4 @@
+@bugs
 Feature: Setting up auto processing Recurring Gift Schedules
 
   Scenario: Setting up an auto processing CC Recurring Gift Schedule and processing the first payment today
@@ -7,7 +8,7 @@ Feature: Setting up auto processing Recurring Gift Schedules
     And I click on the 'Niles Baker' account
     And I click on 'Journal' in the account header
     And I should see the message '0 Journal Entries' on the journal page
-    And I select 'Recurring Gift Schedule' from the Add New... drop down menu
+    And select Recurring Gift Schedule from the Add New... drop down menu
     And I set the date to Today on the new pledge page
     And set the Installment Amount to '7.00' on the Recurring Gift Schedule
     And set the Fund to 'General'
@@ -45,7 +46,7 @@ Feature: Setting up auto processing Recurring Gift Schedules
     And I click on the 'Niles Baker' account
     And I click on 'Journal' in the account header
     And I should see the message '0 Journal Entries' on the journal page
-    And I select 'Recurring Gift Schedule' from the Add New... drop down menu
+    And select Recurring Gift Schedule from the Add New... drop down menu
     And I set the date to Today on the new pledge page
     And set the Installment Amount to '10.00' on the Recurring Gift Schedule
     And set the Fund to 'Unrestricted'

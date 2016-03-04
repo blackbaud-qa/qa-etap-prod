@@ -1,3 +1,4 @@
+@bugs
 Feature: Verifying that non-admins cannot remove data from UDFs they do not have access to
 
   Scenario: Saving UDFs on a Journal Entry in full eTapestry

@@ -37,7 +37,6 @@ module Cukesetaptesting
       end
 
       def move_top_donors_tile
-
 #        @view.move_specific_tile_by_direction :tileTopDonors, :left
         @view.move_specific_tile_onto_tile :tileTopDonors, :tileQuickLinks
       end
@@ -117,10 +116,9 @@ module Cukesetaptesting
         @view.camp_perform_date_range_label.when_present.text.include? message
       end
 
-
-
-
-
+      def wait_for_campaign_performance_change_link
+        @view.campaign_performance_change_link.wait_until_present
+      end
     end
   end
 end

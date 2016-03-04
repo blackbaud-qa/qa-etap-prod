@@ -1,3 +1,4 @@
+@bugs
 Feature: The various 'Save And' options lead to the correct pages for a new Account.
   Provides partial coverage for TFS bug 518185.
 
