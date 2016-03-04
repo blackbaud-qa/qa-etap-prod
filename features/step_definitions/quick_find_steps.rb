@@ -1,6 +1,8 @@
 When(/^I type '([^']*)' into the search field$/) do |name|
-  search = Account::Search.new(:search_field=>name)
-  search.create
+  sleep 5
+  search = Account::Search.new
+  search.set_search_field name
+  sleep 3
 end
 
 When(/^I click Find$/) do
@@ -16,10 +18,10 @@ When(/^I click Exact Match$/) do
 end
 
 Then(/^'([^']*)' should show in the results$/) do |name|
-  sleep 3
+  sleep 5
 
   search = Account::Search.new
-  expect(search.new_account_name_exists? name).to eq(true)
+  expect(search.account_name_exists? name).to eq(true)
 end
 
 Then(/^I should see the message: '([^']*)'$/) do |message|

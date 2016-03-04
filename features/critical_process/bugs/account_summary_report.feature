@@ -1,3 +1,4 @@
+@bugs
 Feature: Running the Account Summary Report
 
   Scenario: Running the Account Summary Report from an account when there is no image on the Home page

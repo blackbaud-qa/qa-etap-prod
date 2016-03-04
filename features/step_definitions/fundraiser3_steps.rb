@@ -4,7 +4,7 @@ When(/^I delete existing data for '([^']*)'$/) do |name|
   step "I type '" + name + "' into the search field"
   step "I press Enter on the keyboard"
   search = Account::Search.new
-  if search.new_account_name_exists? name
+  if search.account_name_exists? name
     step "I click on '" + name + "' on the accounts page"
     step "I click Journal"
     sleep 2
@@ -163,6 +163,7 @@ And(/^I set the Phone to '([^']*)' on the live fundraiser page$/) do |phone|
 end
 
 And(/^I set the Gender to '([^']*)' on the live fundraiser page$/) do |gender|
+  sleep 2
   fund = Management::Fundraisers.new()
   fund.live_fundraiser_gender_select gender
 end
@@ -253,6 +254,7 @@ And(/^I click Login on the live fundraiser login page$/) do
 end
 
 Then(/^the Fundraising Center page should say: '([^']*)'$/) do |title|
+  sleep 2
   fund = Management::Fundraisers.new()
   begin
     expect(fund.fundraising_content_text_contains? title).to eq(true)

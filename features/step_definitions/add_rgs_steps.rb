@@ -29,6 +29,7 @@ And(/^I set the Gift Type to '([^']*)'/) do |value|
 end
 
 And(/^I click on the '([^']*)' in the journal/) do |type|
+  sleep 2
   rgs = Giving::GiftPledge.new
   rgs.journal_entry_click(type)
 end

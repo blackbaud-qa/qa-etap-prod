@@ -386,6 +386,13 @@ module Cukesetaptesting
         @view.org_confirmation_email_checkbox val
       end
 
+      def diy_magnifying_glass_click
+        @view.diy_magnifying_glass.when_present.click
+      end
+
+      def diy_disabled_account_type_udf
+        @view.diy_disabled_udf.present?
+      end
 
     end
   end

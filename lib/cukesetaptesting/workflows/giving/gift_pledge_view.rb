@@ -48,7 +48,9 @@ module Cukesetaptesting
 
       keyword(:tribute_bar) {content.div(:id, 'tributeFieldsTitleBar')}
       keyword(:tribute_info) {content.td(:id=>'tributeNameInput').parent.td(:index=>1).a(:class=>/fa-search/)}
+      keyword(:tribute_delete) {content.td(:id=>'tributeNameInput').parent.td(:index=>1).a(:class=>/fa-times/)}
       keyword(:soft_credit_info) {content.td(:id=>'newSoftCreditNameInput').parent.td(:index=>1).a(:class=>/fa-search/)}
+      keyword(:soft_credit_delete) {content.td(:id=>'newSoftCreditNameInput').parent.td(:index=>1).a(:class=>/fa-times/)}
 
       keyword(:tribute_search) {content.iframe(:id,'popupFrame').form(:name,'entitySearchForm').text_field(:id,'searchString')}
 
@@ -175,7 +177,7 @@ module Cukesetaptesting
       keyword(:filter_gift_checkbox_label) {content.label(:text=>'Gift')}
       keyword(:filter_pledge_checkbox_label) {content.label(:text=>'Pledge')}
       keyword(:filter_split_transaction_checkbox_label) {content.label(:text=>'Split Transaction')}
-      keyword(:filter_split_transaction_checkbox) {content.div(:id=>'journal').section(:class=>/bb-grid-container/).label(:text=>/Split Transaction/)}
+      #keyword(:filter_split_transaction_checkbox) {content.div(:id=>'journal').section(:class=>/bb-grid-container/).label(:text=>/Split Transaction/)}
       #keyword(:filter_split_transaction_checkbox) {content.div(:id=>'journal').div(:class=>/bb-grid-filters-body-group-content/).div(:index=>2).label}
       #      keyword(:filter_split_transaction_checkbox) {content.label(:xpath=>'.//*[@id=\'journal\']/div[3]/div/div/section/div[1]/div/div/div[2]/div[2]/div/div[2]/div[2]/div[3]/label')}
 
@@ -261,7 +263,7 @@ module Cukesetaptesting
       keyword(:select_rgs_frequency_value) {content.select(:name, 'frequency')}
       keyword(:processed_transaction_message) {content.div(:class, 'errorText')}
       keyword(:transaction_date_value)  {content.div(:class, 'calendarPopup').text_field(:name, 'date')}
-      keyword(:my_organization_link) {content.a(:href, 'editOrganization.do')}
+      keyword(:my_organization_link) {content.a(:title, 'My Organization')}
       keyword(:eft_enabled_yes) {content.checkbox(:name, 'eftSupported')}
       keyword(:click_save_button) {content.button(:name, 'saveButton')}
       keyword(:eft_routing_number) {content.text_field(:name, 'eftBankRoutingNumber')}
@@ -299,7 +301,8 @@ module Cukesetaptesting
       end
 
       def journal_entry_click_link(type)
-        content.a(:text, type)
+        str = Regexp.new type
+        content.a(:text => str)
       end
 
       def ecommerce_processor_link(value)

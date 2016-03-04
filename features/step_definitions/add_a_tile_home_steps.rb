@@ -1,6 +1,8 @@
 Given (/I am on an account$/) do
-  step "I type '/270' into the dynamic search field"
+  step "I type '/27' into the dynamic search field"
+  sleep 2
   step "I press Enter on the keyboard"
+  sleep 2
 end
 
 And (/I click on Select Tiles and Layout$/) do

@@ -132,13 +132,13 @@ module Cukesetaptesting
 
       keyword(:add_account_button) {content.iframe(:id,'popupFrame').form(:name,'entitySearchForm').input(:value, 'Add Account')}
       keyword(:magnifying_glass_tribute) {content.div(:id, 'tributeFields').img(:src, 'images/magnifying-glass.png')}
-      keyword(:title_select_modal) {content.iframe(:id, 'popupFrame').div(:id, 'etap.fieldset.area.3').select(:id, 'title')}
-      keyword(:tribute_first_name_field) {content.iframe(:id, 'popupFrame').div(:id, 'etap.fieldset.area.3').text_field(:id, 'firstName')}
-      keyword(:modal_middle_name_field) {content.iframe(:id, 'popupFrame').div(:id, 'etap.fieldset.area.3').text_field(:id, 'middleName')}
-      keyword(:modal_last_name_field) {content.iframe(:id, 'popupFrame').div(:id, 'etap.fieldset.area.3').text_field(:id, 'lastName')}
-      keyword(:save_button_modal) {content.iframe(:id, 'popupFrame').div(:id, 'etap.fieldset.area.10').button(:value, 'Save')}
+      #keyword(:title_select_modal) {content.iframe(:id, 'popupFrame').div(:id, 'etap.fieldset.area.3').select(:id, 'title')}
+      keyword(:title_select_modal) {content.iframe(:id, 'popupFrame').select(:id, 'title')}
+      keyword(:tribute_first_name_field) {content.iframe(:id, 'popupFrame').text_field(:id, 'firstName')}
+      keyword(:modal_middle_name_field) {content.iframe(:id, 'popupFrame').text_field(:id, 'middleName')}
+      keyword(:modal_last_name_field) {content.iframe(:id, 'popupFrame').text_field(:id, 'lastName')}
+      keyword(:save_button_modal) {content.iframe(:id, 'popupFrame').div(:id, 'etap.fieldset.area.5').button(:value, 'Save')}
       keyword(:tribute_name_value) {content.div(:id, 'tributeFields').td(:id, 'tributeNameInput')}
-      keyword(:delete_tribute_from_transaction) {content.div(:id, 'tributeFields').img(:src, 'images/delete16.gif')}
 
       def disable_country_code country_code
         content.link(:text, country_code).parent.parent.div(:class, 'actions').a(:class, 'enable')
@@ -156,7 +156,7 @@ module Cukesetaptesting
           sal_index = 2
         end
 
-        content.div(:class => /individualSalutations/).div(:index => sal_index).a
+        content.div(:class => /individualSalutations/).div(:class=>'form-group', :index=>sal_index).a
       end
 
       def popup_add_account_get_edit_salutation_pencil(salutation_name)
@@ -182,6 +182,10 @@ module Cukesetaptesting
 
       def udf_main_section
         content.h2(:text=>'User Defined Fields: Constituent')
+      end
+
+      def udf_main_section_collapsed?
+        a = content.section(:class=>'bb-tile-nested bb-tile ng-isolate-scope collapsed').present?
       end
 
       def udf_section_to_click udf

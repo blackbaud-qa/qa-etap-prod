@@ -137,6 +137,7 @@ And(/^I click Update on the DIY editor page$/) do
 end
 
 And(/^I click Settings on the DIY editor page$/) do
+  sleep 5
   diy = DIY::Onlineforms.new()
   diy.edit_settings_click
 end
@@ -178,6 +179,7 @@ And(/^I click Unsolicited on the DIY settings page$/) do
 end
 
 And(/^I click Update on the DIY settings page$/) do
+  sleep 3
   diy = DIY::Onlineforms.new()
   diy.settings_update_click
 end
@@ -269,23 +271,25 @@ And(/I click Update on the Add Text page$/) do
 end
 
 And(/I click Save on the DIY editor page$/) do
+  sleep 2
   diy = DIY::Onlineforms.new()
   diy.diy_save_click
 end
 
 And(/I confirm saving my changes$/) do
+  sleep 2
   diy = DIY::Onlineforms.new()
   diy.diy_save_confirm_click
 end
 
 And(/I click Disable for the form titled '([^']*)'$/) do |name|
-  sleep 1
+  sleep 2
   diy = DIY::Onlineforms.new()
   diy.donation_page_disable_click name
 end
 
 And(/I click Delete for the form titled '([^']*)'$/) do |name|
-  sleep 2
+  sleep 3
   diy = DIY::Onlineforms.new()
   diy.donation_page_delete_click name
 end
@@ -539,6 +543,7 @@ And (/^I set Ticket Quantity A to '([^']*)' on the DIY Donation Page/) do |value
 end
 
 Then (/^the UDF Test Page should no longer show/) do
+  sleep 3
   diy = DIY::Onlineforms.new()
   expect(diy.udf_test_page_present? 'UDF Test Page').to eq(false)
 end
@@ -641,6 +646,7 @@ And(/^email notifications are ([^']*)/) do |notification_state|
   diy = DIY::Onlineforms.new
   diy.org_confirmation_email_checkbox 'disable'
   diy.donor_confirmation_email_checkbox 'disable'
+  sleep 1
 end
 
 And(/^I submit a successful credit card transaction for ([^']*) ([^']*) on page ([^']*)/) do |donor_first_name, donor_last_name, page_name|
@@ -719,7 +725,7 @@ And(/^the constituent ([^']*) should appear as ([^']*) with Maiden Name ([^']*)/
       And I click on Find an Account on the accounts menu
       And I type '#{constit_name}' into the search field
       And I press Enter on the keyboard
-      And I click on Defined Fields from the Role Icon drop down
+      And I click on Defined Fields from the Role Icon drop down for '#{constit_name}'
     }
 
   defined_fields = Account::DefinedFields.new
@@ -734,7 +740,7 @@ And(/^the constituent ([^']*) should be ([^']*)/) do |constit_name, gender|
       And I click on Find an Account on the accounts menu
       And I type '#{constit_name}' into the search field
       And I press Enter on the keyboard
-      And I click on Defined Fields from the Role Icon drop down
+      And I click on Defined Fields from the Role Icon drop down for '#{constit_name}'
     }
 
   defined_fields = Account::DefinedFields.new
@@ -745,4 +751,20 @@ And(/^I scroll up on the DIY page to prevent automation errors$/) do
   diy = DIY::Onlineforms.new()
   diy.contact_scroll_top
 
+end
+
+
+And(/^I click the magnifying glass in the DIY Add Fields modal$/) do
+  diy = DIY::Onlineforms.new()
+  diy.diy_magnifying_glass_click
+end
+
+And (/^I type '([^']*)' in the search field in the DIY Add Fields modal/) do |value|
+  diy = DIY::Onlineforms.new(:diy_search_field_text => value)
+  diy.create
+end
+
+Then (/I should see Account Type as disabled in the DIY Add Fields modal/) do
+  diy = DIY::Onlineforms.new
+  expect(diy.diy_disabled_account_type_udf).to eq(true)
 end

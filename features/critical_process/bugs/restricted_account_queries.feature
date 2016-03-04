@@ -1,3 +1,4 @@
+@bugs
 Feature: TFS 531822 -- Queries previewed by security restricted users are returning accounts they should not see
 
 Scenario: A 'Default' security group user should not be able

@@ -94,31 +94,3 @@ Scenario: Edit Cart Preferences
 #   And I click next to finish
   And I click next on the edit cart page
 #What are we testing for??
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,3 +1,4 @@
+@bugs
 Feature: Add account from tribute area
 
   Scenario: Adding account from tribute area on gift screen
@@ -14,7 +15,7 @@ Feature: Add account from tribute area
     And set the Check Date to '12/30/2030'
     And set the Check Number to '54'
     And I click the Tribute bar
-    And I click the magnifying glass to search for a tribute
+    And I click on the Tribute magnifying glass
     When I click the Add Account button in the Find an Account modal
     And I set the Title to 'Mr.' in the Find an Account modal
     And I set the First Name to 'Timothy' in the Find an Account modal

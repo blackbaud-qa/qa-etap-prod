@@ -1,3 +1,4 @@
+@bugs
 Feature: Contact Subject Text Query
 
   Scenario: Querying on multiple contact subjects with quotations
@@ -8,12 +9,12 @@ Feature: Contact Subject Text Query
     And I press Enter on the keyboard
     And I click on 'Talisha Almond' in the search results
     And I click Journal
-    And I select 'Contact' from the Add New... drop down menu
+    And select Contact from the Add New... drop down menu
     And I set the Subject field to 'Called to Discuss Gala' on the Journal Contact page
     And I choose Phone from the Method drop down on the Journal Contact page
     And I click Save And 'Go to Journal'
     And I click Journal
-    And I select 'Contact' from the Add New... drop down menu
+    And select Contact from the Add New... drop down menu
     And I set the Subject field to 'Golf Outing Discussion' on the Journal Contact page
     And I choose Phone from the Method drop down on the Journal Contact page
     And I click Save And 'Go to Personas'

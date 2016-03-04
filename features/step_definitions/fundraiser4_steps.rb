@@ -10,6 +10,7 @@ And(/^I click Make a Donation on the live fundraiser page$/) do
 end
 
 And(/^I select Donate Toward a Team or Individual's Goal on the live fundraiser page$/) do
+  sleep 2
   fund = Management::Fundraisers.new()
   fund.team_goal_select
 end
@@ -81,6 +82,7 @@ And(/^I set the donation amount to '([^']*)' on the live fundraiser donation pag
 end
 
 And(/^I click Find a Team Participant on the live fundraiser page$/) do
+  sleep 2
   fund = Management::Fundraisers.new()
   fund.find_team_click
 end

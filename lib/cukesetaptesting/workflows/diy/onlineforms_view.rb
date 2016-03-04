@@ -29,7 +29,6 @@ module Cukesetaptesting
       keyword(:diy_title_size) {content.div(:class=>'styleDefinition', :text=>/Title/).select(:class=>'styleSize')}
       keyword(:background_color) {content.span(:class=>'styleName', :text=>'Main Background').parent.text_field(:class=>'styleColor')}
       keyword(:edit_update) {content.button(:id,'save')}
-      # keyword(:edit_update) {content.button(:value,'Update')}
       keyword(:edit_settings) {content.h6(:text,'Settings')}
       keyword(:change_funds) {content.a(:class,'fundsSelect')}
       keyword(:unrestricted_fund) {content.a(:text,'Unrestricted')}
@@ -38,12 +37,8 @@ module Cukesetaptesting
       keyword(:campaign_annual) {content.a(:text,'Annual')}
       keyword(:select_approach) {content.a(:class=>'selectLink',:text=>'Select an Approach')}
       keyword(:approach_unsolicited) {content.a(:text,'Unsolicited')}
-      # keyword(:settings_update) {content.span(:class=>'titleText',:text=>'Settings Editor').parent.parent.button(:id=>'settingsSave')}
       keyword(:settings_update) {content.button(:id,'settingsSave')}
-      # keyword(:donation_section) {content.h6(:text,'Donation Amount*')}
-      # keyword(:donation_section) {content.div(:id,'gift_amount_simple')}
       keyword(:donation_section) {content.div(:id,'gift_information_widget_block')}
-      # keyword(:edit_section) {content.span(:class,'hoverControls').img(:class,'edit')}
       keyword(:edit_section) {content.div(:class,'ecommManagerEditorClickToEdit')}
       keyword(:include_specific) {content.checkbox(:id,'ecDonateWidgetGivingType')}
       keyword(:gift_update) {content.span(:class=>'titleText',:text=>'Edit Gift Information').parent.parent.button(:id=>'save')}
@@ -71,7 +66,6 @@ module Cukesetaptesting
       keyword(:live_gender) {browser.h6(:class=>'dropdownType',:text=>'Gender').parent.parent.select}
       keyword(:live_maiden_name) {browser.h6(:class=>'simplefieldType',:text=>'Maiden Name').parent.parent.text_field}
       keyword(:live_amount_other) {browser.radio(:id,'gift_amount_advanced_givingLevelsOther')}
-      #keyword(:live_amount_field) {browser.text_field(:id,'otherAmt')}
       keyword(:live_amount_field) {browser.text_field(:id,'otherAmt')}
       keyword(:live_freq) {browser.select(:id,'rgsFrequencyField')}
       keyword(:live_title) {browser.select(:id,'salutation')}
@@ -106,9 +100,11 @@ module Cukesetaptesting
       keyword(:diy_ticket_quantityA_value) {browser.h6(:class=>'simplefieldType',:text=>'Ticket Quantity A').parent.parent.text_field(:type, 'text')}
       keyword(:live_account_type) {browser.h6(:class=>'dropdownType',:text=>'Account Type').parent.parent.select}
       keyword(:diy_ticket_quantityB_value) {browser.h6(:class=>'simplefieldType',:text=>'Ticket Quantity B').parent.parent.text_field(:type, 'text')}
+      keyword(:diy_magnifying_glass) {content.button(:id, 'udfSearchViewIcon')}
+      keyword(:diy_search_field_text) {content.text_field(:id, 'fieldSearch')}
+      keyword(:diy_select_udf) {content.div(:class, 'availableUDFItem pointer').a(:text, 'Account Type')}
+      keyword(:diy_disabled_udf) {content.div(:class, 'udfCategory').div(:class=>'udfUnselectable',:text=>'Account Type')}
 
-
-      #keyword(:donation_page_link) {content.a(:class,'ecUrl')}
       def diy_page_link page_name
         page_link = content
 
@@ -147,7 +143,6 @@ module Cukesetaptesting
         end
       end
 
-      #keyword(:field_select_gender) {content.a(:text,'Gender')}
       def field_select(field_name)
         sleep 1
 
@@ -235,8 +230,6 @@ module Cukesetaptesting
       def forms
         content.div(:id,'ecommStyling')
       end
-
-
     end
   end
 end

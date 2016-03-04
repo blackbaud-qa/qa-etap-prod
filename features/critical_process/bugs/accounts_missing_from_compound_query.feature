@@ -1,10 +1,11 @@
+@bugs
 Feature: Accounts Missing from Compound Query when adding Journal Entries and Accounts
 
   Scenario: Adding Journal Entries and Accounts in Compound Query
     Given I am logged into eTap
     And I create constituent 'Bob Smith'
     And I go to the journal of account 'Bob Smith'
-    And I select 'Contact' from the Add New... drop down menu
+    And select Contact from the Add New... drop down menu
     And I set the Subject field to 'Called to Discuss Volunteer Opportunities' on the Journal Contact page
     And I choose Phone from the Method drop down on the Journal Contact page
     And I click Save And 'Go to Personas'

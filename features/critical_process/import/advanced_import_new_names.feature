@@ -91,25 +91,25 @@ Feature: Importing Constituent and Gift Information
     And I mark the other fields checkbox next to 'Persona Type' on the import screen
     And I click Next on the Import screen
     And I click Next on the Import screen
-    And I click Next on the Import screen
+    And I click Next on the Import step 4
     Then I should see the Import Summary page
     And I should see 'Accounts Created 1' on the Import Summary page
     And I should see 'Accounts Modified 1' on the Import Summary page
     And I should see 'Journal Entries Created 2' on the Import Summary page
     And I click Next on the Import screen
 
-Scenario: missing required fields
-  Given I am logged into eTap
-  When I click Management on the main menu
-  And I click on Import on the management menu
-  And I click 'Standard eTapestry Imports' on the Imports screen
-  And I click 'Constituent and Gift Import' on the Imports screen
-  And I choose the incomplete import file for names on the Import screen
-  And I set the name format to 'Assign Individual to all accounts' on the Import screen
-  And I click Next on the Import screen
+  Scenario: missing required fields
+    Given I am logged into eTap
+    When I click Management on the main menu
+    And I click on Import on the management menu
+    And I click 'Standard eTapestry Imports' on the Imports screen
+    And I click 'Constituent and Gift Import' on the Imports screen
+    And I choose the incomplete import file for names on the Import screen
+    And I set the name format to 'Assign Individual to all accounts' on the Import screen
     And I click Next on the Import screen
     And I click Next on the Import screen
     And I click Next on the Import screen
+    And I click Next on the Import step 4
     Then I receive the following import message: 'We were unable to process your import because of issues with your import file. NO DATA was added to your database including lines where there were no errors.'
 
   Scenario: deleting imported information and the import template

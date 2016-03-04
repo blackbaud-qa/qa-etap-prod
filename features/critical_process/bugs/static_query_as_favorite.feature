@@ -1,3 +1,4 @@
+@bugs
 Feature: Saving a static query as a favorite query
 
   Scenario: Setting up a static query, saving it as a favorite, and then accessing it

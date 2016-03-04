@@ -75,7 +75,7 @@ Feature: Searching from quick find
 
   Scenario: Searching with quotations, clicking Find
 
-    When I type '"bob barker"' into the search field
+    When I type '"Bob Barker"' into the search field
     And I click Find
     Then 'Bob Barker Junior' should show in the results
 
