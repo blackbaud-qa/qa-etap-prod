@@ -13,11 +13,6 @@ And (/^I type '([^']*)' into the Account Name field on the Create a New Query pa
   query.create
 end
 
-And (/^I click one the Queries tab/) do
-  query = Queries::Createquerycategory.new
-  query.queries_menu_tab
-end
-
 And (/^I click the favorite query titled '([^']*)'/) do |name|
   query = Queries::Createquerycategory.new
   query.favorite_query_link(name)

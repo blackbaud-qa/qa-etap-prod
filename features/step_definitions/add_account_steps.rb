@@ -333,12 +333,6 @@ And (/^the Recognition Type should be set to '([^']*)'/) do |value|
   expect(accounts.recognition_type_existing_account value).to eq(true)
 end
 
-And(/^I click User Defined Fields on the management menu/) do
-  sleep 1
-  accounts = Account::AddAccount.new
-  accounts.management_user_defined_fields
-end
-
 And(/^I click the Base UDF category on the Edit User Defined Fields page/) do
   accounts = Account::AddAccount.new
   accounts.udf_category
@@ -367,7 +361,7 @@ end
 
 And(/^I reset the required attribute for the next run$/) do
   step "I click Management on the main menu"
-  step "I click User Defined Fields on the management menu"
+  step "I click on User Defined Fields on the management menu"
   step "I click the Base UDF category on the Edit User Defined Fields page"
   step "I click Account Type on the UDF page"
   step "I click Field Attributes"
