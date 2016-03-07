@@ -5,8 +5,8 @@ Feature: Looking up a Postal Code via USPS
     Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
-    And I set Name to 'Harry Stiles' on the classic add account page
-    And I set Sort Name to 'Stiles, Harry' on the classic add account page
+    And I set First Name to 'Harry' on the classic add account page
+    And I set First Name to 'Stiles' on the classic add account page
     And I set Address Lines to '2000 Daniel Island Dr' on the classic add account page
     And I set City to 'Charleston' on the classic add account page
     And I set State to 'SC' on the classic add account page
