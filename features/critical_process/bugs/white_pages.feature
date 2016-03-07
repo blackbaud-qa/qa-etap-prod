@@ -7,8 +7,8 @@ Feature: Looking up a Phone Number via White Pages
     Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
-    And I set Name to 'Jeremy Vanscoy' on the classic add account page
-    And I set Sort Name to 'Vanscoy, Jeremy' on the classic add account page
+    And I set First Name to 'Jeremy' on the classic add account page
+    And I set Last Name to 'Vanscoy' on the classic add account page
     And I set Address Lines to '6165 Eagle Lake Dr' on the classic add account page
     And I set City to 'Zionsville' on the classic add account page
     And I set State to 'IN' on the classic add account page
