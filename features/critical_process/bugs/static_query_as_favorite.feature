@@ -19,7 +19,7 @@ Feature: Saving a static query as a favorite query
     And I click Save And 'Preview'
     And I log out of eTap
     And I am logged into eTap
-    And I click one the Queries tab
+    And I click Queries on the main menu
     And I click the favorite query titled 'Constituents Last Name Smith'
     And I am taken to the Edit Custom Account Query Screen for 'Constituents Last Name Smith'
     And I click Save And 'View Queries'
