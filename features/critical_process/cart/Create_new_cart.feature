@@ -1,13 +1,9 @@
 @crit_proc
 Feature: Create a new Cart
 
-#Background:
-#Given I am logged into eTap
-#And I have a Cart page listed under eStore (Cart)
-
 #Note: File paths for images look for the 'image_path' setting in config.yml
 
-Scenario: Create New Category
+Scenario: Create New Category and a New Item
   Given I am logged into eTap
   And I click Management on the main menu
   And I click on eStore (Cart) on the management menu
@@ -55,42 +51,44 @@ Scenario: Create new Item
   Then I should see 'Item 1' listed as an item under Automation Cat 1
 
 Scenario: Edit Cart Preferences
-  Given I click Management on the main menu
+  Given the iATS processor named 'iATS Test Processor' has been added to the database
+  And I click Management on the main menu
   And I click on eStore (Cart) on the management menu
+  And I should see the Cart alert: 'Before you make your cart public, it is recommended that you customize your cart to make it more personal for your visitors. To do this select Edit Cart Preferences in the Customize Cart section.'
 #  And I click on 'Category 1' on the cart page
-   And I click on Edit Cart Preferences on the cart page
-   And I click next on the edit cart page
-   And I type in 'Name' for Cart Name on the edit cart page
+  And I click on Edit Cart Preferences on the cart page
+  And I click next on the edit cart page
+  And I type in 'Name' for Cart Name on the edit cart page
 #   And I accept the default Category Header
 #   And I accept the default No Quantity Label
-   And I click on the drop down next to Text color in Welcome Message on the edit cart page
-   And I choose Black as the Text color in Welcome Message on the edit cart page
-   And I type in 'Welcome' in Welcome Message on the edit cart page
-   And I choose B for Bold in the Order Success Message section on the edit cart page
-   And I type in 'Success' in the Order Success Message on the edit cart page
-   And I delete any existing checkout questions to prevent automation errors
-   And I choose Base:Account Type under Add Question Field Name in Checkout Questions on the edit cart page
-   And I type in 'Text' in Display Text under Add Question Field Name in Checkout Questions on the edit cart page
+  And I click on the drop down next to Text color in Welcome Message on the edit cart page
+  And I choose Black as the Text color in Welcome Message on the edit cart page
+  And I type in 'Welcome' in Welcome Message on the edit cart page
+  And I choose B for Bold in the Order Success Message section on the edit cart page
+  And I type in 'Success' in the Order Success Message on the edit cart page
+  And I delete any existing checkout questions to prevent automation errors
+  And I choose Base:Account Type under Add Question Field Name in Checkout Questions on the edit cart page
+  And I type in 'Text' in Display Text under Add Question Field Name in Checkout Questions on the edit cart page
 #   And I accept the default Apply To: Constituents
-   And I click on Add under Add Question Field Name in Checkout Questions on the edit cart page
-   And I click next on the edit cart page
+  And I click on Add under Add Question Field Name in Checkout Questions on the edit cart page
+  And I click next on the edit cart page
 #   And I accept the default Chisel Cart Template
-   And I click next on the edit cart page
-   And I choose 'Cart Templates - Order Details' on the Email Template drop down on the edit cart page
-   And I type 'test@any.com' in Notification Email on the edit cart page
-   And I type 'test1@any.com' in Confirmation Sender on the edit cart page
-   And I click next on the edit cart page
-   And I choose General in Fund under Default Order Item Transaction Attributes on the edit cart page
-   And I choose General in Fund under Shipping Transaction Attributes on the edit cart page
-   And I click next on the edit cart page
-   And I wait for the page to load on the edit cart page
+  And I click next on the edit cart page
+  And I choose 'Cart Templates - Order Details' on the Email Template drop down on the edit cart page
+  And I type 'test@any.com' in Notification Email on the edit cart page
+  And I type 'test1@any.com' in Confirmation Sender on the edit cart page
+  And I click next on the edit cart page
+  And I choose General in Fund under Default Order Item Transaction Attributes on the edit cart page
+  And I choose General in Fund under Shipping Transaction Attributes on the edit cart page
+  And I click next on the edit cart page
+  And I wait for the page to load on the edit cart page
 #   And I accept the defaults for page 6
-   And I wait for the page to load on the edit cart page
-   And I click next on the edit cart page
-   And I wait for the page to load on the edit cart page
+  And I wait for the page to load on the edit cart page
+  And I click next on the edit cart page
+  And I wait for the page to load on the edit cart page
 #   And I keep shipping fees set to blank on page 7
-   And I click next on the edit cart page
-   And I choose the default Processor on the drop down next to Transaction Processor on the edit cart page
+  And I click next on the edit cart page
+  And I choose the default Processor on the drop down next to Transaction Processor on the edit cart page
 #   And I click next to finish
   And I click next on the edit cart page
-#What are we testing for??
+  Then I should not see the Cart alert: 'Before you make your cart public, it is recommended that you customize your cart to make it more personal for your visitors. To do this select Edit Cart Preferences in the Customize Cart section.'

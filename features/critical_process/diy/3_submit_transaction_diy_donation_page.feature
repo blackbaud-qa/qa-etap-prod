@@ -2,15 +2,15 @@
 Feature: Submit a transaction through a diy donation page
 
 #  Background:
-#    Given a DIY form titled Donation Page already exists
+#    Given a DIY form titled Existing Donation Page already exists
 
   Scenario: submitting a successful credit card transaction
     Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
-    And I click on the link for the form titled Donation Page
+    And I click on the link for the form titled Existing Donation Page
     And I switch to the new tab in my browser
-    And I set the Fund to 'Unrestricted' on the DIY Donation Page
+    And I set the Fund to 'General' on the DIY Donation Page
     And I set Gender to 'Male' on the DIY Donation Page
     And I set the Donation Amount to Other on the DIY Donation Page
     And I enter '7' as the amount on the DIY Donation Page
@@ -43,7 +43,7 @@ Feature: Submit a transaction through a diy donation page
     Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
-    And I click on the link for the form titled Donation Page
+    And I click on the link for the form titled Existing Donation Page
     And I switch to the new tab in my browser
     And I set the Fund to 'General' on the DIY Donation Page
     And I set Gender to 'Male' on the DIY Donation Page

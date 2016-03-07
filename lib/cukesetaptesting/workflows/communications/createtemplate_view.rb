@@ -95,11 +95,12 @@ module Cukesetaptesting
       keyword(:pdf_radio) {content.radio(:value,'enum.filetype.pdf')}
       keyword(:word_radio) {content.radio(:value,'enum.filetype.docx')}
       keyword(:download_docs_radio) {content.radio(:value,'label.download')}
+      keyword(:drop_box_docs_radio) {content.radio(:value,'label.dropBox')}
 
       keyword(:journal_entry_count) {content.td(:text => 'Journal Entries In The Query').parent.td(:index => 1)}
 
       #newsletter
-      keyword(:email_templates) {content.div(:id, 'etap.fieldset.area.1').a(:href, 'displayCategory.do?category.ref=39.0.3299&categoryManagerId=Correspondence')}
+      keyword(:email_templates) {content.div(:id, 'etap.fieldset.area.1').a(:text, 'Email Templates')}
       keyword(:new_email_document) {content.a(:href,'wizard/letterGuideWizard.do?categoryRef=39.0.3299')}
       keyword(:nav_next) {content.div(:id, 'wizardNavigationButtons_1').button(:id,'wizardNavigationNext_1')}
       keyword(:pistachio_template) {content.div(:id, 'tabContentlayoutsnewsletters').img(:src, '/prod/letterGuideResource.do?type=thumbnail&guideId=newsletter004')}
@@ -246,6 +247,23 @@ module Cukesetaptesting
 
       keyword(:select_account_photo_widget) {letter_widgets.div(:class=>'heading',:text=>'Account Photo').parent.parent.button}
       keyword(:correspondence_template_exists) {content.ul(:id, 'list_templates').link(:text, 'Lapsed Donor with Account Photo Widget')}
+      # keyword(:custom_account_queries_category) {content.a(:text, 'Custom Account Queries')}
+      # keyword(:new_category) {content.a(:href, 'editResultCategory.do')}
+      # keyword(:query_category_name_field) {content.text_field(:id, 'name')}
+      # keyword(:save_category) {content.a(:href, 'javascript:Etap.Form.submit(document.resultCategoryForm)')}
+      # keyword(:new_custom_account_query) {content.a(:text, 'New Custom Account Query')}
+      keyword(:custom_account_query_name_field) {content.text_field(:id, 'query.name')}
+      # keyword(:add_account_button) {content.button(:value, 'Add Account')}
+      # keyword(:search_for) { browser.iframe(:name => 'content').form(:name => 'entitySearchForm').text_field(:id => 'searchString')}
+      # keyword(:find_button) {content.button(:value, 'Find')}
+      # keyword(:close_button) {content.button(:value, 'Close')}
+      keyword(:save_and_button) {content.button(:value, 'Save And')}
+      # keyword(:queries_tab) {content.ul(:id, 'menuTabList').a(:href, '/prod/editResultCategories.do')}
+      keyword(:create_custom_account_query_link) {content.div(:id, 'tile6').a(:href => /oneOffCustomQuery/)}
+      keyword(:view_custom_account_query_link) {content.div(:class, 'tilesetContainer').div(:id, 'tile6').div(:class, 'tileBody').a(:href => /editCustomAccountQuery/)}
+      keyword(:make_necessary_edits_link) {content.a(:href => /letterGuideWizard/)}
+      keyword(:subject_field) {content.text_field(:id, 'templateSubject')}
+      keyword(:click_save_and_link) {content.a(:href, 'javascript:Etap.Wizard.wizard.jump(3)')}
 
       def home(model)
       end
@@ -349,6 +367,13 @@ module Cukesetaptesting
         content.ul(:id, 'list_templates').link(:text, name).parent.parent.div(:class, 'actions').a(:class, 'delete')
       end
 
+      def home_submenu_link(value)
+        content.div(:id, 'homeTabDropdown').a(:href, '/prod/viewUserDropBox.do')
+      end
+
+      def drop_box_file_delete_link(value)
+        content.li(:id, value).a(:class, 'delete')
+      end
 
     end
   end
