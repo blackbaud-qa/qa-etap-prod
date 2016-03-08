@@ -1,3 +1,4 @@
+@bugs
 Feature: Add account from tribute area
 
   Scenario: Adding account from tribute area on gift screen

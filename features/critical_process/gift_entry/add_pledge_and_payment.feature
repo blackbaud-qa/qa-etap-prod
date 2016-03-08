@@ -3,9 +3,9 @@ Feature: Testing payments and pledges
 
   Scenario: Add a pledge from the journal page
     Given I am logged into eTap
-    When I type 'Jon Snow' into the dynamic search field
+    When I type 'Raymond Barnes' into the dynamic search field
     And I press Enter on the keyboard
-    And I click on 'Jon Snow' in the search results
+    And I click on 'Raymond Barnes' in the search results
     And I click Journal
     And I delete the existing transactions in the journal
     And select Gift/Pledge from the Add New... drop down menu

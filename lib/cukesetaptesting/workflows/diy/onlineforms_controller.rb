@@ -234,6 +234,10 @@ module Cukesetaptesting
         @view.diy_save_confirm.when_present.click
       end
 
+      def donation_page_copy_click name
+        @view.content.span(:class=>'namePart',:text=> name).parent.parent.div(:class=>'linkBox',:text=>'Copy').when_present.click
+      end
+
       def donation_page_disable_click name
         @view.content.span(:class=>'namePart',:text=> name).parent.parent.div(:class=>'linkBox',:text=>'Disable').when_present.click
       end
@@ -261,6 +265,10 @@ module Cukesetaptesting
 
       def donation_page_present? text
         return @view.content.span(:class=>'namePart',:text=>text).present?
+      end
+
+      def diy_page_present? diy_page_name
+        return @view.content.span(:class=>'namePart',:text=>diy_page_name).present?
       end
 
       def diy_page_wait_for_title
@@ -392,6 +400,10 @@ module Cukesetaptesting
 
       def diy_disabled_account_type_udf
         @view.diy_disabled_udf.present?
+      end
+
+      def no_just_make_copy_click
+        @view.no_just_make_copy_button.when_present.click
       end
 
     end

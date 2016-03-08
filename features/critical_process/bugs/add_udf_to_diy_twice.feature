@@ -1,3 +1,4 @@
+@bugs
 Feature: Adding same UDF to DIY pave
 
     Background:

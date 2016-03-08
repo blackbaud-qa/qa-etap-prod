@@ -1,3 +1,4 @@
+@bugs
 Feature: Verifying that non-admins cannot remove data from UDFs they do not have access to
 
   Scenario: Saving UDFs on a Journal Entry in full eTapestry
@@ -9,7 +10,7 @@ Feature: Verifying that non-admins cannot remove data from UDFs they do not have
     And I add the Security Right value 'Admins Only'
     And I click Save and Finish on the UDF page
     And I click Management on the main menu
-    And I click User Defined Fields on the management menu
+    And I click on User Defined Fields on the management menu
     And I click the 'Base' category on the User Defined Fields page
     And I add the User Defined Field 'Transaction Number' with 'Admins Only' Security Rights Applied
     And I click Giving on the main menu

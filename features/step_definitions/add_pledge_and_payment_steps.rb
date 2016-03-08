@@ -73,6 +73,7 @@ And (/^I click Delete on the transaction page/) do
   gift = Giving::GiftPledge.new
   gift.payment_delete_click
   # gift.get_rid_of_ok
+  sleep 2
 end
 
 And (/^I click Pledge on the journal page/) do

@@ -137,6 +137,7 @@ And(/^I click Update on the DIY editor page$/) do
 end
 
 And(/^I click Settings on the DIY editor page$/) do
+  sleep 5
   diy = DIY::Onlineforms.new()
   diy.edit_settings_click
 end
@@ -178,6 +179,7 @@ And(/^I click Unsolicited on the DIY settings page$/) do
 end
 
 And(/^I click Update on the DIY settings page$/) do
+  sleep 3
   diy = DIY::Onlineforms.new()
   diy.settings_update_click
 end
@@ -269,23 +271,31 @@ And(/I click Update on the Add Text page$/) do
 end
 
 And(/I click Save on the DIY editor page$/) do
+  sleep 2
   diy = DIY::Onlineforms.new()
   diy.diy_save_click
 end
 
 And(/I confirm saving my changes$/) do
+  sleep 2
   diy = DIY::Onlineforms.new()
   diy.diy_save_confirm_click
 end
 
+And(/I click Copy for the form titled '([^']*)'$/) do |name|
+  sleep 2
+  diy = DIY::Onlineforms.new()
+  diy.donation_page_copy_click name
+end
+
 And(/I click Disable for the form titled '([^']*)'$/) do |name|
-  sleep 1
+  sleep 2
   diy = DIY::Onlineforms.new()
   diy.donation_page_disable_click name
 end
 
 And(/I click Delete for the form titled '([^']*)'$/) do |name|
-  sleep 2
+  sleep 3
   diy = DIY::Onlineforms.new()
   diy.donation_page_delete_click name
 end
@@ -309,6 +319,12 @@ Then(/the Donation Page should no longer show$/) do
   sleep 3
   diy = DIY::Onlineforms.new()
   expect(diy.donation_page_present? 'Donation Page').to eq(false)
+end
+
+Then(/the '([^']*)' DIY page should no longer show$/) do |diy_page_name|
+  sleep 3
+  diy = DIY::Onlineforms.new()
+  expect(diy.diy_page_present? diy_page_name).to eq(false)
 end
 
 And (/^I click on the link for the form titled ([^']*)$/) do |diy_page_name|
@@ -468,12 +484,16 @@ And(/^the transaction will be added to the database with accurate information$/)
 
     And I click on the Gift listed in the journal
     And the Received Amount should be set to '$7.00'
-    And the Fund should be set to 'Unrestricted'
+    And the Fund should be set to 'General'
+    And I click on the User Defined Fields section on the new payment page
+    And I should see 'DIY Test Page' set to 'Existing Donation Page' on the payment page
     And I click Delete on the transaction page
-    And I click on the Note listed in the journal
-    And I click delete on the note page
     Then I should see the message '0 Journal Entries' on the journal page
   }
+  ## Removed these two steps from the series above because a note will not be created in the zero state database
+  # And I click on the Note listed in the journal
+  # And I click delete on the note page
+
 end
 
 And(/^I close the current tab$/) do
@@ -539,6 +559,7 @@ And (/^I set Ticket Quantity A to '([^']*)' on the DIY Donation Page/) do |value
 end
 
 Then (/^the UDF Test Page should no longer show/) do
+  sleep 3
   diy = DIY::Onlineforms.new()
   expect(diy.udf_test_page_present? 'UDF Test Page').to eq(false)
 end
@@ -641,6 +662,7 @@ And(/^email notifications are ([^']*)/) do |notification_state|
   diy = DIY::Onlineforms.new
   diy.org_confirmation_email_checkbox 'disable'
   diy.donor_confirmation_email_checkbox 'disable'
+  sleep 1
 end
 
 And(/^I submit a successful credit card transaction for ([^']*) ([^']*) on page ([^']*)/) do |donor_first_name, donor_last_name, page_name|
@@ -719,7 +741,7 @@ And(/^the constituent ([^']*) should appear as ([^']*) with Maiden Name ([^']*)/
       And I click on Find an Account on the accounts menu
       And I type '#{constit_name}' into the search field
       And I press Enter on the keyboard
-      And I click on Defined Fields from the Role Icon drop down
+      And I click on Defined Fields from the Role Icon drop down for '#{constit_name}'
     }
 
   defined_fields = Account::DefinedFields.new
@@ -734,7 +756,7 @@ And(/^the constituent ([^']*) should be ([^']*)/) do |constit_name, gender|
       And I click on Find an Account on the accounts menu
       And I type '#{constit_name}' into the search field
       And I press Enter on the keyboard
-      And I click on Defined Fields from the Role Icon drop down
+      And I click on Defined Fields from the Role Icon drop down for '#{constit_name}'
     }
 
   defined_fields = Account::DefinedFields.new
@@ -762,3 +784,9 @@ Then (/I should see Account Type as disabled in the DIY Add Fields modal/) do
   diy = DIY::Onlineforms.new
   expect(diy.diy_disabled_account_type_udf).to eq(true)
 end
+
+And (/I click No, Just Make a Copy to copy the page/) do
+  diy = DIY::Onlineforms.new
+  diy.no_just_make_copy_click
+end
+

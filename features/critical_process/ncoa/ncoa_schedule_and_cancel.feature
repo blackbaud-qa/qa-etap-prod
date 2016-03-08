@@ -18,7 +18,7 @@ Feature: NCOA - Schedule and Cancel Job
     And the Date field should be set to tomorrow on the NCOA page
     And the Personas field should be set to Primary Personas on the NCOA page
     And the Formatting field should be set to All Return Addresses on the NCOA page
-    And the Email Address field should be set to 'trey.santerre@blackbaud.com' on the NCOA page
+    And the Email Address field should be set to 'qa-1@blackbaud.com' on the NCOA page
 
   Scenario: Validate the default query category can be changed
     When I click Management on the main menu

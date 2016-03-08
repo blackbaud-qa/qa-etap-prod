@@ -368,6 +368,10 @@ module Cukesetaptesting
         @view.download_docs_radio.when_present.set
       end
 
+      def drop_box_docs_radio_select
+        @view.drop_box_docs_radio.when_present.set
+      end
+
       def update_email_address old_email, new_email
         blah = @view.old_email_span old_email, new_email
       end
@@ -599,6 +603,34 @@ module Cukesetaptesting
 
       def correspondence_template_exists (template)
         @view.correspondence_template_exists(template).present?
+      end
+
+      def create_custom_account_query(value)
+          @view.create_custom_account_query_link.when_present.click
+          sleep 3
+          @view.view_custom_account_query_link.when_present.click
+          @view.custom_account_query_name_field.when_present.set value
+          @view.save_and_button.when_present.click
+      end
+
+      def home_submenu_link_click(value)
+        @view.home_submenu_link(value).when_present.click
+      end
+
+      def drop_box_file_delete(value)
+        @view.drop_box_file_delete_link(value).when_present.click
+      end
+
+      def click_to_make_necessary_edits
+        @view.make_necessary_edits_link.when_present.click
+      end
+
+      def fill_in_subject_line
+        @view.subject_field.when_present.set 'Hello From QA'
+      end
+
+      def click_save_and
+        @view.click_save_and_link.when_present.click
       end
 
     end

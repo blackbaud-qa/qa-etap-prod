@@ -425,3 +425,24 @@ And (/^the Name of the Item should be set to '([^']*)'/) do |value|
   cart = Admin::Cart.new()
   expect(cart.item_information_name(value)).to eq true
 end
+
+Then (/^I should not see the Cart alert: '([^']*)'/) do |value|
+  cart = Admin::Cart.new()
+  expect(cart.initial_cart_alert(value)).to eq false
+end
+
+And (/^I should see the Cart alert: '([^']*)'/) do |value|
+  cart = Admin::Cart.new()
+  expect(cart.initial_cart_alert(value)).to eq true
+end
+
+And (/^the iATS processor named '([^']*)' has been added to the database/) do |value|
+  cart = Admin::Cart.new(:iats_ref_name => value)
+  landing = Admin::Landing.new
+  rgs = Giving::GiftPledge.new
+  landing.management_dropdown_click
+  rgs.my_organization_click
+  cart.account_header_link_eCommerce_click
+  cart.add_iats_processor(value)
+  # cart.create
+end
