@@ -282,6 +282,12 @@ And(/I confirm saving my changes$/) do
   diy.diy_save_confirm_click
 end
 
+And(/I click Copy for the form titled '([^']*)'$/) do |name|
+  sleep 2
+  diy = DIY::Onlineforms.new()
+  diy.donation_page_copy_click name
+end
+
 And(/I click Disable for the form titled '([^']*)'$/) do |name|
   sleep 2
   diy = DIY::Onlineforms.new()
@@ -313,6 +319,12 @@ Then(/the Donation Page should no longer show$/) do
   sleep 3
   diy = DIY::Onlineforms.new()
   expect(diy.donation_page_present? 'Donation Page').to eq(false)
+end
+
+Then(/the '([^']*)' DIY page should no longer show$/) do |diy_page_name|
+  sleep 3
+  diy = DIY::Onlineforms.new()
+  expect(diy.diy_page_present? diy_page_name).to eq(false)
 end
 
 And (/^I click on the link for the form titled ([^']*)$/) do |diy_page_name|
@@ -472,12 +484,16 @@ And(/^the transaction will be added to the database with accurate information$/)
 
     And I click on the Gift listed in the journal
     And the Received Amount should be set to '$7.00'
-    And the Fund should be set to 'Unrestricted'
+    And the Fund should be set to 'General'
+    And I click on the User Defined Fields section on the new payment page
+    And I should see 'DIY Test Page' set to 'Existing Donation Page' on the payment page
     And I click Delete on the transaction page
-    And I click on the Note listed in the journal
-    And I click delete on the note page
     Then I should see the message '0 Journal Entries' on the journal page
   }
+  ## Removed these two steps from the series above because a note will not be created in the zero state database
+  # And I click on the Note listed in the journal
+  # And I click delete on the note page
+
 end
 
 And(/^I close the current tab$/) do
@@ -768,3 +784,9 @@ Then (/I should see Account Type as disabled in the DIY Add Fields modal/) do
   diy = DIY::Onlineforms.new
   expect(diy.diy_disabled_account_type_udf).to eq(true)
 end
+
+And (/I click No, Just Make a Copy to copy the page/) do
+  diy = DIY::Onlineforms.new
+  diy.no_just_make_copy_click
+end
+

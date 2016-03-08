@@ -104,6 +104,7 @@ module Cukesetaptesting
       keyword(:diy_search_field_text) {content.text_field(:id, 'fieldSearch')}
       keyword(:diy_select_udf) {content.div(:class, 'availableUDFItem pointer').a(:text, 'Account Type')}
       keyword(:diy_disabled_udf) {content.div(:class, 'udfCategory').div(:class=>'udfUnselectable',:text=>'Account Type')}
+      keyword(:no_just_make_copy_button) {content.button(:id, 'justCopy')}
 
       def diy_page_link page_name
         page_link = content

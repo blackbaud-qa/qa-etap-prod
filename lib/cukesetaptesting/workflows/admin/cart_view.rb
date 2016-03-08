@@ -83,7 +83,14 @@ module Cukesetaptesting
       keyword(:purchase_entry) {content.a(:text, 'Purchase')}
       keyword(:purchase_received_amount_value) {content.hidden(:name => "received")}
       keyword(:order_information_section) {content.div(:id, 'orderInformationFieldsTitleBar')}
-
+      keyword(:initial_cart_alert_text) {content.div(:class, 'informationWarning')}
+      keyword(:account_header_link_eCommerce) {content.div(:id, 'topMenu').a(:text, 'eCommerce')}
+      keyword(:add_iats_processor_link) {content.div(:class, 'taskCategory').a(:href, 'editTransactionProcessor.do?tpType=IATS')}
+      keyword(:iats_ref_name_field) {content.text_field(:name, 'namedTransactionProcessor.name')}
+      keyword(:online_agent_key) {content.text_field(:name, 'ticketmasterAgentKey')}
+      keyword(:online_agent_password) {content.text_field(:name, 'ticketmasterAgentPassword')}
+      keyword(:processor_save_button) {content.button(:name, 'saveButton')}
+      keyword(:processor_reference_name_list) {content.ul(:id, 'list_processors')}
 
       def home(model)
       end
