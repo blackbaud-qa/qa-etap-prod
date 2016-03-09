@@ -4,6 +4,7 @@ When(/^I click Accounts$/) do
 end
 
 And(/^I click Advanced Find$/) do
+  sleep 3
   search = Account::AdvancedSearch.new
   search.advanced_click
 end
