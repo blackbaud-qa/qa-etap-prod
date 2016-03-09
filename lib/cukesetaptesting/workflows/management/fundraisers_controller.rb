@@ -12,6 +12,11 @@ module Cukesetaptesting
       @view.fundraiser_new_fundraiser.when_present.click
     end
 
+    def new_fund_setup_exists?
+      sleep 2
+      @view.fundraiser_no_fundraisers.present?
+    end
+
     def active_fundraiser_exists?
       return @view.fundraiser_status.text.include? "Active"
     end
