@@ -28,7 +28,7 @@ Feature: Add Tribute Account From A Transaction
     And I click on 'Personas' in the account header
     And the Short Salutation should be set to 'Georgy Porgy'
     And the Long Salutation should be set to 'Mr. Washington'
-    And the Envelope Salutation should be set to 'Mr. George Washington'
+    And the Envelope Salutation should be set to 'Mr. George T. Washington'
     And the Address Lines should be set to '547 Potomac Drive'
     And the City should be set to 'Indianapolis'
     And the State should be set to 'IN'

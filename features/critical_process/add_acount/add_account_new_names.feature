@@ -37,7 +37,7 @@ Feature: Add Account in New Names database
     And the Note should be set to 'Do not call after 6pm'
     And the Short Salutation should be set to 'Mack'
     And the Long Salutation should be set to 'Mr. Doe'
-    And the Envelope Salutation should be set to 'Mr. John Doe, Jr.'
+    And the Envelope Salutation should be set to 'Mr. John I. Doe, Jr.'
     And the 'Company' should be set to 'Blackbaud'
     And I click on 'Defined Fields' in the account header
     And the 'Account Type' should be set to 'Individual'

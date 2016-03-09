@@ -130,6 +130,7 @@ And (/^I mark the checkbox next to Copy Pledge Defined Fields on Future Payments
 end
 
 And (/^I click on the Pledge Information section on the transaction page/) do
+  sleep 2
   gift = Giving::GiftPledge.new
   gift.click_pledge_information
 end
