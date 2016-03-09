@@ -6,13 +6,16 @@ end
 
 And(/^I ensure there are no active Fundraisers$/) do
   fund = Management::Fundraisers.new()
-  step "I sort by Status on the Fundraisers Page"
-  while(fund.active_fundraiser_exists?)
-    step "I click on the Fundraiser titled QA Fundraiser 1 on the Fundraisers page"
-    step "I set the status to Disabled on the new Fundraiser page"
-    step "I click Save and Finish on the new Fundraiser page"
+  if(!fund.new_fund_setup_exists?)
     step "I sort by Status on the Fundraisers Page"
+    while(fund.active_fundraiser_exists?)
+      step "I click on the Fundraiser titled QA Fundraiser 1 on the Fundraisers page"
+      step "I set the status to Disabled on the new Fundraiser page"
+      step "I click Save and Finish on the new Fundraiser page"
+      step "I sort by Status on the Fundraisers Page"
+    end
   end
+
 end
 
 And(/^I click New Fundraiser on the Fundraisers menu/) do

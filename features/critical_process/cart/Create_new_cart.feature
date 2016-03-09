@@ -7,7 +7,8 @@ Scenario: Create New Category and a New Item
   Given I am logged into eTap
   And I click Management on the main menu
   And I click on eStore (Cart) on the management menu
-  And I rename the existing category to prevent automation errors
+  #Not needed for zero state
+#  And I rename the existing category to prevent automation errors
   And I click on new Category on the cart page
   And I name it 'Automation Cat 1' on create cart category
   And I put in a description called 'Description' on create cart category
@@ -66,7 +67,8 @@ Scenario: Edit Cart Preferences
   And I type in 'Welcome' in Welcome Message on the edit cart page
   And I choose B for Bold in the Order Success Message section on the edit cart page
   And I type in 'Success' in the Order Success Message on the edit cart page
-  And I delete any existing checkout questions to prevent automation errors
+  #Not needed for zero state
+#  And I delete any existing checkout questions to prevent automation errors
   And I choose Base:Account Type under Add Question Field Name in Checkout Questions on the edit cart page
   And I type in 'Text' in Display Text under Add Question Field Name in Checkout Questions on the edit cart page
 #   And I accept the default Apply To: Constituents

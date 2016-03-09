@@ -3,6 +3,7 @@ module Cukesetaptesting
     class FundraisersView < BaseView
       keyword(:management_fundraisers)  {content.a(:title,'Fundraisers')}
       keyword(:fundraiser_status) {content.div(:class,'info')}
+      keyword(:fundraiser_no_fundraisers) {content.div(:class=>'bb-tile-title',:text=>/Base Web Address/)}
       keyword(:fundraiser_new_fundraiser) {content.a(:text,'New Fundraiser')}
       keyword(:new_fund_date) {content.div(:class,'calendarPopup').text_field(:id,'date')}
       keyword(:new_fund_name) {content.text_field(:name,'event.name')}

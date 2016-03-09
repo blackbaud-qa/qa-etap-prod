@@ -79,12 +79,12 @@ module Cukesetaptesting
       keyword(:queries_dd_add_category) {queries_div.button(:id,'addNewCategoryButton')}
       keyword(:queries_dd_base) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2735')}
       keyword(:queries_dd_journal_entry) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2791')}
-      keyword(:queries_dd_constit_journal_entry) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2792')}
-      keyword(:queries_dd_lybunt) {queries_div.ul(:id,'queryCategories1').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2793')}
+      keyword(:queries_dd_constit_journal_entry) {queries_div.ul(:id,'queryCategories1').a(:title,'Constituent Journal Entry Date')}
+      keyword(:queries_dd_lybunt) {queries_div.ul(:id,'queryCategories1').a(:title,'LYBUNT & SYBUNT')}
       #DEV_HELP
       keyword(:queries_dd_pledges_payments) {queries_div.ul(:id,'queryCategories1').a(:text,'Pledges and Payments')}
-      keyword(:queries_dd_processed_trans) {queries_div.ul(:id,'queryCategories2').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2822')}
-      keyword(:queries_dd_security) {queries_div.ul(:id,'queryCategories2').a(:href,'/prod/editResultCategory.do?categoryRef=39.0.2481')}
+      keyword(:queries_dd_processed_trans) {queries_div.ul(:id,'queryCategories2').a(:title,'Processed Transactions')}
+      keyword(:queries_dd_security) {queries_div.ul(:id,'queryCategories2').a(:title,'eTapestry Security')}
 
       #nav bar reports dropdown
       keyword(:reports_dd_manage_reports) {reports_div.button(:id,'manageReportButton')}
@@ -105,8 +105,8 @@ module Cukesetaptesting
       keyword(:management_dd_exports) {management_div.button(:id,'exportButton')}
       keyword(:management_dd_mass_update) {management_div.button(:id,'massUpdateButton')}
       keyword(:management_dd_my_org) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/editOrganization.do')}
-      keyword(:management_dd_my_user) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/entityRoleHome.do?entityRoleRef=39.0.2534')}
-      keyword(:management_dd_all_users) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/orgAdmin/editUsers.do')}
+      keyword(:management_dd_my_user) {management_div.ul(:id,'manageAdminItems').a(:title,'My User')}
+      keyword(:management_dd_all_users) {management_div.ul(:id,'manageAdminItems').a(:title,'All Users')}
       keyword(:management_dd_user_act) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/reportLauncher.do?nextAction=orgAdmin/userActivitySummaryReport.do&type=UserActivity&mode=report&name=User Activity')}
       keyword(:management_dd_sec_groups) {management_div.ul(:id,'manageAdminItems').a(:href,'/prod/editSecurityGroups.do')}
       keyword(:management_dd_wizard) {management_div.ul(:id,'manageAdminItems1').a(:href,'/prod/gettingStartedWizard.do')}
