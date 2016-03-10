@@ -18,6 +18,7 @@ Scenario: Create New Category and a New Item
   When I click on Save Category on create cart category
   Then I should see the 'Automation Cat 1' listed on the cart page
 
+  @testing
 Scenario: Create new Item
   Given I click Management on the main menu
   And I click on eStore (Cart) on the management menu
@@ -69,7 +70,7 @@ Scenario: Edit Cart Preferences
   And I type in 'Success' in the Order Success Message on the edit cart page
   #Not needed for zero state
 #  And I delete any existing checkout questions to prevent automation errors
-  And I choose Base:Account Type under Add Question Field Name in Checkout Questions on the edit cart page
+  And I choose Base: Tribute Type under Add Question Field Name in Checkout Questions on the edit cart page
   And I type in 'Text' in Display Text under Add Question Field Name in Checkout Questions on the edit cart page
 #   And I accept the default Apply To: Constituents
   And I click on Add under Add Question Field Name in Checkout Questions on the edit cart page

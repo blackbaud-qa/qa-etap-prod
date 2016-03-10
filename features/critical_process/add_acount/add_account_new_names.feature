@@ -49,7 +49,7 @@ Feature: Add Account in New Names database
     And the Last Name should be set to 'Doe'
     And the Suffix should be set to 'Jr.'
     And the Account Name should be set to 'John I. Doe, Jr.'
-    And the Sort Name should be set to 'Doe Jr., John I.'
+    And the Sort Name should be set to 'Doe, John I.'
     And the Recognition Name should be set to 'John I. Doe, Jr.'
     And the Recognition Type should be set to '(account name)'
     And I click Delete Role on the Account Settings page
