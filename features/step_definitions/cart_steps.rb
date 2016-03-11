@@ -226,7 +226,7 @@ When(/^I delete any existing checkout questions to prevent automation errors/) d
   cart.edit_cart_delete_question_click
 end
 
-When(/^I choose Base:Account Type under Add Question Field Name in Checkout Questions on the edit cart page/) do
+When(/^I choose Base: Tribute Type under Add Question Field Name in Checkout Questions on the edit cart page/) do
   cart = Admin::Cart.new()
   cart.edit_cart_question_field_name_click
   cart.edit_cart_question_account_type_click

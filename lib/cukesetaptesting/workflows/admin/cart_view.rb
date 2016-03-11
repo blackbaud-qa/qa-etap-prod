@@ -31,9 +31,9 @@ module Cukesetaptesting
       keyword(:new_item_id) {cart_item_page.text_field(:name,'item.customId')}
       keyword(:new_item_fund_combo) {cart_item_page.input(:title,'Funds').parent.i(:id,'refPopulate(item.intent)_comboArrow')}
       # TODO: Search globally for 39., and replace these with more generic locators
-      keyword(:new_item_fund_general) {content.div(:id,'refPopulate(item.intent)_comboAllList').div(:id,'refPopulate(item.intent)_comboAllList_valueRow_39.0.3392')}
+      keyword(:new_item_fund_general) {content.div(:id,'refPopulate(item.intent)_comboAllList').div(:text,'General')}
       keyword(:new_item_field_name_combo) {cart_item_page.i(:id,'questionField_comboArrow')}
-      keyword(:new_item_field_name_test) {content.div(:id,'questionField_comboAllList_valueRow_39.0.1345611')}
+      keyword(:new_item_field_name_test) {content.div(:text,'Automation Testing: Transaction UDF')}
       keyword(:new_item_display_text) {cart_item_page.text_field(:id,'questionDisplayText')}
       keyword(:new_item_add_question) {cart_item_page.input(:id,'addQuestionButton')}
       keyword(:cart_category_item_list) {cart_category_page.ul(:id,'list_cart')}
@@ -47,17 +47,17 @@ module Cukesetaptesting
       keyword(:edit_cart_order_success) {cart_edit_page.iframe(:id,'successMessage_ifr')}
       keyword(:edit_cart_delete_question) {cart_edit_page.div(:id,'questionList').a}
       keyword(:edit_cart_question_field_name) {cart_edit_page.i(:id,'questionField_comboArrow')}
-      keyword(:edit_cart_question_account_type) {content.div(:id,'questionField_comboAllList_valueRow_39.0.2667')}
+      keyword(:edit_cart_question_account_type) {content.div(:text,'Base: Tribute Type')}
       keyword(:edit_cart_question_display_text) {cart_edit_page.text_field(:id,'questionDisplayText')}
       keyword(:edit_cart_question_add) {cart_edit_page.input(:id,'addQuestionButton')}
       keyword(:edit_cart_email_template) {cart_edit_page.select_list(:name,'refPopulate(preferences.emailTemplate)')}
       keyword(:edit_cart_notification_email) {cart_edit_page.text_field(:name,'preferences.notificationEmail')}
       keyword(:edit_cart_confirmation_sender) {cart_edit_page.text_field(:name,'preferences.confirmationSender')}
       keyword(:edit_cart_default_order_attributes) {cart_edit_page.i(:id,'refPopulate(preferences.itemIntent)_comboArrow')}
-      keyword(:edit_cart_default_order_attributes_general) {content.div(:id,'refPopulate(preferences.itemIntent)_comboAllList_valueRow_39.0.3392')}
+      keyword(:edit_cart_default_order_attributes_general) {content.div(:text,'General')}
       keyword(:edit_cart_content_frame) {cart_edit_page.div(:class,'taskContentRight')}
       keyword(:edit_cart_shipping_attributes) {cart_edit_page.i(:id,'refPopulate(preferences.shippingIntent)_comboArrow')}
-      keyword(:edit_cart_shipping_attributes_general) {content.div(:id,'refPopulate(preferences.shippingIntent)_comboAllList_valueRow_39.0.3392')}
+      keyword(:edit_cart_shipping_attributes_general) {content.div(:text,/General/)}
       keyword(:edit_cart_transaction_processor) {cart_edit_page.select_list(:name,'refPopulate(preferences.namedTransactionProcessor)')}
       keyword(:view_online_cart) {content.a(:text,'View Online Cart')}
       keyword(:cart_category_search) {browser.text_field(:id,'etapSearchField')}
