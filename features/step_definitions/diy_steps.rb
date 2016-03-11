@@ -790,3 +790,22 @@ And (/I click No, Just Make a Copy to copy the page/) do
   diy.no_just_make_copy_click
 end
 
+When(/^I select the Chisel template/) do
+  diy = DIY::Onlineforms.new()
+  diy.choose_chisel_template_click
+end
+
+Then (/I should see the share icons on the page/) do
+  diy = DIY::Onlineforms.new
+  expect(diy.diy_share_icons).to eq(true)
+end
+
+And (/I click the Facebook Share Icon on the DIY page/) do
+  diy = DIY::Onlineforms.new
+  diy.diy_facebook_share_icon
+end
+
+Then (/I should see the Facebook tab appear/) do
+  diy = DIY::Onlineforms.new
+  expect(diy.facebook_login_window).to eq(true)
+end

@@ -105,6 +105,10 @@ module Cukesetaptesting
       keyword(:diy_select_udf) {content.div(:class, 'availableUDFItem pointer').a(:text, 'Account Type')}
       keyword(:diy_disabled_udf) {content.div(:class, 'udfCategory').div(:class=>'udfUnselectable',:text=>'Account Type')}
       keyword(:no_just_make_copy_button) {content.button(:id, 'justCopy')}
+      keyword(:choose_chisel_template) {content.div(:id,'chiseldiv')}
+      keyword(:diy_share_icons) {browser.div(:id,'shareLinks')}
+      keyword(:diy_facebook_share_icon) {browser.img(:src,'https://app.etapestry.com/hosted/eTapestry.com/images/social/facebook16.gif')}
+      keyword(:facebook_login_window) {browser.div(:class,'login_form_container')}
 
       def diy_page_link page_name
         page_link = content

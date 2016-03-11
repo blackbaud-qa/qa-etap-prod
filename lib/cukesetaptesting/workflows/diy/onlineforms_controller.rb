@@ -406,6 +406,22 @@ module Cukesetaptesting
         @view.no_just_make_copy_button.when_present.click
       end
 
+      def choose_chisel_template_click
+        return @view.choose_chisel_template.when_present.click
+      end
+
+      def diy_share_icons
+        @view.diy_share_icons.present?
+      end
+
+      def diy_facebook_share_icon
+        @view.diy_facebook_share_icon.when_present.click
+      end
+
+      def facebook_login_window
+        @view.facebook_login_window.present?
+      end
+
     end
   end
 end
