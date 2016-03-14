@@ -606,7 +606,10 @@ module Cukesetaptesting
       end
 
       def create_custom_account_query(value)
-          @view.create_custom_account_query_link.when_present.click
+          sleep 3
+          if @view.create_custom_account_query_link.present?
+            @view.create_custom_account_query_link.click
+          end
           sleep 3
           @view.view_custom_account_query_link.when_present.click
           @view.custom_account_query_name_field.when_present.set value

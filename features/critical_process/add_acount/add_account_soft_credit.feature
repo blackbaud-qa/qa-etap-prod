@@ -28,7 +28,7 @@ Feature: Add Constituent Account From The Soft Credit Section Of A Transaction
     And I click on 'Personas' in the account header
     And the Short Salutation should be set to 'Laney P.'
     And the Long Salutation should be set to 'Mrs. Thompkins'
-    And the Envelope Salutation should be set to 'Mrs. Laney Thompkins'
+    And the Envelope Salutation should be set to 'Mrs. Laney P. Thompkins'
     And the Address Lines should be set to '1235 East Loop'
     And the City should be set to 'Fishers'
     And the State should be set to 'IN'

@@ -793,7 +793,7 @@ Then (/^I should see the '([^']*)' template has been removed from the Correspond
   expect(letter.correspondence_template_exists(template)).to eq(false)
 end
 
-And (/^I create a custom account query has been created for '([^']*)'/) do |value|
+And (/^I create a custom account query for '([^']*)'/) do |value|
   letter = Communications::Createtemplate.new()
   letter.create_custom_account_query value
 end
