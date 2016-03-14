@@ -34,6 +34,7 @@ And (/^I set Sort Name to '([^']*)' on the classic add account page/) do |name|
 end
 
 And (/^I set Address Lines to '([^']*)' on the classic add account page/) do |name|
+  sleep 2
   accounts = Account::AddAccount.new(:new_account_classic_address_lines => name)
   accounts.create
 end
