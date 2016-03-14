@@ -260,7 +260,7 @@ module Cukesetaptesting
       keyword(:save_and_button) {content.button(:value, 'Save And')}
       # keyword(:queries_tab) {content.ul(:id, 'menuTabList').a(:href, '/prod/editResultCategories.do')}
       keyword(:create_custom_account_query_link) {content.div(:id, 'tile6').a(:href => /oneOffCustomQuery/)}
-      keyword(:view_custom_account_query_link) {content.div(:class, 'tilesetContainer').div(:id, 'tile6').div(:class, 'tileBody').a(:href => /editCustomAccountQuery/)}
+      keyword(:view_custom_account_query_link) {content.div(:class, 'tilesetContainer').a(:href => /editCustomAccountQuery/)}
       keyword(:make_necessary_edits_link) {content.a(:href => /letterGuideWizard/)}
       keyword(:subject_field) {content.text_field(:id, 'templateSubject')}
       keyword(:click_save_and_link) {content.a(:href, 'javascript:Etap.Wizard.wizard.jump(3)')}
