@@ -9,7 +9,7 @@ Feature: Mass Update
      And I set the query category to 'Mass Update'
      And I set the query to 'Update Existing Account Values - A'
      #And the 'Account Type' single select field should be set to 'Individual'
-     And I set the UDF 'Account Type' dropdown to 'Individual' in the UDF section on the classic add account page
+     And I set the UDF 'Marital Status' dropdown to 'Married' in the UDF section on the classic add account page
      And I click Next on the Mass Update page
      And I should see the message Accounts to Update: '4' on the mass update page
      And I click Next on the Mass Update page
@@ -20,14 +20,14 @@ Feature: Mass Update
      And I click Find
      And I click on the 'Kevin Smith' account
      And I click on the 'Defined Fields' page of the constituent record
-     And I should see 'Account Type' set to 'Individual' on the payment page
+     And I should see 'Marital Status' set to 'Married' on the payment page
      And I click Accounts
      And I click on Find an Account on the accounts menu
      And I type 'Ed Smith' into the search field
      And I click Find
      And I click on the 'Ed Smith' account
      And I click on the 'Defined Fields' page of the constituent record
-     And I should see 'Account Type' set to 'Individual' on the payment page
+     And I should see 'Marital Status' set to 'Married' on the payment page
      And I click Management on the main menu
      And I click on Mass Update on the management menu
      And I click Update Existing Accounts on the Mass Update page
@@ -35,7 +35,7 @@ Feature: Mass Update
      And I set the query to 'Update Existing Account Values - A'
      And I set the Update Type to Remove
      #And the 'Account Type' single select field should be set to 'Individual'
-     And I set the UDF 'Account Type' dropdown to 'Individual' in the UDF section on the classic add account page
+     And I set the UDF 'Marital Status' dropdown to 'Married' in the UDF section on the classic add account page
      And I click Next on the Mass Update page
      And I should see the message Accounts to Update: '4' on the mass update page
      And I click Next on the Mass Update page
@@ -44,7 +44,7 @@ Feature: Mass Update
      And I click on Manage Queries on the queries menu
      And I click on the 'Mass Update' category
 ####    Add query to automationbot.us database before checkin  ###
-     And I click on the 'Account Type Is Blank' query
+     And I click on the 'Marital Status Is Blank' query
      And I click Save And 'Preview'
      Then I should see the message 'Displaying 1 - 2 of 2' on the query preview screen
 
