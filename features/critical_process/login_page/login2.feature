@@ -52,7 +52,7 @@ Feature: Login
     Then I should see: 'This login ID is already in use.'
 
   Scenario: Should be able to force a login when multiple sessions detected
-    Given I see the error 'This login ID is already in use.'
+    Given I see the error 'This login ID is already in use.' for login 'testUserGZ'/'Password!'
     When I submit the values
       | username   | password  |
       | testUserGZ | Password! |
