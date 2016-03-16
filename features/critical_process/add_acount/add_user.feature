@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Add User
   As an admin
   I need to be able to create additional users

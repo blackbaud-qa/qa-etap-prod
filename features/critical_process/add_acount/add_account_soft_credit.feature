@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Add Constituent Account From The Soft Credit Section Of A Transaction
 
   Scenario: Add new constituent account from the soft credit section of a transaction
