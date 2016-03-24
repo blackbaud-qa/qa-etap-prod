@@ -105,6 +105,9 @@ module Cukesetaptesting
       keyword(:diy_select_udf) {content.div(:class, 'availableUDFItem pointer').a(:text, 'Account Type')}
       keyword(:diy_disabled_udf) {content.div(:class, 'udfCategory').div(:class=>'udfUnselectable',:text=>'Account Type')}
       keyword(:no_just_make_copy_button) {content.button(:id, 'justCopy')}
+      keyword(:live_ticket_quantity) {browser.div(:id, 'ecEventTicketWidget').text_field(:id=>/udf/)}
+      keyword(:live_membership_level) {browser.div(:id=>'ecMembershipWidget').h6(:text=>'Membership Level*').parent.parent.select}
+      keyword(:live_membership_type) {browser.div(:id=>'ecMembershipWidget').h6(:text=>'Membership Type').parent.parent.radio}
 
       def diy_page_link page_name
         page_link = content
@@ -231,6 +234,8 @@ module Cukesetaptesting
       def forms
         content.div(:id,'ecommStyling')
       end
+
+
     end
   end
 end

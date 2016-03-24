@@ -790,3 +790,17 @@ And (/I click No, Just Make a Copy to copy the page/) do
   diy.no_just_make_copy_click
 end
 
+And(/^I set the Ticket Quantity to '([^']*)' on the DIY Event Page/) do |value|
+  diy = DIY::Onlineforms.new(:live_ticket_quantity=>value)
+  diy.create
+end
+
+And(/^I set the Membership Type to '([^']*)' on the DIY Membership page/) do |value|
+  diy = DIY::Onlineforms.new
+  diy.set_live_membership_type value
+end
+
+And(/^I set the Membership Level to '([^']*)' on the DIY Membership page/) do |value|
+  diy = DIY::Onlineforms.new
+  diy.set_live_membership_level value
+end

@@ -406,6 +406,14 @@ module Cukesetaptesting
         @view.no_just_make_copy_button.when_present.click
       end
 
+      def set_live_membership_type value
+        @view.live_membership_type.when_present.set value
+      end
+
+      def set_live_membership_level value
+        @view.live_membership_level.when_present.select value
+      end
+
     end
   end
 end

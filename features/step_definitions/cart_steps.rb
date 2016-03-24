@@ -366,6 +366,11 @@ And(/^I set the Phone to '([^']*)' on the live cart page$/) do |phone|
   cart.create
 end
 
+And(/^I set the '([^']*)' to '([^']*)' on the live cart page$/) do |udf, value|
+  cart = Admin::Cart.new()
+  cart.set_cart_udf_value(udf, value)
+end
+
 And(/^I click Proceed on the live cart page$/) do
   cart = Admin::Cart.new()
   cart.proceed_click
