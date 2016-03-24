@@ -21,6 +21,8 @@ Feature: Process Cart transaction
   And I set the Postal Code to '12345' on the live cart page
   And I set the Email field to 'any@any.com' on the live cart page
   And I set the Phone to '333-333-3333' on the live cart page
+  And I set the 'Checkout Question' to 'in celebration of' on the live cart page
+  And I set the 'Item Specific Question' to 'Value B' on the live cart page
   And I click Proceed on the live cart page
   And I set the Cardholder Name to 'First Last' on the live cart page
   And I set the Card type to 'Visa' on the live cart page
@@ -44,6 +46,9 @@ Feature: Process Cart transaction
   And I should see the message 'Online Cart' on the recurring gift screen
   And I click on the Order Information section on the Purchase page
   And the Name of the Item should be set to 'Item 1'
+  And I click on the User Defined Fields section on the new payment page
+  And I should see 'Tribute Type' set to 'in celebration of' on the payment page
+  And I should see 'Transaction UDF' set to 'Value B' on the payment page
   And I click Delete on the transaction page
   Then I should be taken to 'First Last' Journal page
 
