@@ -63,7 +63,7 @@ module Cukesetaptesting
       keyword(:live_page) {browser.div(:id,'pageRoot')}
       keyword(:live_page_title) {browser.h1(:id,'headerText')}
       keyword(:live_fund) {browser.select(:id,'ecFundSelectField')}
-      keyword(:live_gender) {browser.h6(:class=>'dropdownType',:text=>'Gender').parent.parent.select}
+      keyword(:live_gender) {browser.h6(:class=>'dropdownType',:text=>/Gender/).parent.parent.select}
       keyword(:live_maiden_name) {browser.h6(:class=>'simplefieldType',:text=>'Maiden Name').parent.parent.text_field}
       keyword(:live_amount_other) {browser.radio(:id,'gift_amount_advanced_givingLevelsOther')}
       keyword(:live_amount_field) {browser.text_field(:id,'otherAmt')}
@@ -108,6 +108,14 @@ module Cukesetaptesting
       keyword(:live_ticket_quantity) {browser.div(:id, 'ecEventTicketWidget').text_field(:id=>/udf/)}
       keyword(:live_membership_level) {browser.div(:id=>'ecMembershipWidget').h6(:text=>'Membership Level*').parent.parent.select}
       keyword(:live_membership_type) {browser.div(:id=>'ecMembershipWidget').h6(:text=>'Membership Type').parent.parent.radio}
+      keyword(:contact_in_journal) {content.div(:class, 'ui-jqgrid-bdiv').a(:text, 'Contact')}
+      keyword(:contact_method_option) {content.div(:id, 'etap.fieldset.area.2').span(:class, 'etapComboBox').text_field(:id, 'contactMethodRef_comboText')}
+      keyword(:live_company) {browser.h6(:class=>'simplefieldType',:text=>'Company').parent.parent.text_field}
+      keyword(:live_date_of_birth) {browser.h6(:class=>'simplefieldType',:text=>'Date of Birth').parent.parent.text_field}
+      keyword(:live_job_title) {browser.h6(:class=>'simplefieldType',:text=>'Job Title').parent.parent.text_field}
+      keyword(:live_marital_status) {browser.h6(:class=>'dropdownType',:text=>/Marital Status/).parent.parent.select}
+      keyword(:live_middle_name) {browser.text_field(:id,'middleName')}
+      keyword(:live_suffix) {browser.text_field(:id,'suffix')}
 
       def diy_page_link page_name
         page_link = content
@@ -234,7 +242,6 @@ module Cukesetaptesting
       def forms
         content.div(:id,'ecommStyling')
       end
-
 
     end
   end

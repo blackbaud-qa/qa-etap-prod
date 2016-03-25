@@ -414,6 +414,46 @@ module Cukesetaptesting
         @view.live_membership_level.when_present.select value
       end
 
+      def set_live_volunteer_availability value
+        @view.browser.div(:class=>'udf volunteerAvailability pageBlockElement row').span(:text=>value).parent.checkbox.click
+      end
+
+      def set_live_volunteer_skill_set value
+        @view.browser.div(:class=>'udf volunteerSkills pageBlockElement row').span(:text=>value).parent.checkbox.click
+      end
+
+      def set_live_volunteer_interest_area value
+        @view.browser.div(:class=>'udf volunteerInterest pageBlockElement row').span(:text=>value).parent.checkbox.click
+      end
+
+      def live_submission_successful?
+        @view.live_results_header.when_present.text.include? 'Registration Successful'
+      end
+
+      def contact_in_journal_click
+        @view.contact_in_journal.when_present.click
+      end
+
+      def contact_method
+        @view.contact_method_option.when_present.value
+      end
+
+      def live_company_set value
+        @view.live_company.when_present.set value
+      end
+
+      def live_date_of_birth_set value
+        @view.live_date_of_birth.when_present.set value
+      end
+
+      def live_job_title_set value
+        @view.live_job_title.when_present.set value
+      end
+
+      def live_marital_status_set value
+        @view.live_marital_status.when_present.select value
+      end
+
     end
   end
 end

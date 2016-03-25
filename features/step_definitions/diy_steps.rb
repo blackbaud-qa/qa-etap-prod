@@ -804,3 +804,63 @@ And(/^I set the Membership Level to '([^']*)' on the DIY Membership page/) do |v
   diy = DIY::Onlineforms.new
   diy.set_live_membership_level value
 end
+
+And(/^I set the Volunteer Availability to '([^']*)' on the DIY Volunteer page/) do |value|
+  diy = DIY::Onlineforms.new
+  diy.set_live_volunteer_availability value
+end
+
+And(/^I set the Volunteer Skill Set to '([^']*)' on the DIY Volunteer page/) do |value|
+  diy = DIY::Onlineforms.new
+  diy.set_live_volunteer_skill_set value
+end
+
+And(/^I set the Volunteer Interest Area to '([^']*)' on the DIY Volunteer page/) do |value|
+  diy = DIY::Onlineforms.new
+  diy.set_live_volunteer_interest_area value
+end
+
+And(/^the submission will go through successfully/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.live_submission_successful?).to eq(true)
+end
+
+And (/I click on the Contact listed in the journal/) do
+  diy = DIY::Onlineforms.new
+  diy.contact_in_journal_click
+end
+
+And (/^I should see the Method set to '([^']*)' on the contact page/) do |value|
+  diy = DIY::Onlineforms.new
+  expect(diy.contact_method).to eq(value)
+end
+
+And(/^I set Company to '([^']*)' on the DIY Page/) do |value|
+  diy = DIY::Onlineforms.new()
+  diy.live_company_set value
+end
+
+And(/^I set Date of Birth to '([^']*)' on the DIY Page/) do |value|
+  diy = DIY::Onlineforms.new()
+  diy.live_date_of_birth_set value
+end
+
+And(/^I set Job Title to '([^']*)' on the DIY Page/) do |value|
+  diy = DIY::Onlineforms.new()
+  diy.live_job_title_set value
+end
+
+And (/^I set Marital Status to '([^']*)' on the DIY Page/) do |value|
+  diy = DIY::Onlineforms.new()
+  diy.live_marital_status_set value
+end
+
+And(/^I set Middle Name to '([^']*)' on the DIY Donation Page$/) do |name|
+  diy = DIY::Onlineforms.new(:live_middle_name=>name)
+  diy.create
+end
+
+And(/^I set Suffix to '([^']*)' on the DIY Donation Page$/) do |name|
+  diy = DIY::Onlineforms.new(:live_suffix=>name)
+  diy.create
+end
