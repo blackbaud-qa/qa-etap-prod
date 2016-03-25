@@ -1,5 +1,5 @@
 @crit_proc
-Feature: Submit an entry through other existing diy pages
+Feature: Submit an entry through other existing transaction based diy pages
 
   Scenario: Submit a donation through Existing Event Page
     Given I am logged into eTap
