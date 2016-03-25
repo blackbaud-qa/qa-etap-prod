@@ -179,9 +179,9 @@ Then(/^I should see: '([^']*)'$/) do |message|
   expect(any_selected > 0).to eq(true)
 end
 
-Then(/^I see the error '([^']*)'$/) do |message|
-  step "I login into eTap with values 'testUser', 'Password!'"
-  step "I login into eTap a second time with values 'testUser', 'Password!'"
+Then(/^I see the error '([^']*)' for login '([^']*)'\/'([^']*)'$/) do |message, user_name, password|
+  step %Q[I login into eTap with values '#{user_name}', '#{password}']
+  step %Q[I login into eTap a second time with values '#{user_name}', '#{password}']
   step %Q[I should see: '#{message}']
 end
 

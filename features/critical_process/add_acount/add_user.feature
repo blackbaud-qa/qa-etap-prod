@@ -1,3 +1,4 @@
+@crit_proc
 Feature: Add User
   As an admin
   I need to be able to create additional users
@@ -6,8 +7,7 @@ Feature: Add User
 
   Scenario: Create new user
     Given I am logged into eTap
-    And User 'testUserGZ' does not exist
-    And I create user 'testUserGZ'
+    And I create user 'new_user'
     And I log out of eTap
-    And I login into eTap with values 'testUserGZ', 'Password!'
+    And I login into eTap with values 'new_user', 'Password!'
     Then I should be logged in

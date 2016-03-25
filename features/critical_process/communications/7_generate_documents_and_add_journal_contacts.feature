@@ -1,19 +1,19 @@
 @crit_proc_no_ff
-Feature: Previewing communications templates
+Feature: Generating Documents and Adding Journal Contacts
 
   Scenario: generate Word documents and add journal contacts
     Given I am logged into eTap
 #    And I delete the existing Document.docx
-    And I type 'Talisha Almond' into the dynamic search field
+    And I type 'Eva Huggins' into the dynamic search field
     And I press Enter on the keyboard
-    And I click on 'Talisha Almond' in the search results
-    And I create a custom account query has been created for 'Talisha Almond'
+    And I click on 'Eva Huggins' in the search results
+    And I create a custom account query for 'Eva Huggins'
     When I click Communications on the main menu
     And I click on Manage Communications on the communications menu
     And click Email Templates
     And I click 'Create Documents' under 'Lapsed Donor Contact' on the email templates page
     And set the Category to Custom Account Queries
-    And I set the template query to 'Talisha Almond - A'
+    And I set the template query to 'Eva Huggins - A'
     And click Next on the Generate Letters page
     And set the document type to Word
     And click Next on the Generate Letters page
@@ -27,7 +27,7 @@ Feature: Previewing communications templates
     And click Next on the Generate Letters page
     And click Run
 #    Then The Word document should be generated
-    Then a contact with the subject 'Document Generated: Lapsed Donor Contact - Word' should be added to 'Talisha Almond' journal page
+    Then a contact with the subject 'Document Generated: Lapsed Donor Contact - Word' should be added to 'Eva Huggins' journal page
     And I click on the Home drop down
     And I click on 'Open My Drop Box' on the home menu
     And I delete 'Document.docx' from the drop box
@@ -41,7 +41,7 @@ Feature: Previewing communications templates
     And I type 'Martine Stallworth' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Martine Stallworth' in the search results
-    And I create a custom account query has been created for 'Martine Stallworth'
+    And I create a custom account query for 'Martine Stallworth'
     When I click Communications on the main menu
     And I click on Manage Communications on the communications menu
     And click Email Templates
@@ -78,7 +78,7 @@ Feature: Previewing communications templates
     And I set Email to 'lance.moore@blackbaud.com' on the classic add account page
     And I click Save And 'Edit'
     And I click on 'Home' in the account header
-    And I create a custom account query has been created for 'Gregory Dumont'
+    And I create a custom account query for 'Gregory Dumont'
     When I click Communications on the main menu
     And I click on Manage Communications on the communications menu
     And click Email Templates

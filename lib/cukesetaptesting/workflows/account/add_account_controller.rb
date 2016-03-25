@@ -466,6 +466,59 @@ module Cukesetaptesting
         @view.tribute_name_value.value
       end
 
+      def new_relationship_link
+        @view.new_relationship_link.click
+      end
+
+      def set_relationship_type
+        @view.set_relationship_type.click
+      end
+
+      def select_related_account_link
+        @view.select_related_account_link.click
+      end
+
+      def add_account_modal_search_text
+        @view.add_account_modal_search_text.value
+      end
+
+      def select_relationship_type_value (type)
+        @view.select_relationship_type_value.when_present.select(type)
+      end
+
+      def click_find
+        @view.popup_search_find.when_present.click
+      end
+
+      def popup_click_link_by_text(text)
+        @view.popupTextLink(text).when_present.click
+      end
+
+      def select_primary
+        @view.select_primary.when_present.click
+      end
+
+      def existing_relationship
+        @view.existing_relationship.when_present.click
+      end
+
+      def select_member
+        @view.select_member.when_present.click
+      end
+
+      def delete_relationship
+        @view.delete_relationship.click
+      end
+
+      def confirm_relationship_deletion
+        @view.confirm_relationship_deletion.click
+      end
+
+      def relationship_present
+        @view.relationship_present.present?
+      end
+
+
     end
   end
 end

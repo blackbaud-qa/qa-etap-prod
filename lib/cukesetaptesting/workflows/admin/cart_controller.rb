@@ -273,6 +273,11 @@ module Cukesetaptesting
         end
       end
 
+      def set_cart_udf_value(udf, value)
+        ques = @view.browser.label(:class => 'etapFormLabel', :text => udf)
+        ques.parent.select(:class => 'etapQuestionOptionSelectBox').when_present.select value
+      end
+
     end
   end
 end

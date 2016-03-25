@@ -422,6 +422,14 @@ module Cukesetaptesting
         @view.facebook_login_window.present?
       end
 
+      def set_live_membership_type value
+        @view.live_membership_type.when_present.set value
+      end
+
+      def set_live_membership_level value
+        @view.live_membership_level.when_present.select value
+      end
+
     end
   end
 end

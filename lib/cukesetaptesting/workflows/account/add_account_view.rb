@@ -140,6 +140,18 @@ module Cukesetaptesting
       keyword(:save_button_modal) {content.iframe(:id, 'popupFrame').div(:id, 'etap.fieldset.area.5').button(:value, 'Save')}
       keyword(:tribute_name_value) {content.div(:id, 'tributeFields').td(:id, 'tributeNameInput')}
 
+      keyword(:new_relationship_link) {content.div(:class, 'taskSpace').a(:text, 'New Relationship')}
+      keyword(:select_relationship_type_value) {content.select(:id, 'relationshipTypeRef')}
+      keyword(:select_related_account_link) {content.a(:href, 'javascript: popupEntitySearch();')}
+      keyword(:add_account_modal_search_text) {popupSearch.form(:name,'entitySearchForm').text_field(:id,'searchString')}
+      keyword(:popup_search_find) {popupSearch.form(:name,'entitySearchForm').input(:value,'Find')}
+      keyword(:select_primary) {content.radio(:value,'1')}
+      keyword(:existing_relationship) {content.a(:text,'Spouse')}
+      keyword(:select_member) {content.radio(:value,'2')}
+      keyword(:delete_relationship) {content.a(:class, 'delete')}
+      keyword(:confirm_relationship_deletion) {content.div(:class,'popupWindow').input(:value, 'Delete')}
+      keyword(:relationship_present) {content.a(:class,'delete')}
+
       def disable_country_code country_code
         content.link(:text, country_code).parent.parent.div(:class, 'actions').a(:class, 'enable')
       end
@@ -195,6 +207,14 @@ module Cukesetaptesting
 
       def popup_add_account_udf_to_click(udf)
         content.iframe(:id, 'popupFrame').link(:text, udf + ':')
+      end
+
+      def popupTextLink(text)
+        popupSearch.a(:text, text)
+      end
+
+      def popupSearch
+        content.iframe(:id, 'popupFrame')
       end
 
       def home(model)

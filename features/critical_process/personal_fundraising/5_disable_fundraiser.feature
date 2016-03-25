@@ -14,5 +14,6 @@ Feature: Disabling a fundraiser
     And I set the status to Disabled on the new Fundraiser page
     And I click Save and Finish on the new Fundraiser page
     And I sort by Status on the Fundraisers Page
-#   And click on the QA Fundraiser [X] url
-#    Then I should see The File Could Not Be Found
+    And I click on the QA Fundraiser 1 url on the Fundraiser page
+    And I switch to the new tab in my browser
+    Then the registration confirmation page should say: 'The file you requested could not be found.'

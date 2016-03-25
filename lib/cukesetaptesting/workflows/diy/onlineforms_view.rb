@@ -109,6 +109,10 @@ module Cukesetaptesting
       keyword(:diy_share_icons) {browser.div(:id,'shareLinks')}
       keyword(:diy_facebook_share_icon) {browser.img(:src,'https://app.etapestry.com/hosted/eTapestry.com/images/social/facebook16.gif')}
       keyword(:facebook_login_window) {browser.div(:class,'login_form_container')}
+      keyword(:live_ticket_quantity) {browser.div(:id, 'ecEventTicketWidget').text_field(:id=>/udf/)}
+      keyword(:live_membership_level) {browser.div(:id=>'ecMembershipWidget').h6(:text=>'Membership Level*').parent.parent.select}
+      keyword(:live_membership_type) {browser.div(:id=>'ecMembershipWidget').h6(:text=>'Membership Type').parent.parent.radio}
+
 
       def diy_page_link page_name
         page_link = content
