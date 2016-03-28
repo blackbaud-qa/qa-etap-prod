@@ -63,7 +63,7 @@ module Cukesetaptesting
       keyword(:live_page) {browser.div(:id,'pageRoot')}
       keyword(:live_page_title) {browser.h1(:id,'headerText')}
       keyword(:live_fund) {browser.select(:id,'ecFundSelectField')}
-      keyword(:live_gender) {browser.h6(:class=>'dropdownType',:text=>/Gender/).parent.parent.select}
+      keyword(:live_gender) {browser.h6(:class=>'dropdownType',:text=>'Gender').parent.parent.select}
       keyword(:live_maiden_name) {browser.h6(:class=>'simplefieldType',:text=>'Maiden Name').parent.parent.text_field}
       keyword(:live_amount_other) {browser.radio(:id,'gift_amount_advanced_givingLevelsOther')}
       keyword(:live_amount_field) {browser.text_field(:id,'otherAmt')}
@@ -105,6 +105,14 @@ module Cukesetaptesting
       keyword(:diy_select_udf) {content.div(:class, 'availableUDFItem pointer').a(:text, 'Account Type')}
       keyword(:diy_disabled_udf) {content.div(:class, 'udfCategory').div(:class=>'udfUnselectable',:text=>'Account Type')}
       keyword(:no_just_make_copy_button) {content.button(:id, 'justCopy')}
+      keyword(:choose_chisel_template) {content.div(:id,'chiseldiv')}
+      keyword(:diy_share_icons) {browser.div(:id,'shareLinks')}
+      keyword(:diy_facebook_share_icon) {browser.img(:src,'https://app.etapestry.com/hosted/eTapestry.com/images/social/facebook16.gif')}
+      keyword(:facebook_login_window) {browser.div(:class,'login_form_container')}
+      keyword(:live_ticket_quantity) {browser.div(:id, 'ecEventTicketWidget').text_field(:id=>/udf/)}
+      keyword(:live_membership_level) {browser.div(:id=>'ecMembershipWidget').h6(:text=>'Membership Level*').parent.parent.select}
+      keyword(:live_membership_type) {browser.div(:id=>'ecMembershipWidget').h6(:text=>'Membership Type').parent.parent.radio}
+
       keyword(:live_ticket_quantity) {browser.div(:id, 'ecEventTicketWidget').text_field(:id=>/udf/)}
       keyword(:live_membership_level) {browser.div(:id=>'ecMembershipWidget').h6(:text=>'Membership Level*').parent.parent.select}
       keyword(:live_membership_type) {browser.div(:id=>'ecMembershipWidget').h6(:text=>'Membership Type').parent.parent.radio}

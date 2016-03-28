@@ -790,6 +790,40 @@ And (/I click No, Just Make a Copy to copy the page/) do
   diy.no_just_make_copy_click
 end
 
+When(/^I select the Chisel template/) do
+  diy = DIY::Onlineforms.new()
+  diy.choose_chisel_template_click
+end
+
+Then (/I should see the share icons on the page/) do
+  diy = DIY::Onlineforms.new
+  expect(diy.diy_share_icons).to eq(true)
+end
+
+And (/I click the Facebook Share Icon on the DIY page/) do
+  diy = DIY::Onlineforms.new
+  diy.diy_facebook_share_icon
+end
+
+Then (/I should see the Facebook tab appear/) do
+  diy = DIY::Onlineforms.new
+  expect(diy.facebook_login_window).to eq(true)
+end
+
+And(/^I set the Ticket Quantity to '([^']*)' on the DIY Event Page/) do |value|
+  diy = DIY::Onlineforms.new(:live_ticket_quantity=>value)
+  diy.create
+end
+
+And(/^I set the Membership Type to '([^']*)' on the DIY Membership page/) do |value|
+  diy = DIY::Onlineforms.new
+  diy.set_live_membership_type value
+end
+
+And(/^I set the Membership Level to '([^']*)' on the DIY Membership page/) do |value|
+  diy = DIY::Onlineforms.new
+  diy.set_live_membership_level value
+end
 And(/^I set the Ticket Quantity to '([^']*)' on the DIY Event Page/) do |value|
   diy = DIY::Onlineforms.new(:live_ticket_quantity=>value)
   diy.create

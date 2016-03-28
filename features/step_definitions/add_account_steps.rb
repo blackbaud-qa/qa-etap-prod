@@ -620,3 +620,52 @@ And (/^I delete the tribute from the transaction/) do
   landing = Giving::GiftPledge.new
   landing.tribute_account_delete
 end
+
+And (/I click New Relationship in the Tasks box$/) do
+  accounts = Account::AddAccount.new
+  accounts.new_relationship_link
+end
+
+And (/I select the Relationship Type of '([^']*)' on the Relationships page$/) do |type|
+  accounts = Account::AddAccount.new
+  accounts.select_relationship_type_value (type)
+end
+
+And (/I set the related account to '([^']*)'$/) do |related_account|
+  accounts = Account::AddAccount.new(:add_account_modal_search_text=>related_account)
+  accounts.select_related_account_link
+  accounts.create
+  accounts.click_find
+  accounts.popup_click_link_by_text(related_account)
+end
+
+And (/I select Primary for account 1 under Household Relationship$/) do
+  accounts = Account::AddAccount.new
+  accounts.select_primary
+end
+
+And (/I click on the existing Spouse relationship on the Relationships page$/) do
+  accounts = Account::AddAccount.new
+  accounts.existing_relationship
+end
+
+And (/I select Member for account 1 under Household Relationship$/) do
+  accounts = Account::AddAccount.new
+  accounts.select_member
+end
+
+And (/I click the Delete link on the Relationships page$/) do
+  accounts = Account::AddAccount.new
+  accounts.delete_relationship
+end
+
+And (/I click Delete in the Delete this Relationship modal$/) do
+  accounts = Account::AddAccount.new
+  accounts.confirm_relationship_deletion
+end
+
+Then (/I should not see a Relationship on the Relationships page$/) do
+  accounts = Account::AddAccount.new
+  expect(accounts.relationship_present).to eq(false)
+end
+
