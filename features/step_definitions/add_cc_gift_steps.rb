@@ -128,7 +128,7 @@ And(/^wait for the journal page to display/) do
 end
 
 And(/^I click on '([^']*)' in the search results$/) do |account|
-  sleep 1
+  sleep 2
   gift = Giving::GiftPledge.new
   gift.account_click(account)
 end

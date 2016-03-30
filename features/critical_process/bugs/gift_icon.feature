@@ -1,4 +1,4 @@
-@bugs
+#removing from bugs, I don't believe this scenario is valid any longer after the SKY updates.
 Feature: Gift icon on Find Account results page
 
   Background:

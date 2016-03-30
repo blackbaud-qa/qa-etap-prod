@@ -112,7 +112,7 @@ module Cukesetaptesting
       keyword(:building_number_existing_account_value) {content.text_field(:id, 'buildingNumber')}
       keyword(:apt_number_existing_account_value) {content.text_field(:id, 'apartmentNumber')}
       keyword(:enable_country_persona_modal) {content.select(:name, 'disabledCountry')}
-      keyword(:management_system_defined_fields)  {content.div(:id,'managementPageContent').div(:id,'databaseContent').ul(:id,'homeQuickLinks').a(:href,'editUserDefinedFields.do?mode=SYSTEM')}
+      keyword(:management_system_defined_fields)  {content.a(:text,'System Defined Fields')}
       keyword(:edit_country_codes) {content.a(:text, 'Country Codes')}
 
       keyword(:save_and_finish_country_codes) {content.input(:id, 'wizardNavigationButton_1_saveAndFinish')}
