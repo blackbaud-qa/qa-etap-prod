@@ -13,14 +13,14 @@ Scenario: A 'Default' security group user should not be able
   # Key step:
   And I deny all query permissions
   And I save a security group
-  And I create user 'testUser1'
+  And I create user 'testGZuser1'
   And I log out of eTap
   And I am logged into eTap
   And I click Management on the main menu
   And I click on Security Groups on the management menu
-  And set 'testUser1' rights to security group 'Account Restrictions1'
+  And set 'testGZuser1' rights to security group 'Account Restrictions1'
   And I log out of eTap
-  When I login into eTap with values 'testUser1', 'Password!'
+  When I login into eTap with values 'testGZuser1', 'Password!'
   And I click Queries on the main menu
   And I click on Manage Queries on the queries menu
   And I click on the 'Base' category
@@ -40,14 +40,14 @@ Scenario: A 'Default' security group user should be able
   # Key step:
   And I grant all query permissions
   And I save a security group
-  And I create user 'testUser2'
+  And I create user 'testGZuser2'
   And I log out of eTap
   And I am logged into eTap
   And I click Management on the main menu
   And I click on Security Groups on the management menu
-  And set 'testUser2' rights to security group 'Account Restrictions2'
+  And set 'testGZuser2' rights to security group 'Account Restrictions2'
   And I log out of eTap
-  When I login into eTap with values 'testUser2', 'Password!'
+  When I login into eTap with values 'testGZuser2', 'Password!'
   And I click Queries on the main menu
   And I click on Manage Queries on the queries menu
   And I click on the 'Base' category
