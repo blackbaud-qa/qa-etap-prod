@@ -211,7 +211,6 @@ When (/^there exists user '([^']*)'$/) do |user_name|
 end
 
 def process_user_account_security(password, email_address, security_question, security_answer)
-  sleep 2
   user_account_security = Admin::UserAccountSecurity.new
   user_account_security.enter_current_password('tempPassword')
   user_account_security.enter_new_password(password)

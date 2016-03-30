@@ -484,7 +484,6 @@ And (/^the Apt Number should be set to '([^']*)'/) do |value|
 end
 
 And (/^I select '([^']*)' in the Select a country to enable drop down/) do |value|
-  sleep 3
   accounts = Account::AddAccount.new
   accounts.enable_country_persona_modal value
 end
