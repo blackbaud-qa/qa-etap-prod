@@ -1,6 +1,6 @@
 @bugs
 Feature: Running the Account Summary Report
-
+@testing
   Scenario: Running the Account Summary Report from an account when there is no image on the Home page
     Given I am logged into eTap
     When I click Accounts
