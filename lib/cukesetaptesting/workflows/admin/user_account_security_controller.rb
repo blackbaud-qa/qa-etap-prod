@@ -9,6 +9,7 @@ module Cukesetaptesting
       end
 
       def enter_new_password(password)
+        sleep 2
         @view.new_password.when_present.value = password
       end
 
