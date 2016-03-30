@@ -449,6 +449,7 @@ And (/^the Suburb should be set to '([^']*)'/) do |value|
 end
 
 Then(/^I should be taken to the Find Account page/) do
+  sleep 5
   accounts= Account::AddAccount.new
   expect(accounts.find_account_page).to eq(true)
 end
