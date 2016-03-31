@@ -393,9 +393,11 @@ When (/^there exists constituent '([^']*)'$/) do |constituent_name|
   landing = Admin::Landing.new
   landing.accounts_click
   landing.accounts_dd_find_account_click
-
+  sleep 2
   search_page = Account::Search.new
+  sleep 2
   search_page.set_search_field constituent_name
+  sleep 2
   search_page.find_click
 
   if (not search_page.account_name_exists? constituent_name)

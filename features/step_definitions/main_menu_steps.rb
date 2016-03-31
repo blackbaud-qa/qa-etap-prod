@@ -6,6 +6,7 @@ end
 
 #Home DropDown
 When(/^I click on the Home drop down$/) do
+  sleep 5
   landing = Admin::Landing.new
   landing.home_dropdown_click
 end
