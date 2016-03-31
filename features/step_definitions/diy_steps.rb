@@ -824,20 +824,6 @@ And(/^I set the Membership Level to '([^']*)' on the DIY Membership page/) do |v
   diy = DIY::Onlineforms.new
   diy.set_live_membership_level value
 end
-And(/^I set the Ticket Quantity to '([^']*)' on the DIY Event Page/) do |value|
-  diy = DIY::Onlineforms.new(:live_ticket_quantity=>value)
-  diy.create
-end
-
-And(/^I set the Membership Type to '([^']*)' on the DIY Membership page/) do |value|
-  diy = DIY::Onlineforms.new
-  diy.set_live_membership_type value
-end
-
-And(/^I set the Membership Level to '([^']*)' on the DIY Membership page/) do |value|
-  diy = DIY::Onlineforms.new
-  diy.set_live_membership_level value
-end
 
 And(/^I set the Volunteer Availability to '([^']*)' on the DIY Volunteer page/) do |value|
   diy = DIY::Onlineforms.new
