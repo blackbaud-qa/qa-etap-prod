@@ -538,11 +538,13 @@ When (/^I click Delete on the query preview screen/) do
 end
 
 And (/^I click on the Golf Outing Discussion contact in the Journal/) do
+  sleep 2
   query = Queries::Createquerycategory.new
   query.golf_outing_discussion_contact
 end
 
 And (/^I click on the Called to Discuss Gala contact in the Journal/) do
+  sleep 2
   query = Queries::Createquerycategory.new
   query.gala_contact
 end

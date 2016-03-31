@@ -48,6 +48,7 @@ Feature: Contact Subject Text Query
     And I click Journal
     And I click on the Golf Outing Discussion contact in the Journal
     And I click Delete on the contact page
+    And I click Journal
     And I click on the Called to Discuss Gala contact in the Journal
     And I click Delete on the contact page
     Then I should be taken to 'Talisha Almond' Journal page

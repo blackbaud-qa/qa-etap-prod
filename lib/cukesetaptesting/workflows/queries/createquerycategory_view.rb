@@ -51,9 +51,10 @@ module Cukesetaptesting
       keyword(:enter_second_contact_subject_text) {content.tr(:id, 'TestJournalEntryForSubjectsData.table_Row2').input(:name, 'testByName(TestJournalEntryForSubjectsData).values')}
       keyword(:display_query_results) {content.td(:text, 'Displaying 1 - 2 of 2')}
       keyword(:click_delete_query_preview) {content.input(:id, 'null')}
-      keyword(:golf_outing_discussion_contact) {content.a(:text, 'Golf Outing Discussion')}
-      keyword(:gala_contact) {content.a(:text, 'Called to Discuss Gala')}
-
+      # keyword(:golf_outing_discussion_contact) {content.a(:text, 'Golf Outing Discussion')}
+      keyword(:golf_outing_discussion_contact) {content.td(:text,/Golf Outing Discussion/).parent.a}
+      # keyword(:gala_contact) {content.a(:text, 'Called to Discuss Gala')}
+      keyword(:gala_contact) {content.td(:text,/Called to Discuss Gala/).parent.a}
       keyword(:favorite_query) {content.checkbox(:id, 'favorite')}
       keyword(:change_query_type) {content.a(:href, 'javascript:openDynamicStaticWindow()')}
       keyword(:query_type_static) {content.radio(:id, 'modalStatic')}
