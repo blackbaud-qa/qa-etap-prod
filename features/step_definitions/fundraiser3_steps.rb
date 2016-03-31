@@ -219,6 +219,7 @@ And(/^I set the Expiration Year to '([^']*)' on the live fundraiser page$/) do |
 end
 
 Then(/^the registration confirmation page should say: '([^']*)'$/) do |msg|
+  sleep 3
   fund = Management::Fundraisers.new()
   if(fund.previous_name_used?)
     step "I click Next on the live fundraiser page"
