@@ -1,8 +1,10 @@
 @crit_proc
 Feature: Submit an entry through existing non-transaction based diy pages
 
+  Background:
+  Given I login into eTap for CP1
+
   Scenario: Submit a contact through Existing Volunteer Page
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Existing Volunteer Page'
@@ -53,7 +55,6 @@ Feature: Submit an entry through existing non-transaction based diy pages
 
 
   Scenario: Submit a contact through Existing Contact Page WITH Address Fields
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Existing Contact Page WITH Address Fields'
@@ -121,7 +122,6 @@ Feature: Submit an entry through existing non-transaction based diy pages
     And I should see 'Maiden Name' set to 'Martin' on the payment page
 
   Scenario: Submit a contact through Existing Contact Page WITHOUT Address Fields
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Existing Contact Page WITHOUT Address Fields'

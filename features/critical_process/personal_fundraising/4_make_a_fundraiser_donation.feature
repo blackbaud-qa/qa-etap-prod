@@ -1,13 +1,10 @@
 @crit_proc2
 Feature: Making a donation to a fundraiser
 
-#  Background:
-#    Given I have a processor set up in my database
-#    And a Fundraiser set up in my database named QA Fundraiser [X]
-#    And I have already registered John Crabtree
+  Background:
+    Given I login into eTap for CP2
 
   Scenario: making a donation
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click Fundraisers on the Management menu
     And I sort by Status on the Fundraisers Page
@@ -42,7 +39,6 @@ Feature: Making a donation to a fundraiser
     And I close the current tab
 
   Scenario: verify donation is listed on fundraiser
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click Fundraisers on the Management menu
     And I sort by Status on the Fundraisers Page
@@ -55,7 +51,6 @@ Feature: Making a donation to a fundraiser
     And I close the current tab
 
   Scenario: verify the donation is in the database with the soft credit link
-    Given I am logged into eTap
     When I click Accounts on the main menu
     And I click on Find an Account on the accounts menu
     And I type 'Ronald Jackson' into the search field

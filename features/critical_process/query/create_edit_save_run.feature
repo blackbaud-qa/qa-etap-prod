@@ -2,11 +2,12 @@
 Feature: Create, Edit, Save and Run Queries
 
   Background:
-    Given a query category should exist called 'Critical Process Testing'
+    Given I login into eTap for CP2
+    And a query category should exist called 'Critical Process Testing'
+
 
   Scenario: Create and Edit a New Query
-    Given I am logged into eTap
-    And the query 'January 2015 Donors Minus Donors Named John - Custom Query' does not exist in the 'Critical Process Testing' category
+    Given the query 'January 2015 Donors Minus Donors Named John - Custom Query' does not exist in the 'Critical Process Testing' category
     And the query 'Donations made in January 2015' does not exist in the 'Critical Process Testing' category
     And there exists an account that has donated in January 2015
     When I click Queries on the main menu
@@ -34,8 +35,7 @@ Feature: Create, Edit, Save and Run Queries
 
 
   Scenario: Create a custom account query from a normal query
-    Given I am logged into eTap
-    And the query 'Donors Named John' does not exist in the 'Critical Process Testing' category
+    Given the query 'Donors Named John' does not exist in the 'Critical Process Testing' category
     And the query 'Donors Named John - Custom Query' does not exist in the 'Critical Process Testing' category
     And the query 'Donations made in January 2015' does not exist in the 'Critical Process Testing' category
     When I click Queries on the main menu
@@ -58,8 +58,7 @@ Feature: Create, Edit, Save and Run Queries
     Then I should see the message 'Displaying 1 - ' on the query preview screen
 
   Scenario: Create a New Custom Account Query
-    Given I am logged into eTap
-    And the query 'Hand Selected Donors' does not exist in the 'Critical Process Testing' category
+    Given the query 'Hand Selected Donors' does not exist in the 'Critical Process Testing' category
     When I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click on the 'Critical Process Testing' category
@@ -85,8 +84,7 @@ Feature: Create, Edit, Save and Run Queries
 
 
   Scenario: Create a New Compound Query
-    Given I am logged into eTap
-    And the query 'January 2015 Donors Minus Donors Named John - Custom Query' does not exist in the 'Critical Process Testing' category
+    Given the query 'January 2015 Donors Minus Donors Named John - Custom Query' does not exist in the 'Critical Process Testing' category
     And a specific query 'Donations made in January 2015' has been created in the 'Critical Process Testing' category
     And a specific query 'Donors Named John - Custom Query' has been created in the 'Critical Process Testing' category
     When I click Queries on the main menu
@@ -110,7 +108,6 @@ Feature: Create, Edit, Save and Run Queries
     Then I should see the message 'Displaying 1 - ' on the query preview screen
 
   Scenario: Create a Query Category
-    Given I am logged into eTap
     When I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click New Category on the Query Categories page
@@ -118,8 +115,7 @@ Feature: Create, Edit, Save and Run Queries
     And I click Save Category on the Query Categories page
 
   Scenario: Deleting Queries and Categories
-    Given I am logged into eTap
-    And a specific query 'Donations made in January 2015' has been created in the 'Critical Process Testing' category
+    Given a specific query 'Donations made in January 2015' has been created in the 'Critical Process Testing' category
     And a specific query 'Donors Named John - Custom Query' has been created in the 'Critical Process Testing' category
     When I click Queries on the main menu
     And I click on Manage Queries on the queries menu

@@ -2,7 +2,7 @@
 Feature: SEPA 1 - Setting Preferences
 
   Background:
-    Given I am logged into eTap
+    Given I login into eTap for CP2
     And I log out of eTap
     And I login into eTap with values 'automationbot.nl', 'spicypancakes1'
 

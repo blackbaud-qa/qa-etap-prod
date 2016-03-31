@@ -1,8 +1,10 @@
 @crit_proc
 Feature: Adding a gift with payment type of check
 
+  Background:
+  Given I login into eTap for CP1
+
   Scenario: Add a gift from the journal page, no dollar sign in received amount
-    Given I am logged into eTap
     When I type 'Raymond Barnes' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Raymond Barnes' in the search results
@@ -37,7 +39,6 @@ Feature: Adding a gift with payment type of check
 
 
   Scenario: Add a gift from the journal page, include a dollar sign in received amount
-    Given I am logged into eTap
     When I type 'Raymond Barnes' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Raymond Barnes' in the search results

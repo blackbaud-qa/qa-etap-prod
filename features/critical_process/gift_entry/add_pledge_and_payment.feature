@@ -1,8 +1,10 @@
 @crit_proc
 Feature: Testing payments and pledges
 
+  Background:
+  Given I login into eTap for CP1
+
   Scenario: Add a pledge from the journal page
-    Given I am logged into eTap
     When I type 'Raymond Barnes' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Raymond Barnes' in the search results

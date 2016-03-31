@@ -1,4 +1,7 @@
 username:  groundzero.us_1
+unameCP1:  groundzero.us_1
+unameCP2:  groundzero.us_2
+unameBugs:  groundzero.us_3
 password:   spicypancakes1
 site_url:   https://etap-cdev-fh.blackbaudhosting.com/prod/
 image_path: /home/ubuntu/qa-etap-main/misc/cart_image.jpg

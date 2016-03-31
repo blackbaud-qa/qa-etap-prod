@@ -22,6 +22,18 @@ When(/^I login into Knight Rider/) do
   page.log_in
 end
 
+When(/^I login into eTap for CP1$/) do
+  step "I login into eTap with values '#{Watirmark::Configuration.instance.unameCP1}', '#{Watirmark::Configuration.instance.password}'"
+end
+
+When(/^I login into eTap for CP2$/) do
+  step "I login into eTap with values '#{Watirmark::Configuration.instance.unameCP2}', '#{Watirmark::Configuration.instance.password}'"
+end
+
+When(/^I login into eTap for bugs$/) do
+  step "I login into eTap with values '#{Watirmark::Configuration.instance.unameBugs}', '#{Watirmark::Configuration.instance.password}'"
+end
+
 When(/^I login into eTap with values$/) do |login_table|
   step "I login into eTap with values '#{login_table.hashes[0]['username']}', '#{login_table.hashes[0]['password']}'"
 end

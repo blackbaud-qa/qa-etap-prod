@@ -1,8 +1,10 @@
 @crit_proc
 Feature: Adding split transactions
 
+  Background:
+  Given I login into eTap for CP1
+
   Scenario: Add a split gift
-    Given I am logged into eTap
     When I type 'Raymond Barnes' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Raymond Barnes' in the search results
@@ -58,7 +60,6 @@ Feature: Adding split transactions
 
 
   Scenario: Add another segment to an existing split gift and then delete it
-    Given I am logged into eTap
     When I type '/17' into the dynamic search field
     And I press Enter on the keyboard
     And I click Journal

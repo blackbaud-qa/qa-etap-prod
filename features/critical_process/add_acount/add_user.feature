@@ -6,7 +6,7 @@ Feature: Add User
 
 
   Scenario: Create new user
-    Given I am logged into eTap
+    Given I login into eTap for CP1
     And I create user 'new_user'
     And I log out of eTap
     And I login into eTap with values 'new_user', 'Password!'

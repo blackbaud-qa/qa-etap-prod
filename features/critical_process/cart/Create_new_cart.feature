@@ -2,10 +2,12 @@
 Feature: Create a new Cart
 
 #Note: File paths for images look for the 'image_path' setting in config.yml
+  Background:
+    Given I login into eTap for CP1
 
-Scenario: Create New Category and a New Item
-  Given I am logged into eTap
-  And I click Management on the main menu
+
+  Scenario: Create New Category and a New Item
+  When I click Management on the main menu
   And I click on eStore (Cart) on the management menu
   And I click on new Category on the cart page
   And I name it 'Automation Cat 1' on create cart category
@@ -47,7 +49,7 @@ Scenario: Create New Category and a New Item
 
 Scenario: Edit Cart Preferences
   Given the iATS processor named 'iATS Test Processor' has been added to the database
-  And I click Management on the main menu
+  When I click Management on the main menu
   And I click on eStore (Cart) on the management menu
   And I should see the Cart alert: 'Before you make your cart public, it is recommended that you customize your cart to make it more personal for your visitors. To do this select Edit Cart Preferences in the Customize Cart section.'
 #  And I click on 'Category 1' on the cart page

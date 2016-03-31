@@ -1,8 +1,10 @@
 @crit_proc2
 Feature: Reports load, can be copied,moved and can be deleted
 
+  Background:
+    Given I login into eTap for CP2
+
 Scenario: Load reports
-  Given I am logged into eTap
   When I click on reports
   And I click on Manage Reports on the reports menu
   Then all the 'Report Categories' should load
@@ -13,8 +15,7 @@ Scenario: Load reports
   |System                     |
 
   Scenario: Create Category
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And If 'Test Category' exists then delete it
     And I click on New Category
@@ -23,8 +24,7 @@ Scenario: Load reports
     Then I should see the category listed
 
   Scenario: Copy Report
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And If 'Constituent Address(Copy)' exists then delete it
@@ -34,8 +34,7 @@ Scenario: Load reports
     Then the copied report should be displayed in the system category
 
   Scenario: Move Report
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on move beneath 'Constituent Address(Copy)'
@@ -44,8 +43,7 @@ Scenario: Load reports
     Then I should see the report listed in the test category
 
   Scenario: Delete Report
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the test category
     And I click on delete next to 'Constituent Address(Copy)'

@@ -1,9 +1,11 @@
 @crit_proc_no_ff
 Feature: Export Report
 
+  Background:
+    Given I login into eTap for CP2
+
   Scenario: Download as PDF
-    Given I am logged into eTap
-    And I click on reports
+    When I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on run report next to the report Test
@@ -15,8 +17,7 @@ Feature: Export Report
     Then I should see the report downloaded as a 'PDF' file
 
   Scenario: Download as Excel
-    Given I am logged into eTap
-    And I click on reports
+    When I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on run report next to the report Test
@@ -28,8 +29,7 @@ Feature: Export Report
     Then I should see the report downloaded
 
   Scenario: Download as CSV
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on run report next to the report Test
@@ -41,8 +41,7 @@ Feature: Export Report
     Then I should see the report downloaded
 
   Scenario: Download as MRG
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on run report next to the report Test
@@ -54,8 +53,7 @@ Feature: Export Report
     Then I should see the report downloaded
 
   Scenario: Email as PDF
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on run report next to the report Test
@@ -68,8 +66,7 @@ Feature: Export Report
 
 
   Scenario: Email as Excel
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on run report next to the report Test
@@ -81,8 +78,7 @@ Feature: Export Report
     Then I should see the report has been sent
 
   Scenario: Email as CSV
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on run report next to the report Test
@@ -94,8 +90,7 @@ Feature: Export Report
     Then I should see the report has been sent
 
   Scenario: Email as MRG
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on run report next to the report Test
@@ -108,8 +103,7 @@ Feature: Export Report
 
 
   Scenario: Send to dropbox as PDF
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on run report next to the report Test
@@ -121,8 +115,7 @@ Feature: Export Report
     Then I should see the report in the dropbox as a 'PDF' file
 
   Scenario: Send to dropbox as Excel
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on run report next to the report Test
@@ -134,8 +127,7 @@ Feature: Export Report
     Then I should see the report in the dropbox as a 'xlsx' file
 
   Scenario: Send to dropbox as CSV
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on run report next to the report Test
@@ -147,8 +139,7 @@ Feature: Export Report
     Then I should see the report in the dropbox as a 'csv' file
 
   Scenario: Send to dropbox as MRG
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on run report next to the report Test

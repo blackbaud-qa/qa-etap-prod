@@ -2,11 +2,9 @@
 Feature: Editing a fundraiser
 
   Background:
-#    Given I have a processor set up in my database
-#    And a Fundraiser set up in my database named QA Fundraiser [X]
+    Given I login into eTap for CP2
 
   Scenario: editing a Fundraiser
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click Fundraisers on the Management menu
     And I sort by Status on the Fundraisers Page

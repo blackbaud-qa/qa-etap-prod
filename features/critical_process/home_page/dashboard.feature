@@ -1,9 +1,11 @@
 @crit_proc
 Feature: Dashboard Functionality
 
+  Background:
+  Given I login into eTap for CP1
+
 ### Test against automationbot before checkin ###
   Scenario: Adding Tiles to the Dashboard
-    Given I am logged into eTap
     When I click Home on the main menu
     And I click on Go to Home on the home menu
     And I click on Select Tiles and Layout
@@ -24,7 +26,6 @@ Feature: Dashboard Functionality
 #    Then I should see the the Support Resources tile in the left hand column on the Dashboard
   
   Scenario: Moving Tiles on the Dashboard
-    Given I am logged into eTap
     When I click Home on the main menu
     And I click on Go to Home on the home menu
     And I click on Select Tiles and Layout
@@ -37,7 +38,6 @@ Feature: Dashboard Functionality
     And I should see the homepage in 2 columns
 
   Scenario: Running the Campaign Performance from the Dashboard
-    Given I am logged into eTap
     When I click Home on the main menu
     And I click on Go to Home on the home menu
     And I click 'Change' on the Campaign Performance tile

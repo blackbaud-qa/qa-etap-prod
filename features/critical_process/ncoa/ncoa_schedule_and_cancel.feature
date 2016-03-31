@@ -2,7 +2,7 @@
 Feature: NCOA - Schedule and Cancel Job
 
   Background:
-    Given I am logged into eTap
+    Given I login into eTap for CP2
 
   Scenario: Verify Settings page appears when no NCOA scheduled
     When I click Management on the main menu

@@ -5,7 +5,7 @@ Feature: Login
   In order to utilize eTapestry
 
   Background:
-    Given I am logged into eTap
+    Given I login into eTap for CP1
     And there exists user 'testUserGZ'
     And I log out of eTap
 

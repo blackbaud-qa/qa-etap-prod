@@ -1,12 +1,10 @@
 @crit_proc2
 Feature: Registering a participant
 
-#  Background:
-#    Given I have a processor set up in my database
-#    And a Fundraiser set up in my database named QA Fundraiser [X]
+  Background:
+    Given I login into eTap for CP2
 
   Scenario: registering a participant
-    Given I am logged into eTap
     When I delete existing data for 'John Crabtree'
     And I click Management on the main menu
     And I click Fundraisers on the Management menu
@@ -50,8 +48,7 @@ Feature: Registering a participant
     And I close the current tab
 
   Scenario: logging into a fundraiser
-    Given I am logged into eTap
-    And I click Management on the main menu
+    Given I click Management on the main menu
     And I click Fundraisers on the Management menu
     And I sort by Status on the Fundraisers Page
     And I click on the QA Fundraiser 1 url on the Fundraiser page
@@ -64,7 +61,6 @@ Feature: Registering a participant
     And I close the current tab
 
   Scenario: verify the registered participant is in the database with participation
-    Given I am logged into eTap
   When I click Accounts on the main menu
   And I click on Find an Account on the accounts menu
   And I type 'John Crabtree' into the search field
@@ -74,7 +70,6 @@ Feature: Registering a participant
   Then there should be a Participation journal entry
 
   Scenario: verify the team was created in the database
-    Given I am logged into eTap
     When I click Accounts on the main menu
     And I click on Find an Account on the accounts menu
     And I type 'Awesome' into the search field

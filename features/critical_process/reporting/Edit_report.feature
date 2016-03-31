@@ -1,9 +1,11 @@
 @crit_proc2
 Feature: Edit Custom Report
 
+  Background:
+    Given I login into eTap for CP2
+
   Scenario: Edit the custom report name
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on the name of the report 'Test Report'
@@ -13,7 +15,6 @@ Feature: Edit Custom Report
     And I rename the report to 'Test Report' for future tests
 
   Scenario: Edit Report Sort
-    Given I am logged into eTap
     When I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
@@ -29,7 +30,6 @@ Feature: Edit Custom Report
 #    Then I should see the report displayed to screen with the sort order of Z through A
 
   Scenario: Group Report
-    Given I am logged into eTap
     When I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
@@ -45,7 +45,6 @@ Feature: Edit Custom Report
 #    Then I should see the report displayed to screen with the grouping by account
 #
   Scenario: Delete Field name
-    Given I am logged into eTap
     When I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category

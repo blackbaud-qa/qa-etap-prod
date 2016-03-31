@@ -1,8 +1,10 @@
 @crit_proc
 Feature: Add Account in New Names database
 
+  Background:
+    Given I login into eTap for CP1
+
   Scenario: Add new individual account - all fields populated
-    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Individual' on the add account page
@@ -57,7 +59,6 @@ Feature: Add Account in New Names database
     Then I should see the message: '0 accounts found'
 
   Scenario: Missing Required Fields - Individual account
-    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Individual' on the add account page
@@ -81,7 +82,6 @@ Feature: Add Account in New Names database
 
 
   Scenario: Missing Required Fields - Family account
-    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Family' on the add account page
@@ -102,7 +102,6 @@ Feature: Add Account in New Names database
 
 
   Scenario: Missing Required Fields - Business account
-    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Business' on the add account page
@@ -123,7 +122,6 @@ Feature: Add Account in New Names database
     Then I should see the message: '0 accounts found'
 
   Scenario: Add new family account - all fields populated
-    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Family' on the add account page
@@ -167,7 +165,6 @@ Feature: Add Account in New Names database
 
 
   Scenario: Add new business account - all fields populated
-    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Business' on the add account page

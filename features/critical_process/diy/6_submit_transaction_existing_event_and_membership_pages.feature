@@ -1,8 +1,10 @@
 @crit_proc
 Feature: Submit an entry through other existing transaction based diy pages
 
+  Background:
+  Given I login into eTap for CP1
+
   Scenario: Submit a donation through Existing Event Page
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Existing Event Page'
@@ -64,7 +66,6 @@ Feature: Submit an entry through other existing transaction based diy pages
 
 
   Scenario: Submit a donation through Existing Membership Page
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Existing Membership Page'

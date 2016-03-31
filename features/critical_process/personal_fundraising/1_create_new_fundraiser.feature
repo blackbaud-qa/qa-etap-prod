@@ -2,10 +2,9 @@
 Feature: Creating a new fundraiser
 
   Background:
-#    Given I have a processor set up in my database
+    Given I login into eTap for CP2
 
   Scenario: setting up a Fundraiser
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click Fundraisers on the Management menu
     And I ensure there are no active Fundraisers

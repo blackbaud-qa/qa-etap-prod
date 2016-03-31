@@ -2,11 +2,11 @@
 Feature:Create a new report
 
   Background:
-    Given the report 'Test Report' does not exist
+    Given I login into eTap for CP2
+    And the report 'Test Report' does not exist
 
   Scenario: Create a new report
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on new report

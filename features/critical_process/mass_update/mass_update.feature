@@ -1,8 +1,10 @@
 @crit_proc2
 Feature: Mass Update
 
+  Background:
+   Given I login into eTap for CP2
+
     Scenario: Update Existing Account Values
-     Given I am logged into eTap
      When I click Management on the main menu
      And I click on Mass Update on the management menu
      And I click Update Existing Accounts on the Mass Update page
@@ -49,7 +51,6 @@ Feature: Mass Update
      Then I should see the message 'Displaying 1 - 2 of 2' on the query preview screen
 
     Scenario: Create New Contacts
-     Given I am logged into eTap
      When I clear old data from the Mass Update query
      And I click Management on the main menu
      And I click on Mass Update on the management menu
@@ -114,7 +115,6 @@ Feature: Mass Update
 
 
     Scenario: Empty Query
-     Given I am logged into eTap
      When I click Management on the main menu
      And I click on Mass Update on the management menu
      And I click Update Existing Accounts on the Mass Update page

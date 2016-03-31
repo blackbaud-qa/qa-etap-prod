@@ -1,8 +1,10 @@
 @crit_proc
 Feature: Adding a gift through quick gift entry
 
+  Background:
+  Given I login into eTap for CP1
+
   Scenario: Add a gift through quick gift entry, searching by account name
-    Given I am logged into eTap
     When I type 'Raymond Barnes' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Raymond Barnes' in the search results
@@ -46,7 +48,6 @@ Feature: Adding a gift through quick gift entry
 
 
   Scenario: Add a gift through quick gift entry, pulling by account number
-    Given I am logged into eTap
     When I click Giving on the main menu
     And I click on Add a Gift or Pledge on the giving menu
     And set the Account Number field to '42'

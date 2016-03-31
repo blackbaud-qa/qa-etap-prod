@@ -3,9 +3,11 @@ Feature: Edit a diy donation page
 
 #  Background:
 #    Given a DIY form titled Donation Page already exists
+  Background:
+  Given I login into eTap for CP1
+
 
   Scenario: editing a new diy page
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Existing Donation Page'
@@ -64,7 +66,6 @@ Feature: Edit a diy donation page
 #    Then the page will successfully go live
 
   Scenario: Verifying all Share Icons exist on new page
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
 #    This is currently dependent on there already being a DIY page created
@@ -89,8 +90,7 @@ Feature: Edit a diy donation page
     And I close the current tab
 
   Scenario:  Verify Facebook Share Icon works on existing page
-    Given I am logged into eTap
-    And I click Management on the main menu
+    Given I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click on the link for the form titled Testing Share Icons
     When I switch to the new tab in my browser

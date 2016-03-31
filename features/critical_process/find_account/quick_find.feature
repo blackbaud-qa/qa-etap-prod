@@ -3,7 +3,7 @@ Feature: Searching from quick find
 
   Background:
 #    Given my Default Search Type user preference is set to Quick Find
-    Given I am logged into eTap
+    Given I login into eTap for CP1
     When I click Accounts on the main menu
     And I click on Find an Account on the accounts menu
 

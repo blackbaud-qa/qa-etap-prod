@@ -1,8 +1,10 @@
 @crit_proc
 Feature: Searching from advanced find
 
+  Background:
+  Given I login into eTap for CP1
+
   Scenario: Searching by Name, pressing Enter
-    Given I am logged into eTap
     When I click Accounts
     And I click on Find an Account on the accounts menu
     And I click Advanced Find
@@ -11,7 +13,6 @@ Feature: Searching from advanced find
     Then 'Jose Berrios' should show in the advanced find name results
 
   Scenario: Searching by Email, pressing Enter
-    Given I am logged into eTap
     When I click Accounts
     And I click on Find an Account on the accounts menu
     And I click Advanced Find
@@ -20,7 +21,6 @@ Feature: Searching from advanced find
     Then 'Talisha Almond' should show in the advanced find name results
 
   Scenario: Searching by Name, clicking Find
-    Given I am logged into eTap
     When I click Accounts
     And I click on Find an Account on the accounts menu
     And I click Advanced Find
@@ -29,7 +29,6 @@ Feature: Searching from advanced find
     Then 'Jose Berrios' should show in the advanced find name results
 
   Scenario: Searching by Email, clicking Find
-    Given I am logged into eTap
     When I click Accounts
     And I click on Find an Account on the accounts menu
     And I click Advanced Find
@@ -38,7 +37,6 @@ Feature: Searching from advanced find
     Then 'Talisha Almond' should show in the advanced find name results
 
   Scenario: Searching by State and Street Name
-    Given I am logged into eTap
     When I click Accounts
     And I click on Find an Account on the accounts menu
     And I click Advanced Find

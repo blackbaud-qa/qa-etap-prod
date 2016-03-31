@@ -1,8 +1,10 @@
 @crit_proc2
 Feature: Preview Query
 
+  Background:
+    Given I login into eTap for CP2
+
 Scenario:Preview Base All Accounts
-  Given I am logged into eTap
   When I click Queries on the main menu
   And I click on Manage Queries on the queries menu
   And I click on the 'Base' category
@@ -11,7 +13,6 @@ Scenario:Preview Base All Accounts
   Then I should see 'Jose Berrios' in the query results
 
 Scenario:Preview Base All Constituents
-  Given I am logged into eTap
   When I click Queries on the main menu
   And I click on Manage Queries on the queries menu
   And I click on the 'Base' category
@@ -19,7 +20,6 @@ Scenario:Preview Base All Constituents
   Then I should see 'Gail Burch' in the query results
 
 Scenario:Preview Base All Tributes
-  Given I am logged into eTap
   When I click Queries on the main menu
   And I click on Manage Queries on the queries menu
   And I click on the 'Base' category
@@ -27,7 +27,6 @@ Scenario:Preview Base All Tributes
   Then I should see 'Cindy Grant' in the query results
 
 Scenario:Preview Base All Users
-  Given I am logged into eTap
   When I click Queries on the main menu
   And I click on Manage Queries on the queries menu
   And I click on the 'Base' category
@@ -35,7 +34,6 @@ Scenario:Preview Base All Users
   Then I should see 'AutomationBot' in the query results
 
 Scenario:Preview Base All Journal Entries
-  Given I am logged into eTap
   When I click Queries on the main menu
   And I click on Manage Queries on the queries menu
   And I click on the 'Base' category

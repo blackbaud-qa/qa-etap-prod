@@ -1,9 +1,11 @@
 @crit_proc
 Feature: Importing Constituent and Gift Information
 
+  Background:
+  Given I login into eTap for CP1
+
   Scenario: running a successful gift import with address information included
-    Given I am logged into eTap
-    And I clear the old import data
+    Given I clear the old import data
     When I click Management on the main menu
     And I click on Import on the management menu
     And I click 'Standard eTapestry Imports' on the Imports screen
@@ -99,7 +101,6 @@ Feature: Importing Constituent and Gift Information
     And I click Next on the Import screen
 
   Scenario: missing required fields
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on Import on the management menu
     And I click 'Standard eTapestry Imports' on the Imports screen
@@ -113,8 +114,7 @@ Feature: Importing Constituent and Gift Information
     Then I receive the following import message: 'We were unable to process your import because of issues with your import file. NO DATA was added to your database including lines where there were no errors.'
 
   Scenario: deleting imported information and the import template
-    Given I am logged into eTap
-    And I clear the old import data
+    Given I clear the old import data
     When I click Management on the main menu
     And I click on Import on the management menu
     And I click 'Standard eTapestry Imports' on the Imports screen

@@ -1,9 +1,11 @@
 @crit_proc2
 Feature: Run existing report
 
+  Background:
+    Given I login into eTap for CP2
+
   Scenario: Run constituent address report
-    Given I am logged into eTap
-    And I click on reports
+    Given I click on reports
     And I click on Manage Reports on the reports menu
     And I click on the system category
     And I click on run report next to the report Test

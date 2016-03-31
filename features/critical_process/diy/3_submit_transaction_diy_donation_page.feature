@@ -3,9 +3,11 @@ Feature: Submit a transaction through a diy donation page
 
 #  Background:
 #    Given a DIY form titled Existing Donation Page already exists
+  Background:
+  Given I login into eTap for CP1
+
 
   Scenario: submitting a successful credit card transaction
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click on the link for the form titled Existing Donation Page
@@ -40,7 +42,6 @@ Feature: Submit a transaction through a diy donation page
 
 
   Scenario: Submitting an unsuccessful credit card transaction
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click on the link for the form titled Existing Donation Page
