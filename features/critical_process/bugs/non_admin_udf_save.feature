@@ -1,6 +1,9 @@
 @bugs
 Feature: Verifying that non-admins cannot remove data from UDFs they do not have access to
 
+  Background:
+    Given I login into eTap for bugs
+
   Scenario: Saving UDFs on a Journal Entry in full eTapestry
     Given I log out of eTap
     When I login into eTap with values 'Automationbot.khammer.us', 'spicypancakes1'

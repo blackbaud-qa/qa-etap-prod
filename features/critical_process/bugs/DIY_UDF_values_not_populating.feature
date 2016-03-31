@@ -1,6 +1,9 @@
 @bugs
 Feature: UDF values should still function properly after republishing
 
+  Background:
+    Given I login into eTap for bugs
+
   Scenario: UDF values function on a published DIY page
     Given a DIY form titled UDF Test 490078 exists
     And the DIY page UDF Test 490078 contains the UDF Gender

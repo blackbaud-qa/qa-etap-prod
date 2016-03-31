@@ -1,8 +1,10 @@
 Feature: Adding/Editing/Deleting relationship
 
+  Background:
+    Given I login into eTap for bugs
+
   Scenario: Adding/Editing/Deleting Relationship
-    Given I am logged into eTap
-    And I type 'Jose Berrios' into the dynamic search field
+    Given I type 'Jose Berrios' into the dynamic search field
     And I press Enter on the keyboard
     And I click on Relationships from the Role Icon drop down for 'Jose Berrios'
     And I click New Relationship in the Tasks box

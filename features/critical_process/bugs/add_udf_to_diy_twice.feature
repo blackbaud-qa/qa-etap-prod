@@ -1,12 +1,12 @@
 @bugs
 Feature: Adding same UDF to DIY pave
 
-    Background:
-    Given a DIY form titled Duplicate UDF exists
+  Background:
+    Given I login into eTap for bugs
+    And a DIY form titled Duplicate UDF exists
 
   Scenario: Attempt to add same UDF to existing DIY page
-    Given I am logged into eTap
-    And I click Management on the main menu
+    Given I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Duplicate UDF'
     And I click Add Item on the DIY editor page

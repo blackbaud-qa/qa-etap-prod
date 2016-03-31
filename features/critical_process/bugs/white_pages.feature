@@ -2,9 +2,10 @@
 Feature: Looking up a Phone Number via White Pages
 
 ### The IP address for automation is currently being blocked by whitepages.com so I can only verify what is being sent over in the url rather than verifying that the proper fields are being populated on whitepages.com ###
+  Background:
+    Given I login into eTap for bugs
 
   Scenario: Looking up a Phone Number when adding a new account
-    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set First Name to 'Jeremy' on the classic add account page
@@ -19,7 +20,6 @@ Feature: Looking up a Phone Number via White Pages
 
 
   Scenario: Looking up a Phone Number when editing an existing account
-    Given I am logged into eTap
     When I type '/9' into the dynamic search field
     And I press Enter on the keyboard
     And I click Personas

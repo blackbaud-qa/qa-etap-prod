@@ -1,9 +1,11 @@
 @bugs
 Feature: Saving a query as static and then as dynamic
 
+  Background:
+    Given I login into eTap for bugs
+
   Scenario: Setting up a Journal Entry query as static, saving it, and then changing it to dynamic
-    Given I am logged into eTap
-    And I click Queries on the main menu
+    Given I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click New Category on the Query Categories page
     And I set the Name to 'Dynamic Queries' on the Create Query Category page
@@ -35,8 +37,7 @@ Feature: Saving a query as static and then as dynamic
     Then I should see the 'Dynamic Queries' category has been removed from the page
 
   Scenario: Setting up an Account query as static, saving it, and then changing it to dynamic
-    Given I am logged into eTap
-    And I click Queries on the main menu
+    Given I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click New Category on the Query Categories page
     And I set the Name to 'Dynamic Queries' on the Create Query Category page

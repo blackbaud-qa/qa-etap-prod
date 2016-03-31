@@ -1,8 +1,10 @@
 @bugs
 Feature: Required UDFs appear as required
 
+  Background:
+    Given I login into eTap for bugs
+
   Scenario: Required UDFs appear as required when accessing account
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on User Defined Fields on the management menu
     And I click the Base UDF category on the Edit User Defined Fields page

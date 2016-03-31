@@ -1,8 +1,10 @@
 @bugs
 Feature: Setting up auto processing Recurring Gift Schedules
 
+  Background:
+    Given I login into eTap for bugs
+
   Scenario: Setting up an auto processing CC Recurring Gift Schedule and processing the first payment today
-    Given I am logged into eTap
     When I type 'Niles' into the dynamic search field
     And I press Enter on the keyboard
     And I click on the 'Niles Baker' account
@@ -35,7 +37,6 @@ Feature: Setting up auto processing Recurring Gift Schedules
 
 
   Scenario: Setting up an auto processing EFT Recurring Gift Schedule and processing the first payment today
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click My Organization
     And I click on 'eCommerce' in the account header

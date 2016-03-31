@@ -1,9 +1,11 @@
 @bugs
 Feature: Add account from tribute area
 
+  Background:
+    Given I login into eTap for bugs
+
   Scenario: Adding account from tribute area on gift screen
-    Given I am logged into eTap
-    And I type 'Jose Berrios' into the dynamic search field
+    Given I type 'Jose Berrios' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Jose Berrios' in the search results
     And I click on 'Journal' in the account header

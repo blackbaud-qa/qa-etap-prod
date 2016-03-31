@@ -1,8 +1,10 @@
 @bugs
 Feature: Looking up a Postal Code via USPS
 
+  Background:
+    Given I login into eTap for bugs
+
   Scenario: Looking up a Postal Code when adding a new account
-    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set First Name to 'Harry' on the classic add account page
@@ -16,7 +18,6 @@ Feature: Looking up a Postal Code via USPS
 
 
   Scenario: Looking up a Postal Code when editing an existing account
-    Given I am logged into eTap
     When I type '/9' into the dynamic search field
     And I press Enter on the keyboard
     And I click Personas

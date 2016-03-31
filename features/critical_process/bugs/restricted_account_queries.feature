@@ -1,6 +1,9 @@
 @bugs
 Feature: TFS 531822 -- Queries previewed by security restricted users are returning accounts they should not see
 
+  Background:
+    Given I login into eTap for bugs
+
 Scenario: A 'Default' security group user should not be able
     to view accounts that they do not have the right to see
   Given I create constituent 'Xyz321 Abc123'
@@ -15,7 +18,7 @@ Scenario: A 'Default' security group user should not be able
   And I save a security group
   And I create user 'testGZuser1'
   And I log out of eTap
-  And I am logged into eTap
+  And I login into eTap for bugs
   And I click Management on the main menu
   And I click on Security Groups on the management menu
   And set 'testGZuser1' rights to security group 'Account Restrictions1'
@@ -42,7 +45,7 @@ Scenario: A 'Default' security group user should be able
   And I save a security group
   And I create user 'testGZuser2'
   And I log out of eTap
-  And I am logged into eTap
+  And I login into eTap for bugs
   And I click Management on the main menu
   And I click on Security Groups on the management menu
   And set 'testGZuser2' rights to security group 'Account Restrictions2'

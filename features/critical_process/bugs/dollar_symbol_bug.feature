@@ -1,8 +1,10 @@
 @bugs
 Feature: Verifying that the dollar sign does not prevent a gift or pledge from being saved properly, bug 477369
 
+  Background:
+    Given I login into eTap for bugs
+
   Scenario: Verifying that typing a dollar sign into the Received field does mess up the gift once saved
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Existing Event Page'
@@ -38,7 +40,6 @@ Feature: Verifying that the dollar sign does not prevent a gift or pledge from b
 
 
   Scenario: Verifying that the dollar sign in the Pledge Installment Amount field does not prevent a pledge from being saved
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Existing Event Page'

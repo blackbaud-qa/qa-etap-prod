@@ -2,9 +2,11 @@
 Feature: The various 'Save And' options lead to the correct pages for a new Account.
   Provides partial coverage for TFS bug 518185.
 
+  Background:
+    Given I login into eTap for bugs
+
   Scenario Outline: Account page Save And navigation
-    Given I am logged into eTap
-    And there exists constituent 'Andy Anderson'
+    Given there exists constituent 'Andy Anderson'
     And I click on 'Andy Anderson' on the accounts page
     When I click tab <start_page>
     And click Save and <operation>
@@ -30,8 +32,7 @@ Feature: The various 'Save And' options lead to the correct pages for a new Acco
     Given I have disabled Duplicate Checking
 
   Scenario Outline: Account page Save And navigation after disabling Duplicate Check
-    Given I am logged into eTap
-    And there exists constituent 'Andy Anderson'
+    Given there exists constituent 'Andy Anderson'
     And I click on 'Andy Anderson' on the accounts page
     When I click tab <start_page>
     And click Save and <operation>
@@ -60,8 +61,7 @@ Feature: The various 'Save And' options lead to the correct pages for a new Acco
     Given I have disabled Duplicate Checking
 
   Scenario Outline: New Account page Save And navigation after disabling Duplicate Check
-    Given I am logged into eTap
-    And I create constituent 'Andy Smith' with '<operation>' desired landing page
+    Given I create constituent 'Andy Smith' with '<operation>' desired landing page
     Then I should be taken to 'Andy Smith' <dest_page> page
 
     Examples:

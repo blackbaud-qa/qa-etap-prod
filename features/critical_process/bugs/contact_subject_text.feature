@@ -1,9 +1,11 @@
 @bugs
 Feature: Contact Subject Text Query
 
+  Background:
+    Given I login into eTap for bugs
+
   Scenario: Querying on multiple contact subjects with quotations
-    Given I am logged into eTap
-    And I click Accounts on the main menu
+    Given I click Accounts on the main menu
     And I click on Find an Account on the accounts menu
     And I type 'Talisha' into the search field
     And I press Enter on the keyboard

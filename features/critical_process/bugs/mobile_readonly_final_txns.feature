@@ -1,6 +1,8 @@
 Feature: TFS 534545 reported that mobile non-admin users were able to modify
   transactions that were marked as final.
 
+  Background:
+    Given I login into eTap for bugs
 
   Scenario: Non-admin users should not be able to modify finalized transactions in eTap Mobile
     Given I create constituent 'Joe Smith'
@@ -8,7 +10,7 @@ Feature: TFS 534545 reported that mobile non-admin users were able to modify
     And wait for the journal page to display
     And I create user 'testUser1'
     And I log out of eTap
-    And I am logged into eTap
+    And I login into eTap for bugs
     And I click Management on the main menu
     And I click on Security Groups on the management menu
     And set 'testUser1' rights to non admin

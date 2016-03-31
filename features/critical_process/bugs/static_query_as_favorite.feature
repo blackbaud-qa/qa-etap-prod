@@ -1,9 +1,11 @@
 @bugs
 Feature: Saving a static query as a favorite query
 
+  Background:
+    Given I login into eTap for bugs
+
   Scenario: Setting up a static query, saving it as a favorite, and then accessing it
-    Given I am logged into eTap
-    And I click Queries on the main menu
+    Given I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click New Category on the Query Categories page
     And I set the Name to 'Favorite Queries' on the Create Query Category page
@@ -18,7 +20,7 @@ Feature: Saving a static query as a favorite query
     And I type 'Smith' into the Account Name field on the Create a New Query page
     And I click Save And 'Preview'
     And I log out of eTap
-    And I am logged into eTap
+    And I login into eTap for bugs
     And I click Queries on the main menu
     And I click the favorite query titled 'Constituents Last Name Smith'
     And I am taken to the Edit Custom Account Query Screen for 'Constituents Last Name Smith'

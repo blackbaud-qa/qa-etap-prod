@@ -2,10 +2,9 @@
 Feature: Entering multiple email addresses when adding new accounts
 
   Background:
-    Given I am logged into eTap
+   Given I login into eTap for bugs
 
   Scenario: Multiple Email addresses separated by a space
-    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the First Name to 'James' on the add account page
@@ -42,7 +41,6 @@ Feature: Entering multiple email addresses when adding new accounts
     And the 'Company' should be set to 'Rolls Royce'
 
   Scenario: Multiple Email addresses separated by comma
-    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the First Name to 'Mark' on the add account page
@@ -79,7 +77,6 @@ Feature: Entering multiple email addresses when adding new accounts
     And the 'Company' should be set to 'Dell'
 
   Scenario: Multiple Email addresses separated by semicolon
-    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the First Name to 'Steven' on the add account page
@@ -116,7 +113,6 @@ Feature: Entering multiple email addresses when adding new accounts
     And the 'Company' should be set to 'Eli Lilly'
 
   Scenario: Multiple Email addresses separated by a return
-    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the First Name to 'Mike' on the add account page

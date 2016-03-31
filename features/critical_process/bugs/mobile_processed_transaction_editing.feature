@@ -1,11 +1,12 @@
 @bugs
 Feature: Processed transactions should not be editable via the mobile eTap site
 
+  Background:
+    Given I login into eTap for bugs
 
   Scenario: Processed transactions should not be editable
-    Given I am logged into eTap
 #    And I create constituent 'Bob Smith'  #added to zero state base DB
-    And I add a credit card gift for 54 dollars to Bob Smith
+    Given I add a credit card gift for 54 dollars to Bob Smith
     And wait for the journal page to display
     And I log out of eTap
     And I am logged into Mobile eTap
@@ -22,8 +23,7 @@ Feature: Processed transactions should not be editable via the mobile eTap site
 
 
   Scenario: Transactions should be save-able
-    Given I am logged into eTap
-    And I create constituent 'Bob Smith'
+    Given I create constituent 'Bob Smith'
     And I add a credit card gift for 5 dollars to Bob Smith
     And wait for the journal page to display
     And I log out of eTap

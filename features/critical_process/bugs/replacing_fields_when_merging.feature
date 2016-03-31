@@ -1,8 +1,10 @@
 @bugs
 Feature: Certain fields was not being replaced when merging (Bug 536046)
 
+  Background:
+    Given I login into eTap for bugs
+
   Scenario: Suburb not being replaced when merging AU accounts
-    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Individual' on the add account page
@@ -56,7 +58,6 @@ Feature: Certain fields was not being replaced when merging (Bug 536046)
 #    Then I should be taken to the Find Account page
 
   Scenario: Street Name, Building Number, Apt Number not being replaced when merging NL accounts
-    Given I am logged into eTap
     When I click Accounts
     And I click on Add Account on the find account screen
     And I set the Name Format to 'Individual' on the add account page

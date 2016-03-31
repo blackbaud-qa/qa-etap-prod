@@ -1,10 +1,9 @@
 @bugs
 Feature: Moving UDF Values
   Background:
-    Given I am logged into eTap
+    Given I login into eTap for bugs
 
   Scenario: Moving UDF Values
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on User Defined Fields on the management menu
     And I click the Base UDF category on the Edit User Defined Fields page

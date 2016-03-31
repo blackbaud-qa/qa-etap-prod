@@ -1,8 +1,10 @@
 @bugs
 Feature: Verifying that adding a UDF to existing DIY page does not prevent previous UDFs from working
 
+  Background:
+    Given I login into eTap for bugs
+
   Scenario: Verifying that existing and newly added UDFs are both getting marked on incoming submissions
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
 ###   This is currently dependent on there already being a DIY page created   ###
