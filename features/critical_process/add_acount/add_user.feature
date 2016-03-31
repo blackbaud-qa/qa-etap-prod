@@ -11,3 +11,4 @@ Feature: Add User
     And I log out of eTap
     And I login into eTap with values 'new_user', 'Password!'
     Then I should be logged in
+    And I log out of eTap
