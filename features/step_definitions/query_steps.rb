@@ -496,6 +496,7 @@ And (/^I should see a description of 2015 Donors <= with a mailing address/) do
 end
 
 Then (/^I should not see a query named Donor Review <= Acknowledgement on the Edit Query Category page/) do
+  sleep 3
   query = Queries::Createquerycategory.new
   expect(query.donor_review).to eq(false)
 end
