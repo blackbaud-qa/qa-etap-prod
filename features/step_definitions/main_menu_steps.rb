@@ -2,6 +2,7 @@
 When(/^I click Home on the main menu$/) do
   landing = Admin::Landing.new
   landing.home_click
+  sleep 3
 end
 
 #Home DropDown

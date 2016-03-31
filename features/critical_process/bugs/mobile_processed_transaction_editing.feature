@@ -4,7 +4,7 @@ Feature: Processed transactions should not be editable via the mobile eTap site
 
   Scenario: Processed transactions should not be editable
     Given I am logged into eTap
-    And I create constituent 'Bob Smith'
+#    And I create constituent 'Bob Smith'  #added to zero state base DB
     And I add a credit card gift for 54 dollars to Bob Smith
     And wait for the journal page to display
     And I log out of eTap
