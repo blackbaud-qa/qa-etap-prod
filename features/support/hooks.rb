@@ -2,7 +2,7 @@ Before do
   $loggedin ||= false
   if !$loggedin
     step "I navigate to Fullhouse"
-    step "I login into eTap"
+    step "I log out of eTap"
     $loggedin = true
   end
 end

@@ -39,9 +39,15 @@ When(/^I login into eTap with values$/) do |login_table|
 end
 
 When(/^I login into eTap with values '([^']*)', '([^']*)'$/) do |custom_user, custom_password|
-  page =  Admin::Login.new(:username => custom_user, :password => custom_password)
-  page.create
-  page.log_in
+  landing = Admin::Landing.new
+  loginCheck = Admin::Login.new
+  if not loginCheck.logged_out?
+    landing.log_out
+  end
+
+  login =  Admin::Login.new(:username => custom_user, :password => custom_password)
+  login.create
+  login.log_in
 end
 
 When(/^I login into eTap a second time with values$/) do |login_table|
@@ -119,7 +125,11 @@ end
 
 When(/^I log out of eTap$/) do
   landing = Admin::Landing.new
-  landing.log_out
+  login = Admin::Login.new
+
+  if not login.logged_out?
+    landing.log_out
+  end
 end
 
 When(/^I log out of eTap Mobile$/) do
