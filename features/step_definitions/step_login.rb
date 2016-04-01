@@ -119,7 +119,9 @@ end
 
 When(/^I log out of eTap$/) do
   landing = Admin::Landing.new
-  landing.log_out
+  if not page.logged_out?
+    landing.log_out
+  end
 end
 
 When(/^I log out of eTap Mobile$/) do
