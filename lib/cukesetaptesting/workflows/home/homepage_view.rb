@@ -34,6 +34,8 @@ module Cukesetaptesting
       #  link. It wasn't added to the mrsInvisibleWoman code base, as we were at release time.
       #keyword(:take_me_to_etap_iframe)  { browser.iframe(:id, 'etapContentIframe').div(:id, 'welcomeDashboard').div(:class, 'popupWindow menuOverlay').div(:class, 'popContent').div(:index => 0).div(:index => 2).h2.link(:id, 'closeMenuOverlayLink') }
 
+      keyword(:walkme_done_button) { browser.button(:class=>/walkme-custom-balloon-done-button/) }
+
       #DEV_HELP - last iFrame uses a translatable string
       keyword(:take_me_to_etap_iframe)  { browser.iframe(:id, 'etapContentIframe').div(:id, 'welcomeDashboard').div(:class, 'popupWindow menuOverlay').div(:class, 'popContent').div(:index => 0).div(:index => 2).h2.link(:text, 'Take me to eTapestry!') }
 

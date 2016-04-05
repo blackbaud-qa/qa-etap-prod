@@ -1,3 +1,8 @@
+And (/^I close the WalkMe dialog/) do
+  dashboard = Home::Homepage.new
+  dashboard.click_walkme_done_button
+end
+
 And (/^I click Recently Viewed Accounts/) do
   dashboard = Home::Homepage.new
   dashboard.dashboard_tile_add_recently_viewed_accounts_click

@@ -84,6 +84,10 @@ module Cukesetaptesting
         # end
       end
 
+      def click_walkme_done_button
+        @view.walkme_done_button.when_present.click
+      end
+
       def choose_two_equal_column_layout
         @view.two_equal_column_layout.set
       end
