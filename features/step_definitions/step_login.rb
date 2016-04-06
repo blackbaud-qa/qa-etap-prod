@@ -44,6 +44,7 @@ When(/^I login into eTap with values '([^']*)', '([^']*)'$/) do |custom_user, cu
     sleep 1
     landing = Admin::Landing.new
     landing.log_out
+    sleep 1
   end
 
   login =  Admin::Login.new(:username => custom_user, :password => custom_password)
