@@ -18,7 +18,7 @@ module Cukesetaptesting
 
       keyword(:advanced_link) { content.link(:text=> 'Advanced Find') }
       keyword(:exact_button) { content.div(:id => 'quickSearchFields').button(:value => 'Exact Match') }
-      keyword(:table_content) { content.table(:id => 'bbgrid-table-7')}
+      keyword(:table_content) { content.table(:id => 'bbgrid-table-16')}
 
    #   keyword(:account_name) { table_content.tr(:index => 1).td(:index => 2)}
       def account_name index_value
@@ -32,7 +32,7 @@ module Cukesetaptesting
         account_trs = table_content.trs
 
         proper_table_row = nil
-        table_content.trs(:id=>/bb-grid-row-7/).each do |tr|
+        table_content.trs(:id=>/bb-grid-row-16/).each do |tr|
           if tr.td(:index=>2).text.include? account_name
             proper_table_row = tr
           end
