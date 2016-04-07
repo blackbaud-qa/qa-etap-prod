@@ -39,17 +39,19 @@ When(/^I login into eTap with values$/) do |login_table|
 end
 
 When(/^I login into eTap with values '([^']*)', '([^']*)'$/) do |custom_user, custom_password|
-  # loginCheck = Admin::Login.new
+  loginCheck = Admin::Login.new
   # if not loginCheck.logged_out?
   #   sleep 1
   #   landing = Admin::Landing.new
   #   landing.log_out
   #   sleep 1
   # end
+  if loginCheck.logged_out?
+    login =  Admin::Login.new(:username => custom_user, :password => custom_password)
+    login.create
+    login.log_in
+  end
 
-  login =  Admin::Login.new(:username => custom_user, :password => custom_password)
-  login.create
-  login.log_in
 end
 
 When(/^I login into eTap a second time with values$/) do |login_table|
