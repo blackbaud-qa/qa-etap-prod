@@ -18,5 +18,18 @@ Feature: Adding/Editing/Deleting relationship
     And I click the Delete link on the Relationships page
     And I click Delete in the Delete this Relationship modal
     Then I should not see a Relationship on the Relationships page
+    And I go to the journal of account 'Jose Berrios'
+    And I click on the Note listed in the journal
+    And I click delete on the note page
+    And I click on the Note listed in the journal
+    And I click delete on the note page
+    And I go to the journal of account 'Talisha Almond'
+    And I click on the Note listed in the journal
+    And I click delete on the note page
+    And I click on the Note listed in the journal
+    And I click delete on the note page
+
+
+
 
 
