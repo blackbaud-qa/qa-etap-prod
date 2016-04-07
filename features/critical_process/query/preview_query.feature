@@ -1,4 +1,4 @@
-@crit_proc2
+@crit_proc2 @pipetest2
 Feature: Preview Query
 
   Background:

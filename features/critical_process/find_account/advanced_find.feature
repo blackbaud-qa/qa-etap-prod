@@ -1,4 +1,4 @@
-@crit_proc
+@crit_proc @pipetest1
 Feature: Searching from advanced find
 
   Background:
