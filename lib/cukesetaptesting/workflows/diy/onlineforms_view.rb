@@ -63,7 +63,7 @@ module Cukesetaptesting
       keyword(:live_page) {browser.div(:id,'pageRoot')}
       keyword(:live_page_title) {browser.h1(:id,'headerText')}
       keyword(:live_fund) {browser.select(:id,'ecFundSelectField')}
-      keyword(:live_gender) {browser.h6(:class=>'dropdownType',:text=>'Gender').parent.parent.select}
+      keyword(:live_gender) {browser.h6(:class=>'dropdownType',:text=>/Gender/).parent.parent.select}
       keyword(:live_maiden_name) {browser.h6(:class=>'simplefieldType',:text=>'Maiden Name').parent.parent.text_field}
       keyword(:live_amount_other) {browser.radio(:id,'gift_amount_advanced_givingLevelsOther')}
       keyword(:live_amount_field) {browser.text_field(:id,'otherAmt')}
