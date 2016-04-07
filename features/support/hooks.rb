@@ -1,10 +1,10 @@
 Before do
-  $loggedin ||= false
-  if !$loggedin
+  # $loggedin ||= false
+  # if !$loggedin
     step "I navigate to Fullhouse"
     step "I log out of eTap"
-    $loggedin = true
-  end
+    # $loggedin = true
+  # end
 end
 
 After do
