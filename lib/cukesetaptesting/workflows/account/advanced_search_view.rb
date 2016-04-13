@@ -2,7 +2,7 @@ module Cukesetaptesting
   module Account
     class AdvancedSearchView < BaseView
       #Search Keywords
-      keyword(:search_field)  { content.div(:id=>'advancedSearchFields').text_field(:id => 'searchString') }
+      keyword(:search_field)  { content.div(:id=>'advancedSearchFields').text_field(:id => 'advancedSearchString') }
       keyword(:email_field)  { content.div(:id=>'advancedSearchFields').text_field(:id => 'email') }
       keyword(:phone_field) {content.div(:id=>'advancedSearchFields').text_field(:id, 'phone')}
       keyword(:address_field) {content.div(:id=>'advancedSearchFields').text_field(:id, 'address')}
@@ -17,7 +17,7 @@ module Cukesetaptesting
       keyword(:advanced_link) { content.link(:text=> 'Advanced Find') }
       #DEV_HELP
  #     keyword(:exact_button) { content.button(:value => 'Exact Match') }
-      keyword(:table_content) { content.table(:id => 'bbgrid-table-7')}
+      keyword(:table_content) { content.table(:id => 'bbgrid-table-16')}
       keyword(:search_result_count_message) { content.div(:id=>'searchResultCount').span}
 
 #      keyword(:account_name) { table_content.tr(:index => 1).td(:index => 2)}
