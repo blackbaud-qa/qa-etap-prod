@@ -27,7 +27,7 @@ module Cukesetaptesting
       #DEV_HELP
       keyword(:last_gift) {content.a(:text,'Last Gift')}
       keyword(:journal_start_date) {content.div(:class=>/bb-applied-filter-bar/).div(:index=>1).span(:index=>0).span.span(:index=>0)}
-      keyword(:five_year_summary_recent) {content.table(:id,'fiveYearSummaryTable').a}
+      keyword(:five_year_summary_recent) {content.table(:id,'fiveYearSummaryTable').a(:text, Time.now.strftime('%Y'))}
 
       def account_header_link tab_name
         content.div(:id => 'topMenu').a(:text => tab_name)
