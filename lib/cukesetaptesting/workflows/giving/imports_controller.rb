@@ -65,11 +65,15 @@ module Cukesetaptesting
       end
 
       def mapping_icon_click field
-        @view.mapping_table_other_fields_row(field).text_field(:class,'compactInput').parent.img.when_present.click
+        @view.mapping_table_other_fields_row(field).text_field(:name,'formula').parent.img.when_present.click
+      end
+
+      def field_option_select(field,option)
+        @view.mapping_table_individual_name_format_row(field).select.when_present.select option
       end
 
       def mapping_icon_names_click field
-        @view.mapping_table_individual_name_format_row(field).text_field(:class,'compactInput').parent.img.when_present.click
+        @view.mapping_table_individual_name_format_row(field).text_field(:name,'formula').parent.img.when_present.click
       end
 
       def import_mapping_field_click field
