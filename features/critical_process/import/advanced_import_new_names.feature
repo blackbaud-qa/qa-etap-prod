@@ -32,6 +32,7 @@ Feature: Importing Constituent and Gift Information
     And I click on the 'Persona Type' mapping icon on the Import screen
     And I click 'Persona Type' from my file
     And I the X on the Import mapping pop up
+    And I set the 'Account Name' dropdown to 'Use file or custom text' on the Import Screen
     And I click on the 'Account Name' mapping icon for names on the Import screen
     And I click 'First Name' and 'Last Name' from my file
     And I the X on the Import mapping pop up
@@ -41,6 +42,7 @@ Feature: Importing Constituent and Gift Information
     And I click on the 'Last Name' mapping icon for names on the Import screen
     And I click 'Last Name' from my file
     And I the X on the Import mapping pop up
+    And I set the 'Sort Name' dropdown to 'Use file or custom text' on the Import Screen
     And I click on the 'Sort Name' mapping icon for names on the Import screen
     And I click 'Sort Name' from my file
     And I the X on the Import mapping pop up

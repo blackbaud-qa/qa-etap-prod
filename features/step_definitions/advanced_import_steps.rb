@@ -101,6 +101,11 @@ And(/^I click on the '([^']*)' mapping icon on the Import screen$/) do |field|
   import.mapping_icon_click field
 end
 
+And(/^I set the '([^']*)' dropdown to '([^']*)' on the Import Screen$/) do |field, option|
+  import = Giving::Imports.new()
+  import.field_option_select(field,option)
+end
+
 And(/^I click on the '([^']*)' mapping icon for names on the Import screen$/) do |field|
   import = Giving::Imports.new()
   import.mapping_icon_names_click field
