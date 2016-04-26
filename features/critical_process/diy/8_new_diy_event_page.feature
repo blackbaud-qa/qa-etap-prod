@@ -1,4 +1,4 @@
-@crit_proc
+#todo: add crit proc tag
 Feature: Creating a new diy event page
 
   Scenario: creating a new diy event page
