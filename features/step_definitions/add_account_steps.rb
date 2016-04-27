@@ -671,3 +671,12 @@ Then (/I should not see a Relationship on the Relationships page$/) do
   expect(accounts.relationship_present).to eq(false)
 end
 
+And (/^I select '([^']*)' from the Persona type drop down$/) do |value|
+accounts = Account::AddAccount.new
+accounts.personas_dd_select(value)
+end
+
+And(/^I click Delete on the Personas page$/) do
+  accounts = Account::AddAccount.new
+  accounts.persona_page_delete_click
+end
