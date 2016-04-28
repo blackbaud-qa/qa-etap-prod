@@ -518,6 +518,19 @@ module Cukesetaptesting
         @view.relationship_present.present?
       end
 
+      def select_persona_type_value(type)
+        @view.persona_type_value.when_present.select(type)
+      end
+
+      def personas_dd_select(value)
+        @view.persona_dd.when_present.option(:text=>/#{value}/).select
+      end
+
+      def persona_page_delete_click
+        @view.click_and_confirm_alert(@view.persona_page_delete)
+      end
+
+
 
     end
   end
