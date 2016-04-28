@@ -32,9 +32,10 @@ module Cukesetaptesting
         account_trs = table_content.trs
 
         proper_table_row = nil
-        table_content.trs(:id=>/bb-grid-row-16/).each do |tr|
+        table_content.trs(:id=>/bb-grid-row/).each do |tr|
           if tr.td(:index=>2).text.include? account_name
             proper_table_row = tr
+            break
           end
         end
 
@@ -42,7 +43,7 @@ module Cukesetaptesting
       end
 
 
-      keyword(:role_menu) { content.ul(:index=>1, :class=>"dropdown-menu") }
+      keyword(:role_menu) { content.ul(:index=>2, :class=>"dropdown-menu") }
       keyword(:role_menu_home) {role_menu.li(:index=>0).link }
       keyword(:role_menu_personas) {role_menu.li(:index=>1).link }
       keyword(:role_menu_relationships) {role_menu.li(:index=>2).link }
