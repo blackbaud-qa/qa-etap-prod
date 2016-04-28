@@ -8,7 +8,7 @@ Feature: Ability to search for Account Name in the query results
     When I click Queries on the main menu
     And I click on the 'Search Query Results' category
     And I click preview below the 'All Accounts Imported for Search Query Results' query on the Create a New Query page
-    And I should see '118' results on the query preview page
+    And I should see '118 Accounts' results on the query preview page
     And the ghost text in the query preview search field should say Search for Account Name
     And I type 'John' into the query preview search field
     And I click on the magnifying glass in the search field
@@ -128,7 +128,7 @@ Feature: Ability to search for Account Name in the query results
     And the Received Amount should be set to '$395.00'
     And I click the back button
     Then I should see '3' results on the query preview page
-    And And I should see 'Michael' displayed in the query preview search field
+    And I should see 'Michael' displayed in the query preview search field
 
   Scenario: Other random search tests
     When I click Queries on the main menu
@@ -136,5 +136,14 @@ Feature: Ability to search for Account Name in the query results
     And I click preview below the 'All Accounts Imported for Search Query Results' query on the Create a New Query page
     And I type 'and' into the query preview search field
     And I should see '2' results on the query preview page
-    And I should see 'Scott and Sally Miles' in the query results....
+    And I should see 'Scott and Sally Miles' in the query results
+    And I type 'AT&T' into the query preview search field
+    And I should see '1' results on the query preview page
+    And I should see 'AT&T' in the query results
+    And I type 'II' into the query preview search field
+    And I should see '3' results on the query preview page
+    And I should see 'Victor Rivera, II' in the query results
+    And I click I click Clear Search on the query preview page
+    Then I should see '118' results on the query preview page
+
 

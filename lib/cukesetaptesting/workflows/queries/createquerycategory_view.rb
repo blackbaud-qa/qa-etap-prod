@@ -68,6 +68,19 @@ module Cukesetaptesting
 
       keyword(:journal_entry_type_selection) {content.div(:id, 'criteriaList').input(:value, 'label.contact')}
 
+      keyword(:query_preview_results_count) {content.div(:id, 'resultCount').span(:class, 'et-grid-results-count ng-binding ng-scope')}
+      keyword(:query_preview_search_field_ghost_text) {content.div(:id,'')}
+      keyword(:set_query_preview_search_field) {content.div(:id,'')}
+      keyword(:query_preview_search_magnifying_glass) {content.div(:id,'')}
+      keyword(:query_preview_clear_search_button) {content.div(:id,'')}
+      keyword(:query_preview_choose_columns_button) {content.div(:class,'clearfix toolbar bb-table-toolbar').button(:class, 'btn bb-btn-secondary bb-grid-toolbar-btn bb-column-picker-btn')}
+      keyword(:column_picker_account_name) {content.div(:id, '')}
+      keyword(:column_picker_apply_changes_button) {content.div(:class,'modal-footer').button(:class, 'btn btn-primary')}
+      keyword(:query_preview_journal_entry_grid) {content.div(:class, 'table-responsive bb-grid-table-wrapper')}
+      keyword(:query_preview_search_field_text) {content.div(:id,'')}
+      keyword(:query_preview_restore_defaults_button) {content.div(:class,'clearfix toolbar bb-table-toolbar').button(:class, 'btn bb-btn-secondary bb-grid-toolbar-btn ng-binding ng-scope')}
+
+
 
       def string_exists_on_page?(query_string)
         content.link(:text => query_string).exists?
@@ -230,6 +243,10 @@ module Cukesetaptesting
 
       def favorite_query_link_click(name)
         content.div(:id, 'queryFavoritesSection').a(:text, name)
+      end
+
+      def query_preview_journal_entry_click(type, name)
+        content.a(:text, name).parent.parent.a(:text, type)
       end
 
 
