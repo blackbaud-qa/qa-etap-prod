@@ -504,12 +504,13 @@ module Cukesetaptesting
         @view.journal_entry_type_selection(value).when_present.click
       end
 
-      def query_preview_results
-        @view.query_preview_results_count.when_present.value
+      def query_preview_results_total_count(value)
+        sleep 2
+        @view.query_preview_results_count.when_present.text.include? value
       end
 
       def query_preview_search_field_blank
-        @view.query_preview_search_field_ghost_text.when_present.value
+        @view.set_query_preview_search_field.when_present.value
       end
 
       def query_preview_search_magnifying_glass_click
@@ -532,12 +533,12 @@ module Cukesetaptesting
         @view.column_picker_apply_changes_button.when_present.click
       end
 
-      def back
-        @driver.navigate.back
+      def back_button_click
+        browser.back
       end
 
       def query_preview_journal_entry_date(value)
-        @view.query_preview_journal_entry_grid.when_present.text_include? (value)
+        @view.query_preview_journal_entry_grid.when_present.text.include? (value)
       end
 
       def query_preview_search_field_contents

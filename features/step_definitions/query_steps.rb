@@ -307,7 +307,10 @@ end
 
 And (/^I should see I should see my organization account in the query results/) do
   query = Queries::Createquerycategory.new
-  expect(query.query_results_my_org).to eq(true)
+  # expect(query.query_results_my_org).to eq(true)
+  step "And I type 'Ground' into the query preview search field"
+  step "I click on the magnifying glass in the search field"
+  step "I should see 'Ground Zero AutomationBot US' in the query results"
 end
 
 Then (/^I should see '([^']*)' in the query results/) do |name|
@@ -556,7 +559,7 @@ end
 
 And (/^I should see '([^']*)' results on the query preview page/) do |value|
   query = Queries::Createquerycategory.new()
-  expect(query.query_preview_results).to eq(value)
+  expect(query.query_preview_results_total_count(value)).to eq true
 end
 
 And (/^the ghost text in the query preview search field should say Search for Account Name/) do

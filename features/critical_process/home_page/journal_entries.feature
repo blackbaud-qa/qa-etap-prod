@@ -1,8 +1,8 @@
 @crit_proc
 Feature: journal entries
 
-  Background
-  Given I login into eTap for CP1
+  Background: I am logged into eTapestry
+    Given I login into eTap for CP1
 
   Scenario: Select a date from recent journal entries
     When I am on an account
