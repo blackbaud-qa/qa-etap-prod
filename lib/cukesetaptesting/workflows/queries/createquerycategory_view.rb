@@ -63,7 +63,7 @@ module Cukesetaptesting
       keyword(:queries_menu_tab_click) {content.div(:id, 'menuBottomBar').li(:id, 'queriesTab').img(:class, 'menuTabButton')}
       keyword(:set_query_starting_criteria_category) {content.select(:id, 'select.query.category.1')}
       keyword(:set_query_starting_criteria_query) {content.select(:id, 'select.query.1')}
-      keyword(:query_preview_on_screen_title) {content.div(:class, 'pageSubtitle')}
+      keyword(:query_preview_on_screen_title) {content.div(:class, 'pageSubtitle ng-binding')}
       keyword(:query_type_dynamic) {content.radio(:id, 'modalDynamic')}
 
       keyword(:journal_entry_type_selection) {content.div(:id, 'criteriaList').input(:value, 'label.contact')}
@@ -79,6 +79,17 @@ module Cukesetaptesting
       keyword(:query_preview_journal_entry_grid) {content.div(:class, 'ui-jqgrid-bdiv')}
       keyword(:query_preview_search_field_text) {content.div(:id,'')}
       keyword(:query_preview_restore_defaults_button) {content.div(:class,'clearfix toolbar bb-table-toolbar').button(:class, 'btn bb-btn-secondary bb-grid-toolbar-btn ng-binding ng-scope')}
+
+      keyword(:query_favorites_tile_left){content.div(:class, 'taskPaneLeft')}
+      keyword(:edit_query_definition_page) {content.div(:class, 'pageTitle')}
+      #4 keyword(:query_favorites_modal_text) {content.text_field(:id, '')
+      keyword(:close_favorites_modal) {content.div(:class, 'fa fa-times close')}
+      #8 keyword (:favorites_modal_search) {content.div(:id, 'etap.fieldset.area.1').td(:class, 'pageResults')}
+      #9 keyword(:see_all_query_favorites_menu) {content.a(:id, 'favoritesViewAllLink')}
+      keyword(:query_favorites_modal) {content.div(:id, 'favoritesHeader')}
+      keyword(:mark_standard_query_as_favorite) {content.div(:id, 'addFavorite')}
+      keyword(:remove_standard_query_from_favorites) {content.div(:id, 'removeFavorite')}
+      keyword(:cancel_query_favorites_modal) {content.button(:id, 'favCancel')}
 
 
 
@@ -248,6 +259,40 @@ module Cukesetaptesting
       def query_preview_journal_entry_click(type, name)
         content.a(:text, name).parent.parent.a(:text, type)
       end
+
+      def edit_query_favorites_tile(value)
+        content.a(:text, value)
+      end
+
+      def see_all_favorites (value)
+        content.i(:text, value)
+      end
+
+      def preview_query_favorites_tile (name)
+        content.div(:class, 'fauxFieldsetInner bb-tile-content').a(:text, name).parent.i(:class, 'fa fa-laptop')
+      end
+
+      def favorites_modal_preview_icon (name)
+        content.div(:class, 'bb-repeater-component bb-repeater').a(:text, name).parent.i(:class, 'fa fa-laptop')
+      end
+
+      def edit_query_favorites_modal(value)
+        content.div(:class, 'bb-repeater-component bb-repeater').a(:text, value)
+      end
+
+      def select_category_query_favorites_modal (name)
+        content.header(:class, 'bb-repeater-item-header').a(:text, name)
+      end
+
+      def query_in_favorites_modal (name)
+        content.div(:class, 'modal-content').a(:text, name)
+      end
+
+      def query_not_in_favorites_modal (name)
+        content.div(:class, 'modal-content').a(:text, name)
+      end
+
+
 
 
     end

@@ -553,6 +553,78 @@ module Cukesetaptesting
         @view.query_preview_journal_entry_click(type, name)
       end
 
+      def query_favorites_tile_left
+        @view.query_favorites_tile_left.present?
+      end
+
+      def edit_query_favorites_tile (value)
+        @view.edit_query_favorites_tile(value).when_present.click
+      end
+
+      def edit_query_definition_page (value)
+        @view.edit_query_definition_page.text.include? value
+      end
+
+      def preview_query_favorites_tile(name)
+        @view.preview_query_favorites_tile(name).when_present.click
+      end
+
+      def see_all_favorites (value)
+        @view.see_all_favorites(value).when_present.click
+      end
+
+      def query_favorites_modal_text
+        @view.query_favorites_modal_text.when_present.value
+      end
+
+      def favorites_modal_search? message
+        @view.favorites_modal_search.when_present.text.include? message
+      end
+
+      def favorites_modal_preview_icon (name)
+        @view.favorites_modal_preview_icon(name).when_present.click
+      end
+
+      def edit_query_favorites_modal (value)
+        @view.edit_query_favorites_modal(value).when_present.click
+      end
+
+      def close_favorites_modal
+        @view.close_favorites_modal.when_present.click
+      end
+
+      def see_all_query_favorites_menu
+        @view.see_all_query_favorites_menu.when_present.click
+      end
+
+      def query_favorites_modal
+        @view.query_favorites_modal.present?
+      end
+
+      def select_category_query_favorites_modal (name)
+        @view.select_category_query_favorites_modal(name).when_present.click
+      end
+
+      def mark_standard_query_as_favorite
+        @view.mark_standard_query_as_favorite.when_present.click
+      end
+
+      def remove_standard_query_from_favorites
+        @view.remove_standard_query_from_favorites.when_present.click
+      end
+
+      def query_in_favorites_modal (name)
+        @view.query_in_favorites_modal(name).present?
+      end
+
+      def query_not_in_favorites_modal (name)
+        @view.query_not_in_favorites_modal(name).present?
+      end
+
+      def cancel_query_favorites_modal
+        @view.cancel_query_favorites_modal.when_present.click
+      end
+
 
     end
   end
