@@ -26,12 +26,12 @@ Feature: Create, Edit, Save and Run Queries
     And I set Individual Transaction Received to 'Greater Than Or Equal To' '.01' on the Create a New Query page
     And I click Save And 'Preview'
 #    And I should see the message 'Displaying 1 - 15 of 15' on the query preview screen
-    And I should see the message 'Displaying 1 - ' on the query preview screen
+    And I should see '6 Journal Entries' results on the query preview page
     And I click Edit on the query preview screen
     And I set the data return type to 'Accounts' on the Create a New Query page
     And I click Save And 'Preview'
 #    Then I should see the message 'Displaying 1 - 14 of 14' on the query preview screen
-    Then I should see the message 'Displaying 1 - ' on the query preview screen
+    Then I should see '5 Accounts' results on the query preview page
 
 
   Scenario: Create a custom account query from a normal query
@@ -49,13 +49,13 @@ Feature: Create, Edit, Save and Run Queries
     And I type 'John' into the Short Salutation field on the Create a New Query page
     And I click Save And 'Preview'
 #    And I should see the message 'Displaying 1 - 4 of 4' on the query preview screen
-    And I should see the message 'Displaying 1 - ' on the query preview screen
+    And I should see '7 Accounts' results on the query preview page
     And I click Edit on the query preview screen
     And I click Save And 'Create a custom account query'
     And I set the Name to 'Donors Named John - Custom Query' on the Create a New Query page
     And I click Save And 'Preview'
 #    Then I should see the message 'Displaying 1 - 4 of 4' on the query preview screen
-    Then I should see the message 'Displaying 1 - ' on the query preview screen
+    Then I should see '7 Accounts' results on the query preview page
 
   Scenario: Create a New Custom Account Query
     Given the query 'Hand Selected Donors' does not exist in the 'Critical Process Testing' category
@@ -80,7 +80,7 @@ Feature: Create, Edit, Save and Run Queries
     And I click Close in the Find Account popup window
     And I click Save And 'Preview'
 #    Then I should see the message 'Displaying 1 - 3 of 3' on the query preview screen
-    Then I should see the message 'Displaying 1 - ' on the query preview screen
+    Then I should see '1 Account' results on the query preview page
 
 
   Scenario: Create a New Compound Query

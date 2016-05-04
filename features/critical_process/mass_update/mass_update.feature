@@ -48,7 +48,8 @@ Feature: Mass Update
 ####    Add query to automationbot.us database before checkin  ###
      And I click on the 'Marital Status Is Blank' query
      And I click Save And 'Preview'
-     Then I should see the message 'Displaying 1 - 2 of 2' on the query preview screen
+#     Then I should see the message 'Displaying 1 - 2 of 2' on the query preview screen
+     Then I should see '2 Accounts' results on the query preview page
 
     Scenario: Create New Contacts
      When I clear old data from the Mass Update query
@@ -71,7 +72,7 @@ Feature: Mass Update
 #####    Add query to automationbot.us database before checkin  ###
      And I click on the 'New Journal Contacts' query
      And I click Save And 'Preview'
-     And I should see the message 'Displaying 1 - 4 of 4' on the query preview screen
+     And I should see '4 Accounts' results on the query preview page
      And I click Contact on the Query Preview page
      And I should see the Subject set to 'Fall Appeal 2015'
      And I should see the Note set to 'Mailed Fall Appeal Letter on November 3, 2015'
@@ -81,7 +82,7 @@ Feature: Mass Update
      And I click on the 'Mass Update' category
      And I click on the 'New Journal Contacts' query
      And I click Save And 'Preview'
-     And I should see the message 'Displaying 1 - 3 of 3' on the query preview screen
+     And I should see '3 Accounts' results on the query preview page
      And I click Contact on the Query Preview page
      And I should see the Subject set to 'Fall Appeal 2015'
      And I should see the Note set to 'Mailed Fall Appeal Letter on November 3, 2015'
@@ -91,7 +92,7 @@ Feature: Mass Update
      And I click on the 'Mass Update' category
      And I click on the 'New Journal Contacts' query
      And I click Save And 'Preview'
-     And I should see the message 'Displaying 1 - 2 of 2' on the query preview screen
+     And I should see '2 Accounts' results on the query preview page
      And I click Contact on the Query Preview page
      And I should see the Subject set to 'Fall Appeal 2015'
      And I should see the Note set to 'Mailed Fall Appeal Letter on November 3, 2015'
@@ -101,7 +102,7 @@ Feature: Mass Update
      And I click on the 'Mass Update' category
      And I click on the 'New Journal Contacts' query
      And I click Save And 'Preview'
-     And I should see the message 'Displaying 1 - 1 of 1' on the query preview screen
+     And I should see '1 Account' results on the query preview page
      And I click Contact on the Query Preview page
      And I should see the Subject set to 'Fall Appeal 2015'
      And I should see the Note set to 'Mailed Fall Appeal Letter on November 3, 2015'
@@ -111,7 +112,8 @@ Feature: Mass Update
      And I click on the 'Mass Update' category
      And I click on the 'New Journal Contacts' query
      And I click Save And 'Preview'
-     Then I should see zero results on the query preview screen
+#     Then I should see zero results on the query preview screen
+     Then I should see '0 Accounts' results on the query preview page
 
 
     Scenario: Empty Query

@@ -18,7 +18,7 @@ module Cukesetaptesting
       keyword(:set_jed_end_date)  {content.text_field(:id, 'TestJournalEntryForDateData.endDateString')}
       keyword(:select_itr_first_comparison_value) {content.select(:id, 'TestTransactionForReceivedData.comparisonKey')}
       keyword(:itr_first_comparison_amount) {content.text_field(:id, 'TestTransactionForReceivedData.amountString')}
-      keyword(:edit_query)  {content.button(:value, 'Edit')}
+      keyword(:edit_query)  {content.button(:id, 'editQueryBtn')}
       keyword(:custom_account_query_add)  {content.div(:id, 'etap.fieldset.area.3').button(:value, 'Add Account')}
       keyword(:find_account_popup_close)  {content.button(:value, 'Close')}
       #keyword(:find_account_popup_search) {content.text_field(:id, 'searchString')}
@@ -67,6 +67,19 @@ module Cukesetaptesting
       keyword(:query_type_dynamic) {content.radio(:id, 'modalDynamic')}
 
       keyword(:journal_entry_type_selection) {content.div(:id, 'criteriaList').input(:value, 'label.contact')}
+
+      keyword(:query_preview_results_count) {content.div(:id, 'resultCount')}
+      # keyword(:query_preview_search_field_ghost_text) {content.div(:class,'bb-search-container search-container')..text_field(:class, 'ng-pristine ng-valid ng-touched')}
+      keyword(:set_query_preview_search_field) {content.div(:class,'bb-search-container search-container').text_field(:placeholder, 'Search for Account Name')}
+      keyword(:query_preview_search_magnifying_glass) {content.div(:class,'bb-search-container search-container').div(:class,'bb-search-icon fa fa-search')}
+      keyword(:query_preview_clear_search_button) {content.button(:id,'clearSearchBtn')}
+      keyword(:query_preview_choose_columns_button) {content.div(:class,'clearfix toolbar bb-table-toolbar').button(:class, 'btn bb-btn-secondary bb-grid-toolbar-btn bb-column-picker-btn')}
+      keyword(:column_picker_account_name) {content.div(:class, 'bb-checklist-list-title ng-binding')}
+      keyword(:column_picker_apply_changes_button) {content.div(:class,'modal-footer').button(:class, 'btn btn-primary')}
+      keyword(:query_preview_journal_entry_grid) {content.div(:class, 'ui-jqgrid-bdiv')}
+      keyword(:query_preview_search_field_text) {content.div(:id,'')}
+      keyword(:query_preview_restore_defaults_button) {content.div(:class,'clearfix toolbar bb-table-toolbar').button(:class, 'btn bb-btn-secondary bb-grid-toolbar-btn ng-binding ng-scope')}
+
 
 
       def string_exists_on_page?(query_string)
@@ -125,7 +138,7 @@ module Cukesetaptesting
       end
 
       def query_preview_results_value(name)
-        content.div(:id, 'etapreporttag1_outerdiv').a(:text, name)
+        content.div(:class, 'ui-jqgrid-bdiv').a(:text, name)
       end
 
       def select_journal_entry_type_checkbox(checkbox_text)
@@ -230,6 +243,10 @@ module Cukesetaptesting
 
       def favorite_query_link_click(name)
         content.div(:id, 'queryFavoritesSection').a(:text, name)
+      end
+
+      def query_preview_journal_entry_click(type, name)
+        content.a(:text, name).parent.parent.a(:text, type)
       end
 
 
