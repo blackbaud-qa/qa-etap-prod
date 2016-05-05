@@ -10,7 +10,6 @@ Feature: Ability to search for Account Name in the query results
     And I click on the 'Search Query Results' category
     And I click preview below the 'All Accounts Imported for Search Query Results' query on the Create a New Query page
     And I should see '118 Accounts' results on the query preview page
-#    And the ghost text in the query preview search field should say Search for Account Name
     And I type 'John' into the query preview search field
     And I click on the magnifying glass in the search field
     And I should see '1 Account' results on the query preview page
@@ -57,13 +56,12 @@ Feature: Ability to search for Account Name in the query results
     And I click on 'Individual Transaction Received' under Available Fields on the Create a New Query page
     And I set Individual Transaction Received to 'Greater Than Or Equal To' '.01' on the Create a New Query page
     And I click Save And 'Preview'
-    And I should see '52 Journal Entries' results on the query preview page
-#    And the ghost text in the query preview search field should say Search for Account Name
+    And I should see '53 Journal Entries' results on the query preview page
     And I type 'Carl Clegg' into the query preview search field
     And I press Enter on the keyboard
     And I should see '2 Journal Entries' results on the query preview page
     And I click I click Clear Search on the query preview page
-    Then I should see '52 Journal Entries' results on the query preview page
+    Then I should see '53 Journal Entries' results on the query preview page
 
   Scenario: Search by words not found in the Account Name
     When I click Queries on the main menu
@@ -86,7 +84,6 @@ Feature: Ability to search for Account Name in the query results
     And I click on Manage Queries on the queries menu
     And I click on the 'Search Query Results' category
     And I click preview below the 'All Accounts Imported for Search Query Results' query on the Create a New Query page
-#    And the ghost text in the query preview search field should say Search for Account Name
     And I type 'MD' into the query preview search field
     And I click on the magnifying glass in the search field
     And I should see '2 Accounts' results on the query preview page

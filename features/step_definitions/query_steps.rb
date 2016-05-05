@@ -562,11 +562,6 @@ And (/^I should see '([^']*)' results on the query preview page/) do |value|
   expect(query.query_preview_results_total_count(value)).to eq true
 end
 
-And (/^the ghost text in the query preview search field should say Search for Account Name/) do
-  query = Queries::Createquerycategory.new()
-  expect(query.query_preview_search_field_blank).to eq('Search for Account Name')
-end
-
 And (/^I type '([^']*)' into the query preview search field/) do |value|
   query = Queries::Createquerycategory.new(:set_query_preview_search_field => value)
   query.create
