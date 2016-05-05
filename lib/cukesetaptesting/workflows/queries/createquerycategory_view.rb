@@ -69,12 +69,12 @@ module Cukesetaptesting
       keyword(:journal_entry_type_selection) {content.div(:id, 'criteriaList').input(:value, 'label.contact')}
 
       keyword(:query_preview_results_count) {content.div(:id, 'resultCount')}
-      # keyword(:query_preview_search_field_ghost_text) {content.div(:class,'bb-search-container search-container')..text_field(:class, 'ng-pristine ng-valid ng-touched')}
       keyword(:set_query_preview_search_field) {content.div(:class,'bb-search-container search-container').text_field(:placeholder, 'Search for Account Name')}
       keyword(:query_preview_search_magnifying_glass) {content.div(:class,'bb-search-container search-container').div(:class,'bb-search-icon fa fa-search')}
       keyword(:query_preview_clear_search_button) {content.button(:id,'clearSearchBtn')}
       keyword(:query_preview_choose_columns_button) {content.div(:class,'clearfix toolbar bb-table-toolbar').button(:class, 'btn bb-btn-secondary bb-grid-toolbar-btn bb-column-picker-btn')}
-      keyword(:column_picker_account_name) {content.div(:class, 'bb-checklist-list-title ng-binding')}
+      # keyword(:column_picker_account_name) {content.div(:class, 'bb-checklist-list-title ng-binding')}
+      keyword(:column_picker_account_name) {content.div(:class, 'bb-checklist-wrapper').div(:text, 'Account Name')}
       keyword(:column_picker_apply_changes_button) {content.div(:class,'modal-footer').button(:class, 'btn btn-primary')}
       keyword(:query_preview_journal_entry_grid) {content.div(:class, 'ui-jqgrid-bdiv')}
       keyword(:query_preview_search_field_text) {content.div(:id,'')}
