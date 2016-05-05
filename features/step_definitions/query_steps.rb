@@ -613,3 +613,94 @@ And (/^I click on the '([^']*)' for '([^']*)'/) do |type, name|
   query = Queries::Createquerycategory.new()
   query.query_preview_drill_into_journal_entry(type, name)
 end
+
+Then (/^I should see the Favorites tile on the left/) do
+  query = Queries::Createquerycategory.new
+  expect(query.query_favorites_tile_left).to eq(true)
+end
+
+And (/^I click on the query titled '([^']*)' in the favorites tile/) do |value|
+  query = Queries::Createquerycategory.new
+  query.edit_query_favorites_tile value
+end
+
+And (/^I should be taken to the '([^']*)' page/) do |value|
+  query = Queries::Createquerycategory.new
+  expect(query.edit_query_definition_page(value)).to eq(true)
+end
+
+And (/^I click the preview icon for the '([^']*)' query in the favorites tile/) do |name|
+  query = Queries::Createquerycategory.new
+  query.preview_query_favorites_tile name
+end
+
+And (/^I click '([^']*)' in the Query Favorites tile/) do |value|
+  query = Queries::Createquerycategory.new
+  query.see_all_favorites value
+end
+
+And (/^I type '([^']*)' into the query favorites modal search field/) do |value|
+  query = Queries::Createquerycategory.new(:query_favorites_modal_text => value)
+  query.create
+end
+
+And (/^I should see '([^']*)' results in the query favorites modal/) do |message|
+  query = Queries::Createquerycategory.new
+  expect(query.favorites_modal_search? message).to eq(true)
+end
+
+And (/^I click the preview icon for the '([^']*)' query in the favorites modal/) do |name|
+  query = Queries::Createquerycategory.new
+  query.favorites_modal_preview_icon (name)
+end
+
+And (/^I click on the query titled '([^']*)' in the query favorites modal/) do |value|
+  query = Queries::Createquerycategory.new
+  query.edit_query_favorites_modal value
+end
+
+#last
+When (/^I click to close the query favorites modal/) do
+  query = Queries::Createquerycategory.new
+  query.close_favorites_modal
+end
+
+When (/^I click See all next to Favorites in the query menu/) do
+  query = Queries::Createquerycategory.new
+  query.see_all_query_favorites_menu
+end
+
+And (/^I should see the query favorites modal/) do
+  query = Queries::Createquerycategory.new
+  expect(query.query_favorites_modal).to eq(true)
+end
+
+And (/^I click on '([^']*)' in the query favorites modal/) do |name|
+  query = Queries::Createquerycategory.new
+  query.select_category_query_favorites_modal name
+end
+
+And (/^I click the Mark Query as Favorite link/) do
+  query = Queries::Createquerycategory.new
+  query.mark_standard_query_as_favorite
+end
+
+And (/^I click the Remove from Favorite Queries link/) do
+  query = Queries::Createquerycategory.new
+  query.remove_standard_query_from_favorites
+end
+
+Then (/^I should see the '([^']*)' query in the query favorites modal/) do |name|
+  query = Queries::Createquerycategory.new
+  expect(query.query_in_favorites_modal(name)).to eq(true)
+end
+
+Then (/^I should not see the '([^']*)' query in the favorites modal/) do |name|
+  query = Queries::Createquerycategory.new
+  expect(query.query_not_in_favorites_modal(name)).to eq (false)
+end
+
+When (/I click Cancel in the query favorites modal/) do
+  query - Queries::Createquerycategory.new
+  query.cancel_query_favorites_modal
+end
