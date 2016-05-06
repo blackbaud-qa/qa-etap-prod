@@ -100,12 +100,12 @@ Feature: Create, Edit, Save and Run Queries
     And I set the query 2 query to 'Donors Named John - Custom Query - A' on the Create a New Query page
     And I click Save And 'Preview'
 #    And I should see the message 'Displaying 1 - 12 of 12' on the query preview screen
-    And I should see the message 'Displaying 1 - ' on the query preview screen
+    And I should see '5 Accounts' results on the query preview page
     And I click Edit on the query preview screen
     And I set Combine the Queries to Add
     And I click Save And 'Preview'
 #    Then I should see the message 'Displaying 1 - 16 of 16' on the query preview screen
-    Then I should see the message 'Displaying 1 - ' on the query preview screen
+    Then I should see '12 Accounts' results on the query preview page
 
   Scenario: Create a Query Category
     When I click Queries on the main menu

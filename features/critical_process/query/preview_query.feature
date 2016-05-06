@@ -38,10 +38,13 @@ Scenario:Preview Base All Journal Entries
   And I click on Manage Queries on the queries menu
   And I click on the 'Base' category
   And I click preview below the 'All Journal Entries' query on the Create a New Query page
+  And I should see a journal entry dated '4/26/2016' on the query preview page
+  And I should see a journal entry dated '4/4/2016' on the query preview page
+  And I should see a journal entry dated '8/25/2015' on the query preview page
 #  Taking this out until results can be organized better.  Currently not showing b/c other tests have bumped contact
 #  from the first page of the results.
 #  And I should see 'Contact' in the query results
-  And I should see 'Gift' in the query results
+#  And I should see 'Gift' in the query results
 #  And I should see 'Note' in the query results
   #Removing this criteria for now since other tests are causing pledge/payments to be found only past the first page
 #  Then I should see 'Pledge / Payment' in the query results

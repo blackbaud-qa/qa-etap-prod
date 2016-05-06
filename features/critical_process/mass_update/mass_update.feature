@@ -72,7 +72,7 @@ Feature: Mass Update
 #####    Add query to automationbot.us database before checkin  ###
      And I click on the 'New Journal Contacts' query
      And I click Save And 'Preview'
-     And I should see '4 Accounts' results on the query preview page
+     And I should see '4 Journal Entries' results on the query preview page
      And I click Contact on the Query Preview page
      And I should see the Subject set to 'Fall Appeal 2015'
      And I should see the Note set to 'Mailed Fall Appeal Letter on November 3, 2015'
@@ -82,7 +82,7 @@ Feature: Mass Update
      And I click on the 'Mass Update' category
      And I click on the 'New Journal Contacts' query
      And I click Save And 'Preview'
-     And I should see '3 Accounts' results on the query preview page
+     And I should see '3 Journal Entries' results on the query preview page
      And I click Contact on the Query Preview page
      And I should see the Subject set to 'Fall Appeal 2015'
      And I should see the Note set to 'Mailed Fall Appeal Letter on November 3, 2015'
@@ -92,7 +92,7 @@ Feature: Mass Update
      And I click on the 'Mass Update' category
      And I click on the 'New Journal Contacts' query
      And I click Save And 'Preview'
-     And I should see '2 Accounts' results on the query preview page
+     And I should see '2 Journal Entries' results on the query preview page
      And I click Contact on the Query Preview page
      And I should see the Subject set to 'Fall Appeal 2015'
      And I should see the Note set to 'Mailed Fall Appeal Letter on November 3, 2015'
@@ -102,7 +102,7 @@ Feature: Mass Update
      And I click on the 'Mass Update' category
      And I click on the 'New Journal Contacts' query
      And I click Save And 'Preview'
-     And I should see '1 Account' results on the query preview page
+     And I should see '1 Journal Entry' results on the query preview page
      And I click Contact on the Query Preview page
      And I should see the Subject set to 'Fall Appeal 2015'
      And I should see the Note set to 'Mailed Fall Appeal Letter on November 3, 2015'
@@ -113,7 +113,7 @@ Feature: Mass Update
      And I click on the 'New Journal Contacts' query
      And I click Save And 'Preview'
 #     Then I should see zero results on the query preview screen
-     Then I should see '0 Accounts' results on the query preview page
+     Then I should see '0 Journal Entries' results on the query preview page
 
 
     Scenario: Empty Query
