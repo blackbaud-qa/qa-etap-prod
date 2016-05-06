@@ -77,7 +77,7 @@ module Cukesetaptesting
       keyword(:column_picker_account_name) {content.div(:class, 'bb-checklist-wrapper').div(:text, 'Account Name')}
       keyword(:column_picker_apply_changes_button) {content.div(:class,'modal-footer').button(:class, 'btn btn-primary')}
       keyword(:query_preview_journal_entry_grid) {content.div(:class, 'ui-jqgrid-bdiv')}
-      keyword(:query_preview_search_field_text) {content.div(:id,'')}
+      # keyword(:query_preview_search_field_text) {content.div(:id,'')}
       keyword(:query_preview_restore_defaults_button) {content.div(:class,'clearfix toolbar bb-table-toolbar').button(:class, 'btn bb-btn-secondary bb-grid-toolbar-btn ng-binding ng-scope')}
 
       keyword(:query_favorites_tile_left){content.div(:class, 'taskPaneLeft')}

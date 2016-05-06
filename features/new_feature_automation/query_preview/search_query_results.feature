@@ -123,6 +123,8 @@ Feature: Ability to search for Account Name in the query results
     And I click the back button
     And I should see '2' results on the query preview page
     And I should see 'Jeffery' displayed in the query preview search field
+    And I click Queries on the main menu
+    And I click on Manage Queries on the queries menu
     And I click on the 'Search Query Results' category
     And I click preview below the 'All Gifts Imported for Search Query Results' query on the Create a New Query page
     And I click Restore Defaults on the query preview page

@@ -308,7 +308,7 @@ end
 And (/^I should see I should see my organization account in the query results/) do
   query = Queries::Createquerycategory.new
   # expect(query.query_results_my_org).to eq(true)
-  step "And I type 'Ground' into the query preview search field"
+  step "I type 'Ground' into the query preview search field"
   step "I click on the magnifying glass in the search field"
   step "I should see 'Ground Zero AutomationBot US' in the query results"
 end

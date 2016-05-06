@@ -542,7 +542,7 @@ module Cukesetaptesting
       end
 
       def query_preview_search_field_contents
-        @view.query_preview_search_field_text.when_present.value
+        @view.set_query_preview_search_field.when_present.value
       end
 
       def query_preview_restore_defaults_click
