@@ -696,6 +696,16 @@ Then (/^I should not see the '([^']*)' query in the favorites modal/) do |name|
 end
 
 When (/I click Cancel in the query favorites modal/) do
-  query - Queries::Createquerycategory.new
+  query = Queries::Createquerycategory.new
   query.cancel_query_favorites_modal
+end
+
+And (/^I should see the no results found message/) do
+  query = Queries::Createquerycategory.new
+  expect(query.favorites_search_no_results).to eq(true)
+end
+
+And (/^I click Ok to dismiss the query favorites search message/) do
+  query = Queries::Createquerycategory.new
+  query.dismiss_favorites_no_results
 end
