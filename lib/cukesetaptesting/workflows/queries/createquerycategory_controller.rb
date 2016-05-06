@@ -574,7 +574,7 @@ module Cukesetaptesting
       end
 
       def query_favorites_modal_text
-        @view.query_favorites_modal_text.when_present.value
+        @view.set_query_favorites_modal_text.when_present.value
       end
 
       def favorites_modal_search? message
@@ -633,6 +633,9 @@ module Cukesetaptesting
         @view.dismiss_favorites_no_results.when_present.click
       end
 
+      def clear_search_query_favorites_modal
+        @view.clear_search_query_favorites_modal.when_present.click
+      end
 
     end
   end

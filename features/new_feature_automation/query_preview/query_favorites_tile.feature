@@ -19,13 +19,11 @@ Feature: Query Favorites Tile and Modal
     And I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click '(See all)' in the Query Favorites tile
-      #And I type 'xyz' into the query favorites modal search field
- #   And I press Enter on the keyboard
-  #9  And I should see the no results found message
-   #10 I click Ok to dismiss the query favorites search message
-  #4 And I type 'Constituents' into the query favorites modal search field
-  #  And I press Enter on the keyboard
-  #8  And I should see '1  in the query favorites modal
+    And I type 'zzz' into the query favorites modal search field
+    And I should not see the 'All Constituents' query in the favorites modal
+    And I click the Clear Search button in the query favorites modal
+    And I type 'Constituents' into the query favorites modal search field
+    And I should see the 'All Constituents' query in the query favorites modal
     And I click the preview icon for the 'All Constituents' query in the favorites modal
     And I should be on the 'Base : All Constituents' query preview screen
     And I click Queries on the main menu

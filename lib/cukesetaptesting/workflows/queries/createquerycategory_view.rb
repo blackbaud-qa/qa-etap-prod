@@ -82,17 +82,14 @@ module Cukesetaptesting
 
       keyword(:query_favorites_tile_left){content.div(:class, 'taskPaneLeft')}
       keyword(:edit_query_definition_page) {content.div(:class, 'pageTitle')}
-      #4 keyword(:query_favorites_modal_text) {content.text_field(:id, '')
+      keyword(:query_favorites_modal_text) {content.div(:class, 'bb-checklist-search').text_field(:placeholder, 'Search this list')}
       keyword(:close_favorites_modal) {content.div(:class, 'fa fa-times close')}
-      #8 keyword (:favorites_modal_search) {content.div(:id, 'etap.fieldset.area.1').td(:class, 'pageResults')}
       keyword(:see_all_query_favorites_menu) {content.a(:id, 'queryMenuViewAllFavoritesLink')}
       keyword(:query_favorites_modal) {content.div(:id, 'favoritesHeader')}
       keyword(:mark_standard_query_as_favorite) {content.div(:id, 'addFavorite')}
       keyword(:remove_standard_query_from_favorites) {content.div(:id, 'removeFavorite')}
       keyword(:cancel_query_favorites_modal) {content.button(:id, 'favCancel')}
-
-      #9keyword(:favorites_search_no_results) {content.}
-      #10keyword(:dismiss_favorites_no_results) {content.}
+      keyword(:clear_search_query_favorites_modal) {content.button(:id, 'clearFavoritesSearch')}
 
 
 
