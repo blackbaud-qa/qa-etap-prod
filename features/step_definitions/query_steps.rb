@@ -709,3 +709,8 @@ And (/^I click Ok to dismiss the query favorites search message/) do
   query = Queries::Createquerycategory.new
   query.dismiss_favorites_no_results
 end
+
+And (/^I click the Clear Search button in the query favorites modal/) do
+  query = Queries::Createquerycategory.new
+  query.clear_search_query_favorites_modal
+end
