@@ -85,11 +85,14 @@ module Cukesetaptesting
       #4 keyword(:query_favorites_modal_text) {content.text_field(:id, '')
       keyword(:close_favorites_modal) {content.div(:class, 'fa fa-times close')}
       #8 keyword (:favorites_modal_search) {content.div(:id, 'etap.fieldset.area.1').td(:class, 'pageResults')}
-      #9 keyword(:see_all_query_favorites_menu) {content.a(:id, 'favoritesViewAllLink')}
+      keyword(:see_all_query_favorites_menu) {content.a(:id, 'queryMenuViewAllFavoritesLink')}
       keyword(:query_favorites_modal) {content.div(:id, 'favoritesHeader')}
       keyword(:mark_standard_query_as_favorite) {content.div(:id, 'addFavorite')}
       keyword(:remove_standard_query_from_favorites) {content.div(:id, 'removeFavorite')}
       keyword(:cancel_query_favorites_modal) {content.button(:id, 'favCancel')}
+
+      #9keyword(:favorites_search_no_results) {content.}
+      #10keyword(:dismiss_favorites_no_results) {content.}
 
 
 

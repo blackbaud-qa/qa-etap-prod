@@ -19,9 +19,13 @@ Feature: Query Favorites Tile and Modal
     And I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click '(See all)' in the Query Favorites tile
+      #And I type 'xyz' into the query favorites modal search field
+ #   And I press Enter on the keyboard
+  #9  And I should see the no results found message
+   #10 I click Ok to dismiss the query favorites search message
   #4 And I type 'Constituents' into the query favorites modal search field
   #  And I press Enter on the keyboard
-  #8  And I should see '1' results in the query favorites modal
+  #8  And I should see '1  in the query favorites modal
     And I click the preview icon for the 'All Constituents' query in the favorites modal
     And I should be on the 'Base : All Constituents' query preview screen
     And I click Queries on the main menu
@@ -44,30 +48,32 @@ Feature: Query Favorites Tile and Modal
   Scenario: Favorites Modal - Menu
     Given I login into eTap for CP1
     And I click Queries on the main menu
-   #9 When I click See all next to Favorites in the query menu
+    And I click on Manage Queries on the queries menu
+    And I click Queries on the main menu
+    When I click See all next to Favorites in the query menu
     And I should see the query favorites modal
     When I click Cancel in the query favorites modal
     Then I should be taken to the 'Query Categories' page
-
 
 
   Scenario: Adding and Removing Favorite Query
     Given I login into eTap for CP1
     And I click Queries on the main menu
     And I click on Manage Queries on the queries menu
-    And I click on the 'Constituent Journal Entry Date' category
-    And I click on the 'Today' query
+    And I click on the 'LYBUNT & SYBUNT' category
+    And I click on the 'LYBUNT' query
     And I click the Mark Query as Favorite link
     And I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click '(See all)' in the Query Favorites tile
-    Then I should see the 'Today' query in the query favorites modal
-    And I click on the query titled 'Today' in the query favorites modal
+    Then I should see the 'LYBUNT' query in the query favorites modal
+    And I click on the query titled 'LYBUNT' in the query favorites modal
     And I click the Remove from Favorite Queries link
     And I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click '(See all)' in the Query Favorites tile
-    Then I should not see the 'Today' query in the favorites modal
+    Then I should not see the 'LYBUNT' query in the favorites modal
+
 
 
 
