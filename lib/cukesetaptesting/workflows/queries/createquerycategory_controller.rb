@@ -625,6 +625,14 @@ module Cukesetaptesting
         @view.cancel_query_favorites_modal.when_present.click
       end
 
+      def favorites_search_no_results
+        @view.favorites_search_no_results.present?
+      end
+
+      def dismiss_favorites_no_results
+        @view.dismiss_favorites_no_results.when_present.click
+      end
+
 
     end
   end

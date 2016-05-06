@@ -9,6 +9,7 @@ And (/^I set the Starting Criteria Query to '([^']*)'/) do |value|
 end
 
 And (/^I should be on the '([^']*)' query preview screen/) do |value|
+  sleep 2
   query = Queries::Createquerycategory.new
   expect(query.query_preview_on_screen value).to eq(true)
 end
