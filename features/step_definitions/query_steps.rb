@@ -572,7 +572,7 @@ And (/^I click on the magnifying glass in the search field/) do
   query.query_preview_search_magnifying_glass_click
 end
 
-And (/^I click I click Clear Search on the query preview page/) do
+And (/^I click Clear Search on the query preview page/) do
   query = Queries::Createquerycategory.new
   query.query_preview_clear_search_click
 end

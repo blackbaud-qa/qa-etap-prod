@@ -151,6 +151,7 @@ module Cukesetaptesting
       end
 
       def query_preview_results(name)
+        sleep 3
         @view.query_preview_results_value(name).present?
       end
 
