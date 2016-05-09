@@ -21,7 +21,7 @@ Feature: Ability to search for Account Name in the query results
     And I should see 'Deloris S Johnson' in the query results
     And I should see 'Frances R Johnson' in the query results
     And I should see 'Johnny Daniel Childress' in the query results
-    And I click I click Clear Search on the query preview page
+    And I click Clear Search on the query preview page
     Then I should see '118 Accounts' results on the query preview page
 
   Scenario: Search for and account without any name field columns
@@ -60,7 +60,7 @@ Feature: Ability to search for Account Name in the query results
     And I type 'Carl Clegg' into the query preview search field
     And I press Enter on the keyboard
     And I should see '2 Journal Entries' results on the query preview page
-    And I click I click Clear Search on the query preview page
+    And I click Clear Search on the query preview page
     Then I should see '53 Journal Entries' results on the query preview page
 
   Scenario: Search by words not found in the Account Name
@@ -71,12 +71,12 @@ Feature: Ability to search for Account Name in the query results
     And I type 'Houston' into the query preview search field
     And I click on the magnifying glass in the search field
     And I should see '0 Accounts' results on the query preview page
-    And I click I click Clear Search on the query preview page
+    And I click Clear Search on the query preview page
     And I should see '118 Accounts' results on the query preview page
     And I type '123' into the query preview search field
     And I press Enter on the keyboard
     And I should see '0 Accounts' results on the query preview page
-    And I click I click Clear Search on the query preview page
+    And I click Clear Search on the query preview page
     Then I should see '118 Accounts' results on the query preview page
 
   Scenario: Search for suffix terms included in the account name
@@ -92,7 +92,7 @@ Feature: Ability to search for Account Name in the query results
     And I press Enter on the keyboard
     And I should see '3 Accounts' results on the query preview page
     And I should see 'Peter Rivera, 1978' in the query results
-    And I click I click Clear Search on the query preview page
+    And I click Clear Search on the query preview page
     Then I should see '118 Accounts' results on the query preview page
 
   Scenario: Search will not be saved between runs of query preview
@@ -118,10 +118,10 @@ Feature: Ability to search for Account Name in the query results
     And I click preview below the 'All Accounts Imported for Search Query Results' query on the Create a New Query page
     And I type 'Jeffery' into the query preview search field
     And I click on the magnifying glass in the search field
-    And I should see '2' results on the query preview page
+    And I should see '2 Accounts' results on the query preview page
     And I click on the 'Jeffery Thiel' account
     And I click the back button
-    And I should see '2' results on the query preview page
+    And I should see '2 Accounts' results on the query preview page
     And I should see 'Jeffery' displayed in the query preview search field
     And I click Queries on the main menu
     And I click on Manage Queries on the queries menu
@@ -130,11 +130,11 @@ Feature: Ability to search for Account Name in the query results
     And I click Restore Defaults on the query preview page
     And I type 'Michael' into the query preview search field
     And I click on the magnifying glass in the search field
-    And I should see '3' results on the query preview page
+    And I should see '3 Journal Entries' results on the query preview page
     And I click on the 'Gift' for 'Michael Patton'
     And the Received Amount should be set to '$395.00'
     And I click the back button
-    Then I should see '3' results on the query preview page
+    Then I should see '3 Journal Entries' results on the query preview page
     And I should see 'Michael' displayed in the query preview search field
 
   Scenario: Other random search tests
@@ -158,7 +158,7 @@ Feature: Ability to search for Account Name in the query results
     And I click on the magnifying glass in the search field
     And I should see '3 Accounts' results on the query preview page
     And I should see 'Victor Rivera, II' in the query results
-    And I click I click Clear Search on the query preview page
+    And I click Clear Search on the query preview page
     Then I should see '118 Accounts' results on the query preview page
 
 

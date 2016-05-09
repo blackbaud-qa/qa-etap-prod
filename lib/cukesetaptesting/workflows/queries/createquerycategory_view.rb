@@ -257,7 +257,7 @@ module Cukesetaptesting
       end
 
       def query_preview_journal_entry_click(type, name)
-        content.a(:text, name).parent.parent.a(:text, type)
+        content.div(:id, 'et-query-grid-container').a(:text, name).parent.parent.parent.a(:text, type)
       end
 
       def edit_query_favorites_tile(value)

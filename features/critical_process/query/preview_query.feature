@@ -10,6 +10,7 @@ Scenario:Preview Base All Accounts
   And I click on the 'Base' category
   And I click preview below the 'All Accounts' query on the Create a New Query page
   And I should see I should see my organization account in the query results
+  And I click Clear Search on the query preview page
   Then I should see 'Jose Berrios' in the query results
 
 Scenario:Preview Base All Constituents

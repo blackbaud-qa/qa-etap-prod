@@ -151,6 +151,7 @@ module Cukesetaptesting
       end
 
       def query_preview_results(name)
+        sleep 3
         @view.query_preview_results_value(name).present?
       end
 
@@ -505,7 +506,7 @@ module Cukesetaptesting
       end
 
       def query_preview_results_total_count(value)
-        sleep 2
+        sleep 3
         @view.query_preview_results_count.when_present.text.include? value
       end
 
@@ -550,7 +551,7 @@ module Cukesetaptesting
       end
 
       def query_preview_drill_into_journal_entry(type, name)
-        @view.query_preview_journal_entry_click(type, name)
+        @view.query_preview_journal_entry_click(type, name).when_present.click
       end
 
       def query_favorites_tile_left
