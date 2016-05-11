@@ -29,6 +29,8 @@ module Cukesetaptesting
 
       keyword(:find_account_page) {content.div(:class,'pageTitle')}
 
+      keyword(:add_an_account) {content.button(:class, 'btn bb-btn-secondary bb-grid-toolbar-btn ng-binding ng-scope')}
+
       def udf_show_hide_links(value)
         content.div(:id, 'userDefinedFieldsTitleBar').a(:text, value)
       end

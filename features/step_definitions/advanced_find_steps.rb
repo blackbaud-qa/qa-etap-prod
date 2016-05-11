@@ -49,6 +49,44 @@ When (/^I set the State to '([^']*)' on the advanced find page/) do |state_name|
 end
 
 When (/^I type '([^']*)' into the Address Lines field/) do |address|
-  search = Account::AdvancedSearch.new(:address_lines_field=>address)
+  search = Account::AdvancedSearch.new(:address_field=>address)
   search.create
 end
+
+And (/^I type '([^']*)' into the Account Name field on the advanced find page/) do |account_name|
+  search = Account::AdvancedSearch.new(:search_field=>account_name)
+  search.create
+end
+
+And (/^I type '([^']*)' into the Email field on the advanced find page/) do |email|
+  search = Account::AdvancedSearch.new(:email_field=>email)
+  search.create
+end
+
+And (/^I type '([^']*)' into the State field on the advanced find page/) do |state|
+  search = Account::AdvancedSearch.new(:state_field=>state)
+  search.create
+end
+
+And (/^I type '([^']*)' into the Postal Code field on the advanced find page/) do |postal|
+  search = Account::AdvancedSearch.new(:postal_field=>postal)
+  search.create
+end
+
+And (/^I type '([^']*)' into the Phone Number field on the advanced find page/) do |phone|
+  search = Account::AdvancedSearch.new(:phone_field=>phone)
+  search.create
+end
+
+And (/^I type '([^']*)' into the City field on the advanced find page/) do |city|
+search = Account::AdvancedSearch.new(:city_field=>city)
+search.create
+end
+
+#And (/^I set the country to 'United States' on the advanced find page/) |
+
+And (/^I click Add an Account on the Advanced Find page/) do
+  search = Account::AdvancedSearch.new
+  search.add_account_advanced_find
+end
+
