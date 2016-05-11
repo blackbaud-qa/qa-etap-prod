@@ -151,7 +151,7 @@ module Cukesetaptesting
       end
 
       def query_preview_results(name)
-        sleep 3
+        sleep 5
         @view.query_preview_results_value(name).present?
       end
 
@@ -506,7 +506,7 @@ module Cukesetaptesting
       end
 
       def query_preview_results_total_count(value)
-        sleep 3
+        sleep 5
         @view.query_preview_results_count.when_present.text.include? value
       end
 

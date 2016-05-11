@@ -143,7 +143,7 @@ Feature: Ability to search for Account Name in the query results
     And I click on the 'Search Query Results' category
     And I click preview below the 'All Accounts Imported for Search Query Results' query on the Create a New Query page
     And I type 'and' into the query preview search field
-    And I press Enter on the keyboard
+    And I click on the magnifying glass in the search field
     And I should see '2 Accounts' results on the query preview page
     And I should see 'Scott and Sally Miles' in the query results
     And I type 'at&' into the query preview search field
