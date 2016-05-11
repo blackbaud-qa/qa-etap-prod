@@ -54,6 +54,14 @@ module Cukesetaptesting
       def udf_show_hide(value)
         @view.udf_show_hide_links(value).when_present.click
       end
+
+      def address_field_contains?(text)
+        return @view.address_field.when_present.value.include? text
+      end
+
+      def add_account_advanced_find
+        @view.add_an_account.when_present.click
+      end
     end
   end
 end
