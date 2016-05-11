@@ -478,6 +478,14 @@ module Cukesetaptesting
         @view.live_marital_status.when_present.select value
       end
 
+      def set_default_country_diy value
+        @view.set_default_country_diy.when_present.select value
+      end
+
+      def diy_country_default
+        @view.default_country_diy.when_present.value
+      end
+
     end
   end
 end

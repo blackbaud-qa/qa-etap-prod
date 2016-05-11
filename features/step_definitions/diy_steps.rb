@@ -884,3 +884,13 @@ And(/^I set Suffix to '([^']*)' on the DIY Donation Page$/) do |name|
   diy = DIY::Onlineforms.new(:live_suffix=>name)
   diy.create
 end
+
+And (/^I set the Default Country to '([^']*)' on the DIY settings page$/) do |value|
+  diy = DIY::Onlineforms.new
+  diy.set_default_country_diy value
+end
+
+And (/^I should see the country set to '([^']*)' on the DIY page$/) do |value|
+  diy = DIY::Onlineforms.new
+  expect(diy.diy_country_default).to eq(value)
+end

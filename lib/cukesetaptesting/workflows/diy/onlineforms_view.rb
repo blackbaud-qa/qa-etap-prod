@@ -125,6 +125,9 @@ module Cukesetaptesting
       keyword(:live_middle_name) {browser.text_field(:id,'middleName')}
       keyword(:live_suffix) {browser.text_field(:id,'suffix')}
 
+      keyword(:set_default_country_diy) {content.select(:id, 'availableCountries')}
+      keyword(:default_country_diy) {browser.select(:id, 'countryField')}
+
       def diy_page_link page_name
         page_link = content
 
