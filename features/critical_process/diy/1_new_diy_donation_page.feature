@@ -13,6 +13,7 @@ Feature: Creating a new diy donation page
     And I set the Name to 'Donation Page' on the DIY settings page
     And I set the Title to 'Donation Page' on the DIY settings page
     And I set the URL to 'Donate' on the DIY settings page
+    And I set the Default Country to 'United States' on the DIY settings page
     And I set the From what address? to 'lance.moore@blackbaud.com' on the DIY settings page
     And I set the From Subject to 'Thank you for your donation!' on the DIY settings page
     And I set the To what address(es)? to 'lance.moore@blackbaud.com' on the DIY settings page
@@ -24,6 +25,7 @@ Feature: Creating a new diy donation page
     And I click on the link for the form titled Donation Page
     And I switch to the new tab in my browser
     Then I should see the new DIY page
+    And I should see the country set to 'US' on the DIY page
     And I close the current tab
 
 #    Then the page will successfully go live
