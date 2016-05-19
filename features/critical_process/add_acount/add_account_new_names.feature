@@ -1,8 +1,8 @@
-@crit_proc
+@crit_proc6
 Feature: Add Account in New Names database
 
   Background:
-    Given I login into eTap for CP1
+    Given I login into eTap for CP6
 
   Scenario: Add new individual account - all fields populated
     When I click Accounts

@@ -1,8 +1,8 @@
-@crit_proc
+@crit_proc10
 Feature: Adding split transactions
 
   Background:
-  Given I login into eTap for CP1
+  Given I login into eTap for CP10
 
   Scenario: Add a split gift
     When I type 'Raymond Barnes' into the dynamic search field

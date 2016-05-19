@@ -1,8 +1,8 @@
-@crit_proc
+@crit_proc10
 Feature: Adding a gift with payment type of check
 
   Background:
-  Given I login into eTap for CP1
+  Given I login into eTap for CP10
 
   Scenario: Add a gift from the journal page, no dollar sign in received amount
     When I type 'Raymond Barnes' into the dynamic search field

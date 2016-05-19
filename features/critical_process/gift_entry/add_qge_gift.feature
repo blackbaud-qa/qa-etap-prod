@@ -1,8 +1,8 @@
-@crit_proc
+@crit_proc9
 Feature: Adding a gift through quick gift entry
 
   Background:
-  Given I login into eTap for CP1
+  Given I login into eTap for CP9
 
   Scenario: Add a gift through quick gift entry, searching by account name
     When I type 'Raymond Barnes' into the dynamic search field

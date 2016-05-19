@@ -1,8 +1,8 @@
-@crit_proc2
+@crit_proc3
 Feature: Edit Custom Report
 
   Background:
-    Given I login into eTap for CP2
+    Given I login into eTap for CP3
 
   Scenario: Edit the custom report name
     Given I click on reports

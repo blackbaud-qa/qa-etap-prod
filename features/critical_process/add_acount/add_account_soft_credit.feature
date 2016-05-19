@@ -1,8 +1,8 @@
-@crit_proc
+@crit_proc6
 Feature: Add Constituent Account From The Soft Credit Section Of A Transaction
 
   Scenario: Add new constituent account from the soft credit section of a transaction
-    Given I login into eTap for CP1
+    Given I login into eTap for CP6
     When I click Giving on the main menu
     And I click on Add a Gift or Pledge on the giving menu
     And I click the Tribute bar

@@ -1,10 +1,10 @@
-@crit_proc
+@crit_proc7
 Feature: Edit a diy donation page
 
 #  Background:
 #    Given a DIY form titled Donation Page already exists
   Background:
-  Given I login into eTap for CP1
+  Given I login into eTap for CP7
 
 
   Scenario: editing a new diy page

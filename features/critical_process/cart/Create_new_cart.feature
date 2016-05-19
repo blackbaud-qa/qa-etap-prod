@@ -1,9 +1,9 @@
-@crit_proc
+@crit_proc7
 Feature: Create a new Cart
 
 #Note: File paths for images look for the 'image_path' setting in config.yml
   Background:
-    Given I login into eTap for CP1
+    Given I login into eTap for CP7
 
 
   Scenario: Create New Category and a New Item

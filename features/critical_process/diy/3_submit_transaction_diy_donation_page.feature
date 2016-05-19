@@ -1,10 +1,10 @@
-@crit_proc
+@crit_proc7
 Feature: Submit a transaction through a diy donation page
 
 #  Background:
 #    Given a DIY form titled Existing Donation Page already exists
   Background:
-  Given I login into eTap for CP1
+  Given I login into eTap for CP7
 
 
   Scenario: submitting a successful credit card transaction

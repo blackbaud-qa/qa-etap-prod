@@ -1,8 +1,8 @@
-@crit_proc2 @pipetest2
+@crit_proc3 @pipetest2
 Feature: Preview Query
 
   Background:
-    Given I login into eTap for CP2
+    Given I login into eTap for CP3
 
 Scenario:Preview Base All Accounts
   When I click Queries on the main menu

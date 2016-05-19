@@ -1,8 +1,8 @@
-@crit_proc2
+@crit_proc3
 Feature: Registering a participant
 
   Background:
-    Given I login into eTap for CP2
+    Given I login into eTap for CP3
 
   Scenario: registering a participant
     When I delete existing data for 'John Crabtree'

@@ -1,8 +1,8 @@
-@crit_proc
+@crit_proc11
 Feature: Adding a gift with payment type of credit card and process it
 
   Background:
-  Given I login into eTap for CP1
+  Given I login into eTap for CP11
 
   Scenario: Adding and processing a credit card gift
     When I type 'Raymond Barnes' into the dynamic search field

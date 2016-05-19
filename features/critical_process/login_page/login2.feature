@@ -1,11 +1,11 @@
-@crit_proc
+@crit_proc12
 Feature: Login
   As a user
   I want to login to my database
   In order to utilize eTapestry
 
   Background:
-    Given I login into eTap for CP1
+    Given I login into eTap for CP12
     And there exists user 'testUserGZ'
     And I log out of eTap
 

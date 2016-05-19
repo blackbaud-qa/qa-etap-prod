@@ -30,6 +30,46 @@ When(/^I login into eTap for CP2$/) do
   step "I login into eTap with values '#{Watirmark::Configuration.instance.unameCP2}', '#{Watirmark::Configuration.instance.password}'"
 end
 
+When(/^I login into eTap for CP3$/) do
+  step "I login into eTap with values '#{Watirmark::Configuration.instance.unameCP3}', '#{Watirmark::Configuration.instance.password}'"
+end
+
+When(/^I login into eTap for CP4$/) do
+  step "I login into eTap with values '#{Watirmark::Configuration.instance.unameCP4}', '#{Watirmark::Configuration.instance.password}'"
+end
+
+When(/^I login into eTap for CP5$/) do
+  step "I login into eTap with values '#{Watirmark::Configuration.instance.unameCP5}', '#{Watirmark::Configuration.instance.password}'"
+end
+
+When(/^I login into eTap for CP6$/) do
+  step "I login into eTap with values '#{Watirmark::Configuration.instance.unameCP6}', '#{Watirmark::Configuration.instance.password}'"
+end
+
+When(/^I login into eTap for CP7$/) do
+  step "I login into eTap with values '#{Watirmark::Configuration.instance.unameCP7}', '#{Watirmark::Configuration.instance.password}'"
+end
+
+When(/^I login into eTap for CP8$/) do
+  step "I login into eTap with values '#{Watirmark::Configuration.instance.unameCP8}', '#{Watirmark::Configuration.instance.password}'"
+end
+
+When(/^I login into eTap for CP9$/) do
+  step "I login into eTap with values '#{Watirmark::Configuration.instance.unameCP9}', '#{Watirmark::Configuration.instance.password}'"
+end
+
+When(/^I login into eTap for CP10$/) do
+  step "I login into eTap with values '#{Watirmark::Configuration.instance.unameCP10}', '#{Watirmark::Configuration.instance.password}'"
+end
+
+When(/^I login into eTap for CP11$/) do
+  step "I login into eTap with values '#{Watirmark::Configuration.instance.unameCP11}', '#{Watirmark::Configuration.instance.password}'"
+end
+
+When(/^I login into eTap for CP12$/) do
+  step "I login into eTap with values '#{Watirmark::Configuration.instance.unameCP12}', '#{Watirmark::Configuration.instance.password}'"
+end
+
 When(/^I login into eTap for bugs$/) do
   step "I login into eTap with values '#{Watirmark::Configuration.instance.unameBugs}', '#{Watirmark::Configuration.instance.password}'"
 end

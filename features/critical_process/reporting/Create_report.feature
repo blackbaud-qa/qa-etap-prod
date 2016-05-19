@@ -1,8 +1,8 @@
-@crit_proc2
+@crit_proc3
 Feature:Create a new report
 
   Background:
-    Given I login into eTap for CP2
+    Given I login into eTap for CP3
     And the report 'Test Report' does not exist
 
   Scenario: Create a new report

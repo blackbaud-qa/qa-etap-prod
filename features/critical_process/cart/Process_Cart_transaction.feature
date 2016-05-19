@@ -1,8 +1,8 @@
-@crit_proc
+@crit_proc7
 Feature: Process Cart transaction
 
  Scenario: View online Cart
-  Given I login into eTap for CP1
+  Given I login into eTap for CP7
   And I click Management on the main menu
   And I click on eStore (Cart) on the management menu
   And I click on View Online Cart

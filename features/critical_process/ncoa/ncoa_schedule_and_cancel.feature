@@ -1,8 +1,8 @@
-@crit_proc2
+@crit_proc1
 Feature: NCOA - Schedule and Cancel Job
 
   Background:
-    Given I login into eTap for CP2
+    Given I login into eTap for CP1
 
   Scenario: Verify Settings page appears when no NCOA scheduled
     When I click Management on the main menu

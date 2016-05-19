@@ -1,8 +1,8 @@
-@crit_proc
+@crit_proc7
 Feature: Publishing a diy page with a custom skin
 
   Scenario: creating a new diy contact page with custom skin
-    Given I login into eTap for CP1
+    Given I login into eTap for CP7
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Create a Page

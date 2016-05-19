@@ -1,8 +1,8 @@
-@crit_proc
+@crit_proc11
 Feature: Dashboard Functionality
 
   Background:
-  Given I login into eTap for CP1
+  Given I login into eTap for CP11
 
 ### Test against automationbot before checkin ###
   Scenario: Adding Tiles to the Dashboard

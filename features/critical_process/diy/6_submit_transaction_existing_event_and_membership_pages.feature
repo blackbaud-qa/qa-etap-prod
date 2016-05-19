@@ -1,8 +1,8 @@
-@crit_proc
+@crit_proc8
 Feature: Submit an entry through other existing transaction based diy pages
 
   Background:
-  Given I login into eTap for CP1
+  Given I login into eTap for CP8
 
   Scenario: Submit a donation through Existing Event Page
     When I click Management on the main menu

@@ -1,8 +1,8 @@
-@crit_proc
+@crit_proc8
 Feature: Submit an entry through existing non-transaction based diy pages
 
   Background:
-  Given I login into eTap for CP1
+  Given I login into eTap for CP8
 
   Scenario: Submit a contact through Existing Volunteer Page
     When I click Management on the main menu

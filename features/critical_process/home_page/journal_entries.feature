@@ -1,8 +1,8 @@
-@crit_proc
+@crit_proc12
 Feature: journal entries
 
   Background: I am logged into eTapestry
-    Given I login into eTap for CP1
+    Given I login into eTap for CP12
 
   Scenario: Select a date from recent journal entries
     When I am on an account

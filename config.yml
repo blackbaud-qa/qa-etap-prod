@@ -1,7 +1,17 @@
 #username:  invalidUser #trying to fix parallel login issues
 unameCP1:  groundzero.us_1
 unameCP2:  groundzero.us_2
-unameBugs:  groundzero.us_3
+unameCP3:  groundzero.us_3
+unameCP4:  groundzero.us_4
+unameCP5:  groundzero.us_5
+unameCP6:  groundzero.us_6
+unameCP7:  groundzero.us_7
+unameCP8:  groundzero.us_8
+unameCP9:  groundzero.us_9
+unameCP10:  groundzero.us_10
+unameCP11:  groundzero.us_11
+unameCP12:  groundzero.us_12
+unameBugs:  groundzero.us_13
 password:   spicypancakes1
 site_url:   https://etap-cdev-fh.blackbaudhosting.com/prod/
 image_path: /home/ubuntu/qa-etap-main/misc/cart_image.jpg

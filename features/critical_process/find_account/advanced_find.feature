@@ -1,8 +1,8 @@
-@crit_proc @pipetest1
+@crit_proc9 @pipetest1
 Feature: Searching from advanced find
 
   Background:
-  Given I login into eTap for CP1
+  Given I login into eTap for CP9
 
   Scenario: Searching by Name, pressing Enter
     When I click Accounts

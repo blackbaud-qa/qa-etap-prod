@@ -1,8 +1,8 @@
-@crit_proc
+@crit_proc7
 Feature: Creating a new diy donation page
 
   Scenario: creating a new diy donation page
-    Given I login into eTap for CP1
+    Given I login into eTap for CP7
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
 #    This is currently dependent on there already being a DIY page created

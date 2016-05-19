@@ -1,8 +1,8 @@
-@crit_proc2
+@crit_proc3
 Feature: Reports load, can be copied,moved and can be deleted
 
   Background:
-    Given I login into eTap for CP2
+    Given I login into eTap for CP3
 
 Scenario: Load reports
   When I click on reports

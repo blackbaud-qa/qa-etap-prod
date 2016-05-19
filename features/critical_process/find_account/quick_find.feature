@@ -1,9 +1,9 @@
-@crit_proc
+@crit_proc9
 Feature: Searching from quick find
 
   Background:
 #    Given my Default Search Type user preference is set to Quick Find
-    Given I login into eTap for CP1
+    Given I login into eTap for CP9
     When I click Accounts on the main menu
     And I click on Find an Account on the accounts menu
 

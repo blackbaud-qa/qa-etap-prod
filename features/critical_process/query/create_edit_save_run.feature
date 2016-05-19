@@ -1,8 +1,8 @@
-@crit_proc2
+@crit_proc4
 Feature: Create, Edit, Save and Run Queries
 
   Background:
-    Given I login into eTap for CP2
+    Given I login into eTap for CP4
     And a query category should exist called 'Critical Process Testing'
 
 

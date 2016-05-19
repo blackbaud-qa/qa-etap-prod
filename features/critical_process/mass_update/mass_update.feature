@@ -1,8 +1,8 @@
-@crit_proc2
+@crit_proc1
 Feature: Mass Update
 
   Background:
-   Given I login into eTap for CP2
+   Given I login into eTap for CP1
 
     Scenario: Update Existing Account Values
      When I click Management on the main menu

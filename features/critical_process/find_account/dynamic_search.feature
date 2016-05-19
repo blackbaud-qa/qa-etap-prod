@@ -1,8 +1,8 @@
-@crit_proc
+@crit_proc9
 Feature: Search using the dynamic search field
 
   Background:
-  Given I login into eTap for CP1
+  Given I login into eTap for CP9
 
   Scenario: Searching for an account, pressing Enter
     When I type 'Alm' into the dynamic search field
