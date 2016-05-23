@@ -2,8 +2,8 @@
 Feature: SEPA 1 - Setting Preferences
 
   Background:
-    Given I login into eTap for CP5
-    And I log out of eTap
+#    Given I login into eTap for CP5
+#    And I log out of eTap
     And I login into eTap with values 'automationbot.nl', 'spicypancakes1'
 
   Scenario:  Adding Federal ID Number

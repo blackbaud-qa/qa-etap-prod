@@ -2,8 +2,8 @@
 Feature: SEPA 2 - Field validation and saving transactions
 
   Background:
-    Given I login into eTap for CP5
-    And I log out of eTap
+#    Given I login into eTap for CP5
+#    And I log out of eTap
     And I login into eTap with values 'automationbot.nl', 'spicypancakes1'
 
 #    Given I login as [USER]

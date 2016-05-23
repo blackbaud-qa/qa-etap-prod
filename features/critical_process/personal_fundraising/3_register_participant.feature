@@ -2,7 +2,7 @@
 Feature: Registering a participant
 
   Background:
-    Given I login into eTap for CP3
+    Given I login into eTap for CP2
 
   Scenario: registering a participant
     When I delete existing data for 'John Crabtree'
