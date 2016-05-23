@@ -49,13 +49,13 @@ Feature: Create, Edit, Save and Run Queries
     And I type 'John' into the Short Salutation field on the Create a New Query page
     And I click Save And 'Preview'
 #    And I should see the message 'Displaying 1 - 4 of 4' on the query preview screen
-    And I should see '7 Accounts' results on the query preview page
+    And I should see '6 Accounts' results on the query preview page
     And I click Edit on the query preview screen
     And I click Save And 'Create a custom account query'
     And I set the Name to 'Donors Named John - Custom Query' on the Create a New Query page
     And I click Save And 'Preview'
 #    Then I should see the message 'Displaying 1 - 4 of 4' on the query preview screen
-    Then I should see '7 Accounts' results on the query preview page
+    Then I should see '6 Accounts' results on the query preview page
 
   Scenario: Create a New Custom Account Query
     Given the query 'Hand Selected Donors' does not exist in the 'Critical Process Testing' category
@@ -105,7 +105,7 @@ Feature: Create, Edit, Save and Run Queries
     And I set Combine the Queries to Add
     And I click Save And 'Preview'
 #    Then I should see the message 'Displaying 1 - 16 of 16' on the query preview screen
-    Then I should see '12 Accounts' results on the query preview page
+    Then I should see '11 Accounts' results on the query preview page
 
   Scenario: Create a Query Category
     When I click Queries on the main menu
@@ -122,7 +122,7 @@ Feature: Create, Edit, Save and Run Queries
     And I click on the 'Critical Process Testing' category
     And I click delete below the 'Donations made in January 2015' query on the Create a New Query page
     And I click Yes to permanently delete the item
-    And I click OK to dismiss the notification about not being able to delete a query
+#    And I click OK to dismiss the notification about not being able to delete a query
     And I click on the 'Donations made in January 2015' query
     And I click 'Query Associations' in the Tasks menu
     And I click delete below the 'January 2015 Donors Minus Donors Named John - Custom Query' query on the Create a New Query page
