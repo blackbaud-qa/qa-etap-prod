@@ -1,8 +1,8 @@
-@crit_proc2
+@crit_proc6
 Feature: Making a donation to a fundraiser
 
   Background:
-    Given I login into eTap for CP2
+    Given I login into eTap for CP6
 
   Scenario: making a donation
     When I click Management on the main menu

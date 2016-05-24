@@ -1,8 +1,8 @@
-@crit_proc2
+@crit_proc6
 Feature: Creating a new fundraiser
 
   Background:
-    Given I login into eTap for CP2
+    Given I login into eTap for CP6
 
   Scenario: setting up a Fundraiser
     When I click Management on the main menu
