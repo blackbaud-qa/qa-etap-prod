@@ -9,6 +9,7 @@ And(/^I click Journal$/) do
 end
 
 And(/^select ([^']*) from the Add New\.\.\. drop down menu$/) do |operation|
+  sleep 2
   landing = Account::Journal.new
 
   if operation == 'Gift/Pledge'
