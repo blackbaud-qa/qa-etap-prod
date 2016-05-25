@@ -177,6 +177,7 @@ end
 And(/^I click Save and Finish on the new Fundraiser page/) do
   fund = Management::Fundraisers.new()
   fund.new_fundraiser_save_and_finish_click
+  sleep 5
 end
 
 And(/^I sort by Status on the Fundraisers Page/) do
