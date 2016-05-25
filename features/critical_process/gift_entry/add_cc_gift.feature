@@ -1,4 +1,5 @@
-@crit_proc11
+#@crit_proc11
+  @crit_proc10
 Feature: Adding a gift with payment type of credit card and process it
 
   Background:

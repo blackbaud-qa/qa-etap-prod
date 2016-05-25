@@ -1,4 +1,5 @@
-@crit_proc11
+#@crit_proc11
+  @crit_proc10
 Feature: Dashboard Functionality
 
   Background:
