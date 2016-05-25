@@ -1,4 +1,4 @@
-@crit_proc7
+#@crit_proc7
 Feature: Process Cart transaction
 
  Scenario: View online Cart

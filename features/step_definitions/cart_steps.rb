@@ -303,7 +303,13 @@ end
 
 And(/^I click View This Category under '([^']*)' on the live cart page$/) do |category|
   cart = Admin::Cart.new()
-  cart.view_category_click category
+  begin
+    cart.view_category_click category
+  rescue Exception => e
+    step "I close the current tab"
+    raise e
+  end
+
 end
 
 And(/^I click on View This Item under '([^']*)' on the live cart page$/) do |item|
