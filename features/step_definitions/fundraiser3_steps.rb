@@ -218,6 +218,17 @@ And(/^I set the Expiration Year to '([^']*)' on the live fundraiser page$/) do |
   fund.live_fundraiser_card_exp_select exp
 end
 
+Then(/^the registration page should not display the fundraiser$/) do
+  sleep 3
+  fund = Management::Fundraisers.new()
+  begin
+    expect(fund.fundraising_content_text_contains? 'QA Fundraiser 1').to eq(false)
+  rescue Exception => e
+    step "I close the current tab"
+    raise e
+  end
+end
+
 Then(/^the registration confirmation page should say: '([^']*)'$/) do |msg|
   sleep 3
   fund = Management::Fundraisers.new()

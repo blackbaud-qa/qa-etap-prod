@@ -14,4 +14,5 @@ Feature: Disabling a fundraiser
     And I sort by Status on the Fundraisers Page
     And I click on the QA Fundraiser 1 url on the Fundraiser page
     And I switch to the new tab in my browser
-    Then the registration confirmation page should say: 'The file you requested could not be found.'
+    Then the registration page should not display the fundraiser
+#    Then the registration confirmation page should say: 'The file you requested could not be found.'
