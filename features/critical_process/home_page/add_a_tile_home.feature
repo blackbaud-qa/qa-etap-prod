@@ -1,4 +1,5 @@
-@crit_proc12
+#@crit_proc12
+  @crit_proc5
 Feature: Select a layout and a tile
 
   Background:

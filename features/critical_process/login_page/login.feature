@@ -1,4 +1,5 @@
-@crit_proc12
+#@crit_proc12
+  @crit_proc5
 Feature: eTap Login and Logout
 
 Scenario: Normal Login and Logout
