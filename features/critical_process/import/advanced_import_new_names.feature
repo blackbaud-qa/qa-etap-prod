@@ -112,7 +112,7 @@ Feature: Importing Constituent and Gift Information
     And I click Next on the Import screen
     And I click Next on the Import screen
     And I click Next on the Import screen
-    And I click Next on the Import step 4
+    And I click Next on the Import screen
     Then I receive the following import message: 'We were unable to process your import because of issues with your import file. NO DATA was added to your database including lines where there were no errors.'
 
   Scenario: deleting imported information and the import template
