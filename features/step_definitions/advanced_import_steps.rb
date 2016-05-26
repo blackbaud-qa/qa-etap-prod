@@ -35,8 +35,10 @@ And(/^I choose the incomplete import file on the Import screen$/) do
 end
 
 And(/^I choose the incomplete import file for names on the Import screen$/) do
+  sleep 2
   import = Giving::Imports.new()
   import.new_import_choose_file_set(Watirmark::Configuration.instance.incomplete_import_path_names)
+  sleep 1
 end
 
 And(/^I set the Select the Type of Information to Import to '([^']*)' on the Import screen$/) do |data|
@@ -50,8 +52,10 @@ And(/^I set the Country to '([^']*)' on the Import screen$/) do |country|
 end
 
 And(/I set the name format to '([^']*)' on the Import screen$/) do |option|
+  sleep 2
   import = Giving::Imports.new()
   import.import_name_format_select option
+  sleep 1
 end
 
 And(/^I click Next on the Import screen$/) do
