@@ -55,10 +55,10 @@ And(/I set the name format to '([^']*)' on the Import screen$/) do |option|
 end
 
 And(/^I click Next on the Import screen$/) do
-  sleep 0.5
+  sleep 1
   import = Giving::Imports.new()
   import.import_next_click
-  sleep 1.5
+  sleep 2
 end
 
 And(/^I click Next on the Import step 1$/) do
