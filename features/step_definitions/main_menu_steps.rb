@@ -379,6 +379,7 @@ When(/^I click on Fundraisers on the management menu$/) do
 end
 
 When(/^I click on DIY Forms on the management menu$/) do
+  sleep 2
   landing = Admin::Landing.new
   landing.management_dd_diy_click
 end
