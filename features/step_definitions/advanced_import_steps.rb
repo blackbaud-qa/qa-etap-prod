@@ -173,6 +173,7 @@ And(/^I clear the old import data$/) do
 end
 
 And(/^I receive the following import message: '([^']*)'$/) do |msg|
+  sleep 5
   import = Giving::Imports.new()
   expect(import.error_message_contains? msg).to eq(true)
 end
