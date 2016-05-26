@@ -1,5 +1,5 @@
 #@crit_proc12
-  @crit_proc5
+  @crit_proc3
 Feature: journal entries
 
   Background: I am logged into eTapestry

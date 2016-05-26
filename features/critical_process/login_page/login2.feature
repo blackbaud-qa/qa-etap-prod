@@ -1,5 +1,5 @@
 #@crit_proc12
-  @crit_proc5
+  @crit_proc3
 Feature: Login
   As a user
   I want to login to my database
@@ -58,3 +58,4 @@ Feature: Login
       | username   | password  |
       | testUserGZ | Password! |
     Then I should be logged in
+    And I log out of eTap
