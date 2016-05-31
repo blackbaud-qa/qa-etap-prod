@@ -90,6 +90,7 @@ module Cukesetaptesting
       keyword(:remove_standard_query_from_favorites) {content.div(:id, 'removeFavorite')}
       keyword(:cancel_query_favorites_modal) {content.button(:id, 'favCancel')}
       keyword(:clear_search_query_favorites_modal) {content.button(:id, 'clearFavoritesSearch')}
+      keyword(:query_search_field) {content.div(:class,/bb-search-icon/).parent.text_field}
 
 
 

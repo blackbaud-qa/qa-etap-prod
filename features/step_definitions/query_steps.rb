@@ -313,6 +313,12 @@ And (/^I should see I should see my organization account in the query results/) 
   step "I should see 'Ground Zero AutomationBot US' in the query results"
 end
 
+And (/^I search for '([^']*)' in the query results$/) do |name|
+  sleep 3
+  query = Queries::Createquerycategory.new(:query_search_field => name)
+  query.create
+end
+
 Then (/^I should see '([^']*)' in the query results/) do |name|
   query = Queries::Createquerycategory.new
   expect(query.query_preview_results(name)).to eq(true)

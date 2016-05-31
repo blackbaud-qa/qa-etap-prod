@@ -32,7 +32,11 @@ Feature: Accounts Missing from Compound Query when adding Journal Entries and Ac
     And I set the query 2 category to 'Base' on the Create a New Query page
     And I set the query 2 query to 'All Constituents - A' on the Create a New Query page
     And I click Save And 'Preview'
+    And I search for 'Bob' in the query results
+    And I press Enter on the keyboard
     And I should see 'Bob Smith' in the query results
+    And I search for 'Cindy' in the query results
+    And I press Enter on the keyboard
     And I should see 'Cindy Smith' in the query results
     And I type 'Bob Smith' into the dynamic search field
     And I press Enter on the keyboard
