@@ -34,7 +34,7 @@ Feature: Contact Subject Text Query
     And I click the plus sign to add another Contact Subject Text field on the Create a New Query page
     And I set the second Contact Subject Text to '"Golf Outing Discussion"' on the Create a New Query page
     And I click Save And 'Preview'
-    And I should see Displaying 1 - 2 of 2 on the Query Preview page
+    Then I should see '2 Journal Entries' results on the query preview page
     And I click Queries on the main menu
     And I click on Manage Queries on the queries menu
 #    And I click on the 'Mass Update' category
