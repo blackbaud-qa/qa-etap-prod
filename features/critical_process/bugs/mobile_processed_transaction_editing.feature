@@ -2,7 +2,8 @@
 Feature: Processed transactions should not be editable via the mobile eTap site
 
   Background:
-    Given I login into eTap for bugs
+    Given I navigate to Fullhouse
+    And I login into eTap for bugs
 
   Scenario: Processed transactions should not be editable
 #    And I create constituent 'Bob Smith'  #added to zero state base DB
@@ -14,7 +15,7 @@ Feature: Processed transactions should not be editable via the mobile eTap site
     And I click Search on Mobile
     And I select account Bob Smith on Mobile
     And I select link Journal on Mobile
-    And I select the 1st journal entry
+    And I select the 2nd journal entry
     Then Received is not editable
     And Credit/Debit Card Number is not editable
     And Expiration Date Month is not editable
@@ -37,3 +38,5 @@ Feature: Processed transactions should not be editable via the mobile eTap site
     And I select the 1st journal entry
     Then Received should not be empty
     And Credit/Debit Card Number should not be empty
+    And I log out of eTap Mobile
+    And I navigate to Fullhouse

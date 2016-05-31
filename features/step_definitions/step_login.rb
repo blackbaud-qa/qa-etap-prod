@@ -130,9 +130,10 @@ When(/^([^']*) (?:is|am) logged into Mobile eTap$/) do |user_name|
   step "I navigate to eTap Mobile"
 
   if (user_name == "I")
-    step "I login into eTap"
+    # step "I login into eTap"
+    step "I login into eTap for bugs"
   else
-    step "I login into eTap with values '#{user_name}', '#{user_name}'"
+    step "I login into eTap with values '#{user_name}', '#{Watirmark::Configuration.instance.password}'"
   end
 end
 
@@ -144,6 +145,7 @@ When(/^login ([^']*), ([^']*) logs into Mobile eTap$/) do |user_name, password|
 
   if (user_name == "I")
     step "I login into eTap"
+
   else
     step "I login into eTap with values '#{user_name}', '#{password}'"
   end
@@ -179,6 +181,7 @@ end
 When(/^I log out of eTap Mobile$/) do
   page = Mobile::Login.new
   page.click_logout_button
+  sleep 5
 end
 
 Then(/^I should be logged in$/) do
