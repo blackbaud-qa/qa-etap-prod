@@ -1,4 +1,5 @@
-@bugs
+#Removing from bugs build for now.  Some users still need to be created in groundzero as setup for this test.
+#@bugs
 Feature: TFS 531822 -- Queries previewed by security restricted users are returning accounts they should not see
 
   Background:
