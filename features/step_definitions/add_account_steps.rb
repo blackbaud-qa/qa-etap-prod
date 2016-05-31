@@ -502,6 +502,7 @@ And(/^I click Country Codes on the system defined fields page/) do
 end
 
 And (/^I click Enabled under the country code '([^']*)' to disable the value/) do |value|
+  sleep 5
   accounts = Account::AddAccount.new
   accounts.disable_country_code (value)
 end
