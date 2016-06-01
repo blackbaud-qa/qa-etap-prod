@@ -15,7 +15,7 @@ Feature: Processed transactions should not be editable via the mobile eTap site
     And I click Search on Mobile
     And I select account Bob Smith on Mobile
     And I select link Journal on Mobile
-    And I select the 2nd journal entry
+    And I select the 1st journal entry
     Then Received is not editable
     And Credit/Debit Card Number is not editable
     And Expiration Date Month is not editable
