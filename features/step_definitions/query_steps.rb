@@ -4,11 +4,13 @@ And (/^I click New Category on the Query Categories page/) do
 end
 
 And (/^I set the Name to '([^']*)' on the Create Query Category page/) do |value|
+  sleep 2
   query = Queries::Createquerycategory.new(:set_query_category_name => value)
   query.create
 end
 
 And (/^I click Save Category on the Query Categories page/) do
+  sleep 2
   query = Queries::Createquerycategory.new
   query.save_new_query_category_click
 end
@@ -25,6 +27,7 @@ And (/^I click Yes to permanently delete the item/) do
 end
 
 And (/^I click '([^']*)' on the Edit Query Category page/) do |value|
+  sleep 2
   query = Queries::Createquerycategory.new
   query.new_query_task_click(value)
 end
