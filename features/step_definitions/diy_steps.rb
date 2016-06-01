@@ -354,6 +354,7 @@ And(/^I set the Fund to '([^']*)' on the DIY Donation Page$/) do |fund|
 end
 
 And(/^I set Gender to '([^']*)' on the DIY Donation Page$/) do |gender|
+  sleep 5
   diy = DIY::Onlineforms.new()
   diy.live_gender_set gender
 end
