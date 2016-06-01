@@ -246,6 +246,7 @@ And(/I click ([^']*) UDF on the DIY editor page$/) do |udf_name|
 end  
   
 And(/^I click '([^']*)' on the DIY editor page/) do |value|
+  sleep 2
   diy = DIY::Onlineforms.new
   diy.field_select_gender_click value
 end
