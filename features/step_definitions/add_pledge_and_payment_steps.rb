@@ -114,6 +114,7 @@ And (/^I click Find on the journal page/) do
 end
 
 Then (/^I should see the message '([^']*)' on the journal page/) do |message|
+  sleep 2
   gift = Giving::GiftPledge.new
   expect(gift.journal_entry_exists? message).to eq(true)
 end
