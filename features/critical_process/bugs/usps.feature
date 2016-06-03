@@ -15,6 +15,7 @@ Feature: Looking up a Postal Code via USPS
     And I click on the USPS button
     And I switch to the new tab in my browser
     Then I should see '29492' returned as the postal code on USPS.com
+    And I close the current tab
 
 
   Scenario: Looking up a Postal Code when editing an existing account
@@ -24,3 +25,4 @@ Feature: Looking up a Postal Code via USPS
     And I click on the USPS button
     And I switch to the new tab in my browser
     Then I should see '48072' returned as the postal code on USPS.com
+    And I close the current tab
