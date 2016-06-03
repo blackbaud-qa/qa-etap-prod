@@ -420,8 +420,23 @@ end
 
 And (/I set the country to '([^']*)' in the Change Country modal on the Personas page/) do |value|
   accounts = Account::AddAccount.new
-  accounts.set_country_persona_modal value
+  if (accounts.country_enabled? value)
+    accounts.set_country_persona_modal value
+  else
+    accounts.set_country_persona_modal 'Enable another country'
+    step "I set the disabled country to '"+value+"' in the Change Country modal on the Personas page"
+  end
+  # accounts.set_country_persona_modal value
+
+#   set_disabled_country_persona_modal
 end
+
+And (/I set the disabled country to '([^']*)' in the Change Country modal on the Personas page/) do |value|
+  sleep 2
+  accounts = Account::AddAccount.new
+  accounts.set_disabled_country value
+end
+
 
 And (/^I click Continue in the Change Country modal on the Personas page/) do
   accounts = Account::AddAccount.new

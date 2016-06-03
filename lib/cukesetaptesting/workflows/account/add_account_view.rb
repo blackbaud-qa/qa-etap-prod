@@ -99,6 +99,7 @@ module Cukesetaptesting
       keyword(:new_names_account_name) {content.text_field(:id, 'accountName')}
       keyword(:change_country_link) {content.a(:id, 'changeCountryLink')}
       keyword(:set_country_persona_modal) {content.select(:id, 'countrySelect')}
+      keyword(:set_disabled_country_persona_modal) {content.select(:name, 'disabledCountry')}
       keyword(:save_country_selection) {content.input(:id, 'save')}
       keyword(:persona_page_suburb) {content.text_field(:id, 'suburb')}
       keyword(:merge_role) {content.input(:name, 'merge')}

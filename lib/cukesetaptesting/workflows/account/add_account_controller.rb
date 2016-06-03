@@ -530,9 +530,16 @@ module Cukesetaptesting
         @view.click_and_confirm_alert(@view.persona_page_delete)
       end
 
+      def country_enabled? value
+        @view.set_country_persona_modal.when_present.include? value
+      end
+
+      def set_disabled_country(value)
+        @view.set_disabled_country_persona_modal.when_present.select value
+      end
 
 
-    end
+      end
   end
 end
 
