@@ -74,6 +74,10 @@ module Cukesetaptesting
 
       def wait_on_tile_load
         sleep 3
+        if (@view.content.text.include? 'Retrieving Content')
+          step "I click Home on the main menu"
+          step "I click on Go to Home on the home menu"
+        end
         # @view.content.table(:id,'givingSummaryTable').wait_until_present
       end
 
