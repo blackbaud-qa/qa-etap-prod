@@ -3,7 +3,7 @@
 Feature: Select a layout and a tile
 
   Background:
-  Given I login into eTap for CP12
+  Given I login into eTap for CP3
 
   Scenario: Selecting the 3 column layout
     When I am on an account

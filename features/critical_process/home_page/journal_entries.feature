@@ -3,7 +3,7 @@
 Feature: journal entries
 
   Background: I am logged into eTapestry
-    Given I login into eTap for CP12
+    Given I login into eTap for CP3
 
   Scenario: Select a date from recent journal entries
     When I am on an account
