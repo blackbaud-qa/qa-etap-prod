@@ -3,7 +3,7 @@
 Feature: Dashboard Functionality
 
   Background:
-  Given I login into eTap for CP11
+  Given I login into eTap for CP10
 
 ### Test against automationbot before checkin ###
   Scenario: Adding Tiles to the Dashboard

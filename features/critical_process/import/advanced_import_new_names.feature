@@ -3,7 +3,7 @@
 Feature: Importing Constituent and Gift Information
 
   Background:
-  Given I login into eTap for CP11
+  Given I login into eTap for CP10
 
   Scenario: running a successful gift import with address information included
     Given I clear the old import data
