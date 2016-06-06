@@ -1,4 +1,16 @@
-#username:  invalidUser #trying to fix parallel login issues
+unameCP1:  automationbot.us
+unameCP2:  groundzero.us_02
+unameCP3:  groundzero.us_03
+unameCP4:  groundzero.us_04
+unameCP5:  groundzero.us_05
+unameCP6:  groundzero.us_06
+unameCP7:  automationbot.us
+unameCP8:  groundzero.us_08
+unameCP9:  groundzero.us_09
+unameCP10:  groundzero.us_10
+unameCP11:  groundzero.us_11
+unameCP12:  groundzero.us_12
+username:   Automationbot.us
 #unameCP1:  groundzero.us_1
 #unameCP2:  groundzero.us_2
 #unameCP3:  groundzero.us_3
@@ -11,31 +23,18 @@
 #unameCP10:  groundzero.us_10
 #unameCP11:  groundzero.us_10
 #unameCP12:  groundzero.us_3
-unameCP1:  groundzero.us_01
-unameCP2:  groundzero.us_02
-unameCP3:  groundzero.us_03
-unameCP4:  groundzero.us_04
-unameCP5:  groundzero.us_05
-unameCP6:  groundzero.us_06
-unameCP7:  groundzero.us_07
-unameCP8:  groundzero.us_08
-unameCP9:  groundzero.us_09
-unameCP10:  groundzero.us_10
-unameCP11:  groundzero.us_11
-unameCP12:  groundzero.us_12
-unameBugs:  groundzero.us_11
 password:   spicypancakes1
 site_url: https://sna.etapestry.com/prod/Login.jsp
-#site_url:   https://etap-cdev-fh.blackbaudhosting.com/prod/
-image_path: /home/ubuntu/qa-etap-main/misc/cart_image.jpg
-headless_enabled: true
-complete_import_path: /home/ubuntu/qa-etap-main/misc/import_a.csv
-incomplete_import_path: /home/ubuntu/qa-etap-main/misc/import_b.csv
-complete_import_path_names: /home/ubuntu/qa-etap-main/misc/import_a_names.csv
-incomplete_import_path_names: /home/ubuntu/qa-etap-main/misc/import_b_names.csv
+#site_url:  https://etap-cdev-fh.blackbaudhosting.com/prod/
+image_path: /home/ubuntu/qa-etap-prod/misc/cart_image.jpg
+headless_enabled: false
+complete_import_path: /home/ubuntu/qa-etap-prod/misc/import_a.csv
+incomplete_import_path: /home/ubuntu/qa-etap-prod/misc/import_b.csv
+complete_import_path_names: /home/ubuntu/qa-etap-prod/misc/import_a_names.csv
+incomplete_import_path_names: /home/ubuntu/qa-etap-prod/misc/import_b_names.csv
 site_url_knight_rider: https://etap-cdev-kr.blackbaudhosting.com/prod/
 site_url_mobile: https://etap-cdev-fh.blackbaudhosting.com/mobile/Login.jsp
 username_kr:   automationbot.lucene.us
 password_kr:   spicypancakes1
-account_photo_yes_ampersand: /home/ubuntu/qa-etap-main/misc/Happy Man & Green Shirt.png
-account_photo_no_ampersand: /home/ubuntu/qa-etap-main/misc/Happy Man and Green Shirt.png
+account_photo_yes_ampersand: /home/ubuntu/qa-etap-prod/misc/Happy Man & Green Shirt.png
+account_photo_no_ampersand: /home/ubuntu/qa-etap-prod/misc/Happy Man and Green Shirt.png
