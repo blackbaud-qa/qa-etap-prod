@@ -236,6 +236,7 @@ And(/I select Add Fields on the DIY editor page$/) do
 end
 
 And(/I select '([^']*)' for the field category on the DIY editor page$/) do |value|
+  sleep 1
   diy = DIY::Onlineforms.new()
   diy.base_field_cat_select value
 end
