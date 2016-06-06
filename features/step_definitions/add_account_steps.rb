@@ -279,11 +279,13 @@ And(/^I click the edit icon next to '([^']*)' on the add account page/) do |valu
 end
 
 And(/^I set the Short Salutation to '([^']*)' on the add account page/) do |value|
+  sleep 1
   accounts = Account::AddAccount.new(:new_names_short_salutation => value)
   accounts.create
 end
 
 And(/^I set the Long Salutation to '([^']*)' on the add account page/) do |value|
+  sleep 1
   accounts = Account::AddAccount.new(:new_names_long_salutation => value)
   accounts.create
 end
