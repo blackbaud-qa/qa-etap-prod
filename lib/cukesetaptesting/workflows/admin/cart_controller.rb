@@ -34,6 +34,10 @@ module Cukesetaptesting
         @view.new_category_save.when_present.click
       end
 
+      def list_exists?
+        @view.content.ul(:id,'list_cart').present?
+      end
+
       def category_exists?(name)
         @view.cart_category_list.when_present.text.include? name
       end

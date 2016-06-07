@@ -6,12 +6,15 @@ end
 
 When(/^I rename the existing category to prevent automation errors/) do
   cart = Admin::Cart.new
-  if(cart.category_exists? 'Automation Cat 1')
-    cart.category_click('Automation Cat 1')
-    name = 'Category'+((0...8).map { (65 + rand(26)).chr }.join)
-    step "I name it '#{name}' on create cart category"
-    step "I click on Save Category on create cart category"
+  if (cart.list_exists?)
+    if(cart.category_exists? 'Automation Cat 1')
+      cart.category_click('Automation Cat 1')
+      name = 'Category'+((0...8).map { (65 + rand(26)).chr }.join)
+      step "I name it '#{name}' on create cart category"
+      step "I click on Save Category on create cart category"
+    end
   end
+
 end
 
 When(/^I name it '([^']*)' on create cart category$/) do |name|
