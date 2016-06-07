@@ -10,7 +10,7 @@ Feature: Edit a diy donation page
   Scenario: editing a new diy page
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
-    And I click Edit for the form titled 'Existing Donation Page'
+    And I click Edit for the form titled 'Donation Page'
     And I click Edit Style on the DIY editor page
     And I click Swap Template on the DIY editor page
     And I select the Steel template on the DIY editor page
