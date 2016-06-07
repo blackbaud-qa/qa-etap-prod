@@ -85,7 +85,13 @@ end
 
 And(/^I should see the edited DIY page$/) do
   diy = DIY::Onlineforms.new()
-  expect(diy.on_edited_diy_page?).to eq(true)
+  begin
+    expect(diy.on_edited_diy_page?).to eq(true)
+  rescue Exception => e
+    step "I close the current tab"
+    raise e
+  end
+
 end
 
 And(/^I click Edit for the form titled '([^']*)'$/) do |page|

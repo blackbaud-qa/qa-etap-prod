@@ -56,7 +56,7 @@ Feature: Edit a diy donation page
     And I click Go Live on the DIY editor page
     And I click Yes, Go Live! on the DIY editor page
     And I click Replace on the DIY editor page
-    And I click on the link for the form titled Existing Donation Page
+    And I click on the link for the form titled Donation Page
     And I switch to the new tab in my browser
     Then I should see the edited DIY page
     And I close the current tab
