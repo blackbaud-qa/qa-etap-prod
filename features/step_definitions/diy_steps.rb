@@ -75,7 +75,7 @@ end
 And(/^I click Yes, Go Live! on the DIY editor page$/) do
   diy = DIY::Onlineforms.new()
   diy.go_live_confirm_click
-  sleep 3
+  sleep 60
 end
 
 And(/^I should see the new DIY page$/) do
@@ -315,7 +315,7 @@ end
 And(/^I click Replace on the DIY editor page$/) do
   diy = DIY::Onlineforms.new()
   diy.donation_page_replace_click
-  sleep 3
+  sleep 60
 end
 
 Then(/the Donation Page should no longer show$/) do
