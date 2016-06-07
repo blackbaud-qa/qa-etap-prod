@@ -149,7 +149,10 @@ module Cukesetaptesting
       end
 
       def edit_cart_delete_question_click
-        @view.edit_cart_delete_question.when_present.click
+        sleep 2
+        if (@view.edit_cart_delete_question.present?)
+          @view.edit_cart_delete_question.when_present.click
+        end
       end
 
       def edit_cart_question_field_name_click

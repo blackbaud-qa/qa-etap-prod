@@ -65,7 +65,7 @@ Scenario: Edit Cart Preferences
   And I choose B for Bold in the Order Success Message section on the edit cart page
   And I type in 'Success' in the Order Success Message on the edit cart page
   #Not needed for zero state
-#  And I delete any existing checkout questions to prevent automation errors
+  And I delete any existing checkout questions to prevent automation errors
   And I choose Base: Tribute Type under Add Question Field Name in Checkout Questions on the edit cart page
   And I type in 'Checkout Question' in Display Text under Add Question Field Name in Checkout Questions on the edit cart page
 #   And I accept the default Apply To: Constituents
