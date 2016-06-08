@@ -44,6 +44,17 @@ module Cukesetaptesting
       keyword(:journal_form) {content.div(:id,'journal')}
       keyword(:journal_table) {content.div(:class,'ui-jqgrid-bdiv')}
 
+      keyword(:first_attachment_file_size_modal_view) {content.div(:class, 'modal-content').span(:id, 'attachmentsInfo_0')}
+      keyword(:second_attachment_file_size_modal_view) {content.div(:class, 'modal-content').span(:id, 'attachmentsInfo_0')}
+      keyword(:attachments_modal_gray_x)  {content.div(:class, 'modal-content').div(:class, 'fa fa-times close')}
+      keyword(:attachment_information_section) {content.div(:id, 'attachmentFieldsTitleBar')}
+      keyword(:attachments_choose_file_button) {content.file_field(:id, 'attachmentUploadFile')}
+      keyword(:attachments_upload_button) {content.button(:value, 'Upload')}
+
+      def journal_attachment_link(value)
+        content.div(:class, 'ui-jqgrid-bdiv').a(:text, value)
+      end
+
       def home(model)
       end
 
