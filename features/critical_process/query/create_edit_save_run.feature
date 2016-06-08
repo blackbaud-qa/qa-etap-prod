@@ -9,7 +9,7 @@ Feature: Create, Edit, Save and Run Queries
   Scenario: Create and Edit a New Query
     Given the query 'January 2015 Donors Minus Donors Named John - Custom Query' does not exist in the 'Critical Process Testing' category
     And the query 'Donations made in January 2015' does not exist in the 'Critical Process Testing' category
-    And there exists an account that has donated in January 2015
+#    And there exists an account that has donated in January 2015
     When I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click on the 'Critical Process Testing' category
