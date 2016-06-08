@@ -77,6 +77,34 @@ module Cukesetaptesting
         return @view.journal_table.text.include? document
       end
 
+      def attachment_link_file_count_click(value)
+        @view.journal_attachment_link(value).when_present.click
+      end
+
+      def first_attachment_file_size
+        @view.first_attachment_file_size_modal_view.when_present.text.include?("0 KB")
+      end
+
+      def second_attachment_file_size
+        @view.second_attachment_file_size_modal_view.when_present.text.include?("0 KB")
+      end
+
+      def attachments_modal_close
+        @view.attachments_modal_gray_x.when_present.click
+      end
+
+      def attachment_information_section_click
+        @view.attachment_information_section.when_present.click
+      end
+
+      def upload_attachment_file(file)
+        @view.attachments_choose_file_button.when_present.set(file)
+      end
+
+      def attachments_upload_button_click
+        @view.attachments_upload_button.when_present.click
+      end
+
     end
   end
 end
