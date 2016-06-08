@@ -7,17 +7,17 @@ Feature: Submit an entry through existing non-transaction based diy pages
   Scenario: Submit a contact through Existing Volunteer Page
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
-    And I click Edit for the form titled 'Existing Volunteer Page'
-    And I click Add Item on the DIY editor page
-    And I select Add Fields on the DIY editor page
-    And I select 'Base' for the field category on the DIY editor page
-    And I click 'Gender' on the DIY editor page
-    And I click Update on the Add Fields page
-    And I click Save on the DIY editor page
-    And I confirm saving my changes
-    And I click Go Live on the DIY editor page
-    And I click Yes, Go Live! on the DIY editor page
-    And I click Replace on the DIY editor page
+#    And I click Edit for the form titled 'Existing Volunteer Page'
+#    And I click Add Item on the DIY editor page
+#    And I select Add Fields on the DIY editor page
+#    And I select 'Base' for the field category on the DIY editor page
+#    And I click 'Gender' on the DIY editor page
+#    And I click Update on the Add Fields page
+#    And I click Save on the DIY editor page
+#    And I confirm saving my changes
+#    And I click Go Live on the DIY editor page
+#    And I click Yes, Go Live! on the DIY editor page
+#    And I click Replace on the DIY editor page
     And I click on the link for the form titled Existing Volunteer Page
     And I switch to the new tab in my browser
     And I set Gender to 'Male' on the DIY Donation Page
@@ -57,17 +57,17 @@ Feature: Submit an entry through existing non-transaction based diy pages
   Scenario: Submit a contact through Existing Contact Page WITH Address Fields
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
-    And I click Edit for the form titled 'Existing Contact Page WITH Address Fields'
-    And I click Add Item on the DIY editor page
-    And I select Add Fields on the DIY editor page
-    And I select 'Base' for the field category on the DIY editor page
-    And I click 'Maiden Name' on the DIY editor page
-    And I click Update on the Add Fields page
-    And I click Save on the DIY editor page
-    And I confirm saving my changes
-    And I click Go Live on the DIY editor page
-    And I click Yes, Go Live! on the DIY editor page
-    And I click Replace on the DIY editor page
+#    And I click Edit for the form titled 'Existing Contact Page WITH Address Fields'
+#    And I click Add Item on the DIY editor page
+#    And I select Add Fields on the DIY editor page
+#    And I select 'Base' for the field category on the DIY editor page
+#    And I click 'Maiden Name' on the DIY editor page
+#    And I click Update on the Add Fields page
+#    And I click Save on the DIY editor page
+#    And I confirm saving my changes
+#    And I click Go Live on the DIY editor page
+#    And I click Yes, Go Live! on the DIY editor page
+#    And I click Replace on the DIY editor page
     And I click on the link for the form titled Existing Contact Page WITH Address Fields
     And I switch to the new tab in my browser
     And I set Account Type to 'Individual' on the DIY Donation Page
@@ -124,17 +124,17 @@ Feature: Submit an entry through existing non-transaction based diy pages
   Scenario: Submit a contact through Existing Contact Page WITHOUT Address Fields
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
-    And I click Edit for the form titled 'Existing Contact Page WITHOUT Address Fields'
-    And I click Add Item on the DIY editor page
-    And I select Add Fields on the DIY editor page
-    And I select 'Base' for the field category on the DIY editor page
-    And I click 'Maiden Name' on the DIY editor page
-    And I click Update on the Add Fields page
-    And I click Save on the DIY editor page
-    And I confirm saving my changes
-    And I click Go Live on the DIY editor page
-    And I click Yes, Go Live! on the DIY editor page
-    And I click Replace on the DIY editor page
+#    And I click Edit for the form titled 'Existing Contact Page WITHOUT Address Fields'
+#    And I click Add Item on the DIY editor page
+#    And I select Add Fields on the DIY editor page
+#    And I select 'Base' for the field category on the DIY editor page
+#    And I click 'Maiden Name' on the DIY editor page
+#    And I click Update on the Add Fields page
+#    And I click Save on the DIY editor page
+#    And I confirm saving my changes
+#    And I click Go Live on the DIY editor page
+#    And I click Yes, Go Live! on the DIY editor page
+#    And I click Replace on the DIY editor page
     And I click on the link for the form titled Existing Contact Page WITHOUT Address Fields
     And I switch to the new tab in my browser
     And I set Account Type to 'Individual' on the DIY Donation Page
