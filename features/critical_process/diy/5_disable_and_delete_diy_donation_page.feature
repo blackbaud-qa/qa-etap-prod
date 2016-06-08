@@ -1,8 +1,8 @@
-@crit_proc8
+@crit_proc7
 Feature: Copy, publish, disable and delete diy donation page
 
   Scenario: copying, publishing, disabling and deleting a diy page
-    Given I login into eTap for CP8
+    Given I login into eTap for CP7
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Disable for the form titled 'Donation Page'
