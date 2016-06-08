@@ -311,6 +311,7 @@ end
 And(/^I click Yes, Disable the Page$/) do
   diy = DIY::Onlineforms.new()
   diy.donation_page_disable_confirm_click
+  sleep 60
 end
 
 And(/I click Yes, Delete the Page$/) do
