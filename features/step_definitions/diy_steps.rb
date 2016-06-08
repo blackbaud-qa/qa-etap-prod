@@ -483,7 +483,13 @@ end
 
 Then(/^the transaction will process successfully$/) do
   diy = DIY::Onlineforms.new()
-  expect(diy.live_transaction_successful?).to eq(true)
+  begin
+    expect(diy.live_transaction_successful?).to eq(true)
+  rescue Exception => e
+    step "I close the current tab"
+    raise e
+  end
+
 end
 
 And(/^the transaction will be added to the database with accurate information$/) do
