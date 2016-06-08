@@ -316,6 +316,7 @@ end
 And(/I click Yes, Delete the Page$/) do
   diy = DIY::Onlineforms.new()
   diy.donation_page_delete_confirm_click
+  sleep 5
 end
 
 And(/^I click Replace on the DIY editor page$/) do
