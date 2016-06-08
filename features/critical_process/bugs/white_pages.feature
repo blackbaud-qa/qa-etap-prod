@@ -26,4 +26,5 @@ Feature: Looking up a Phone Number via White Pages
     And I click on the WhitePages button
     And I switch to the new tab in my browser
     Then I should see 'http://www.whitepages.com/name/Lacey-Sheldon/Berkley-MI' sent over to WhitePages.com
+    And I close the current tab
 
