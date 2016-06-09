@@ -323,6 +323,7 @@ And (/^I search for '([^']*)' in the query results$/) do |name|
 end
 
 Then (/^I should see '([^']*)' in the query results/) do |name|
+  sleep 3
   query = Queries::Createquerycategory.new
   expect(query.query_preview_results(name)).to eq(true)
 end
@@ -574,6 +575,7 @@ And (/^I mark the checkbox for '([^']*)' under Journal Entry Types on the Query 
 end
 
 And (/^I should see '([^']*)' results on the query preview page/) do |value|
+  sleep 3
   query = Queries::Createquerycategory.new()
   expect(query.query_preview_results_total_count(value)).to eq true
 end
