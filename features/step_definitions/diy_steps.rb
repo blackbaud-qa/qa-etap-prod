@@ -507,11 +507,13 @@ And(/^the transaction will be added to the database with accurate information$/)
     And I click on the User Defined Fields section on the new payment page
     And I should see 'DIY Test Page' set to 'Existing Donation Page' on the payment page
     And I click Delete on the transaction page
+    And I delete the note if present
     Then I should see the message '0 Journal Entries' on the journal page
-    And I click on the Note listed in the journal
-    And I click delete on the note page
+
 
   }
+  # And I click on the Note listed in the journal
+  # And I click delete on the note page
   ## Removed these two steps from the series above because a note will not be created in the zero state database
   # And I click on the Note listed in the journal
   # And I click delete on the note page

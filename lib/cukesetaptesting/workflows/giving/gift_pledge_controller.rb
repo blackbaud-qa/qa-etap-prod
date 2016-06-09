@@ -329,6 +329,11 @@ module Cukesetaptesting
         @view.journal_page_note.when_present.click
       end
 
+      def note_present?
+        sleep 3
+        return @view.journal_page_note.present?
+      end
+
       def note_page_delete_click
         @view.click_and_confirm_alert(@view.note_page_delete)
         # @view.note_page_delete.when_present.click

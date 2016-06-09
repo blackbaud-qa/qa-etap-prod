@@ -149,6 +149,15 @@ And(/^I click delete on the note page$/) do
   gift.note_page_delete_click
 end
 
+And(/^I delete the note if present$/) do
+  gift = Giving::GiftPledge.new
+  if (gift.note_present?)
+    step "I click on the Note listed in the journal"
+    step "I click delete on the note page"
+  end
+
+end
+
 And (/^I add a credit card gift for ([^']*) dollars to ([^']*)/) do |amount, constituent|
   steps %Q{
     When I type '#{constituent}' into the dynamic search field
