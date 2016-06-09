@@ -287,6 +287,10 @@ module Cukesetaptesting
         @view.participant_donors.text.include? name
       end
 
+      def fundraiser_total_raised value
+        @view.fundraiser_total_raised.when_present.text.include? value
+      end
+
     end
   end
 end

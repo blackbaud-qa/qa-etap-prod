@@ -107,3 +107,9 @@ And(/^I expand the Tribute, Soft Credit, Matching Gift Relationships section$/) 
   gift = Giving::GiftPledge.new
   gift.tribute_
 end
+
+Then (/^I should see the Total Raised Amount as '([^']*)' on the Fundraiser home page$/) do |value|
+  sleep 2
+  fund = Management::Fundraisers.new()
+  expect(fund.fundraiser_total_raised(value)).to eq(true)
+end
