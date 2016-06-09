@@ -45,7 +45,7 @@ module Cukesetaptesting
       keyword(:journal_table) {content.div(:class,'ui-jqgrid-bdiv')}
 
       keyword(:first_attachment_file_size_modal_view) {content.div(:class, 'modal-content').span(:id, 'attachmentsInfo_0')}
-      keyword(:second_attachment_file_size_modal_view) {content.div(:class, 'modal-content').span(:id, 'attachmentsInfo_0')}
+      keyword(:second_attachment_file_size_modal_view) {content.div(:class, 'modal-content').span(:id, 'attachmentsInfo_1')}
       keyword(:attachments_modal_gray_x)  {content.div(:class, 'modal-content').div(:class, 'fa fa-times close')}
       keyword(:attachment_information_section) {content.div(:id, 'attachmentFieldsTitleBar')}
       keyword(:attachments_choose_file_button) {content.file_field(:id, 'attachmentUploadFile')}
