@@ -103,6 +103,8 @@ module Cukesetaptesting
       keyword(:participant_search_name) {browser.text_field(:id,'searchTerm')}
       keyword(:participant_search) {browser.button(:value,'Search')}
       keyword(:participant_donors) {browser.table(:id,'sponsorListTable')}
+      keyword(:fundraiser_total_raised) {browser.span(:id, 'eventRaised')}
+
 
       def home(model)
       end
