@@ -70,6 +70,7 @@ Feature: Verifying that non-admins cannot remove data from UDFs they do not have
     And I click Delete Role on the Account Settings page
     And I click Yes to permanently delete the item
     Then I should see the message: '0 accounts found'
+    And I log out of eTap
 
 
 
