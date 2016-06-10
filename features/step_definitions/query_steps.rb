@@ -732,3 +732,8 @@ And (/^I click the Clear Search button in the query favorites modal/) do
   query = Queries::Createquerycategory.new
   query.clear_search_query_favorites_modal
 end
+
+And (/^I set Postal Code to '([^']*)' on the Create a New Query page/) do |value|
+  query = Queries::Createquerycategory.new(:query_criteria_postal_code_field => value)
+  query.create
+end

@@ -91,6 +91,7 @@ module Cukesetaptesting
       keyword(:cancel_query_favorites_modal) {content.button(:id, 'favCancel')}
       keyword(:clear_search_query_favorites_modal) {content.button(:id, 'clearFavoritesSearch')}
       keyword(:query_search_field) {content.div(:class,/bb-search-icon/).parent.text_field}
+      keyword(:query_criteria_postal_code_field) {content.text_field(:id, 'testByName(TestEntityRoleForPostalCodesData).postalCodes')}
 
 
 
