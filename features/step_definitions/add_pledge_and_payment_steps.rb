@@ -111,6 +111,7 @@ And (/^I click Find on the journal page/) do
   gift = Giving::GiftPledge.new
   #gift.find_button_journal_page_click
   gift.apply_journal_filters_click
+  sleep 3
 end
 
 Then (/^I should see the message '([^']*)' on the journal page/) do |message|
