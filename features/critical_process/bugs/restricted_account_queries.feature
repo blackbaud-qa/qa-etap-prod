@@ -57,3 +57,4 @@ Scenario: A 'Default' security group user should be able
   And I click on the 'Base' category
   And I click preview below the 'Name Mno321 Abc123' query on the Create a New Query page
   Then I should see 'Mno321 Abc123' in the query results
+  And I log out of eTap
