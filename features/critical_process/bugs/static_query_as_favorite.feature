@@ -8,7 +8,7 @@ Feature: Saving a static query as a favorite query
     Given I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click New Category on the Query Categories page
-    And I set the Name to 'Favorite Queries' on the Create Query Category page
+    And I set the Name to 'Favorite Query Test' on the Create Query Category page
     And I click Save Category on the Query Categories page
     And I click 'New Query' on the Edit Query Category page
     And I set the Name to 'Constituents Last Name Smith' on the Create a New Query page
@@ -29,9 +29,9 @@ Feature: Saving a static query as a favorite query
     And I click Yes to permanently delete the item
     And I click Queries on the main menu
     And I click on Manage Queries on the queries menu
-    And I click delete below the 'Favorite Queries' query category
+    And I click delete below the 'Favorite Query Test' query category
     And I click Yes to permanently delete the item
-    Then I should see the 'Favorite Queries' category has been removed from the page
+    Then I should see the 'Favorite Query Test' category has been removed from the page
 
 
 
