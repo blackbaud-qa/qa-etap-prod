@@ -87,6 +87,7 @@ And (/^I click More Options on the journal page/) do
 end
 
 And (/^I click the Filters icon/) do
+  sleep 5
   gift = Giving::GiftPledge.new
   gift.filters_icon_click
 end
