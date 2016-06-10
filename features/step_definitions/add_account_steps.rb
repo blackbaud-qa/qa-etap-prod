@@ -360,6 +360,7 @@ end
 And(/^I click Save and Finish on the UDF page/) do
   accounts = Account::AddAccount.new
   accounts.save_and_finish_udf_page
+  sleep 5
 end
 
 And(/^I reset the required attribute for the next run$/) do
