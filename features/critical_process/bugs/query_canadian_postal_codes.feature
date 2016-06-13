@@ -17,6 +17,7 @@ Feature: Querying on Canadian Postal Codes
     And I set City to 'Calgary' on the classic add account page
     And I set State to 'AL' on the classic add account page
     And I set Postal Code to 'T4U 4P3' on the classic add account page
+    And I set the UDF 'Account Type' dropdown to 'Individual' in the UDF section on the classic add account page
     And I click Save And 'Go to Personas' on the add account page
     When I click Queries on the main menu
     And I click on Manage Queries on the queries menu
