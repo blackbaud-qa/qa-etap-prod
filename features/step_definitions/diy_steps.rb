@@ -61,6 +61,18 @@ When(/^I set the Fund to '([^']*)' on the DIY settings page/) do |fund|
   diy.fund_update_click
 end
 
+And(/^I set the Campaign to '([^']*)' on the DIY settings page/) do |campaign|
+  diy = DIY::Onlineforms.new()
+  diy.campaign_click
+  diy.choose_campaign(campaign)
+end
+
+And(/^I set the Approach to '([^']*)' on the DIY settings page/) do |approach|
+  diy = DIY::Onlineforms.new()
+  diy.approach_click
+  diy.choose_approach(approach)
+end
+
 When(/^I click Submit on the DIY settings page/) do
   diy = DIY::Onlineforms.new()
   diy.settings_click_submit
@@ -897,4 +909,32 @@ end
 And (/^I should see the country set to '([^']*)' on the DIY page$/) do |value|
   diy = DIY::Onlineforms.new
   expect(diy.diy_country_default).to eq(value)
+end
+
+And (/I click Event Registration Page/) do
+  diy = DIY::Onlineforms.new
+  diy.new_event_page_click
+end
+
+And (/I unmark both checkboxes for sending email confirmations/) do
+  diy = DIY::Onlineforms.new
+  diy.send_donor_confirmation_click
+  diy.send_org_confirmation_click
+end
+
+And (/I connect a Ticket Quantity UDF to my Event Page/) do
+  diy = DIY::Onlineforms.new
+  diy.event_info_section_hover
+  sleep 1
+  diy.edit_section_click
+  diy = DIY::Onlineforms.new(:set_ticket_label=>'Ticket A')
+  diy.create
+  diy = DIY::Onlineforms.new(:set_ticket_description=>'Ticket A includes admission, but does not include parking fees.')
+  diy.create
+  diy = DIY::Onlineforms.new(:set_ticket_price=>'25.00')
+  diy.create
+  diy = DIY::Onlineforms.new(:set_ticket_nondeductible_amount=>'10.00')
+  diy.create
+  diy.select_ticket_field
+  diy.ticket_info_update_click
 end

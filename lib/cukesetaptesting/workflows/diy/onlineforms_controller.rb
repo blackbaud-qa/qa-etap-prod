@@ -52,6 +52,22 @@ module Cukesetaptesting
         return @view.fund_update.when_present.click
       end
 
+      def campaign_click
+        return @view.campaign_link.when_present.click
+      end
+
+      def choose_campaign(campaign)
+        @view.click_on_campaign(campaign).when_present.click
+      end
+
+      def approach_click
+        return @view.approach_link.when_present.click
+      end
+
+      def choose_approach(approach)
+        @view.click_on_approach(approach).when_present.click
+      end
+
       def settings_click_submit
         return @view.settings_submit.when_present.click
       end
@@ -484,6 +500,38 @@ module Cukesetaptesting
 
       def diy_country_default
         @view.default_country_diy.when_present.value
+      end
+
+      def new_event_page_click
+        @view.new_event_page_button.when_present.click
+      end
+
+      def send_donor_confirmation_click
+        @view.send_donor_confirmation_checkbox.when_present.click
+      end
+
+      def send_org_confirmation_click
+        @view.send_org_confirmation_checkbox.when_present.click
+      end
+
+      def event_info_section_hover
+        @view.event_info_section.wait_until_present
+        @view.browser.execute_script('arguments[0].scrollIntoView();',@view.content.div(:id,'ecommEditorToolbar'))
+        @view.event_info_section.hover
+      end
+
+      def event_info_section_click
+        @view.event_info_section.when_present.click
+        @view.event_info_pencil_icon.click
+      end
+
+      def select_ticket_field
+        @view.select_field_link.when_present.click
+        @view.ticket_quantity_a.when_present.click
+      end
+
+      def ticket_info_update_click
+        @view.ticket_info_update_button.click
       end
 
     end
