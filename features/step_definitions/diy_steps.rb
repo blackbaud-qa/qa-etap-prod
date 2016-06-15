@@ -936,5 +936,40 @@ And (/I connect a Ticket Quantity UDF to my Event Page/) do
   diy = DIY::Onlineforms.new(:set_ticket_nondeductible_amount=>'10.00')
   diy.create
   diy.select_ticket_field
-  diy.ticket_info_update_click
+  diy.press_enter
+  # diy.ticket_info_update_click
+end
+
+And (/I click Membership Signup Page/) do
+  diy = DIY::Onlineforms.new
+  diy.new_membership_page_click
+end
+
+And (/I set Membership fields up on my diy membership page/) do
+  diy = DIY::Onlineforms.new
+  diy.membership_type_select_link_click
+  diy.membership_modal_search_button_click
+  diy = DIY::Onlineforms.new(:set_membership_search_term=>'membership')
+  diy.create
+  diy.press_enter
+  diy.membership_type_udf_click
+  # diy.membership_modal_ok_click
+  diy.press_enter
+  diy.membership_level_select_link_click
+  diy.membership_modal_search_button_click
+  diy = DIY::Onlineforms.new(:set_membership_search_term=>'membership')
+  diy.create
+  diy.press_enter
+  diy.membership_level_udf_click
+  diy = DIY::Onlineforms.new(:set_membership_level_one=>'10')
+  diy.create
+  diy = DIY::Onlineforms.new(:set_membership_level_two=>'25')
+  diy.create
+  diy = DIY::Onlineforms.new(:set_membership_level_three=>'40')
+  diy.create
+  diy.click_side_of_membership_modal
+  # diy.membership_modal_ok_click
+  diy.press_enter
+  # diy.membership_modal_ok_click
+  diy.press_enter
 end

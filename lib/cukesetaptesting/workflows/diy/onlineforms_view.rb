@@ -142,6 +142,18 @@ module Cukesetaptesting
       keyword(:select_field_link) {content.a(:class, 'selectFieldLink udfLabel')}
       keyword(:ticket_quantity_a) {content.a(:text, 'Ticket Quantity A')}
       keyword(:ticket_info_update_button) {content.button(:id, 'save')}
+      keyword(:new_membership_page_button) {content.div(:id, 'membershipButtonM')}
+      keyword(:membership_type_select_link) {content.a(:id, 'ecEditMemberTypeField')}
+      keyword(:membership_modal_search_button) {content.button(:id, 'udfSearchViewIconSS')}
+      keyword(:set_membership_search_term) {content.text_field(:id, 'fieldSearchSS')}
+      keyword(:membership_type_udf) {content.a(:text, 'Membership Type')}
+      keyword(:membership_modal_ok_button) {content.button(:id, 'save')}
+      keyword(:membership_level_select_link) {content.a(:id, 'ecEditMemberLevelField')}
+      keyword(:membership_level_udf) {content.a(:text, 'Membership Level')}
+      keyword(:set_membership_level_one) {content.text_field(:id, 'optionPrice0')}
+      keyword(:set_membership_level_two) {content.text_field(:id, 'optionPrice1')}
+      keyword(:set_membership_level_three) {content.text_field(:id, 'optionPrice2')}
+      keyword(:side_of_membership_modal) {content.div(:class, 'popContent')}
 
 
       def diy_page_link page_name
