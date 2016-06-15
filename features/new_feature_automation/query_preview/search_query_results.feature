@@ -69,7 +69,8 @@ Feature: Ability to search for Account Name in the query results
     And I click on the 'Search Query Results' category
     And I click preview below the 'All Accounts Imported for Search Query Results' query on the Create a New Query page
     And I type 'Houston' into the query preview search field
-    And I click on the magnifying glass in the search field
+#    And I click on the magnifying glass in the search field
+    And I press Enter on the keyboard
     And I should see '0 Accounts' results on the query preview page
     And I click Clear Search on the query preview page
     And I should see '118 Accounts' results on the query preview page
@@ -85,7 +86,8 @@ Feature: Ability to search for Account Name in the query results
     And I click on the 'Search Query Results' category
     And I click preview below the 'All Accounts Imported for Search Query Results' query on the Create a New Query page
     And I type 'MD' into the query preview search field
-    And I click on the magnifying glass in the search field
+#    And I click on the magnifying glass in the search field
+    And I press Enter on the keyboard
     And I should see '2 Accounts' results on the query preview page
     And I should see 'Rose L Rennie, MD' in the query results
     And I type '1978' into the query preview search field
@@ -101,7 +103,8 @@ Feature: Ability to search for Account Name in the query results
     And I click on the 'Search Query Results' category
     And I click preview below the 'All Gifts Imported for Search Query Results' query on the Create a New Query page
     And I type 'Gomez' into the query preview search field
-    And I click on the magnifying glass in the search field
+#    And I click on the magnifying glass in the search field
+    And I press Enter on the keyboard
     And I should see '2 Journal Entries' results on the query preview page
     And I should see 'Michael M Gomez, II' in the query results
     And I should see 'Ana Marie Sue Gomez' in the query results
@@ -117,7 +120,8 @@ Feature: Ability to search for Account Name in the query results
     And I click on the 'Search Query Results' category
     And I click preview below the 'All Accounts Imported for Search Query Results' query on the Create a New Query page
     And I type 'Jeffery' into the query preview search field
-    And I click on the magnifying glass in the search field
+#    And I click on the magnifying glass in the search field
+    And I press Enter on the keyboard
     And I should see '2 Accounts' results on the query preview page
     And I click on the 'Jeffery Thiel' account
     And I click the back button
@@ -143,7 +147,8 @@ Feature: Ability to search for Account Name in the query results
     And I click on the 'Search Query Results' category
     And I click preview below the 'All Accounts Imported for Search Query Results' query on the Create a New Query page
     And I type 'and' into the query preview search field
-    And I click on the magnifying glass in the search field
+#    And I click on the magnifying glass in the search field
+    And I press Enter on the keyboard
     And I should see '2 Accounts' results on the query preview page
     And I should see 'Scott and Sally Miles' in the query results
     And I type 'at&' into the query preview search field

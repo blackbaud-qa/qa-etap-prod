@@ -128,6 +128,22 @@ module Cukesetaptesting
       keyword(:set_default_country_diy) {content.select(:id, 'availableCountries')}
       keyword(:default_country_diy) {browser.select(:id, 'countryField')}
 
+      keyword(:new_event_page_button) {content.div(:id, 'eventButtonM')}
+      keyword(:send_donor_confirmation_checkbox) {content.input(:id, 'notifyDonor')}
+      keyword(:send_org_confirmation_checkbox) {content.input(:id, 'notifyOrg')}
+      keyword(:campaign_link) { content.link(:class, 'campaignSelect')}
+      keyword(:approach_link) { content.link(:class, 'approachSelect')}
+      keyword(:event_info_section) {content.div(:id, 'event_widget_block')}
+      keyword(:event_info_pencil_icon) {content.div(:id, 'event_widget_block').img(:class, 'edit')}
+      keyword(:set_ticket_label) {content.text_field(:class, 'ticketLabel')}
+      keyword(:set_ticket_description) {content.text_field(:name, 'ticketDesc')}
+      keyword(:set_ticket_price) {content.text_field(:name, 'ticketPrice')}
+      keyword(:set_ticket_nondeductible_amount) {content.text_field(:name, 'ticketNondeductible')}
+      keyword(:select_field_link) {content.a(:class, 'selectFieldLink udfLabel')}
+      keyword(:ticket_quantity_a) {content.a(:text, 'Ticket Quantity A')}
+      keyword(:ticket_info_update_button) {content.button(:id, 'save')}
+
+
       def diy_page_link page_name
         page_link = content
 
@@ -241,6 +257,15 @@ module Cukesetaptesting
       def click_on_fund(fund)
         funds_list.link(:text, fund)
       end
+
+      def click_on_campaign(campaign)
+        content.a(:text, campaign)
+      end
+
+      def click_on_approach(approach)
+        content.a(:text, approach)
+      end
+
       def home(model)
       end
 
