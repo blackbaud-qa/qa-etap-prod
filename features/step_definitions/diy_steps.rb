@@ -936,8 +936,7 @@ And (/I connect a Ticket Quantity UDF to my Event Page/) do
   diy = DIY::Onlineforms.new(:set_ticket_nondeductible_amount=>'10.00')
   diy.create
   diy.select_ticket_field
-  diy.press_enter
-  # diy.ticket_info_update_click
+  diy.diy_non_hidden_modal_ok_click
 end
 
 And (/I click Membership Signup Page/) do
@@ -953,8 +952,7 @@ And (/I set Membership fields up on my diy membership page/) do
   diy.create
   diy.press_enter
   diy.membership_type_udf_click
-  # diy.membership_modal_ok_click
-  diy.press_enter
+  diy.diy_non_hidden_modal_ok_click
   diy.membership_level_select_link_click
   diy.membership_modal_search_button_click
   diy = DIY::Onlineforms.new(:set_membership_search_term=>'membership')
@@ -967,7 +965,45 @@ And (/I set Membership fields up on my diy membership page/) do
   diy.create
   diy = DIY::Onlineforms.new(:set_membership_level_three=>'40')
   diy.create
-  # diy.click_side_of_membership_modal
-  diy.membership_modal_ok_click
-  diy.membership_modal_ok_click
+  diy.diy_non_hidden_modal_ok_click
+  diy.diy_non_hidden_modal_ok_click
+end
+
+And (/I click Volunteer Page/) do
+  diy = DIY::Onlineforms.new
+  diy.new_volunteer_page_click
+end
+
+And (/I set Volunteer Fields up on my diy volunteer page/) do
+  diy = DIY::Onlineforms.new
+  diy.volunteer_avail_section_hover
+  sleep 1
+  diy.edit_section_click
+  diy.select_diy_udf_link_click
+  diy.membership_modal_search_button_click
+  diy = DIY::Onlineforms.new(:set_membership_search_term=>'volunteer')
+  diy.create
+  diy.press_enter
+  diy.volunteer_avail_udf_link_click
+  diy.diy_non_hidden_modal_ok_click
+  diy.volunteer_skills_section_hover
+  sleep 1
+  diy.edit_section_click
+  diy.select_diy_udf_link_click
+  diy.membership_modal_search_button_click
+  diy = DIY::Onlineforms.new(:set_membership_search_term=>'volunteer')
+  diy.create
+  diy.press_enter
+  diy.volunteer_skills_udf_link_click
+  diy.diy_non_hidden_modal_ok_click
+  diy.volunteer_int_section_hover
+  sleep 1
+  diy.edit_section_click
+  diy.select_diy_udf_link_click
+  diy.membership_modal_search_button_click
+  diy = DIY::Onlineforms.new(:set_membership_search_term=>'volunteer')
+  diy.create
+  diy.press_enter
+  diy.volunteer_int_udf_link_click
+  diy.diy_non_hidden_modal_ok_click
 end
