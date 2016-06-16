@@ -74,6 +74,10 @@ When(/^I login into eTap for bugs$/) do
   step "I login into eTap with values '#{Watirmark::Configuration.instance.unameBugs}', '#{Watirmark::Configuration.instance.password}'"
 end
 
+When(/^I login into eTap for deeper regression$/) do
+  step "I login into eTap with values '#{Watirmark::Configuration.instance.unameRegression}', '#{Watirmark::Configuration.instance.password}'"
+end
+
 When(/^I login into eTap with values$/) do |login_table|
   step "I login into eTap with values '#{login_table.hashes[0]['username']}', '#{login_table.hashes[0]['password']}'"
 end

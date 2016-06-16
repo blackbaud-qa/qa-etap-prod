@@ -11,6 +11,7 @@ Feature: Running the Account Summary Report
     And I click Find
     And I click on the 'Sally Jenkins' account
     And there should not be an uploaded photo in the Picture Tile
+    And I am on the home page
     And I run the Generate Account Summary Report from the account's Home page
     Then the Account Summary Report for 'Sally Jenkins' should display on screen
 
@@ -23,6 +24,7 @@ Feature: Running the Account Summary Report
     And I click on the 'Sally Jenkins' account
     And I click 'Update' in the Picture Tile
     And I set the Account Image to one without an ampersand in the name
+    And I am on the home page
     And I run the Generate Account Summary Report from the account's Home page
     And the Account Summary Report for 'Sally Jenkins' should display on screen
     And I click on the Accounts drop down
@@ -39,6 +41,7 @@ Feature: Running the Account Summary Report
     And I click on the 'Sally Jenkins' account
     And I click 'Update' in the Picture Tile
     And I set the Account Image to one with an ampersand in the name
+    And I am on the home page
     And I run the Generate Account Summary Report from the account's Home page
     And the Account Summary Report for 'Sally Jenkins' should display on screen
     And I click on the Accounts drop down
