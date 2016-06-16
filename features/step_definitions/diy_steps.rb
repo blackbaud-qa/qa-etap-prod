@@ -967,9 +967,7 @@ And (/I set Membership fields up on my diy membership page/) do
   diy.create
   diy = DIY::Onlineforms.new(:set_membership_level_three=>'40')
   diy.create
-  diy.click_side_of_membership_modal
-  # diy.membership_modal_ok_click
-  diy.press_enter
-  # diy.membership_modal_ok_click
-  diy.press_enter
+  # diy.click_side_of_membership_modal
+  diy.membership_modal_ok_click
+  diy.membership_modal_ok_click
 end

@@ -147,7 +147,7 @@ module Cukesetaptesting
       keyword(:membership_modal_search_button) {content.button(:id, 'udfSearchViewIconSS')}
       keyword(:set_membership_search_term) {content.text_field(:id, 'fieldSearchSS')}
       keyword(:membership_type_udf) {content.a(:text, 'Membership Type')}
-      keyword(:membership_modal_ok_button) {content.button(:id, 'save')}
+      keyword(:membership_modal_ok_button) {content.a(:text, 'Ok')}
       keyword(:membership_level_select_link) {content.a(:id, 'ecEditMemberLevelField')}
       keyword(:membership_level_udf) {content.a(:text, 'Membership Level')}
       keyword(:set_membership_level_one) {content.text_field(:id, 'optionPrice0')}
