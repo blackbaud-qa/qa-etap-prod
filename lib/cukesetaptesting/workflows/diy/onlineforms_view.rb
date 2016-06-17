@@ -141,7 +141,25 @@ module Cukesetaptesting
       keyword(:set_ticket_nondeductible_amount) {content.text_field(:name, 'ticketNondeductible')}
       keyword(:select_field_link) {content.a(:class, 'selectFieldLink udfLabel')}
       keyword(:ticket_quantity_a) {content.a(:text, 'Ticket Quantity A')}
-      keyword(:ticket_info_update_button) {content.button(:id, 'save')}
+      keyword(:new_membership_page_button) {content.div(:id, 'membershipButtonM')}
+      keyword(:membership_type_select_link) {content.a(:id, 'ecEditMemberTypeField')}
+      keyword(:membership_modal_search_button) {content.button(:id, 'udfSearchViewIconSS')}
+      keyword(:set_membership_search_term) {content.text_field(:id, 'fieldSearchSS')}
+      keyword(:membership_type_udf) {content.a(:text, 'Membership Type')}
+      keyword(:diy_non_hidden_modal_ok_button) {content.div(:class => /^popupWindow$/).button(:id=>'save')}
+      keyword(:membership_level_select_link) {content.a(:id, 'ecEditMemberLevelField')}
+      keyword(:membership_level_udf) {content.a(:text, 'Membership Level')}
+      keyword(:set_membership_level_one) {content.text_field(:id, 'optionPrice0')}
+      keyword(:set_membership_level_two) {content.text_field(:id, 'optionPrice1')}
+      keyword(:set_membership_level_three) {content.text_field(:id, 'optionPrice2')}
+      keyword(:new_volunteer_page_button) {content.div(:id, 'volunteerButtonM')}
+      keyword(:select_diy_udf_link) {content.a(:class, 'udfSetSelect')}
+      keyword(:volunteer_avail_udf_link) {content.a(:text, 'Volunteer Availability')}
+      keyword(:volunteer_avail_section) {content.div(:id, 'volunteer_avail_block')}
+      keyword(:volunteer_skills_section) {content.div(:id, 'volunteer_skills_block')}
+      keyword(:volunteer_int_section) {content.div(:id, 'volunteer_interest_block')}
+      keyword(:volunteer_skills_udf_link) {content.a(:text, 'Volunteer Skill Set')}
+      keyword(:volunteer_int_udf_link) {content.a(:text, 'Volunteer Interest Areas')}
 
 
       def diy_page_link page_name
