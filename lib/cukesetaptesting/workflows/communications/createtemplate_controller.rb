@@ -636,7 +636,59 @@ module Cukesetaptesting
         @view.click_save_and_link.when_present.click
       end
 
+      def select_one_off_template (value)
+        @view.select_one_off_template.when_present.select(value)
+      end
+
+      def generate_ereceipt
+        @view.generate_ereceipt.when_present.click
+      end
+
+      def run_one_off
+        @view.run_one_off.when_present.click
+      end
+
+      def generated_receipt_number
+        @view.generated_receipt_number.present?
+      end
+
+      def void_ereceipt
+        @view.void_ereceipt.when_present.click
+      end
+
+      def voided_receipt_number
+        @view.voided_receipt_number.present?
+      end
+
+      def voided_status_query
+        @view.voided_status_query.when_present.click
+      end
+
+      def enable_ereceipts_diy
+        @view.enable_ereceipts_diy.when_present.click
+      end
+
+      def disable_ereceipts_diy
+        @view.disable_ereceipts_diy.when_present.click
+      end
+
+      def diy_landing_page
+        @view.diy_landing_page.present?
+      end
+
+      def send_conf_email_diy
+        @view.send_conf_email_diy.when_present.click
+      end
+
+      def conf_email_subject_diy value
+        @view.conf_email_subject_diy.when_present.set value
+      end
+
+      def disable_diy_conf_email
+        @view.disable_diy_conf_email.when_present.click
+      end
+      end
     end
   end
-end
+
 

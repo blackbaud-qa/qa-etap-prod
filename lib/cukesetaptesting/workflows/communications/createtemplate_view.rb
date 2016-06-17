@@ -265,6 +265,22 @@ module Cukesetaptesting
       keyword(:subject_field) {content.text_field(:id, 'templateSubject')}
       keyword(:click_save_and_link) {content.a(:href, 'javascript:Etap.Wizard.wizard.jump(3)')}
 
+      keyword(:select_one_off_template) {content.select(:id, 'template')}
+      keyword(:generate_ereceipt) {content.input(:id, 'generateAction')}
+      keyword(:run_one_off) {content.input(:id, 'runButton')}
+      keyword(:generated_receipt_number) {content.label(:text, 'Generated Receipt Number')}
+      keyword(:void_ereceipt) {content.input(:id, 'voidAction')}
+      keyword(:voided_receipt_number) {content.label(:text, 'Voided Receipt Number')}
+      keyword(:voided_status_query) {content.input(:value, 'canceled')}
+      keyword(:enable_ereceipts_diy) {content.input(:name, 'generateReceipt')}
+      keyword(:disable_ereceipts_diy) {content.input(:id, 'generateReceipt')}
+      keyword(:diy_landing_page) {content.div(:id, 'managerPageStats')}
+      keyword(:send_conf_email_diy) {content.input(:id, 'notifyDonor')}
+      keyword(:conf_email_field_diy) {content.text_field(:id, 'fromEmail')}
+      keyword(:conf_email_subject_diy) {content.text_field(:id, 'donorEmailSubject')}
+      keyword(:disable_diy_conf_email) {content.input(:id, 'notifyDonor')}
+      keyword(:diy_donation_field) {browser.text_field(:id,'gift_amount_simpleField')}
+
       def home(model)
       end
 
