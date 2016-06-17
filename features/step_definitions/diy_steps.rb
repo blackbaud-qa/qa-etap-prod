@@ -971,10 +971,10 @@ And (/I click Volunteer Page/) do
 end
 
 And (/I set Volunteer Fields up on my diy volunteer page/) do
-  sleep 3
+  sleep 5
   diy = DIY::Onlineforms.new
   diy.volunteer_avail_section_hover
-  sleep 1
+  sleep 3
   diy.edit_section_click
   diy.select_diy_udf_link_click
   diy.membership_modal_search_button_click
@@ -984,7 +984,7 @@ And (/I set Volunteer Fields up on my diy volunteer page/) do
   diy.volunteer_avail_udf_link_click
   diy.diy_non_hidden_modal_ok_click
   diy.volunteer_skills_section_hover
-  sleep 1
+  sleep 3
   diy.edit_section_click
   diy.select_diy_udf_link_click
   diy.membership_modal_search_button_click
@@ -994,7 +994,7 @@ And (/I set Volunteer Fields up on my diy volunteer page/) do
   diy.volunteer_skills_udf_link_click
   diy.diy_non_hidden_modal_ok_click
   diy.volunteer_int_section_hover
-  sleep 1
+  sleep 3
   diy.edit_section_click
   diy.select_diy_udf_link_click
   diy.membership_modal_search_button_click
