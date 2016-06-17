@@ -530,8 +530,74 @@ module Cukesetaptesting
         @view.ticket_quantity_a.when_present.click
       end
 
-      def ticket_info_update_click
-        @view.ticket_info_update_button.click
+      def press_enter
+        @view.browser.send_keys :enter
+      end
+
+      def new_membership_page_click
+        @view.new_membership_page_button.when_present.click
+      end
+
+      def membership_type_select_link_click
+        @view.membership_type_select_link.when_present.click
+      end
+
+      def membership_modal_search_button_click
+        @view.membership_modal_search_button.when_present.click
+      end
+
+      def membership_type_udf_click
+        @view.membership_type_udf.when_present.click
+      end
+
+      def diy_non_hidden_modal_ok_click
+        @view.diy_non_hidden_modal_ok_button.when_present.click
+      end
+
+      def membership_level_select_link_click
+        @view.membership_level_select_link.when_present.click
+      end
+
+      def membership_level_udf_click
+        @view.membership_level_udf.when_present.click
+      end
+
+      def new_volunteer_page_click
+        @view.new_volunteer_page_button.when_present.click
+      end
+
+      def select_diy_udf_link_click
+        @view.select_diy_udf_link.when_present.click
+      end
+
+      def volunteer_avail_udf_link_click
+        @view.volunteer_avail_udf_link.when_present.click
+      end
+
+      def volunteer_avail_section_hover
+        @view.volunteer_avail_section.wait_until_present
+        @view.browser.execute_script('arguments[0].scrollIntoView();',@view.content.div(:id,'ecommEditorToolbar'))
+        @view.volunteer_avail_section.hover
+      end
+
+      def volunteer_skills_section_hover
+        @view.volunteer_skills_section.wait_until_present
+        @view.browser.execute_script('arguments[0].scrollIntoView();',@view.content.div(:id,'ecommEditorToolbar'))
+        @view.volunteer_skills_section.hover
+      end
+
+      def volunteer_int_section_hover
+        @view.volunteer_int_section.wait_until_present
+        @view.browser.execute_script('arguments[0].scrollIntoView();',@view.content.div(:id,'ecommEditorToolbar'))
+        @view.volunteer_int_section.hover
+      end
+
+      def volunteer_skills_udf_link_click
+        @view.volunteer_skills_udf_link.when_present.click
+      end
+
+      def volunteer_int_udf_link_click
+        @view.volunteer_int_udf_link.when_present.click
       end
 
     end
