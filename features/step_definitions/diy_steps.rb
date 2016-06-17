@@ -592,7 +592,6 @@ end
 
 And(/^a DIY form titled ([^']*) exists/) do |page_name|
   steps %Q{
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
   }
@@ -609,7 +608,6 @@ And(/^I create and publish a new DIY page named ([^']*)/) do |page_name|
   mod_page_name = page_name.gsub(" ", "_")
 
   steps %Q{
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Create a Page
@@ -634,7 +632,6 @@ And(/^the DIY page ([^']*) contains the UDF ([^']*)/) do |diy_page_name, udf_nam
   sleep 1
 
   steps %Q{
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled '#{diy_page_name}'
@@ -654,10 +651,9 @@ And(/^the DIY page ([^']*) contains the UDF ([^']*)/) do |diy_page_name, udf_nam
 end
 
 And(/^all email notifications are ([^']*) for the DIY page ([^']*)/) do |notification_state, diy_page_name|
-  sleep 1
+  sleep 3
 
   steps %Q{
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled '#{diy_page_name}'
