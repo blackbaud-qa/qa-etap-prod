@@ -87,7 +87,7 @@ end
 And(/^I click Yes, Go Live! on the DIY editor page$/) do
   diy = DIY::Onlineforms.new()
   diy.go_live_confirm_click
-  sleep 3
+  sleep 10
 end
 
 And(/^I should see the new DIY page$/) do
