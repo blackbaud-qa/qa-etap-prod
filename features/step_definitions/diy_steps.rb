@@ -971,7 +971,7 @@ And (/I click Volunteer Page/) do
 end
 
 And (/I set Volunteer Fields up on my diy volunteer page/) do
-  sleep 5
+  sleep 10
   diy = DIY::Onlineforms.new
   diy.volunteer_avail_section_hover
   sleep 3
