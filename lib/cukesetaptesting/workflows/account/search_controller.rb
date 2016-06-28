@@ -133,6 +133,7 @@ module Cukesetaptesting
       def edit_user_defined_field_categories_page
         @view.edit_user_defined_field_categories_page.present?
       end
+
     end
   end
 end

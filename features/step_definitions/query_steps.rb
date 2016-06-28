@@ -581,8 +581,10 @@ And (/^I should see '([^']*)' results on the query preview page/) do |value|
 end
 
 And (/^I type '([^']*)' into the query preview search field/) do |value|
+  sleep 3
   query = Queries::Createquerycategory.new(:set_query_preview_search_field => value)
   query.create
+  sleep 1
 end
 
 And (/^I click on the magnifying glass in the search field/) do
