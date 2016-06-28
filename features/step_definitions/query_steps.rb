@@ -737,3 +737,8 @@ And (/^I set Postal Code to '([^']*)' on the Create a New Query page/) do |value
   query = Queries::Createquerycategory.new(:query_criteria_postal_code_field => value)
   query.create
 end
+
+And (/^I click on '([^']*)' under Search Fields on the Create a New Query page/) do |item|
+  query = Queries::Createquerycategory.new
+  query.search_query_criteria_click(item)
+end
