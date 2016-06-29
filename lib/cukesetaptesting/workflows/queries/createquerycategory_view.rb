@@ -298,7 +298,9 @@ module Cukesetaptesting
         content.div(:class, 'modal-content').a(:text, name)
       end
 
-
+      def search_query_criteria(item)
+        content.div(:id,'searchViewResults').a(:text,item)
+      end
 
 
     end
