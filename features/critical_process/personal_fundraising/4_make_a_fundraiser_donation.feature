@@ -44,6 +44,7 @@ Feature: Making a donation to a fundraiser
     And I sort by Status on the Fundraisers Page
     And I click on the QA Fundraiser 1 url on the Fundraiser page
     And I switch to the new tab in my browser
+    And I should see the Total Raised Amount as '$10.00' on the Fundraiser home page
     And I click Find a Team Participant on the live fundraiser page
     And I search for 'John' on the live fundraiser participant search page
     And I click on 'John Crabtree' on the live fundraiser participant search page

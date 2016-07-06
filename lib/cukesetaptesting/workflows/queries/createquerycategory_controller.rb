@@ -638,6 +638,15 @@ module Cukesetaptesting
         @view.clear_search_query_favorites_modal.when_present.click
       end
 
+      def search_fields_tab_click
+        @view.search_fields_tab.when_present.click
+      end
+
+      def search_query_criteria_click(item)
+        @view.search_query_criteria(item).when_present.click
+        sleep 2
+      end
+
     end
   end
 end

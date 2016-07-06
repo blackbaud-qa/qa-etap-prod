@@ -73,10 +73,11 @@ module Cukesetaptesting
       end
 
       def wait_on_tile_load
-        sleep 3
+        sleep 5
         if (@view.content.text.include? 'Retrieving Content')
           step "I click Home on the main menu"
           step "I click on Go to Home on the home menu"
+          step "I am on the home page"
         end
         # @view.content.table(:id,'givingSummaryTable').wait_until_present
       end
@@ -95,6 +96,10 @@ module Cukesetaptesting
 
       def viewing_current_year?
         return @view.journal_start_date.when_present.text == ('From 1/1/' + Date.today.strftime("%Y"))
+      end
+
+      def journal_columns_click
+        @view.journal_columns.when_present.click
       end
 
     end

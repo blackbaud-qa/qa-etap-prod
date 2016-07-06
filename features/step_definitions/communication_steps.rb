@@ -818,3 +818,68 @@ And(/^I click Save And Mass Email on the Correspondence Template/) do
   letter = Communications::Createtemplate.new
   letter.click_save_and
 end
+
+When (/^I select '([^']*)' from the one off select template drop down/) do |value|
+  letter = Communications::Createtemplate.new
+  letter.select_one_off_template (value)
+end
+
+And (/^I select Generate on the Receipting step of the wizard/) do
+  letter = Communications::Createtemplate.new
+  letter.generate_ereceipt
+end
+
+And (/^I click the Run button to generate the one off/) do
+  letter = Communications::Createtemplate.new
+  letter.run_one_off
+end
+
+Then (/^I should see a generated receipt number on the transaction/) do
+  letter = Communications::Createtemplate.new
+  expect(letter.generated_receipt_number).to eq(true)
+end
+
+And (/^I select Void on the Receipting step of the wizard/) do
+  letter = Communications::Createtemplate.new
+  letter.void_ereceipt
+end
+
+Then (/^I should see a voided receipt number on the transaction/) do
+  letter = Communications::Createtemplate.new
+  expect(letter.voided_receipt_number).to eq(true)
+end
+
+And (/^I click voided for the Transaction Generated Receipt Status field on the New Query page/) do
+  letter = Communications::Createtemplate.new
+  letter.voided_status_query
+end
+
+And (/^I enable eReceipts on the DIY settings page/) do
+  letter = Communications::Createtemplate.new
+  letter.enable_ereceipts_diy
+end
+
+And (/^I disable eReceipts on the DIY settings page/) do
+  letter = Communications::Createtemplate.new
+  letter.disable_ereceipts_diy
+end
+
+Then (/^I should be taken to the DIY landing page/) do
+  letter = Communications::Createtemplate.new
+  expect(letter.diy_landing_page).to eq(true)
+end
+
+And (/^I check the box to send the donor a confirmation email on the DIY settings page/) do
+  letter = Communications::Createtemplate.new
+  letter.send_conf_email_diy
+end
+
+And (/I disable the send the donor a confirmation email box on the DIY settings page/) do
+  letter = Communications::Createtemplate.new
+  letter.disable_diy_conf_email
+end
+
+And (/I enter '([^']*)' in the donation amount field on the DIY Donation Page/) do |amount|
+  letter = Communications::Createtemplate.new(:diy_donation_field=>amount)
+  letter.create
+end

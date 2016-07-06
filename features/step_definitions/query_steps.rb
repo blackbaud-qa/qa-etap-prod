@@ -323,6 +323,7 @@ And (/^I search for '([^']*)' in the query results$/) do |name|
 end
 
 Then (/^I should see '([^']*)' in the query results/) do |name|
+  sleep 3
   query = Queries::Createquerycategory.new
   expect(query.query_preview_results(name)).to eq(true)
 end
@@ -574,13 +575,16 @@ And (/^I mark the checkbox for '([^']*)' under Journal Entry Types on the Query 
 end
 
 And (/^I should see '([^']*)' results on the query preview page/) do |value|
+  sleep 3
   query = Queries::Createquerycategory.new()
   expect(query.query_preview_results_total_count(value)).to eq true
 end
 
 And (/^I type '([^']*)' into the query preview search field/) do |value|
+  sleep 3
   query = Queries::Createquerycategory.new(:set_query_preview_search_field => value)
   query.create
+  sleep 1
 end
 
 And (/^I click on the magnifying glass in the search field/) do
@@ -729,4 +733,14 @@ end
 And (/^I click the Clear Search button in the query favorites modal/) do
   query = Queries::Createquerycategory.new
   query.clear_search_query_favorites_modal
+end
+
+And (/^I set Postal Code to '([^']*)' on the Create a New Query page/) do |value|
+  query = Queries::Createquerycategory.new(:query_criteria_postal_code_field => value)
+  query.create
+end
+
+And (/^I click on '([^']*)' under Search Fields on the Create a New Query page/) do |item|
+  query = Queries::Createquerycategory.new
+  query.search_query_criteria_click(item)
 end

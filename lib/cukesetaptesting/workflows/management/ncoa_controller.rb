@@ -114,7 +114,7 @@ module Cukesetaptesting
       end
 
       def on_usps_standards_page?
-        return @view.browser.a(:href,'http://www.usps.com').present?
+        return @view.browser.a(:href,'https://www.usps.com').present?
       end
 
     end

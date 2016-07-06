@@ -87,6 +87,7 @@ And (/^I click More Options on the journal page/) do
 end
 
 And (/^I click the Filters icon/) do
+  sleep 5
   gift = Giving::GiftPledge.new
   gift.filters_icon_click
 end
@@ -111,6 +112,7 @@ And (/^I click Find on the journal page/) do
   gift = Giving::GiftPledge.new
   #gift.find_button_journal_page_click
   gift.apply_journal_filters_click
+  sleep 3
 end
 
 Then (/^I should see the message '([^']*)' on the journal page/) do |message|

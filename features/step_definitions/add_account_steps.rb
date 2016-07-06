@@ -50,8 +50,10 @@ And (/^I set State to '([^']*)' on the classic add account page/) do |name|
 end
 
 And (/^I set Postal Code to '([^']*)' on the classic add account page/) do |name|
+  sleep 2
   accounts = Account::AddAccount.new(:new_account_classic_postal_code => name)
   accounts.create
+  sleep 2
 end
 
 And (/^I set County to '([^']*)' on the classic add account page/) do |name|
@@ -360,6 +362,7 @@ end
 And(/^I click Save and Finish on the UDF page/) do
   accounts = Account::AddAccount.new
   accounts.save_and_finish_udf_page
+  sleep 5
 end
 
 And(/^I reset the required attribute for the next run$/) do
