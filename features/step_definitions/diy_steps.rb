@@ -61,6 +61,18 @@ When(/^I set the Fund to '([^']*)' on the DIY settings page/) do |fund|
   diy.fund_update_click
 end
 
+And(/^I set the Campaign to '([^']*)' on the DIY settings page/) do |campaign|
+  diy = DIY::Onlineforms.new()
+  diy.campaign_click
+  diy.choose_campaign(campaign)
+end
+
+And(/^I set the Approach to '([^']*)' on the DIY settings page/) do |approach|
+  diy = DIY::Onlineforms.new()
+  diy.approach_click
+  diy.choose_approach(approach)
+end
+
 When(/^I click Submit on the DIY settings page/) do
   diy = DIY::Onlineforms.new()
   diy.settings_click_submit
@@ -600,7 +612,6 @@ end
 
 And(/^a DIY form titled ([^']*) exists/) do |page_name|
   steps %Q{
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
   }
@@ -617,7 +628,6 @@ And(/^I create and publish a new DIY page named ([^']*)/) do |page_name|
   mod_page_name = page_name.gsub(" ", "_")
 
   steps %Q{
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Create a Page
@@ -642,7 +652,6 @@ And(/^the DIY page ([^']*) contains the UDF ([^']*)/) do |diy_page_name, udf_nam
   sleep 1
 
   steps %Q{
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled '#{diy_page_name}'
@@ -662,10 +671,9 @@ And(/^the DIY page ([^']*) contains the UDF ([^']*)/) do |diy_page_name, udf_nam
 end
 
 And(/^all email notifications are ([^']*) for the DIY page ([^']*)/) do |notification_state, diy_page_name|
-  sleep 1
+  sleep 3
 
   steps %Q{
-    Given I am logged into eTap
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled '#{diy_page_name}'
@@ -917,4 +925,102 @@ end
 And (/^I should see the country set to '([^']*)' on the DIY page$/) do |value|
   diy = DIY::Onlineforms.new
   expect(diy.diy_country_default).to eq(value)
+end
+
+And (/I click Event Registration Page/) do
+  diy = DIY::Onlineforms.new
+  diy.new_event_page_click
+end
+
+And (/I unmark both checkboxes for sending email confirmations/) do
+  diy = DIY::Onlineforms.new
+  diy.send_donor_confirmation_click
+  diy.send_org_confirmation_click
+end
+
+And (/I connect a Ticket Quantity UDF to my Event Page/) do
+  diy = DIY::Onlineforms.new
+  diy.event_info_section_hover
+  sleep 1
+  diy.edit_section_click
+  diy = DIY::Onlineforms.new(:set_ticket_label=>'Ticket A')
+  diy.create
+  diy = DIY::Onlineforms.new(:set_ticket_description=>'Ticket A includes admission, but does not include parking fees.')
+  diy.create
+  diy = DIY::Onlineforms.new(:set_ticket_price=>'25.00')
+  diy.create
+  diy = DIY::Onlineforms.new(:set_ticket_nondeductible_amount=>'10.00')
+  diy.create
+  diy.select_ticket_field
+  diy.diy_non_hidden_modal_ok_click
+end
+
+And (/I click Membership Signup Page/) do
+  diy = DIY::Onlineforms.new
+  diy.new_membership_page_click
+end
+
+And (/I set Membership fields up on my diy membership page/) do
+  diy = DIY::Onlineforms.new
+  diy.membership_type_select_link_click
+  diy.membership_modal_search_button_click
+  diy = DIY::Onlineforms.new(:set_membership_search_term=>'membership')
+  diy.create
+  diy.press_enter
+  diy.membership_type_udf_click
+  diy.diy_non_hidden_modal_ok_click
+  diy.membership_level_select_link_click
+  diy.membership_modal_search_button_click
+  diy = DIY::Onlineforms.new(:set_membership_search_term=>'membership')
+  diy.create
+  diy.press_enter
+  diy.membership_level_udf_click
+  diy = DIY::Onlineforms.new(:set_membership_level_one=>'10')
+  diy.create
+  diy = DIY::Onlineforms.new(:set_membership_level_two=>'25')
+  diy.create
+  diy = DIY::Onlineforms.new(:set_membership_level_three=>'40')
+  diy.create
+  diy.diy_non_hidden_modal_ok_click
+  diy.diy_non_hidden_modal_ok_click
+end
+
+And (/I click Volunteer Page/) do
+  diy = DIY::Onlineforms.new
+  diy.new_volunteer_page_click
+end
+
+And (/I set Volunteer Fields up on my diy volunteer page/) do
+  sleep 10
+  diy = DIY::Onlineforms.new
+  diy.volunteer_avail_section_hover
+  sleep 3
+  diy.edit_section_click
+  diy.select_diy_udf_link_click
+  diy.membership_modal_search_button_click
+  diy = DIY::Onlineforms.new(:set_membership_search_term=>'volunteer')
+  diy.create
+  diy.press_enter
+  diy.volunteer_avail_udf_link_click
+  diy.diy_non_hidden_modal_ok_click
+  diy.volunteer_skills_section_hover
+  sleep 3
+  diy.edit_section_click
+  diy.select_diy_udf_link_click
+  diy.membership_modal_search_button_click
+  diy = DIY::Onlineforms.new(:set_membership_search_term=>'volunteer')
+  diy.create
+  diy.press_enter
+  diy.volunteer_skills_udf_link_click
+  diy.diy_non_hidden_modal_ok_click
+  diy.volunteer_int_section_hover
+  sleep 3
+  diy.edit_section_click
+  diy.select_diy_udf_link_click
+  diy.membership_modal_search_button_click
+  diy = DIY::Onlineforms.new(:set_membership_search_term=>'volunteer')
+  diy.create
+  diy.press_enter
+  diy.volunteer_int_udf_link_click
+  diy.diy_non_hidden_modal_ok_click
 end
