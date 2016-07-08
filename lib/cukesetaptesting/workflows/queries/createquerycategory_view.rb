@@ -86,7 +86,7 @@ module Cukesetaptesting
       keyword(:close_favorites_modal) {content.div(:class, 'fa fa-times close')}
       keyword(:see_all_query_favorites_menu) {content.a(:id, 'queryMenuViewAllFavoritesLink')}
       keyword(:query_favorites_modal) {content.div(:id, 'favoritesHeader')}
-      keyword(:mark_standard_query_as_favorite) {content.div(:id, 'addFavorite')}
+      keyword(:mark_standard_query_as_favorite) {content.a(:text, 'Mark Query As Favorite')}
       keyword(:remove_standard_query_from_favorites) {content.div(:id, 'removeFavorite')}
       keyword(:cancel_query_favorites_modal) {content.button(:id, 'favCancel')}
       keyword(:clear_search_query_favorites_modal) {content.button(:id, 'clearFavoritesSearch')}
