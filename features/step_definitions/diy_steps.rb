@@ -149,7 +149,7 @@ And(/^I click Update on the DIY editor page$/) do
 end
 
 And(/^I click Settings on the DIY editor page$/) do
-  sleep 5
+  sleep 10
   diy = DIY::Onlineforms.new()
   diy.edit_settings_click
 end
@@ -651,7 +651,7 @@ And(/^the DIY page ([^']*) contains the UDF ([^']*)/) do |diy_page_name, udf_nam
 end
 
 And(/^all email notifications are ([^']*) for the DIY page ([^']*)/) do |notification_state, diy_page_name|
-  sleep 3
+  sleep 5
 
   steps %Q{
     When I click Management on the main menu
@@ -671,10 +671,11 @@ And(/^all email notifications are ([^']*) for the DIY page ([^']*)/) do |notific
 end
 
 And(/^email notifications are ([^']*)/) do |notification_state|
+  sleep 3
   diy = DIY::Onlineforms.new
   diy.org_confirmation_email_checkbox 'disable'
   diy.donor_confirmation_email_checkbox 'disable'
-  sleep 1
+  sleep 3
 end
 
 And(/^I submit a successful credit card transaction for ([^']*) ([^']*) on page ([^']*)/) do |donor_first_name, donor_last_name, page_name|
