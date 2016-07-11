@@ -29,3 +29,10 @@ Feature: Creating a new diy membership page
     Then I should see the new DIY page
     And I should see the country set to 'CA' on the DIY page
     And I close the current tab
+#    And I click on DIY Forms on the management menu
+    And I click Disable for the form titled 'Membership Signup Page'
+    And I click Yes, Disable the Page
+    And I click Delete for the form titled 'Membership Signup Page'
+    And I click Yes, Delete the Page
+#    Then the Donation Page should no longer show
+

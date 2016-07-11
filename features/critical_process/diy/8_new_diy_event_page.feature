@@ -29,3 +29,9 @@ Feature: Creating a new diy event page
     Then I should see the new DIY page
     And I should see the country set to 'AU' on the DIY page
     And I close the current tab
+#    And I click on DIY Forms on the management menu
+    And I click Disable for the form titled 'Event Registration Page'
+    And I click Yes, Disable the Page
+    And I click Delete for the form titled 'Event Registration Page'
+    And I click Yes, Delete the Page
+#    Then the Donation Page should no longer show
