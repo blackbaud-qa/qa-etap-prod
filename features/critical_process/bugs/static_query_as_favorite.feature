@@ -22,7 +22,10 @@ Feature: Saving a static query as a favorite query
     And I log out of eTap
     And I login into eTap for bugs
     And I click Queries on the main menu
-    And I click the favorite query titled 'Constituents Last Name Smith'
+    And I click See all next to Favorites in the query menu
+#    And I type 'Constituents Last Name Smith' into the query favorites modal search field
+    And I click on the query titled 'Constituents Last Name Smith' in the query favorites modal
+#    And I click the favorite query titled 'Constituents Last Name Smith'
     And I am taken to the Edit Custom Account Query Screen for 'Constituents Last Name Smith'
     And I click Save And 'View Queries'
     And I click delete below the 'Constituents Last Name Smith' query on the Create a New Query page
