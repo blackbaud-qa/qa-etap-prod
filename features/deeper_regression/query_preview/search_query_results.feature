@@ -1,4 +1,4 @@
-@sprint
+@deep_reg
 Feature: Ability to search for Account Name in the query results
 
   Background: I am logged into eTapestry
