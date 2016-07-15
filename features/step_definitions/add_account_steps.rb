@@ -169,6 +169,11 @@ Then (/^the Voice should be set to '([^']*)'/) do |name|
   expect(accounts.persona_page_voice).to eq(name)
 end
 
+Then(/^the Mobile should be set to '([^']*)'$/) do |name|
+  accounts = Account::AddAccount.new
+  expect(accounts.persona_page_mobile).to eq(name)
+end
+
 Then (/^the Email should be set to '([^']*)'/) do |name|
   accounts = Account::AddAccount.new
   expect(accounts.persona_page_email).to eq(name)

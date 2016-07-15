@@ -41,6 +41,13 @@ And(/^I choose the incomplete import file for names on the Import screen$/) do
   sleep 1
 end
 
+And(/^I choose the '([^']*)' file on the Import screen$/) do |filename|
+  sleep 2
+  import = Giving::Imports.new()
+  import.new_import_choose_file_set(Watirmark::Configuration.instance.file_path_root + filename + ".csv")
+  sleep 1
+end
+
 And(/^I set the Select the Type of Information to Import to '([^']*)' on the Import screen$/) do |data|
   import = Giving::Imports.new()
   import.type_to_import_select data

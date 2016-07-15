@@ -111,6 +111,10 @@ module Cukesetaptesting
         @view.voice_field.when_present.value
       end
 
+      def persona_page_mobile
+        @view.mobile_field.when_present.value
+      end
+
       def persona_page_email
         @view.email_field.when_present.value
       end

@@ -47,6 +47,7 @@ module Cukesetaptesting
       keyword(:postal_code_field) {content.text_field(:id, 'postalCode')}
       keyword(:county_field) {content.text_field(:id, 'county')}
       keyword(:voice_field) {content.text_field(:title, 'Correctly formatted phone number')}
+      keyword(:mobile_field) {content.label(:text,/Mobile/).parent.text_field}
       keyword(:email_field) {content.text_field(:id, 'emailAddress')}
       keyword(:web_page_field) {content.text_field(:id, 'webAddress')}
       keyword(:note_field) {content.text_field(:id, 'note')}
