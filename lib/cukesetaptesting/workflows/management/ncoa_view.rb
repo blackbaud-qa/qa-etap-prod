@@ -13,7 +13,7 @@ module Cukesetaptesting
       keyword(:edit_query) {content.a(:text,'Edit the Selected Query')}
       keyword(:create_query) {content.a(:text,'Create a New Query')}
       keyword(:date_calendar) {content.i(:class,'fa fa-calendar').parent}
-      keyword(:date_calendar_picker) {content.ul(:class,'ng-valid-date-disabled')}
+      keyword(:date_calendar_picker) {content.button(:class,'btn btn-default btn-sm pull-left uib-left')}
       keyword(:date_calendar_today) {date_calendar_picker.div(:text,'Today')}
       keyword(:schedule) {content.button(:value,'Schedule')}
       keyword(:usps_standards_page) {content.a(:text,'USPS Address Standardization page')}
