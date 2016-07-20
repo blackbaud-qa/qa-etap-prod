@@ -96,6 +96,22 @@ module Cukesetaptesting
       keyword(:search_fields_tab) {content.li(:id, 'tabpreviewssearch')}
       keyword(:search_fields_tab_field) {content.text_field(:id, 'fieldSearch')}
       keyword(:state_province_field) {content.text_field(:id, 'testByName(TestEntityRoleForStatesData).states')}
+      keyword(:security_groups_link) {content.a(:href, '/prod/editSecurityGroups.do')}
+      keyword(:new_security_group_link) {content.a(:href, 'editSecurityGroup.do')}
+      keyword(:security_group_name) {content.text_field(:title, 'Name')}
+      keyword(:account_read_query_menu) {content.select(:name, 'entityRoleReadQuery')}
+      keyword(:indiana_chapter_security_group_radio_button) {content.ul(:id, 'list_groups').li(:index => 2).radio(:index => 0)}
+      keyword(:current_password_field) {content.text_field(:id, 'currentPassword')}
+      keyword(:new_password_field) {content.text_field(:id, 'password')}
+      keyword(:confirm_new_password_field) {content.text_field(:name, 'confirmPassword')}
+      keyword(:security_answer_field) {content.text_field(:id, 'securityAnswer')}
+      keyword(:security_question_menu) {content.select(:id, 'securityQuestionSelect')}
+      keyword(:save_button) {content.button(:name,'submit')}
+      keyword(:security_rights_link_sdf_page) {content.a(:text, 'Security Rights')}
+      keyword(:security_right_name_field) {content.text_field(:id, 'newUdvName')}
+      keyword(:add_value_button) {content.button(:id, 'newUdvButton')}
+      keyword(:show_all_fields_link) {content.a(:href, 'javascript:UDFS.show()')}
+      keyword(:code_a_security_group_radio_button) {content.ul(:id, 'list_groups').li(:index => 1).radio(:index => 0)}
 
 
 
@@ -302,6 +318,13 @@ module Cukesetaptesting
         content.div(:id,'searchViewResults').a(:text,item)
       end
 
+      def specific_user_id_link(value)
+        content.a(:text, value)
+      end
+
+      def udf_field(udf)
+        content.a(:text, udf + ':')
+      end
 
     end
   end
