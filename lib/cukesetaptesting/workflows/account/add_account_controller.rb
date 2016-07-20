@@ -371,6 +371,13 @@ module Cukesetaptesting
         @view.find_account_page.present?
       end
 
+      def persona_page_persona_select value
+        @view.persona_page_persona.when_present.select value
+
+      end
+
+
+
       def street_name_persona_page
         @view.persona_page_street_name.value
       end

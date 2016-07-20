@@ -155,6 +155,7 @@ module Cukesetaptesting
       keyword(:relationship_present) {content.a(:class,'delete')}
       keyword(:persona_dd) {content.select(:id => 'personaType')}
       keyword(:persona_page_delete) {content.input(:value,'Delete')}
+      keyword(:persona_page_persona) {content.select(:id,'personaType')}
 
       def disable_country_code country_code
         content.link(:text, country_code).parent.parent.div(:class, 'actions').a(:class, 'enable')

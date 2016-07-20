@@ -116,6 +116,10 @@ module Cukesetaptesting
         @view.mapping_table_other_fields_row(field).checkbox.when_present.set
       end
 
+      def handle_duplicates_select dupes
+        @view.handle_duplicates.when_present.select dupes
+      end
+
       def possible_duplicates_exist? name
         return @view.content.text.include? name
       end
