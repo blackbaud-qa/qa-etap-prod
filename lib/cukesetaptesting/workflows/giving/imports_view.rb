@@ -18,6 +18,7 @@ module Cukesetaptesting
       keyword(:import_mapping_pop_up_corner_x) {content.div(:id=>'formulaPopupContents').parent.div(:class=>'importPopup').link}
       keyword(:import_summary_title) {content.h5(:text,'Import Summary')}
       keyword(:confirm_delete) {content.button(:value,'Yes')}
+      keyword(:handle_duplicates) {content.select(:id,'updateAll')}
 
       keyword(:main_import_div) { content.div(:id=>'importWizard')}
       keyword(:page_1_shaded_icon) { content.img(:src=>'/prod/images/1b0.gif') }

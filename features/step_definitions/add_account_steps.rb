@@ -403,6 +403,11 @@ And (/^the Envelope Salutation should be set to '([^']*)'/) do |value|
   expect(accounts.envelope_salutation).to eq(value)
 end
 
+And(/^I set the Persona to '([^']*)' on the Personas page$/) do |value|
+  accounts = Account::AddAccount.new
+  accounts.persona_page_persona_select value
+end
+
 And (/^the Name Format value should be set to '([^']*)'/) do |value|
   accounts = Account::AddAccount.new
   expect(accounts.name_format_existing_account).to eq(value)

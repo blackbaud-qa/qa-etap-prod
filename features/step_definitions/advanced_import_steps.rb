@@ -157,6 +157,12 @@ And(/^I mark the other fields checkbox next to '([^']*)' on the import screen$/)
   import.other_fields_checkbox_set field
 end
 
+And(/^I set all of the duplicates to '([^']*)' on the import screen$/) do |dupes|
+  import = Giving::Imports.new()
+  import.handle_duplicates_select dupes
+
+end
+
 And(/^I should see '([^']*)' listed as a possible duplicate$/) do |name|
   import = Giving::Imports.new()
   expect(import.possible_duplicates_exist? name).to eq(true)
