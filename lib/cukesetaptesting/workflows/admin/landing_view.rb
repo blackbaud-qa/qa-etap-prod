@@ -127,6 +127,7 @@ module Cukesetaptesting
       keyword(:management_dd_org_prefs) {management_div.div(:id,'manageWorkBetter').a(:id,'manageOrgLink')}
       keyword(:management_dd_user_prefs) {management_div.div(:id,'manageWorkBetter').a(:id,'manageUserLink')}
 
+
       #page checking
       keyword(:home_page) {content.div(:id, "mainContent")}
       keyword(:accounts_page) {content.div(:id,"accountSearch")}

@@ -2,6 +2,7 @@ module Cukesetaptesting
   module Management
     class NcoaView < BaseView
 #      keyword(:ncoa_page) {content.div(:id,'ncoaContainer')}
+      keyword(:social_page) {content.div(:text,'Social Media Finder')}
       keyword(:ncoa_page) {content.h2(:text,'Scheduling your service')}
       keyword(:category_value) {content.select(:id,'select.query.category.1')}
       keyword(:query_value) {content.select(:id,'select.query.1')}
