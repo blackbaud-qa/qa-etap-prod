@@ -406,6 +406,7 @@ end
 And(/^I set the Persona to '([^']*)' on the Personas page$/) do |value|
   accounts = Account::AddAccount.new
   accounts.persona_page_persona_select value
+  sleep 3
 end
 
 And (/^the Name Format value should be set to '([^']*)'/) do |value|

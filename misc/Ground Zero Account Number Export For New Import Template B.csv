@@ -1,5 +1,5 @@
 Account Number,Persona Type,Account Name,Sort Name,Envelope Salutation,Address Lines,City,State/Province,Postal Code,Phone - Voice,Phone - Mobile,Email,Company,Job Title,Attributes,Mailing Status,Account Type
 128,Business,Brandi Ramirez,"Ramirez, Brandi",Ms. B. Ramirez,707 N Minnesota St,New Ulm,MN,56073,(507) 354-2421,,qa-1@blackbaud.com,Taco Bell,Manager,,,Individual
 129,Personal,Michael Patton,"Patton, Michael",,3773 Maloy Court,Rush Center,KS,67575,785-387-8737,,,,,,,Individual
-130,Personal,Donna Finnie,"Finnie, Donna",Ms. D. Finnie,88-C Patty Ln,Greenville,NJ,12459,,732-745-1111,,,,,Staff*Member,Individual
+130,Personal,Donna Finnie,"Finnie, Donna",Ms. D. Finnie,88-C Patty Ln,Greenville,NJ,12459,,732-745-1111,,,,Staff*Member,,Individual
 158,Business,AT&T,AT&T,,3044 Stark Hollow Road,Lake City,CO,81235,970-944-7462,,,,,,,Business
