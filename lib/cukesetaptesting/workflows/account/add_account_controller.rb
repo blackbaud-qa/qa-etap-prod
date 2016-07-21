@@ -43,6 +43,10 @@ module Cukesetaptesting
         @view.udf_to_click(udf).parent.select.when_present.select value
       end
 
+      def set_udf_checkbox_value(udf, value)
+        @view.udf_checkbox_value(udf, value).when_present.click
+      end
+
       # def set_udf_section_dropdown_value(udf, value)
       #   @view.udf_section_to_click(udf).parent.parent.parent.link(:text, udf + ':').select.when_present.select value
       # end

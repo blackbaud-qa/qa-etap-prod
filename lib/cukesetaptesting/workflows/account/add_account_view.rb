@@ -197,6 +197,10 @@ module Cukesetaptesting
         content.link(:text, udf + ':')
       end
 
+      def udf_checkbox_value(udf, value)
+        content.a(:text, udf + ':').parent.checkbox(:id, value)
+      end
+
       def udf_main_section
         content.h2(:text=>'User Defined Fields: Constituent')
       end
