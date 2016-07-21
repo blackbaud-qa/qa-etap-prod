@@ -44,6 +44,8 @@ Feature: Verify query based advanced security is working
     And I click on the 'Base' category
     And I click preview below the 'All Accounts' query on the Create a New Query page
     Then I should see '15 Accounts' results on the query preview page
+    And I log out of eTap
+
 
 
 

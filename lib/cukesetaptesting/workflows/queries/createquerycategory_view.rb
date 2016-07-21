@@ -93,7 +93,7 @@ module Cukesetaptesting
       keyword(:query_search_field) {content.div(:class,/bb-search-icon/).parent.text_field}
       keyword(:query_criteria_postal_code_field) {content.text_field(:id, 'testByName(TestEntityRoleForPostalCodesData).postalCodes')}
 
-      keyword(:search_fields_tab) {content.li(:id, 'tabpreviewssearch')}
+      keyword(:search_fields_tab) {content.li(:id, 'tabpreviewssearch').a}
       keyword(:search_fields_tab_field) {content.text_field(:id, 'fieldSearch')}
       keyword(:state_province_field) {content.text_field(:id, 'testByName(TestEntityRoleForStatesData).states')}
       keyword(:security_groups_link) {content.a(:href, '/prod/editSecurityGroups.do')}

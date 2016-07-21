@@ -1,5 +1,6 @@
 And (/^I click on the Search Fields tab on the Create a New Query page/) do
   query = Queries::Createquerycategory.new
+
   query.search_fields_tab_click
 end
 

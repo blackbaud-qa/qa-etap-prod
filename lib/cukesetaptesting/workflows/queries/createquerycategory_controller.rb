@@ -639,6 +639,8 @@ module Cukesetaptesting
       end
 
       def search_fields_tab_click
+        # @view.browser.execute_script('arguments[0].scrollIntoView();',@view.content.h5)
+        sleep 3
         @view.search_fields_tab.when_present.click
       end
 
