@@ -130,7 +130,7 @@ Feature: Ability to update existing accounts using the account number as the key
     And the Sort Name should be set to 'Rickman, Stephen'
     And the Recognition Name should be set to 'Stephen Rickman'
     And the Recognition Type should be set to '(account name)'
-#
+
 
   Scenario: Successful account number import with address information included, replace duplicates
     When I click Management on the main menu
@@ -154,7 +154,6 @@ Feature: Ability to update existing accounts using the account number as the key
     And I click 'Mailing Status' on the Import Field pop up
     And I click 'Account Type' on the Import Field pop up
     And I click 'Attributes' on the Import Field pop up
-#    And I click 'Envelope Salutation' on the Import Field pop up
     And I click 'Close' on the Import Field pop up
     And I click on the 'Account Number' mapping icon on the Import screen
     And I click 'Account Number' from my file
@@ -174,11 +173,11 @@ Feature: Ability to update existing accounts using the account number as the key
     And I click on the 'Postal Code' mapping icon on the Import screen
     And I click 'Postal Code' from my file
     And I the X on the Import mapping pop up
-    And I click on the 'Mobile' mapping icon on the Import screen
-    And I click 'Phone - Mobile' from my file
-    And I the X on the Import mapping pop up
     And I click on the 'Voice' mapping icon on the Import screen
     And I click 'Phone - Voice' from my file
+    And I the X on the Import mapping pop up
+    And I click on the 'Mobile' mapping icon on the Import screen
+    And I click 'Phone - Mobile' from my file
     And I the X on the Import mapping pop up
     And I click on the 'Email' mapping icon on the Import screen
     And I click 'Email' from my file
@@ -195,9 +194,6 @@ Feature: Ability to update existing accounts using the account number as the key
     And I click on the 'Attributes' mapping icon on the Import screen
     And I click 'Attributes' from my file
     And I the X on the Import mapping pop up
-#    And I click on the 'Envelope Salutation' mapping icon on the Import screen
-#    And I click 'Envelope Salutation' from my file
-#    And I the X on the Import mapping pop up
     And I mark the other fields checkbox next to 'Persona Type' on the import screen
     And I click Next on the Import screen
     And I click Next on the Import screen
@@ -228,7 +224,7 @@ Feature: Ability to update existing accounts using the account number as the key
     And the Email should be set to 'qa-1@blackbaud.com'
     And the Short Salutation should be set to 'Brandi'
     And the Long Salutation should be set to 'Ms. Ramirez'
-    And the Envelope Salutation should be set to 'Ms. B. Ramirez'
+    And the Envelope Salutation should be set to 'Ms. Brandi Ramirez'
     And the 'Company' should be set to 'Taco Bell'
     And I click on 'Defined Fields' in the account header
     And the 'Account Type' should be set to 'Individual'
@@ -250,11 +246,11 @@ Feature: Ability to update existing accounts using the account number as the key
     And the City should be set to 'Greenville'
     And the State should be set to 'NJ'
     And the Postal Code should be set to '12459'
-    And the Voice should be set to '(732) 745-8909'
+    And the Voice should be set to '732-745-8909'
     And the Mobile should be set to '732-745-1111'
     And the Short Salutation should be set to 'Donna'
     And the Long Salutation should be set to 'Ms. Finnie'
-    And the Envelope Salutation should be set to 'Ms. D. Finnie'
+    And the Envelope Salutation should be set to 'Ms. Donna Finnie'
     And I click on 'Defined Fields' in the account header
     And the 'Account Type' should be set to 'Individual'
     And the 'Gender' should be set to 'Female'
@@ -280,25 +276,20 @@ Feature: Ability to update existing accounts using the account number as the key
     And I click Next on the Import screen
     And I click Next on the Import screen
     Then I receive the following import message: 'We cannot run your import because there are no accounts in your database with the account numbers specified by your import file.'
-#    Then I receive the following import message: 'We were unable to process your import because of issues with your import file. NO DATA was added to your database including lines where there were no errors.'
 
-#
+
   Scenario: Account number import - no existing account
     When I click Management on the main menu
     And I click on Import on the management menu
     And I click 'Standard eTapestry Imports' on the Imports screen
     And I click 'Update Account Information by Account Number - Replace' on the Imports screen
-    And I choose the 'Ground Zero Account Number Export For New Import Template No Existing Account' file on the Import screen
-    And I click Next on the Import screen
-    And I click on the 'Account Number' mapping icon on the Import screen
-    And I click 'Account Number' from my file
-    And I the X on the Import mapping pop up
+    And I choose the 'Ground Zero Account Number Export For New Import Template No Existing Account A' file on the Import screen
     And I click Next on the Import screen
     And I click Next on the Import screen
     And I click Next on the Import screen
-#    Then I receive the following import message: 'We were unable to process your import because of issues with your import file. NO DATA was added to your database including lines where there were no errors.'
-    Then I receive the following import message: 'We cannot run your import because there are no accounts in your database with the account numbers specified by your import file.'
-#    And I see the error 'There is no record in your database with account number 888' on step 5 of the import process
+    And I click Next on the Import screen
+    Then I receive the following import message: 'We were unable to process your import because of issues with your import file. NO DATA was added to your database including lines where there were no errors.'
+    And I see the error 'There is no record in your database with account number 888' on step 5 of the import process
 
   Scenario: Account number import - deleting the import template
     When I click Management on the main menu
