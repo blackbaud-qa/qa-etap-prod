@@ -647,6 +647,55 @@ module Cukesetaptesting
         sleep 2
       end
 
+      def security_groups_click
+        @view.security_groups_link.when_present.click
+      end
+
+      def new_security_group_link_click
+        @view.new_security_group_link.when_present.click
+      end
+
+      def select_account_read_query(value)
+        @view.account_read_query_menu.when_present.select value
+      end
+
+      def click_on_specific_user_id(value)
+        @view.specific_user_id_link(value).when_present.click
+      end
+
+      def select_indiana_chapter_security_group
+        @view.indiana_chapter_security_group_radio_button.when_present.click
+      end
+
+      def select_security_question
+        @view.security_question_menu.when_present.select 'In what city were you born?'
+      end
+
+      def click_save_button
+        @view.save_button.when_present.click
+      end
+
+      def click_security_rights_link_sdf_page
+        @view.security_rights_link_sdf_page.when_present.click
+      end
+
+      def click_add_value_button
+        @view.add_value_button.when_present.click
+      end
+
+      def click_show_all_fields_link
+        @view.show_all_fields_link.when_present.click
+      end
+
+      def expand_udf_field(udf)
+        @view.udf_field(udf).when_present.click
+      end
+
+      def select_code_a_security_group
+        @view.code_a_security_group_radio_button.when_present.click
+      end
+
+
     end
   end
 end
