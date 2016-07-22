@@ -1,4 +1,4 @@
-@bugs
+
 Feature: Run directory report
   Background:
     Given I login into eTap for bugs
