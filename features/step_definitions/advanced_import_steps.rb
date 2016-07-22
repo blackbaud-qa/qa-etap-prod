@@ -45,6 +45,7 @@ And(/^I choose the '([^']*)' file on the Import screen$/) do |filename|
   sleep 2
   import = Giving::Imports.new()
   import.new_import_choose_file_set(Watirmark::Configuration.instance.file_path_root + filename + ".csv")
+  # import.new_import_choose_file_set(Watirmark::Configuration.instance.kim_file_path)
   sleep 1
 end
 
@@ -160,6 +161,7 @@ end
 And(/^I set all of the duplicates to '([^']*)' on the import screen$/) do |dupes|
   import = Giving::Imports.new()
   import.handle_duplicates_select dupes
+  import.click_apply_button
 
 end
 
@@ -208,4 +210,10 @@ end
 Then(/^I should not see the '([^']*)' import template$/) do |name|
   import = Giving::Imports.new()
   expect(import.import_template_exists? name).to eq(false)
+end
+
+And(/^I see the error '([^']*)' on step 5 of the import process$/) do |msg|
+  sleep 5
+  import = Giving::Imports.new()
+  expect(import.error_message_details_contains? msg).to eq(true)
 end

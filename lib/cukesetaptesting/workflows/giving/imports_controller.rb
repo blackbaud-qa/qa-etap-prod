@@ -172,6 +172,15 @@ module Cukesetaptesting
         @view.main_import_div.wait_until_present
         @view.page_5_shaded_icon.wait_until_present
       end
+
+      def click_apply_button
+        @view.apply_button.when_present.click
+      end
+
+      def error_message_details_contains? msg
+        return @view.content.div(:id,'etapreporttag1_outerdiv').tr.when_present.text.include? msg
+      end
+
     end
   end
 end
