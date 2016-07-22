@@ -349,6 +349,7 @@ And(/^I click the Base UDF category on the Edit User Defined Fields page/) do
 end
 
 And(/^I click Account Type on the UDF page/) do
+  sleep 2
   accounts = Account::AddAccount.new
   accounts.account_type_udf
 end

@@ -252,11 +252,13 @@ When (/^I create user '([^']*)' with password '([^']*)'$/) do |user_name, passwo
 end
 
 And(/^I click the Move Values link$/) do
+  sleep 2
   search = Account::Search.new
   search.move_values_link
 end
 
 And(/^I click the Business checkbox$/) do
+  sleep 2
   search = Account::Search.new
   search.move_business_value
 end
