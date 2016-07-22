@@ -553,6 +553,58 @@ module Cukesetaptesting
         @view.set_disabled_country_persona_modal.when_present.select value
       end
 
+      def select_tiles_and_layout
+        @view.select_tiles_and_layout.when_present.click
+      end
+
+      def household_giving_summary_tile
+        @view.household_giving_summary_tile.when_present.click
+      end
+
+      def hh_giving_summary_homepage_tile
+        @view.hh_giving_summary_homepage_tile.present?
+      end
+
+      def relationships_link
+        @view.relationships_link_click.when_present.click
+      end
+
+      def existing_friend_relationship
+        @view.existing_friend_relationship.when_present.click
+      end
+
+      def udf_category_relationships_page(value)
+        @view.udf_category_relationships_page(value).when_present.click
+      end
+
+      def relationships_page_click_udf(udf)
+        @view.udf_to_click(udf).when_present.click
+      end
+
+      def relationships_page_set_udf_dropdown_value(udf, value)
+        @view.udf_to_click(udf).parent.select.when_present.select value
+      end
+
+      def account_settings_link
+        @view.account_settings_link_click.when_present.click
+      end
+
+      def change_recognition_link
+        @view.change_recognition_link.when_present.click
+      end
+
+      def set_recognition_anonymous
+        @view.set_recognition_anonymous.when_present.click
+      end
+
+      def save_recognition_type_selection
+        @view.save_recognition_type_selection.when_present.click
+      end
+
+      def recognition_name_value
+        @view.recognition_name_value.present?
+      end
+
 
       end
   end

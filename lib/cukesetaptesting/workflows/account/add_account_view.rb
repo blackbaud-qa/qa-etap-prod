@@ -157,6 +157,18 @@ module Cukesetaptesting
       keyword(:persona_page_delete) {content.input(:value,'Delete')}
       keyword(:persona_page_persona) {content.select(:id,'personaType')}
 
+      keyword(:select_tiles_and_layout) {content.a(:text, 'Select Tiles and Layout')}
+      keyword(:household_giving_summary_tile) {content.input(:value, '10')}
+      keyword(:hh_giving_summary_homepage_tile) {content.h2(:text, 'Household Giving Summary')}
+      keyword(:relationships_link_click) {content.a(:text,'Relationships')}
+      keyword(:existing_friend_relationship) {content.a(:text, 'Friend')}
+      keyword(:udf_category_relationships_page) {content.a(:id, 'UDFS.link.base')}
+      keyword(:account_settings_link_click) {content.a(:text, 'Account Settings')}
+      keyword(:change_recognition_link) {content.a(:id, 'changeRecognitionLink')}
+      keyword(:set_recognition_anonymous) {content.input(:value, 'label.anonymous')}
+      keyword(:save_recognition_type_selection) {content.button(:class, 'btn bb-btn-secondary ng-scope')}
+      keyword(:recognition_name_value) {content.span(:id, 'anonymousRecognitionDisplay')}
+
       def disable_country_code country_code
         content.link(:text, country_code).parent.parent.div(:class, 'actions').a(:class, 'enable')
       end
