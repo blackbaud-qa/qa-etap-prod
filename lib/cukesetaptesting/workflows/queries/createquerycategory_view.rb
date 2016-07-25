@@ -87,7 +87,7 @@ module Cukesetaptesting
       keyword(:see_all_query_favorites_menu) {content.a(:id, 'queryMenuViewAllFavoritesLink')}
       keyword(:query_favorites_modal) {content.div(:id, 'favoritesHeader')}
       keyword(:mark_standard_query_as_favorite) {content.a(:text, 'Mark Query As Favorite')}
-      keyword(:remove_standard_query_from_favorites) {content.div(:id, 'removeFavorite')}
+      keyword(:remove_standard_query_from_favorites) {content.div(:id, 'removeFavorite').a}
       keyword(:cancel_query_favorites_modal) {content.button(:id, 'favCancel')}
       keyword(:clear_search_query_favorites_modal) {content.button(:id, 'clearFavoritesSearch')}
       keyword(:query_search_field) {content.div(:class,/bb-search-icon/).parent.text_field}

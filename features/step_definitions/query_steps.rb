@@ -703,6 +703,7 @@ end
 And (/^I click the Remove from Favorite Queries link/) do
   query = Queries::Createquerycategory.new
   query.remove_standard_query_from_favorites
+  sleep 3
 end
 
 Then (/^I should see the '([^']*)' query in the query favorites modal/) do |name|

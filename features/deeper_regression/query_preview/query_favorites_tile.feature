@@ -1,4 +1,4 @@
-@sprint
+@deep_reg
 Feature: Query Favorites Tile and Modal
 
   Scenario: Favorites Tile Functionality
@@ -71,6 +71,7 @@ Feature: Query Favorites Tile and Modal
     And I click on Manage Queries on the queries menu
     And I click '(See all)' in the Query Favorites tile
     Then I should not see the 'LYBUNT' query in the favorites modal
+    And I click to close the query favorites modal
 
 
 
