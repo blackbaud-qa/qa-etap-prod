@@ -1,4 +1,4 @@
-@sprint
+@deep_reg
 Feature: Ability to update existing accounts using the account number as the key, without name fields
 
   Background: I am logged into eTapestry
