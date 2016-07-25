@@ -25,7 +25,7 @@ Feature: Edit all pages of account
     When I type 'Claire Bradley' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Claire Bradley' in the search results
-    And I click on Relationships
+    And I click on Relationships on the user page
     And I click on the existing Friend relationship on the Relationships page
     And I click on the 'Base' UDF category on the Relationships page
     And I set the UDF 'Notify' dropdown to 'Yes' on the Relationships page

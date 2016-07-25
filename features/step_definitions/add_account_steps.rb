@@ -729,7 +729,7 @@ Then (/^I should see the Household Giving Summary tile on the Home page$/) do
   expect(accounts.hh_giving_summary_homepage_tile).to eq(true)
 end
 
-And (/^I click on Relationships/) do
+And (/^I click on Relationships on the user page$/) do
   accounts = Account::AddAccount.new
   accounts.relationships_link
 end
