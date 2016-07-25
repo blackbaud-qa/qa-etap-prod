@@ -1,4 +1,4 @@
-@bugs
+
 Feature: Moving Values From User Defined Field
   Background:
     Given I login into eTap for bugs
