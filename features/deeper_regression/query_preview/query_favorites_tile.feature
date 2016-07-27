@@ -2,7 +2,7 @@
 Feature: Query Favorites Tile and Modal
 
   Scenario: Favorites Tile Functionality
-    Given I login into eTap for CP1
+    Given I login into eTap for deeper regression
     And I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     Then I should see the Favorites tile on the left
@@ -15,7 +15,7 @@ Feature: Query Favorites Tile and Modal
 
 
   Scenario: Additional Favorites Modal
-    Given I login into eTap for CP1
+    Given I login into eTap for deeper regression
     And I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click '(See all)' in the Query Favorites tile
