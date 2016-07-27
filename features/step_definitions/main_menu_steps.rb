@@ -296,6 +296,12 @@ When(/^I click on eTapestry Standard Reports on the reports menu$/) do
   landing.reports_dd_standard_click
 end
 
+When(/^I click on Directory Report on the reports menu$/ ) do
+  sleep 1
+  landing = Admin::Landing.new
+  landing.reports_dd_directory_click
+end
+
 When(/^I click on eTapestry Benchmark Reports on the reports menu$/) do
   sleep 1
   landing = Admin::Landing.new

@@ -6,11 +6,13 @@ Feature: Run directory report
   Scenario: Running directory report
     When I click Reports on the main menu
     And I click on eTapestry Standard Reports on the reports menu
-    And I click on directory report
-    And I select 'Base' for the Category field
-    And I select 'All Constituents' for the Query field
-    And I select 'PDF document-Download' for the report format
+    And I click on Directory Report on the reports menu
+    And I click on the drop down box for query category Base
+    And I click on the drop down box for query name All Constituents
+    And I accept on the default report format 'PDF Document - Download'
     And I click on submit
-    Then I should see generating Directory Document page
+    Then I should see the report downloaded
+
+
 
 

@@ -275,6 +275,11 @@ module Cukesetaptesting
         @view.reports_dd_standard.when_present.click
       end
 
+      def reports_dd_directory_click
+        @view.reports_dd_directory.when_present.click
+      end
+
+
       def reports_dd_benchmark_click
         @view.reports_dd_benchmark.when_present.click
       end
