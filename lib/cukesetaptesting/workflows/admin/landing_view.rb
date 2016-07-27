@@ -99,6 +99,7 @@ module Cukesetaptesting
       keyword(:reports_dd_aging_pledge) {reports_div.ul(:id,'topReports2').a(:href,'/prod/reportLauncher.do?nextAction=agingPledgeSummaryReport.do&type=AgingPledgeSummary&mode=report&name=Aging%20Pledge%20Summary')}
       keyword(:reports_dd_standard) {reports_div.ul(:id,'reportStandard').a(:href,'/prod/SpecialReportCategories.jsp')}
       keyword(:reports_dd_benchmark) {reports_div.ul(:id,'reportStandard').a(:href,'/prod/viewCrossDBReports.do')}
+      keyword(:reports_dd_directory){content.a(:text,'Directory Report')}
 
       #nav bar managment dropdown
       keyword(:management_dd_import) {management_div.button(:id,'importButton')}
