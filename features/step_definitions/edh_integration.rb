@@ -92,3 +92,23 @@ Then(/^I should see the Import button on the integrations page$/) do
   intMan = Management::EdhIntegration.new
   expect(intMan.import_button_present?).to eq(true)
 end
+
+And(/^I click on the EDH sign up link$/) do
+  intMan = Management::EdhIntegration.new
+  intMan.edh_signup_click
+end
+
+Then(/^I should be taken to the EDH signup page$/) do
+  intMan = Management::EdhIntegration.new
+  expect(intMan.on_EDH_sign_up_page?).to eq(true)
+end
+
+And(/^I click on the EDH user guide link$/) do
+  intMan = Management::EdhIntegration.new
+  intMan.edh_user_guide_click
+end
+
+Then(/^I should be taken to the EDH user guide page$/) do
+  intMan = Management::EdhIntegration.new
+  expect(intMan.on_EDH_user_guid_page?).to eq(true)
+end

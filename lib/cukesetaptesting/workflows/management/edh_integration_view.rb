@@ -18,6 +18,10 @@ module Cukesetaptesting
       keyword(:all_historical_data) {content.radio(:id,'<placeholderID>')}
       keyword(:historical_data_save) {content.div(:id,'<placeholderID>')}
       keyword(:import_button) {content.div(:id,'<placeholderID>')}
+      keyword(:edh_signup) {content.a(:text,'click here')}
+      keyword(:edh_signup_page_element) {content.div(:id,'<placeholderID>')}
+      keyword(:edh_user_guide) {content.a(:text,'everydayhero user guide')}
+      keyword(:edh_user_guid_page_element) {content.div(:id,'<placeholderID>')}
 
       def home(model)
       end

@@ -77,6 +77,24 @@ module Cukesetaptesting
         sleep 2
         @view.import_button.present?
       end
+
+      def edh_signup_click
+        @view.edh_signup.when_present.click
+      end
+
+      def on_EDH_sign_up_page?
+        sleep 3
+        @view.edh_signup_page_element.present?
+      end
+
+      def edh_user_guide_click
+        @view.edh_user_guide.when_present.click
+      end
+
+      def on_EDH_user_guid_page?
+        sleep 3
+        @view.edh_user_guid_page_element.present?
+      end
     end
   end
 end

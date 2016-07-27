@@ -47,4 +47,17 @@ Feature: EDH Integration
     Then I should see the Import button on the integrations page
 
 
+  Scenario:  EDH Links - Sign up
+    When I click Management on the main menu
+    And I click on Integrations on the management menu
+    And I click on the EDH sign up link
+    Then I should be taken to the EDH signup page
+
+  Scenario: EDH Links - User Guide
+    When I click Management on the main menu
+    And I click on Integrations on the management menu
+    And I click on the EDH user guide link
+    Then I should be taken to the EDH user guide page
+
+
 
