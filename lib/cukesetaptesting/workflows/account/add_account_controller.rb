@@ -605,6 +605,45 @@ module Cukesetaptesting
         @view.recognition_name_value.present?
       end
 
+      def new_defined_field_click
+        @view.new_defined_field.when_present.click
+      end
+
+      def set_udf_name (udf_name)
+        @view.set_udf_name.when_present.send_keys udf_name
+      end
+
+      def field_application value
+        @view.field_application(value).when_present.click
+      end
+
+      def drop_down_display_type_click
+        @view.drop_down_display_type.when_present.click
+      end
+
+      def add_udf_value value
+        @view.add_udf_value.when_present.send_keys value
+      end
+
+      def add_value_button
+        @view.add_value_button.when_present.click
+      end
+
+      def confirm_udf_value
+        @view.confirm_udf_value.present?
+      end
+
+      def open_udf_category value
+        @view.open_udf_category(value).when_present.click
+      end
+
+      def chapter_udf
+        @view.chapter_udf.when_present.click
+      end
+
+      def confirm_udf_value_second
+        @view.confirm_udf_value_second.present?
+      end
 
       end
   end

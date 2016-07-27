@@ -169,6 +169,17 @@ module Cukesetaptesting
       keyword(:save_recognition_type_selection) {content.button(:class, 'btn bb-btn-secondary ng-scope')}
       keyword(:recognition_name_value) {content.span(:id, 'anonymousRecognitionDisplay')}
 
+      keyword(:new_defined_field) {content.a(:class, 'taskLink')}
+      keyword(:set_udf_name) {content.input(:id, 'nameField')}
+      keyword(:field_application) {content.input(:name, 'applicableToCustomers')}
+      keyword(:drop_down_display_type) {content.input(:value, 'single')}
+      keyword(:add_udf_value) {content.input(:id, 'newUdvName')}
+      keyword(:add_value_button) {content.input(:id, 'newUdvButton')}
+      keyword(:confirm_udf_value) {content.span(:text, 'First')}
+      keyword(:open_udf_category) {content.a(:class, 'udfCategory')}
+      keyword(:chapter_udf) {content.a(:text, 'Chapter')}
+      keyword(:confirm_udf_value_second) {content.span(:text, 'Second')}
+
       def disable_country_code country_code
         content.link(:text, country_code).parent.parent.div(:class, 'actions').a(:class, 'enable')
       end
