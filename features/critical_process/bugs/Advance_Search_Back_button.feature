@@ -2,7 +2,7 @@
 Feature: Searching from advanced find
 
   Background:
-    Given I login into eTap for CP9
+    Given I login into eTap for bugs
 
   Scenario: Searching by Name, pressing Enter
     When I click Accounts
@@ -10,6 +10,6 @@ Feature: Searching from advanced find
     And I click Advanced Find
     And I type 'Smith' into the Name field
     And I press Enter on the keyboard
-    And I click on 'Smith'
+    And I click on 'Ed Smith' in the search results
     And I click the back button
     Then 'Smith' should show in the advanced find name results
