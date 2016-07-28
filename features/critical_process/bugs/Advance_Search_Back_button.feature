@@ -1,10 +1,10 @@
 @bugs
-Feature: Searching from advanced find
+Feature: Advance Search back button
 
   Background:
     Given I login into eTap for bugs
 
-  Scenario: Searching by Name, pressing Enter
+  Scenario: Advance Search Back button
     When I click Accounts
     And I click on Find an Account on the accounts menu
     And I click Advanced Find
@@ -12,4 +12,4 @@ Feature: Searching from advanced find
     And I press Enter on the keyboard
     And I click on 'Ed Smith' in the search results
     And I click the back button
-    Then 'Smith' should show in the advanced find name results
+    Then 'Ed Smith' should show in the advanced find name results
