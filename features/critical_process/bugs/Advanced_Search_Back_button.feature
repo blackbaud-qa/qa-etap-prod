@@ -1,10 +1,10 @@
 @bugs
-Feature: Advance Search back button
+Feature: Advanced Search back button
 
   Background:
     Given I login into eTap for bugs
 
-  Scenario: Advance Search Back button
+  Scenario: Advanced Search Back button
     When I click Accounts
     And I click on Find an Account on the accounts menu
     And I click Advanced Find
