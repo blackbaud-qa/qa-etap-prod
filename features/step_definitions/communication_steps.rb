@@ -865,7 +865,7 @@ And (/^I disable eReceipts on the DIY settings page/) do
 end
 
 Then (/^I should be taken to the DIY landing page/) do
-  sleep 5
+  sleep 10
   letter = Communications::Createtemplate.new
   expect(letter.diy_landing_page).to eq(true)
 end

@@ -93,6 +93,7 @@ And(/^I select I need to create an account on the live fundraiser page$/) do
 end
 
 And(/^I click Next on the live fundraiser page$/) do
+  sleep 2
   fund = Management::Fundraisers.new()
   fund.live_fundraiser_next_click
 end
