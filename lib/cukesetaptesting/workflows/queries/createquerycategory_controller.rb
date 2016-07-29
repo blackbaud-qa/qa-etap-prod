@@ -599,6 +599,7 @@ module Cukesetaptesting
       end
 
       def query_favorites_modal
+        sleep 2
         @view.query_favorites_modal.present?
       end
 
@@ -615,10 +616,12 @@ module Cukesetaptesting
       end
 
       def query_in_favorites_modal (name)
+        sleep 2
         @view.query_in_favorites_modal(name).present?
       end
 
       def query_not_in_favorites_modal (name)
+        sleep 2
         @view.query_not_in_favorites_modal(name).present?
       end
 

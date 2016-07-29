@@ -304,6 +304,7 @@ Then (/^I should see the '([^']*)' category has been removed from the page/) do 
 end
 
 And (/^I click preview below the '([^']*)' query on the Create a New Query page/) do |name|
+  sleep 2
   query = Queries::Createquerycategory.new
   query.preview_query_click(name)
 end
