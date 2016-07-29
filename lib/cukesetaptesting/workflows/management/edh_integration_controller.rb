@@ -14,17 +14,71 @@ module Cukesetaptesting
         @view.integrations_page_check.present?
       end
 
-      def get_started_click
-        @view.get_started.when_present.click
+      def set_up_click
+        @view.set_up.when_present.click
       end
 
-      def basic_integration_modal_present?
+      def setup_edh_modal_present?
         sleep 2
-        @view.basic_integration_modal.present?
+        @view.setup_edh_modal.present?
       end
 
-      def basic_integration_save_click
-        @view.basic_integration_save.when_present.click
+      def edh_integration_next_click
+        sleep 1
+        @view.edh_integration_next.when_present.click
+        sleep 1
+      end
+
+      def edh_integration_previous_click
+        sleep 1
+        @view.edh_integration_previous.when_present.click
+        sleep 1
+      end
+
+      def edh_integration_save_click
+        sleep 1
+        @view.edh_integration_save.when_present.click
+        sleep 1
+      end
+
+      def edh_integration_cancel_click
+        sleep 1
+        @view.edh_integration_cancel_click
+        sleep 1
+      end
+
+      def edh_integration_next_text_include? text
+        @view.edh_integration_next.when_present.text.include? text
+      end
+
+      def edh_start_import_button_enabled?
+        @view.edh_start_import_button.wait_until_present
+        return button_enabled? @view.edh_start_import_button
+        # TODO:  Add code to check whether this is greyed out
+        # @view.edh_start_import_button.enabled?
+      end
+
+      def edit_set_up_click
+        @view.edit_set_up.when_present.click
+      end
+
+      def edh_integration_modal_error_include? error
+        @view.edh_integration_modal_error.when_present.text.include? error
+      end
+
+      def next_button_enabled?
+        @view.edh_integration_next.wait_until_present
+        return button_enabled? @view.edh_integration_next
+      end
+
+      def save_button_enabled?
+        @view.edh_integration_save.wait_until_present
+        return button_enabled? @view.edh_integration_save
+      end
+
+      def button_enabled? button
+        # TODO:  Add code to see if button is enabled
+        return true
       end
 
       def integrations_page_content_include? text
@@ -52,10 +106,6 @@ module Cukesetaptesting
         @view.default_approach.when_present.select selection
       end
 
-      def campaign_mappings_save_click
-        @view.campaign_mappings_save.when_present.click
-      end
-
       def select_historical_data_click
         @view.select_historical_data.when_present.click
       end
@@ -67,10 +117,6 @@ module Cukesetaptesting
 
       def all_historical_data_set
         @view.all_historical_data.when_present set
-      end
-
-      def historical_data_save_click
-        @view.historical_data_save.when_present.click
       end
 
       def import_button_present?
@@ -91,10 +137,15 @@ module Cukesetaptesting
         @view.edh_user_guide.when_present.click
       end
 
-      def on_EDH_user_guid_page?
+      def on_EDH_user_guide_page?
         sleep 3
         @view.edh_user_guid_page_element.present?
       end
+
+      def edit_mappings_click
+        @view.edit_mappings.when_present.click
+      end
+
     end
   end
 end

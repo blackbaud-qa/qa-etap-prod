@@ -1,5 +1,4 @@
 @sprint
-
 Feature: EDH Integration
 
   Background:
@@ -10,42 +9,55 @@ Feature: EDH Integration
     And I click on Integrations on the management menu
     Then I should be taken to the Integrations page
 
-  Scenario:  EDH Setup - Get Started
+  Scenario:  EDH Integration - Setup
     When I click Management on the main menu
     And I click on Integrations on the management menu
-    And I click on the Get Started button on the integrations page
-    Then I should see the Basic integration settings modal
-    And I enter '<api key data>' in the API key field on the basic integration modal
-    And I enter 'lance.moore@blackbaud.com' in the notifications area on the basic integration modal
-    And I click Save on the basic integration modal
-    Then I should see 'Settings complete' on the integrations page
+    And I click on the Set up button on the integrations page
+    Then I should see the set up EDH integration modal
+    And I enter '<valid api key data>' in the API key field on the set up EDH integration modal
+    And I enter 'lance.moore@blackbaud.com' in the notifications area on the set up EDH integration modal
+    And I click next on the set up EDH integration modal
+    And I set the default eTapestry Fund to '<fund>' on the set up EDH integration modal
+    And I set the default eTapestry Campaign to '<campaign>' on the set up EDH integration modal
+    And I set the default eTapestry Approach to '<approach>' on the set up EDH integration modal
+    And I click next on the set up EDH integration modal
+    And I click All historical data on the set up EDH integration modal
+    Then the text on the Next button should change to 'Finish' on the set up EDH integration modal
+    And I click next on the set up EDH integration modal
+    Then I should be taken to the Integrations page
+    And the Start import button should be enabled on the integrations page
 
-  Scenario:  EDH Setup - Map Campaigns
+  Scenario: EDH Integration - API key validation
     When I click Management on the main menu
     And I click on Integrations on the management menu
-    And I click on the Map Campaigns button on the integrations page
-    Then I should see the EDH campaign mappings modal
-    And I set the default eTapestry Fund to '' on the EDH campaign mappings modal
-    And I set the default eTapestry Campaign to '' on the EDH campaign mappings modal
-    And I set the default eTapestry Approach to '' on the EDH campaign mappings modal
-    And I click Save on the EDH campaign mappings modal
-    Then I should see 'Mapping complete' on the integrations page
+    And I click on the Edit set up button on the integrations page
+    And I enter '<invalid api key>' in the API key field on the set up EDH integration modal
+    And I press Enter on the keyboard
+    Then I should see the '<invalid api key error>' error on the set up EDH integration modal
+    And the next button should be disabled on the set up EDH integration modal
+    And the Save and Close button should be disabled on the set up EDH integration modal
+    And I click cancel on the set up EDH integration modal
 
-  Scenario:  EDH Setup - Historical Data Import
+  Scenario: EDH Integration - Email Validation
     When I click Management on the main menu
     And I click on Integrations on the management menu
-    And I click on the Select Historical Data button on the integrations page
-    Then I should see the EDH historical data import modal
-    And I click All historical data on the EDH historical data import modal
-    And I click Save on the EDH historical data import modal
-    Then I should see 'Historical data settings complete' on the integrations page
+    And I click on the Edit set up button on the integrations page
+    And I enter '<invalid email address>' in the notifications area on the set up EDH integration modal
+    And I press Enter on the keyboard
+    Then I should see the '<invalid email address>' error on the set up EDH integration modal
+    And the next button should be disabled on the set up EDH integration modal
+    And the Save and Close button should be disabled on the set up EDH integration modal
+    And I click cancel on the set up EDH integration modal
 
-  Scenario:  EDH Setup - Import Enabled
+  Scenario:  EDH Integration - Default Fund Validation
     When I click Management on the main menu
     And I click on Integrations on the management menu
-    And I should see '3/3 steps complete!' on the integrations page
-    Then I should see the Import button on the integrations page
-
+    And I click on the Edit Mappings button on the integrations page
+    And I set the default eTapestry Fund to '' on the set up EDH integration modal
+    Then I should see the '<invalid default fund>' error on the set up EDH integration modal
+    And the next button should be disabled on the set up EDH integration modal
+    And the Save and Close button should be disabled on the set up EDH integration modal
+    And I click cancel on the set up EDH integration modal
 
   Scenario:  EDH Links - Sign up
     When I click Management on the main menu
