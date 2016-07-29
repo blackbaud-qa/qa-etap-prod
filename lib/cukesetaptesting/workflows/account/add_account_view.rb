@@ -170,7 +170,7 @@ module Cukesetaptesting
       keyword(:recognition_name_value) {content.span(:id, 'anonymousRecognitionDisplay')}
 
       keyword(:new_defined_field) {content.a(:class, 'taskLink')}
-      keyword(:set_udf_name) {content.input(:id, 'nameField')}
+      keyword(:set_udf_name) {content.text_field(:id, 'nameField')}
       keyword(:field_application) {content.input(:name, 'applicableToCustomers')}
       keyword(:drop_down_display_type) {content.input(:value, 'single')}
       keyword(:add_udf_value) {content.input(:id, 'newUdvName')}

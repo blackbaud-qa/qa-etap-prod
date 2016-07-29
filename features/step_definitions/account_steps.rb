@@ -452,8 +452,10 @@ And (/^I click New Defined Field/) do
 end
 
 And (/^I set the Name to '([^']*)' on the new defined field page/) do |udf_name|
-  account = Account::AddAccount.new()
-  account.set_udf_name (udf_name)
+  sleep 2
+  account = Account::AddAccount.new(:set_udf_name=>udf_name)
+  # account.set_udf_name (udf_name)
+  account.create
 end
 
 And (/^I set the Field Application to '([^']*)' on the new defined field page/) do |value|

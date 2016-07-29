@@ -563,7 +563,7 @@ module Cukesetaptesting
       end
 
       def edit_query_definition_page (value)
-        @view.edit_query_definition_page.text.include? value
+        @view.edit_query_definition_page.when_present.text.include? value
       end
 
       def preview_query_favorites_tile(name)
