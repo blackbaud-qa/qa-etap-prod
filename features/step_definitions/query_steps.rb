@@ -697,6 +697,7 @@ And (/^I click on '([^']*)' in the query favorites modal/) do |name|
 end
 
 And (/^I click the Mark Query as Favorite link/) do
+  sleep 2
   query = Queries::Createquerycategory.new
   query.mark_standard_query_as_favorite
 end
