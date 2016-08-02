@@ -238,12 +238,12 @@ Then(/^the registration confirmation page should say: '([^']*)'$/) do |msg|
     step "I click Next on the live fundraiser page"
   end
   fund = Management::Fundraisers.new()
-  begin
+  # begin
     expect(fund.fundraising_content_text_contains? msg).to eq(true)
-  rescue Exception => e
-    step "I close the current tab"
-    raise e
-  end
+  # rescue Exception => e
+  #   step "I close the current tab"
+  #   raise e
+  # end
 end
 
 When(/^I click Login on the live fundraiser page$/) do
