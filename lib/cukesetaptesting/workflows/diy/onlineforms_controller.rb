@@ -600,6 +600,44 @@ module Cukesetaptesting
         @view.volunteer_int_udf_link.when_present.click
       end
 
+      def choose_float_template_click
+        @view.choose_float_template.when_present.click
+      end
+
+      def unmark_include_comments_box
+        @view.unmark_include_comments_box.when_present.click
+      end
+
+      def date_of_birth_diy?
+       return @view.date_of_birth_diy.text.include? 'Date of Birth'
+      end
+
+      def date_of_birth_field_hover
+        @view.date_of_birth_field_edit.wait_until_present
+        @view.browser.execute_script('arguments[0].scrollIntoView();',@view.content.div(:id,'ecommEditorToolbar'))
+        @view.date_of_birth_field_edit.hover
+      end
+
+      def select_label_text
+        @view.select_label_text.wait_until_present
+        @view.select_label_text.when_present.send_keys [:control, 'a']
+      end
+
+      def delete_label_text
+        @view.select_label_text.when_present.send_keys :delete
+      end
+
+      def set_diy_label value
+        @view.set_diy_label.when_present.send_keys value
+      end
+      def update_button_diy_edit_field
+        @view.update_button_diy_edit_field.when_present.click
+      end
+
+      def birthdate_diy?
+        return @view.birthdate_diy.text.include? 'Birthdate'
+      end
+
     end
   end
 end
