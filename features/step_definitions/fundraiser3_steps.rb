@@ -231,7 +231,7 @@ Then(/^the registration page should not display the fundraiser$/) do
 end
 
 Then(/^the registration confirmation page should say: '([^']*)'$/) do |msg|
-  sleep 15
+  sleep 30
   fund = Management::Fundraisers.new()
   if(fund.previous_name_used?)
     step "I click Next on the live fundraiser page"
