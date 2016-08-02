@@ -59,6 +59,9 @@ module Cukesetaptesting
       keyword(:edit_cart_shipping_attributes) {cart_edit_page.i(:id,'refPopulate(preferences.shippingIntent)_comboArrow')}
       keyword(:edit_cart_shipping_attributes_general) {content.div(:text,/General/)}
       keyword(:edit_cart_transaction_processor) {cart_edit_page.select_list(:name,'refPopulate(preferences.namedTransactionProcessor)')}
+      keyword(:manage_cart_discounts) {cart_page.a(:text,'Manage Cart Discounts')}
+      keyword(:new_discount)  {cart_page.a(:text,'New Disocunt')}
+
       keyword(:view_online_cart) {content.a(:text,'View Online Cart')}
       keyword(:cart_category_search) {browser.text_field(:id,'etapSearchField')}
       keyword(:add_item) {browser.a(:text,'Add to cart')}
