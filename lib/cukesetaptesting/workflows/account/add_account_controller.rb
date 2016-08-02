@@ -43,6 +43,10 @@ module Cukesetaptesting
         @view.udf_to_click(udf).parent.select.when_present.select value
       end
 
+      def set_udf_checkbox_value(udf, value)
+        @view.udf_checkbox_value(udf, value).when_present.click
+      end
+
       # def set_udf_section_dropdown_value(udf, value)
       #   @view.udf_section_to_click(udf).parent.parent.parent.link(:text, udf + ':').select.when_present.select value
       # end
@@ -367,6 +371,13 @@ module Cukesetaptesting
         @view.find_account_page.present?
       end
 
+      def persona_page_persona_select value
+        @view.persona_page_persona.when_present.select value
+
+      end
+
+
+
       def street_name_persona_page
         @view.persona_page_street_name.value
       end
@@ -542,6 +553,97 @@ module Cukesetaptesting
         @view.set_disabled_country_persona_modal.when_present.select value
       end
 
+      def select_tiles_and_layout
+        @view.select_tiles_and_layout.when_present.click
+      end
+
+      def household_giving_summary_tile
+        @view.household_giving_summary_tile.when_present.click
+      end
+
+      def hh_giving_summary_homepage_tile
+        @view.hh_giving_summary_homepage_tile.present?
+      end
+
+      def relationships_link
+        @view.relationships_link_click.when_present.click
+      end
+
+      def existing_friend_relationship
+        @view.existing_friend_relationship.when_present.click
+      end
+
+      def udf_category_relationships_page(value)
+        @view.udf_category_relationships_page(value).when_present.click
+      end
+
+      def relationships_page_click_udf(udf)
+        @view.udf_to_click(udf).when_present.click
+      end
+
+      def relationships_page_set_udf_dropdown_value(udf, value)
+        @view.udf_to_click(udf).parent.select.when_present.select value
+      end
+
+      def account_settings_link
+        @view.account_settings_link_click.when_present.click
+      end
+
+      def change_recognition_link
+        @view.change_recognition_link.when_present.click
+      end
+
+      def set_recognition_anonymous
+        @view.set_recognition_anonymous.when_present.click
+      end
+
+      def save_recognition_type_selection
+        @view.save_recognition_type_selection.when_present.click
+      end
+
+      def recognition_name_value
+        @view.recognition_name_value.present?
+      end
+
+      def new_defined_field_click
+        @view.new_defined_field.when_present.click
+      end
+
+      def set_udf_name (udf_name)
+        @view.set_udf_name.when_present.send_keys udf_name
+      end
+
+      def field_application value
+        @view.field_application(value).when_present.click
+      end
+
+      def drop_down_display_type_click
+        @view.drop_down_display_type.when_present.click
+      end
+
+      def add_udf_value value
+        @view.add_udf_value.when_present.send_keys value
+      end
+
+      def add_value_button
+        @view.add_value_button.when_present.click
+      end
+
+      def confirm_udf_value
+        @view.confirm_udf_value.present?
+      end
+
+      def open_udf_category value
+        @view.open_udf_category(value).when_present.click
+      end
+
+      def chapter_udf
+        @view.chapter_udf.when_present.click
+      end
+
+      def confirm_udf_value_second
+        @view.confirm_udf_value_second.present?
+      end
 
       end
   end

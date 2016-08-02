@@ -8,6 +8,10 @@ module Cukesetaptesting
         return @view.ncoa_page.present?
       end
 
+      def on_social_finder_page?
+        return @view.social_page.present?
+      end
+
       def category_value_selected? value
         @view.category_value.wait_until_present
         return @view.category_value.selected? value

@@ -5,6 +5,24 @@ Feature: Dashboard Functionality
   Background:
   Given I login into eTap for CP10
 
+      #Test is running inconsistently on AWS.  Some of the tiles are failing to load.  Will re-enable if we can work out a fix.
+  Scenario: Running the Campaign Performance from the Dashboard
+    When I click Home on the main menu
+    And I click on Go to Home on the home menu
+    And I click 'Change' on the Campaign Performance tile
+    And I set the Date Range to 'Custom Range' on the Campaign Performance tile
+    And I set the Start Date to '1/1/2014' and I set the End Date to '1/31/2014'
+    And I click Update on the Campaign Performance tile
+    And I click 'See Full Report' on the Campaign Performance tile
+    And I should see 'Displaying 1 - 1 of 1' on the full Campaign Performance report
+    And I click Home on the main menu
+    And I click on Go to Home on the home menu
+    And I click 'Change' on the Campaign Performance tile
+    And I set the Date Range to 'This Year' on the Campaign Performance tile
+    And I click Update on the Campaign Performance tile
+    Then I should see 'Annual (This Year)' on the Campaign Performance tile
+
+
 ### Test against automationbot before checkin ###
   Scenario: Adding Tiles to the Dashboard
     When I click Home on the main menu
@@ -37,23 +55,4 @@ Feature: Dashboard Functionality
     And I click on 2 Equal Columns
     And I click Save
     And I should see the homepage in 2 columns
-
-  #Test is running inconsistently on AWS.  Some of the tiles are failing to load.  Will re-enable if we can work out a fix.
-#  Scenario: Running the Campaign Performance from the Dashboard
-#    When I click Home on the main menu
-#    And I click on Go to Home on the home menu
-#    And I click 'Change' on the Campaign Performance tile
-#    And I set the Date Range to 'Custom Range' on the Campaign Performance tile
-#    And I set the Start Date to '1/1/2014' and I set the End Date to '1/31/2014'
-#    And I click Update on the Campaign Performance tile
-#    And I click 'See Full Report' on the Campaign Performance tile
-#    And I should see 'Displaying 1 - 1 of 1' on the full Campaign Performance report
-#    And I click Home on the main menu
-#    And I click on Go to Home on the home menu
-#    And I click 'Change' on the Campaign Performance tile
-#    And I set the Date Range to 'This Year' on the Campaign Performance tile
-#    And I click Update on the Campaign Performance tile
-#    Then I should see 'Annual (This Year)' on the Campaign Performance tile
-
-
 

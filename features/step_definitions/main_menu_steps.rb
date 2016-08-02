@@ -176,6 +176,7 @@ When(/^I click on Constant Contact on the communications menu$/) do
 end
 
 When(/^I click Queries on the main menu$/) do
+  sleep 2
   landing = Admin::Landing.new
   landing.queries_click
 end
@@ -187,6 +188,7 @@ When(/^I click on the Queries drop down$/) do
 end
 
 When(/^I click on Manage Queries on the queries menu$/) do
+  sleep 2
   landing = Admin::Landing.new
   landing.queries_dd_manage_click
 end

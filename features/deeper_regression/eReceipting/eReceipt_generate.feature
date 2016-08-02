@@ -1,9 +1,11 @@
 @deep_reg
 Feature: eReceipting Basics
 
-  Scenario: Generate eReceipt
+  Background:
     Given I login into eTap for deeper regression
-    And I type 'Talisha Almond' into the dynamic search field
+
+  Scenario: Generate eReceipt
+    Given I type 'Talisha Almond' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Talisha Almond' in the search results
     And I go to the journal of account 'Talisha Almond'
@@ -24,8 +26,7 @@ Feature: eReceipting Basics
     Then I should see a generated receipt number on the transaction
 
   Scenario: Void eReceipt
-    Given I login into eTap for deeper regression
-    And I type 'Talisha Almond' into the dynamic search field
+    Given I type 'Talisha Almond' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Talisha Almond' in the search results
     And I go to the journal of account 'Talisha Almond'
@@ -63,7 +64,6 @@ Feature: eReceipting Basics
 
 
   Scenario: eReceipt with DIY
-    Given I login into eTap for deeper regression
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Existing Donation Page'

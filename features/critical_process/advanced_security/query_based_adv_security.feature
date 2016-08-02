@@ -1,9 +1,9 @@
-# TODO: add critproc tag
+@crit_proc7
 Feature: Verify query based advanced security is working
 
   Background:
     ### If you change the CP number then you have to make the user login number match in the steps below ###
-    Given I login into eTap for CP6
+    Given I login into eTap for CP7
 
   Scenario: Add security query, create security group, log in and verify results
     When I click Queries on the main menu
@@ -30,11 +30,12 @@ Feature: Verify query based advanced security is working
     And I set Name of the Security Group to 'Indiana Chapter'
     And I set the Account Read Query to 'Constituents in Indiana'
     And I click Save
-    And I click the on User 'AutomationBot'on the Security Groups page
-    And I select the 'Indiana Chapter' Security Grooup on the Rights page
+    And I click the on User 'AutomationBot' on the Security Groups page
+    And I select the Indiana Chapter Security Group on the Rights page
     And I click Save And 'Edit'
     And I log out of eTap
-    And I login into eTap a second time with values 'automationbot_6', 'spicypancakes1'
+    And I login into eTap a second time with values 'automationbot_7', 'spicypancakes1'
+    And I fill out the User Account Security page
     And I type 'Dorothy' into the dynamic search field
     And I press Enter on the keyboard
     And I should see the message: '0 accounts found'
@@ -43,6 +44,8 @@ Feature: Verify query based advanced security is working
     And I click on the 'Base' category
     And I click preview below the 'All Accounts' query on the Create a New Query page
     Then I should see '15 Accounts' results on the query preview page
+    And I log out of eTap
+
 
 
 

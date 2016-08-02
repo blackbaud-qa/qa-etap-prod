@@ -327,7 +327,7 @@ end
 And(/^I click Replace on the DIY editor page$/) do
   diy = DIY::Onlineforms.new()
   diy.donation_page_replace_click
-  sleep 5
+  sleep 10
 end
 
 Then(/the Donation Page should no longer show$/) do

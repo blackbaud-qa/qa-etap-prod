@@ -75,6 +75,7 @@ And (/^I set the Update Type to Remove/) do
 end
 
 And (/^I click on the '([^']*)' category/) do |category|
+  sleep 2
   mass = Admin::Massupdates.new
   mass.click_on_query_category(category)
 end

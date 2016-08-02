@@ -349,6 +349,7 @@ And(/^I click the Base UDF category on the Edit User Defined Fields page/) do
 end
 
 And(/^I click Account Type on the UDF page/) do
+  sleep 2
   accounts = Account::AddAccount.new
   accounts.account_type_udf
 end
@@ -401,6 +402,12 @@ And (/^the Envelope Salutation should be set to '([^']*)'/) do |value|
   accounts = Account::AddAccount.new
   # expect(accounts.envelope_salutation value).to eq(true)
   expect(accounts.envelope_salutation).to eq(value)
+end
+
+And(/^I set the Persona to '([^']*)' on the Personas page$/) do |value|
+  accounts = Account::AddAccount.new
+  accounts.persona_page_persona_select value
+  sleep 3
 end
 
 And (/^the Name Format value should be set to '([^']*)'/) do |value|
@@ -705,4 +712,65 @@ end
 And(/^I click Delete on the Personas page$/) do
   accounts = Account::AddAccount.new
   accounts.persona_page_delete_click
+end
+
+And (/^I click Select Tiles and Layout on the Home page of an account$/) do
+  accounts = Account::AddAccount.new
+  accounts.select_tiles_and_layout
+end
+
+And (/^I check the box for Household Giving Summary tile$/) do
+  accounts = Account::AddAccount.new
+  accounts.household_giving_summary_tile
+end
+
+Then (/^I should see the Household Giving Summary tile on the Home page$/) do
+  accounts = Account::AddAccount.new
+  expect(accounts.hh_giving_summary_homepage_tile).to eq(true)
+end
+
+And (/^I click on Relationships on the user page$/) do
+  accounts = Account::AddAccount.new
+  accounts.relationships_link
+end
+
+And (/I click on the existing Friend relationship on the Relationships page$/) do
+  accounts = Account::AddAccount.new
+  accounts.existing_friend_relationship
+end
+
+And (/I click on the '([^']*)' UDF category on the Relationships page/) do |value|
+  accounts = Account::AddAccount.new
+  accounts.udf_category_relationships_page(value)
+end
+
+And (/^I set the UDF '([^']*)' dropdown to '([^']*)' on the Relationships page/) do |udf, value|
+  accounts = Account::AddAccount.new
+  accounts.relationships_page_click_udf(udf)
+  accounts.relationships_page_set_udf_dropdown_value(udf, value)
+end
+
+And (/^I click Account Settings/) do
+  accounts = Account::AddAccount.new
+  accounts.account_settings_link
+end
+
+And (/I click Change Recognition on the Account Settings page/) do
+  accounts = Account::AddAccount.new
+  accounts.change_recognition_link
+end
+
+And (/I select Anonymous in the Change Recognition Type modal/) do
+  accounts = Account::AddAccount.new
+  accounts.set_recognition_anonymous
+end
+
+And (/^I click Continue in the Change Recognition Type modal on the Account Settings page/) do
+  accounts = Account::AddAccount.new
+  accounts.save_recognition_type_selection
+end
+
+Then (/I should see Anonymous listed as the Recognition name/) do
+  accounts = Account::AddAccount.new
+  expect(accounts.recognition_name_value). to eq(true)
 end
