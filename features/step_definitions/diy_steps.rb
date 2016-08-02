@@ -1005,3 +1005,43 @@ And (/I set Volunteer Fields up on my diy volunteer page/) do
   diy.volunteer_int_udf_link_click
   diy.diy_non_hidden_modal_ok_click
 end
+
+
+And(/^I select the Float template on the DIY editor page$/) do
+  diy = DIY::Onlineforms.new()
+  diy.choose_float_template_click
+end
+
+And (/^I unmark the checkbox next to Include comments box/) do
+  diy = DIY::Onlineforms.new
+  diy.unmark_include_comments_box
+end
+
+And (/^I should see Date of Birth on the edited DIY page$/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.date_of_birth_diy?).to eq(true)
+end
+
+And(/^I hover over the Date of Birth field on the DIY editor page/) do
+  sleep 1
+  diy = DIY::Onlineforms.new
+  diy.date_of_birth_field_hover
+  sleep 1
+end
+
+And (/^I set the Label field to '([^']*)' on the DIY editor page/) do |value|
+  diy = DIY::Onlineforms.new()
+  diy.select_label_text
+  diy.delete_label_text
+  diy.set_diy_label (value)
+end
+
+And (/^I click Update on the DIY Edit Field modal/) do
+  diy = DIY::Onlineforms.new()
+  diy.update_button_diy_edit_field
+end
+
+And (/^I should see Birthdate on the edited DIY page$/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.birthdate_diy?).to eq(true)
+end
