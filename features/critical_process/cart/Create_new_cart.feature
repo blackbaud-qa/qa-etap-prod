@@ -8,7 +8,7 @@ Feature: Create a new Cart
 
   Scenario: Create New Category and a New Item
   When I click Management on the main menu
-  And I click on eStore (Cart) on the management menu
+  And I click on eStore on the management menu
   And I click on new Category on the cart page
   And I name it 'Automation Cat 1' on create cart category
   And I put in a description called 'Description' on create cart category

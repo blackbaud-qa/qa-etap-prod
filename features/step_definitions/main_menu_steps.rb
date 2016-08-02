@@ -374,7 +374,7 @@ When(/^I click on Social Media Finder on the management menu$/) do
   landing.management_dd_social_media_finder_click
 end
 
-When(/^I click on eStore \(Cart\) on the management menu$/) do
+When(/^I click on eStore on the management menu$/) do
   landing = Admin::Landing.new
   landing.management_dd_estore_click
 end

@@ -9,6 +9,15 @@ module Cukesetaptesting
       return @view.cart_page_title.exists?
     end
 
+      def manage_cart_discounts_click
+        @view.manage_cart_discounts.when_present.click
+      end
+
+      def new_discounts_click
+        @view.new_discounts.click
+      end
+
+
       def new_category_click
         @view.new_category.when_present.click
       end
