@@ -93,7 +93,7 @@ And(/^I select I need to create an account on the live fundraiser page$/) do
 end
 
 And(/^I click Next on the live fundraiser page$/) do
-  sleep 2
+  sleep 5
   fund = Management::Fundraisers.new()
   fund.live_fundraiser_next_click
 end
@@ -231,7 +231,7 @@ Then(/^the registration page should not display the fundraiser$/) do
 end
 
 Then(/^the registration confirmation page should say: '([^']*)'$/) do |msg|
-  sleep 3
+  sleep 15
   fund = Management::Fundraisers.new()
   if(fund.previous_name_used?)
     step "I click Next on the live fundraiser page"
