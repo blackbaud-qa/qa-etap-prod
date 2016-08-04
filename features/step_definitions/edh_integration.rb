@@ -18,12 +18,12 @@ And(/^I should see the set up EDH integration modal$/) do
   expect(intMan.setup_edh_modal_present?).to eq(true)
 end
 
-And(/^I enter '[^']*' in the API key field on the set up EDH integration modal$/) do |field|
+And(/^I enter '([^']*)' in the API key field on the set up EDH integration modal$/) do |field|
   intMan = Management::EdhIntegration.new(:api_key=>field)
   intMan.create
 end
 
-And(/^I enter '[^']*' in the notifications area on the set up EDH integration modal$/) do |field|
+And(/^I enter '([^']*)' in the notifications area on the set up EDH integration modal$/) do |field|
   intMan = Management::EdhIntegration.new(:notifications=>field)
   intMan.create
 end
@@ -48,7 +48,7 @@ And(/^I click cancel on the set up EDH integration modal$/) do
   intMan.edh_integration_cancel_click
 end
 
-Then(/^the text on the Next button should change to '[^']*' on the set up EDH integration modal$/) do |text|
+Then(/^the text on the Next button should change to '([^']*)' on the set up EDH integration modal$/) do |text|
   intMan = Management::EdhIntegration.new
   expect(intMan.edh_integration_next_text_include? text).to eq(true)
 end
@@ -68,7 +68,7 @@ And(/^I click Save on the basic integration modal$/) do
   intMan.basic_integration_save_click
 end
 
-Then(/^I should see '[^']*' on the integrations page$/) do |text|
+Then(/^I should see '([^']*)' on the integrations page$/) do |text|
   intMan = Management::EdhIntegration.new
   expect(intMan.integrations_page_content_include? text).to eq(true)
 end
@@ -78,17 +78,17 @@ And(/^I click on the Map Campaigns button on the integrations page$/) do
   intMan.map_campaigns_click
 end
 
-And(/^I set the default eTapestry Fund to '[^']*' on the set up EDH integration modal$/) do |selection|
+And(/^I set the default eTapestry Fund to '([^']*)' on the set up EDH integration modal$/) do |selection|
   intMan = Management::EdhIntegration.new
   intMan.default_fund_select selection
 end
 
-And(/^I set the default eTapestry Campaign to '[^']*' on the set up EDH integration modal$/) do |selection|
+And(/^I set the default eTapestry Campaign to '([^']*)' on the set up EDH integration modal$/) do |selection|
   intMan = Management::EdhIntegration.new
   intMan.default_campaign_select selection
 end
 
-And(/^I set the default eTapestry Approach to '[^']*' on the set up EDH integration modal$/) do |selection|
+And(/^I set the default eTapestry Approach to '([^']*)' on the set up EDH integration modal$/) do |selection|
   intMan = Management::EdhIntegration.new
   intMan.default_approach_select selection
 end
@@ -133,7 +133,7 @@ Then(/^I should be taken to the EDH user guide page$/) do
   expect(intMan.on_EDH_user_guide_page?).to eq(true)
 end
 
-Then(/^I should see the '[^']*' error on the set up EDH integration modal$/) do |error|
+Then(/^I should see the '([^']*)' error on the set up EDH integration modal$/) do |error|
   intMan = Management::EdhIntegration.new
   expect(intMan.edh_integration_modal_error_include? error).to eq(true)
 end
