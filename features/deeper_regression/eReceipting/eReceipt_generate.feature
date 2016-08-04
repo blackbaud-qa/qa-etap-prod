@@ -124,6 +124,8 @@ Feature: eReceipting Basics
     And I click Go Live on the DIY editor page
     And I click Yes, Go Live! on the DIY editor page
     And I click Replace on the DIY editor page
+    And I click Management on the main menu
+    And I click on DIY Forms on the management menu
     Then I should be taken to the DIY landing page
 
 

@@ -53,13 +53,12 @@ module Cukesetaptesting
 
       def edh_start_import_button_enabled?
         @view.edh_start_import_button.wait_until_present
-        return button_enabled? @view.edh_start_import_button
-        # TODO:  Add code to check whether this is greyed out
-        # @view.edh_start_import_button.enabled?
+        button_enabled? @view.edh_start_import_button
       end
 
       def edit_set_up_click
         @view.edit_set_up.when_present.click
+        # @view.set_up.when_present.click
       end
 
       def edh_integration_modal_error_include? error
@@ -68,17 +67,16 @@ module Cukesetaptesting
 
       def next_button_enabled?
         @view.edh_integration_next.wait_until_present
-        return button_enabled? @view.edh_integration_next
+        button_enabled? @view.edh_integration_next
       end
 
       def save_button_enabled?
         @view.edh_integration_save.wait_until_present
-        return button_enabled? @view.edh_integration_save
+        button_enabled? @view.edh_integration_save
       end
 
       def button_enabled? button
-        # TODO:  Add code to see if button is enabled
-        return true
+        button.attribute_value('ng-disabled').nil?
       end
 
       def integrations_page_content_include? text
@@ -116,7 +114,7 @@ module Cukesetaptesting
       end
 
       def all_historical_data_set
-        @view.all_historical_data.when_present set
+        @view.all_historical_data.when_present.click
       end
 
       def import_button_present?
