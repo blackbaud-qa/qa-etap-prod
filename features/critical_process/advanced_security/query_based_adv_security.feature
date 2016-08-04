@@ -34,7 +34,7 @@ Feature: Verify query based advanced security is working
     And I select the Indiana Chapter Security Group on the Rights page
     And I click Save And 'Edit'
     And I log out of eTap
-    And I login into eTap a second time with values 'automationbot_7', 'spicypancakes1'
+    And I login into eTap a second time with values 'automationbot_7', 'spicypancakes2'
     And I fill out the User Account Security page
     And I type 'Dorothy' into the dynamic search field
     And I press Enter on the keyboard
