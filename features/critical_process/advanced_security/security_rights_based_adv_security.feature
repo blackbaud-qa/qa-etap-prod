@@ -43,8 +43,8 @@ Feature: Verify security rights based advanced security is working
     And I select the Code A Security Group on the Rights page
     And I click Save And 'Edit'
     And I log out of eTap
-    And I login into eTap a second time with values 'automationbot_4', 'spicypancakes1'
-    And I fill out the User Account Security page
+    And I login into eTap a second time with values 'automationbot_4', 'spicypancakes2'
+#    And I fill out the User Account Security page
     And I type 'American' into the dynamic search field
     And I press Enter on the keyboard
     And I should see the message: '0 accounts found'
