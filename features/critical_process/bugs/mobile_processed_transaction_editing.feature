@@ -38,4 +38,4 @@ Feature: Processed transactions should not be editable via the mobile eTap site
     Then Received should not be empty
     And Credit/Debit Card Number should not be empty
     And I log out of eTap Mobile
-    And I navigate to Knight Rider
+    And I navigate to Fullhouse
