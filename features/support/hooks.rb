@@ -1,7 +1,7 @@
 Before do
   $loggedin ||= false
   if !$loggedin
-    step "I navigate to Knight Rider"
+    step "I navigate to Fullhouse"
     # step "I log out of eTap"
     $loggedin = true
   end
