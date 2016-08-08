@@ -304,6 +304,7 @@ Then (/^I should see the '([^']*)' category has been removed from the page/) do 
 end
 
 And (/^I click preview below the '([^']*)' query on the Create a New Query page/) do |name|
+  sleep 2
   query = Queries::Createquerycategory.new
   query.preview_query_click(name)
 end
@@ -696,6 +697,7 @@ And (/^I click on '([^']*)' in the query favorites modal/) do |name|
 end
 
 And (/^I click the Mark Query as Favorite link/) do
+  sleep 2
   query = Queries::Createquerycategory.new
   query.mark_standard_query_as_favorite
 end
@@ -703,6 +705,7 @@ end
 And (/^I click the Remove from Favorite Queries link/) do
   query = Queries::Createquerycategory.new
   query.remove_standard_query_from_favorites
+  sleep 3
 end
 
 Then (/^I should see the '([^']*)' query in the query favorites modal/) do |name|

@@ -1,3 +1,26 @@
+And(/^I click on Manage Cart Discounts on cart page$/) do
+  cart =Admin::Cart.new
+  cart.manage_cart_discounts_click
+  #pending
+end
+
+And (/^I click on New Discount on the Manage Cart Discounts page$/)do
+  cart=Admin::Cart.new
+  cart.new_discounts_click
+end
+
+When(/^I name it 'New Discount 1' on create discount page$/) do |name|
+  cart = Admin::Cart.new(:new_discount_name => name)
+  cart.create
+  #pending # express the regexp above with the code you wish you had
+end
+
+When(/^I put in a description called 'Description' on create discount page$/) do |name|
+  cart = Admin::Cart.new()
+  cart.set_discount_def(name)
+  #pending # express the regexp above with the code you wish you had
+end
+
 When(/^I click on new Category on the cart page$/) do
   cart = Admin::Cart.new
   cart.new_category_click

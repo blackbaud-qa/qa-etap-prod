@@ -2,8 +2,7 @@
 Feature: Processed transactions should not be editable via the mobile eTap site
 
   Background:
-    Given I navigate to Fullhouse
-    And I login into eTap for bugs
+    Given I login into eTap for bugs
 
   Scenario: Processed transactions should not be editable
 #    And I create constituent 'Bob Smith'  #added to zero state base DB

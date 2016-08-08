@@ -1,4 +1,5 @@
 Feature: Update account image
+  #test
 
 Scenario: update the account image
 Given I logged into etapestry

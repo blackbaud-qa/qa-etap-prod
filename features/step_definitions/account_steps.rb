@@ -252,11 +252,13 @@ When (/^I create user '([^']*)' with password '([^']*)'$/) do |user_name, passwo
 end
 
 And(/^I click the Move Values link$/) do
+  sleep 2
   search = Account::Search.new
   search.move_values_link
 end
 
 And(/^I click the Business checkbox$/) do
+  sleep 2
   search = Account::Search.new
   search.move_business_value
 end
@@ -442,4 +444,53 @@ end
 And (/^set '([^']*)' rights to non admin%/) do |user_name|
   security = Management::SecurityGroups.new
   security.user_rights_link_click user_name
+end
+
+And (/^I click New Defined Field/) do
+  account = Account::AddAccount.new
+  account.new_defined_field_click
+end
+
+And (/^I set the Name to '([^']*)' on the new defined field page/) do |udf_name|
+  sleep 2
+  account = Account::AddAccount.new(:set_udf_name=>udf_name)
+  # account.set_udf_name (udf_name)
+  account.create
+end
+
+And (/^I set the Field Application to '([^']*)' on the new defined field page/) do |value|
+  account = Account::AddAccount.new
+  account.field_application value
+end
+
+And (/^I set the Display Type to Allow Assignment of Only 1 Item on the new defined field page/) do
+  account = Account::AddAccount.new
+  account.drop_down_display_type_click
+end
+
+And (/^I add the value of '([^']*)' on the UDF page/) do |value|
+  account = Account::AddAccount.new()
+  account.add_udf_value (value)
+  account.add_value_button
+end
+
+Then (/^I should see a UDF value of First/) do
+  account = Account::AddAccount.new
+  expect(account.confirm_udf_value).to eq(true)
+end
+
+And (/^I click on '([^']*)' on the Defined Fields page of an account/) do |value|
+   account = Account::AddAccount.new
+   account.open_udf_category value
+end
+
+And(/^I click Chapter on the UDF page/) do
+  sleep 2
+  accounts = Account::AddAccount.new
+  accounts.chapter_udf
+end
+
+Then (/^I should see a UDF value of Second/) do
+  account = Account::AddAccount.new
+  expect(account.confirm_udf_value_second).to eq(true)
 end

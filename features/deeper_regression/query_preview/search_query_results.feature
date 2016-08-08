@@ -1,8 +1,8 @@
-@sprint
+@deep_reg
 Feature: Ability to search for Account Name in the query results
 
   Background: I am logged into eTapestry
-    Given I login into eTap for CP1
+    Given I login into eTap for deeper regression
 
   Scenario: Search for a name within an account query
     When I click Queries on the main menu

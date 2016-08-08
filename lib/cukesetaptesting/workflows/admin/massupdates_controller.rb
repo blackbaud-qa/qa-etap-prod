@@ -30,7 +30,7 @@ module Cukesetaptesting
       end
 
       def set_udf_value(udf, value)
-        @view.udf_to_click(udf).parent.select.set value
+        @view.udf_to_click(udf).when_present.parent.select.set value
       end
 
       def mass_update_next_click
@@ -115,6 +115,7 @@ module Cukesetaptesting
       end
 
       def empty_query
+        sleep 2
         @view.query_preview_results.present?
       end
 

@@ -155,7 +155,7 @@ And(/^I click Update on the DIY editor page$/) do
 end
 
 And(/^I click Settings on the DIY editor page$/) do
-  sleep 5
+  sleep 10
   diy = DIY::Onlineforms.new()
   diy.edit_settings_click
 end
@@ -671,7 +671,7 @@ And(/^the DIY page ([^']*) contains the UDF ([^']*)/) do |diy_page_name, udf_nam
 end
 
 And(/^all email notifications are ([^']*) for the DIY page ([^']*)/) do |notification_state, diy_page_name|
-  sleep 3
+  sleep 5
 
   steps %Q{
     When I click Management on the main menu
@@ -691,10 +691,11 @@ And(/^all email notifications are ([^']*) for the DIY page ([^']*)/) do |notific
 end
 
 And(/^email notifications are ([^']*)/) do |notification_state|
+  sleep 3
   diy = DIY::Onlineforms.new
   diy.org_confirmation_email_checkbox 'disable'
   diy.donor_confirmation_email_checkbox 'disable'
-  sleep 1
+  sleep 3
 end
 
 And(/^I submit a successful credit card transaction for ([^']*) ([^']*) on page ([^']*)/) do |donor_first_name, donor_last_name, page_name|
@@ -1023,4 +1024,44 @@ And (/I set Volunteer Fields up on my diy volunteer page/) do
   diy.press_enter
   diy.volunteer_int_udf_link_click
   diy.diy_non_hidden_modal_ok_click
+end
+
+
+And(/^I select the Float template on the DIY editor page$/) do
+  diy = DIY::Onlineforms.new()
+  diy.choose_float_template_click
+end
+
+And (/^I unmark the checkbox next to Include comments box/) do
+  diy = DIY::Onlineforms.new
+  diy.unmark_include_comments_box
+end
+
+And (/^I should see Date of Birth on the edited DIY page$/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.date_of_birth_diy?).to eq(true)
+end
+
+And(/^I hover over the Date of Birth field on the DIY editor page/) do
+  sleep 1
+  diy = DIY::Onlineforms.new
+  diy.date_of_birth_field_hover
+  sleep 1
+end
+
+And (/^I set the Label field to '([^']*)' on the DIY editor page/) do |value|
+  diy = DIY::Onlineforms.new()
+  diy.select_label_text
+  diy.delete_label_text
+  diy.set_diy_label (value)
+end
+
+And (/^I click Update on the DIY Edit Field modal/) do
+  diy = DIY::Onlineforms.new()
+  diy.update_button_diy_edit_field
+end
+
+And (/^I should see Birthdate on the edited DIY page$/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.birthdate_diy?).to eq(true)
 end

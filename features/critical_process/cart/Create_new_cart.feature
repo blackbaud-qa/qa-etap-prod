@@ -8,7 +8,7 @@ Feature: Create a new Cart
 
   Scenario: Create New Category and a New Item
   When I click Management on the main menu
-  And I click on eStore (Cart) on the management menu
+  And I click on eStore on the management menu
   And I rename the existing category to prevent automation errors
   And I click on new Category on the cart page
   And I name it 'Automation Cat 1' on create cart category
@@ -51,8 +51,9 @@ Feature: Create a new Cart
 Scenario: Edit Cart Preferences
   Given the iATS processor named 'iATS Test Processor' has been added to the database
   When I click Management on the main menu
-  And I click on eStore (Cart) on the management menu
+  And I click on eStore on the management menu
 #  And I should see the Cart alert: 'Before you make your cart public, it is recommended that you customize your cart to make it more personal for your visitors. To do this select Edit Cart Preferences in the Customize Cart section.'
+
 #  And I click on 'Category 1' on the cart page
   And I click on Edit Cart Preferences on the cart page
   And I click next on the edit cart page

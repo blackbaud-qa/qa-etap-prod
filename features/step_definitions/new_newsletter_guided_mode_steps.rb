@@ -20,6 +20,7 @@ end
 
 
 And(/^I click Next$/) do
+  sleep 3
   letter = Communications::Createtemplate.new()
   letter.click_next_on_nav
 end

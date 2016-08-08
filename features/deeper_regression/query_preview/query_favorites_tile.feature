@@ -1,9 +1,12 @@
-@sprint
+@deep_reg
 Feature: Query Favorites Tile and Modal
 
+  Background:
+    Given I login into eTap for deeper regression
+
   Scenario: Favorites Tile Functionality
-    Given I login into eTap for CP1
-    And I click Queries on the main menu
+
+    Given I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     Then I should see the Favorites tile on the left
     And I click on the query titled 'All Constituents' in the favorites tile
@@ -15,8 +18,7 @@ Feature: Query Favorites Tile and Modal
 
 
   Scenario: Additional Favorites Modal
-    Given I login into eTap for CP1
-    And I click Queries on the main menu
+    Given I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click '(See all)' in the Query Favorites tile
     And I type 'zzz' into the query favorites modal search field
@@ -44,8 +46,7 @@ Feature: Query Favorites Tile and Modal
 
 
   Scenario: Favorites Modal - Menu
-    Given I login into eTap for CP1
-    And I click Queries on the main menu
+    Given I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click Queries on the main menu
     When I click See all next to Favorites in the query menu
@@ -55,8 +56,7 @@ Feature: Query Favorites Tile and Modal
 
 
   Scenario: Adding and Removing Favorite Query
-    Given I login into eTap for CP1
-    And I click Queries on the main menu
+    Given I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click on the 'LYBUNT & SYBUNT' category
     And I click on the 'LYBUNT' query
@@ -71,6 +71,7 @@ Feature: Query Favorites Tile and Modal
     And I click on Manage Queries on the queries menu
     And I click '(See all)' in the Query Favorites tile
     Then I should not see the 'LYBUNT' query in the favorites modal
+    And I click to close the query favorites modal
 
 
 

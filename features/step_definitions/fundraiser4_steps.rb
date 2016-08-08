@@ -95,12 +95,22 @@ end
 
 And(/^I click on '([^']*)' on the live fundraiser participant search page$/) do |name|
   fund = Management::Fundraisers.new()
-  fund.participant_search_results_click name
+  begin
+    fund.participant_search_results_click name
+  rescue Exception => e
+    step "I close the current tab"
+    raise e
+  end
 end
 
 Then(/^I should see '([^']*)' listed as a donor$/) do |name|
   fund = Management::Fundraisers.new()
+  begin
   expect(fund.participant_donors_contains? name).to eq(true)
+  rescue Exception => e
+    step "I close the current tab"
+    raise e
+  end
 end
 
 And(/^I expand the Tribute, Soft Credit, Matching Gift Relationships section$/) do
@@ -111,5 +121,11 @@ end
 Then (/^I should see the Total Raised Amount as '([^']*)' on the Fundraiser home page$/) do |value|
   sleep 2
   fund = Management::Fundraisers.new()
-  expect(fund.fundraiser_total_raised(value)).to eq(true)
+
+  begin
+    expect(fund.fundraiser_total_raised(value)).to eq(true)
+  rescue Exception => e
+    step "I close the current tab"
+    raise e
+  end
 end

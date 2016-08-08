@@ -47,6 +47,7 @@ module Cukesetaptesting
       keyword(:postal_code_field) {content.text_field(:id, 'postalCode')}
       keyword(:county_field) {content.text_field(:id, 'county')}
       keyword(:voice_field) {content.text_field(:title, 'Correctly formatted phone number')}
+      keyword(:mobile_field) {content.label(:text,/Mobile/).parent.text_field}
       keyword(:email_field) {content.text_field(:id, 'emailAddress')}
       keyword(:web_page_field) {content.text_field(:id, 'webAddress')}
       keyword(:note_field) {content.text_field(:id, 'note')}
@@ -154,6 +155,30 @@ module Cukesetaptesting
       keyword(:relationship_present) {content.a(:class,'delete')}
       keyword(:persona_dd) {content.select(:id => 'personaType')}
       keyword(:persona_page_delete) {content.input(:value,'Delete')}
+      keyword(:persona_page_persona) {content.select(:id,'personaType')}
+
+      keyword(:select_tiles_and_layout) {content.a(:text, 'Select Tiles and Layout')}
+      keyword(:household_giving_summary_tile) {content.input(:value, '10')}
+      keyword(:hh_giving_summary_homepage_tile) {content.h2(:text, 'Household Giving Summary')}
+      keyword(:relationships_link_click) {content.a(:text,'Relationships')}
+      keyword(:existing_friend_relationship) {content.a(:text, 'Friend')}
+      keyword(:udf_category_relationships_page) {content.a(:id, 'UDFS.link.base')}
+      keyword(:account_settings_link_click) {content.a(:text, 'Account Settings')}
+      keyword(:change_recognition_link) {content.a(:id, 'changeRecognitionLink')}
+      keyword(:set_recognition_anonymous) {content.input(:value, 'label.anonymous')}
+      keyword(:save_recognition_type_selection) {content.button(:class, 'btn bb-btn-secondary ng-scope')}
+      keyword(:recognition_name_value) {content.span(:id, 'anonymousRecognitionDisplay')}
+
+      keyword(:new_defined_field) {content.a(:class, 'taskLink')}
+      keyword(:set_udf_name) {content.text_field(:id, 'nameField')}
+      keyword(:field_application) {content.input(:name, 'applicableToCustomers')}
+      keyword(:drop_down_display_type) {content.input(:value, 'single')}
+      keyword(:add_udf_value) {content.input(:id, 'newUdvName')}
+      keyword(:add_value_button) {content.input(:id, 'newUdvButton')}
+      keyword(:confirm_udf_value) {content.span(:text, 'First')}
+      keyword(:open_udf_category) {content.a(:class, 'udfCategory')}
+      keyword(:chapter_udf) {content.a(:text, 'Chapter')}
+      keyword(:confirm_udf_value_second) {content.span(:text, 'Second')}
 
       def disable_country_code country_code
         content.link(:text, country_code).parent.parent.div(:class, 'actions').a(:class, 'enable')
@@ -193,6 +218,10 @@ module Cukesetaptesting
         #   are passing in a UDF's custom name
         sleep 0.5
         content.link(:text, udf + ':')
+      end
+
+      def udf_checkbox_value(udf, value)
+        content.a(:text, udf + ':').parent.checkbox(:id, value)
       end
 
       def udf_main_section

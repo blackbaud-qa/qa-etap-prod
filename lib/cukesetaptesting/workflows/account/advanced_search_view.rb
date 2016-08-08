@@ -14,7 +14,7 @@ module Cukesetaptesting
       #DEV_HELP
 #      keyword(:find_button) { content.button(:id => 'findBtn') }
       #DEV_HELP
-      keyword(:advanced_link) { content.link(:text=> 'Advanced Find') }
+      keyword(:advanced_link) {content.link(:text=>'Advanced Find') }
       #DEV_HELP
  #     keyword(:exact_button) { content.button(:value => 'Exact Match') }
       keyword(:table_content) { content.table(:id => /bbgrid-table-/)}
