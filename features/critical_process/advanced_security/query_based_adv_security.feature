@@ -2,11 +2,14 @@
 Feature: Verify query based advanced security is working
 
   Background:
-    ### If you change the CP number then you have to make the user login number match in the steps below ###
+    ### If you change the CP number in the background then you have to make the CP number match in the steps below ###
     Given I login into eTap for CP7
 
   Scenario: Add security query, create security group, log in and verify results
-    When I click Queries on the main menu
+    When I create user 'adv_sec_query' for query based advanced security testing
+    And I log out of eTap
+    And I login into eTap for CP7
+    And I click Queries on the main menu
     And I click on Manage Queries on the queries menu
     And I click on the 'eTapestry Security' category
     And I click 'New Query' on the Edit Query Category page
@@ -30,11 +33,11 @@ Feature: Verify query based advanced security is working
     And I set Name of the Security Group to 'Indiana Chapter'
     And I set the Account Read Query to 'Constituents in Indiana'
     And I click Save
-    And I click the on User 'AutomationBot' on the Security Groups page
+    And I click the on User 'adv_sec_query adv_sec_query' on the Security Groups page
     And I select the Indiana Chapter Security Group on the Rights page
     And I click Save And 'Edit'
     And I log out of eTap
-    And I login into eTap a second time with values 'automationbot_7', 'spicypancakes2'
+    And I login into eTap a second time with values 'adv_sec_query', 'spicypancakes2'
 #    And I fill out the User Account Security page
     And I type 'Dorothy' into the dynamic search field
     And I press Enter on the keyboard
