@@ -129,3 +129,63 @@ And (/^I set the '([^']*)' multi select UDF to '([^']*)' on the gift screen/) do
   accounts.click_udf(udf)
   accounts.set_udf_checkbox_value(udf, value)
 end
+
+When (/^I create user '([^']*)' for query based advanced security testing/) do |user_name|
+  step "there exists query based advanced security user '#{user_name}'"
+end
+
+When (/^there exists query based advanced security user '([^']*)'$/) do |user_name|
+  landing = Admin::Landing.new
+  landing.accounts_click
+  landing.accounts_dd_find_account_click
+
+  sleep 3
+  search_page = Account::Search.new
+  search_page.set_search_field user_name
+  sleep 3
+  search_page.find_click
+  sleep 4
+
+  if (not search_page.account_name_exists? user_name)
+    step %Q[I create user '#{user_name}' with password 'tempPassword']
+    landing.log_out
+
+    step %Q[I login into eTap with values '#{user_name}', 'tempPassword']
+    process_user_account_security 'spicypancakes2', 'qa-1@blackbaud.com', 'What is your favorite color?', 'Blackbaud'
+
+    homepage = Home::Homepage.new
+    if homepage.is_present?
+      homepage.click_take_me_to_etap
+    end
+  end
+end
+
+When (/^I create user '([^']*)' for security rights based advanced security testing/) do |user_name|
+  step "there exists security rights based advanced security user '#{user_name}'"
+end
+
+When (/^there exists security rights based advanced security user '([^']*)'$/) do |user_name|
+  landing = Admin::Landing.new
+  landing.accounts_click
+  landing.accounts_dd_find_account_click
+
+  sleep 3
+  search_page = Account::Search.new
+  search_page.set_search_field user_name
+  sleep 3
+  search_page.find_click
+  sleep 4
+
+  if (not search_page.account_name_exists? user_name)
+    step %Q[I create user '#{user_name}' with password 'tempPassword']
+    landing.log_out
+
+    step %Q[I login into eTap with values '#{user_name}', 'tempPassword']
+    process_user_account_security 'spicypancakes2', 'qa-1@blackbaud.com', 'What is your favorite color?', 'Blackbaud'
+
+    homepage = Home::Homepage.new
+    if homepage.is_present?
+      homepage.click_take_me_to_etap
+    end
+  end
+end
