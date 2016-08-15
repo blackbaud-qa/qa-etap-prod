@@ -186,7 +186,7 @@ end
 When(/^I log out of eTap Mobile$/) do
   page = Mobile::Login.new
   page.click_logout_button
-  sleep 5
+  sleep 10
 end
 
 Then(/^I should be logged in$/) do
