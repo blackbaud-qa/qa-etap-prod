@@ -28,6 +28,11 @@ module Cukesetaptesting
       keyword(:page_4_shaded_icon) { content.img(:src=>'/prod/images/4b0.gif') }
       keyword(:page_5_shaded_icon) { content.img(:src=>'/prod/images/5b0.gif') }
 
+      keyword(:ind_account_name_checkbox) {content.checkbox(:id, 'entityName1Key')}
+      keyword(:account_created_date_range) {content.select(:id, 'TestEntityRoleForCreatedDateData.dynamicDateRange')}
+      keyword(:first_name_to_no_value_checkbox) {content.checkbox(:id, 'TestEntityRoleForFirstNamesData.fieldEmptyTest')}
+      keyword(:query_list) {content.ul(:id, 'list_queries')}
+
       def mapping_table_other_fields_row field
           content.table(:id,'mappingTable0').td(:text,field).parent
       end
@@ -43,6 +48,7 @@ module Cukesetaptesting
       def mapping_table_business_name_format_row field
         content.table(:id,'mappingTable3').td(:text,field).parent
       end
+
 
       def home(model)
       end

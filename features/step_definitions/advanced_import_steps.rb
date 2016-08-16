@@ -217,3 +217,46 @@ And(/^I see the error '([^']*)' on step 5 of the import process$/) do |msg|
   import = Giving::Imports.new()
   expect(import.error_message_details_contains? msg).to eq(true)
 end
+
+And (/^I mark the Key checkbox in the Individual Name Format section next to Account Name on the import screen/) do
+  import = Giving::Imports.new()
+  import.ind_account_name_checkbox_click
+end
+
+And (/^I create a query for accounts created today to verify that none of them were created with blank names/) do
+  import = Giving::Imports.new()
+
+  step "I click Queries on the main menu"
+  step "I click on Manage Queries on the queries menu"
+  step "I click on the 'Search Query Results' category"
+
+  if (import.import_verification_query_exists?)
+    step "I click preview below the 'accounts created today without a first name' query on the Create a New Query page"
+    step "I should see '0 Accounts' results on the query preview page"
+
+  else
+    step "I click 'New Query' on the Edit Query Category page"
+    step "I set the Name to 'accounts created today without a first name' on the Create a New Query page"
+    step "I click on the Search Fields tab on the Create a New Query page"
+    step "I enter 'created' into the search field on the Create a New Query page"
+    step "I press Enter on the keyboard"
+    step "I click on 'Account Created Date' under Search Fields on the Create a New Query page"
+    step "I set the Account Created Date Range Type to 'Today'"
+    step "I enter 'name' into the search field on the Create a New Query page"
+    step "I press Enter on the keyboard"
+    step "I click on 'First Name' under Search Fields on the Create a New Query page"
+    step "I set the First Name query criteria to Field Has No Value"
+    step "I click Save And 'Preview'"
+    step "I should see '0 Accounts' results on the query preview page"
+  end
+end
+
+And (/^I set the Account Created Date Range Type to '([^']*)'/) do |value|
+  import = Giving::Imports.new()
+  import.set_account_created_date_range(value)
+end
+
+And (/^I set the First Name query criteria to Field Has No Value/) do
+  import = Giving::Imports.new()
+  import.set_first_name_to_no_value
+end
