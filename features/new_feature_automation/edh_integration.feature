@@ -17,9 +17,9 @@ Feature: EDH Integration
     And I enter 'API KEY' in the API key field on the set up EDH integration modal
     And I enter 'lance.moore@blackbaud.com' in the notifications area on the set up EDH integration modal
     And I click next on the set up EDH integration modal
-    And I set the default eTapestry Fund to 'Fund' on the set up EDH integration modal
-    And I set the default eTapestry Campaign to 'Campaign' on the set up EDH integration modal
-    And I set the default eTapestry Approach to 'Approach' on the set up EDH integration modal
+    And I set the default eTapestry Fund to 'General' on the set up EDH integration modal
+    And I set the default eTapestry Campaign to 'Capital' on the set up EDH integration modal
+    And I set the default eTapestry Approach to 'Personal Solicitation' on the set up EDH integration modal
     And I click next on the set up EDH integration modal
     And I click All historical data on the set up EDH integration modal
     Then the text on the Next button should change to 'Finish' on the set up EDH integration modal
