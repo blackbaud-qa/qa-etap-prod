@@ -15,7 +15,8 @@ unameBugs:  groundzero.us_11
 unameRegression: groundzero.us_11
 password:   spicypancakes1
 #site_url: https://sna.etapestry.com/prod/Login.jsp
-site_url:   https://etap-cdev-fh.blackbaudhosting.com/prod/
+#site_url:   https://etap-cdev-fh.blackbaudhosting.com/prod/
+site_url:  https://etap-cdev-kr.blackbaudhosting.com/prod/
 image_path: /home/ubuntu/qa-etap-main/misc/cart_image.jpg
 file_path_root: /home/ubuntu/qa-etap-main/misc/
 headless_enabled: true

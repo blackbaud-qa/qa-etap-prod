@@ -1,6 +1,6 @@
 Given(/^I navigate to Fullhouse$/) do
-  # Admin::Login.new.login_nav
-  step "I navigate to Knight Rider"
+  Admin::Login.new.login_nav
+  # step "I navigate to Knight Rider"
 end
 
 Given(/^I navigate to Knight Rider$/) do
