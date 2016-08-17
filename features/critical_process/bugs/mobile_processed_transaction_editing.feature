@@ -20,6 +20,7 @@ Feature: Processed transactions should not be editable via the mobile eTap site
     And Expiration Date Month is not editable
     And Expiration Date Year is not editable
     And I log out of eTap Mobile
+    And I navigate to Fullhouse
 
 
   Scenario: Transactions should be save-able

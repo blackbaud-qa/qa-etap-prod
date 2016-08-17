@@ -181,6 +181,22 @@ module Cukesetaptesting
         return @view.content.div(:id,'etapreporttag1_outerdiv').tr.when_present.text.include? msg
       end
 
+      def ind_account_name_checkbox_click
+        @view.ind_account_name_checkbox.when_present.click
+      end
+
+      def import_verification_query_exists?
+        @view.query_list.when_present.text.include? 'accounts created today without a first name'
+      end
+
+      def set_account_created_date_range(value)
+        @view.account_created_date_range.when_present.set value
+      end
+
+      def set_first_name_to_no_value
+        @view.first_name_to_no_value_checkbox.when_present.click
+      end
+
     end
   end
 end

@@ -304,7 +304,7 @@ Then (/^I should see the '([^']*)' category has been removed from the page/) do 
 end
 
 And (/^I click preview below the '([^']*)' query on the Create a New Query page/) do |name|
-  sleep 2
+  sleep 3
   query = Queries::Createquerycategory.new
   query.preview_query_click(name)
 end
@@ -621,6 +621,7 @@ And (/^I should see '([^']*)' displayed in the query preview search field/) do |
 end
 
 And (/^I click Restore Defaults on the query preview page/) do
+  sleep 3
   query = Queries::Createquerycategory.new
   query.query_preview_restore_defaults_click
 end
