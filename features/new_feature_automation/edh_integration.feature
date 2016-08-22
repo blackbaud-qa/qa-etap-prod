@@ -32,7 +32,7 @@ Feature: EDH Integration
     Then I should be taken to the Integrations page
     And the Start import button should be enabled on the integrations page
     And I click the Start import button on the integrations page
-    And I should be taken to the edit integration page
+    And I should see the edit integration page
 #
   Scenario: EDH Integration - API key validation
     When I click Management on the main menu
