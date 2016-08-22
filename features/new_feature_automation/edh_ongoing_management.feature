@@ -2,11 +2,13 @@
 Feature: EDH Integration - Ongoing Management
 
   Background:
-    Given I login into eTap for deeper regression
+    Given I login into eTap for CP1
 
   Scenario: EDH Integration - Change Notifications Email Address
     When I click Management on the main menu
     And I click on Integrations on the management menu
+#   TODO: Update variable on backend steps for step below
+    And the EDH integration has been set up
     And I click on the Edit set up button on the integrations page
     And I enter 'qa-1@blackbaud.com' in the notifications area on the set up EDH integration modal
     And I click the Save and Close button on the set up EDH integration modal
@@ -15,6 +17,7 @@ Feature: EDH Integration - Ongoing Management
   Scenario: EDH Integration - Change the API Key
     When I click Management on the main menu
     And I click on Integrations on the management menu
+    And the EDH integration has been set up
     And I click on the Edit set up button on the integrations page
     And I enter 'NEW API KEY' in the API key field on the set up EDH integration modal
     And I click the Save and Close button on the set up EDH integration modal
@@ -23,6 +26,7 @@ Feature: EDH Integration - Ongoing Management
   Scenario:  EDH Integration - Change Fund, Campaign, and Approach Mappings
     When I click Management on the main menu
     And I click on Integrations on the management menu
+    And the EDH integration has been set up
     And I click on the Edit Mappings button on the integrations page
     And I set the default eTapestry Fund to 'Unrestricted' on the set up EDH integration modal
     And I set the default eTapestry Campaign to 'Annual' on the set up EDH integration modal
@@ -41,6 +45,7 @@ Feature: EDH Integration - Ongoing Management
     And I click on Approaches on the management menu
     And I add 'EveryDayHero Approach' as a new Approach
     And I click on Integrations on the management menu
+    And the EDH integration has been set up
     And I click on the Edit Mappings button on the integrations page
     And I set the default eTapestry Fund to 'EveryDayHero Fund' on the set up EDH integration modal
     And I set the default eTapestry Campaign to 'EveryDayHero Campaign' on the set up EDH integration modal
@@ -51,6 +56,7 @@ Feature: EDH Integration - Ongoing Management
   Scenario:  EDH Integration - Pause and Resume the Integration
     When I click Management on the main menu
     And I click on Integrations on the management menu
+    And the EDH integration has been set up
     And I click the Pause Integration link on the set up EDH integration modal
     Then I should see the Pause Integration link change to Resume Integration on the set up EDH integration modal
     And I should see a message confirming that the integration was paused today
@@ -73,5 +79,6 @@ Feature: EDH Integration - Ongoing Management
   Scenario:  EDH Integration - Verifying previous and future import schedule dates
     When I click Management on the main menu
     And I click on Integrations on the management menu
+    And the EDH integration has been set up
     Then I should see that the next nightly import is scheduled for tomorrow at 12:00am
     And I should see that the last successful import occured today at 12:00am

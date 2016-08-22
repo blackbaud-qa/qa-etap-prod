@@ -105,6 +105,46 @@ module Cukesetaptesting
         @view.attachments_upload_button.when_present.click
       end
 
+      def navigate_to_query_page_two
+        @view.click_query_page_two.when_present.click
+      end
+
+      def navigate_to_query_page_one
+        @view.click_query_page_one.when_present.click
+      end
+
+      def zoom_out
+        # @view.browser.send_keys [:control,:subtract]*2
+        @view.browser.send_keys [:command,:subtract]*2
+      end
+
+      def query_scroll_bottom
+        sleep 2
+        @view.content.div(:class,'bb-grid-pagination-container ng-scope').wait_until_present
+        @view.browser.execute_script('arguments[0].scrollIntoView();',@view.content.div(:class,'bb-grid-pagination-container ng-scope'))
+      end
+
+      def press_page_down
+        @view.browser.send_keys :page_down
+      end
+
+      def zoom_reset
+        # @view.browser.send_keys [:control,:subtract]*2
+        @view.browser.send_keys [:command,"0"]
+      end
+
+      def click_add_an_account_button_in_menu
+        @view.add_an_account_button.when_present.click
+      end
+
+      def journal_click_load_more
+        @view.journal_load_more.when_present.click
+      end
+
+      def journal_page_journal_entry_date(value)
+        @view.journal_page_journal_entry_grid.when_present.text.include? (value)
+      end
+
     end
   end
 end
