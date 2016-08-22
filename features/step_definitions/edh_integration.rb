@@ -152,3 +152,19 @@ And(/^I click on the Edit Mappings button on the integrations page$/) do
   intMan = Management::EdhIntegration.new
   intMan.edit_mappings_click
 end
+
+And(/^I set up EDH so that I can run an on demand import/) do
+  step "I click on the Set up button on the integrations page"
+  step "I should see the set up EDH integration modal"
+  step "I enter 'API KEY' in the API key field on the set up EDH integration modal"
+  step "I enter 'lance.moore@blackbaud.com' in the notifications area on the set up EDH integration modal"
+  step "I click next on the set up EDH integration modal"
+  step "I set the default eTapestry Fund to 'General' on the set up EDH integration modal"
+  step "I set the default eTapestry Campaign to 'Capital' on the set up EDH integration modal"
+  step "I set the default eTapestry Approach to 'Personal Solicitation' on the set up EDH integration modal"
+  step "I click next on the set up EDH integration modal"
+  step "I click All historical data on the set up EDH integration modal"
+  step "the text on the Next button should change to 'Finish' on the set up EDH integration modal"
+  step "I click next on the set up EDH integration modal"
+  step "I should be taken to the Integrations page"
+end

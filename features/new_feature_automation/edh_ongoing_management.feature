@@ -1,5 +1,5 @@
 @sprint
-Feature: EDH Integration
+Feature: EDH Integration - Ongoing Management
 
   Background:
     Given I login into eTap for deeper regression
