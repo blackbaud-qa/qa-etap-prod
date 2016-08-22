@@ -47,6 +47,14 @@ module Cukesetaptesting
         sleep 1
       end
 
+      def edh_start_import_button_click
+        @view.edh_start_import_button
+      end
+
+      def edit_integration_page_present?
+        @view.edit_integration_page.present?
+      end
+
       def edh_integration_next_text_include? text
         @view.edh_integration_next.when_present.text.include? text
       end
@@ -108,6 +116,10 @@ module Cukesetaptesting
         @view.select_historical_data.when_present.click
       end
 
+      def historical_data_created_since_click
+        @view.historical_data_created_since.when_present.click
+      end
+
       def historical_data_modal_present?
         sleep 2
         @view.historical_data_modal.present?
@@ -122,13 +134,23 @@ module Cukesetaptesting
         @view.import_button.present?
       end
 
-      def edh_signup_click
-        @view.edh_signup.when_present.click
+      def us_edh_signup_click
+        @view.us_edh_signup.when_present.click
       end
 
-      def on_EDH_sign_up_page?
+      def on_us_EDH_sign_up_page?
         sleep 3
-        @view.edh_signup_page_element.present?
+        @view.us_edh_signup_page_element.present?
+      end
+
+      def delete_API_key_value
+        @view.select_API_key_value.when_present.send_keys [:control, 'a']
+        @view.select_API_key_value.when_present.send_keys :delete
+      end
+
+      def delete_edh_email_value
+        @view.select_edh_email_value.when_present.send_keys [:control, 'a']
+        @view.select_edh_email_value.when_present.send_keys :delete
       end
 
       def edh_user_guide_click

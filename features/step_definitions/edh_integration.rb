@@ -8,6 +8,11 @@ Then(/^I should be taken to the Integrations page$/) do
   expect(intMan.on_integrations_page?).to eq(true)
 end
 
+And (/^the Start Import button should be disabled on the integrations page$/) do
+  intMan = Management::EdhIntegration.new
+  expect(intMan.edh_start_import_button_enabled?).to eq(false)
+end
+
 And(/^I click on the Set up button on the integrations page$/) do
   intMan = Management::EdhIntegration.new
   intMan.set_up_click
@@ -58,6 +63,16 @@ Then(/^the Start import button should be enabled on the integrations page$/) do
   expect(intMan.edh_start_import_button_enabled?).to eq(true)
 end
 
+And (/^I click the Start import button on the integrations page$/) do
+  intMan = Management::EdhIntegration.new
+  intMan.edh_start_import_button_click
+end
+
+And (/^I should see the edit integration page$/) do
+  intMan = Management::EdhIntegration.new
+  expect(intMan.edit_integration_page_present?).to eq(true)
+end
+
 And(/^I click on the Edit set up button on the integrations page$/) do
   intMan = Management::EdhIntegration.new
   intMan.edit_set_up_click
@@ -103,6 +118,11 @@ And(/^I click on the Select Historical Data button on the integrations page$/) d
   intMan.select_historical_data_click
 end
 
+And (/^I click Historical data created since on the set up EDH integration modal$/) do
+  intMan = Management::EdhIntegration.new
+  intMan.historical_data_created_since_click
+end
+
 And(/^I click All historical data on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   intMan.all_historical_data_set
@@ -118,9 +138,9 @@ And(/^I click on the EDH sign up link$/) do
   intMan.edh_signup_click
 end
 
-Then(/^I should be taken to the EDH signup page$/) do
+Then(/^I should be taken to the US EDH signup page$/) do
   intMan = Management::EdhIntegration.new
-  expect(intMan.on_EDH_sign_up_page?).to eq(true)
+  expect(intMan.on_us_EDH_sign_up_page?).to eq(true)
 end
 
 And(/^I click on the EDH user guide link$/) do
@@ -146,6 +166,16 @@ end
 And(/^the Save and Close button should be disabled on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   expect(intMan.save_button_enabled?).to eq(false)
+end
+
+And (/^I clear out the API key field in the notifications area on the set up EDH integration modal$/) do
+  intMan = Management::EdhIntegration.new
+  intMan.delete_API_key_value
+end
+
+And (/^I clear out the email field in the notifications area on the set up EDH integration modal$/) do
+  intMan = Management::EdhIntegration.new
+  intMan.delete_edh_email_value
 end
 
 And(/^I click on the Edit Mappings button on the integrations page$/) do
