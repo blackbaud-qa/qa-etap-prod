@@ -486,6 +486,10 @@ module Cukesetaptesting
         @view.live_date_of_birth.when_present.set value
       end
 
+      def live_birthdate_set value
+        @view.live_birthdate.when_present.set value
+      end
+
       def live_job_title_set value
         @view.live_job_title.when_present.set value
       end
@@ -618,18 +622,15 @@ module Cukesetaptesting
         @view.date_of_birth_field_edit.hover
       end
 
-      def select_label_text
-        @view.select_label_text.wait_until_present
-        @view.select_label_text.when_present.send_keys [:control, 'a']
-      end
-
       def delete_label_text
+        @view.select_label_text.when_present.send_keys [:control, 'a']
         @view.select_label_text.when_present.send_keys :delete
       end
 
       def set_diy_label value
         @view.set_diy_label.when_present.send_keys value
       end
+
       def update_button_diy_edit_field
         @view.update_button_diy_edit_field.when_present.click
       end
