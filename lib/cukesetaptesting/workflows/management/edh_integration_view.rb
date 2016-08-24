@@ -24,7 +24,7 @@ module Cukesetaptesting
       keyword(:historical_data_created_since) {content.radio(:id,'partialData').parent.span}
       # keyword(:historical_data_save) {content.div(:id,'<placeholderID>')}
       keyword(:import_button) {content.div(:id,'<placeholderID>')}
-      keyword(:edit_integration_page) {content.h2(:text, '<placeholderID>')}
+      keyword(:edit_integration_page) {content.button(:id, 'edhOpenSettingsButton')}
       keyword(:edh_signup) {content.a(:text,/Sign up here/)}
       keyword(:us_edh_signup_page_element) {content.div(:id,'<placeholderID>')}
       keyword(:edh_user_guide) {content.i(:text,/everydayhero/)}
@@ -32,9 +32,11 @@ module Cukesetaptesting
       keyword(:edh_start_import_button) {content.div(:id,'startEdhImport')}
       keyword(:select_API_key_value) {content.input(:id, 'apiKey')}
       keyword(:select_edh_email_value) {content.input(:id, 'notificationEmail')}
-      keyword(:edit_set_up) {content.div(:id,'<placeholderID>')}
-      keyword(:edit_mappings) {content.div(:id,'<placeholderID>')}
+      keyword(:edit_set_up) {content.div(:id,'edhOpenSettingsButton')}
+      keyword(:edit_mappings) {content.div(:id,'edhOpenMappingsButton')}
       keyword(:edh_integration_modal_error) {content.div(:id,'<placeholderID>')}
+      keyword(:api_key_validation) {content.div(:id, '<placeholderID>')}
+      keyword(:edh_email_validation) {content.div(:id, '<placeholderID>')}
 
       def home(model)
       end

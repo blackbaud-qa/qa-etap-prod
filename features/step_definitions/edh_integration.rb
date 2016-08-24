@@ -173,6 +173,16 @@ And (/^I clear out the API key field in the notifications area on the set up EDH
   intMan.delete_API_key_value
 end
 
+Then (/^the API key field should be highlighted in red$/) do
+  intMan = Management::EdhIntegration.new
+  expect(intMan.api_key_validation?).to eq(true)
+end
+
+Then (/^the Send data import notifications to field should be highlighted in red$/) do
+  intMan = Management::EdhIntegration.new
+  expect(intMan.edh_email_validation?).to rq(true)
+end
+
 And (/^I clear out the email field in the notifications area on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   intMan.delete_edh_email_value
