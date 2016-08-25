@@ -48,7 +48,7 @@ module Cukesetaptesting
       end
 
       def edh_start_import_button_click
-        @view.edh_start_import_button
+        @view.edh_start_import_button.when_present.click
       end
 
       def edit_integration_page_present?
@@ -146,6 +146,14 @@ module Cukesetaptesting
       def delete_API_key_value
         @view.select_API_key_value.when_present.send_keys [:control, 'a']
         @view.select_API_key_value.when_present.send_keys :delete
+      end
+
+      def api_key_validation?
+        @view.api_key_validationt.present?
+      end
+
+      def edh_email_validation?
+        @view.edh_email_validation.present?
       end
 
       def delete_edh_email_value
