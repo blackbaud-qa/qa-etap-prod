@@ -193,27 +193,12 @@ And(/^I click on the Edit Mappings button on the integrations page$/) do
   intMan.edit_mappings_click
 end
 
-# And(/^I set up EDH so that I can run an on demand import/) do
-#   step "I click on the Set up button on the integrations page"
-#   step "I enter 'API KEY' in the API key field on the set up EDH integration modal"
-#   step "I enter 'lance.moore@blackbaud.com' in the notifications area on the set up EDH integration modal"
-#   step "I click next on the set up EDH integration modal"
-#   step "I set the default eTapestry Fund to 'General' on the set up EDH integration modal"
-#   step "I set the default eTapestry Campaign to 'Capital' on the set up EDH integration modal"
-#   step "I set the default eTapestry Approach to 'Personal Solicitation' on the set up EDH integration modal"
-#   step "I click next on the set up EDH integration modal"
-#   step "I click All historical data on the set up EDH integration modal"
-#   step "I click next on the set up EDH integration modal"
-#   step "I click next on the set up EDH integration modal"
-#   step "I should be taken to the Integrations page"
-# end
-
 And(/^the EDH integration has been set up/) do
   intMan = Management::EdhIntegration.new
 
   if expect(intMan.edh_start_import_button_enabled?).to eq(false)
     step "I click on the Set up button on the integrations page"
-    step "I enter 'API KEY' in the API key field on the set up EDH integration modal"
+    step "I enter '68ef0843-4714-4d24-8033-c0204fb945e2' in the API key field on the set up EDH integration modal"
     step "I enter 'lance.moore@blackbaud.com' in the notifications area on the set up EDH integration modal"
     step "I click next on the set up EDH integration modal"
     step "I set the default eTapestry Fund to 'General' on the set up EDH integration modal"
@@ -226,4 +211,74 @@ And(/^the EDH integration has been set up/) do
     step "I should be taken to the Integrations page"
   end
 
+end
+
+And(/^I verify that a Hero account was imported correctly/) do
+  step "I type 'Kimberly Hammer' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on 'Kimberly Hammer' in the search results"
+  step "I click on 'Personas' in the account header"
+  step "the Address Lines should be set to '615 Lockerbie Pl'"
+  step "the City should be set to 'Carmel'"
+  step "the State should be set to 'IN'"
+  step "the Postal Code should be set to '46032'"
+  step "the Voice should be set to '(317) 495-5697'"
+  step "the Email should be set to 'kimberly.hammer@blackbaud.com'"
+  step "the Short Salutation should be set to 'Kimberly'"
+  step "the Long Salutation should be set to 'Mrs. Hammer'"
+  step "the Envelope Salutation should be set to 'Mrs. Kimberly Hammer'"
+  step "I click on 'Account Settings' in the account header"
+  step "the Name Format value should be set to 'Individual'"
+  step "the First Name should be set to 'Kimberly'"
+  step "the Last Name should be set to 'Hammer'"
+  step "the Account Name should be set to 'Kimberly Hammer'"
+  step "the Sort Name should be set to 'Hammer, Kimberly'"
+  step "the Recognition Name should be set to 'Kimberly Hammer'"
+  step "the Recognition Type should be set to '(account name)'"
+  step "I click on 'Defined Fields' in the account header"
+  step "the 'EDH Account Id' should be set to 'XXX'"
+  step "the 'EDH Account Type' should be set to 'Hero'"
+  step "the 'Data Source' should be set to 'EDH Addition'"
+end
+
+And(/^I verify that a Donor account was imported correctly/) do
+  step "I type 'Tom' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on 'Tom Barlette' in the search results"
+  step "I click on 'Personas' in the account header"
+  step "the Address Lines should be set to '14 E. 10th St'"
+  step "the City should be set to 'Fishers'"
+  step "the State should be set to 'IN'"
+  step "the Postal Code should be set to '46034'"
+  step "the Email should be set to 'kimberly.hammer@blackbaud.com'"
+  step "the Short Salutation should be set to 'Tom'"
+  step "the Long Salutation should be set to 'Mr. Barlette'"
+  step "the Envelope Salutation should be set to 'Mr. Tom Barlette'"
+  step "I click on 'Account Settings' in the account header"
+  step "the Name Format value should be set to 'Individual'"
+  step "the First Name should be set to 'Tom'"
+  step "the Last Name should be set to 'Barlette'"
+  step "the Account Name should be set to 'Tom Barlette'"
+  step "the Sort Name should be set to 'Barlette, Tom'"
+  step "the Recognition Name should be set to 'Tom Barlette'"
+  step "the Recognition Type should be set to '(account name)'"
+  step "I click on 'Defined Fields' in the account header"
+  step "the 'EDH Account Type' should be set to 'Donor'"
+  step "the 'Data Source' should be set to 'EDH Addition'"
+end
+
+And (/^I click import now on the everydayhero integration tile/) do
+  intMan = Management::EdhIntegration.new
+  intMan.import_now_link_click
+end
+
+Then (/^I wait for the edh import to finish successfully/) do
+  intMan = Management::EdhIntegration.new
+  intMan.import_finish_successfully_wait
+end
+
+Then (/^I verify that the EDH Notifications Email Address is set to 'qa-1@blackbaud.com'/) do |value|
+  intMan = Management::EdhIntegration.new
+  intMan.edit_set_up_click
+  expect(intMan.edh_notifications_email_address).to eq(value)
 end

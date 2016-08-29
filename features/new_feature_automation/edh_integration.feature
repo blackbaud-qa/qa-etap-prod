@@ -15,8 +15,8 @@ Feature: EDH Integration
     And the Start Import button should be disabled on the integrations page
     And I click on the Set up button on the integrations page
     Then I should see the set up EDH integration modal
-    And I enter 'API KEY' in the API key field on the set up EDH integration modal
-    And I enter 'lance.moore@blackbaud.com' in the notifications area on the set up EDH integration modal
+    And I enter '68ef0843-4714-4d24-8033-c0204fb945e2' in the API key field on the set up EDH integration modal
+    And I enter 'qa-1@blackbaud.com' in the notifications area on the set up EDH integration modal
     And I click next on the set up EDH integration modal
     And the next button should be disabled on the set up EDH integration modal
     And I set the default eTapestry Fund to 'General' on the set up EDH integration modal
