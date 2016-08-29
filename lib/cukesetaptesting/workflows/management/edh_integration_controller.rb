@@ -174,6 +174,18 @@ module Cukesetaptesting
         @view.edit_mappings.when_present.click
       end
 
+      def import_now_link_click
+        @view.import_now_link.when_present.click
+      end
+
+      def import_finish_successfully_wait
+        @view.import_finish_successfully_message.wait_until_present
+      end
+
+      def edh_notifications_email_address
+        @view.edh_notifications.value
+      end
+
     end
   end
 end

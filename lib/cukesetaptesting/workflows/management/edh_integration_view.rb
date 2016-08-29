@@ -10,7 +10,7 @@ module Cukesetaptesting
       keyword(:edh_integration_save) {content.button(:id,'wizardSaveClose')}
       keyword(:edh_integration_cancel_click) {content.button(:text,'wizardCancel')}
       keyword(:setup_edh_modal) {content.h1(:text,'Set up everydayhero integration')}
-      keyword(:notifications) {content.text_field(:id,'notificationEmail')}
+      keyword(:edh_notifications) {content.text_field(:id,'notificationEmail')}
       # keyword(:basic_integration_save) {content.div(:id,'<placeholderID>')}
       keyword(:integrations_page_content) {content.div(:id,'<placeholderID>')}
       keyword(:map_campaigns) {content.div(:id,'<placeholderID>')}
@@ -37,6 +37,8 @@ module Cukesetaptesting
       keyword(:edh_integration_modal_error) {content.div(:id,'<placeholderID>')}
       keyword(:api_key_validation) {content.div(:id, '<placeholderID>')}
       keyword(:edh_email_validation) {content.div(:id, '<placeholderID>')}
+      keyword(:import_now_link) {content.div(:id, '<placeholderID>')}
+      keyword(:import_finish_successfully_message) {content.div(:class, 'alert alert-success alert-dismissible')}
 
       def home(model)
       end
