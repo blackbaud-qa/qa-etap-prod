@@ -163,7 +163,7 @@ Feature: Critical Process - General Navigation
     | User Activity                   | Launch User Activity page   |
     | Security Groups                 | Security Groups page        |
     | Getting Started Wizard          | Getting Started Wizard      |
-    | eStore (Cart)                   | Cart page                   |
+    | eStore                          | Cart page                   |
 #    | Fundraisers                     | Fundraisers page            |
 #    | DIY Forms                       | My Online Forms page        |
     | System Defined Fields           | System Defined Fields page  |

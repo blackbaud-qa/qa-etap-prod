@@ -344,6 +344,7 @@ And (/^the Recognition Type should be set to '([^']*)'/) do |value|
 end
 
 And(/^I click the Base UDF category on the Edit User Defined Fields page/) do
+  sleep 2
   accounts = Account::AddAccount.new
   accounts.udf_category
 end

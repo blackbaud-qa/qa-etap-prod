@@ -2,12 +2,15 @@
 Feature: Verify security rights based advanced security is working
 
   Background:
-    ### If you change the CP number then you have to make the user login numbers match in the steps below ###
+    ### If you change the CP number in the background then you have to make the CP numbers match in the steps below ###
     ### Also, this feature file should not be tested in the same database as query_based_adv_security ###
     Given I login into eTap for CP4
 
   Scenario: Add security rights values, create security group, log in and verify results
-    When I click Management on the main menu
+    When I create user 'adv_sec_rights' for security rights based advanced security testing
+    And I log out of eTap
+    And I login into eTap for CP4
+    And I click Management on the main menu
     And I click System Defined Fields on the management menu
     And I click Security Rights on the System Defined Fields page
     And I enter 'Code A' as a value on the Security Rights page
@@ -39,12 +42,12 @@ Feature: Verify security rights based advanced security is working
     And I set Name of the Security Group to 'Code A'
     And I set the 'Security Rights' Code to 'Code A' on the edit Security Group page
     And I click Save
-    And I click the on User 'AutomationBot' on the Security Groups page
+    And I click the on User 'adv_sec_rights adv_sec_rights' on the Security Groups page
     And I select the Code A Security Group on the Rights page
     And I click Save And 'Edit'
     And I log out of eTap
-    And I login into eTap a second time with values 'automationbot_4', 'spicypancakes1'
-    And I fill out the User Account Security page
+    And I login into eTap a second time with values 'adv_sec_rights', 'spicypancakes2'
+#    And I fill out the User Account Security page
     And I type 'American' into the dynamic search field
     And I press Enter on the keyboard
     And I should see the message: '0 accounts found'
@@ -55,7 +58,7 @@ Feature: Verify security rights based advanced security is working
     And I should see the message '0 Journal Entries' on the journal page
     And I add an account to test Security Rights
     And I log out of eTap
-    And I login into eTap a second time with values 'groundzero.us_4', 'spicypancakes1'
+    And I login into eTap for CP4
     And I type 'Kelsey' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Kelsey Hilton' in the search results

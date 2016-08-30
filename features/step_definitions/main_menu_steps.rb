@@ -398,6 +398,7 @@ When(/^I click on System Defined Fields on the management menu$/) do
 end
 
 When(/^I click on User Defined Fields on the management menu$/) do
+  sleep 2
   landing = Admin::Landing.new
   landing.management_dd_user_defined_click
 end

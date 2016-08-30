@@ -47,19 +47,26 @@ module Cukesetaptesting
         sleep 1
       end
 
+      def edh_start_import_button_click
+        @view.edh_start_import_button.when_present.click
+      end
+
+      def edit_integration_page_present?
+        @view.edit_integration_page.present?
+      end
+
       def edh_integration_next_text_include? text
         @view.edh_integration_next.when_present.text.include? text
       end
 
       def edh_start_import_button_enabled?
         @view.edh_start_import_button.wait_until_present
-        return button_enabled? @view.edh_start_import_button
-        # TODO:  Add code to check whether this is greyed out
-        # @view.edh_start_import_button.enabled?
+        button_enabled? @view.edh_start_import_button
       end
 
       def edit_set_up_click
         @view.edit_set_up.when_present.click
+        # @view.set_up.when_present.click
       end
 
       def edh_integration_modal_error_include? error
@@ -68,17 +75,16 @@ module Cukesetaptesting
 
       def next_button_enabled?
         @view.edh_integration_next.wait_until_present
-        return button_enabled? @view.edh_integration_next
+        button_enabled? @view.edh_integration_next
       end
 
       def save_button_enabled?
         @view.edh_integration_save.wait_until_present
-        return button_enabled? @view.edh_integration_save
+        button_enabled? @view.edh_integration_save
       end
 
       def button_enabled? button
-        # TODO:  Add code to see if button is enabled
-        return true
+        button.attribute_value('ng-disabled').nil?
       end
 
       def integrations_page_content_include? text
@@ -110,13 +116,17 @@ module Cukesetaptesting
         @view.select_historical_data.when_present.click
       end
 
+      def historical_data_created_since_click
+        @view.historical_data_created_since.when_present.click
+      end
+
       def historical_data_modal_present?
         sleep 2
         @view.historical_data_modal.present?
       end
 
       def all_historical_data_set
-        @view.all_historical_data.when_present set
+        @view.all_historical_data.when_present.click
       end
 
       def import_button_present?
@@ -124,13 +134,31 @@ module Cukesetaptesting
         @view.import_button.present?
       end
 
-      def edh_signup_click
-        @view.edh_signup.when_present.click
+      def us_edh_signup_click
+        @view.us_edh_signup.when_present.click
       end
 
-      def on_EDH_sign_up_page?
+      def on_us_EDH_sign_up_page?
         sleep 3
-        @view.edh_signup_page_element.present?
+        @view.us_edh_signup_page_element.present?
+      end
+
+      def delete_API_key_value
+        @view.select_API_key_value.when_present.send_keys [:control, 'a']
+        @view.select_API_key_value.when_present.send_keys :delete
+      end
+
+      def api_key_validation?
+        @view.api_key_validationt.present?
+      end
+
+      def edh_email_validation?
+        @view.edh_email_validation.present?
+      end
+
+      def delete_edh_email_value
+        @view.select_edh_email_value.when_present.send_keys [:control, 'a']
+        @view.select_edh_email_value.when_present.send_keys :delete
       end
 
       def edh_user_guide_click
@@ -144,6 +172,18 @@ module Cukesetaptesting
 
       def edit_mappings_click
         @view.edit_mappings.when_present.click
+      end
+
+      def import_now_link_click
+        @view.import_now_link.when_present.click
+      end
+
+      def import_finish_successfully_wait
+        @view.import_finish_successfully_message.wait_until_present
+      end
+
+      def edh_notifications_email_address
+        @view.edh_notifications.value
       end
 
     end

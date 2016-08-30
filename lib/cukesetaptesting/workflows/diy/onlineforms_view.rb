@@ -161,6 +161,16 @@ module Cukesetaptesting
       keyword(:volunteer_skills_udf_link) {content.div(:class => /^popupWindow$/).a(:text, 'Volunteer Skill Set')}
       keyword(:volunteer_int_udf_link) {content.div(:class => /^popupWindow$/).a(:text, 'Volunteer Interest Areas')}
 
+      keyword(:choose_float_template) {content.h6(:class=>'ecommTemplateName', :text=>'Float')}
+      keyword(:unmark_include_comments_box) {content.input(:id, 'includeCommentsBox')}
+      keyword(:date_of_birth_diy){browser.h6(:id, 'label')}
+      keyword(:date_of_birth_field_edit) {content.div(:id, 'newUdfRegion')}
+      keyword(:select_label_text) {content.div(:class, 'popupWindow').parent.text_field(:id, 'label')}
+      keyword(:set_diy_label) {content.div(:class, 'popupWindow').parent.text_field(:id, 'label')}
+      keyword(:update_button_diy_edit_field) {content.span(:class=>'titleText',:text=>'Edit Date of Birth').parent.parent.button(:id=>'save')}
+      keyword(:birthdate_diy){browser.h6(:id, 'label')}
+      keyword(:live_birthdate) {browser.h6(:class=>'simplefieldType',:text=>'Birthdate').parent.parent.text_field}
+
 
       def diy_page_link page_name
         page_link = content

@@ -4,7 +4,7 @@ Feature: Process Cart transaction
  Scenario: View online Cart
   Given I login into eTap for CP7
   And I click Management on the main menu
-  And I click on eStore (Cart) on the management menu
+  And I click on eStore on the management menu
   And I click on View Online Cart
   And I switch to the new tab in my browser
   And I search for 'Automation Cat 1' on the live cart page

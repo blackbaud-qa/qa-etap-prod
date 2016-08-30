@@ -327,7 +327,7 @@ end
 And(/^I click Replace on the DIY editor page$/) do
   diy = DIY::Onlineforms.new()
   diy.donation_page_replace_click
-  sleep 10
+  sleep 30
 end
 
 Then(/the Donation Page should no longer show$/) do
@@ -878,6 +878,11 @@ And(/^I set Date of Birth to '([^']*)' on the DIY Page/) do |value|
   diy.live_date_of_birth_set value
 end
 
+And(/^I set Birthdate to '([^']*)' on the DIY Page/) do |value|
+  diy = DIY::Onlineforms.new()
+  diy.live_birthdate_set value
+end
+
 And(/^I set Job Title to '([^']*)' on the DIY Page/) do |value|
   diy = DIY::Onlineforms.new()
   diy.live_job_title_set value
@@ -1004,4 +1009,43 @@ And (/I set Volunteer Fields up on my diy volunteer page/) do
   diy.press_enter
   diy.volunteer_int_udf_link_click
   diy.diy_non_hidden_modal_ok_click
+end
+
+
+And(/^I select the Float template on the DIY editor page$/) do
+  diy = DIY::Onlineforms.new()
+  diy.choose_float_template_click
+end
+
+And (/^I unmark the checkbox next to Include comments box/) do
+  diy = DIY::Onlineforms.new
+  diy.unmark_include_comments_box
+end
+
+And (/^I should see Date of Birth on the edited DIY page$/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.date_of_birth_diy?).to eq(true)
+end
+
+And(/^I hover over the Date of Birth field on the DIY editor page/) do
+  sleep 1
+  diy = DIY::Onlineforms.new
+  diy.date_of_birth_field_hover
+  sleep 1
+end
+
+And (/^I set the Label field to '([^']*)' on the DIY editor page/) do |value|
+  diy = DIY::Onlineforms.new()
+  diy.delete_label_text
+  diy.set_diy_label (value)
+end
+
+And (/^I click Update on the DIY Edit Field modal/) do
+  diy = DIY::Onlineforms.new()
+  diy.update_button_diy_edit_field
+end
+
+And (/^I should see Birthdate on the edited DIY page$/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.birthdate_diy?).to eq(true)
 end

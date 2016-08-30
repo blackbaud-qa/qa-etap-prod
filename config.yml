@@ -15,7 +15,8 @@ unameBugs:  groundzero.us_11
 unameRegression: groundzero.us_11
 password:   spicypancakes1
 #site_url: https://sna.etapestry.com/prod/Login.jsp
-site_url:   https://etap-cdev-fh.blackbaudhosting.com/prod/
+#site_url:   https://etap-cdev-fh.blackbaudhosting.com/prod/
+site_url:  https://etap-cdev-kr.blackbaudhosting.com/prod/
 image_path: /home/ubuntu/qa-etap-main/misc/cart_image.jpg
 file_path_root: /home/ubuntu/qa-etap-main/misc/
 headless_enabled: true
@@ -24,7 +25,7 @@ incomplete_import_path: /home/ubuntu/qa-etap-main/misc/import_b.csv
 complete_import_path_names: /home/ubuntu/qa-etap-main/misc/import_a_names.csv
 incomplete_import_path_names: /home/ubuntu/qa-etap-main/misc/import_b_names.csv
 site_url_knight_rider: https://etap-cdev-kr.blackbaudhosting.com/prod/
-site_url_mobile: https://etap-cdev-fh.blackbaudhosting.com/mobile/Login.jsp
+site_url_mobile: https://etap-cdev-kr.blackbaudhosting.com/mobile/Login.jsp
 username_kr:   automationbot.lucene.us
 password_kr:   spicypancakes1
 account_photo_yes_ampersand: /home/ubuntu/qa-etap-main/misc/Happy Man & Green Shirt.png
