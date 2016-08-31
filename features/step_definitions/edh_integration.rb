@@ -135,7 +135,7 @@ end
 
 And(/^I click on the EDH sign up link$/) do
   intMan = Management::EdhIntegration.new
-  intMan.edh_signup_click
+  intMan.us_edh_signup_click
 end
 
 Then(/^I should be taken to the US EDH signup page$/) do
@@ -180,7 +180,7 @@ end
 
 Then (/^the Send data import notifications to field should be highlighted in red$/) do
   intMan = Management::EdhIntegration.new
-  expect(intMan.edh_email_validation?).to rq(true)
+  expect(intMan.edh_email_validation?).to eq(true)
 end
 
 And (/^I clear out the email field in the notifications area on the set up EDH integration modal$/) do

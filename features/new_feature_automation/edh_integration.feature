@@ -79,12 +79,14 @@ Feature: EDH Integration
     When I click Management on the main menu
     And I click on Integrations on the management menu
     And I click on the EDH sign up link
+    And I switch to the new tab in my browser
     Then I should be taken to the US EDH signup page
 #
   Scenario: EDH Links - User Guide
     When I click Management on the main menu
     And I click on Integrations on the management menu
     And I click on the EDH user guide link
+    And I switch to the new tab in my browser
     Then I should be taken to the EDH user guide page
 
 
