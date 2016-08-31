@@ -1,13 +1,9 @@
 Feature: Add soft credit column in Journal
+
   Background:
     Given I login into eTap for CP6
 
   Scenario: Add tribute column in Journal
-    When I type 'Raymond Barnes' into the dynamic search field
-    And I press Enter on the keyboard
-    And I click on 'Raymond Barnes' in the search results
-    And I click Journal
-    And I delete the existing transactions in the journal
     When I click Giving on the main menu
     And I click on Add a Gift or Pledge on the giving menu
     And I click Search for an Account
@@ -22,7 +18,6 @@ Feature: Add soft credit column in Journal
     And set the Gift Type to 'Check'
     And set the Check Date to '9/30/2090'
     And set the Check Number to '1346'
-    #  !!!!!!!!!!!!!! Cindy Grant doesn't exist !!!!!!!!!!!!!!!!!!
     And I set the Soft Credit Information to 'Anne Hatch'
     And the Soft Credit Amount to '500.00'
     And I click Save And 'Edit'
@@ -46,6 +41,7 @@ Feature: Add soft credit column in Journal
     And I should see 'Anne Hatch' in tribute column
     When I click on 'Anne Hatch' in tribute column
     Then I should taken to 'Anne Hatch' Account Home Page
+
 
 
 
