@@ -25,9 +25,9 @@ module Cukesetaptesting
       # keyword(:historical_data_save) {content.div(:id,'<placeholderID>')}
       keyword(:import_button) {content.div(:id,'<placeholderID>')}
       keyword(:edit_integration_page) {content.button(:id, 'edhOpenSettingsButton')}
-      keyword(:edh_signup) {content.a(:text,/Sign up here/)}
-      keyword(:us_edh_signup_page_element) {content.div(:id,'<placeholderID>')}
-      keyword(:edh_user_guide) {content.i(:text,/everydayhero/)}
+      keyword(:us_edh_signup) {content.a(:text,/Sign up here/)}
+      keyword(:us_edh_signup_page_element) {browser.a(:href,'https://www.everydayhero.com/us/nonprofits/')}
+      keyword(:edh_user_guide) {content.i(:text, 'everydayhero/eTapestry')}
       keyword(:edh_user_guid_page_element) {content.div(:id,'<placeholderID>')}
       keyword(:edh_start_import_button) {content.div(:id,'startEdhImport')}
       keyword(:select_API_key_value) {content.input(:id, 'apiKey')}
