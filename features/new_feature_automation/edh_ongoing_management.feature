@@ -51,7 +51,7 @@ Feature: EDH Integration - Ongoing Management
     And I set the default eTapestry Campaign to 'EveryDayHero Campaign' on the set up EDH integration modal
     And I set the default eTapestry Approach to 'EveryDayHero Approach' on the set up EDH integration modal
     And I click Save & Close on the set up EDH integration modal
-    Then I verify that the Fund, Campaign, and Approach are set to 'Unrestricted', 'Annual', and 'Unsolicited'
+    Then I verify that the default Fund, Campaign, and Approach are set to 'EveryDayHero Fund', 'EveryDayHero Campaign', and 'EveryDayHero Approach'
 
   Scenario:  EDH Integration - Pause and Resume the Integration
     When I click Management on the main menu
