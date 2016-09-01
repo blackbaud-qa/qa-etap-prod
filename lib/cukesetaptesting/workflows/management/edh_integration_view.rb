@@ -44,6 +44,12 @@ module Cukesetaptesting
       keyword(:new_approach_link) {content.a(:href, 'editApproach.do')}
       keyword(:edh_integration_edit_mappings_save) {content.button(:id, 'edhMappingsModalSave')}
       keyword(:edh_integration_edit_mappings_cancel) {content.button(:id, 'edhMappingsModalCancel')}
+      keyword(:edh_pause_integration_link) {content.button(:id, 'edhPauseIntegrationLink')}
+      keyword(:edh_resume_integration_link) {content.button(:id, 'edhResumeIntegrationLink')}
+      keyword(:edh_integration_paused_message) {content.bb-alert(:id, 'edhPausedAlert')}
+      keyword(:journal_page_participation_link) {content.div(:class, 'ui-jqgrid-bdiv').a(:text, 'Participation')}
+      keyword(:participant_goal) {content.text_field(:name, 'goal')}
+      keyword(:participation_display_name) {content.text_field(:name, 'eventParticipation.displayNameNoDefault')}
 
 
       def home(model)

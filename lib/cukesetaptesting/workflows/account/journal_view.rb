@@ -58,6 +58,8 @@ module Cukesetaptesting
       keyword(:journal_page_journal_entry_grid) {content.div(:class, 'ui-jqgrid-bdiv')}
 
 
+
+
       def journal_attachment_link(value)
         content.div(:class, 'ui-jqgrid-bdiv').a(:text, value)
       end
