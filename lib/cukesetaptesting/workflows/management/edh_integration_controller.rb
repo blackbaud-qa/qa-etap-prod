@@ -186,6 +186,34 @@ module Cukesetaptesting
         @view.edh_notifications.value
       end
 
+      def edh_api_key_value
+        @view.api_key.value
+      end
+
+      def edh_default_fund_value
+        @view.default_fund.value
+      end
+
+      def edh_default_campaign_value
+        @view.default_campaign.value
+      end
+
+      def edh_default_approach_value
+        @view.default_approach.value
+      end
+
+      def new_fund_link_click
+        @view.new_fund_link.when_present.click
+      end
+
+      def new_campaign_link_click
+        @view.new_campaign_link.when_present.click
+      end
+
+      def new_approach_link_click
+        @view.new_approach_link.when_present.click
+      end
+
     end
   end
 end

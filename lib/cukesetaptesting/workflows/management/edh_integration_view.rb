@@ -2,7 +2,7 @@ module Cukesetaptesting
   module Management
     class EdhIntegrationView < BaseView
       keyword(:management_integrations) {content.a(:text,'Integrations')}
-      keyword(:integrations_page_check) {content.h2(:text,'everydayhero integration')}
+      keyword(:integrations_page_check) {content.h2(:text,'everydayhero Integration')}
       keyword(:set_up) {content.button(:id,'setupEdhImport')}
       keyword(:api_key) {content.text_field(:id,'apiKey')}
       keyword(:edh_integration_next) {content.button(:id,'wizardNext')}
@@ -39,6 +39,10 @@ module Cukesetaptesting
       keyword(:edh_email_validation) {content.div(:id, '<placeholderID>')}
       keyword(:import_now_link) {content.div(:id, '<placeholderID>')}
       keyword(:import_finish_successfully_message) {content.div(:class, 'alert alert-success alert-dismissible')}
+      keyword(:new_fund_link) {content.a(:href, 'editIntent.do')}
+      keyword(:new_campaign_link) {content.a(:href, 'editCampaign.do')}
+      keyword(:new_approach_link) {content.a(:href, 'editApproach.do')}
+
 
       def home(model)
       end
