@@ -269,6 +269,9 @@ module Cukesetaptesting
       keyword(:eft_routing_number) {content.text_field(:name, 'eftBankRoutingNumber')}
       keyword(:eft_account_number) {content.text_field(:name, 'eftAccountNumber')}
 
+      keyword(:select_manual_process_option) {content.div(:id, 'recurringGiftScheduleFields').radio(:value, '0')}
+      keyword(:rgs_stop_date) {content.text_field(:id, 'recurringGiftScheduleStopDate')}
+      keyword(:add_installment_button) {content.i(:class, 'fa fa-ellipsis-h')}
 
       def popupSearch
         content.iframe(:id, 'popupFrame') #.when_present
