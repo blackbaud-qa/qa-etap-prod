@@ -628,6 +628,14 @@ module Cukesetaptesting
       def pledge_received_amount_click
         @view.received_field.when_present.click
       end
+
+      def select_manual_process
+        @view.select_manual_process_option.when_present.set
+      end
+
+      def add_installment_button
+        @view.add_installment_button.present?
+      end
     end
   end
 end
