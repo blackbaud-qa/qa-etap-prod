@@ -140,7 +140,7 @@ module Cukesetaptesting
 
       def on_us_EDH_sign_up_page?
         sleep 3
-        @view.us_edh_signup_page_element.present?
+      return  @view.us_edh_signup_page_element.present?
       end
 
       def delete_API_key_value
