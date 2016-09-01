@@ -327,4 +327,3 @@ And (/^I click cancel on the edit mappings EDH integration modal/) do
   intMan = Management::EdhIntegration.new
   intMan.edh_integration_edit_mappings_cancel_click
 end
-
