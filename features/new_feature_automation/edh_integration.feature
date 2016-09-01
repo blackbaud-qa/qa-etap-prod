@@ -41,9 +41,6 @@ Feature: EDH Integration
     And I enter 'Test API Validation' in the API key field on the set up EDH integration modal
     And I press Enter on the keyboard
     And I clear out the API key field in the notifications area on the set up EDH integration modal
-    And the next button should be disabled on the set up EDH integration modal
-    And I click next on the set up EDH integration modal
-    Then the API key field should be highlighted in red
     And the Save and Close button should be disabled on the set up EDH integration modal
     And I click cancel on the set up EDH integration modal
 #
@@ -53,15 +50,9 @@ Feature: EDH Integration
     And I click on the Edit set up button on the integrations page
     And I enter 'BAD EMAIL ADDRESS' in the notifications area on the set up EDH integration modal
     And I press Enter on the keyboard
-    And the next button should be disabled on the set up EDH integration modal
-    And I click next on the set up EDH integration modal
-    Then the Send data import notifications to field should be highlighted in red
     And the Save and Close button should be disabled on the set up EDH integration modal
     And I clear out the email field in the notifications area on the set up EDH integration modal
     And I press Enter on the keyboard
-    And the next button should be disabled on the set up EDH integration modal
-    And I click next on the set up EDH integration modal
-    Then the Send data import notifications to field should be highlighted in red
     And the Save and Close button should be disabled on the set up EDH integration modal
     And I click cancel on the set up EDH integration modal
 #
@@ -69,11 +60,9 @@ Feature: EDH Integration
     When I click Management on the main menu
     And I click on Integrations on the management menu
     And I click on the Edit Mappings button on the integrations page
-    And I set the default eTapestry Fund to '' on the set up EDH integration modal
-    Then I should see the 'INVALID FUND' error on the set up EDH integration modal
-    And the next button should be disabled on the set up EDH integration modal
-    And the Save and Close button should be disabled on the set up EDH integration modal
-    And I click cancel on the set up EDH integration modal
+    And I set the default eTapestry Fund to '(None Selected)' on the set up EDH integration modal
+    And the Save and Close button should be disabled on the set up edit mappings EDH integration modal
+    And I click cancel on the edit mappings EDH integration modal
 
   Scenario:  EDH Links - Sign up
     When I click Management on the main menu

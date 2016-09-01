@@ -43,7 +43,7 @@ module Cukesetaptesting
 
       def edh_integration_cancel_click
         sleep 1
-        @view.edh_integration_cancel_click
+        @view.edh_integration_cancel.when_present.click
         sleep 1
       end
 
@@ -212,6 +212,17 @@ module Cukesetaptesting
 
       def new_approach_link_click
         @view.new_approach_link.when_present.click
+      end
+
+      def edh_integration_edit_mappings_save_enabled?
+          @view.edh_integration_edit_mappings_save.wait_until_present
+          button_enabled? @view.edh_integration_edit_mappings_save
+        end
+
+      def edh_integration_edit_mappings_cancel_click
+        sleep 1
+        @view.edh_integration_edit_mappings_cancel.when_present.click
+        sleep 1
       end
 
     end

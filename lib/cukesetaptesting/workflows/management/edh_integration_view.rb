@@ -7,8 +7,8 @@ module Cukesetaptesting
       keyword(:api_key) {content.text_field(:id,'apiKey')}
       keyword(:edh_integration_next) {content.button(:id,'wizardNext')}
       keyword(:edh_integration_previous) {content.button(:id,'wizardPrevious')}
-      keyword(:edh_integration_save) {content.button(:id,'wizardSaveClose')}
-      keyword(:edh_integration_cancel_click) {content.button(:text,'wizardCancel')}
+      keyword(:edh_integration_save) {content.button(:id,'edhBasicSettingsModalSave')}
+      keyword(:edh_integration_cancel) {content.button(:id,'edhBasicSettingsModalCancel')}
       keyword(:setup_edh_modal) {content.h1(:text,'Set up everydayhero integration')}
       keyword(:edh_notifications) {content.text_field(:id,'notificationEmail')}
       # keyword(:basic_integration_save) {content.div(:id,'<placeholderID>')}
@@ -42,6 +42,8 @@ module Cukesetaptesting
       keyword(:new_fund_link) {content.a(:href, 'editIntent.do')}
       keyword(:new_campaign_link) {content.a(:href, 'editCampaign.do')}
       keyword(:new_approach_link) {content.a(:href, 'editApproach.do')}
+      keyword(:edh_integration_edit_mappings_save) {content.button(:id, 'edhMappingsModalSave')}
+      keyword(:edh_integration_edit_mappings_cancel) {content.button(:id, 'edhMappingsModalCancel')}
 
 
       def home(model)
