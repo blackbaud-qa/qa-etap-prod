@@ -317,3 +317,14 @@ And (/^I add '([^']*)' as a new Approach/) do |value|
   intMan.create
   step "And I click Save And 'View all Approaches'"
 end
+
+And (/the Save and Close button should be disabled on the set up edit mappings EDH integration modal/) do
+  intMan = Management::EdhIntegration.new
+  expect(intMan.edh_integration_edit_mappings_save_enabled?).to eq(false)
+end
+
+And (/^I click cancel on the edit mappings EDH integration modal/) do
+  intMan = Management::EdhIntegration.new
+  intMan.edh_integration_edit_mappings_cancel_click
+end
+
