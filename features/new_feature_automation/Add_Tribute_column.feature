@@ -13,25 +13,9 @@ Feature: Add Tribute column in Journal
     And set the date to '9/30/2090'
     And set the Received Amount to '500.00'
     And set the Fund to 'Unrestricted'
-    And set the Campaign to 'Capital'
-    And set the Approach to 'Direct Mail'
-    And set the Gift Type to 'Check'
-    And set the Check Date to '9/30/2090'
-    And set the Check Number to '1346'
+    And set the Gift Type to 'Cash'
     And I set the Tribute Information to 'Cindy Grant'
-    And I click Save And 'Edit'
-    Then the gift should save properly on 'Raymond Barnes''s account
-    And the date should be set to '9/30/2090'
-    And the Received Amount should be set to '$500.00'
-    And the Fund should be set to 'Unrestricted'
-    And the Campaign should be set to 'Capital'
-    And the Gift Type should be set to 'Check'
-    And the Check Date should be set to '9/30/2090'
-    And the Check Number should be set to '1346'
-    And I click the Tribute bar
-    And the Tribute Information should be set to 'Cindy Grant'
-    And click Save
-    And I click Journal
+    And I click Save And 'Go to Journal'
     When I click choose columns
     And I mark the checkbox for tribute
     And I click on apply changes

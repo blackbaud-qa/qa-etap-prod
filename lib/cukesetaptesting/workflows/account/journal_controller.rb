@@ -145,6 +145,36 @@ module Cukesetaptesting
         @view.journal_page_journal_entry_grid.when_present.text.include? (value)
       end
 
+
+      def journal_choose_columns_click
+        @view.journal_choose_columns.when_present.click
+      end
+
+
+      def journal_column_picker_tribute_click
+        @view.journal_column_picker_tribute.when_present.click
+      end
+
+      def journal_apply_changes_click
+        @view.journal_apply_changes.when_present.click
+      end
+
+      def confirm_tribute_column
+        @view.confirm_tribute_column.present?
+      end
+
+      def confirm_account_name
+        @view.confirm_account_name.present?
+      end
+
+      def tribute_account_name_click
+        @view.tribute_account_name.when_present.click
+      end
+
+     def confirm_account_home_page
+       @view.confirm_account_home_page.present?
+     end
+
     end
   end
 end
