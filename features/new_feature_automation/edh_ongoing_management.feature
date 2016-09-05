@@ -2,7 +2,7 @@
 Feature: EDH Integration - Ongoing Management
 
   Background:
-    Given I login into eTap for CP1
+    Given I login into eTap for CP2
 
   Scenario: EDH Integration - Change Notifications Email Address
     When I click Management on the main menu
@@ -21,7 +21,7 @@ Feature: EDH Integration - Ongoing Management
     And I click on the Edit set up button on the integrations page
     And I enter 'NEW API KEY' in the API key field on the set up EDH integration modal
     And I click Save & Close on the set up EDH integration modal
-    Then I verify that the EDH API Key is set to 'qa-1@blackbaud.com'
+    Then I verify that the EDH API Key is set to 'NEW API KEY'
 
   Scenario:  EDH Integration - Change Fund, Campaign, and Approach Mappings
     When I click Management on the main menu
@@ -32,7 +32,7 @@ Feature: EDH Integration - Ongoing Management
     And I set the default eTapestry Campaign to 'Annual' on the set up EDH integration modal
     And I set the default eTapestry Approach to 'Unsolicited' on the set up EDH integration modal
     And I click Save & Close on the set up EDH integration modal
-    Then I verify that the Fund, Campaign, and Approach are set to 'Unrestricted', 'Annual', and 'Unsolicited'
+    Then I verify that the default Fund, Campaign, and Approach are set to 'Unrestricted', 'Annual', and 'Unsolicited'
 
   Scenario:  EDH Integration - Add a new Fund, Campaign, and Approach and then adjust the mappings
     When I click Management on the main menu

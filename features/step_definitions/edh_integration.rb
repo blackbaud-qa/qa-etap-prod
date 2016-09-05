@@ -29,7 +29,7 @@ And(/^I enter '([^']*)' in the API key field on the set up EDH integration modal
 end
 
 And(/^I enter '([^']*)' in the notifications area on the set up EDH integration modal$/) do |field|
-  intMan = Management::EdhIntegration.new(:notifications=>field)
+  intMan = Management::EdhIntegration.new(:edh_notifications=>field)
   intMan.create
 end
 
@@ -135,7 +135,7 @@ end
 
 And(/^I click on the EDH sign up link$/) do
   intMan = Management::EdhIntegration.new
-  intMan.edh_signup_click
+  intMan.us_edh_signup_click
 end
 
 Then(/^I should be taken to the US EDH signup page$/) do
@@ -180,7 +180,7 @@ end
 
 Then (/^the Send data import notifications to field should be highlighted in red$/) do
   intMan = Management::EdhIntegration.new
-  expect(intMan.edh_email_validation?).to rq(true)
+  expect(intMan.edh_email_validation?).to eq(true)
 end
 
 And (/^I clear out the email field in the notifications area on the set up EDH integration modal$/) do
@@ -199,7 +199,7 @@ And(/^the EDH integration has been set up/) do
   if expect(intMan.edh_start_import_button_enabled?).to eq(false)
     step "I click on the Set up button on the integrations page"
     step "I enter '68ef0843-4714-4d24-8033-c0204fb945e2' in the API key field on the set up EDH integration modal"
-    step "I enter 'lance.moore@blackbaud.com' in the notifications area on the set up EDH integration modal"
+    step "I enter 'qa-1@blackbaud.com' in the notifications area on the set up EDH integration modal"
     step "I click next on the set up EDH integration modal"
     step "I set the default eTapestry Fund to 'General' on the set up EDH integration modal"
     step "I set the default eTapestry Campaign to 'Capital' on the set up EDH integration modal"
@@ -244,6 +244,8 @@ end
 And(/^I verify that a Donor account was imported correctly/) do
   step "I type 'Tom' into the dynamic search field"
   step "I press Enter on the keyboard"
+  search = Account::Search.new
+  search.press_enter
   step "I click on 'Tom Barlette' in the search results"
   step "I click on 'Personas' in the account header"
   step "the Address Lines should be set to '14 E. 10th St'"
@@ -277,8 +279,51 @@ Then (/^I wait for the edh import to finish successfully/) do
   intMan.import_finish_successfully_wait
 end
 
-Then (/^I verify that the EDH Notifications Email Address is set to 'qa-1@blackbaud.com'/) do |value|
+Then (/^I verify that the EDH Notifications Email Address is set to '([^']*)'/) do |value|
   intMan = Management::EdhIntegration.new
   intMan.edit_set_up_click
   expect(intMan.edh_notifications_email_address).to eq(value)
+end
+
+Then (/^I verify that the EDH API Key is set to '([^']*)'/) do |value|
+  intMan = Management::EdhIntegration.new
+  expect(intMan.edh_api_key_value).to eq(value)
+end
+
+Then (/^I verify that the default Fund, Campaign, and Approach are set to '([^']*)', '([^']*)', and '([^']*)'/) do |fund,campaign,approach|
+  intMan = Management::EdhIntegration.new
+  expect(intMan.edh_default_fund_value).to eq(fund)
+  expect(intMan.edh_default_campaign_value).to eq(campaign)
+  expect(intMan.edh_default_approach_value).to eq(approach)
+end
+
+And (/^I add '([^']*)' as a new Fund/) do |value|
+  intMan = Management::EdhIntegration.new(:new_fund_name=>value)
+  intMan.new_fund_link_click
+  intMan.create
+  step "And I click Save And 'View all Funds'"
+end
+
+And (/^I add '([^']*)' as a new Campaign/) do |value|
+  intMan = Management::EdhIntegration.new(:new_campaign_name=>value)
+  intMan.new_campaign_link_click
+  intMan.create
+  step "And I click Save And 'View all Campaigns'"
+end
+
+And (/^I add '([^']*)' as a new Approach/) do |value|
+  intMan = Management::EdhIntegration.new(:new_approach_name=>value)
+  intMan.new_approach_link_click
+  intMan.create
+  step "And I click Save And 'View all Approaches'"
+end
+
+And (/the Save and Close button should be disabled on the set up edit mappings EDH integration modal/) do
+  intMan = Management::EdhIntegration.new
+  expect(intMan.edh_integration_edit_mappings_save_enabled?).to eq(false)
+end
+
+And (/^I click cancel on the edit mappings EDH integration modal/) do
+  intMan = Management::EdhIntegration.new
+  intMan.edh_integration_edit_mappings_cancel_click
 end

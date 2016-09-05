@@ -43,7 +43,7 @@ module Cukesetaptesting
 
       def edh_integration_cancel_click
         sleep 1
-        @view.edh_integration_cancel_click
+        @view.edh_integration_cancel.when_present.click
         sleep 1
       end
 
@@ -140,7 +140,7 @@ module Cukesetaptesting
 
       def on_us_EDH_sign_up_page?
         sleep 3
-        @view.us_edh_signup_page_element.present?
+      return  @view.us_edh_signup_page_element.present?
       end
 
       def delete_API_key_value
@@ -184,6 +184,45 @@ module Cukesetaptesting
 
       def edh_notifications_email_address
         @view.edh_notifications.value
+      end
+
+      def edh_api_key_value
+        @view.api_key.value
+      end
+
+      def edh_default_fund_value
+        @view.default_fund.value
+      end
+
+      def edh_default_campaign_value
+        @view.default_campaign.value
+      end
+
+      def edh_default_approach_value
+        @view.default_approach.value
+      end
+
+      def new_fund_link_click
+        @view.new_fund_link.when_present.click
+      end
+
+      def new_campaign_link_click
+        @view.new_campaign_link.when_present.click
+      end
+
+      def new_approach_link_click
+        @view.new_approach_link.when_present.click
+      end
+
+      def edh_integration_edit_mappings_save_enabled?
+          @view.edh_integration_edit_mappings_save.wait_until_present
+          button_enabled? @view.edh_integration_edit_mappings_save
+        end
+
+      def edh_integration_edit_mappings_cancel_click
+        sleep 1
+        @view.edh_integration_edit_mappings_cancel.when_present.click
+        sleep 1
       end
 
     end
