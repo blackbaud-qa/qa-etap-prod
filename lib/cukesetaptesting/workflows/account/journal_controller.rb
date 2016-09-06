@@ -142,6 +142,7 @@ module Cukesetaptesting
       end
 
       def journal_page_journal_entry_date(value)
+        sleep 5
         @view.journal_page_journal_entry_grid.when_present.text.include? (value)
       end
 
