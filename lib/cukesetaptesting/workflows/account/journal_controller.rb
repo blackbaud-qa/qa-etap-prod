@@ -152,8 +152,10 @@ module Cukesetaptesting
 
 
       def journal_column_picker_tribute_click
-        @view.journal_column_picker_tribute.when_present.click
-      end
+         @view.journal_column_picker_tribute.when_present.click
+        end
+      
+
 
       def journal_apply_changes_click
         @view.journal_apply_changes.when_present.click
@@ -174,6 +176,20 @@ module Cukesetaptesting
      def confirm_account_home_page
        @view.confirm_account_home_page.present?
      end
+
+      def journal_click
+        @view.journal.when_present.click
+      end
+
+
+      def confirm_original_account_home
+        @view.confirm_original_account_home.present?
+      end
+
+
+      def original_account_name_click
+        @view.original_account_name.when_present.click
+      end
 
     end
   end
