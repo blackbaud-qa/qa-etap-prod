@@ -106,5 +106,5 @@ Feature: Edit a diy volunteer page
     Then I should see 'Volunteer Availability' set to 'As Needed' on the payment page
     And the 'Date of Birth' should be set to '2/8/1984'
 
-
+    And I click
 
