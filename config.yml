@@ -5,21 +5,21 @@ unameCP3:  groundzero.us_3
 unameCP4:  groundzero.us_4
 unameCP5:  groundzero.us_5
 unameCP6:  groundzero.us_6
-unameCP7:  groundzero.us_7
+unameCP7:  kristin.kr.us2
 unameCP8:  groundzero.us_8
 unameCP9:  groundzero.us_9
 unameCP10:  groundzero.us_10
 unameCP11:  groundzero.us_10
 unameCP12:  groundzero.us_3
 unameBugs:  groundzero.us_11
-unameRegression: groundzero.us_11
-password:   spicypancakes1
+unameRegression: kristin.kr.us
+password:   kristin712
 #site_url: https://sna.etapestry.com/prod/Login.jsp
 #site_url:   https://etap-cdev-fh.blackbaudhosting.com/prod/
 site_url:  https://etap-cdev-kr.blackbaudhosting.com/prod/
 image_path: /home/ubuntu/qa-etap-main/misc/cart_image.jpg
 file_path_root: /home/ubuntu/qa-etap-main/misc/
-headless_enabled: true
+headless_enabled: false
 complete_import_path: /home/ubuntu/qa-etap-main/misc/import_a.csv
 incomplete_import_path: /home/ubuntu/qa-etap-main/misc/import_b.csv
 complete_import_path_names: /home/ubuntu/qa-etap-main/misc/import_a_names.csv
@@ -30,3 +30,4 @@ username_kr:   automationbot.lucene.us
 password_kr:   spicypancakes1
 account_photo_yes_ampersand: /home/ubuntu/qa-etap-main/misc/Happy Man & Green Shirt.png
 account_photo_no_ampersand: /home/ubuntu/qa-etap-main/misc/Happy Man and Green Shirt.png
+kristin_file_path: /Users/kristinca/Desktop/Importing 26 Gifts.csv
