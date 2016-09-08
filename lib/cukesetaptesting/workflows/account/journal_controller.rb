@@ -152,7 +152,7 @@ module Cukesetaptesting
       end
 
 
-      def journal_column_picker_tribute_click
+      def journal_column_picker_tribute
          @view.journal_column_picker_tribute.when_present.click
         end
       
@@ -175,12 +175,8 @@ module Cukesetaptesting
       end
 
      def confirm_account_home_page
-       @view.confirm_account_home_page.present?
+       @view.confirm_account_home_page("Cindy Grant").present?
      end
-
-      def journal_click
-        @view.journal.when_present.click
-      end
 
 
       def confirm_original_account_home

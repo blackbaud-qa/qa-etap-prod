@@ -5,7 +5,7 @@ end
 
 And(/^I mark the checkbox for tribute$/) do
    landing = Account::Journal.new
-  landing.journal_column_picker_tribute_click
+  landing.journal_column_picker_tribute
 end
 
 And(/^I click on apply changes$/) do
@@ -33,11 +33,6 @@ Then(/^I should taken to 'Cindy Grant' Account Home Page$/) do
   expect(landing.confirm_account_home_page).to eq(true)
 end
 
-
-And (/^I click on Journal$/) do
-  landing = Account::Journal.new
-  landing.journal_click
-end
 
 And (/^I click on 'Raymond Barnes' in original account column$/)do
   landing = Account::Journal.new

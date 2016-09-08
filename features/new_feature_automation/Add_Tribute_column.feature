@@ -18,7 +18,7 @@ Feature: Add Tribute column in Journal
     And I click Save And 'Go to Journal'
     And I click on 'Raymond Barnes' in original account column
     Then I should taken to 'Raymond Barnes' Account Home page
-    And I click on Journal
+    And I click Journal
     When I click choose columns
     And I mark the checkbox for tribute
     And I click on apply changes
