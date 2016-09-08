@@ -1027,19 +1027,6 @@ And (/^I should see Date of Birth on the edited DIY page$/) do
   expect(diy.date_of_birth_diy?).to eq(true)
 end
 
-And(/^I hover over the Date of Birth field on the DIY editor page/) do
-  sleep 1
-  diy = DIY::Onlineforms.new
-  diy.date_of_birth_field_hover
-  sleep 1
-end
-
-And (/^I set the Label field to '([^']*)' on the DIY editor page/) do |value|
-  diy = DIY::Onlineforms.new()
-  diy.delete_label_text
-  diy.set_diy_label (value)
-end
-
 And (/^I click Update on the DIY Edit Field modal/) do
   diy = DIY::Onlineforms.new()
   diy.update_button_diy_edit_field
@@ -1049,3 +1036,191 @@ And (/^I should see Birthdate on the edited DIY page$/) do
   diy = DIY::Onlineforms.new()
   expect(diy.birthdate_diy?).to eq(true)
 end
+
+When (/^I make edits to an existing diy contact page$/) do
+  steps %Q{
+      When I click Management on the main menu
+      And I click on DIY Forms on the management menu
+      And I click Edit for the form titled 'Existing Contact Page WITH Address Fields'
+      And I click Edit Style on the DIY editor page
+      And I click Swap Template on the DIY editor page
+      And I select the Float template on the DIY editor page
+      And I click Swap To This Template on the DIY editor page
+      And I click Edit Style on the DIY editor page
+      And I change the Title font to Comic Sans 20pt on the DIY editor page
+      And I click Update on the DIY editor page
+      And I click Settings on the DIY editor page
+      And I unmark the checkbox next to Include comments box
+      And I click Update on the DIY settings page
+      And I click Add Item on the DIY editor page
+      And I select Add Fields on the DIY editor page
+      And I select 'Base' for the field category on the DIY editor page
+      And I click 'Board Membership' on the DIY editor page
+      And I click Update on the Add Fields page
+      And I click Add Item on the DIY editor page
+      And I select Add Text on the DIY editor page
+      And I change the default text on the DIY editor page
+      And I click Update on the Add Text page
+      And I click Save on the DIY editor page
+      And I confirm saving my changes
+      And I click Go Live on the DIY editor page
+      And I click Yes, Go Live! on the DIY editor page
+      And I click Replace on the DIY editor page
+}
+end
+
+And (/I submit an entry on the live contact page$/) do
+  steps %Q{
+      And I click on the link for the form titled Existing Contact Page WITH Address Fields
+      And I switch to the new tab in my browser
+      And I set the Board Membership to 'Current' on the DIY Donation Page
+      And I set Account Type to 'Individual' on the DIY Donation Page
+      And I set Company to 'Blackbaud' on the DIY Page
+      And I set Date of Birth to '11/5/1980' on the DIY Page
+      And I set Job Title to 'Support Analyst' on the DIY Page
+      And I set Marital Status to 'Single' on the DIY Page
+      And I set the Title to 'Miss' on the DIY Donation Page
+      And I set First Name to 'Heather' on the DIY Donation Page
+      And I set Middle Name to 'Lynn' on the DIY Donation Page
+      And I set Last Name to 'Johnson' on the DIY Donation Page
+      And I set Country to 'United States' on the DIY Donation Page
+      And I set Address Lines to '1222 Stop 12 Road' on the DIY Donation Page
+      And I set City to 'Greenwood' on the DIY Donation Page
+      And I set State to 'Indiana' on the DIY Donation Page
+      And I set Postal Code to '46143' on the DIY Donation Page
+      And I set Email to 'test@test.com' on the DIY Donation Page
+      And I set Confirm Email to 'test@test.com' on the DIY Donation Page
+      And I set Phone to '478-999-9875' on the DIY Donation Page
+      And I click Submit on the DIY Donation Page
+      And the submission will go through successfully
+      And I close the current tab
+  }
+end
+
+And (/I verify that the DIY contact submission was created correctly$/) do
+  steps %Q{
+      And I type 'Heather Johnson' into the dynamic search field
+      And I press Enter on the keyboard
+      And I click on 'Heather Lynn Johnson' in the search results
+      And I click on 'Personas' in the account header
+      And the Address Lines should be set to '1222 Stop 12 Road'
+      And the City should be set to 'Greenwood'
+      And the State should be set to 'IN'
+      And the Postal Code should be set to '46143'
+      And the Voice should be set to '478-999-9875'
+      And the Email should be set to 'test@test.com'
+      And the Short Salutation should be set to 'Heather'
+      And the Long Salutation should be set to 'Miss Johnson'
+      And the Envelope Salutation should be set to 'Miss Heather Lynn Johnson'
+      And the 'Company' should be set to 'Blackbaud'
+      And the 'Job Title' should be set to 'Support Analyst'
+      And I click on 'Journal' in the account header
+      And I click on the Contact listed in the journal
+      And the date field on the transaction screen should be populated with Today
+      And I should see the Subject set to 'Existing Contact Page WITH Address Fields' on the contact page
+      And I should see the Method set to 'DIY Form-Contact' on the contact page
+      And I should see 'DIY Test Page' set to 'Existing Contact Page WITH Address Fields' on the payment page
+      And I click on 'Defined Fields' in the account header
+      And I should see 'Account Type' set to 'Individual' on the payment page
+      And I should see 'Date of Birth' set to '11/5/1980' on the payment page
+      And I should see 'Marital Status' set to 'Single' on the payment page
+      And I should see 'Board Membership' set to 'Current' on the payment page
+  }
+end
+
+And (/^I change the name of the user defined field '([^']*)' to '([^']*)' on the DIY page$/) do |original_udf_label, new_udf_label|
+  steps %Q{
+      When I click Management on the main menu
+      And  I click on DIY Forms on the management menu
+      And  I click Edit for the form titled 'Existing Contact Page WITH Address Fields'
+      And  I hover over '#{original_udf_label}' field on the DIY editor page
+      And  I click the pencil icon that appears on the DIY editor page
+      And  I set the Label field to '#{new_udf_label}' on the DIY editor page
+      And  I click Update on the DIY Edit Field modal
+      And  I click Save on the DIY editor page
+      And  I confirm saving my changes
+      And  I click Go Live on the DIY editor page
+      And  I click Yes, Go Live! on the DIY editor page
+      And  I click Replace on the DIY editor page
+  }
+end
+
+
+And(/^I hover over '([^']*)' field on the DIY editor page$/) do |original_udf_label|
+  sleep 1
+  diy = DIY::Onlineforms.new
+  diy.diy_udf_hover (original_udf_label)
+  sleep 1
+end
+
+And (/^I set the Label field to '([^']*)' on the DIY editor page$/) do |new_udf_label|
+  diy = DIY::Onlineforms.new()
+  diy.delete_label_text
+  diy.set_diy_label (new_udf_label)
+end
+
+
+And (/^I set the Board Membership to '([^']*)' on the DIY Donation Page$/) do |value|
+  diy = DIY::Onlineforms.new()
+  diy.live_board_membership_set (value)
+end
+
+
+And (/^I submit an entry on the live edited contact page$/) do
+  steps %Q{
+      And I click on the link for the form titled Existing Contact Page WITH Address Fields
+      And I switch to the new tab in my browser
+      And I set the Board Membership to 'Former' on the DIY Donation Page
+      And I set Account Type to 'Individual' on the DIY Donation Page
+      And I set Company to 'Microsoft' on the DIY Page
+      And I set Birthdate to '10/5/1984' on the DIY Page
+      And I set Job Title to 'SQE' on the DIY Page
+      And I set Marital Status to 'Single' on the DIY Page
+      And I set the Title to 'Mr.' on the DIY Donation Page
+      And I set First Name to 'George' on the DIY Donation Page
+      And I set Last Name to 'Franks' on the DIY Donation Page
+      And I set Country to 'United States' on the DIY Donation Page
+      And I set Address Lines to '6952 Yellowwood Ave' on the DIY Donation Page
+      And I set City to 'Indianapolis' on the DIY Donation Page
+      And I set State to 'Indiana' on the DIY Donation Page
+      And I set Postal Code to '46143' on the DIY Donation Page
+      And I set Email to 'test@test.com' on the DIY Donation Page
+      And I set Confirm Email to 'test@test.com' on the DIY Donation Page
+      And I set Phone to '317-888-8745' on the DIY Donation Page
+      And I click Submit on the DIY Donation Page
+      And the submission will go through successfully
+      And I close the current tab
+  }
+end
+
+And (/^I verify that the DIY contact submission via the edited contact page was created correctly$/) do
+  steps %Q{
+      And I type 'George Franks' into the dynamic search field
+      And I press Enter on the keyboard
+      And I click on 'George Franks' in the search results
+      And I click on 'Personas' in the account header
+      And the Address Lines should be set to '6952 Yellowwood Ave'
+      And the City should be set to 'Indianapolis'
+      And the State should be set to 'IN'
+      And the Postal Code should be set to '46143'
+      And the Voice should be set to '317-888-8745'
+      And the Email should be set to 'test@test.com'
+      And the Short Salutation should be set to 'George'
+      And the Long Salutation should be set to 'Mr. Franks'
+      And the Envelope Salutation should be set to 'Mr. George Franks'
+      And the 'Company' should be set to 'Microsoft'
+      And the 'Job Title' should be set to 'SQE'
+      And I click on 'Journal' in the account header
+      And I click on the Contact listed in the journal
+      And the date field on the transaction screen should be populated with Today
+      And I should see the Subject set to 'Existing Contact Page WITH Address Fields' on the contact page
+      And I should see the Method set to 'DIY Form-Contact' on the contact page
+      And I should see 'DIY Test Page' set to 'Existing Contact Page WITH Address Fields' on the payment page
+      And I click on 'Defined Fields' in the account header
+      And I should see 'Account Type' set to 'Individual' on the payment page
+      And I should see 'Date of Birth' set to '10/5/1984' on the payment page
+      And I should see 'Marital Status' set to 'Single' on the payment page
+      And I should see 'Board Membership' set to 'Former' on the payment page
+  }
+end
+
