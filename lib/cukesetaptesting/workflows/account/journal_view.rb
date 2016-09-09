@@ -67,6 +67,8 @@ module Cukesetaptesting
       keyword (:confirm_account_home_page) {content.h5(:text,'Cindy Grant')}
 
 
+
+
       def journal_attachment_link(value)
         content.div(:class,'ui-jqgrid-bdiv').a(:text, value)
       end
