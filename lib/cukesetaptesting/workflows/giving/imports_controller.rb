@@ -197,6 +197,28 @@ module Cukesetaptesting
         @view.first_name_to_no_value_checkbox.when_present.click
       end
 
+      def set_import_mapping_field_value_manually(field, value)
+        @view.mapping_table_other_fields_row(field).text_field(:name,'formula').when_present.set value
+      end
+
+      def set_ind_name_mapping_field_value_manually(field, value)
+        @view.mapping_table_individual_name_format_row(field).text_field(:name,'formula').when_present.set value
+      end
+
+      def click_run_import_link(value)
+        @view.run_import_link(value).when_present.click
+      end
+
+      def ind_name_format_field_value(field)
+        @view.mapping_table_individual_name_format_row(field).text_field(:name,'formula').when_present.value
+      end
+
+      def all_other_fields_field_value(field)
+        @view.mapping_table_other_fields_row(field).text_field(:name,'formula').when_present.value
+      end
+
+
+
     end
   end
 end

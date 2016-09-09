@@ -260,3 +260,155 @@ And (/^I set the First Name query criteria to Field Has No Value/) do
   import = Giving::Imports.new()
   import.set_first_name_to_no_value
 end
+
+And (/^In the All other fields section I set the '([^']*)' mapping field to '([^']*)' on the Import Screen/) do |field, value|
+  import = Giving::Imports.new()
+  import.set_import_mapping_field_value_manually(field, value)
+end
+
+And (/^In the Individual Name Format section I set the '([^']*)' mapping field to '([^']*)' on the Import Screen/) do |field, value|
+  import = Giving::Imports.new()
+  import.set_ind_name_mapping_field_value_manually(field, value)
+end
+
+And (/^I verify that import template '([^']*)' has cleared out the leading and trailing spaces/) do |value|
+  landing = Admin::Landing.new
+  landing.management_click
+  landing.management_dd_import_click
+  step "I click 'Standard eTapestry Imports' on the Imports screen"
+  import = Giving::Imports.new
+  import.click_run_import_link(value)
+  step "I choose the 'TL Spaces For Automation B' file on the Import screen"
+  step "I set the name format to 'Assign Individual to all accounts' on the Import screen"
+  import.import_next_click
+  step "In the Individual Name Format section I should see the 'Title' mapping field set to '[Title]' on the Import Screen"
+  step "In the Individual Name Format section I should see the 'First Name' mapping field set to '[First]' on the Import Screen"
+  step "In the Individual Name Format section I should see the 'Middle Name' mapping field set to '[Middle]' on the Import Screen"
+  step "In the Individual Name Format section I should see the 'Last Name' mapping field set to '[Last]' on the Import Screen"
+  step "In the Individual Name Format section I should see the 'Suffix' mapping field set to 'RN.' on the Import Screen Alternate Step"
+  step "In the Individual Name Format section I should see the 'Account Name' mapping field set to '[First] [Middle] [Last]' on the Import Screen"
+  step "In the Individual Name Format section I should see the 'Sort Name' mapping field set to '[Last], [First] [Middle]' on the Import Screen"
+  step "In the Individual Name Format section I should see the 'Short Salutation' mapping field set to '[First]' on the Import Screen"
+  step "In the Individual Name Format section I should see the 'Long Salutation' mapping field set to '[Title] [Last]' on the Import Screen"
+  step "In the Individual Name Format section I should see the 'Envelope Salutation' mapping field set to '[Title] [First] [Middle] [Last]' on the Import Screen"
+  step "In the All other fields section I should see the 'Persona Type' mapping field set to '[Persona Type]' on the Import Screen"
+  step "In the All other fields section I should see the 'Date' mapping field set to '[Date]' on the Import Screen"
+  step "In the All other fields section I should see the 'Received' mapping field set to '[Received]' on the Import Screen"
+  step "In the All other fields section I should see the 'Fund' mapping field set to 'General' on the Import Screen Alternate Step"
+  step "In the All other fields section I should see the 'Gift Type' mapping field set to 'Check' on the Import Screen Alternate Step"
+  step "In the All other fields section I should see the 'Address Lines' mapping field set to '[Address]' on the Import Screen"
+  step "In the All other fields section I should see the 'City' mapping field set to '[City]' on the Import Screen"
+  step "In the All other fields section I should see the 'State/Province' mapping field set to '[State]' on the Import Screen"
+  step "In the All other fields section I should see the 'Postal Code' mapping field set to '[Postal Code]' on the Import Screen"
+  step "In the All other fields section I should see the 'Voice' mapping field set to '[Voice]' on the Import Screen"
+  step "In the All other fields section I should see the 'Email' mapping field set to '[Email]' on the Import Screen"
+  step "In the All other fields section I should see the 'Check Date' mapping field set to '[Check Date]' on the Import Screen"
+  step "In the All other fields section I should see the 'Check Number' mapping field set to '[Check Number]' on the Import Screen"
+  step "In the All other fields section I should see the 'Gender' mapping field set to 'Female' on the Import Screen Alternate Step"
+  step "In the All other fields section I should see the 'Attributes' mapping field set to '[Attributes]' on the Import Screen"
+  step "In the All other fields section I should see the 'Maiden Name' mapping field set to '[Maiden Name]' on the Import Screen"
+  step "In the All other fields section I should see the 'Date of Birth' mapping field set to '[Date of Birth]' on the Import Screen"
+end
+
+And (/^In the Individual Name Format section I should see the '([^']*)' mapping field set to '\[([^']*)\]' on the Import Screen$/) do |field, value|
+  import = Giving::Imports.new
+  expect(import.ind_name_format_field_value(field)).to eq('[' + value + ']')
+end
+
+And (/^In the Individual Name Format section I should see the '([^']*)' mapping field set to '([^']*)' on the Import Screen Alternate Step$/) do |field, value|
+  import = Giving::Imports.new
+  expect(import.ind_name_format_field_value(field)).to eq(value)
+end
+
+And (/^In the All other fields section I should see the '([^']*)' mapping field set to '\[([^']*)\]' on the Import Screen/) do |field, value|
+  import = Giving::Imports.new
+  expect(import.all_other_fields_field_value(field)).to eq('[' + value + ']')
+end
+
+And (/^In the All other fields section I should see the '([^']*)' mapping field set to '([^']*)' on the Import Screen Alternate Step/) do |field, value|
+  import = Giving::Imports.new
+  expect(import.all_other_fields_field_value(field)).to eq(value)
+end
+
+And (/^I verify that the account for Danielle D Davidson has been imported correctly/) do
+  step "I type 'Danielle' into the dynamic search field"
+  search = Account::Search.new
+  search.press_enter
+  step "I click on 'Danielle D Davidson' in the search results"
+  step "I click on 'Personas' in the account header"
+  step "I set the Persona to '* Personal' on the Personas page"
+  step "the Address Lines should be set to '741 Main St.'"
+  step "the City should be set to 'Indianapolis'"
+  step "the State should be set to 'IN'"
+  step "the Postal Code should be set to '46022'"
+  step "the Voice should be set to '(317) 336-3827'"
+  step "the Email should be set to 'kimberly.hammer@blackbaud.com'"
+  step "the Short Salutation should be set to 'Danielle'"
+  step "the Long Salutation should be set to 'Mrs. Davidson'"
+  step "the Envelope Salutation should be set to 'Mrs. Danielle D Davidson'"
+  step "I click on 'Defined Fields' in the account header"
+  step "the 'Attributes' should be set to 'Volunteer'"
+  step "the 'Gender' should be set to 'Female'"
+  step "the 'Date of Birth' should be set to '11/1/1979'"
+  step "the 'Maiden Name' should be set to 'Smith'"
+  step "I click on 'Account Settings' in the account header"
+  step "the Name Format value should be set to 'Individual'"
+  step "the Title should be set to 'Mrs.'"
+  step "the First Name should be set to 'Danielle'"
+  step "the Middle Name should be set to 'D'"
+  step "the Last Name should be set to 'Davidson'"
+  step "the Suffix should be set to 'RN.'"
+  step "the Account Name should be set to 'Danielle D Davidson'"
+  step "the Sort Name should be set to 'Davidson, Danielle D'"
+  step "I click on 'Journal' in the account header"
+  steps %Q{
+    And I click on the Gift listed in the journal
+    And the date should be set to '8/4/2016'
+    And the Received Amount should be set to '$20.00'
+    And the Fund should be set to 'General'
+    And the Check Date should be set to '8/4/2016'
+    And the Check Number should be set to '126'
+  }
+end
+
+
+And (/^I verify that the account for Ellie Anne D Von Elder has been imported correctly/) do
+  step "I type 'Ellie' into the dynamic search field"
+  search = Account::Search.new
+  search.press_enter
+  step "I click on 'Ellie Anne D Von Elder' in the search results"
+  step "I click on 'Personas' in the account header"
+  step "I set the Persona to '* Personal' on the Personas page"
+  step "the Address Lines should be set to '741 Main St.'"
+  step "the City should be set to 'Indianapolis'"
+  step "the State should be set to 'IN'"
+  step "the Postal Code should be set to '46022'"
+  step "the Voice should be set to '(317) 336-3827'"
+  step "the Email should be set to 'kimberly.hammer@blackbaud.com'"
+  step "the Short Salutation should be set to 'Ellie Anne'"
+  step "the Long Salutation should be set to 'Mrs. Von Elder'"
+  step "the Envelope Salutation should be set to 'Mrs. Ellie Anne D Von Elder'"
+  step "I click on 'Defined Fields' in the account header"
+  step "the 'Attributes' should be set to 'Volunteer, Member'"
+  step "the 'Gender' should be set to 'Female'"
+  step "the 'Date of Birth' should be set to '11/1/1979'"
+  step "the 'Maiden Name' should be set to 'Smith'"
+  step "I click on 'Account Settings' in the account header"
+  step "the Name Format value should be set to 'Individual'"
+  step "the Title should be set to 'Mrs.'"
+  step "the First Name should be set to 'Ellie Anne'"
+  step "the Middle Name should be set to 'D'"
+  step "the Last Name should be set to 'Von Elder'"
+  step "the Suffix should be set to 'RN.'"
+  step "the Account Name should be set to 'Ellie Anne D Von Elder'"
+  step "the Sort Name should be set to 'Von Elder, Ellie Anne D'"
+  step "I click on 'Journal' in the account header"
+  steps %Q{
+    And I click on the Gift listed in the journal
+    And the date should be set to '8/5/2016'
+    And the Received Amount should be set to '$25.00'
+    And the Fund should be set to 'General'
+    And the Check Date should be set to '8/5/2016'
+    And the Check Number should be set to '126'
+  }
+end

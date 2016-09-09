@@ -27,7 +27,7 @@ Feature: EDH Integration - On Demand Import and Creating New Constituent Account
   Scenario: EDH Integration - Run On Demand Import and Verify Duplicate Checking
     When I click Management on the main menu
     And I click on Integrations on the management menu
-    And the EDH integration has been set up
+#    And the EDH integration has been set up
     And I verify that an edh import has already been processed today
     Then I verify that a duplicate Hero was matched correctly
     And I verify that a duplicate Donor was matched correctly
