@@ -61,16 +61,17 @@ module Cukesetaptesting
       #keyword(:journal_choose_columns) {content.div(:class,'clearfix toolbar bb-table-toolbar').button(:class, 'btn bb-btn-secondary bb-grid-toolbar-btn bb-column-picker-btn')}
       keyword(:journal_choose_columns) {content.button(:css,'[data-bbauto-field="ColumnPickerButton"]')}
       keyword(:journal_column_picker_tribute) {content.div(:class, 'bb-checklist-wrapper').div(:text, 'Tribute')}
-      # keyword (:journal_soft_credit)  {content.div(:class, 'bb-checklist-wrapper').div(:text, 'Soft Credit')}
+      keyword (:journal_soft_credit)  {content.div(:css,'[data-bbauto-field="specialSelectableColumn-et-plus-softCreditName"]')}
+
       keyword(:journal_apply_changes) {content.button(:class, 'btn btn-primary ng-scope').span(:class, 'ng-binding ng-scope')}
       keyword(:confirm_tribute_column) {content.div(:text,'Tribute')}
-      #  keyword(:confirm_soft_credit) {content.div(:text, 'Soft Credit')}
+     # keyword(:confirm_soft_credit_column) {content.div(:text,'Soft Credit')}
+      keyword (:confirm_soft_credit_column)  {content.div(:xpath,'//div[text()="Soft Credit"]')}
       keyword(:confirm_account_name) {content.a(:text, 'Cindy Grant')}
-      # keyword(:confirm_account_name_in_soft_credit_column) {content.a(:text, 'Anne Hatch')}
+      keyword(:confirm_account_name_in_soft_credit_column) {content.a(:text, 'Anne Hatch')}
       keyword(:tribute_account_name) {content.a(:text,'Cindy Grant')}
-     # keyword(:soft_credit_account_name) {content.a(:href ,'entityRoleHome.do?entityRoleRef=191.0.3584')}
-     #  keyword(:confirm_account_home_page) {content.h5(:text,'Cindy Grant')}
-     # keyword(:confirm_account_home_page) {content.h5(:text,'Anne Hatch')}
+      keyword(:soft_credit_account_name) {content.a(:text ,'Anne Hatch')}
+
 
       keyword(:original_account_name) {content.a(:text,'Raymond Barnes')}
       keyword(:confirm_original_account_home) {content.h5(:class, 'bb-tile-header')}
@@ -81,9 +82,7 @@ module Cukesetaptesting
         content.a(:text=>value)
       end
 
-      def confirm_account_home_page(value)
-        content.h5(:text=>value)
-      end
+
 
       def journal_attachment_link(value)
         content.div(:class,'ui-jqgrid-bdiv').a(:text, value)
@@ -97,6 +96,7 @@ module Cukesetaptesting
 
       def edit(model)
       end
+
     end
   end
 end

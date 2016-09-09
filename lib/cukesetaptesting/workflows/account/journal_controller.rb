@@ -174,9 +174,6 @@ module Cukesetaptesting
         @view.tribute_account_name.when_present.click
       end
 
-     def confirm_account_home_page
-       @view.confirm_account_home_page("Cindy Grant").present?
-     end
 
 
       def confirm_original_account_home
@@ -186,6 +183,26 @@ module Cukesetaptesting
 
       def original_account_name_click
         @view.original_account_name.when_present.click
+      end
+
+      def soft_credit_account_name_click
+        @view.soft_credit_account_name.when_present.click
+      end
+
+      def confirm_account_name_in_soft_credit_column
+        @view.confirm_account_name_in_soft_credit_column.present?
+      end
+
+      def confirm_soft_credit_column
+        @view.confirm_soft_credit_column.present?
+      end
+
+      def journal_soft_credit_click
+        @view.journal_soft_credit.when_present.click
+      end
+
+      def confirm_account_home
+        @view.confirm_account_home_page.present?
       end
 
     end

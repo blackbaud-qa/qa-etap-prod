@@ -43,3 +43,27 @@ Then (/^I should taken to 'Raymond Barnes' Account Home page$/)do
   landing = Account::Journal.new
   expect(landing.confirm_original_account_home).to eq(true)
 end
+
+And(/^I mark the checkbox for soft credit$/) do
+  landing = Account::Journal.new
+  landing.journal_soft_credit_click
+end
+
+Then(/^I should see soft credit column on Journal Page$/) do
+  landing = Account::Journal.new
+  expect(landing.confirm_soft_credit_column).to eq(true)
+end
+
+And(/^I should see 'Anne Hatch' in soft credit column$/) do
+  landing = Account::Journal.new
+  expect(landing.confirm_account_name_in_soft_credit_column).to eq(true)
+end
+
+When(/^I click on 'Anne Hatch' in soft credit column$/) do
+  landing = Account::Journal.new
+  landing.soft_credit_account_name_click
+end
+
+
+
+

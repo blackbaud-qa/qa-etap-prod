@@ -25,5 +25,5 @@ Feature: Add Tribute column in Journal
     Then I should see tribute column on Journal Page
     And I should see 'Cindy Grant' in tribute column
     When I click on 'Cindy Grant' in tribute column
-    Then I should taken to 'Cindy Grant' Account Home Page
+    Then  I should be taken to 'Cindy Grant' Home page
 
