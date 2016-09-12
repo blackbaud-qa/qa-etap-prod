@@ -43,8 +43,16 @@ module Cukesetaptesting
 
       def edh_integration_cancel_click
         sleep 1
-        @view.edh_integration_cancel_click
+        @view.edh_integration_cancel.when_present.click
         sleep 1
+      end
+
+      def edh_start_import_button_click
+        @view.edh_start_import_button.when_present.click
+      end
+
+      def edit_integration_page_present?
+        @view.edit_integration_page.present?
       end
 
       def edh_integration_next_text_include? text
@@ -108,6 +116,10 @@ module Cukesetaptesting
         @view.select_historical_data.when_present.click
       end
 
+      def historical_data_created_since_click
+        @view.historical_data_created_since.when_present.click
+      end
+
       def historical_data_modal_present?
         sleep 2
         @view.historical_data_modal.present?
@@ -122,13 +134,31 @@ module Cukesetaptesting
         @view.import_button.present?
       end
 
-      def edh_signup_click
-        @view.edh_signup.when_present.click
+      def us_edh_signup_click
+        @view.us_edh_signup.when_present.click
       end
 
-      def on_EDH_sign_up_page?
+      def on_us_EDH_sign_up_page?
         sleep 3
-        @view.edh_signup_page_element.present?
+      return  @view.us_edh_signup_page_element.present?
+      end
+
+      def delete_API_key_value
+        @view.select_API_key_value.when_present.send_keys [:control, 'a']
+        @view.select_API_key_value.when_present.send_keys :delete
+      end
+
+      def api_key_validation?
+        @view.api_key_validationt.present?
+      end
+
+      def edh_email_validation?
+        @view.edh_email_validation.present?
+      end
+
+      def delete_edh_email_value
+        @view.select_edh_email_value.when_present.send_keys [:control, 'a']
+        @view.select_edh_email_value.when_present.send_keys :delete
       end
 
       def edh_user_guide_click
@@ -142,6 +172,89 @@ module Cukesetaptesting
 
       def edit_mappings_click
         @view.edit_mappings.when_present.click
+      end
+
+      def import_now_link_click
+        @view.import_now_link.when_present.click
+      end
+
+      def import_finish_successfully_wait
+        @view.import_finish_successfully_message.wait_until_present
+      end
+
+      def edh_notifications_email_address
+        @view.edh_notifications.value
+      end
+
+      def edh_api_key_value
+        @view.api_key.value
+      end
+
+      def edh_default_fund_value
+        @view.default_fund.value
+      end
+
+      def edh_default_campaign_value
+        @view.default_campaign.value
+      end
+
+      def edh_default_approach_value
+        @view.default_approach.value
+      end
+
+      def new_fund_link_click
+        @view.new_fund_link.when_present.click
+      end
+
+      def new_campaign_link_click
+        @view.new_campaign_link.when_present.click
+      end
+
+      def new_approach_link_click
+        @view.new_approach_link.when_present.click
+      end
+
+      def edh_integration_edit_mappings_save_enabled?
+          @view.edh_integration_edit_mappings_save.wait_until_present
+          button_enabled? @view.edh_integration_edit_mappings_save
+        end
+
+      def edh_integration_edit_mappings_cancel_click
+        sleep 1
+        @view.edh_integration_edit_mappings_cancel.when_present.click
+        sleep 1
+      end
+
+      def edh_pause_integration_link_click
+        @view.edh_pause_integration_link.when_present.click
+      end
+
+      def edh_resume_integration_link_present?
+        @view.edh_resume_integration_link.present?
+      end
+
+      def edh_integration_paused_message_present?
+        @view.edh_integration_paused_message.present?
+      end
+
+      def edh_resume_integration_link_click
+        @view.edh_resume_integration_link.when_present.click
+      end
+
+      def edh_pause_integration_link_present?
+        @view.edh_pause_integration_link.present?
+      end
+
+      def journal_page_participation_link_click
+        @view.journal_page_participation_link.when_present.click
+      end
+
+      def participant_goal_value
+        @view.participant_goal.when_present.value
+      end
+
+      def participation_display_name_value
+        @view.participation_display_name.when_present.value
       end
 
     end

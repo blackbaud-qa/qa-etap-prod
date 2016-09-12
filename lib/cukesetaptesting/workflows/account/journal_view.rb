@@ -51,8 +51,26 @@ module Cukesetaptesting
       keyword(:attachments_choose_file_button) {content.file_field(:id, 'attachmentUploadFile')}
       keyword(:attachments_upload_button) {content.button(:value, 'Upload')}
 
+      keyword(:click_query_page_two) {content.div(:class, 'bb-grid-pagination-container ng-scope').a(:index=>2)}
+      keyword(:click_query_page_one) {content.div(:class, 'bb-grid-pagination-container ng-scope').a(:index=>1)}
+      keyword(:add_an_account_button) {content.div(:id, 'accountActions').button(:id, 'addAccountButton')}
+      keyword(:journal_load_more) {content.div(:class, 'bb-table-loadmore ng-scope').button(:class, 'btn btn-link ng-binding')}
+      keyword(:journal_page_journal_entry_grid) {content.div(:class, 'ui-jqgrid-bdiv')}
+
+      ## choose column in Journal
+      keyword(:journal_choose_columns) {content.div(:class,'clearfix toolbar bb-table-toolbar').button(:class, 'btn bb-btn-secondary bb-grid-toolbar-btn bb-column-picker-btn')}
+      keyword(:journal_column_picker_tribute) {content.div(:class, 'bb-checklist-wrapper').div(:text, 'Tribute')}
+      keyword(:journal_apply_changes) {content.button(:class, 'btn btn-primary ng-scope').span(:class, 'ng-binding ng-scope')}
+      keyword(:confirm_tribute_column) {content.div(:text, 'Tribute')}
+      keyword(:confirm_account_name) {content.a(:text, 'Cindy Grant')}
+      keyword(:tribute_account_name) {content.a(:href, 'entityRoleHome.do?entityRoleRef=191.0.797821')}
+      keyword (:confirm_account_home_page) {content.h5(:text,'Cindy Grant')}
+
+
+
+
       def journal_attachment_link(value)
-        content.div(:class, 'ui-jqgrid-bdiv').a(:text, value)
+        content.div(:class,'ui-jqgrid-bdiv').a(:text, value)
       end
 
       def home(model)

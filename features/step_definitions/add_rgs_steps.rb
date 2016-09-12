@@ -68,3 +68,41 @@ And(/^I set the Account Number to '([^']*)'/) do |value|
   rgs = Giving::GiftPledge.new(:eft_account_number=>value)
   rgs.create
 end
+
+And (/^I create a manual recurring gift schedule/) do
+  step "I type 'Niles Baker' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on 'Niles Baker' in the search results"
+  step "I click on 'Journal' in the account header"
+  step "select Recurring Gift Schedule from the Add New... drop down menu"
+  step "I set the date to Today on the new pledge page"
+  step "set the Installment Amount to '7.00' on the Recurring Gift Schedule"
+  step "set the Fund to 'General'"
+  step "set the Campaign to 'Capital'"
+  step "set the Approach to 'Direct Mail'"
+  step "I set the First Installment Date to Today"
+  step "I set the Recurring Gift Schedule Frequency to 'Monthly (12)'"
+  step "I change the process type to Manual"
+  step "I click Save And 'Edit'"
+end
+
+And(/^I change the process type to Manual/) do
+  rgs = Giving::GiftPledge.new
+  rgs.select_manual_process
+end
+
+And (/^I enter a stop date of '([^']*)' on the recurring gift schedule/) do |value|
+  rgs = Giving::GiftPledge.new(:rgs_stop_date=>value)
+  rgs.create
+  step "I click Save And 'Go to Journal'"
+end
+
+Then (/^I should not be able to add a recurring gift to the recurring gift schedule/) do
+  rgs = Giving::GiftPledge.new
+  expect(rgs.add_installment_button).to eq(false)
+end
+
+Then (/^I should be able to add a recurring gift to the recurring gift schedule/) do
+  rgs = Giving::GiftPledge.new
+  expect(rgs.add_installment_button).to eq(true)
+end

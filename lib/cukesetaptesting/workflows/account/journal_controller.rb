@@ -105,6 +105,77 @@ module Cukesetaptesting
         @view.attachments_upload_button.when_present.click
       end
 
+      def navigate_to_query_page_two
+        @view.click_query_page_two.when_present.click
+      end
+
+      def navigate_to_query_page_one
+        @view.click_query_page_one.when_present.click
+      end
+
+      def zoom_out
+        # @view.browser.send_keys [:control,:subtract]*2
+        @view.browser.send_keys [:command,:subtract]*2
+      end
+
+      def query_scroll_bottom
+        sleep 2
+        @view.content.div(:class,'bb-grid-pagination-container ng-scope').wait_until_present
+        @view.browser.execute_script('arguments[0].scrollIntoView();',@view.content.div(:class,'bb-grid-pagination-container ng-scope'))
+      end
+
+      def press_page_down
+        @view.browser.send_keys :page_down
+      end
+
+      def zoom_reset
+        # @view.browser.send_keys [:control,:subtract]*2
+        @view.browser.send_keys [:command,"0"]
+      end
+
+      def click_add_an_account_button_in_menu
+        @view.add_an_account_button.when_present.click
+      end
+
+      def journal_click_load_more
+        @view.journal_load_more.when_present.click
+      end
+
+      def journal_page_journal_entry_date(value)
+        sleep 5
+        @view.journal_page_journal_entry_grid.when_present.text.include? (value)
+      end
+
+
+      def journal_choose_columns_click
+        @view.journal_choose_columns.when_present.click
+      end
+
+
+      def journal_column_picker_tribute_click
+        @view.journal_column_picker_tribute.when_present.click
+      end
+
+      def journal_apply_changes_click
+        @view.journal_apply_changes.when_present.click
+      end
+
+      def confirm_tribute_column
+        @view.confirm_tribute_column.present?
+      end
+
+      def confirm_account_name
+        @view.confirm_account_name.present?
+      end
+
+      def tribute_account_name_click
+        @view.tribute_account_name.when_present.click
+      end
+
+     def confirm_account_home_page
+       @view.confirm_account_home_page.present?
+     end
+
     end
   end
 end

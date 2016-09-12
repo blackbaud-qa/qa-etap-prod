@@ -124,6 +124,7 @@ And(/^click yes when the notification pops up$/) do
 end
 
 And(/^wait for the journal page to display/) do
+  sleep 30
   journ = Account::Journal.new
   journ.wait_for_page_load
 end
@@ -175,7 +176,7 @@ And (/^I add a credit card gift for ([^']*) dollars to ([^']*)/) do |amount, con
     And set the name on credit card to #{constituent}
 
     And set the Expiration Month to '8'
-    And set the Expiration Year to '2016'
+    And set the Expiration Year to '2025'
     And click Save
     And select Process Transaction from the drop down menu
     And click yes when the notification pops up

@@ -898,6 +898,11 @@ And(/^I set Date of Birth to '([^']*)' on the DIY Page/) do |value|
   diy.live_date_of_birth_set value
 end
 
+And(/^I set Birthdate to '([^']*)' on the DIY Page/) do |value|
+  diy = DIY::Onlineforms.new()
+  diy.live_birthdate_set value
+end
+
 And(/^I set Job Title to '([^']*)' on the DIY Page/) do |value|
   diy = DIY::Onlineforms.new()
   diy.live_job_title_set value
@@ -1051,7 +1056,6 @@ end
 
 And (/^I set the Label field to '([^']*)' on the DIY editor page/) do |value|
   diy = DIY::Onlineforms.new()
-  diy.select_label_text
   diy.delete_label_text
   diy.set_diy_label (value)
 end
