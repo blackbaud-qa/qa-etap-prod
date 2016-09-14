@@ -213,7 +213,7 @@ And(/^the EDH integration has been set up/) do
 
 end
 
-And(/^I verify that a Hero account was imported correctly/) do
+And(/^I verify that an EDH Hero account was imported correctly/) do
   step "I type 'Kimberly Hammer' into the dynamic search field"
   step "I press Enter on the keyboard"
   step "I click on 'Kimberly Hammer' in the search results"
@@ -241,11 +241,9 @@ And(/^I verify that a Hero account was imported correctly/) do
   step "the 'Data Source' should be set to 'EDH Addition'"
 end
 
-And(/^I verify that a Donor account was imported correctly/) do
+And(/^I verify that an EDH Donor account was imported correctly/) do
   step "I type 'Tom' into the dynamic search field"
   step "I press Enter on the keyboard"
-  search = Account::Search.new
-  search.press_enter
   step "I click on 'Tom Barlette' in the search results"
   step "I click on 'Personas' in the account header"
   step "the Address Lines should be set to '14 E. 10th St'"
@@ -287,11 +285,13 @@ end
 
 Then (/^I verify that the EDH API Key is set to '([^']*)'/) do |value|
   intMan = Management::EdhIntegration.new
+  intMan.edit_set_up_click
   expect(intMan.edh_api_key_value).to eq(value)
 end
 
 Then (/^I verify that the default Fund, Campaign, and Approach are set to '([^']*)', '([^']*)', and '([^']*)'/) do |fund,campaign,approach|
   intMan = Management::EdhIntegration.new
+  intMan.edit_mappings_click
   expect(intMan.edh_default_fund_value).to eq(fund)
   expect(intMan.edh_default_campaign_value).to eq(campaign)
   expect(intMan.edh_default_approach_value).to eq(approach)
@@ -326,4 +326,60 @@ end
 And (/^I click cancel on the edit mappings EDH integration modal/) do
   intMan = Management::EdhIntegration.new
   intMan.edh_integration_edit_mappings_cancel_click
+end
+
+And (/^I click the Pause Integration link on the set up EDH integration modal/) do
+  intMan = Management::EdhIntegration.new
+  intMan.edh_pause_integration_link_click
+end
+
+Then (/^I should see the Pause Integration link change to Resume Integration on the set up EDH integration modal/) do
+  intMan = Management::EdhIntegration.new
+  expect(intMan.edh_resume_integration_link_present?).to eq(true)
+end
+
+And (/^I should see a message confirming that the integration was paused/) do
+  intMan = Management::EdhIntegration.new
+  expect(intMan.edh_integration_paused_message_present?).to eq(true)
+end
+
+And (/^I click the Resume Integration link on the set up EDH integration modal/) do
+  intMan = Management::EdhIntegration.new
+  intMan.edh_resume_integration_link_click
+end
+
+Then (/^I should see the Resume Integration link change to Pause Integration on the set up EDH integration modal/) do
+  intMan = Management::EdhIntegration.new
+  expect(intMan.edh_pause_integration_link_present?).to eq(true)
+end
+
+And (/^I verify that an EDH Participation was imported correctly/) do
+  step "I type 'Tom' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on 'Tom Barlette' in the search results"
+  step "I click on 'Journal' in the account header"
+  step "I click on the Participation listed in the journal"
+  step "the date should be set to '9/1/2016'"
+  step "the Participant Goal should be set to '$500.00'on the participation"
+  step "the Display Name should be set to'XXX' on the participation"
+  step "the 'EDH Page ID' should be set to 'XXX'"
+  step "the 'EDH Page URL' should be set to 'XXX'"
+  step "the 'EDH Team Name' should be set to 'XXX'"
+  step "the 'EDH Team URL' should be set to 'XXX'"
+  step "the 'EDH Team Position' should be set to 'XXX'"
+end
+
+And (/^I click on the Participation listed in the journal/) do
+  intMan = Management::EdhIntegration.new
+  intMan.journal_page_participation_link_click
+end
+
+And (/^the Participant Goal should be set to '([^']*)'on the participation/) do |value|
+  intMan = Management::EdhIntegration.new
+  expect(intMan.participant_goal_value).to eq(value)
+end
+
+And (/^the Display Name should be set to '([^']*)'on the participation/) do |value|
+  intMan = Management::EdhIntegration.new
+  expect(intMan.participation_display_name_value).to eq(value)
 end
