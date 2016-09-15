@@ -225,6 +225,38 @@ module Cukesetaptesting
         sleep 1
       end
 
+      def edh_pause_integration_link_click
+        @view.edh_pause_integration_link.when_present.click
+      end
+
+      def edh_resume_integration_link_present?
+        @view.edh_resume_integration_link.present?
+      end
+
+      def edh_integration_paused_message_present?
+        @view.edh_integration_paused_message.present?
+      end
+
+      def edh_resume_integration_link_click
+        @view.edh_resume_integration_link.when_present.click
+      end
+
+      def edh_pause_integration_link_present?
+        @view.edh_pause_integration_link.present?
+      end
+
+      def journal_page_participation_link_click
+        @view.journal_page_participation_link.when_present.click
+      end
+
+      def participant_goal_value
+        @view.participant_goal.when_present.value
+      end
+
+      def participation_display_name_value
+        @view.participation_display_name.when_present.value
+      end
+
     end
   end
 end
