@@ -62,11 +62,13 @@ module Cukesetaptesting
       keyword(:journal_choose_columns) {content.button(:css,'[data-bbauto-field="ColumnPickerButton"]')}
       keyword(:journal_column_picker_tribute) {content.div(:class, 'bb-checklist-wrapper').div(:text, 'Tribute')}
       keyword (:journal_soft_credit)  {content.div(:css,'[data-bbauto-field="specialSelectableColumn-et-plus-softCreditName"]')}
+      keyword (:journal_checkbox_modified_date) {content.div(:css,'[data-bbauto-field="systemDefinedSelectableColumn-et-plus-modifiedDate"]')}
 
       keyword(:journal_apply_changes) {content.button(:class, 'btn btn-primary ng-scope').span(:class, 'ng-binding ng-scope')}
       keyword(:confirm_tribute_column) {content.div(:text,'Tribute')}
      # keyword(:confirm_soft_credit_column) {content.div(:text,'Soft Credit')}
       keyword (:confirm_soft_credit_column)  {content.div(:xpath,'//div[text()="Soft Credit"]')}
+      keyword (:confirm_modified_date_column) {content.div(:xpath,'//div[text()="Last Modified Date"]')}
       keyword(:confirm_account_name) {content.a(:text, 'Cindy Grant')}
       keyword(:confirm_account_name_in_soft_credit_column) {content.a(:text, 'Anne Hatch')}
       keyword(:tribute_account_name) {content.a(:text,'Cindy Grant')}
@@ -82,9 +84,9 @@ module Cukesetaptesting
         content.a(:text=>value)
       end
 
-
-
-
+      def confirm_last_modified_date(value)
+        content.div(:text=>value)
+      end
 
       def journal_attachment_link(value)
         content.div(:class,'ui-jqgrid-bdiv').a(:text, value)

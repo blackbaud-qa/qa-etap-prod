@@ -205,6 +205,19 @@ module Cukesetaptesting
         @view.confirm_account_home_page.present?
       end
 
+      def journal_checkbox_modified_date
+        @view.journal_checkbox_modified_date.when_present.click
+      end
+
+      def confirm_last_modified_date(value)
+       @view.confirm_last_modified_date(value).present?
+      end
+
+      def confirm_modified_date_column
+        @view.confirm_modified_date_column.present?
+      end
+
+
     end
   end
 end
