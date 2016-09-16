@@ -33,6 +33,7 @@ module Cukesetaptesting
       keyword(:first_name_to_no_value_checkbox) {content.checkbox(:id, 'TestEntityRoleForFirstNamesData.fieldEmptyTest')}
       keyword(:query_list) {content.ul(:id, 'list_queries')}
 
+
       def mapping_table_other_fields_row field
           content.table(:id,'mappingTable0').td(:text,field).parent
       end
@@ -47,6 +48,10 @@ module Cukesetaptesting
 
       def mapping_table_business_name_format_row field
         content.table(:id,'mappingTable3').td(:text,field).parent
+      end
+
+      def run_import_link(value)
+        content.ul(:id, 'list_definitions').a(:text, value).parent.parent.div(:class, 'actions').a(:class, 'run')
       end
 
 
