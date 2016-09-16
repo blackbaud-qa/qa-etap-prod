@@ -1,7 +1,7 @@
 @deep_reg
 Feature: Ability to update existing accounts using the account number as the key, without name fields
 
-  Background: I am logged into eTapestry
+  Background:
     Given I login into eTap for deeper regression
 
   Scenario: Successful account number import with address information included, merging duplicates
