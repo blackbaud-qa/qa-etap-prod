@@ -1075,6 +1075,7 @@ And (/I submit an entry on the live contact page$/) do
       And I switch to the new tab in my browser
       And I set the Board Membership to 'Current' on the DIY Donation Page
       And I set Account Type to 'Individual' on the DIY Donation Page
+      And I set Gender to 'Female' on the DIY Donation Page
       And I set Company to 'Blackbaud' on the DIY Page
       And I set Date of Birth to '11/5/1980' on the DIY Page
       And I set Job Title to 'Support Analyst' on the DIY Page
@@ -1131,17 +1132,17 @@ end
 And (/^I change the name of the user defined field '([^']*)' to '([^']*)' on the DIY page$/) do |original_udf_label, new_udf_label|
   steps %Q{
       When I click Management on the main menu
-      And  I click on DIY Forms on the management menu
-      And  I click Edit for the form titled 'Existing Contact Page WITH Address Fields'
-      And  I hover over '#{original_udf_label}' field on the DIY editor page
-      And  I click the pencil icon that appears on the DIY editor page
-      And  I set the Label field to '#{new_udf_label}' on the DIY editor page
-      And  I click Update on the DIY Edit Field modal
-      And  I click Save on the DIY editor page
-      And  I confirm saving my changes
-      And  I click Go Live on the DIY editor page
-      And  I click Yes, Go Live! on the DIY editor page
-      And  I click Replace on the DIY editor page
+      And I click on DIY Forms on the management menu
+      And I click Edit for the form titled 'Existing Contact Page WITH Address Fields'
+      And I hover over '#{original_udf_label}' field on the DIY editor page
+      And I click the pencil icon that appears on the DIY editor page
+      And I set the Label field to '#{new_udf_label}' on the DIY editor page
+      And I click Update on the DIY Edit Field modal
+      And I click Save on the DIY editor page
+      And I confirm saving my changes
+      And I click Go Live on the DIY editor page
+      And I click Yes, Go Live! on the DIY editor page
+      And I click Replace on the DIY editor page
   }
 end
 
@@ -1172,6 +1173,7 @@ And (/^I submit an entry on the live edited contact page$/) do
       And I switch to the new tab in my browser
       And I set the Board Membership to 'Former' on the DIY Donation Page
       And I set Account Type to 'Individual' on the DIY Donation Page
+      And I set Gender to 'Female' on the DIY Donation Page
       And I set Company to 'Microsoft' on the DIY Page
       And I set Birthdate to '10/5/1984' on the DIY Page
       And I set Job Title to 'SQE' on the DIY Page
@@ -1224,3 +1226,234 @@ And (/^I verify that the DIY contact submission via the edited contact page was 
   }
 end
 
+When (/^I make edits to an existing diy event page$/) do
+        landing = Admin::Landing.new
+        landing.management_click
+        sleep 2
+        landing = Admin::Landing.new
+        landing.management_dd_diy_click
+   step "I click Edit for the form titled 'Existing Event Page'"
+        sleep 3
+        diy = DIY::Onlineforms.new()
+        diy.edit_style_click
+        diy = DIY::Onlineforms.new()
+        diy.swap_template_click
+        diy = DIY::Onlineforms.new()
+        diy.choose_float_template_click
+        diy = DIY::Onlineforms.new()
+        diy.swap_to_this_template_click
+        sleep 3
+        diy = DIY::Onlineforms.new()
+        diy.edit_style_click
+        diy = DIY::Onlineforms.new()
+        diy.title_font_comic_sans_set
+        diy.title_font_20pt_set
+        diy = DIY::Onlineforms.new(:background_color=>'#EEEEEE')
+        diy.create
+        diy = DIY::Onlineforms.new()
+        diy.edit_update_click
+        sleep 10
+        diy = DIY::Onlineforms.new()
+        diy.edit_settings_click
+        diy = DIY::Onlineforms.new
+        diy.unmark_include_comments_box
+        sleep 3
+        diy = DIY::Onlineforms.new()
+        diy.settings_update_click
+        diy = DIY::Onlineforms.new()
+        diy.add_item_click
+        diy = DIY::Onlineforms.new()
+        diy.add_fields_click
+   step "I select 'Base' for the field category on the DIY editor page"
+   step "I click 'Board Membership' on the DIY editor page"
+   step "I click 'Date of Birth' on the DIY editor page"
+        diy = DIY::Onlineforms.new()
+        diy.fields_update_click
+        diy = DIY::Onlineforms.new()
+        diy.add_item_click
+        diy = DIY::Onlineforms.new()
+        diy.add_text_click
+        diy = DIY::Onlineforms.new()
+        diy.update_default_text
+        diy = DIY::Onlineforms.new()
+        diy.update_text_click
+        sleep 2
+        diy = DIY::Onlineforms.new()
+        diy.diy_save_click
+        sleep 2
+        diy = DIY::Onlineforms.new()
+        diy.diy_save_confirm_click
+        sleep 2
+        diy = DIY::Onlineforms.new()
+        diy.go_live_click
+        diy = DIY::Onlineforms.new()
+        diy.go_live_confirm_click
+        sleep 10
+        diy = DIY::Onlineforms.new()
+        diy.donation_page_replace_click
+        sleep 30
+end
+
+And (/I submit an entry on the live event page$/) do
+  step "I click on the link for the form titled Existing Event Page"
+       sleep 3
+       diy = DIY::Onlineforms.new()
+       diy.switch_tab
+  steps %Q{
+      And I set the Ticket Quantity to '4' on the DIY Event Page
+      And I set Account Type to 'Individual' on the DIY Donation Page
+      And I set Date of Birth to '10/10/1982' on the DIY Page
+      And I set the Board Membership to 'Current' on the DIY Donation Page
+      And I set the Title to 'Mr.' on the DIY Donation Page
+      And I set First Name to 'Harry' on the DIY Donation Page
+      And I set Middle Name to 'James' on the DIY Donation Page
+      And I set Last Name to 'Smith' on the DIY Donation Page
+      And I set Country to 'United States' on the DIY Donation Page
+      And I set Address Lines to '1545 Summers Drive' on the DIY Donation Page
+      And I set City to 'Indianapolis' on the DIY Donation Page
+      And I set State to 'Indiana' on the DIY Donation Page
+      And I set Postal Code to '46259' on the DIY Donation Page
+      And I set Email to 'test@test.com' on the DIY Donation Page
+      And I set Confirm Email to 'test@test.com' on the DIY Donation Page
+      And I set Phone to '458-999-9875' on the DIY Donation Page
+      And I set the Card Type to 'Visa' on the DIY Donation Page
+      And I set Name on Card to 'Harry Smith' on the DIY Donation Page
+      And I set Card Number to '4111111111111111' on the DIY Donation Page
+      And I set CVV2 to '123' on the DIY Donation Page
+      And I set Expiration Month to '02' on the DIY Donation Page
+      And I set Expiration Year to '2033' on the DIY Donation Page
+}
+     diy = DIY::Onlineforms.new()
+     diy.live_submit_click
+     diy = DIY::Onlineforms.new()
+     expect(diy.live_transaction_successful?).to eq(true)
+     diy = DIY::Onlineforms.new()
+     diy.close_current_tab
+end
+
+And (/I verify that the DIY event submission was created correctly$/) do
+  steps %Q{
+      And I type 'Harry Smith' into the dynamic search field
+      And I press Enter on the keyboard
+      And I click on 'Harry James Smith' in the search results
+      And I click on 'Personas' in the account header
+      And the Address Lines should be set to '1545 Summers Drive'
+      And the City should be set to 'Indianapolis'
+      And the State should be set to 'IN'
+      And the Postal Code should be set to '46259'
+      And the Voice should be set to '458-999-9875'
+      And the Email should be set to 'test@test.com'
+      And the Short Salutation should be set to 'Harry'
+      And the Long Salutation should be set to 'Mr. Smith'
+      And the Envelope Salutation should be set to 'Mr. Harry James Smith'
+      And I click on 'Journal' in the account header
+      And I click on the Gift listed in the journal
+      And the date field on the transaction screen should be populated with Today
+      And the Received Amount should be set to '$100.00'
+      And the Non-Deductible Amount should be set to the '$40.00'
+      And the Fund should be set to 'General'
+      And the Campaign should be set to 'Annual'
+      And the Approach should be set to 'Unsolicited'
+      And I click Gift Types
+      And I should see the message 'Credit/Debit Card has been processed via' on the recurring gift screen
+      And I should see the message 'eCommerce Page' on the recurring gift screen
+      And I click on the User Defined Fields section on the new payment page
+      And I should see 'DIY Test Page' set to 'Existing Event Page' on the payment page
+      And I should see 'Ticket Quantity' set to '4' on the payment page
+      And I click on 'Defined Fields' in the account header
+      And I should see 'Account Type' set to 'Individual' on the payment page
+      And I should see 'Date of Birth' set to '10/10/1982' on the payment page
+      And I should see 'Board Membership' set to 'Current' on the payment page
+  }
+end
+
+And (/^I change the name of the user defined field '([^']*)' to '([^']*)' on the DIY Event page$/) do |original_udf_label, new_udf_label|
+  steps %Q{
+      When I click Management on the main menu
+      And I click on DIY Forms on the management menu
+      And I click Edit for the form titled 'Existing Event Page'
+      And I hover over '#{original_udf_label}' field on the DIY editor page
+      And I click the pencil icon that appears on the DIY editor page
+      And I set the Label field to '#{new_udf_label}' on the DIY editor page
+      And I click Update on the DIY Edit Field modal
+      And I click Save on the DIY editor page
+      And I confirm saving my changes
+      And I click Go Live on the DIY editor page
+      And I click Yes, Go Live! on the DIY editor page
+      And I click Replace on the DIY editor page
+  }
+end
+
+And (/I submit an entry on the live edited event page$/) do
+  step "I click on the link for the form titled Existing Event Page"
+  sleep 3
+  diy = DIY::Onlineforms.new()
+  diy.switch_tab
+  steps %Q{
+      And I set the Ticket Quantity to '2' on the DIY Event Page
+      And I set Account Type to 'Individual' on the DIY Donation Page
+      And I set Birthdate to '12/10/1974' on the DIY Page
+      And I set the Board Membership to 'Former' on the DIY Donation Page
+      And I set the Title to 'Mr.' on the DIY Donation Page
+      And I set First Name to 'Frank' on the DIY Donation Page
+      And I set Middle Name to 'David' on the DIY Donation Page
+      And I set Last Name to 'Flynn' on the DIY Donation Page
+      And I set Country to 'United States' on the DIY Donation Page
+      And I set Address Lines to '5667 Frost Street' on the DIY Donation Page
+      And I set City to 'Indianapolis' on the DIY Donation Page
+      And I set State to 'Indiana' on the DIY Donation Page
+      And I set Postal Code to '46223' on the DIY Donation Page
+      And I set Email to 'test@test.com' on the DIY Donation Page
+      And I set Confirm Email to 'test@test.com' on the DIY Donation Page
+      And I set Phone to '588-777-8962' on the DIY Donation Page
+      And I set the Card Type to 'Visa' on the DIY Donation Page
+      And I set Name on Card to 'Frank Flynn' on the DIY Donation Page
+      And I set Card Number to '4111111111111111' on the DIY Donation Page
+      And I set CVV2 to '123' on the DIY Donation Page
+      And I set Expiration Month to '02' on the DIY Donation Page
+      And I set Expiration Year to '2033' on the DIY Donation Page
+}
+      diy = DIY::Onlineforms.new()
+      diy.live_submit_click
+      diy = DIY::Onlineforms.new()
+      expect(diy.live_transaction_successful?).to eq(true)
+      diy = DIY::Onlineforms.new()
+      diy.close_current_tab
+
+end
+
+And (/^I verify that the DIY event submission via the edited event page was created correctly$/) do
+  steps %Q{
+      And I type 'Frank Flynn' into the dynamic search field
+      And I press Enter on the keyboard
+      And I click on 'Frank David Flynn' in the search results
+      And I click on 'Personas' in the account header
+      And the Address Lines should be set to '5667 Frost Street'
+      And the City should be set to 'Indianapolis'
+      And the State should be set to 'IN'
+      And the Postal Code should be set to '46223'
+      And the Voice should be set to '588-777-8962'
+      And the Email should be set to 'test@test.com'
+      And the Short Salutation should be set to 'Frank'
+      And the Long Salutation should be set to 'Mr. Flynn'
+      And the Envelope Salutation should be set to 'Mr. Frank David Flynn'
+      And I click on 'Journal' in the account header
+      And I click on the Gift listed in the journal
+      And the date field on the transaction screen should be populated with Today
+      And the Received Amount should be set to '$50.00'
+      And the Non-Deductible Amount should be set to the '$20.00'
+      And the Fund should be set to 'General'
+      And the Campaign should be set to 'Annual'
+      And the Approach should be set to 'Unsolicited'
+      And I click Gift Types
+      And I should see the message 'Credit/Debit Card has been processed via' on the recurring gift screen
+      And I should see the message 'eCommerce Page' on the recurring gift screen
+      And I click on the User Defined Fields section on the new payment page
+      And I should see 'DIY Test Page' set to 'Existing Event Page' on the payment page
+      And I should see 'Ticket Quantity' set to '2' on the payment page
+      And I click on 'Defined Fields' in the account header
+      And I should see 'Account Type' set to 'Individual' on the payment page
+      And I should see 'Date of Birth' set to '12/10/1974' on the payment page
+      And I should see 'Board Membership' set to 'Former' on the payment page
+  }
+end

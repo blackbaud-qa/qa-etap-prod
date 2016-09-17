@@ -1,4 +1,4 @@
-#@crit_proc7
+@crit_proc7
 Feature: Edit a diy volunteer page
 
   Background:
@@ -105,6 +105,4 @@ Feature: Edit a diy volunteer page
     And I click on 'Defined Fields' in the account header
     Then I should see 'Volunteer Availability' set to 'As Needed' on the payment page
     And the 'Date of Birth' should be set to '2/8/1984'
-
-    And I click
 

@@ -1,4 +1,4 @@
-#@crit_proc7
+@crit_proc7
 Feature: Edit a diy contact page
 
   Background:
