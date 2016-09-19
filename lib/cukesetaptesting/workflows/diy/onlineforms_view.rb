@@ -294,6 +294,10 @@ module Cukesetaptesting
         content.a(:text, approach)
       end
 
+      def diy_udf(udf)
+        content.h6(:text, udf)
+      end
+
       def home(model)
       end
 

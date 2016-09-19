@@ -1,8 +1,11 @@
 @sprint
 Feature: EDH Integration - Ongoing Management
 
+  # TODO: Update Knightrider and Fullhouse Databases
+
   Background:
-    Given I login into eTap for CP2
+#    Given I login into eTap for CP2
+    Given I login into eTap a second time with values 'kim.kr.wealth', 'abc123'
 
   Scenario: EDH Integration - Change Notifications Email Address
     When I click Management on the main menu

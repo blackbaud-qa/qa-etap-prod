@@ -1049,3 +1049,8 @@ And (/^I should see Birthdate on the edited DIY page$/) do
   diy = DIY::Onlineforms.new()
   expect(diy.birthdate_diy?).to eq(true)
 end
+
+And (/^I set the '([^']*)' UDF to '([^']*)' on the DIY page/) do |udf, value|
+  diy = DIY::Onlineforms.new()
+  diy.set_diy_udf_to_value(udf,value)
+end

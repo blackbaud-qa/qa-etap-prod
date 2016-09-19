@@ -76,4 +76,3 @@ Feature: Trim leading/trailing spaces from the mapping formulas on step 2 of the
     And I verify that the account for Danielle D Davidson has been imported correctly
     And I verify that the account for Ellie Anne D Von Elder has been imported correctly
 
-
