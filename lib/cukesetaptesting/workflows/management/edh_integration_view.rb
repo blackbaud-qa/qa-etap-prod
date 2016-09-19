@@ -46,10 +46,14 @@ module Cukesetaptesting
       keyword(:edh_integration_edit_mappings_cancel) {content.button(:id, 'edhMappingsModalCancel')}
       keyword(:edh_pause_integration_link) {content.button(:id, 'edhPauseIntegrationLink')}
       keyword(:edh_resume_integration_link) {content.button(:id, 'edhResumeIntegrationLink')}
-      keyword(:edh_integration_paused_message) {content.bb-alert(:id, 'edhPausedAlert')}
+      keyword(:edh_integration_paused_message) {content.div(:class, 'alert alert-warning')}
       keyword(:journal_page_participation_link) {content.div(:class, 'ui-jqgrid-bdiv').a(:text, 'Participation')}
       keyword(:participant_goal) {content.text_field(:name, 'goal')}
       keyword(:participation_display_name) {content.text_field(:name, 'eventParticipation.displayNameNoDefault')}
+      keyword(:invalid_api_message) {content.div(:class, 'alert alert-danger')}
+      keyword(:new_fund_name) {content.text_field(:name, 'name')}
+      keyword(:new_campaign_name) {content.text_field(:name, 'name')}
+      keyword(:new_approach_name) {content.text_field(:name, 'name')}
 
 
       def home(model)

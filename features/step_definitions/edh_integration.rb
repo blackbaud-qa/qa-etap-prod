@@ -292,30 +292,27 @@ end
 Then (/^I verify that the default Fund, Campaign, and Approach are set to '([^']*)', '([^']*)', and '([^']*)'/) do |fund,campaign,approach|
   intMan = Management::EdhIntegration.new
   intMan.edit_mappings_click
-  expect(intMan.edh_default_fund_value).to eq(fund)
-  expect(intMan.edh_default_campaign_value).to eq(campaign)
-  expect(intMan.edh_default_approach_value).to eq(approach)
+  expect(intMan.edh_default_fund_value(fund)).to eq(true)
+  expect(intMan.edh_default_campaign_value(campaign)).to eq(true)
+  expect(intMan.edh_default_approach_value(approach)).to eq(true)
 end
 
 And (/^I add '([^']*)' as a new Fund/) do |value|
-  intMan = Management::EdhIntegration.new(:new_fund_name=>value)
+  intMan = Management::EdhIntegration.new
   intMan.new_fund_link_click
-  intMan.create
-  step "And I click Save And 'View all Funds'"
+  intMan.set_new_fund_name(value)
 end
 
 And (/^I add '([^']*)' as a new Campaign/) do |value|
-  intMan = Management::EdhIntegration.new(:new_campaign_name=>value)
+  intMan = Management::EdhIntegration.new
   intMan.new_campaign_link_click
-  intMan.create
-  step "And I click Save And 'View all Campaigns'"
+  intMan.set_new_campaign_name(value)
 end
 
 And (/^I add '([^']*)' as a new Approach/) do |value|
-  intMan = Management::EdhIntegration.new(:new_approach_name=>value)
+  intMan = Management::EdhIntegration.new
   intMan.new_approach_link_click
-  intMan.create
-  step "And I click Save And 'View all Approaches'"
+  intMan.set_new_approach_name(value)
 end
 
 And (/the Save and Close button should be disabled on the set up edit mappings EDH integration modal/) do
@@ -382,4 +379,24 @@ end
 And (/^the Display Name should be set to '([^']*)'on the participation/) do |value|
   intMan = Management::EdhIntegration.new
   expect(intMan.participation_display_name_value).to eq(value)
+end
+
+And (/^I change the edh email to '([^']*)' in the EDH Basic Integrations Settings pop up/) do |value|
+  intMan = Management::EdhIntegration.new
+  intMan.change_edh_notification_email_address(value)
+end
+
+And (/^I change the edh API to '([^']*)' in the EDH Basic Integrations Settings pop up/) do |value|
+  intMan = Management::EdhIntegration.new
+  intMan.change_edh_api_key(value)
+end
+
+And (/^I should see the edh warning message '([^']*)'/) do |value|
+  intMan = Management::EdhIntegration.new
+  expect(intMan.invalid_api_message_visible(value)).to eq(true)
+end
+
+And (/^I click Save & Close on the set up EDH campaign mapping modal/) do
+  intMan = Management::EdhIntegration.new
+  intMan.click_save_and_close_mappings_modal
 end

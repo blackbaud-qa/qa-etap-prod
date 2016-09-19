@@ -295,7 +295,7 @@ module Cukesetaptesting
       end
 
       def diy_udf(udf)
-        content.h6(:text, udf)
+        browser.h6(:class=>'simplefieldType',:text=> udf).parent.parent.text_field
       end
 
       def home(model)
