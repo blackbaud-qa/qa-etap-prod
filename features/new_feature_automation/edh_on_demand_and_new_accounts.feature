@@ -4,12 +4,13 @@ Feature: EDH Integration - On Demand Import and Creating New Constituent Account
   # TODO: Update Knightrider and Fullhouse Databases
 
   Background:
-    Given I login into eTap for CP3
+#    Given I login into eTap for CP3
+    Given I login into eTap with values 'kim.kr.wealth', 'abc123'
 
   Scenario: EDH Integration - Run On Demand Import and Verify New Accounts
     When I click Management on the main menu
     And I click on Integrations on the management menu
-#    And the EDH integration has been set up
+    And I click the Resume Integration link on the set up EDH integration modal
     #TODO: update import now link placeholder
     And I click import now on the everydayhero integration tile
     Then I wait for the edh import to finish successfully
