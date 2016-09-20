@@ -164,12 +164,16 @@ module Cukesetaptesting
       keyword(:choose_float_template) {content.h6(:class=>'ecommTemplateName', :text=>'Float')}
       keyword(:unmark_include_comments_box) {content.input(:id, 'includeCommentsBox')}
       keyword(:date_of_birth_diy){browser.h6(:id, 'label')}
-      keyword(:date_of_birth_field_edit) {content.div(:id, 'newUdfRegion')}
       keyword(:select_label_text) {content.div(:class, 'popupWindow').parent.text_field(:id, 'label')}
       keyword(:set_diy_label) {content.div(:class, 'popupWindow').parent.text_field(:id, 'label')}
       keyword(:update_button_diy_edit_field) {content.span(:class=>'titleText',:text=>'Edit Date of Birth').parent.parent.button(:id=>'save')}
       keyword(:birthdate_diy){browser.h6(:id, 'label')}
       keyword(:live_birthdate) {browser.h6(:class=>'simplefieldType',:text=>'Birthdate').parent.parent.text_field}
+      keyword(:live_board_membership) {browser.h6(:class=>'dropdownType',:text=>'Board Membership').parent.parent.select}
+
+      def diy_udf(value)
+        content.h6(:id=> 'label',:text=> value)
+      end
 
 
       def diy_page_link page_name

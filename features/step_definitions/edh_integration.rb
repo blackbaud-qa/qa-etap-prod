@@ -193,7 +193,7 @@ And(/^I click on the Edit Mappings button on the integrations page$/) do
   intMan.edit_mappings_click
 end
 
-And(/^the EDH integration has been set up/) do
+And(/^the EDH integration has been set up$/) do
   intMan = Management::EdhIntegration.new
 
   if expect(intMan.edh_start_import_button_enabled?).to eq(false)
@@ -213,7 +213,7 @@ And(/^the EDH integration has been set up/) do
 
 end
 
-And(/^I verify that an EDH Hero account was imported correctly/) do
+And(/^I verify that an EDH Hero account was imported correctly$/) do
   step "I type 'Kimberly Hammer' into the dynamic search field"
   step "I press Enter on the keyboard"
   step "I click on 'Kimberly Hammer' in the search results"
@@ -241,7 +241,7 @@ And(/^I verify that an EDH Hero account was imported correctly/) do
   step "the 'Data Source' should be set to 'EDH Addition'"
 end
 
-And(/^I verify that an EDH Donor account was imported correctly/) do
+And(/^I verify that an EDH Donor account was imported correctly$/) do
   step "I type 'Tom' into the dynamic search field"
   step "I press Enter on the keyboard"
   step "I click on 'Tom Barlette' in the search results"
@@ -267,29 +267,29 @@ And(/^I verify that an EDH Donor account was imported correctly/) do
   step "the 'Data Source' should be set to 'EDH Addition'"
 end
 
-And (/^I click import now on the everydayhero integration tile/) do
+And (/^I click import now on the everydayhero integration tile$/) do
   intMan = Management::EdhIntegration.new
   intMan.import_now_link_click
 end
 
-Then (/^I wait for the edh import to finish successfully/) do
+Then (/^I wait for the edh import to finish successfully$/) do
   intMan = Management::EdhIntegration.new
   intMan.import_finish_successfully_wait
 end
 
-Then (/^I verify that the EDH Notifications Email Address is set to '([^']*)'/) do |value|
+Then (/^I verify that the EDH Notifications Email Address is set to '([^']*)'$/) do |value|
   intMan = Management::EdhIntegration.new
   intMan.edit_set_up_click
   expect(intMan.edh_notifications_email_address).to eq(value)
 end
 
-Then (/^I verify that the EDH API Key is set to '([^']*)'/) do |value|
+Then (/^I verify that the EDH API Key is set to '([^']*)'$/) do |value|
   intMan = Management::EdhIntegration.new
   intMan.edit_set_up_click
   expect(intMan.edh_api_key_value).to eq(value)
 end
 
-Then (/^I verify that the default Fund, Campaign, and Approach are set to '([^']*)', '([^']*)', and '([^']*)'/) do |fund,campaign,approach|
+Then (/^I verify that the default Fund, Campaign, and Approach are set to '([^']*)', '([^']*)', and '([^']*)'$/) do |fund,campaign,approach|
   intMan = Management::EdhIntegration.new
   intMan.edit_mappings_click
   expect(intMan.edh_default_fund_value(fund)).to eq(true)
@@ -315,42 +315,42 @@ And (/^I add '([^']*)' as a new Approach/) do |value|
   intMan.set_new_approach_name(value)
 end
 
-And (/the Save and Close button should be disabled on the set up edit mappings EDH integration modal/) do
+And (/the Save and Close button should be disabled on the set up edit mappings EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   expect(intMan.edh_integration_edit_mappings_save_enabled?).to eq(false)
 end
 
-And (/^I click cancel on the edit mappings EDH integration modal/) do
+And (/^I click cancel on the edit mappings EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   intMan.edh_integration_edit_mappings_cancel_click
 end
 
-And (/^I click the Pause Integration link on the set up EDH integration modal/) do
+And (/^I click the Pause Integration link on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   intMan.edh_pause_integration_link_click
 end
 
-Then (/^I should see the Pause Integration link change to Resume Integration on the set up EDH integration modal/) do
+Then (/^I should see the Pause Integration link change to Resume Integration on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   expect(intMan.edh_resume_integration_link_present?).to eq(true)
 end
 
-And (/^I should see a message confirming that the integration was paused/) do
+And (/^I should see a message confirming that the integration was paused$/) do
   intMan = Management::EdhIntegration.new
   expect(intMan.edh_integration_paused_message_present?).to eq(true)
 end
 
-And (/^I click the Resume Integration link on the set up EDH integration modal/) do
+And (/^I click the Resume Integration link on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   intMan.edh_resume_integration_link_click
 end
 
-Then (/^I should see the Resume Integration link change to Pause Integration on the set up EDH integration modal/) do
+Then (/^I should see the Resume Integration link change to Pause Integration on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   expect(intMan.edh_pause_integration_link_present?).to eq(true)
 end
 
-And (/^I verify that an EDH Participation was imported correctly/) do
+And (/^I verify that an EDH Participation was imported correctly$/) do
   step "I type 'Tom' into the dynamic search field"
   step "I press Enter on the keyboard"
   step "I click on 'Tom Barlette' in the search results"
@@ -366,17 +366,17 @@ And (/^I verify that an EDH Participation was imported correctly/) do
   step "the 'EDH Team Position' should be set to 'XXX'"
 end
 
-And (/^I click on the Participation listed in the journal/) do
+And (/^I click on the Participation listed in the journal$/) do
   intMan = Management::EdhIntegration.new
   intMan.journal_page_participation_link_click
 end
 
-And (/^the Participant Goal should be set to '([^']*)'on the participation/) do |value|
+And (/^the Participant Goal should be set to '([^']*)'on the participation$/) do |value|
   intMan = Management::EdhIntegration.new
   expect(intMan.participant_goal_value).to eq(value)
 end
 
-And (/^the Display Name should be set to '([^']*)'on the participation/) do |value|
+And (/^the Display Name should be set to '([^']*)'on the participation$/) do |value|
   intMan = Management::EdhIntegration.new
   expect(intMan.participation_display_name_value).to eq(value)
 end
