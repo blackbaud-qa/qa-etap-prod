@@ -1,4 +1,4 @@
-#@crit_proc7
+@crit_proc7
 Feature: Edit a diy volunteer page
 
   Background:
@@ -66,7 +66,7 @@ Feature: Edit a diy volunteer page
     And I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Existing Volunteer Page'
-    And I hover over the Date of Birth field on the DIY editor page
+    And I hover over 'Date of Birth' field on the DIY editor page
     And I click the pencil icon that appears on the DIY editor page
     And I set the Label field to 'Birthdate' on the DIY editor page
     And I click Update on the DIY Edit Field modal
