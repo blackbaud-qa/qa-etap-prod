@@ -285,6 +285,34 @@ module Cukesetaptesting
         @view.new_approach_name.when_present.set value
       end
 
+      def import_now_confirm_button_click
+        @view.import_now_confirm_button.when_present.click
+      end
+
+      def participation_fundraiser_drop_down_value
+        @view.participation_fundraiser_drop_down.value
+      end
+
+      def participation_fundraiser_date_value
+        @view.participation_fundraiser_date.when_present.value
+      end
+
+      def specific_journal_entry_click(value)
+        @view.specific_journal_entry(value).when_present.click
+      end
+
+      def gift_fundraiser_donation_message_value
+        @view.gift_fundraiser_donation_message.value
+      end
+
+      def gift_receipt_field_value
+        @view.gift_receipt_field.value
+      end
+
+      def gift_date_value
+        @view.gift_date.when_present.value
+      end
+
     end
   end
 end

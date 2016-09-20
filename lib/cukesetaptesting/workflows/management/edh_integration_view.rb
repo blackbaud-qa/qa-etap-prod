@@ -37,7 +37,7 @@ module Cukesetaptesting
       keyword(:edh_integration_modal_error) {content.div(:id,'<placeholderID>')}
       keyword(:api_key_validation) {content.div(:id, '<placeholderID>')}
       keyword(:edh_email_validation) {content.div(:id, '<placeholderID>')}
-      keyword(:import_now_link) {content.div(:id, '<placeholderID>')}
+      keyword(:import_now_link) {content.button(:id, 'edhImportNowButton')}
       keyword(:import_finish_successfully_message) {content.div(:class, 'alert alert-success alert-dismissible')}
       keyword(:new_fund_link) {content.a(:href, 'editIntent.do')}
       keyword(:new_campaign_link) {content.a(:href, 'editCampaign.do')}
@@ -49,12 +49,22 @@ module Cukesetaptesting
       keyword(:edh_integration_paused_message) {content.div(:class, 'alert alert-warning')}
       keyword(:journal_page_participation_link) {content.div(:class, 'ui-jqgrid-bdiv').a(:text, 'Participation')}
       keyword(:participant_goal) {content.text_field(:name, 'goal')}
-      keyword(:participation_display_name) {content.text_field(:name, 'eventParticipation.displayNameNoDefault')}
+      keyword(:participation_display_name) {content.input(:name, 'eventParticipation.displayNameNoDefault')}
       keyword(:invalid_api_message) {content.div(:class, 'alert alert-danger')}
       keyword(:new_fund_name) {content.text_field(:name, 'name')}
       keyword(:new_campaign_name) {content.text_field(:name, 'name')}
       keyword(:new_approach_name) {content.text_field(:name, 'name')}
+      keyword(:import_now_confirm_button) {content.button(:id, 'importNowConfirm')}
+      keyword(:participation_fundraiser_drop_down) {content.input(:id, 'eventRef_comboText')}
+      keyword(:participation_fundraiser_date) {content.text_field(:name, 'datePopulate(eventParticipation.date)')}
+      keyword(:gift_fundraiser_donation_message) {content.input(:name, 'donorMessage')}
+      keyword(:gift_receipt_field) {content.input(:name, 'receiptId')}
+      keyword(:gift_date) {content.input(:id, 'date')}
 
+
+      def specific_journal_entry(value)
+        content.div(:class, 'ui-jqgrid-bdiv').a(:text, value)
+      end
 
       def home(model)
       end

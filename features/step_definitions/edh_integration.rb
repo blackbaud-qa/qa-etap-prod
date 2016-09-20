@@ -222,11 +222,11 @@ And(/^I verify that an EDH Hero account was imported correctly$/) do
   step "the City should be set to 'Carmel'"
   step "the State should be set to 'IN'"
   step "the Postal Code should be set to '46032'"
-  step "the Voice should be set to '(317) 495-5697'"
+  step "the Voice should be set to '+1 3174955697'"
   step "the Email should be set to 'kimberly.hammer@blackbaud.com'"
   step "the Short Salutation should be set to 'Kimberly'"
-  step "the Long Salutation should be set to 'Mrs. Hammer'"
-  step "the Envelope Salutation should be set to 'Mrs. Kimberly Hammer'"
+  step "the Long Salutation should be set to 'Kimberly Hammer'"
+  step "the Envelope Salutation should be set to 'Kimberly Hammer'"
   step "I click on 'Account Settings' in the account header"
   step "the Name Format value should be set to 'Individual'"
   step "the First Name should be set to 'Kimberly'"
@@ -236,7 +236,7 @@ And(/^I verify that an EDH Hero account was imported correctly$/) do
   step "the Recognition Name should be set to 'Kimberly Hammer'"
   step "the Recognition Type should be set to '(account name)'"
   step "I click on 'Defined Fields' in the account header"
-  step "the 'EDH Account Id' should be set to 'XXX'"
+  step "the 'EDH Account Id' should be set to '45728f06-73f9-42bc-9844-a6ba1c70dd0a'"
   step "the 'EDH Account Type' should be set to 'Hero'"
   step "the 'Data Source' should be set to 'EDH Addition'"
 end
@@ -252,8 +252,8 @@ And(/^I verify that an EDH Donor account was imported correctly$/) do
   step "the Postal Code should be set to '46034'"
   step "the Email should be set to 'kimberly.hammer@blackbaud.com'"
   step "the Short Salutation should be set to 'Tom'"
-  step "the Long Salutation should be set to 'Mr. Barlette'"
-  step "the Envelope Salutation should be set to 'Mr. Tom Barlette'"
+  step "the Long Salutation should be set to 'Tom Barlette'"
+  step "the Envelope Salutation should be set to 'Tom Barlette'"
   step "I click on 'Account Settings' in the account header"
   step "the Name Format value should be set to 'Individual'"
   step "the First Name should be set to 'Tom'"
@@ -264,12 +264,14 @@ And(/^I verify that an EDH Donor account was imported correctly$/) do
   step "the Recognition Type should be set to '(account name)'"
   step "I click on 'Defined Fields' in the account header"
   step "the 'EDH Account Type' should be set to 'Donor'"
+  step "the 'EDH Communication Preferences' should be set to 'Opt-In'"
   step "the 'Data Source' should be set to 'EDH Addition'"
 end
 
 And (/^I click import now on the everydayhero integration tile$/) do
   intMan = Management::EdhIntegration.new
   intMan.import_now_link_click
+  intMan.import_now_confirm_button_click
 end
 
 Then (/^I wait for the edh import to finish successfully$/) do
@@ -351,19 +353,21 @@ Then (/^I should see the Resume Integration link change to Pause Integration on 
 end
 
 And (/^I verify that an EDH Participation was imported correctly$/) do
-  step "I type 'Tom' into the dynamic search field"
+  step "I type 'Joe' into the dynamic search field"
   step "I press Enter on the keyboard"
-  step "I click on 'Tom Barlette' in the search results"
+  step "I click on 'Joe Runner' in the search results"
   step "I click on 'Journal' in the account header"
   step "I click on the Participation listed in the journal"
-  step "the date should be set to '9/1/2016'"
-  step "the Participant Goal should be set to '$500.00'on the participation"
-  step "the Display Name should be set to'XXX' on the participation"
-  step "the 'EDH Page ID' should be set to 'XXX'"
-  step "the 'EDH Page URL' should be set to 'XXX'"
-  step "the 'EDH Team Name' should be set to 'XXX'"
-  step "the 'EDH Team URL' should be set to 'XXX'"
-  step "the 'EDH Team Position' should be set to 'XXX'"
+  step "the date on the Participation should be set to '8/25/2016'"
+  step "the Fundraiser should be set to 'Running with eTapestry 2016'"
+  step "the Participant Goal should be set to '$1,000.00'on the participation"
+  step "the Display Name should be set to 'Help Me Support eTapestry!' on the participation"
+  step "the 'EDH Page Id' should be set to 'edc1e64c-0004-4000-8000-0000000495fb'"
+  step "the 'EDH Page URL' should be set to 'https://running-with-etapestry-2016.everydayhero-staging.com/us/help-me-support-etapestry'"
+  step "the 'EDH Team Name' should be set to 'Team Blackbaud Employees'"
+  step "the 'EDH Team URL' should be set to 'https://running-with-etapestry-2016.everydayhero-staging.com/us/team-blackbaud-employees'"
+  step "the 'EDH Team Position' should be set to 'Leader'"
+  step "the 'Data Source' should be set to 'EDH Addition'"
 end
 
 And (/^I click on the Participation listed in the journal$/) do
@@ -376,7 +380,7 @@ And (/^the Participant Goal should be set to '([^']*)'on the participation$/) do
   expect(intMan.participant_goal_value).to eq(value)
 end
 
-And (/^the Display Name should be set to '([^']*)'on the participation$/) do |value|
+And (/^the Display Name should be set to '([^']*)' on the participation$/) do |value|
   intMan = Management::EdhIntegration.new
   expect(intMan.participation_display_name_value).to eq(value)
 end
@@ -399,4 +403,63 @@ end
 And (/^I click Save & Close on the set up EDH campaign mapping modal/) do
   intMan = Management::EdhIntegration.new
   intMan.click_save_and_close_mappings_modal
+end
+
+And (/^the Fundraiser should be set to '([^']*)'$/) do |value|
+  intMan = Management::EdhIntegration.new
+  expect(intMan.participation_fundraiser_drop_down_value).to eq(value)
+end
+
+And (/^the date on the Participation should be set to '([^']*)'$/) do |value|
+  intMan = Management::EdhIntegration.new
+  expect(intMan.participation_fundraiser_date_value).to eq(value)
+end
+
+And (/^I verify that an EDH Gift was imported correctly$/) do
+  step "I type 'Jose' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on 'Jose Adams-Conner' in the search results"
+  step "I click on 'Journal' in the account header"
+  step "I click on the '$100.00' journal entry on the journal page"
+  step "the date on the Gift should be set to '8/25/2016'"
+
+  steps %Q{
+  And the Received Amount should be set to '$100.00'
+  And the Non-Deductible Amount should be set to the '$0.00'
+  And the Fund should be set to 'General'
+  And the Campaign should be set to 'Capital'
+  And the Approach should be set to 'Personal Solicitation'
+  And the Fundraiser should be set to 'Running with eTapestry 2016'
+  And the Fundraiser Donation Message should be set to 'Go girl!- Jose'
+  And the Receipt field should be set to '001467'
+  And I click the Tribute bar
+  And the Soft Credit Information should be set to 'Beyonce'
+  And the Soft Credit Amount should be set to '$100.00'
+  And I click on the User Defined Fields section on the new payment page
+  And I should see 'EDH Transaction Id' set to 'de28f269-a5ea-45a1-a475-c75cb77c6e6d' on the payment page
+  And I should see 'EDH Date Gift Received' set to '8/25/2016' on the payment page
+  And I should see 'EDH Transaction Type' set to 'P2P' on the payment page
+  And I should see 'Data Source' set to 'EDH Addition' on the payment page
+  }
+
+end
+
+And (/^I click on the '([^']*)' journal entry on the journal page$/) do |value|
+  intMan = Management::EdhIntegration.new
+  intMan.specific_journal_entry_click(value)
+end
+
+And (/^the Fundraiser Donation Message should be set to '([^']*)'$/) do |value|
+  intMan = Management::EdhIntegration.new
+  expect(intMan.gift_fundraiser_donation_message_value).to eq(value)
+end
+
+And (/^the Receipt field should be set to '([^']*)'$/) do |value|
+  intMan = Management::EdhIntegration.new
+  expect(intMan.gift_receipt_field_value).to eq(value)
+end
+
+And (/^the date on the Gift should be set to '([^']*)'$/) do |value|
+  intMan = Management::EdhIntegration.new
+  expect(intMan.gift_date_value).to eq(value)
 end
