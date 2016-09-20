@@ -3,14 +3,14 @@ When(/^I click choose columns$/) do
   landing.journal_choose_columns_click
 end
 
-When(/^I click on 'Anne Hatch' in soft credit column$/) do
+When(/^I click on '([^']*)' in soft credit column$/) do |value|
   landing = Account::Journal.new
-  landing.soft_credit_account_name_click
+  landing.account_name_click value
 end
 
-When(/^I click on 'Cindy Grant' in tribute column$/) do
+When(/^I click on '([^']*)' in tribute column$/) do | value|
   landing = Account::Journal.new
-  landing.tribute_account_name_click
+  landing.account_name_click value
 end
 
 And(/^I mark the checkbox for tribute$/) do
@@ -30,15 +30,15 @@ And(/^I click on apply changes$/) do
 end
 
 
-And(/^I should see 'Cindy Grant' in tribute column$/) do
+And(/^I should see '([^']*)' in tribute column$/) do |value|
   landing = Account::Journal.new
-  expect(landing.confirm_account_name).to eq(true)
+  expect(landing.account_name value ).to eq(true)
 end
 
 
-And (/^I click on 'Raymond Barnes' in original account column$/)do
+And (/^I click on '([^']*)' in original account column$/) do |value|
   landing = Account::Journal.new
-  landing.original_account_name_click
+  landing.account_name_click value
 end
 
 
@@ -48,20 +48,15 @@ And(/^I mark the checkbox for soft credit$/) do
 end
 
 
-And(/^I should see 'Anne Hatch' in soft credit column$/) do
+And(/^I should see '([^']*)' in soft credit column$/) do |value|
   landing = Account::Journal.new
-  expect(landing.confirm_account_name_in_soft_credit_column).to eq(true)
+  expect(landing.account_name value ).to eq(true)
 end
 
 
 Then(/^I should see tribute column on Journal Page$/) do
   landing = Account::Journal.new
   expect(landing.confirm_tribute_column).to eq(true)
-end
-
-Then (/^I should taken to 'Raymond Barnes' Account Home page$/)do
-  landing = Account::Journal.new
-  expect(landing.confirm_original_account_home).to eq(true)
 end
 
 
@@ -73,11 +68,6 @@ end
 Then (/^I should see last modified date on Journal Page$/)do
    landing = Account::Journal.new
    expect(landing.confirm_modified_date_column).to eq(true)
-end
-
-Then(/^I should taken to 'Cindy Grant' Account Home Page$/) do
-  landing = Account::Journal.new
-  expect(landing.confirm_account_home_page).to eq(true)
 end
 
 

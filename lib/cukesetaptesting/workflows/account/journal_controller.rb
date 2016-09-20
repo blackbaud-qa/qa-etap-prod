@@ -166,12 +166,13 @@ module Cukesetaptesting
         @view.confirm_tribute_column.present?
       end
 
-      def confirm_account_name
-        @view.confirm_account_name.present?
+      def account_name(value)
+        (@view.account_name value).present?
+
       end
 
-      def tribute_account_name_click
-        @view.tribute_account_name.when_present.click
+      def account_name_click (value)
+        (@view.account_name value).when_present.click
       end
 
 

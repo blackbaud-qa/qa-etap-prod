@@ -17,7 +17,7 @@ Feature: Add Tribute column in Journal
     And I set the Tribute Information to 'Cindy Grant'
     And I click Save And 'Go to Journal'
     And I click on 'Raymond Barnes' in original account column
-    Then I should taken to 'Raymond Barnes' Account Home page
+    Then I should be taken to 'Raymond Barnes' Home page
     And I click Journal
     When I click choose columns
     And I mark the checkbox for tribute

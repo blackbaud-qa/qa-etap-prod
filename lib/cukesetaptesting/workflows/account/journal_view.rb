@@ -57,27 +57,15 @@ module Cukesetaptesting
       keyword(:journal_load_more) {content.div(:class, 'bb-table-loadmore ng-scope').button(:class, 'btn btn-link ng-binding')}
       keyword(:journal_page_journal_entry_grid) {content.div(:class, 'ui-jqgrid-bdiv')}
 
-      ## choose column in Journal
-      #keyword(:journal_choose_columns) {content.div(:class,'clearfix toolbar bb-table-toolbar').button(:class, 'btn bb-btn-secondary bb-grid-toolbar-btn bb-column-picker-btn')}
+      ## Journal
       keyword(:journal_choose_columns) {content.button(:css,'[data-bbauto-field="ColumnPickerButton"]')}
-      keyword(:journal_column_picker_tribute) {content.div(:class, 'bb-checklist-wrapper').div(:text, 'Tribute')}
+      keyword(:journal_column_picker_tribute) {content.div(:css ,'[data-bbauto-field="specialSelectableColumn-et-plus-tribute"]')}
       keyword (:journal_soft_credit)  {content.div(:css,'[data-bbauto-field="specialSelectableColumn-et-plus-softCreditName"]')}
       keyword (:journal_checkbox_modified_date) {content.div(:css,'[data-bbauto-field="systemDefinedSelectableColumn-et-plus-modifiedDate"]')}
-
       keyword(:journal_apply_changes) {content.button(:class, 'btn btn-primary ng-scope').span(:class, 'ng-binding ng-scope')}
       keyword(:confirm_tribute_column) {content.div(:text,'Tribute')}
-     # keyword(:confirm_soft_credit_column) {content.div(:text,'Soft Credit')}
       keyword (:confirm_soft_credit_column)  {content.div(:xpath,'//div[text()="Soft Credit"]')}
       keyword (:confirm_modified_date_column) {content.div(:xpath,'//div[text()="Last Modified Date"]')}
-      keyword(:confirm_account_name) {content.a(:text, 'Cindy Grant')}
-      keyword(:confirm_account_name_in_soft_credit_column) {content.a(:text, 'Anne Hatch')}
-      keyword(:tribute_account_name) {content.a(:text,'Cindy Grant')}
-      keyword(:soft_credit_account_name) {content.a(:text ,'Anne Hatch')}
-
-
-      keyword(:original_account_name) {content.a(:text,'Raymond Barnes')}
-      keyword(:confirm_original_account_home) {content.h5(:class, 'bb-tile-header')}
-
 
 
       def account_name(value)
