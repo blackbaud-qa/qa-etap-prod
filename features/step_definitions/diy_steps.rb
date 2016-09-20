@@ -1462,3 +1462,4 @@ And (/^I set the '([^']*)' UDF to '([^']*)' on the DIY page$/) do |udf, value|
   diy = DIY::Onlineforms.new()
   diy.set_diy_udf_to_value(udf,value)
 end
+
