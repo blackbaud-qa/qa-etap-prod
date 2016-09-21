@@ -313,6 +313,26 @@ module Cukesetaptesting
         @view.gift_date.when_present.value
       end
 
+      def cc_number_value
+        @view.cc_number.value
+      end
+
+      def cc_exp_month_value
+        @view.cc_exp_month.value
+      end
+
+      def cc_exp_year_value
+        @view.cc_exp_year.value
+      end
+
+      def cc_type_value(value)
+        @view.cc_type.when_present.text.include? value
+      end
+
+      def journal_note_text_value(value)
+        @view.journal_note_text_field.text.include? value
+      end
+
     end
   end
 end

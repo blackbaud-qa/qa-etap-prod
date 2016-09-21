@@ -21,10 +21,10 @@ Feature: EDH Integration - Ongoing Management
     And I click on the Edit set up button on the integrations page
     And I change the edh API to 'deb30316-173e-4b70-a28c-26497c5e7969' in the EDH Basic Integrations Settings pop up
     And I click Save & Close on the set up EDH integration modal
-    And I should see the edh warning message '???msg.error.invalidApiKey???'
-#    And I change the edh API to 'xxx' in the EDH Basic Integrations Settings pop up
-#    And I click Save & Close on the set up EDH integration modal
-#    Then I verify that the EDH API Key is set to 'xxx'
+    And I should see the edh warning message 'Invalid API key.'
+    And I change the edh API to '809da48e-833f-4a2f-b66e-04c11c5718db' in the EDH Basic Integrations Settings pop up
+    And I click Save & Close on the set up EDH integration modal
+    Then I verify that the EDH API Key is set to '809da48e-833f-4a2f-b66e-04c11c5718db'
     And I change the edh API to '68ef0843-4714-4d24-8033-c0204fb945e2' in the EDH Basic Integrations Settings pop up
     And I click Save & Close on the set up EDH integration modal
 
@@ -82,7 +82,7 @@ Feature: EDH Integration - Ongoing Management
     And I should see the Pause Integration link change to Resume Integration on the set up EDH integration modal
     And I should see a message confirming that the integration was paused
 
-#  TODO: Do we want to automate the scenario below?
+#  #TODO: Do we want to automate the scenario below?
 #  Scenario:  EDH Integration - Verifying previous and future import schedule dates
 #    When I click Management on the main menu
 #    And I click on Integrations on the management menu

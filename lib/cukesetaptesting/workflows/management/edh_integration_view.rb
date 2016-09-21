@@ -60,6 +60,11 @@ module Cukesetaptesting
       keyword(:gift_fundraiser_donation_message) {content.input(:name, 'donorMessage')}
       keyword(:gift_receipt_field) {content.input(:name, 'receiptId')}
       keyword(:gift_date) {content.input(:id, 'date')}
+      keyword(:cc_number) {content.input(:name, 'creditCardNumber')}
+      keyword(:cc_exp_month) {content.select(:name, 'creditCardExpirationMonth')}
+      keyword(:cc_exp_year) {content.select(:name, 'creditCardExpirationYear')}
+      keyword(:cc_type) {content.select(:name, 'creditCardType')}
+      keyword(:journal_note_text_field) {content.text_field(:id, 'editBox')}
 
 
       def specific_journal_entry(value)
