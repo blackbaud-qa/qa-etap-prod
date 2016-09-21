@@ -327,7 +327,7 @@ end
 And(/^I click Replace on the DIY editor page$/) do
   diy = DIY::Onlineforms.new()
   diy.donation_page_replace_click
-  sleep 30
+  diy.wait_for_diy_home_page
 end
 
 Then(/the Donation Page should no longer show$/) do
@@ -1291,7 +1291,7 @@ When (/^I make edits to an existing diy event page$/) do
         sleep 10
         diy = DIY::Onlineforms.new()
         diy.donation_page_replace_click
-        sleep 30
+        diy.wait_for_diy_home_page
 end
 
 And (/I submit an entry on the live event page$/) do

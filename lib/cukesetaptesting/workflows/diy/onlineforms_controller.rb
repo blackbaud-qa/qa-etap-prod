@@ -642,6 +642,10 @@ module Cukesetaptesting
         @view.live_board_membership.when_present.select value
       end
 
+      def wait_for_diy_home_page
+        @view.create_a_page.wait_until_present(30)
+        @view.main_diy_div.wait_until_present(30)
+      end
     end
   end
 end

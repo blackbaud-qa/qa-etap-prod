@@ -41,7 +41,7 @@ module Cukesetaptesting
 
       keyword(:gail_date_field) {content.div(:id, 'etapreporttag1_outerdiv').a(:href,'/prod/editJournalTransaction.do?entityRoleRef=39.0.3667&transactionRef=39.0.3666')}
 
-      keyword(:journal_form) {content.div(:id,'journal')}
+      keyword(:journal_form) {content.div(:css, 'div[ng-if="journal.isDataLoaded"]')}
       keyword(:journal_table) {content.div(:class,'ui-jqgrid-bdiv')}
 
       keyword(:first_attachment_file_size_modal_view) {content.div(:class, 'modal-content').span(:id, 'attachmentsInfo_0')}
