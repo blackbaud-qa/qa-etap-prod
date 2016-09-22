@@ -1,11 +1,8 @@
 @crit_proc8
 Feature: Verify that validation is working properly on DIY pages
 
-# TODO: Update Knightrider, Fullhouse and Production Groundzero Databases
-
   Background:
-#    Given I login into eTap for CP8
-    Given I login into eTap with values 'groundzero.us', 'spicypancakes1'
+    Given I login into eTap for CP8
 
   Scenario: verify mm/dd/yyyy fields are being validated properly
     When I click Management on the main menu
@@ -127,7 +124,7 @@ Feature: Verify that validation is working properly on DIY pages
     And I set Expiration Month to '04' on the DIY Donation Page
     And I set Expiration Year to '2034' on the DIY Donation Page
     And I click Submit on the DIY Donation Page
-    Then I should see the 'XXX' error
+    Then I should see the 'Please correct the following error: DIY Validate Currency Field - Must be valid currency' error
     And I should close the javascript popup
     And I close the current tab
 
