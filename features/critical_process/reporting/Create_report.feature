@@ -19,7 +19,7 @@ Feature:Create a new report
     When I click on submit
     Then I should see the report 'Test Report' and all columns displayed to screen
    |Fields        |
-   |Sort Name          |
+   |Sort Name     |
    |Address Lines |
    |City          |
    |State/Province|
@@ -28,5 +28,10 @@ Feature:Create a new report
    |Date          |
    |Fund          |
    |Received      |
+   |Full Address with Country (Multi Line) |
+   |Full Address with Country (Single Line)|
+   |Full Address without Country (Multi Line)|
+   |Full Address without Country (Single Line)|
+
 
 

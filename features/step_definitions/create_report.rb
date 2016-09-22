@@ -43,6 +43,10 @@ And (/^I choose Fields from the commonly used report fields category$/) do
   create_report.date_field_link_click
   create_report.fund_field_link_click
   create_report.received_field_link_click
+  create_report.address_country_multi_link_click
+  create_report.address_country_single_link_click
+  create_report.address_without_country_multi_link_click
+  create_report.address_without_country_single_link_click
 end
 
 And (/^I choose save and run$/) do

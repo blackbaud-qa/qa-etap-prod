@@ -24,10 +24,14 @@ module Cukesetaptesting
         fh7 = @view.field_header_7.when_present.text
         fh8 = @view.field_header_8.when_present.text
         fh9 = @view.field_header_9.when_present.text
+        fh10 = @view.field_header_10.when_present.text
+        fh11 = @view.field_header_11.when_present.text
+        fh12 = @view.field_header_12.when_present.text
+        fh13 = @view.field_header_13.when_present.text
 
         expected_fields.each do |expected_field|
           case expected_field['Fields']
-            when fh1,fh2,fh3,fh4,fh5,fh6,fh7,fh8,fh9
+            when fh1,fh2,fh3,fh4,fh5,fh6,fh7,fh8,fh9,fh10,fh11,fh12,fh13
               matches+=1
           end
 
@@ -123,6 +127,26 @@ module Cukesetaptesting
       def save_button_click
         @view.save_button.click
       end
+
+      def address_country_multi_link_click
+        @view.address_country_multi_link.when_present.click
+      end
+
+
+      def address_country_single_link_click
+        @view.address_country_single_link.when_present.click
+      end
+
+
+      def address_without_country_multi_link_click
+        @view.address_without_country_multi_link.when_present.click
+      end
+
+      def address_without_country_single_link_click
+        @view.address_without_country_single_link.when_present.click
+      end
+
+
 
       def save_and_run_button_click
         begin
