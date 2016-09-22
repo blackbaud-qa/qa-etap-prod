@@ -45,7 +45,7 @@ module Cukesetaptesting
       keyword(:communicationsContextPanel) { content.div(:id=>"communicationTabDropdown") }
       keyword(:queriesContextPanel) { content.div(:id=>"queriesTabDropdown") }
       keyword(:reportsContextPanel) { content.div(:id=>"reportsTabDropdown") }
-      keyword(:managementContextPanel) { content.div(:id=>"manageTabDro pdown") }
+      keyword(:managementContextPanel) { content.div(:id=>"manageTabDropdown") }
       ####
 
       keyword(:accounts) {content.element(:css=> '#accountTab a')}
