@@ -35,7 +35,6 @@ Feature: Edit a diy volunteer page
     And I click Replace on the DIY editor page
     And I click on the link for the form titled Existing Volunteer Page
     And I switch to the new tab in my browser
-    Then I should see the edited DIY page
     And I set Date of Birth to '01/05/1975' on the DIY Page
     And I set the Volunteer Availability to 'As Needed' on the DIY Volunteer page
     And I set the Title to 'Mr.' on the DIY Donation Page

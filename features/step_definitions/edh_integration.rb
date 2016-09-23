@@ -113,11 +113,6 @@ And(/^I click Save on the set up EDH integration modal$/) do
   intMan.campaign_mappings_save_click
 end
 
-And(/^I click on the Select Historical Data button on the integrations page$/) do
-  intMan = Management::EdhIntegration.new
-  intMan.select_historical_data_click
-end
-
 And (/^I click Historical data created since on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   intMan.historical_data_created_since_click
@@ -148,14 +143,9 @@ And(/^I click on the EDH user guide link$/) do
   intMan.edh_user_guide_click
 end
 
-Then(/^I should be taken to the EDH user guide page$/) do
+Then(/^I should be taken to the US EDH user guide page$/) do
   intMan = Management::EdhIntegration.new
-  expect(intMan.on_EDH_user_guide_page?).to eq(true)
-end
-
-Then(/^I should see the '([^']*)' error on the set up EDH integration modal$/) do |error|
-  intMan = Management::EdhIntegration.new
-  expect(intMan.edh_integration_modal_error_include? error).to eq(true)
+  expect(intMan.on_US_EDH_user_guide_page?).to eq(true)
 end
 
 And(/^the next button should be disabled on the set up EDH integration modal$/) do
@@ -171,16 +161,6 @@ end
 And (/^I clear out the API key field in the notifications area on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   intMan.delete_API_key_value
-end
-
-Then (/^the API key field should be highlighted in red$/) do
-  intMan = Management::EdhIntegration.new
-  expect(intMan.api_key_validation?).to eq(true)
-end
-
-Then (/^the Send data import notifications to field should be highlighted in red$/) do
-  intMan = Management::EdhIntegration.new
-  expect(intMan.edh_email_validation?).to eq(true)
 end
 
 And (/^I clear out the email field in the notifications area on the set up EDH integration modal$/) do
@@ -645,4 +625,9 @@ And (/^I verify that EDH Donor was matched to an existing constituent account co
         I should see the text 'everydayhero Duplicate Info' in the journal Note
         the 'Data Source' should be set to 'EDH Addition'
   }
+end
+
+And (/^I select Schedule my everydayhero imports to run nightly on the set up EDH integration modal/) do
+  intMan = Management::EdhIntegration.new
+  intMan.schedule_edh_imports_nightly_click
 end

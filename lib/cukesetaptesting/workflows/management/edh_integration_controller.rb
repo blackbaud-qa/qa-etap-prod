@@ -69,10 +69,6 @@ module Cukesetaptesting
         # @view.set_up.when_present.click
       end
 
-      def edh_integration_modal_error_include? error
-        @view.edh_integration_modal_error.when_present.text.include? error
-      end
-
       def next_button_enabled?
         @view.edh_integration_next.wait_until_present
         button_enabled? @view.edh_integration_next
@@ -112,10 +108,6 @@ module Cukesetaptesting
         @view.default_approach.when_present.select selection
       end
 
-      def select_historical_data_click
-        @view.select_historical_data.when_present.click
-      end
-
       def historical_data_created_since_click
         @view.historical_data_created_since.when_present.click
       end
@@ -127,11 +119,6 @@ module Cukesetaptesting
 
       def all_historical_data_set
         @view.all_historical_data.when_present.click
-      end
-
-      def import_button_present?
-        sleep 2
-        @view.import_button.present?
       end
 
       def us_edh_signup_click
@@ -148,14 +135,6 @@ module Cukesetaptesting
         @view.select_API_key_value.when_present.send_keys :delete
       end
 
-      def api_key_validation?
-        @view.api_key_validationt.present?
-      end
-
-      def edh_email_validation?
-        @view.edh_email_validation.present?
-      end
-
       def delete_edh_email_value
         @view.select_edh_email_value.when_present.send_keys [:control, 'a']
         @view.select_edh_email_value.when_present.send_keys :delete
@@ -165,9 +144,9 @@ module Cukesetaptesting
         @view.edh_user_guide.when_present.click
       end
 
-      def on_EDH_user_guide_page?
+      def on_US_EDH_user_guide_page?
         sleep 3
-        @view.edh_user_guid_page_element.present?
+        @view.us_edh_user_guide_page_element.present?
       end
 
       def edit_mappings_click
@@ -331,6 +310,10 @@ module Cukesetaptesting
 
       def journal_note_text_value(value)
         @view.journal_note_text_field.text.include? value
+      end
+
+      def schedule_edh_imports_nightly_click
+        @view.schedule_edh_imports_nightly.when_present.click
       end
 
     end

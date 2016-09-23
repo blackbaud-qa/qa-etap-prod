@@ -18,25 +18,20 @@ module Cukesetaptesting
       keyword(:default_campaign) {content.select(:id,'defaultCampaign')}
       keyword(:default_approach) {content.select(:id,'defaultApproach')}
       # keyword(:campaign_mappings_save) {content.div(:id,'<placeholderID>')}
-      keyword(:select_historical_data) {content.div(:id,'<placeholderID>')}
       keyword(:historical_data_modal) {content.div(:id,'<placeholderID>')}
       keyword(:all_historical_data) {content.radio(:id,'allData').parent.span}
       keyword(:historical_data_created_since) {content.radio(:id,'partialData').parent.span}
       # keyword(:historical_data_save) {content.div(:id,'<placeholderID>')}
-      keyword(:import_button) {content.div(:id,'<placeholderID>')}
       keyword(:edit_integration_page) {content.button(:id, 'edhOpenSettingsButton')}
       keyword(:us_edh_signup) {content.a(:text,/Sign up here/)}
       keyword(:us_edh_signup_page_element) {browser.a(:href,'https://www.everydayhero.com/us/nonprofits/')}
       keyword(:edh_user_guide) {content.i(:text, 'everydayhero/eTapestry')}
-      keyword(:edh_user_guid_page_element) {content.div(:id,'<placeholderID>')}
+      keyword(:us_edh_user_guide_page_element) {content.div(:id,'<placeholderID>')}
       keyword(:edh_start_import_button) {content.div(:id,'startEdhImport')}
       keyword(:select_API_key_value) {content.input(:id, 'apiKey')}
       keyword(:select_edh_email_value) {content.input(:id, 'notificationEmail')}
       keyword(:edit_set_up) {content.div(:id,'edhOpenSettingsButton')}
       keyword(:edit_mappings) {content.div(:id,'edhOpenMappingsButton')}
-      keyword(:edh_integration_modal_error) {content.div(:id,'<placeholderID>')}
-      keyword(:api_key_validation) {content.div(:id, '<placeholderID>')}
-      keyword(:edh_email_validation) {content.div(:id, '<placeholderID>')}
       keyword(:import_now_link) {content.button(:id, 'edhImportNowButton')}
       keyword(:import_finish_successfully_message) {content.div(:class, 'alert alert-success alert-dismissible')}
       keyword(:new_fund_link) {content.a(:href, 'editIntent.do')}
@@ -65,6 +60,7 @@ module Cukesetaptesting
       keyword(:cc_exp_year) {content.select(:name, 'creditCardExpirationYear')}
       keyword(:cc_type) {content.select(:name, 'creditCardType')}
       keyword(:journal_note_text_field) {content.text_field(:id, 'editBox')}
+      keyword(:schedule_edh_imports_nightly) {content.radio(:id, 'startNow').parent.span}
 
 
       def specific_journal_entry(value)
