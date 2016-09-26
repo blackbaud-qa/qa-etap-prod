@@ -32,8 +32,8 @@ module Cukesetaptesting
       keyword(:edh_start_import_button) {content.div(:id,'startEdhImport')}
       keyword(:select_API_key_value) {content.input(:id, 'apiKey')}
       keyword(:select_edh_email_value) {content.input(:id, 'notificationEmail')}
-      keyword(:edit_set_up) {content.div(:id,'edhOpenSettingsButton')}
-      keyword(:edit_mappings) {content.div(:id,'edhOpenMappingsButton')}
+      keyword(:edit_set_up) {content.button(:id,'edhOpenSettingsButton')}
+      keyword(:edit_mappings) {content.button(:id,'edhOpenMappingsButton')}
       keyword(:edh_integration_modal_error) {content.div(:id,'<placeholderID>')}
       keyword(:api_key_validation) {content.div(:id, '<placeholderID>')}
       keyword(:edh_email_validation) {content.div(:id, '<placeholderID>')}

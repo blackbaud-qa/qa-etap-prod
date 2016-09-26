@@ -16,6 +16,7 @@ Feature: EDH Integration - On Demand Import and Mulitple Participation Entries o
 #    #TODO: change Background Information for all steps after groundzero and edh databases are set up for automation
     And I verify that multiple EDH Participations for a single Hero were imported correctly
     And I verify that I can manually add an additional Participation to a Hero who is already participating in a Fundraiser
+    And I add an offline EDH gift to "xxx" in support of 'xxx'
     And I successfully merge two accounts with multiple Participations for the same Fundraiser
     And I verify that the Participation Summary report displays information properly
 

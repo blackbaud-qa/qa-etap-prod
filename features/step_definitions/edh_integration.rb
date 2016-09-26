@@ -214,53 +214,53 @@ And(/^the EDH integration has been set up$/) do
 end
 
 And(/^I verify that an EDH Hero account was imported correctly$/) do
-  step "I type 'Kimberly Hammer' into the dynamic search field"
+  step "I type 'Hilton' into the dynamic search field"
   step "I press Enter on the keyboard"
-  step "I click on 'Kimberly Hammer' in the search results"
+  step "I click on 'Kelsey Hilton' in the search results"
   step "I click on 'Personas' in the account header"
-  step "the Address Lines should be set to '615 Lockerbie Pl'"
-  step "the City should be set to 'Carmel'"
+  step "the Address Lines should be set to '125 S Pennsylvania St'"
+  step "the City should be set to 'Indianapolis'"
   step "the State should be set to 'IN'"
-  step "the Postal Code should be set to '46032'"
-  step "the Voice should be set to '+1 3174955697'"
-  step "the Email should be set to 'kimberly.hammer@blackbaud.com'"
-  step "the Short Salutation should be set to 'Kimberly'"
-  step "the Long Salutation should be set to 'Kimberly Hammer'"
-  step "the Envelope Salutation should be set to 'Kimberly Hammer'"
+  step "the Postal Code should be set to '46204'"
+  step "the Voice should be set to '(317) 226-4784'"
+  step "the Email should be set to 'kelsey.hilton@blackbaud.com'"
+  step "the Short Salutation should be set to 'Kelsey'"
+  step "the Long Salutation should be set to 'Kelsey Hilton'"
+  step "the Envelope Salutation should be set to 'Kelsey Hilton'"
   step "I click on 'Account Settings' in the account header"
   step "the Name Format value should be set to 'Individual'"
-  step "the First Name should be set to 'Kimberly'"
-  step "the Last Name should be set to 'Hammer'"
-  step "the Account Name should be set to 'Kimberly Hammer'"
-  step "the Sort Name should be set to 'Hammer, Kimberly'"
-  step "the Recognition Name should be set to 'Kimberly Hammer'"
+  step "the First Name should be set to 'Kelsey'"
+  step "the Last Name should be set to 'Hilton'"
+  step "the Account Name should be set to 'Kelsey Hilton'"
+  step "the Sort Name should be set to 'Hilton, Kelsey'"
+  step "the Recognition Name should be set to 'Kelsey Hilton'"
   step "the Recognition Type should be set to '(account name)'"
   step "I click on 'Defined Fields' in the account header"
-  step "the 'EDH Account Id' should be set to '45728f06-73f9-42bc-9844-a6ba1c70dd0a'"
+  step "the 'EDH Account Id' should be set to '6181f10f-cba1-465e-8d7c-1dbff7c29c7e'"
   step "the 'EDH Account Type' should be set to 'Hero'"
   step "the 'Data Source' should be set to 'EDH Addition'"
 end
 
 And(/^I verify that an EDH Donor account was imported correctly$/) do
-  step "I type 'Tom' into the dynamic search field"
+  step "I type 'Gloria' into the dynamic search field"
   step "I press Enter on the keyboard"
-  step "I click on 'Tom Barlette' in the search results"
+  step "I click on 'Gloria Burg' in the search results"
   step "I click on 'Personas' in the account header"
-  step "the Address Lines should be set to '14 E. 10th St'"
-  step "the City should be set to 'Fishers'"
-  step "the State should be set to 'IN'"
-  step "the Postal Code should be set to '46034'"
-  step "the Email should be set to 'kimberly.hammer@blackbaud.com'"
-  step "the Short Salutation should be set to 'Tom'"
-  step "the Long Salutation should be set to 'Tom Barlette'"
-  step "the Envelope Salutation should be set to 'Tom Barlette'"
+  step "the Address Lines should be set to '2261 Brooke Street'"
+  step "the City should be set to 'Houston'"
+  step "the State should be set to 'TX'"
+  step "the Postal Code should be set to '77026'"
+  step "the Email should be set to 'kelsey.hilton@blackbaud.com'"
+  step "the Short Salutation should be set to 'Gloria'"
+  step "the Long Salutation should be set to 'Gloria Burg'"
+  step "the Envelope Salutation should be set to 'Gloria Burg'"
   step "I click on 'Account Settings' in the account header"
   step "the Name Format value should be set to 'Individual'"
-  step "the First Name should be set to 'Tom'"
-  step "the Last Name should be set to 'Barlette'"
-  step "the Account Name should be set to 'Tom Barlette'"
-  step "the Sort Name should be set to 'Barlette, Tom'"
-  step "the Recognition Name should be set to 'Tom Barlette'"
+  step "the First Name should be set to 'Gloria'"
+  step "the Last Name should be set to 'Burg'"
+  step "the Account Name should be set to 'Gloria Burg'"
+  step "the Sort Name should be set to 'Burg, Gloria'"
+  step "the Recognition Name should be set to 'Gloria Burg'"
   step "the Recognition Type should be set to '(account name)'"
   step "I click on 'Defined Fields' in the account header"
   step "the 'EDH Account Type' should be set to 'Donor'"
@@ -277,6 +277,8 @@ end
 Then (/^I wait for the edh import to finish successfully$/) do
   intMan = Management::EdhIntegration.new
   intMan.import_finish_successfully_wait
+  ## only adding sleep here to ensure that the import has time to run ##
+  sleep 5
 end
 
 Then (/^I verify that the EDH Notifications Email Address is set to '([^']*)'$/) do |value|
@@ -353,19 +355,19 @@ Then (/^I should see the Resume Integration link change to Pause Integration on 
 end
 
 And (/^I verify that an EDH Participation was imported correctly$/) do
-  step "I type 'Joe' into the dynamic search field"
+  step "I type 'Kelsey' into the dynamic search field"
   step "I press Enter on the keyboard"
-  step "I click on 'Joe Runner' in the search results"
+  step "I click on 'Kelsey Hilton' in the search results"
   step "I click on 'Journal' in the account header"
   step "I click on the Participation listed in the journal"
-  step "the date on the Participation should be set to '8/25/2016'"
+  step "the date on the Participation should be set to '9/26/2016'"
   step "the Fundraiser should be set to 'Running with eTapestry 2016'"
   step "the Participant Goal should be set to '$1,000.00'on the participation"
-  step "the Display Name should be set to 'Help Me Support eTapestry!' on the participation"
-  step "the 'EDH Page Id' should be set to 'edc1e64c-0004-4000-8000-0000000495fb'"
-  step "the 'EDH Page URL' should be set to 'https://running-with-etapestry-2016.everydayhero-staging.com/us/help-me-support-etapestry'"
-  step "the 'EDH Team Name' should be set to 'Team Blackbaud Employees'"
-  step "the 'EDH Team URL' should be set to 'https://running-with-etapestry-2016.everydayhero-staging.com/us/team-blackbaud-employees'"
+  step "the Display Name should be set to 'Scrum Master Flex Is Saving The Day!' on the participation"
+  step "the 'EDH Page Id' should be set to 'edc1e64c-0004-4000-8000-000000049efa'"
+  step "the 'EDH Page URL' should be set to 'https://running-with-etapestry-2016.everydayhero-staging.com/us/scrum-master-flex-is-saving-the-day'"
+  step "the 'EDH Team Name' should be set to 'Team Kelsey'"
+  step "the 'EDH Team URL' should be set to 'https://running-with-etapestry-2016.everydayhero-staging.com/us/team-kelsey'"
   step "the 'EDH Team Position' should be set to 'Leader'"
   step "the 'Data Source' should be set to 'EDH Addition'"
 end
@@ -416,33 +418,34 @@ And (/^the date on the Participation should be set to '([^']*)'$/) do |value|
 end
 
 And (/^I verify that an EDH CC Gift was imported correctly$/) do
-  step "I type 'Jose' into the dynamic search field"
+  step "I type 'Glor' into the dynamic search field"
   step "I press Enter on the keyboard"
-  step "I click on 'Jose Adams-Conner' in the search results"
+  step "I click on 'Gloria Burg' in the search results"
   step "I click on 'Journal' in the account header"
-  step "I click on the '$100.00' journal entry on the journal page"
-  step "the date on the Gift should be set to '8/25/2016'"
+  step "I click on the '$108.90' journal entry on the journal page"
+  step "the date on the Gift should be set to '9/26/2016'"
 
   steps %Q{
-  And the Received Amount should be set to '$100.00'
+  And the Received Amount should be set to '$108.90'
   And the Non-Deductible Amount should be set to the '$0.00'
   And the Fund should be set to 'General'
   And the Campaign should be set to 'Capital'
   And the Approach should be set to 'Personal Solicitation'
   And the Fundraiser should be set to 'Running with eTapestry 2016'
-  And the Fundraiser Donation Message should be set to 'Go girl!- Jose'
-  And the Receipt field should be set to '001467'
+  And the Fundraiser Donation Message should be set to 'Kelsey you are so awesome!'
+  And the Receipt field should be set to '001502'
   And the Gift Type should be set to 'Credit/Debit Card'
   And the CC Card Number should be set to 'xxxx'
-  And the CC Expiration Date Month should be set to '8'
+  And the CC Expiration Date Month should be set to '9'
   And the CC Expiration Date Year should be set to '2016'
   And the CC Type should be set to 'Visa'
   And I click the Tribute bar
-  And the Soft Credit Information should be set to 'Beyonce'
-  And the Soft Credit Amount should be set to '$100.00'
+  And the Soft Credit Information should be set to 'Kelsey Hilton'
+  And the Soft Credit Amount should be set to '$108.90'
   And I click on the User Defined Fields section on the new payment page
-  And I should see 'EDH Transaction Id' set to 'de28f269-a5ea-45a1-a475-c75cb77c6e6d' on the payment page
-  And I should see 'EDH Date Gift Received' set to '8/25/2016' on the payment page
+  And I should see 'EDH Page Id' set to 'edc1e64c-0004-4000-8000-000000049efa' on the payment page
+  And I should see 'EDH Transaction Id' set to 'b412df99-4c16-426a-977c-f7d04fcd8709' on the payment page
+  And I should see 'EDH Date Gift Received' set to '9/26/2016' on the payment page
   And I should see 'EDH Transaction Type' set to 'P2P' on the payment page
   And I should see 'Data Source' set to 'EDH Addition' on the payment page
   }
