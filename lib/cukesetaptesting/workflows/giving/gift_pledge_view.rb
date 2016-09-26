@@ -312,6 +312,11 @@ module Cukesetaptesting
         content.a(:text, value)
       end
 
+
+      def account(value)
+        content.a(:text,value)
+      end
+
     end
   end
 end

@@ -190,16 +190,16 @@ module Cukesetaptesting
         @view.api_key.value
       end
 
-      def edh_default_fund_value
-        @view.default_fund.value
+      def edh_default_fund_value(fund)
+        @view.default_fund.text.include? fund
       end
 
-      def edh_default_campaign_value
-        @view.default_campaign.value
+      def edh_default_campaign_value(campaign)
+        @view.default_campaign.text.include? campaign
       end
 
-      def edh_default_approach_value
-        @view.default_approach.value
+      def edh_default_approach_value(approach)
+        @view.default_approach.text.include? approach
       end
 
       def new_fund_link_click
@@ -234,7 +234,7 @@ module Cukesetaptesting
       end
 
       def edh_integration_paused_message_present?
-        @view.edh_integration_paused_message.present?
+        @view.edh_integration_paused_message.text.include? 'Integration paused'
       end
 
       def edh_resume_integration_link_click
@@ -255,6 +255,82 @@ module Cukesetaptesting
 
       def participation_display_name_value
         @view.participation_display_name.when_present.value
+      end
+
+      def change_edh_notification_email_address(value)
+        @view.edh_notifications.when_present.set value
+      end
+
+      def change_edh_api_key(value)
+        @view.api_key.when_present.set value
+      end
+
+      def invalid_api_message_visible(value)
+        @view.invalid_api_message.text.include? value
+      end
+
+      def click_save_and_close_mappings_modal
+        @view.edh_integration_edit_mappings_save.when_present.click
+      end
+
+      def set_new_fund_name(value)
+        @view.new_fund_name.when_present.set value
+      end
+
+      def set_new_campaign_name(value)
+        @view.new_campaign_name.when_present.set value
+      end
+
+      def set_new_approach_name(value)
+        @view.new_approach_name.when_present.set value
+      end
+
+      def import_now_confirm_button_click
+        @view.import_now_confirm_button.when_present.click
+      end
+
+      def participation_fundraiser_drop_down_value
+        @view.participation_fundraiser_drop_down.value
+      end
+
+      def participation_fundraiser_date_value
+        @view.participation_fundraiser_date.when_present.value
+      end
+
+      def specific_journal_entry_click(value)
+        @view.specific_journal_entry(value).when_present.click
+      end
+
+      def gift_fundraiser_donation_message_value
+        @view.gift_fundraiser_donation_message.value
+      end
+
+      def gift_receipt_field_value
+        @view.gift_receipt_field.value
+      end
+
+      def gift_date_value
+        @view.gift_date.when_present.value
+      end
+
+      def cc_number_value
+        @view.cc_number.value
+      end
+
+      def cc_exp_month_value
+        @view.cc_exp_month.value
+      end
+
+      def cc_exp_year_value
+        @view.cc_exp_year.value
+      end
+
+      def cc_type_value(value)
+        @view.cc_type.when_present.text.include? value
+      end
+
+      def journal_note_text_value(value)
+        @view.journal_note_text_field.text.include? value
       end
 
     end

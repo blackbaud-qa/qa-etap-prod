@@ -27,6 +27,11 @@ module Cukesetaptesting
       keyword(:date_field_link)  { content.a(:text,'Date') }
       keyword(:fund_field_link)  { content.a(:text,'Fund') }
       keyword(:received_field_link)  { content.a(:text,'Received') }
+      keyword(:address_country_multi_link) { content.a(:text,'Full Address with Country (Multi Line)')}
+      keyword(:address_country_single_link) { content.a(:text,'Full Address with Country (Single Line)')}
+      keyword(:address_without_country_multi_link)  { content.a(:text,'Full Address without Country (Multi Line)')}
+      keyword(:address_without_country_single_link) { content.a(:text,'Full Address without Country (Single Line)')}
+
 
       keyword(:save_button)  { content.button(:value,'Save') }
       keyword(:save_and_run_button)  { content.button(:value,'Save and Run') }
@@ -46,6 +51,11 @@ module Cukesetaptesting
       keyword(:field_header_7)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',6)]) }
       keyword(:field_header_8)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',7)]) }
       keyword(:field_header_9)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',8)]) }
+      keyword(:field_header_10)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',9)]) }
+      keyword(:field_header_11)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',10)]) }
+      keyword(:field_header_12)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',11)]) }
+      keyword(:field_header_13)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',12)]) }
+
 
       def get_delete_button_for_report report_name
         content.a(:text, report_name).when_present.parent.parent.div(:class, "actions").a(:class, "delete")

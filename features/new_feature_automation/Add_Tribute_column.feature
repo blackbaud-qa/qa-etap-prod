@@ -16,10 +16,14 @@ Feature: Add Tribute column in Journal
     And set the Gift Type to 'Cash'
     And I set the Tribute Information to 'Cindy Grant'
     And I click Save And 'Go to Journal'
+    And I click on 'Raymond Barnes' in original account column
+    Then I should be taken to 'Raymond Barnes' Home page
+    And I click Journal
     When I click choose columns
     And I mark the checkbox for tribute
     And I click on apply changes
     Then I should see tribute column on Journal Page
     And I should see 'Cindy Grant' in tribute column
     When I click on 'Cindy Grant' in tribute column
-    Then I should taken to 'Cindy Grant' Account Home Page
+    Then  I should be taken to 'Cindy Grant' Home page
+
