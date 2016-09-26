@@ -1457,3 +1457,9 @@ And (/^I verify that the DIY event submission via the edited event page was crea
       And I should see 'Board Membership' set to 'Former' on the payment page
   }
 end
+
+And (/^I set the '([^']*)' UDF to '([^']*)' on the DIY page$/) do |udf, value|
+  diy = DIY::Onlineforms.new()
+  diy.set_diy_udf_to_value(udf,value)
+end
+

@@ -638,6 +638,10 @@ module Cukesetaptesting
         return @view.birthdate_diy.text.include? 'Birthdate'
       end
 
+      def set_diy_udf_to_value(udf,value)
+        @view.diy_udf(udf).when_present.set value
+      end
+
       def live_board_membership_set value
         @view.live_board_membership.when_present.select value
       end
