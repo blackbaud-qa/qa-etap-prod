@@ -1,7 +1,7 @@
 @sprint
 Feature: EDH Integration - On Demand Import and Creating New Constituent Accounts
 
-  # TODO: Update Knightrider and Fullhouse Databases
+  # TODO: Update Fullhouse Database once EDH us unflagged
 
   Background:
     Given I login into eTap for CP3

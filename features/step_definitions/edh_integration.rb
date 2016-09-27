@@ -493,21 +493,18 @@ And (/^the CC Type should be set to '([^']*)'$/) do |value|
 end
 
 Then (/^I verify that a existing EDH Hero was matched correctly$/) do
-  steps %Q{
-        I type 'Joe' into the dynamic search field
-        I press Enter on the keyboard
-        I click on 'Joe Runner' in the search results
-        I click on 'Personas' in the account header
-  }
-  step "the Address Lines should be set to '2650 Adams Dr.'"
-  step "the City should be set to 'Carmel'"
+  step "I type 'Joe' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on 'Joe Runner' in the search results"
+  step "I click on 'Personas' in the account header"
+  step "the Address Lines should be set to '123 E Market St'"
+  step "the City should be set to 'Indianapolis'"
   step "the State should be set to 'IN'"
-  step "the Postal Code should be set to '46032'"
+  step "the Postal Code should be set to '46280'"
   step "the Email should be set to 'hammer.kimberly@gmail.com'"
   step "the Short Salutation should be set to 'Joe'"
   step "the Long Salutation should be set to 'Joe Runner'"
   step "the Envelope Salutation should be set to 'Joe Runner'"
-  step "the Voice should be set to 'XXX'"
   step "I click on 'Account Settings' in the account header"
   step "the Name Format value should be set to 'Individual'"
   step "the First Name should be set to 'Joe'"
@@ -517,16 +514,19 @@ Then (/^I verify that a existing EDH Hero was matched correctly$/) do
   step "the Recognition Name should be set to 'Joe Runner'"
   step "the Recognition Type should be set to '(account name)'"
   step "I click on 'Defined Fields' in the account header"
+  step "the 'EDH Account Id' should be set to '45c017b6-9cd2-4076-9673-a5af53ae2d0a'"
   step "the 'EDH Account Type' should be set to 'Hero'"
-  step "the 'EDH Account ID' should be set to '45728f06-73f9-42bc-9844-a6ba1c70dd0a'"
   step "the 'Data Source' should be set to 'EDH Addition, EDH Update'"
-  steps %Q{
-        I click on 'Journal' in the account header
-        I should see the message '5 Journal Entries' on the journal page
-        I click on the 'Note' journal entry on the journal page
-        I should see the text 'everydayhero Duplicate Info' in the journal Note
-        the 'Data Source' should be set to 'EDH Addition'
-  }
+  step "I click on 'Journal' in the account header"
+  step "I should see the message '5 Journal Entries' on the journal page"
+  step "I click on the 'Participation' journal entry on the journal page"
+  step "the date on the Participation should be set to '9/26/2016'"
+  step "the Fundraiser should be set to 'everydayhero'"
+  step "the Participant Goal should be set to '$700.00'on the participation"
+  step "the Display Name should be set to 'Joe Is At It Again' on the participation"
+  step "the 'EDH Page Id' should be set to 'edc1e64c-0004-4000-8000-000000049eff'"
+  step "the 'EDH Page URL' should be set to 'https://give.everydayhero-staging.com/us/joe-s-at-it-again'"
+  step "the 'Data Source' should be set to 'EDH Addition'"
 end
 
 And (/^I should see the text '([^']*)' in the journal Note$/) do |value|
@@ -535,49 +535,41 @@ And (/^I should see the text '([^']*)' in the journal Note$/) do |value|
 end
 
 And (/^I verify that a existing EDH Donor was matched correctly$/) do
-  steps %Q{
-        I type 'Mary' into the dynamic search field
-        I press Enter on the keyboard
-        I click on 'Mary Tracy' in the search results
-        I click on 'Personas' in the account header
-  }
+  step "I type 'Mary' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on 'Mary Tracy' in the search results"
+  step "I click on 'Personas' in the account header"
   step "the Address Lines should be set to '3171 Dovetail Estates'"
   step "the City should be set to 'Valliant'"
   step "the State should be set to 'OK'"
   step "the Postal Code should be set to '74764'"
-  step "the Email should be set to 'kimberly.hammer@etapestry.com'"
+  step "the Email should be set to 'skimmymik@yahoo.com\nkimberly.hammer@blackbaud.com'"
   step "the Short Salutation should be set to 'Mary'"
   step "the Long Salutation should be set to 'Mary Tracy'"
   step "the Envelope Salutation should be set to 'Mary Tracy'"
-  step "the Voice should be set to 'XXX'"
   step "I click on 'Account Settings' in the account header"
   step "the Name Format value should be set to 'Individual'"
   step "the First Name should be set to 'Mary'"
   step "the Last Name should be set to 'Tracy'"
   step "the Account Name should be set to 'Mary Tracy'"
-  step "the Sort Name should be set to 'Runner, Joe'"
+  step "the Sort Name should be set to 'Tracy, Mary'"
   step "the Recognition Name should be set to 'Mary Tracy'"
   step "the Recognition Type should be set to '(account name)'"
   step "I click on 'Defined Fields' in the account header"
   step "the 'EDH Account Type' should be set to 'Donor'"
-  step "the 'EDH Communication Preferences' should be set to 'Opt-Out'"
+  step "the 'EDH Communication Preferences' should be set to 'Opt-In'"
   step "the 'Data Source' should be set to 'EDH Addition, EDH Update'"
-  steps %Q{
-        I click on 'Journal' in the account header
-        I should see the message '3 Journal Entries' on the journal page
-        I click on the 'Note' journal entry on the journal page
-        I should see the text 'everydayhero Duplicate Info' in the journal Note
-        the 'Data Source' should be set to 'EDH Addition'
-  }
+  step "I click on 'Journal' in the account header"
+  step "I should see the message '3 Journal Entries' on the journal page"
+  step "I click on the 'Note' journal entry on the journal page"
+  step "I should see the text 'everydayhero Duplicate Info' in the journal Note"
 end
 
 And (/^I verify that EDH Hero was matched to an existing constituent account correctly$/) do
-  steps %Q{
-        I type 'Luna' into the dynamic search field
-        I press Enter on the keyboard
-        I click on 'Luna P Maynard' in the search results
-        I click on 'Personas' in the account header
-  }
+  step "I type 'Luna' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on 'Luna P Maynard' in the search results"
+  step "I click on 'Personas' in the account header"
   step "the Address Lines should be set to '4065 Reppert Coal Road'"
   step "the City should be set to 'Ridgeland'"
   step "the State should be set to 'MS'"
@@ -599,25 +591,20 @@ And (/^I verify that EDH Hero was matched to an existing constituent account cor
   step "the Recognition Type should be set to '(account name)'"
   step "I click on 'Defined Fields' in the account header"
   step "the 'Gender' should be set to 'Female'"
+  step "the 'EDH Account Id' should be set to '0d4ae7bb-e854-45d1-abf9-a1189f568f22'"
   step "the 'EDH Account Type' should be set to 'Hero'"
-  step "the 'EDH Account ID' should be set to 'xxx'"
-  step "the 'Data Source' should be set to 'EDH Update'"
-  steps %Q{
-        I click on 'Journal' in the account header
-        I should see the message '3 Journal Entries' on the journal page
-        I click on the 'Note' journal entry on the journal page
-        I should see the text 'everydayhero Duplicate Info' in the journal Note
-        the 'Data Source' should be set to 'EDH Addition'
-  }
+  step "the 'Data Source' should be set to 'Advanced Import (4/26/2016 2:31 PM), EDH Update'"
+  step "I click on 'Journal' in the account header"
+  step "I should see the message '4 Journal Entries' on the journal page"
+  step "I click on the 'Note' journal entry on the journal page"
+  step "I should see the text 'everydayhero Duplicate Info' in the journal Note"
 end
 
 And (/^I verify that EDH Donor was matched to an existing constituent account correctly$/) do
-  steps %Q{
-        I type 'David Mendez' into the dynamic search field
-        I press Enter on the keyboard
-        I click on 'David Mendez' in the search results
-        I click on 'Personas' in the account header
-  }
+  step "I type 'David' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on 'David Mendez' in the search results"
+  step "I click on 'Personas' in the account header"
   step "the Address Lines should be set to '3452 Washburn Street'"
   step "the City should be set to 'Baton Rouge'"
   step "the State should be set to 'LA'"
@@ -631,7 +618,7 @@ And (/^I verify that EDH Donor was matched to an existing constituent account co
   step "the Name Format value should be set to 'Individual'"
   step "the Title should be set to 'Mr.'"
   step "the First Name should be set to 'David'"
-  step "the Last Name should be set to 'Maynard'"
+  step "the Last Name should be set to 'Mendez'"
   step "the Account Name should be set to 'David Mendez'"
   step "the Sort Name should be set to 'Mendez, David'"
   step "the Recognition Name should be set to 'David Mendez'"
@@ -639,13 +626,9 @@ And (/^I verify that EDH Donor was matched to an existing constituent account co
   step "I click on 'Defined Fields' in the account header"
   step "the 'Gender' should be set to 'Male'"
   step "the 'EDH Account Type' should be set to 'Donor'"
-  step "the 'EDH Account ID' should be set to 'xxx'"
-  step "the 'Data Source' should be set to 'EDH Update'"
-  steps %Q{
-        I click on 'Journal' in the account header
-        I should see the message '3 Journal Entries' on the journal page
-        I click on the 'Note' journal entry on the journal page
-        I should see the text 'everydayhero Duplicate Info' in the journal Note
-        the 'Data Source' should be set to 'EDH Addition'
-  }
+  step "the 'Data Source' should be set to 'Advanced Import (4/26/2016 2:31 PM), EDH Update'"
+  step "I click on 'Journal' in the account header"
+  step "I should see the message '3 Journal Entries' on the journal page"
+  step "I click on the 'Note' journal entry on the journal page"
+  step "I should see the text 'everydayhero Duplicate Info' in the journal Note"
 end
