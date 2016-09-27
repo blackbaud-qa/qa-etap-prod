@@ -65,6 +65,12 @@ module Cukesetaptesting
       keyword(:cc_exp_year) {content.select(:name, 'creditCardExpirationYear')}
       keyword(:cc_type) {content.select(:name, 'creditCardType')}
       keyword(:journal_note_text_field) {content.text_field(:id, 'editBox')}
+      keyword(:next_journal_entry) {content.div(:id, 'journalEntryBrowserRight')}
+
+      keyword(:fundraiser_type) {content.i(:id, "eventRef_comboArrow")}
+      keyword(:fundraiser_combo_list) {content.div(:id,"eventRef_comboAllList")}
+      keyword(:participation_display_name_field) {content.text_field(:name, 'eventParticipation.displayNameNoDefault')}
+      keyword(:fundraiser_summary_report_link) {content.a(:href, 'reportLauncher.do?nextAction=eventFundraisingSummaryReport.do&type=EventFundraisingSummary&mode=report&nameKey=label.fundraiserSummaryReport')}
 
 
       def specific_journal_entry(value)
@@ -79,6 +85,7 @@ module Cukesetaptesting
 
       def edit(model)
       end
+
     end
   end
 end

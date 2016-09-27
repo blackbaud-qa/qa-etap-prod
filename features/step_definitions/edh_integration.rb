@@ -632,3 +632,120 @@ And (/^I verify that EDH Donor was matched to an existing constituent account co
   step "I click on the 'Note' journal entry on the journal page"
   step "I should see the text 'everydayhero Duplicate Info' in the journal Note"
 end
+
+And (/^I verify that multiple EDH Participations for a single Hero were imported correctly$/) do
+  step "I type 'Bud' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on 'Buddy Sr.' in the search results"
+  step "I click on 'Journal' in the account header"
+  step "I should see the message '6 Journal Entries' on the journal page"
+  step "I click on the 'Participation' journal entry on the journal page"
+  step "the date on the Participation should be set to '9/27/2016'"
+  step "the Fundraiser should be set to 'Running with eTapestry 2016'"
+  step "the Participant Goal should be set to '$1,000.00'on the participation"
+  step "the Display Name should be set to 'Run with Bud' on the participation"
+  step "I click Next to move to the next journal entry"
+  step "the date on the Participation should be set to '9/27/2016'"
+  step "the Fundraiser should be set to 'Running with eTapestry 2016'"
+  step "the Participant Goal should be set to '$100.00'on the participation"
+  step "the Display Name should be set to 'Run with Lillian' on the participation"
+  step "I click Next to move to the next journal entry"
+  step "the date on the Participation should be set to '9/27/2016'"
+  step "the Fundraiser should be set to 'Running with eTapestry 2016'"
+  step "the Participant Goal should be set to '$100.00'on the participation"
+  step "the Display Name should be set to 'Run with Ryan' on the participation"
+end
+
+And (/^I click Next to move to the next journal entry$/) do
+  intMan = Management::EdhIntegration.new
+  intMan.next_journal_entry_click
+end
+
+And (/I verify that I can manually add an additional Participation to a Hero who is already participating in a Fundraiser$/) do
+  step "I type 'Beyonce' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on 'Beyonce' in the search results"
+  step "I click on 'Journal' in the account header"
+  step "select Participation from the Add New... drop down menu"
+  step "I set the fundraiser to 'Running with eTapestry 2016' on the participation"
+  intMan = Management::EdhIntegration.new
+  intMan.set_fundraiser_date
+  intMan.set_fundraiser_goal
+  intMan.set_fundraiser_display_name
+  step "I click Save And 'Edit'"
+  step "the date on the Participation should be set to '9/28/2016'"
+  step "the Fundraiser should be set to 'Running with eTapestry 2016'"
+  step "the Participant Goal should be set to '$2,000.00'on the participation"
+  step "the Display Name should be set to 'H To The Izzo' on the participation"
+  step "I click on 'Journal' in the account header"
+  step "I should see the message '3 Journal Entries' on the journal page"
+end
+
+And (/^I set the fundraiser to '([^']*)' on the participation$/) do |value|
+intMan = Management::EdhIntegration.new
+intMan.set_fundraiser_event_on_participation(value)
+end
+
+And (/^I successfully merge two accounts with multiple Participations for the same Fundraiser$/) do
+  step "I type 'Hammer' into the dynamic search field"
+  step "I press Enter on the keyboard"
+  step "I click on 'Allen Hammer' in the search results"
+  step "I click on 'Account Settings' in the account header"
+  step "I click Merge Role on the account settings page"
+  step "I type 'Hammer' into the search field in the Find Account popup window"
+  step "I click Find in the Find Account popup window"
+  step "I click on 'Kimberly Hammer' in the Find Account popup window"
+  step "I click Save"
+  step "I click Yes on the Account Settings page"
+  step "I click on 'Journal' in the account header"
+  step "I should see the message '17 Journal Entries' on the journal page"
+  step "I click on the 'Note' journal entry on the journal page"
+  step "I should see the text 'Allen Hammer (178) merged into Kimberly Hammer (177).' in the journal Note"
+  step "I click on 'Personas' in the account header"
+  step "the Address Lines should be set to '615 Lockerbie Pl'"
+  step "the City should be set to 'Carmel'"
+  step "the State should be set to 'IN'"
+  step "the Postal Code should be set to '46032'"
+  step "the Email should be set to 'kimberly.hammer@blackbaud.com'"
+  step "the Short Salutation should be set to 'Kimberly'"
+  step "the Long Salutation should be set to 'Kimberly Hammer'"
+  step "the Envelope Salutation should be set to 'Kimberly Hammer'"
+  step "the Voice should be set to '(317) 495-5697'"
+  step "I click on 'Account Settings' in the account header"
+  step "the Name Format value should be set to 'Individual'"
+  step "the First Name should be set to 'Kimberly'"
+  step "the Last Name should be set to 'Hammer'"
+  step "the Account Name should be set to 'Kimberly Hammer'"
+  step "the Sort Name should be set to 'Hammer, Kimberly'"
+  step "the Recognition Name should be set to 'Kimberly Hammer'"
+  step "the Recognition Type should be set to '(account name)'"
+  step "I click on 'Defined Fields' in the account header"
+  step "the 'EDH Account Id' should be set to '45728f06-73f9-42bc-9844-a6ba1c70dd0a'"
+  step "the 'EDH Account Type' should be set to 'Hero, Donor'"
+  step "the 'EDH Communication Preferences' should be set to 'Opt-In'"
+  step "the 'Data Source' should be set to 'EDH Addition, EDH Update'"
+end
+
+And (/^I verify that the Participation Summary report displays information properly$/) do
+  steps %Q{
+  I click Reports on the main menu
+  And I click on eTapestry Standard Reports on the reports menu
+  And I click on Fundraiser Summary on the reports menu
+  And I click on the drop down box for query category Base
+  And I click on the drop down box for query name All Constituents
+  And I set the Fundraiser on the report launch page to 'Start 2017 Off On The Right Foot!'
+  And I accept on the default report format 'Display Results on Screen'
+  And I click on submit
+  And I
+}
+end
+
+And (/^And I click on Fundraiser Summary on the reports menu$/) do
+  intMan = Management::EdhIntegration.new
+  intMan.click_fundraiser_summary_report
+end
+
+And (/^I set the Fundraiser on the report launch page to '([^']*)'$/) do |value|
+  intMan = Management::EdhIntegration.new
+  intMan.set_fundraiser_on_report_launch_page(value)
+end
