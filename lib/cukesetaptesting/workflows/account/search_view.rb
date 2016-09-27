@@ -42,8 +42,9 @@ module Cukesetaptesting
         proper_table_row.td(:index=>0).div.button(:class=>/bb-context-menu-btn/)
       end
 
-
-      keyword(:role_menu) { content.ul(:index=>2, :class=>"dropdown-menu") }
+      def role_menu
+        content.ul(:css => '[style*="display: block;"]')
+      end
       keyword(:role_menu_home) {role_menu.li(:index=>0).link }
       keyword(:role_menu_personas) {role_menu.li(:index=>1).link }
       keyword(:role_menu_relationships) {role_menu.li(:index=>2).link }
