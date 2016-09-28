@@ -5,7 +5,6 @@ Feature: EDH Integration - On Demand Import and Mulitple Participation Entries o
 
   Background:
     Given I login into eTap for CP5
-#    Given I login into eTap for CP2
 
   Scenario: EDH Integration - Run On Demand Import and Multiple Participation Entry Behavior
     When I click Management on the main menu
@@ -17,8 +16,6 @@ Feature: EDH Integration - On Demand Import and Mulitple Participation Entries o
     And I verify that multiple EDH Participations for a single Hero were imported correctly
     And I verify that I can manually add an additional Participation to a Hero who is already participating in a Fundraiser
     And I successfully merge two accounts with multiple Participations for the same Fundraiser
-  ## Should we automate this?
-#    And I verify that the Participation Summary report displays information properly
 
 
 

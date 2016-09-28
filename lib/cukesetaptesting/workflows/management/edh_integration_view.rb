@@ -70,7 +70,6 @@ module Cukesetaptesting
       keyword(:fundraiser_type) {content.i(:id, "eventRef_comboArrow")}
       keyword(:fundraiser_combo_list) {content.div(:id,"eventRef_comboAllList")}
       keyword(:participation_display_name_field) {content.text_field(:name, 'eventParticipation.displayNameNoDefault')}
-      keyword(:fundraiser_summary_report_link) {content.a(:href, 'reportLauncher.do?nextAction=eventFundraisingSummaryReport.do&type=EventFundraisingSummary&mode=report&nameKey=label.fundraiserSummaryReport')}
 
 
       def specific_journal_entry(value)

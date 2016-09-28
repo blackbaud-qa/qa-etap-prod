@@ -354,14 +354,6 @@ module Cukesetaptesting
         @view.participation_display_name_field.when_present.set 'H To The Izzo'
       end
 
-      def click_fundraiser_summary_report
-        @view.fundraiser_summary_report_link.when_present.click
-      end
-
-      def set_fundraiser_on_report_launch_page(value)
-        @view.fundraiser_type.when_present.click
-        @view.fundraiser_combo_list.when_present.div(:text,value).click
-      end
 
     end
   end

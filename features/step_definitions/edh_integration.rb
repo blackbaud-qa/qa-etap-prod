@@ -726,26 +726,4 @@ And (/^I successfully merge two accounts with multiple Participations for the sa
   step "the 'Data Source' should be set to 'EDH Addition, EDH Update'"
 end
 
-And (/^I verify that the Participation Summary report displays information properly$/) do
-  steps %Q{
-  I click Reports on the main menu
-  And I click on eTapestry Standard Reports on the reports menu
-  And I click on Fundraiser Summary on the reports menu
-  And I click on the drop down box for query category Base
-  And I click on the drop down box for query name All Constituents
-  And I set the Fundraiser on the report launch page to 'Start 2017 Off On The Right Foot!'
-  And I accept on the default report format 'Display Results on Screen'
-  And I click on submit
-  And I
-}
-end
 
-And (/^And I click on Fundraiser Summary on the reports menu$/) do
-  intMan = Management::EdhIntegration.new
-  intMan.click_fundraiser_summary_report
-end
-
-And (/^I set the Fundraiser on the report launch page to '([^']*)'$/) do |value|
-  intMan = Management::EdhIntegration.new
-  intMan.set_fundraiser_on_report_launch_page(value)
-end
