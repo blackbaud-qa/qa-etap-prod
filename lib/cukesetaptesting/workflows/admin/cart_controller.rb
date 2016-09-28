@@ -181,10 +181,15 @@ module Cukesetaptesting
         @view.edit_cart_default_order_attributes_general.when_present.click
       end
 
+      def wait_for_cart_homepage
+        @view.cart_page_title.wait_until_present
+        @view.cart_homepage_content_frame.wait_until_present
+      end
+
       def edit_cart_wait_for_load
-        sleep 2
         @view.edit_cart_content_frame.wait_until_present
       end
+
       def edit_cart_shipping_attributes_click
         @view.edit_cart_shipping_attributes.when_present.click
       end
