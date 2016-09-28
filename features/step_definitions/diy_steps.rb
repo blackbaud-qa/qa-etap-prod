@@ -850,9 +850,14 @@ And(/^I set the Volunteer Interest Area to '([^']*)' on the DIY Volunteer page/)
   diy.set_live_volunteer_interest_area value
 end
 
-And(/^the submission will go through successfully/) do
+And(/^the transaction will go through successfully/) do
   diy = DIY::Onlineforms.new()
-  expect(diy.live_submission_successful?).to eq(true)
+  expect(diy.live_transaction_successful?).to eq(true)
+end
+
+And(/^the registration will go through successfully/) do
+  diy = DIY::Onlineforms.new()
+  expect(diy.live_registration_successful?).to eq(true)
 end
 
 And (/I click on the Contact listed in the journal/) do
@@ -1090,7 +1095,7 @@ And (/I submit an entry on the live contact page$/) do
       And I set Confirm Email to 'test@test.com' on the DIY Donation Page
       And I set Phone to '478-999-9875' on the DIY Donation Page
       And I click Submit on the DIY Donation Page
-      And the submission will go through successfully
+      And the registration will go through successfully
       And I close the current tab
   }
 end
@@ -1185,7 +1190,7 @@ And (/^I submit an entry on the live edited contact page$/) do
       And I set Confirm Email to 'test@test.com' on the DIY Donation Page
       And I set Phone to '317-888-8745' on the DIY Donation Page
       And I click Submit on the DIY Donation Page
-      And the submission will go through successfully
+      And the registration will go through successfully
       And I close the current tab
   }
 end
@@ -1225,66 +1230,44 @@ When (/^I make edits to an existing diy event page$/) do
         landing = Admin::Landing.new
         landing.management_click
         sleep 2
-        landing = Admin::Landing.new
         landing.management_dd_diy_click
    step "I click Edit for the form titled 'Existing Event Page'"
         sleep 3
         diy = DIY::Onlineforms.new()
         diy.edit_style_click
-        diy = DIY::Onlineforms.new()
         diy.swap_template_click
-        diy = DIY::Onlineforms.new()
         diy.choose_float_template_click
-        diy = DIY::Onlineforms.new()
         diy.swap_to_this_template_click
         sleep 3
-        diy = DIY::Onlineforms.new()
         diy.edit_style_click
-        diy = DIY::Onlineforms.new()
         diy.title_font_comic_sans_set
         diy.title_font_20pt_set
         diy = DIY::Onlineforms.new(:background_color=>'#EEEEEE')
         diy.create
-        diy = DIY::Onlineforms.new()
         diy.edit_update_click
         sleep 10
-        diy = DIY::Onlineforms.new()
         diy.edit_settings_click
-        diy = DIY::Onlineforms.new
         diy.unmark_include_comments_box
         sleep 3
-        diy = DIY::Onlineforms.new()
         diy.settings_update_click
-        diy = DIY::Onlineforms.new()
         diy.add_item_click
-        diy = DIY::Onlineforms.new()
         diy.add_fields_click
    step "I select 'Base' for the field category on the DIY editor page"
    step "I click 'Board Membership' on the DIY editor page"
    step "I click 'Date of Birth' on the DIY editor page"
-        diy = DIY::Onlineforms.new()
         diy.fields_update_click
-        diy = DIY::Onlineforms.new()
         diy.add_item_click
-        diy = DIY::Onlineforms.new()
         diy.add_text_click
-        diy = DIY::Onlineforms.new()
         diy.update_default_text
-        diy = DIY::Onlineforms.new()
         diy.update_text_click
         sleep 2
-        diy = DIY::Onlineforms.new()
         diy.diy_save_click
         sleep 2
-        diy = DIY::Onlineforms.new()
         diy.diy_save_confirm_click
         sleep 2
-        diy = DIY::Onlineforms.new()
         diy.go_live_click
-        diy = DIY::Onlineforms.new()
         diy.go_live_confirm_click
         sleep 10
-        diy = DIY::Onlineforms.new()
         diy.donation_page_replace_click
         diy.wait_for_diy_home_page
 end
@@ -1318,11 +1301,11 @@ And (/I submit an entry on the live event page$/) do
       And I set Expiration Month to '02' on the DIY Donation Page
       And I set Expiration Year to '2033' on the DIY Donation Page
 }
-     diy = DIY::Onlineforms.new()
+#     diy = DIY::Onlineforms.new()
      diy.live_submit_click
-     diy = DIY::Onlineforms.new()
+#     diy = DIY::Onlineforms.new()
      expect(diy.live_transaction_successful?).to eq(true)
-     diy = DIY::Onlineforms.new()
+#     diy = DIY::Onlineforms.new()
      diy.close_current_tab
 end
 
@@ -1408,11 +1391,11 @@ And (/I submit an entry on the live edited event page$/) do
       And I set Expiration Month to '02' on the DIY Donation Page
       And I set Expiration Year to '2033' on the DIY Donation Page
 }
-      diy = DIY::Onlineforms.new()
+#      diy = DIY::Onlineforms.new()
       diy.live_submit_click
-      diy = DIY::Onlineforms.new()
+#      diy = DIY::Onlineforms.new()
       expect(diy.live_transaction_successful?).to eq(true)
-      diy = DIY::Onlineforms.new()
+#      diy = DIY::Onlineforms.new()
       diy.close_current_tab
 
 end
