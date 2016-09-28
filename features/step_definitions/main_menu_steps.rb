@@ -371,6 +371,9 @@ end
 When(/^I click on eStore on the management menu$/) do
   landing = Admin::Landing.new
   landing.management_dd_estore_click
+
+  cart = Admin::Cart.new
+  cart.wait_for_cart_homepage
 end
 
 When(/^I click on Fundraisers on the management menu$/) do

@@ -56,6 +56,7 @@ module Cukesetaptesting
       keyword(:edit_cart_default_order_attributes) {cart_edit_page.i(:id,'refPopulate(preferences.itemIntent)_comboArrow')}
       keyword(:edit_cart_default_order_attributes_general) {content.div(:text,'General')}
       keyword(:edit_cart_content_frame) {cart_edit_page.div(:class,'taskContentRight')}
+      keyword(:cart_homepage_content_frame) {content.div(:id=>'shoppingCartPage').div(:class,'taskContentRight')}
       keyword(:edit_cart_shipping_attributes) {cart_edit_page.i(:id,'refPopulate(preferences.shippingIntent)_comboArrow')}
       keyword(:edit_cart_shipping_attributes_general) {content.div(:text,/General/)}
       keyword(:edit_cart_transaction_processor) {cart_edit_page.select_list(:name,'refPopulate(preferences.namedTransactionProcessor)')}
