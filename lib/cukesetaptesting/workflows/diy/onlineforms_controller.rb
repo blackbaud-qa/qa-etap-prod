@@ -474,7 +474,7 @@ module Cukesetaptesting
       end
 
       def live_submission_successful?
-        @view.live_results_header.when_present.text.include? 'Registration Successful'
+        @view.live_results_header.when_present.text.include? 'Transaction Successful'
       end
 
       def contact_in_journal_click
