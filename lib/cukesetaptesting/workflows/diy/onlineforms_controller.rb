@@ -473,8 +473,12 @@ module Cukesetaptesting
         @view.browser.div(:class=>'udf volunteerInterest pageBlockElement row').span(:text=>value).parent.checkbox.click
       end
 
-      def live_submission_successful?
+      def live_transaction_successful?
         @view.live_results_header.when_present.text.include? 'Transaction Successful'
+      end
+
+      def live_registration_successful?
+        @view.live_results_header.when_present.text.include? 'Registration Successful'
       end
 
       def contact_in_journal_click
