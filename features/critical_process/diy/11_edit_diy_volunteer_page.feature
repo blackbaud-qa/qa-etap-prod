@@ -50,7 +50,7 @@ Feature: Edit a diy volunteer page
     And I set Confirm Email to 'test@test.com' on the DIY Donation Page
     And I set Phone to '123-123-1234' on the DIY Donation Page
     And I click Submit on the DIY Donation Page
-    And the submission will go through successfully
+    And the registration will go through successfully
     And I close the current tab
     And I type 'George Grant' into the dynamic search field
     And I press Enter on the keyboard
@@ -92,7 +92,7 @@ Feature: Edit a diy volunteer page
     And I set Confirm Email to 'test@test.com' on the DIY Donation Page
     And I set Phone to '317-987-9965' on the DIY Donation Page
     And I click Submit on the DIY Donation Page
-    And the submission will go through successfully
+    And the registration will go through successfully
     And I close the current tab
     And I type 'Steven Davis' into the dynamic search field
     And I press Enter on the keyboard
