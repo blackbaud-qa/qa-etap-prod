@@ -2,7 +2,7 @@
 Feature: Edit a diy volunteer page
 
   Background:
-    Given I login into eTap for CP8
+    Given I login into eTap for CP7
 
   Scenario: editing a diy volunteer page
     When I click Management on the main menu
