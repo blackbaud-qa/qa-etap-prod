@@ -87,7 +87,6 @@ end
 And(/^I click Yes, Go Live! on the DIY editor page$/) do
   diy = DIY::Onlineforms.new()
   diy.go_live_confirm_click
-  sleep 10
 end
 
 And(/^I should see the new DIY page$/) do
@@ -95,9 +94,9 @@ And(/^I should see the new DIY page$/) do
   expect(diy.on_new_diy_page?).to eq(true)
 end
 
-And(/^I should see the edited DIY page$/) do
+And(/^I should see the edited DIY page named '([^']*)'$/) do |page|
   diy = DIY::Onlineforms.new()
-  expect(diy.on_edited_diy_page?).to eq(true)
+  expect(diy.on_edited_diy_page? page).to eq(true)
 end
 
 And(/^I click Edit for the form titled '([^']*)'$/) do |page|
@@ -149,7 +148,6 @@ And(/^I click Update on the DIY editor page$/) do
 end
 
 And(/^I click Settings on the DIY editor page$/) do
-  sleep 10
   diy = DIY::Onlineforms.new()
   diy.edit_settings_click
 end
@@ -327,7 +325,7 @@ end
 And(/^I click Replace on the DIY editor page$/) do
   diy = DIY::Onlineforms.new()
   diy.donation_page_replace_click
-  sleep 30
+  diy.wait_for_diy_home_page
 end
 
 Then(/the Donation Page should no longer show$/) do
@@ -356,7 +354,6 @@ And(/^I open a new tab in my browser$/) do
 end
 
 And(/^I switch to the new tab in my browser$/) do
-  sleep 3
   diy = DIY::Onlineforms.new()
   diy.switch_tab
 end
@@ -1148,10 +1145,8 @@ end
 
 
 And(/^I hover over '([^']*)' field on the DIY editor page$/) do |original_udf_label|
-  sleep 1
   diy = DIY::Onlineforms.new
   diy.diy_udf_hover (original_udf_label)
-  sleep 1
 end
 
 And (/^I set the Label field to '([^']*)' on the DIY editor page$/) do |new_udf_label|
@@ -1291,7 +1286,7 @@ When (/^I make edits to an existing diy event page$/) do
         sleep 10
         diy = DIY::Onlineforms.new()
         diy.donation_page_replace_click
-        sleep 30
+        diy.wait_for_diy_home_page
 end
 
 And (/I submit an entry on the live event page$/) do
