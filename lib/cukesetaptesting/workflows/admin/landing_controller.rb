@@ -292,6 +292,34 @@ module Cukesetaptesting
         @view.management_dd.when_present.click
       end
 
+      def wait_for_home_dropdown
+        return @view.homeContextPanel.wait_until_present
+      end
+
+      def wait_for_accounts_dropdown
+        return @view.accountsContextPanel.wait_until_present
+      end
+
+      def wait_for_giving_dropdown
+        return @view.givingContextPanel.wait_until_present
+      end
+
+      def wait_for_communications_dropdown
+        return @view.communicationsContextPanel.wait_until_present
+      end
+
+      def wait_for_queries_dropdown
+        return @view.queriesContextPanel.wait_until_present
+      end
+
+      def wait_for_reports_dropdown
+        return @view.reportsContextPanel.wait_until_present
+      end
+
+      def wait_for_management_dropdown
+        return @view.managementContextPanel.wait_until_present
+      end
+
       def management_dd_import_click
         @view.management_dd_import.when_present.click
       end

@@ -1,15 +1,13 @@
-
 When(/^I click Home on the main menu$/) do
   landing = Admin::Landing.new
   landing.home_click
-  sleep 3
+  landing.wait_for_home_dropdown
 end
 
-#Home DropDown
 When(/^I click on the Home drop down$/) do
-  sleep 5
   landing = Admin::Landing.new
   landing.home_dropdown_click
+  landing.wait_for_home_dropdown
 end
 
 When(/^I click on Go to Home on the home menu$/) do
@@ -71,12 +69,13 @@ end
 When(/^I click Accounts on the main menu$/) do
   landing = Admin::Landing.new
   landing.accounts_click
+  landing.wait_for_accounts_dropdown
 end
 
-#Accounts DropDown
 When(/^I click on the Accounts drop down$/) do
   landing = Admin::Landing.new
   landing.accounts_dropdown_click
+  landing.wait_for_accounts_dropdown
 end
 
 When(/^I click on Find an Account on the accounts menu$/) do
@@ -92,11 +91,13 @@ end
 When(/^I click Giving on the main menu$/) do
   landing = Admin::Landing.new
   landing.giving_click
+  landing.wait_for_giving_dropdown
 end
 
 When(/^I click on the Giving drop down$/) do
   landing = Admin::Landing.new
   landing.giving_dropdown_click
+  landing.wait_for_giving_dropdown
 end
 
 When(/^I click on Add a Gift or Pledge on the giving menu$/) do
@@ -152,12 +153,13 @@ end
 When(/^I click Communications on the main menu$/) do
   landing = Admin::Landing.new
   landing.communications_click
+  landing.wait_for_communications_dropdown
 end
 
-#Communications DropDown
 When(/^I click on the Communications drop down$/) do
   landing = Admin::Landing.new
   landing.communications_dropdown_click
+  landing.wait_for_communications_dropdown
 end
 
 When(/^I click on Manage Communications on the communications menu$/) do
@@ -176,19 +178,18 @@ When(/^I click on Constant Contact on the communications menu$/) do
 end
 
 When(/^I click Queries on the main menu$/) do
-  sleep 2
   landing = Admin::Landing.new
   landing.queries_click
+  landing.wait_for_queries_dropdown
 end
 
-#Queries DropDown
 When(/^I click on the Queries drop down$/) do
   landing = Admin::Landing.new
   landing.queries_dropdown_click
+  landing.wait_for_queries_dropdown
 end
 
 When(/^I click on Manage Queries on the queries menu$/) do
-  sleep 2
   landing = Admin::Landing.new
   landing.queries_dd_manage_click
 end
@@ -236,76 +237,66 @@ end
 When(/^I click Reports on the main menu$/) do
   landing = Admin::Landing.new
   landing.reports_click
+  landing.wait_for_reports_dropdown
 end
 
-#Reports DropDown
 When(/^I click on the Reports drop down$/) do
   landing = Admin::Landing.new
   landing.reports_dropdown_click
+  landing.wait_for_reports_dropdown
 end
 
 When(/^I click on Manage Reports on the reports menu$/) do
-  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_manage_reports_click
 end
 
 When(/^I click on Relationship Filters on the reports menu$/) do
-  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_rel_filters_click
 end
 
 When(/^I click on System on the reports menu$/) do
-  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_system_click
 end
 
 When(/^I click on Top Donor Report on the reports menu$/) do
-  sleep 3
   landing = Admin::Landing.new
   landing.reports_dd_top_donor_click
 end
 
 When(/^I click on Journal Entry List on the reports menu$/) do
-  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_journal_click
 end
 
 When(/^I click on Recency Report on the reports menu$/) do
-  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_recency_click
 end
 
 When(/^I click on Shared Links Report on the reports menu$/) do
-  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_shared_click
 end
 
 When(/^I click on Aging Pledge Summary on the reports menu$/) do
-  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_aging_pledge_click
 end
 
 When(/^I click on eTapestry Standard Reports on the reports menu$/) do
-  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_standard_click
 end
 
 When(/^I click on Directory Report on the reports menu$/ ) do
-  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_directory_click
 end
 
 When(/^I click on eTapestry Benchmark Reports on the reports menu$/) do
-  sleep 1
   landing = Admin::Landing.new
   landing.reports_dd_benchmark_click
 end
@@ -313,12 +304,13 @@ end
 When(/^I click Management on the main menu$/) do
   landing = Admin::Landing.new
   landing.management_click
+  landing.wait_for_management_dropdown
 end
 
-#Management DropDown
 When(/^I click on the Management drop down$/) do
   landing = Admin::Landing.new
   landing.management_dropdown_click
+  landing.wait_for_management_dropdown
 end
 
 When(/^I click on Import on the management menu$/) do
@@ -387,7 +379,6 @@ When(/^I click on Fundraisers on the management menu$/) do
 end
 
 When(/^I click on DIY Forms on the management menu$/) do
-  sleep 2
   landing = Admin::Landing.new
   landing.management_dd_diy_click
 end
@@ -398,7 +389,6 @@ When(/^I click on System Defined Fields on the management menu$/) do
 end
 
 When(/^I click on User Defined Fields on the management menu$/) do
-  sleep 2
   landing = Admin::Landing.new
   landing.management_dd_user_defined_click
 end
@@ -651,13 +641,11 @@ Then(/^I should be taken to Launch Aging Pledge Summary$/) do
 end
 
 Then(/^I should be taken to eTapestry Standard Reports page$/) do
-  sleep 1
   report = Reports::Standardreports.new
   expect(report.on_standard_reports_page?).to eq(true)
 end
 
 Then(/^I should be taken to eTapestry Benchmark Reports page$/) do
-  sleep 1
   report = Reports::Standardreports.new
   expect(report.on_benchmark_reports_page?).to eq(true)
 end
