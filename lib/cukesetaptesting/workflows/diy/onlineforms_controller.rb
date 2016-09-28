@@ -77,15 +77,17 @@ module Cukesetaptesting
       end
 
       def go_live_confirm_click
-        @view.go_live_confirm.when_present.click
+        @view.go_live_confirm.wait_until_present(30)
+        @view.go_live_confirm.click
       end
 
       def on_new_diy_page?
         return @view.live_page.present?
       end
 
-      def on_edited_diy_page?
-        return @view.live_page_title.text.include? 'My Organization'
+      def on_edited_diy_page?(page)
+        @view.live_page_title.wait_until_present(30)
+        @view.live_page_title.text.include? page
       end
 
       def edit_form(page)
