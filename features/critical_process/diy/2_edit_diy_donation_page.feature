@@ -58,7 +58,7 @@ Feature: Edit a diy donation page
     And I click Replace on the DIY editor page
     And I click on the link for the form titled Existing Donation Page
     And I switch to the new tab in my browser
-    Then I should see the edited DIY page
+    Then I should see the edited DIY page named 'My Organization'
     And I close the current tab
 #    And click Go Live
 #    And click Yes, Go Live!

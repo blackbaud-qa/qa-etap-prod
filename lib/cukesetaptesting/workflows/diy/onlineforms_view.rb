@@ -171,6 +171,8 @@ module Cukesetaptesting
       keyword(:live_birthdate) {browser.h6(:class=>'simplefieldType',:text=>'Birthdate').parent.parent.text_field}
       keyword(:live_board_membership) {browser.h6(:class=>'dropdownType',:text=>'Board Membership').parent.parent.select}
 
+      keyword(:main_diy_div) { content.div(:class=>'bb-tile-content-section') }
+
       def diy_udf(value)
         content.h6(:id=> 'label',:text=> value)
       end
@@ -298,9 +300,9 @@ module Cukesetaptesting
         content.a(:text, approach)
       end
 
-      def diy_udf(udf)
-        browser.h6(:class=>'simplefieldType',:text=> udf).parent.parent.text_field
-      end
+      # def diy_udf(udf)
+      #   browser.h6(:class=>'simplefieldType',:text=> udf).parent.parent.text_field
+      # end
 
       def home(model)
       end

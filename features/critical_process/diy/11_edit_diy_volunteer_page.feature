@@ -35,7 +35,7 @@ Feature: Edit a diy volunteer page
     And I click Replace on the DIY editor page
     And I click on the link for the form titled Existing Volunteer Page
     And I switch to the new tab in my browser
-    Then I should see the edited DIY page
+    Then I should see the edited DIY page named 'eTapestry Automation'
     And I set Date of Birth to '01/05/1975' on the DIY Page
     And I set the Volunteer Availability to 'As Needed' on the DIY Volunteer page
     And I set the Title to 'Mr.' on the DIY Donation Page
@@ -50,7 +50,7 @@ Feature: Edit a diy volunteer page
     And I set Confirm Email to 'test@test.com' on the DIY Donation Page
     And I set Phone to '123-123-1234' on the DIY Donation Page
     And I click Submit on the DIY Donation Page
-    And the submission will go through successfully
+    And the registration will go through successfully
     And I close the current tab
     And I type 'George Grant' into the dynamic search field
     And I press Enter on the keyboard
@@ -77,7 +77,7 @@ Feature: Edit a diy volunteer page
     And I click Replace on the DIY editor page
     And I click on the link for the form titled Existing Volunteer Page
     And I switch to the new tab in my browser
-    Then I should see the edited DIY page
+    Then I should see the edited DIY page named 'eTapestry Automation'
     And I set Birthdate to '02/08/1975' on the DIY Page
     And I set the Volunteer Availability to 'As Needed' on the DIY Volunteer page
     And I set the Title to 'Mr.' on the DIY Donation Page
@@ -86,13 +86,13 @@ Feature: Edit a diy volunteer page
     And I set Country to 'United States' on the DIY Donation Page
     And I set Address Lines to '458 Franklin Road' on the DIY Donation Page
     And I set City to 'Indianapolis' on the DIY Donation Page
-    And I set State to 'IN' on the DIY Donation Page
+    And I set State to 'Indiana' on the DIY Donation Page
     And I set Postal Code to '11254' on the DIY Donation Page
     And I set Email to 'test@test.com' on the DIY Donation Page
     And I set Confirm Email to 'test@test.com' on the DIY Donation Page
     And I set Phone to '317-987-9965' on the DIY Donation Page
     And I click Submit on the DIY Donation Page
-    And the submission will go through successfully
+    And the registration will go through successfully
     And I close the current tab
     And I type 'Steven Davis' into the dynamic search field
     And I press Enter on the keyboard
@@ -104,5 +104,5 @@ Feature: Edit a diy volunteer page
     And I should see the Method set to 'DIY Form-Volunteer' on the contact page
     And I click on 'Defined Fields' in the account header
     Then I should see 'Volunteer Availability' set to 'As Needed' on the payment page
-    And the 'Date of Birth' should be set to '2/8/1984'
+    And the 'Date of Birth' should be set to '2/8/1975'
 
