@@ -72,6 +72,7 @@ end
 
 
 And(/^I should see '([^']*)' listed in the last modified date column$/) do |value|
+  sleep 2
   landing = Account::Journal.new
   expect(landing.confirm_last_modified_date value).to eq(true)
  end
