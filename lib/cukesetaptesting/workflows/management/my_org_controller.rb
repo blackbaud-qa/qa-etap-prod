@@ -27,9 +27,11 @@ module Cukesetaptesting
 
       def error_includes? error
       if (@view.browser.alert.exists?)
-        @text = @view.browser.alert.text
+        text = @view.browser.alert.text
+        puts "TEXT:  " + text
+        puts "ERROR: " + error
 
-        return @text.include? error
+        return text.include? error
       end
       return false
     end
