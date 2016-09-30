@@ -25,8 +25,9 @@ end
 
 
 And(/^I click on apply changes$/) do
-   journal = Account::Journal.new
-   journal.journal_apply_changes_click
+  journal = Account::Journal.new
+  journal.journal_apply_changes_click
+  journal.wait_for_page_load
 end
 
 
@@ -72,7 +73,7 @@ end
 
 
 And(/^I should see '([^']*)' listed in the last modified date column$/) do |value|
-  sleep 2
+  sleep 5
   landing = Account::Journal.new
   expect(landing.confirm_last_modified_date value).to eq(true)
  end
