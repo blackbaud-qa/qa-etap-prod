@@ -25,8 +25,9 @@ end
 
 
 And(/^I click on apply changes$/) do
-   journal = Account::Journal.new
-   journal.journal_apply_changes_click
+  journal = Account::Journal.new
+  journal.journal_apply_changes_click
+  journal.wait_for_page_load
 end
 
 
