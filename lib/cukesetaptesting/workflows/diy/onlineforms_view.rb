@@ -173,6 +173,8 @@ module Cukesetaptesting
 
       keyword(:main_diy_div) { content.div(:class=>'bb-tile-content-section') }
 
+      keyword (:error_message) { browser.span(:class=>'shortMessage') }
+
       def diy_udf(value)
         content.h6(:id=> 'label',:text=> value)
       end

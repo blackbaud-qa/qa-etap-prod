@@ -1442,3 +1442,7 @@ And (/^I set the '([^']*)' UDF to '([^']*)' on the DIY page$/) do |udf, value|
   diy.set_diy_udf_to_value(udf,value)
 end
 
+Then(/^I should see the "([^"]*)" DIY error$/) do |error|
+  diy = DIY::Onlineforms.new()
+  expect(diy.error_message).to eq(error)
+end
