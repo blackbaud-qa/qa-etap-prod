@@ -148,6 +148,7 @@ And(/^I click Update on the DIY editor page$/) do
 end
 
 And(/^I click Settings on the DIY editor page$/) do
+  sleep 10
   diy = DIY::Onlineforms.new()
   diy.edit_settings_click
 end
