@@ -656,6 +656,10 @@ module Cukesetaptesting
         @view.create_a_page.wait_until_present(30)
         @view.main_diy_div.wait_until_present(30)
       end
+
+      def error_message
+        @view.error_message.text
+      end
     end
   end
 end
