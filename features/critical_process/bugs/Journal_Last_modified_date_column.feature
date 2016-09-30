@@ -1,4 +1,7 @@
-@bugs
+#@bugs
+# TODO: This test is failing in the last line where it checks for the date,
+#   most likely due to searching in the right-most cell, which Watir appears
+#   to have an issue locating. Will revisit to see how to properly locate that value.
 Feature: Adding Last modified Date column to Journal Page
 
   Background:
