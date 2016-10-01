@@ -176,7 +176,7 @@ module Cukesetaptesting
       keyword (:error_message) { browser.span(:class=>'shortMessage') }
 
       def diy_udf(value)
-        content.h6(:id=> 'label',:text=> value)
+        browser.h6(:id=> 'label',:text=> value)
       end
 
 
