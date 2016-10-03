@@ -177,7 +177,7 @@ module Cukesetaptesting
 
       def diy_udf_hover (value)
         @view.browser.execute_script('arguments[0].scrollIntoView();',@view.content.div(:id,'ecommEditorToolbar'))
-        @view.edit_diy_udf(value).hover
+        @view.edit_diy_udf(value).when_present.hover
       end
 
       def edit_section_click
