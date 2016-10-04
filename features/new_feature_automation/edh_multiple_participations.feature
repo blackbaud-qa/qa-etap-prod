@@ -18,4 +18,3 @@ Feature: EDH Integration - On Demand Import and Mulitple Participation Entries o
     And I successfully merge two accounts with multiple Participations for the same Fundraiser
 
 
-

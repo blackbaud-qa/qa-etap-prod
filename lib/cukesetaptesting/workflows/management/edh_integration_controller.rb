@@ -354,6 +354,9 @@ module Cukesetaptesting
         @view.participation_display_name_field.when_present.set 'H To The Izzo'
       end
 
+      def click_specific_part_edh_page_id(value)
+        @view.specific_part_edh_page_id(value).when_present.click
+      end
 
     end
   end

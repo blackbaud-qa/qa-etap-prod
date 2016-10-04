@@ -71,9 +71,12 @@ module Cukesetaptesting
       keyword(:fundraiser_combo_list) {content.div(:id,"eventRef_comboAllList")}
       keyword(:participation_display_name_field) {content.text_field(:name, 'eventParticipation.displayNameNoDefault')}
 
-
       def specific_journal_entry(value)
         content.div(:class, 'ui-jqgrid-bdiv').a(:text, value)
+      end
+
+      def specific_part_edh_page_id(value)
+        content.div(:class, 'ui-jqgrid-bdiv').div(:text, value).parent.parent.parent.a(:text, 'Participation')
       end
 
       def home(model)
