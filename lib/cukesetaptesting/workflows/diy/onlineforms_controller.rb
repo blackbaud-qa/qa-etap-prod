@@ -177,7 +177,7 @@ module Cukesetaptesting
 
       def diy_udf_hover (value)
         @view.browser.execute_script('arguments[0].scrollIntoView();',@view.content.div(:id,'ecommEditorToolbar'))
-        @view.diy_udf(value).when_present.hover
+        @view.edit_diy_udf(value).when_present.hover
       end
 
       def edit_section_click
@@ -473,7 +473,11 @@ module Cukesetaptesting
         @view.browser.div(:class=>'udf volunteerInterest pageBlockElement row').span(:text=>value).parent.checkbox.click
       end
 
-      def live_submission_successful?
+      def live_transaction_successful?
+        @view.live_results_header.when_present.text.include? 'Transaction Successful'
+      end
+
+      def live_registration_successful?
         @view.live_results_header.when_present.text.include? 'Registration Successful'
       end
 
@@ -641,7 +645,7 @@ module Cukesetaptesting
       end
 
       def set_diy_udf_to_value(udf,value)
-        @view.diy_udf(udf).when_present.set value
+        @view.diy_udf(udf).parent.parent.div(:index=>1).text_field.when_present.set value
       end
 
       def live_board_membership_set value
@@ -651,6 +655,10 @@ module Cukesetaptesting
       def wait_for_diy_home_page
         @view.create_a_page.wait_until_present(30)
         @view.main_diy_div.wait_until_present(30)
+      end
+
+      def error_message
+        @view.error_message.text
       end
     end
   end

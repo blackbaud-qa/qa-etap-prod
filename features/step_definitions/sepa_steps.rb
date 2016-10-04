@@ -39,6 +39,7 @@ And(/^I leave the Recurring Transaction Description field empty$/) do
 end
 
 Then(/^I should see the '([^']*)' error$/) do |error|
+  sleep 2
   org = Management::MyOrg.new()
   begin
   expect(org.error_includes? error).to eq(true)

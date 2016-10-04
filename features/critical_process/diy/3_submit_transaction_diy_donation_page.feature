@@ -68,6 +68,8 @@ Feature: Submit a transaction through a diy donation page
     And I set Expiration Month to '03' on the DIY Donation Page
     And I set Expiration Year to '2034' on the DIY Donation Page
     And I click Submit on the DIY Donation Page
-    Then I should see the 'Please select your state/province.' error
+    # TODO: Decide which error handling to use, based on outcome of TFS 680390
+    #Then I should see the 'Please select your state/province.' error
+    Then I should see the "The constituent's state was not supplied." DIY error
     And I should close the javascript popup
     And I close the current tab
