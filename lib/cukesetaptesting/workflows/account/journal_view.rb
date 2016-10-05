@@ -66,6 +66,8 @@ module Cukesetaptesting
       keyword(:confirm_tribute_column) {content.div(:text,'Tribute')}
       keyword (:confirm_soft_credit_column)  {content.div(:xpath,'//div[text()="Soft Credit"]')}
       keyword (:confirm_modified_date_column) {content.div(:xpath,'//div[text()="Last Modified Date"]')}
+      keyword (:journal_search_field) {content.div(:class, 'bb-checklist-search').text_field(:class, 'bb-checklist-search-box')}
+      keyword (:journal_checkbox_add_column) {content.div(:class, 'bb-checklist-list-row').label(:class, 'bb-check-wrapper')}
 
 
       def account_name(value)

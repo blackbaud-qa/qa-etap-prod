@@ -32,8 +32,8 @@ module Cukesetaptesting
       keyword(:edh_start_import_button) {content.div(:id,'startEdhImport')}
       keyword(:select_API_key_value) {content.input(:id, 'apiKey')}
       keyword(:select_edh_email_value) {content.input(:id, 'notificationEmail')}
-      keyword(:edit_set_up) {content.div(:id,'edhOpenSettingsButton')}
-      keyword(:edit_mappings) {content.div(:id,'edhOpenMappingsButton')}
+      keyword(:edit_set_up) {content.button(:id,'edhOpenSettingsButton')}
+      keyword(:edit_mappings) {content.button(:id,'edhOpenMappingsButton')}
       keyword(:edh_integration_modal_error) {content.div(:id,'<placeholderID>')}
       keyword(:api_key_validation) {content.div(:id, '<placeholderID>')}
       keyword(:edh_email_validation) {content.div(:id, '<placeholderID>')}
@@ -65,10 +65,18 @@ module Cukesetaptesting
       keyword(:cc_exp_year) {content.select(:name, 'creditCardExpirationYear')}
       keyword(:cc_type) {content.select(:name, 'creditCardType')}
       keyword(:journal_note_text_field) {content.text_field(:id, 'editBox')}
+      keyword(:next_journal_entry) {content.div(:id, 'journalEntryBrowserRight')}
 
+      keyword(:fundraiser_type) {content.i(:id, "eventRef_comboArrow")}
+      keyword(:fundraiser_combo_list) {content.div(:id,"eventRef_comboAllList")}
+      keyword(:participation_display_name_field) {content.text_field(:name, 'eventParticipation.displayNameNoDefault')}
 
       def specific_journal_entry(value)
         content.div(:class, 'ui-jqgrid-bdiv').a(:text, value)
+      end
+
+      def specific_part_edh_page_id(value)
+        content.div(:class, 'ui-jqgrid-bdiv').div(:text, value).parent.parent.parent.a(:text, 'Participation')
       end
 
       def home(model)
@@ -79,6 +87,7 @@ module Cukesetaptesting
 
       def edit(model)
       end
+
     end
   end
 end
