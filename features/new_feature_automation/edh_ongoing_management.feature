@@ -4,6 +4,7 @@ Feature: EDH Integration - Ongoing Management
   # TODO: Update Fullhouse Database once EDH us unflagged
 
   Background:
+    Given I log out of eTap
     Given I login into eTap for CP2
 
   Scenario: EDH Integration - Change Notifications Email Address

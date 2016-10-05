@@ -4,6 +4,7 @@ Feature: EDH Integration - Duplicate Checking
   # TODO: Update Fullhouse Database once EDH us unflagged
 
   Background:
+    Given I log out of eTap
     Given I login into eTap for CP4
 
   Scenario: EDH Integration - Run On Demand Import and Verify Duplicate Checking

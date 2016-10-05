@@ -4,6 +4,7 @@ Feature: EDH Integration - On Demand Import and Creating New Constituent Account
   # TODO: Update Fullhouse Database once EDH us unflagged
 
   Background:
+    Given I log out of eTap
     Given I login into eTap for CP3
 
   Scenario: EDH Integration - Run On Demand Import and Verify New Accounts
