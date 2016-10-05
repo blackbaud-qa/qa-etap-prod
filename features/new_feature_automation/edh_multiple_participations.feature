@@ -4,6 +4,7 @@ Feature: EDH Integration - On Demand Import and Mulitple Participation Entries o
   # TODO: Update Fullhouse Database once EDH us unflagged
 
   Background:
+    Given I log out of eTap
     Given I login into eTap for CP5
 
   Scenario: EDH Integration - Run On Demand Import and Multiple Participation Entry Behavior
