@@ -218,8 +218,8 @@ module Cukesetaptesting
         @view.confirm_modified_date_column.present?
       end
 
-      def mark_journal_column_checkbox
-        @view.journal_checkbox_add_column.when_present.click
+      def mark_journal_column_checkbox(value)
+        (@view.journal_checkbox_add_column value).when_present.click
       end
 
     end

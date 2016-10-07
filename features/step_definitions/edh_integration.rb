@@ -640,8 +640,15 @@ And (/^I verify that multiple EDH Participations for a single Hero were imported
   step "I click on 'Journal' in the account header"
   step "I should see the message '6 Journal Entries' on the journal page"
   step "I click choose columns"
-  step "I mark the checkbox for 'EDH Page ID' in the column picker"
+  step "I mark the checkbox for 'EDH Page Id' in the column picker"
   step "I click on apply changes"
+
+  step "I click the Filters icon"
+  step "I click Clear button on the journal filter"
+  step "I mark the checkbox next to Participation on the journal page"
+  step "I click Find on the journal page"
+  step "I close the filters dialog"
+
   step "I click on the Participation for EDH page Id 'edc1e64c-0004-4000-8000-000000049f06'"
   step "the date on the Participation should be set to '9/27/2016'"
   step "the Fundraiser should be set to 'Running with eTapestry 2016'"
@@ -732,10 +739,15 @@ end
 And (/^I mark the checkbox for '([^']*)' in the column picker$/) do |value|
   landing = Account::Journal.new(:journal_search_field=>value)
   landing.create
-  landing.mark_journal_column_checkbox
+  landing.mark_journal_column_checkbox(value)
 end
 
 And (/^I click on the Participation for EDH page Id '([^']*)'$/) do |value|
   intMan = Management::EdhIntegration.new
   intMan.click_specific_part_edh_page_id(value)
+end
+
+And (/^I close the filters dialog$/) do
+  giftPledge = Giving::GiftPledge.new
+  giftPledge.click_hide_filters_link
 end

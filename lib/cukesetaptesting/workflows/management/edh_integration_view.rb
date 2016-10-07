@@ -65,7 +65,7 @@ module Cukesetaptesting
       keyword(:cc_exp_year) {content.select(:name, 'creditCardExpirationYear')}
       keyword(:cc_type) {content.select(:name, 'creditCardType')}
       keyword(:journal_note_text_field) {content.text_field(:id, 'editBox')}
-      keyword(:next_journal_entry) {content.div(:id, 'journalEntryBrowserRight')}
+      keyword(:next_journal_entry) {content.div(:id, 'journalEntryBrowserRight').link}
 
       keyword(:fundraiser_type) {content.i(:id, "eventRef_comboArrow")}
       keyword(:fundraiser_combo_list) {content.div(:id,"eventRef_comboAllList")}

@@ -298,6 +298,11 @@ module Cukesetaptesting
         @view.filter_pledge_checkbox_label.when_present.click
       end
 
+      def participation_checkbox_click
+        sleep 3
+        @view.filter_participation_checkbox_label.when_present.click
+      end
+
       def find_button_journal_page_click
         @view.find_button_journal_page.when_present.click
       end
@@ -635,6 +640,10 @@ module Cukesetaptesting
 
       def add_installment_button
         @view.add_installment_button.present?
+      end
+
+      def click_hide_filters_link
+        @view.hide_filters_link.when_present.click
       end
     end
   end

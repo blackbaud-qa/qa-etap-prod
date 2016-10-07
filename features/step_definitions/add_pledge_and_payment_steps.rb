@@ -108,6 +108,11 @@ And (/^I mark the checkbox next to Pledge on the journal page/) do
   gift.pledge_checkbox_click
 end
 
+And (/^I mark the checkbox next to Participation on the journal page/) do
+  gift = Giving::GiftPledge.new
+  gift.participation_checkbox_click
+end
+
 And (/^I click Find on the journal page/) do
   gift = Giving::GiftPledge.new
   #gift.find_button_journal_page_click
