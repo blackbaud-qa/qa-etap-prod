@@ -153,6 +153,6 @@ Feature: Verify that validation is working properly on DIY pages
     And I set Expiration Month to '04' on the DIY Donation Page
     And I set Expiration Year to '2034' on the DIY Donation Page
     And I click Submit on the DIY Donation Page
-    Then I should see the 'Please correct the following error: DIY Validate MMDD Date Field - Must be valid a valid month/day date' error
+    Then I should see the 'Please correct the following error: DIY Validate MMDD Date Field - Must be a valid month/day date' error
     And I should close the javascript popup
     And I close the current tab
