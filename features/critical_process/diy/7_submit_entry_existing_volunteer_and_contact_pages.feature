@@ -36,7 +36,7 @@ Feature: Submit an entry through existing non-transaction based diy pages
     And I set Confirm Email to 'test@test.com' on the DIY Donation Page
     And I set Phone to '607-786-2950' on the DIY Donation Page
     And I click Submit on the DIY Donation Page
-    And the submission will go through successfully
+    And the registration will go through successfully
     And I close the current tab
     And I type 'Cameron Zavala' into the dynamic search field
     And I press Enter on the keyboard
@@ -91,7 +91,7 @@ Feature: Submit an entry through existing non-transaction based diy pages
     And I set Confirm Email to 'test@test.com' on the DIY Donation Page
     And I set Phone to '418-482-9773' on the DIY Donation Page
     And I click Submit on the DIY Donation Page
-    And the submission will go through successfully
+    And the registration will go through successfully
     And I close the current tab
     And I type 'Haley Crane' into the dynamic search field
     And I press Enter on the keyboard
@@ -151,7 +151,7 @@ Feature: Submit an entry through existing non-transaction based diy pages
     And I set Email to 'test@test.com' on the DIY Donation Page
     And I set Confirm Email to 'test@test.com' on the DIY Donation Page
     And I click Submit on the DIY Donation Page
-    And the submission will go through successfully
+    And the registration will go through successfully
     And I close the current tab
     And I type 'Shirley' into the dynamic search field
     And I press Enter on the keyboard

@@ -22,3 +22,4 @@ Feature: journal entries
     And I am on the home page
     When I click on most recent year on the account five year summary table
     Then I should see all the transactions for most recent year
+    And I should see the message '0 Journal Entries' on the journal page"

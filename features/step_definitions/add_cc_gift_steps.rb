@@ -124,7 +124,6 @@ And(/^click yes when the notification pops up$/) do
 end
 
 And(/^wait for the journal page to display/) do
-  sleep 30
   journ = Account::Journal.new
   journ.wait_for_page_load
 end

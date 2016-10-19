@@ -27,9 +27,30 @@ module Cukesetaptesting
       keyword(:date_field_link)  { content.a(:text,'Date') }
       keyword(:fund_field_link)  { content.a(:text,'Fund') }
       keyword(:received_field_link)  { content.a(:text,'Received') }
+      keyword(:address_country_multi_link) { content.a(:text,'Full Address with Country (Multi Line)')}
+      keyword(:address_country_single_link) { content.a(:text,'Full Address with Country (Single Line)')}
+      keyword(:address_without_country_multi_link)  { content.a(:text,'Full Address without Country (Multi Line)')}
+      keyword(:address_without_country_single_link) { content.a(:text,'Full Address without Country (Single Line)')}
+
+      keyword (:gift_aid_claimed_date_link) {content.a(:text,'Gift Aid Claimed Date')}
+      keyword (:category_dropdown){content.select(:id,'fieldCategory')}
+     # keyword (:category_column_picker)  {content.a(:id,'fieldCategory')}
+      keyword (:hard_credit_address_with_country_multi_link) {content.a(:text,'Linked Hard Credit Full Address with Country (Multi Line)')}
+      keyword (:hard_credit_address_with_country_single_link) {content.a(:text,'Linked Hard Credit Full Address with Country (Single Line)')}
+      keyword (:hard_credit_address_without_country_multi_link) {content.a(:text,'Linked Hard Credit Full Address without Country (Multi Line)')}
+      keyword (:hard_credit_address_without_country_single_link) {content.a(:text,'Linked Hard Credit Full Address without Country (Single Line)')}
+      keyword (:soft_credit_address_with_country_multi_link) {content.a(:text,'Linked Soft Credit Full Address with Country (Multi Line)')}
+      keyword (:soft_credit_address_with_country_single_link) {content.a(:text,'Linked Soft Credit Full Address with Country (Single Line)')}
+      keyword (:soft_credit_address_without_country_multi_link)  {content.a(:text,'Linked Soft Credit Full Address without Country (Multi Line)')}
+      keyword (:soft_credit_address_without_country_single_link) {content.a(:text,'Linked Soft Credit Full Address without Country (Single Line)')}
+      keyword (:gift_aid_declaration_address_with_country_multi_link) {content.a(:text,'Gift Aid Declaration Full Address with Country (Multi Line)')}
+      keyword (:gift_aid_declaration_address_with_country_single_link) {content.a(:text,'Gift Aid Declaration Full Address with Country (Single Line)')}
+      keyword (:gift_aid_declaration_address_without_country_multi_link) {content.a(:text,'Gift Aid Declaration Full Address without Country (Multi Line)')}
+      keyword (:gift_aid_declaration_address_without_country_single_link) {content.a(:text,'Gift Aid Declaration Full Address without Country (Single Line)')}
+      keyword (:gift_aid_declaration_name_link) {content.a(:text,'Gift Aid Declaration Name')}
 
       keyword(:save_button)  { content.button(:value,'Save') }
-      keyword(:save_and_run_button)  { content.button(:value,'Save and Run') }
+      keyword(:save_and_run_button)  {content.button(:value,'Save and Run')}
       keyword(:preview_layout_button)  { content.button(:value,'Preview Layout') }
       keyword(:submit_button)  { content.button(:id,'submitButton') }
 
@@ -37,15 +58,20 @@ module Cukesetaptesting
       #Verification locators
       keyword(:report_title)  { content.div(:class,'pageTitle')}
 
-      keyword(:field_header_1)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',0)]) }
-      keyword(:field_header_2)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',1)]) }
-      keyword(:field_header_3)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',2)]) }
-      keyword(:field_header_4)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',3)]) }
-      keyword(:field_header_5)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',4)]) }
-      keyword(:field_header_6)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',5)]) }
-      keyword(:field_header_7)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',6)]) }
-      keyword(:field_header_8)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',7)]) }
-      keyword(:field_header_9)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',8)]) }
+      keyword(:field_header_1)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',0)])}
+      keyword(:field_header_2)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',1)])}
+      keyword(:field_header_3)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',2)])}
+      keyword(:field_header_4)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',3)])}
+      keyword(:field_header_5)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',4)])}
+      keyword(:field_header_6)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',5)])}
+      keyword(:field_header_7)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',6)])}
+      keyword(:field_header_8)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',7)])}
+      keyword(:field_header_9)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',8)])}
+      keyword(:field_header_10)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',9)])}
+      keyword(:field_header_11)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',10)])}
+      keyword(:field_header_12)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',11)])}
+      keyword(:field_header_13)  { content.a(:href,%q[javascript:sortTable('etapreporttag1',12)])}
+
 
       def get_delete_button_for_report report_name
         content.a(:text, report_name).when_present.parent.parent.div(:class, "actions").a(:class, "delete")

@@ -687,8 +687,12 @@ module Cukesetaptesting
       def disable_diy_conf_email
         @view.disable_diy_conf_email.when_present.click
       end
+
+      def one_off_nav_is_fully_visible
+        @view.one_off_nav_is_fully_visible
       end
     end
   end
+end
 
 

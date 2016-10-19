@@ -281,6 +281,13 @@ module Cukesetaptesting
       keyword(:disable_diy_conf_email) {content.input(:id, 'notifyDonor')}
       keyword(:diy_donation_field) {browser.text_field(:id,'gift_amount_simpleField')}
 
+      def one_off_nav_is_fully_visible
+        nav = content.div(:id=>'wizardNavigationTags_1')
+        browser.wait_until(10){
+          nav.style 'opacity' == 1
+        }
+      end
+
       def home(model)
       end
 

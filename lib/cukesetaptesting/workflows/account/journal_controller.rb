@@ -152,9 +152,11 @@ module Cukesetaptesting
       end
 
 
-      def journal_column_picker_tribute_click
-        @view.journal_column_picker_tribute.when_present.click
-      end
+      def journal_column_picker_tribute
+         @view.journal_column_picker_tribute.when_present.click
+        end
+      
+
 
       def journal_apply_changes_click
         @view.journal_apply_changes.when_present.click
@@ -164,17 +166,61 @@ module Cukesetaptesting
         @view.confirm_tribute_column.present?
       end
 
-      def confirm_account_name
-        @view.confirm_account_name.present?
+      def account_name(value)
+        (@view.account_name value).present?
+
       end
 
-      def tribute_account_name_click
-        @view.tribute_account_name.when_present.click
+      def account_name_click (value)
+        (@view.account_name value).when_present.click
       end
 
-     def confirm_account_home_page
-       @view.confirm_account_home_page.present?
-     end
+
+
+      def confirm_original_account_home
+        @view.confirm_original_account_home.present?
+      end
+
+
+      def original_account_name_click
+        @view.original_account_name.when_present.click
+      end
+
+      def soft_credit_account_name_click
+        @view.soft_credit_account_name.when_present.click
+      end
+
+      def confirm_account_name_in_soft_credit_column
+        @view.confirm_account_name_in_soft_credit_column.present?
+      end
+
+      def confirm_soft_credit_column
+        @view.confirm_soft_credit_column.present?
+      end
+
+      def journal_soft_credit_click
+        @view.journal_soft_credit.when_present.click
+      end
+
+      def confirm_account_home
+        @view.confirm_account_home_page.present?
+      end
+
+      def journal_checkbox_modified_date
+        @view.journal_checkbox_modified_date.when_present.click
+      end
+
+      def confirm_last_modified_date(value)
+       @view.confirm_last_modified_date(value).present?
+      end
+
+      def confirm_modified_date_column
+        @view.confirm_modified_date_column.present?
+      end
+
+      def mark_journal_column_checkbox(value)
+        (@view.journal_checkbox_add_column value).when_present.click
+      end
 
     end
   end

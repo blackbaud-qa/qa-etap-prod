@@ -38,6 +38,16 @@ module Cukesetaptesting
   #    keyword(:management_dd) {navbar_tab('manageTab').img(:class, "menuTabButton")}
       keyword(:management_dd) {navbar_tab('manageTab').link(:index=>0)}
 
+      ####
+      keyword(:homeContextPanel) { content.div(:id=>"homeTabDropdown") }
+      keyword(:accountsContextPanel) { content.div(:id=>"accountTabDropdown") }
+      keyword(:givingContextPanel) { content.div(:id=>"givingTabDropdown") }
+      keyword(:communicationsContextPanel) { content.div(:id=>"communicationTabDropdown") }
+      keyword(:queriesContextPanel) { content.div(:id=>"queriesTabDropdown") }
+      keyword(:reportsContextPanel) { content.div(:id=>"reportsTabDropdown") }
+      keyword(:managementContextPanel) { content.div(:id=>"manageTabDropdown") }
+      ####
+
       keyword(:accounts) {content.element(:css=> '#accountTab a')}
 
       #nav bar home dropdown

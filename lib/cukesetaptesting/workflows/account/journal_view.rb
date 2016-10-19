@@ -41,7 +41,7 @@ module Cukesetaptesting
 
       keyword(:gail_date_field) {content.div(:id, 'etapreporttag1_outerdiv').a(:href,'/prod/editJournalTransaction.do?entityRoleRef=39.0.3667&transactionRef=39.0.3666')}
 
-      keyword(:journal_form) {content.div(:id,'journal')}
+      keyword(:journal_form) {content.div(:css, 'div[ng-if="journal.isDataLoaded"]')}
       keyword(:journal_table) {content.div(:class,'ui-jqgrid-bdiv')}
 
       keyword(:first_attachment_file_size_modal_view) {content.div(:class, 'modal-content').span(:id, 'attachmentsInfo_0')}
@@ -57,17 +57,29 @@ module Cukesetaptesting
       keyword(:journal_load_more) {content.div(:class, 'bb-table-loadmore ng-scope').button(:class, 'btn btn-link ng-binding')}
       keyword(:journal_page_journal_entry_grid) {content.div(:class, 'ui-jqgrid-bdiv')}
 
-      ## choose column in Journal
-      keyword(:journal_choose_columns) {content.div(:class,'clearfix toolbar bb-table-toolbar').button(:class, 'btn bb-btn-secondary bb-grid-toolbar-btn bb-column-picker-btn')}
-      keyword(:journal_column_picker_tribute) {content.div(:class, 'bb-checklist-wrapper').div(:text, 'Tribute')}
+      ## Journal
+      keyword(:journal_choose_columns) {content.button(:css,'[data-bbauto-field="ColumnPickerButton"]')}
+      keyword(:journal_column_picker_tribute) {content.div(:css ,'[data-bbauto-field="specialSelectableColumn-et-plus-tribute"]')}
+      keyword (:journal_soft_credit)  {content.div(:css,'[data-bbauto-field="specialSelectableColumn-et-plus-softCreditName"]')}
+      keyword (:journal_checkbox_modified_date) {content.div(:css,'[data-bbauto-field="systemDefinedSelectableColumn-et-plus-modifiedDate"]')}
       keyword(:journal_apply_changes) {content.button(:class, 'btn btn-primary ng-scope').span(:class, 'ng-binding ng-scope')}
-      keyword(:confirm_tribute_column) {content.div(:text, 'Tribute')}
-      keyword(:confirm_account_name) {content.a(:text, 'Cindy Grant')}
-      keyword(:tribute_account_name) {content.a(:href, 'entityRoleHome.do?entityRoleRef=191.0.797821')}
-      keyword (:confirm_account_home_page) {content.h5(:text,'Cindy Grant')}
+      keyword(:confirm_tribute_column) {content.div(:text,'Tribute')}
+      keyword (:confirm_soft_credit_column)  {content.div(:xpath,'//div[text()="Soft Credit"]')}
+      keyword (:confirm_modified_date_column) {content.div(:xpath,'//div[text()="Last Modified Date"]')}
+      keyword (:journal_search_field) {content.div(:class, 'bb-checklist-search').text_field(:class, 'bb-checklist-search-box')}
+
+      def journal_checkbox_add_column(value)
+        content.div(:class=>/bb-checklist-list-row/).span(:text,value)
+      end
 
 
+      def account_name(value)
+        content.a(:text=>value)
+      end
 
+      def confirm_last_modified_date(value)
+        content.div(:text=>value)
+      end
 
       def journal_attachment_link(value)
         content.div(:class,'ui-jqgrid-bdiv').a(:text, value)
@@ -81,6 +93,7 @@ module Cukesetaptesting
 
       def edit(model)
       end
+
     end
   end
 end

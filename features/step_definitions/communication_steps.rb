@@ -831,6 +831,7 @@ end
 
 And (/^I click the Run button to generate the one off/) do
   letter = Communications::Createtemplate.new
+  letter.one_off_nav_is_fully_visible
   letter.run_one_off
 end
 

@@ -43,11 +43,42 @@ And (/^I choose Fields from the commonly used report fields category$/) do
   create_report.date_field_link_click
   create_report.fund_field_link_click
   create_report.received_field_link_click
+  create_report.address_country_multi_link_click
+  create_report.address_country_single_link_click
+  create_report.address_without_country_multi_link_click
+  create_report.address_without_country_single_link_click
 end
+
+
+
+
+And (/^I choose Fields from the Journal category$/) do
+  create_report = Reports::Createreport.new
+  create_report.hard_credit_address_with_country_multi_link_click
+  create_report.hard_credit_address_with_country_single_link_click
+  create_report.hard_credit_address_without_country_multi_link_click
+  create_report.hard_credit_address_without_country_single_link_click
+  create_report.soft_credit_address_with_country_multi_link_click
+  create_report.soft_credit_address_with_country_single_link_click
+  create_report.soft_credit_address_without_country_multi_link_click
+  create_report.soft_credit_address_without_country_single_link_click
+  create_report.gift_aid_declaration_address_with_country_multi_link_click
+  create_report.gift_aid_declaration_address_with_country_single_link_click
+  create_report.gift_aid_declaration_address_without_country_multi_link_click
+  create_report.gift_aid_declaration_address_without_country_single_link_click
+  create_report.gift_aid_declaration_name_link_click
+
+end
+
 
 And (/^I choose save and run$/) do
   create_report = Reports::Createreport.new
   create_report.save_and_run_button_click
+end
+
+And (/^I choose '([^']*)' category$/)do |category|
+  create_report = Reports::Createreport.new
+  create_report.select_category category
 end
 
 And (/^I choose query category '([^']*)'$/) do |query_category|

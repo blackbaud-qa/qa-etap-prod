@@ -24,17 +24,30 @@ module Cukesetaptesting
         fh7 = @view.field_header_7.when_present.text
         fh8 = @view.field_header_8.when_present.text
         fh9 = @view.field_header_9.when_present.text
+        fh10 = @view.field_header_10.when_present.text
+        fh11 = @view.field_header_11.when_present.text
+        fh12 = @view.field_header_12.when_present.text
+        fh13 = @view.field_header_13.when_present.text
 
         expected_fields.each do |expected_field|
           case expected_field['Fields']
-            when fh1,fh2,fh3,fh4,fh5,fh6,fh7,fh8,fh9
+            when fh1,fh2,fh3,fh4,fh5,fh6,fh7,fh8,fh9,fh10,fh11,fh12,fh13
+              puts(fh1)
+              puts(fh2)
+              puts(fh13)
               matches+=1
           end
 
         end
 
         if matches == expected_fields_count
+          puts(expected_fields_count)
+          puts(matches)
           return true
+        else
+          puts(expected_fields_count)
+          puts(matches)
+          return false
         end
       end
 
@@ -124,12 +137,105 @@ module Cukesetaptesting
         @view.save_button.click
       end
 
+      def address_country_multi_link_click
+        @view.address_country_multi_link.when_present.click
+      end
+
+
+      def address_country_single_link_click
+        @view.address_country_single_link.when_present.click
+      end
+
+
+      def address_without_country_multi_link_click
+        @view.address_without_country_multi_link.when_present.click
+      end
+
+      def address_without_country_single_link_click
+        @view.address_without_country_single_link.when_present.click
+      end
+
+      def select_category category
+       @view.category_dropdown.when_present.select category
+      end
+
+
+      def category_column_picker_click
+        @view.category_column_picker.when_present.click
+      end
+
+
+      def gift_aid_claimed_date_link_click
+        @view.gift_aid_claimed_date_link.when_present.click
+      end
+
+
+      def hard_credit_address_with_country_multi_link_click
+        @view.hard_credit_address_with_country_multi_link.when_present.click
+      end
+
+      def hard_credit_address_with_country_single_link_click
+        @view.hard_credit_address_with_country_single_link.when_present.click
+      end
+
+
+      def hard_credit_address_without_country_multi_link_click
+        @view.hard_credit_address_without_country_multi_link.when_present.click
+      end
+
+
+      def hard_credit_address_without_country_single_link_click
+        @view.hard_credit_address_without_country_single_link.when_present.click
+      end
+
+
+      def soft_credit_address_with_country_multi_link_click
+        @view.soft_credit_address_with_country_multi_link.when_present.click
+      end
+
+      def soft_credit_address_with_country_single_link_click
+         @view.soft_credit_address_with_country_single_link.when_present.click
+      end
+
+
+      def soft_credit_address_without_country_multi_link_click
+        @view.soft_credit_address_without_country_multi_link.when_present.click
+
+      end
+
+      def soft_credit_address_without_country_single_link_click
+        @view.soft_credit_address_without_country_single_link.when_present.click
+      end
+
+      def gift_aid_declaration_address_with_country_multi_link_click
+         @view.gift_aid_declaration_address_with_country_multi_link.when_present.click
+      end
+
+
+      def gift_aid_declaration_address_with_country_single_link_click
+        @view.gift_aid_declaration_address_with_country_single_link.when_present.click
+      end
+
+      def gift_aid_declaration_address_without_country_multi_link_click
+        @view.gift_aid_declaration_address_without_country_multi_link.when_present.click
+      end
+
+
+      def gift_aid_declaration_address_without_country_single_link_click
+        @view.gift_aid_declaration_address_without_country_single_link.when_present.click
+      end
+
+      def gift_aid_declaration_name_link_click
+        @view.gift_aid_declaration_name_link.when_present.click
+      end
+
+
       def save_and_run_button_click
-        begin
+      begin
           @view.save_and_run_button.when_present.click
-        rescue
-          browser.alert.ok
-        end
+       rescue
+         browser.alert.ok
+       end
       end
 
       def submit_button_click

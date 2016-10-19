@@ -129,6 +129,7 @@ module Cukesetaptesting
       keyword(:more_options_link) {content.a(:id, 'advancedToggle')}
       keyword(:filters_icon) {content.button(:class => /bb-filter-btn/)}
       keyword(:apply_filters_button) {content.div(:class=>'bb-grid-filters-footer').button(:index=>0)}
+      keyword(:hide_filters_link) {content.div(:class=>/bb-grid-filters/).span(:text=>'Hide')}
       keyword(:uncheck_all_link) {content.a(:text, 'Uncheck All')}
       keyword(:clear_button) {content.div(:class=>'bb-grid-filters-footer').button(:index=>1)}
       #WORKS: keyword(:pledge_checkbox) { content.element(:xpath => './/*[@id=\'journal\']/div[3]/form/div[1]/div/section/div[1]/div/div/div[2]/div[2]/div[2]/div[2]/div[2]/label/span')}
@@ -310,6 +311,11 @@ module Cukesetaptesting
 
       def ecommerce_processor_link(value)
         content.a(:text, value)
+      end
+
+
+      def account(value)
+        content.a(:text,value)
       end
 
     end

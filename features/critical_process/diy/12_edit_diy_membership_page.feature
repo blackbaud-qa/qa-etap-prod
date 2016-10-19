@@ -1,4 +1,4 @@
-#@crit_proc7
+@crit_proc7
 Feature: Edit a diy membership page
 
   Background:
@@ -35,7 +35,7 @@ Feature: Edit a diy membership page
     And I click Replace on the DIY editor page
     And I click on the link for the form titled Existing Membership Page
     And I switch to the new tab in my browser
-    Then I should see the edited DIY page
+    Then I should see the edited DIY page named 'eTapestry Automation - Membership'
     And I set Date of Birth to '02/15/1985' on the DIY Page
     And I set the Membership Type to 'New' on the DIY Membership page
     And I set the Membership Level to 'Platinum' on the DIY Membership page
@@ -59,7 +59,7 @@ Feature: Edit a diy membership page
     And I click Submit on the DIY Donation Page
     Then the transaction will process successfully
     And I click Submit on the DIY Donation Page
-    And the submission will go through successfully
+    And the transaction will go through successfully
     And I close the current tab
     And I type 'Jonathan Jensen' into the dynamic search field
     And I press Enter on the keyboard
@@ -82,7 +82,7 @@ Feature: Edit a diy membership page
     When I click Management on the main menu
     And I click on DIY Forms on the management menu
     And I click Edit for the form titled 'Existing Membership Page'
-    And I hover over the Date of Birth field on the DIY editor page
+    And I hover over 'Date of Birth' field on the DIY editor page
     And I click the pencil icon that appears on the DIY editor page
     And I set the Label field to 'Birthdate' on the DIY editor page
     And I click Update on the DIY Edit Field modal
@@ -114,7 +114,7 @@ Feature: Edit a diy membership page
     And I set Expiration Month to '02' on the DIY Donation Page
     And I set Expiration Year to '2032' on the DIY Donation Page
     And I click Submit on the DIY Donation Page
-    And the submission will go through successfully
+    And the transaction will go through successfully
     And I close the current tab
     And I type 'David Harper' into the dynamic search field
     And I press Enter on the keyboard
