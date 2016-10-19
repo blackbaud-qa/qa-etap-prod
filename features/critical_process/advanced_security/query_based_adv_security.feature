@@ -21,7 +21,7 @@ Feature: Verify query based advanced security is working
     And I click on 'State/Province' under Search Fields on the Create a New Query page
     And I set the State Province field to 'IN' on the Create a New Query page
     And I click Save And 'Preview'
-    And I should see '23 Accounts' results on the query preview page
+    And I should see '15 Accounts' results on the query preview page
     And I type 'Dorothy' into the dynamic search field
     And I press Enter on the keyboard
     And I click on 'Dorothy H Barton' in the search results
@@ -46,7 +46,7 @@ Feature: Verify query based advanced security is working
     And I click on Manage Queries on the queries menu
     And I click on the 'Base' category
     And I click preview below the 'All Accounts' query on the Create a New Query page
-    Then I should see '23 Accounts' results on the query preview page
+    Then I should see '15 Accounts' results on the query preview page
     And I log out of eTap
 
 
