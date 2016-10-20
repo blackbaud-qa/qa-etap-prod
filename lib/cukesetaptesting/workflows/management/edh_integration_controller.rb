@@ -316,6 +316,31 @@ module Cukesetaptesting
         @view.schedule_edh_imports_nightly.when_present.click
       end
 
+      def next_journal_entry_click
+        @view.next_journal_entry.when_present.click
+      end
+
+      def set_fundraiser_event_on_participation(value)
+        @view.fundraiser_type.when_present.click
+        @view.fundraiser_combo_list.when_present.div(:text,value).click
+      end
+
+      def set_fundraiser_date
+        @view.participation_fundraiser_date.when_present.set '9/28/2016'
+      end
+
+      def set_fundraiser_goal
+        @view.participant_goal.when_present.set '$2000'
+      end
+
+      def set_fundraiser_display_name
+        @view.participation_display_name_field.when_present.set 'H To The Izzo'
+      end
+
+      def click_specific_part_edh_page_id(value)
+        @view.specific_part_edh_page_id(value).when_present.click
+      end
+
     end
   end
 end

@@ -35,6 +35,7 @@ Feature: Edit a diy membership page
     And I click Replace on the DIY editor page
     And I click on the link for the form titled Existing Membership Page
     And I switch to the new tab in my browser
+    Then I should see the edited DIY page named 'eTapestry Automation - Membership'
     And I set Date of Birth to '02/15/1985' on the DIY Page
     And I set the Membership Type to 'New' on the DIY Membership page
     And I set the Membership Level to 'Platinum' on the DIY Membership page
@@ -58,7 +59,7 @@ Feature: Edit a diy membership page
     And I click Submit on the DIY Donation Page
     Then the transaction will process successfully
     And I click Submit on the DIY Donation Page
-    And the submission will go through successfully
+    And the transaction will go through successfully
     And I close the current tab
     And I type 'Jonathan Jensen' into the dynamic search field
     And I press Enter on the keyboard
@@ -113,7 +114,7 @@ Feature: Edit a diy membership page
     And I set Expiration Month to '02' on the DIY Donation Page
     And I set Expiration Year to '2032' on the DIY Donation Page
     And I click Submit on the DIY Donation Page
-    And the submission will go through successfully
+    And the transaction will go through successfully
     And I close the current tab
     And I type 'David Harper' into the dynamic search field
     And I press Enter on the keyboard

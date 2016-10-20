@@ -1,11 +1,11 @@
 @sprint
 Feature: EDH Integration - Ongoing Management
 
-  # TODO: Update Knightrider and Fullhouse Databases
+  # TODO: Update Fullhouse Database once EDH us unflagged
 
   Background:
-#    Given I login into eTap for CP2
-    Given I login into eTap with values 'kim.kr.wealth', 'abc123'
+    Given I log out of eTap
+    Given I login into eTap for CP2
 
   Scenario: EDH Integration - Change Notifications Email Address
     When I click Management on the main menu
@@ -14,6 +14,7 @@ Feature: EDH Integration - Ongoing Management
     And I change the edh email to 'none@none.com' in the EDH Basic Integrations Settings pop up
     And I click Save & Close on the set up EDH integration modal
     Then I verify that the EDH Notifications Email Address is set to 'none@none.com'
+    And I click Save & Close on the set up EDH integration modal
 
   Scenario: EDH Integration - Change the API Key
     When I click Management on the main menu
@@ -37,6 +38,7 @@ Feature: EDH Integration - Ongoing Management
     And I set the default eTapestry Approach to 'Unsolicited' on the set up EDH integration modal
     And I click Save & Close on the set up EDH campaign mapping modal
     Then I verify that the default Fund, Campaign, and Approach are set to 'Unrestricted', 'Annual', and 'Unsolicited'
+    And I click Save & Close on the set up EDH campaign mapping modal
 
   Scenario:  EDH Integration - Add a new Fund, Campaign, and Approach and then adjust the mappings
     When I click Management on the main menu
@@ -59,6 +61,7 @@ Feature: EDH Integration - Ongoing Management
     And I set the default eTapestry Approach to 'EveryDayHero Approach' on the set up EDH integration modal
     And I click Save & Close on the set up EDH campaign mapping modal
     Then I verify that the default Fund, Campaign, and Approach are set to 'EveryDayHero Fund', 'EveryDayHero Campaign', and 'EveryDayHero Approach'
+    And I click Save & Close on the set up EDH campaign mapping modal
 
   Scenario:  EDH Integration - Pause and Resume the Integration
     When I click Management on the main menu

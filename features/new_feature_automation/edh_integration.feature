@@ -1,4 +1,6 @@
-@sprint
+### Commented out until we have a db in automation to test this against ###
+
+#@sprint
 Feature: EDH Integration
 
   Background:

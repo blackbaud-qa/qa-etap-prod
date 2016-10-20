@@ -41,7 +41,7 @@ module Cukesetaptesting
 
       keyword(:gail_date_field) {content.div(:id, 'etapreporttag1_outerdiv').a(:href,'/prod/editJournalTransaction.do?entityRoleRef=39.0.3667&transactionRef=39.0.3666')}
 
-      keyword(:journal_form) {content.div(:id,'journal')}
+      keyword(:journal_form) {content.div(:css, 'div[ng-if="journal.isDataLoaded"]')}
       keyword(:journal_table) {content.div(:class,'ui-jqgrid-bdiv')}
 
       keyword(:first_attachment_file_size_modal_view) {content.div(:class, 'modal-content').span(:id, 'attachmentsInfo_0')}
@@ -66,6 +66,11 @@ module Cukesetaptesting
       keyword(:confirm_tribute_column) {content.div(:text,'Tribute')}
       keyword (:confirm_soft_credit_column)  {content.div(:xpath,'//div[text()="Soft Credit"]')}
       keyword (:confirm_modified_date_column) {content.div(:xpath,'//div[text()="Last Modified Date"]')}
+      keyword (:journal_search_field) {content.div(:class, 'bb-checklist-search').text_field(:class, 'bb-checklist-search-box')}
+
+      def journal_checkbox_add_column(value)
+        content.div(:class=>/bb-checklist-list-row/).span(:text,value)
+      end
 
 
       def account_name(value)
