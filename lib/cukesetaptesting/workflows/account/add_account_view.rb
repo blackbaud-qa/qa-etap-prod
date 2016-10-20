@@ -40,7 +40,7 @@ module Cukesetaptesting
       keyword(:delete_role_button) {content.button(:name, 'delete')}
       #DEV_HELP
       keyword(:yes_button) {content.button(:value, 'Yes')}
-      keyword(:role_name_value) {content.hidden(:name, 'entityRoleName')}
+      keyword(:role_name_value) {content.h5(:class, 'bb-tile-header')}
       keyword(:address_field) {content.text_field(:id, 'address')}
       keyword(:city_field) {content.text_field(:id, 'city')}
       keyword(:state_field) {content.text_field(:id, 'state')}

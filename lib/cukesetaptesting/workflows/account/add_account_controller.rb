@@ -87,8 +87,8 @@ module Cukesetaptesting
       end
 
       def new_account_persona
-        Watir::Wait.until {@view.role_name_value.exists?}
-        @view.role_name_value.value
+        @view.role_name_value.wait_until_present
+        @view.role_name_value.text
       end
 
       def persona_page_address_lines
