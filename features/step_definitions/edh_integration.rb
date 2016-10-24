@@ -730,7 +730,7 @@ end
 And (/^I close the filters dialog$/) do
   giftPledge = Giving::GiftPledge.new
   giftPledge.click_hide_filters_link
-end  step "the 'EDH Account ID' should be set to 'xxx'"
+  step "the 'EDH Account ID' should be set to 'xxx'"
   step "the 'Data Source' should be set to 'EDH Update'"
   steps %Q{
         I click on 'Journal' in the account header
