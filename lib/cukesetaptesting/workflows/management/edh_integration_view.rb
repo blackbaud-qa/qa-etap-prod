@@ -3,6 +3,7 @@ module Cukesetaptesting
     class EdhIntegrationView < BaseView
       keyword(:management_integrations) {content.a(:text,'Integrations')}
       keyword(:integrations_page_check) {content.h2(:text,'everydayhero Integration')}
+      keyword(:user_guide_text_block) {content.p(:id=>'edhIntegrationGuide')}
       keyword(:set_up) {content.button(:id,'setupEdhImport')}
       keyword(:api_key) {content.text_field(:id,'apiKey')}
       keyword(:edh_integration_next) {content.button(:id,'wizardNext')}

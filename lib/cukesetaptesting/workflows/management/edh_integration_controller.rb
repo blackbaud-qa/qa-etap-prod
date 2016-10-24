@@ -341,6 +341,10 @@ module Cukesetaptesting
         @view.specific_part_edh_page_id(value).when_present.click
       end
 
+      def wait_for_edh_main_page
+        @view.integrations_page_check.wait_until_present
+        @view.user_guide_text_block.wait_until_present
+      end
     end
   end
 end
