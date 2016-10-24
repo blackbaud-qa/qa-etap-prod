@@ -732,16 +732,18 @@ end
 And (/^I close the filters dialog$/) do
   giftPledge = Giving::GiftPledge.new
   giftPledge.click_hide_filters_link
-  step "the 'EDH Account ID' should be set to 'xxx'"
-  step "the 'Data Source' should be set to 'EDH Update'"
-  steps %Q{
-        I click on 'Journal' in the account header
-        I should see the message '3 Journal Entries' on the journal page
-        I click on the 'Note' journal entry on the journal page
-        I should see the text 'everydayhero Duplicate Info' in the journal Note
-        the 'Data Source' should be set to 'EDH Addition'
-  }
 end
+
+#   step "the 'EDH Account ID' should be set to 'xxx'"
+#   step "the 'Data Source' should be set to 'EDH Update'"
+#   steps %Q{
+#         I click on 'Journal' in the account header
+#         I should see the message '3 Journal Entries' on the journal page
+#         I click on the 'Note' journal entry on the journal page
+#         I should see the text 'everydayhero Duplicate Info' in the journal Note
+#         the 'Data Source' should be set to 'EDH Addition'
+#   }
+# end
 
 And (/^I select Schedule my everydayhero imports to run nightly on the set up EDH integration modal/) do
   intMan = Management::EdhIntegration.new
