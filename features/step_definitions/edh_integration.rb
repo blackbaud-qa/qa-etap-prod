@@ -224,7 +224,7 @@ end
 And(/^I verify that an EDH Donor account was imported correctly$/) do
   step "I type 'Gloria' into the dynamic search field"
   step "I press Enter on the keyboard"
-  step "I click on 'Gloria Burg' in the search results"
+  step "I click on 'Gloria Marie Burg' in the search results"
   step "I click on 'Personas' in the account header"
   step "the Address Lines should be set to '2261 Brooke Street'"
   step "the City should be set to 'Houston'"
@@ -232,15 +232,15 @@ And(/^I verify that an EDH Donor account was imported correctly$/) do
   step "the Postal Code should be set to '77026'"
   step "the Email should be set to 'kelsey.hilton@blackbaud.com'"
   step "the Short Salutation should be set to 'Gloria'"
-  step "the Long Salutation should be set to 'Gloria Burg'"
-  step "the Envelope Salutation should be set to 'Gloria Burg'"
+  step "the Long Salutation should be set to 'Gloria Marie Burg'"
+  step "the Envelope Salutation should be set to 'Gloria Marie Burg'"
   step "I click on 'Account Settings' in the account header"
   step "the Name Format value should be set to 'Individual'"
   step "the First Name should be set to 'Gloria'"
   step "the Last Name should be set to 'Burg'"
-  step "the Account Name should be set to 'Gloria Burg'"
-  step "the Sort Name should be set to 'Burg, Gloria'"
-  step "the Recognition Name should be set to 'Gloria Burg'"
+  step "the Account Name should be set to 'Gloria Marie Burg'"
+  step "the Sort Name should be set to 'Burg, Gloria Marie'"
+  step "the Recognition Name should be set to 'Gloria Marie Burg'"
   step "the Recognition Type should be set to '(account name)'"
   step "I click on 'Defined Fields' in the account header"
   step "the 'EDH Account Type' should be set to 'Donor'"
@@ -312,6 +312,7 @@ end
 And (/^I click the Pause Integration link on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   intMan.edh_pause_integration_link_click
+  sleep 0.5
 end
 
 Then (/^I should see the Pause Integration link change to Resume Integration on the set up EDH integration modal$/) do
@@ -327,6 +328,7 @@ end
 And (/^I click the Resume Integration link on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   intMan.edh_resume_integration_link_click
+  sleep 0.5
 end
 
 Then (/^I should see the Resume Integration link change to Pause Integration on the set up EDH integration modal$/) do
@@ -400,7 +402,7 @@ end
 And (/^I verify that an EDH CC Gift was imported correctly$/) do
   step "I type 'Glor' into the dynamic search field"
   step "I press Enter on the keyboard"
-  step "I click on 'Gloria Burg' in the search results"
+  step "I click on 'Gloria Marie Burg' in the search results"
   step "I click on 'Journal' in the account header"
   step "I click on the '$108.90' journal entry on the journal page"
   step "the date on the Gift should be set to '9/26/2016'"
@@ -616,7 +618,7 @@ end
 And (/^I verify that multiple EDH Participations for a single Hero were imported correctly$/) do
   step "I type 'Bud' into the dynamic search field"
   step "I press Enter on the keyboard"
-  step "I click on 'Buddy Sr.' in the search results"
+  step "I click on 'Buddy G. Alvarado, Sr.' in the search results"
   step "I click on 'Journal' in the account header"
   step "I should see the message '6 Journal Entries' on the journal page"
   step "I click choose columns"
