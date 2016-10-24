@@ -1,6 +1,7 @@
 When(/^I click on Integrations on the management menu$/) do
   intMan = Management::EdhIntegration.new
   intMan.management_integrations_click
+  intMan.wait_for_edh_main_page
 end
 
 Then(/^I should be taken to the Integrations page$/) do
