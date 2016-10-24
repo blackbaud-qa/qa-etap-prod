@@ -618,7 +618,7 @@ end
 And (/^I verify that multiple EDH Participations for a single Hero were imported correctly$/) do
   step "I type 'Bud' into the dynamic search field"
   step "I press Enter on the keyboard"
-  step "I click on 'Buddy Sr.' in the search results"
+  step "I click on 'Buddy G. Alvarado, Sr.' in the search results"
   step "I click on 'Journal' in the account header"
   step "I should see the message '6 Journal Entries' on the journal page"
   step "I click choose columns"
