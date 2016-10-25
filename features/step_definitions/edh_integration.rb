@@ -1,6 +1,7 @@
 When(/^I click on Integrations on the management menu$/) do
   intMan = Management::EdhIntegration.new
   intMan.management_integrations_click
+  intMan.wait_for_edh_main_page
 end
 
 Then(/^I should be taken to the Integrations page$/) do
@@ -113,11 +114,6 @@ And(/^I click Save on the set up EDH integration modal$/) do
   intMan.campaign_mappings_save_click
 end
 
-And(/^I click on the Select Historical Data button on the integrations page$/) do
-  intMan = Management::EdhIntegration.new
-  intMan.select_historical_data_click
-end
-
 And (/^I click Historical data created since on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   intMan.historical_data_created_since_click
@@ -148,14 +144,9 @@ And(/^I click on the EDH user guide link$/) do
   intMan.edh_user_guide_click
 end
 
-Then(/^I should be taken to the EDH user guide page$/) do
+Then(/^I should be taken to the US EDH user guide page$/) do
   intMan = Management::EdhIntegration.new
-  expect(intMan.on_EDH_user_guide_page?).to eq(true)
-end
-
-Then(/^I should see the '([^']*)' error on the set up EDH integration modal$/) do |error|
-  intMan = Management::EdhIntegration.new
-  expect(intMan.edh_integration_modal_error_include? error).to eq(true)
+  expect(intMan.on_US_EDH_user_guide_page?).to eq(true)
 end
 
 And(/^the next button should be disabled on the set up EDH integration modal$/) do
@@ -171,16 +162,6 @@ end
 And (/^I clear out the API key field in the notifications area on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   intMan.delete_API_key_value
-end
-
-Then (/^the API key field should be highlighted in red$/) do
-  intMan = Management::EdhIntegration.new
-  expect(intMan.api_key_validation?).to eq(true)
-end
-
-Then (/^the Send data import notifications to field should be highlighted in red$/) do
-  intMan = Management::EdhIntegration.new
-  expect(intMan.edh_email_validation?).to eq(true)
 end
 
 And (/^I clear out the email field in the notifications area on the set up EDH integration modal$/) do
@@ -244,7 +225,7 @@ end
 And(/^I verify that an EDH Donor account was imported correctly$/) do
   step "I type 'Gloria' into the dynamic search field"
   step "I press Enter on the keyboard"
-  step "I click on 'Gloria Burg' in the search results"
+  step "I click on 'Gloria Marie Burg' in the search results"
   step "I click on 'Personas' in the account header"
   step "the Address Lines should be set to '2261 Brooke Street'"
   step "the City should be set to 'Houston'"
@@ -252,15 +233,15 @@ And(/^I verify that an EDH Donor account was imported correctly$/) do
   step "the Postal Code should be set to '77026'"
   step "the Email should be set to 'kelsey.hilton@blackbaud.com'"
   step "the Short Salutation should be set to 'Gloria'"
-  step "the Long Salutation should be set to 'Gloria Burg'"
-  step "the Envelope Salutation should be set to 'Gloria Burg'"
+  step "the Long Salutation should be set to 'Gloria Marie Burg'"
+  step "the Envelope Salutation should be set to 'Gloria Marie Burg'"
   step "I click on 'Account Settings' in the account header"
   step "the Name Format value should be set to 'Individual'"
   step "the First Name should be set to 'Gloria'"
   step "the Last Name should be set to 'Burg'"
-  step "the Account Name should be set to 'Gloria Burg'"
-  step "the Sort Name should be set to 'Burg, Gloria'"
-  step "the Recognition Name should be set to 'Gloria Burg'"
+  step "the Account Name should be set to 'Gloria Marie Burg'"
+  step "the Sort Name should be set to 'Burg, Gloria Marie'"
+  step "the Recognition Name should be set to 'Gloria Marie Burg'"
   step "the Recognition Type should be set to '(account name)'"
   step "I click on 'Defined Fields' in the account header"
   step "the 'EDH Account Type' should be set to 'Donor'"
@@ -332,6 +313,7 @@ end
 And (/^I click the Pause Integration link on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   intMan.edh_pause_integration_link_click
+  sleep 0.5
 end
 
 Then (/^I should see the Pause Integration link change to Resume Integration on the set up EDH integration modal$/) do
@@ -347,6 +329,7 @@ end
 And (/^I click the Resume Integration link on the set up EDH integration modal$/) do
   intMan = Management::EdhIntegration.new
   intMan.edh_resume_integration_link_click
+  sleep 0.5
 end
 
 Then (/^I should see the Resume Integration link change to Pause Integration on the set up EDH integration modal$/) do
@@ -420,7 +403,7 @@ end
 And (/^I verify that an EDH CC Gift was imported correctly$/) do
   step "I type 'Glor' into the dynamic search field"
   step "I press Enter on the keyboard"
-  step "I click on 'Gloria Burg' in the search results"
+  step "I click on 'Gloria Marie Burg' in the search results"
   step "I click on 'Journal' in the account header"
   step "I click on the '$108.90' journal entry on the journal page"
   step "the date on the Gift should be set to '9/26/2016'"
@@ -636,7 +619,7 @@ end
 And (/^I verify that multiple EDH Participations for a single Hero were imported correctly$/) do
   step "I type 'Bud' into the dynamic search field"
   step "I press Enter on the keyboard"
-  step "I click on 'Buddy Sr.' in the search results"
+  step "I click on 'Buddy G. Alvarado, Sr.' in the search results"
   step "I click on 'Journal' in the account header"
   step "I should see the message '6 Journal Entries' on the journal page"
   step "I click choose columns"
@@ -750,4 +733,20 @@ end
 And (/^I close the filters dialog$/) do
   giftPledge = Giving::GiftPledge.new
   giftPledge.click_hide_filters_link
+end
+
+#   step "the 'EDH Account ID' should be set to 'xxx'"
+#   step "the 'Data Source' should be set to 'EDH Update'"
+#   steps %Q{
+#         I click on 'Journal' in the account header
+#         I should see the message '3 Journal Entries' on the journal page
+#         I click on the 'Note' journal entry on the journal page
+#         I should see the text 'everydayhero Duplicate Info' in the journal Note
+#         the 'Data Source' should be set to 'EDH Addition'
+#   }
+# end
+
+And (/^I select Schedule my everydayhero imports to run nightly on the set up EDH integration modal/) do
+  intMan = Management::EdhIntegration.new
+  intMan.schedule_edh_imports_nightly_click
 end
