@@ -36,8 +36,8 @@ module Cukesetaptesting
       keyword(:edh_integration_modal_error) {content.div(:id,'<placeholderID>')}
       keyword(:api_key_validation) {content.div(:id, '<placeholderID>')}
       keyword(:edh_email_validation) {content.div(:id, '<placeholderID>')}
-      keyword(:edit_set_up) {content.div(:id,'edhOpenSettingsButton')}
-      keyword(:edit_mappings) {content.div(:id,'edhOpenMappingsButton')}
+#      keyword(:edit_set_up) {content.div(:id,'edhOpenSettingsButton')}
+#      keyword(:edit_mappings) {content.div(:id,'edhOpenMappingsButton')}
       keyword(:import_now_link) {content.button(:id, 'edhImportNowButton')}
       keyword(:import_finish_successfully_message) {content.div(:class, 'alert alert-success alert-dismissible')}
       keyword(:new_fund_link) {content.a(:href, 'editIntent.do')}
